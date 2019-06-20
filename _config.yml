@@ -14,7 +14,7 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://daolinzhou.github.io/DaoLinBlog.github.io
-root: /DaoLinBlog.github.io
+root: /DaoLinBlog.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:  Copyright © 道临 2019 
 
