@@ -78,7 +78,9 @@ theme: archer
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/DaoLinZhou/DaolinBlog.git
+  branch: gh-pages
 
 jsonContent:
   meta: true
