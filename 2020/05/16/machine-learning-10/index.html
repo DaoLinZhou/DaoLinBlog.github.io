@@ -1,39 +1,39 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
     <meta name="description" content="决策树 信息熵与基尼系数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(10)-决策树">
-<meta property="og:url" content="http://example.com/2020/05/16/machine-learning-10/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/16/machine-learning-10/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="决策树 信息熵与基尼系数">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/intro/decision_tree_2.PNG">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/decision_tree_2.PNG">
 <meta property="article:published_time" content="2020-05-16T07:05:12.000Z">
 <meta property="article:modified_time" content="2020-05-17T23:06:46.151Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/intro/decision_tree_2.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/decision_tree_2.PNG">
   
   
-  <title>python3入门机器学习(10)-决策树 - Hexo</title>
+  <title>python3入门机器学习(10)-决策树 - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -63,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 
@@ -81,7 +81,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -100,9 +100,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -112,9 +112,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -124,9 +124,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -136,9 +136,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -148,9 +148,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -174,7 +174,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/roaming.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/roaming.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -250,7 +250,7 @@
 <br>
 
 <p>假设一个公司招聘算法工程师, 那么他们在招聘时可能就是采用这样的流程:</p>
-<p><img src="/Blog/intro/decision_tree.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样一个过程形成了树的结构, 这棵树的叶子节点的位置就是决策</p>
 <p>这个决策也可以理解为对应聘者的信息进行了分类, 分成录用或者考察两类.</p>
 <p>这就是决策树, 它有计算机领域中树结构所有的性质: 根节点, 叶子节点, 树的深度(上图的树的深度为3, 最多进行3次判断就能进行分类)</p>
@@ -261,16 +261,16 @@
 <p>现用scikit-learn包装的决策树算法进行具体的分类, 然后根据分类的结果再具体学习一下决策树</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot_decision_boundary</span>(<span class="params">model, axis</span>):</span><br><span class="line">    x0, x1 = np.meshgrid(</span><br><span class="line">        np.linspace(axis[<span class="number">0</span>], axis[<span class="number">1</span>], <span class="built_in">int</span>((axis[<span class="number">1</span>] - axis[<span class="number">0</span>]) * <span class="number">100</span>)).reshape(-<span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">        np.linspace(axis[<span class="number">2</span>], axis[<span class="number">3</span>], <span class="built_in">int</span>((axis[<span class="number">3</span>] - axis[<span class="number">2</span>]) * <span class="number">100</span>)).reshape(-<span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">    )</span><br><span class="line">    X_new = np.c_[x0.ravel(), x1.ravel()]</span><br><span class="line">    y_predict = model.predict(X_new)</span><br><span class="line"></span><br><span class="line">    zz = y_predict.reshape(x0.shape)</span><br><span class="line">    custom_cmap = ListedColormap([<span class="string">&#x27;#EF9A9A&#x27;</span>, <span class="string">&#x27;#FFF59D&#x27;</span>, <span class="string">&#x27;#90CAF9&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    plt.contourf(x0, x1, zz, cmap=custom_cmap)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    X = iris.data[:, <span class="number">2</span>:]</span><br><span class="line">    y = iris.target</span><br><span class="line"></span><br><span class="line">    plt.scatter(X[y==<span class="number">0</span>, <span class="number">0</span>], X[y==<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">1</span>, <span class="number">0</span>], X[y==<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">2</span>, <span class="number">0</span>], X[y==<span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/decision_tree_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定最大深度为2, 评判标准为熵</span></span><br><span class="line">   dt_clf = DecisionTreeClassifier(max_depth=<span class="number">2</span>, criterion=<span class="string">&quot;entropy&quot;</span>)</span><br><span class="line">   dt_clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">   plot_decision_boundary(dt_clf, axis=[<span class="number">0.5</span>, <span class="number">7.5</span>, <span class="number">0</span>, <span class="number">3</span>])</span><br><span class="line">   plt.scatter(X[y == <span class="number">0</span>, <span class="number">0</span>], X[y == <span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">   plt.scatter(X[y == <span class="number">1</span>, <span class="number">0</span>], X[y == <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">   plt.scatter(X[y == <span class="number">2</span>, <span class="number">0</span>], X[y == <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">   plt.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>什么是决策树:</p>
-<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时, 数据的特征就全都是数据特征, 每一个特征都是实数. 有两个特征, 横轴x和纵轴y</p>
-<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果 x&lt;2.4 分类为蓝色的点, 反之再判断如果 y&lt;1.8 分类为橙色的点, 反之分类为绿色的点</p>
 <p>这样就形成了决策树</p>
 <br>
@@ -285,7 +285,7 @@
 </ul>
 <br>
 
-<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>既然了解了什么是决策树, 问题就变成怎么构建决策树</p>
 <p>每一个节点都首先找到一个维度, 其次找到这个维度中的一个阈值, 以这个维度的这个阈值为依据判断继续进行划分.</p>
 <p>关键的问题其实就是: </p>
@@ -322,13 +322,13 @@ H=-\sum_{i=1}^k\ p_i\ log(p_i)
 $$
 但是这个公式还是太抽象, 我们举几个例子:
 
-<p><img src="/Blog/intro/example_entropy.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/example_entropy.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>显然右边的数据的信息熵比左边的信息熵小.</p>
 <p>熵代表不确定性的度量, 熵越小, 不确定度就越低, 确定性越强</p>
 <p>如果熵越大, 系统就越不确定, 越随机.</p>
 <br>
 
-<p><img src="/Blog/intro/example_entropy.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/example_entropy.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这么看就是说: 右边的数据比左边的数据更确定</p>
 <p>由于右边的数据很多数据都在第三类里, 占70%之多, 所以右边数据是更确定的. 而左边数据每个类别各占1&#x2F;3, 所以数据不确定性越强.</p>
 <p>按照设个思路在强一点: 如果第一类数据占100%, {1, 0, 0}<br>$$<br>H&#x3D;-1\cdot log(1)&#x3D;0<br>$$<br>这个信息熵就是这个公式的最低值. 放进信息熵的物理定义中就是: <strong>此时数据的不确定性是最低的, 它是最确定的</strong> (所有数据都在一类中没有任何不确定性)</p>
@@ -341,7 +341,7 @@ $$
 <p>如果数据类别是两类, 一类是x, 另一类占得比例就是1-x, 此时信息熵的公式就是:<br>$$<br>H&#x3D;-xlog(x)-(1-x)log(1-x)<br>$$<br><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">entropy</span>(<span class="params">p</span>):</span><br><span class="line">    <span class="keyword">return</span> -p * np.log(p) - (<span class="number">1</span>-p) * np.log(<span class="number">1</span>-p)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    x = np.linspace(<span class="number">0.01</span>, <span class="number">0.99</span>, <span class="number">200</span>)</span><br><span class="line">    y = entropy(x)</span><br><span class="line"></span><br><span class="line">    plt.plot(x, y)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/example_entropy_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/example_entropy_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样一根曲线像是抛物线的样子, 且这个曲线的对称轴是0.5</p>
 <p>换句话说, 当x&#x3D;0.5, 曲线取到了最大值, 相当于对于信息熵来说, 两个类别都是0.5时, 整个信息熵是最大的</p>
 <p>此时的数据是最不稳定的, 确定性最低. 此时数据到底是第一类还是第二类各有50%的可能性, 所以是最不确定的.</p>
@@ -352,7 +352,7 @@ $$
 <p>如果系统偏向某一类, 就相当于一定程度有了确定性</p>
 <br>
 
-<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <ol>
 <li><p>每个节点到底在哪个维度做划分?</p>
 </li>
@@ -375,7 +375,7 @@ $$
 <li>第二次决策节点为: 维度&#x3D;1, 阈值&#x3D;1.75</li>
 </ul>
 <p>这和我们之前使用scikit-learn中得到结果的大致是一样的</p>
-<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>模拟划分并没有把决策树建立起来, 就可以用构建二叉树的方式把这棵树构建起来</p>
@@ -404,7 +404,7 @@ $$
 <br>
 
 <p>同样举几个例子来看</p>
-<p><img src="/Blog/intro/gini_coef.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gini_coef.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>用样, 基尼系数越高意味着数据整体随机性越强; 基尼系数越低意味着数据整体不确定性越弱</p>
 <br>
 
@@ -440,7 +440,7 @@ $$
 <br>
 
 <p>决策树复杂度:</p>
-<p><img src="/Blog/intro/complex_dt.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>决策树还有一个问题, 就是容易产生过拟合, 这一点和kNN是一样的. </p>
 <p>实际上所有的<strong>非参数学习算法</strong>都非常容易产生过拟合</p>
 <p>基于这些原因, 实际创建决策树时, 必须进行剪枝: 降低复杂度, 解决过拟合</p>
@@ -452,38 +452,38 @@ $$
 <p>如果不指定max_depth</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 生成的非线性数据, 为了能更好看到过拟合的样子</span></span><br><span class="line">    X, y = datasets.make_moons(noise=<span class="number">0.25</span>, random_state=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    dt_clf = DecisionTreeClassifier()</span><br><span class="line">    dt_clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">    plot_decision_boundary(dt_clf, axis=[-<span class="number">1.5</span>, <span class="number">2.5</span>, -<span class="number">1.0</span>, <span class="number">1.5</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">0</span>, <span class="number">0</span>], X[y==<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">1</span>, <span class="number">0</span>], X[y==<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/ofer_fitting_dt.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/ofer_fitting_dt.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果depth为2</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dt_clf = DecisionTreeClassifier(max_depth=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/complex_dt_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>这个参数指定至少要有多少节点数据才对它进行拆分</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dt_clf = DecisionTreeClassifier(min_samples_split=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/complex_dt_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个参数调的越高就越不容易过拟合</p>
 <br>
 
 <p>对于一个叶子节点来说, 至少要有几个样本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dt_clf = DecisionTreeClassifier(min_samples_leaf=<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/complex_dt_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个参数如果太低就会过拟合, 极端情况下等于1时, 某些参数就会由这一个样本决定, 因此模型会对特殊的样本点非常敏感</p>
 <br>
 
 <p>指定最多有几个叶子节点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dt_clf = DecisionTreeClassifier(max_leaf_nodes=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/complex_dt_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>实际使用这些参数时要避免欠拟合, 齐次参数间可以互相组合, 所以可以使用网格搜索的方式</p>
 <p>实际还有很多其他参数</p>
-<p><img src="/Blog/intro/complex_dt_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>然而实际上, 使用决策树解决分类问题, 回归问题. 无论怎么条件这些参数, 结果都不会特别的好</p>
@@ -492,7 +492,7 @@ $$
 
 <br>
 
-<h2 id="决策树解决回归问题"><a href="#决策树解决回归问题" class="headerlink" title="决策树解决回归问题"></a>决策树解决回归问题</h2><p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="决策树解决回归问题"><a href="#决策树解决回归问题" class="headerlink" title="决策树解决回归问题"></a>决策树解决回归问题</h2><p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>当使用CART将决策树建立出来之后, 每个节点都包含若干个数据</p>
 <p>如果这些数据的输出值是类别的话, 就可以在叶子节点中让数据进行投票, 哪个类别的节点多, 就将样本归为哪个类别.</p>
 <p>如果数据的输出是具体的数的话, 来了一个新的样本点, 经过决策树来到某一个叶子节点, 就可以叶子节点的平均值来作为结果</p>
@@ -502,36 +502,36 @@ $$
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.tree import DecisionTreeRegressor</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    boston = datasets.load_boston()</span><br><span class="line">    X = boston.data</span><br><span class="line">    y = boston.target</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=666)</span><br><span class="line"></span><br><span class="line">    # 参数和DecisionTreeClassifier是一样的</span><br><span class="line">    # 区别只是最后在叶子节点得到一个分类结果还是回归结果</span><br><span class="line">    dt_reg = DecisionTreeRegressor()</span><br><span class="line">    dt_reg.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    # 显然过拟合了, 在训练数据集上表现好, 但在测试数据集上表现很差</span><br><span class="line">    print(dt_reg.score(X_test, y_test))     # 0.589</span><br><span class="line">    print(dt_reg.score(X_train, y_train))   # 1,0</span><br></pre></td></tr></table></figure>
 
 <p>决策树的模型非常适合绘制复杂度曲线, 因为有很多参数可以控制决策树模型的复杂度</p>
-<p><img src="/Blog/intro/predict_poly_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/predict_poly_reg_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms/blob/master/12-Decision-Tree/Optional-01-Learning-Curve-for-Decision-Tree/Optional-01-Learning-Curve-for-Decision-Tree.ipynb">决策树的学习曲线代码</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms/blob/master/12-Decision-Tree/Optional-02-Model-Complexity-Curve-for-Decision-Tree/Optional-02-Model-Complexity-Curve-for-Decision-Tree.ipynb">模型复杂度曲线</a></p>
 </blockquote>
 <br>
 
-<h2 id="决策树的局限性"><a href="#决策树的局限性" class="headerlink" title="决策树的局限性"></a>决策树的局限性</h2><p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="决策树的局限性"><a href="#决策树的局限性" class="headerlink" title="决策树的局限性"></a>决策树的局限性</h2><p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>其实看鸢尾花的分类结果时就能看出来, 决策树的边界都是横平竖直的. </p>
 <p>这样的边界显然是有局限性的, 例如这样的数据点的划分</p>
-<p><img src="/Blog/intro/complex_dt_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样的决策边界很可能无法反应数据的真实情况</p>
-<p><img src="/Blog/intro/complex_dt_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>肯可能真正的决策边界是一条斜线, 而决策树永远无法产生这样的决策边界.</p>
 <br>
 
 <p>还有更严重的事情, 假设数据集是这个样子</p>
-<p><img src="/Blog/intro/complex_dt_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时非常好区分, 就在中间划一根线条, 左边就是蓝色的类, 右边是红色的类</p>
-<p><img src="/Blog/intro/complex_dt_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>可是, 同样是这个分布, 它可能只是稍微有些倾斜, 划分结果可能就是这个样子</p>
-<p><img src="/Blog/intro/complex_dt_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样的决策边界很有可能是不对的, 尤其是数据点在两侧的时候</p>
 <br>
 
 <p>另外还有一个<strong>大多数非参数学习共有的局限性</strong>: 对个别数据敏感</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    <span class="comment"># 保留后两个特征</span></span><br><span class="line">    X = iris.data[:, <span class="number">2</span>:]</span><br><span class="line">    y = iris.target</span><br><span class="line"></span><br><span class="line">    tree_clf = DecisionTreeClassifier(max_depth=<span class="number">2</span>, criterion=<span class="string">&quot;entropy&quot;</span>)</span><br><span class="line">    tree_clf.fit(X, y)</span><br><span class="line">    plot_decision_boundary(tree_clf, [<span class="number">0.5</span>, <span class="number">7.5</span>, <span class="number">0</span>, <span class="number">3</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">0</span>, <span class="number">0</span>], X[y==<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">1</span>, <span class="number">0</span>], X[y==<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">2</span>, <span class="number">0</span>], X[y==<span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 删除第138行的元素(数据点)</span></span><br><span class="line">    X_new = np.delete(X, <span class="number">138</span>, axis=<span class="number">0</span>)</span><br><span class="line">    y_new = np.delete(y, <span class="number">138</span>)</span><br><span class="line">    tree_clf2 = DecisionTreeClassifier(max_depth=<span class="number">2</span>, criterion=<span class="string">&quot;entropy&quot;</span>)</span><br><span class="line">    tree_clf2.fit(X_new, y_new)</span><br><span class="line">    plot_decision_boundary(tree_clf2, [<span class="number">0.5</span>, <span class="number">7.5</span>, <span class="number">0</span>, <span class="number">3</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">0</span>, <span class="number">0</span>], X[y==<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">1</span>, <span class="number">0</span>], X[y==<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">    plt.scatter(X[y==<span class="number">2</span>, <span class="number">0</span>], X[y==<span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/complex_dt_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/complex_dt_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>只删除了一个样本点, 得到的决策边界的形态就和之前完全不同了</p>
@@ -549,7 +549,7 @@ $$
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -557,9 +557,9 @@ $$
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -576,19 +576,19 @@ $$
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/17/machine-learning-11/">
+                      <a href="/Blog/2020/05/17/machine-learning-11/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">python3入门机器学习(11)-集成学习和随机森林</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/05/09/machine-learning-9/">
+                      <a href="/Blog/2020/05/09/machine-learning-9/">
                         <span class="hidden-mobile">python3入门机器学习(9)-SVM支撑向量机</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -631,7 +631,7 @@ $$
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -640,7 +640,7 @@ $$
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -680,18 +680,18 @@ $$
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -744,7 +744,7 @@ $$
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

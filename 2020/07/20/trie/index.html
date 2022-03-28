@@ -1,38 +1,38 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
     <meta name="description" content="Trie 字典树 前缀树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trie 字典树">
-<meta property="og:url" content="http://example.com/2020/07/20/trie/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/20/trie/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Trie 字典树 前缀树">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/intro/trie_1.PNG">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/trie_1.PNG">
 <meta property="article:published_time" content="2020-07-21T01:06:32.000Z">
 <meta property="article:modified_time" content="2020-07-21T04:05:42.804Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/intro/trie_1.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/trie_1.PNG">
   
   
-  <title>Trie 字典树 - Hexo</title>
+  <title>Trie 字典树 - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -62,17 +62,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 
@@ -80,7 +80,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -99,9 +99,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -111,9 +111,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -123,9 +123,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -135,9 +135,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -147,9 +147,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -173,7 +173,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/L.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/L.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -248,11 +248,11 @@
 <br>
 
 <p>对比Trie和字典</p>
-<p><img src="/Blog/intro/trie.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trie.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>trie是这样的一种数据结构</p>
-<p><img src="/Blog/intro/trie_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trie_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>每一个节点有26(英文有26个字母)个指向下一个节点的指针.</p>
@@ -262,18 +262,18 @@
 
 <br>
 
-<p><img src="/Blog/intro/trie_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trie_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>其实我从根节点找下一个节点的过程中, 我们就已经知道字母是谁了</p>
 <p>例如我们要搜索cat, 之所以能够来到节点c, 是因为我们在根节点就知道下一个节点应该来到c这个节点.</p>
 <p>所以更准确地讲, 应该将字母标在边上</p>
-<p><img src="/Blog/intro/trie_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trie_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>在来到这个节点之前, 我们就知道节点是什么了, 所以这样定义节点是没有问题的</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    Map&lt;<span class="type">char</span>, Node&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <br>
 
 <p>我们会把叶子节点标记为蓝色. 走到蓝色节点就说明我们找到了一个单词</p>
-<p><img src="/Blog/intro/trie_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trie_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>有些单词可能是另外一些单词的前缀. </p>
 <p>例如单词pan和panda, 此时n应该为蓝色, a也应该为蓝色.</p>
 <p>所以每一个节点需要一个标识, 来表示是否是某一个单词的结尾</p>
@@ -295,16 +295,16 @@
 <br>
 
 <p><strong>压缩字典树 Compressed Trie</strong></p>
-<p><img src="/Blog/intro/trie_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trie_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>然而维护的成本更高了.</p>
 <br>
 
 <p><strong>Ternary Search Trie</strong></p>
-<p><img src="/Blog/intro/Ternary_Search_Trie.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/Ternary_Search_Trie.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果单词以d开头就从中间查找.</p>
 <p>如果单词以小于d的字母开头就向d的左子树进行查找</p>
 <p>如果单词以大于d的字母开头就向d的右子树进行查找</p>
-<p><img src="/Blog/intro/Ternary_Search_Trie_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/Ternary_Search_Trie_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这颗树中就存储了dog这个单词</p>
 <br>
 
@@ -328,7 +328,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -336,7 +336,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -353,19 +353,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/07/22/B-tree/">
+                      <a href="/Blog/2020/07/22/B-tree/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">B树</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/07/18/segment-Tree/">
+                      <a href="/Blog/2020/07/18/segment-Tree/">
                         <span class="hidden-mobile">线段树 segment Tree</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -408,7 +408,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -417,7 +417,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -457,18 +457,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -521,7 +521,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

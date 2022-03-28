@@ -1,39 +1,39 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
     <meta name="description" content="图灵机https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;wiki&#x2F;%E5%9B%BE%E7%81%B5%E6%9C%BA  所有可以用图灵机解决的问题都可以用编程语言解决 量子图灵机可以解决的问题也都可以使用图灵机解决, 只不过更耗时   Unsolvable ProblemsThere exist an unsolvable problem. 这里, unsolvable 指的是无法被jav">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Computability and Complexity">
-<meta property="og:url" content="http://example.com/2021/09/09/Computability-and-Complexity/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/09/09/Computability-and-Complexity/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="图灵机https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;wiki&#x2F;%E5%9B%BE%E7%81%B5%E6%9C%BA  所有可以用图灵机解决的问题都可以用编程语言解决 量子图灵机可以解决的问题也都可以使用图灵机解决, 只不过更耗时   Unsolvable ProblemsThere exist an unsolvable problem. 这里, unsolvable 指的是无法被jav">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/intro/cmpt308/turing-machine.PNG">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt308/turing-machine.PNG">
 <meta property="article:published_time" content="2021-09-10T03:40:37.000Z">
 <meta property="article:modified_time" content="2021-12-07T20:25:08.553Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Daolin">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/intro/cmpt308/turing-machine.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt308/turing-machine.PNG">
   
   
-  <title>Computability and Complexity - Hexo</title>
+  <title>Computability and Complexity - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -63,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 
@@ -81,7 +81,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -100,9 +100,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -112,9 +112,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -124,9 +124,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -136,9 +136,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -148,9 +148,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -174,7 +174,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -286,35 +286,35 @@
 </blockquote>
 <br>
 
-<h2 id="DFA-NFA"><a href="#DFA-NFA" class="headerlink" title="DFA, NFA"></a>DFA, NFA</h2><p><a target="_blank" rel="noopener" href="https://daolinzhou.github.io/Blog/2021/05/14/Principles-of-Compiler-Design/#Deterministic-Finite-Automaton-DFA">https://daolinzhou.github.io/Blog/2021/05/14/Principles-of-Compiler-Design/#Deterministic-Finite-Automaton-DFA</a></p>
+<h2 id="DFA-NFA"><a href="#DFA-NFA" class="headerlink" title="DFA, NFA"></a>DFA, NFA</h2><p><a href="https://daolinzhou.github.io/Blog/2021/05/14/Principles-of-Compiler-Design/#Deterministic-Finite-Automaton-DFA">https://daolinzhou.github.io/Blog/2021/05/14/Principles-of-Compiler-Design/#Deterministic-Finite-Automaton-DFA</a></p>
 <p>NFA 转 DFA 的算法本质上是<strong>广度优先遍历</strong></p>
 <p>对于初始状态$q_0$, 寻找它的 $\epsilon$ closure, 称为 set $S_1$, 这个 $S_1$ 就是DFA的第一个state $q_0’$​</p>
 <blockquote>
 <p> $\epsilon$ closure 代表当前状态只通过$\epsilon$ 可以到达的状态的集合</p>
 </blockquote>
 <p>DFA的第二个状态是由DFA第一个状态向前”走一步”得到的, 因此, 将$S_1$中的所有 state 推进一步 ($\epsilon$ 除外), 再取 $\epsilon$ closure, 得到 $S_2$ 即使DFA的第二个state $q_1’$</p>
-<p><img src="/Blog/intro/cmpt308/nfa2dfa.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/nfa2dfa_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/nfa2dfa.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/nfa2dfa_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Regular-Operations"><a href="#Regular-Operations" class="headerlink" title="Regular Operations"></a>Regular Operations</h2><p>regular operation 支持3种运算</p>
 <p>union:</p>
-<p><img src="/Blog/intro/cmpt308/re.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>concatenation:</p>
-<p><img src="/Blog/intro/cmpt308/re_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>star:</p>
-<p><img src="/Blog/intro/cmpt308/re_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Claim: The class of regular language is closed under regular operation</p>
 <p><strong>证明Union</strong></p>
 <p>假设有两个 regular language A 和 B, A accepted by $N_A$, $B$ accepted by $N_B$</p>
 <p>$A\cup B$​ 就 accepted by following NFA</p>
-<p><img src="/Blog/intro/cmpt308/re_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>$A \circ B$</p>
-<p><img src="/Blog/intro/cmpt308/re_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>$A^{*}$</p>
-<p><img src="/Blog/intro/cmpt308/re_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <blockquote>
@@ -324,44 +324,44 @@
 
 <p>$L(R)$ 代表 regular language</p>
 <p>regular expression 转 regular language </p>
-<p><img src="/Blog/intro/cmpt308/re_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Claim: a language $L$ is regular iff $L(R)$ for some regular expression R</p>
 <p>证明: </p>
 <p>(1) regular expression 转 NFA</p>
 <p>对于一个regular expression, 我们可以把它转化成一个tree(可以看作语法树)</p>
-<p><img src="/Blog/intro/cmpt308/re_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>之后解析树来构成图(NFA)</p>
 <p>(2) FA 转 regular expression</p>
 <p>首先我们可以把所有FA转换一下, 添加一个头节点, 以及一个尾节点, 来统一输入输出</p>
-<p><img src="/Blog/intro/cmpt308/re_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>之后我们对它不断地提取, 简化</p>
 <p>把每个这样的操作</p>
-<p><img src="/Blog/intro/cmpt308/re_9.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/re_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>注意: p 可以等于 q, 但是 p,q 不能等于qrip</p>
 <p>如果p, q之间不存在edge, 我们可以看作存才一个edge with empty set, 就相当于这条边无法走过</p>
-<p><img src="/Blog/intro/cmpt308/re_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>empty set 就是不接收任何 regular expression</p>
 </blockquote>
 <br>
 
 <h2 id="Non-regular-Language"><a href="#Non-regular-Language" class="headerlink" title="Non-regular Language"></a>Non-regular Language</h2><p>Regular language 只是 language 中的一部分, 还有 non-regular language</p>
 <h3 id="Pumping-lemma"><a href="#Pumping-lemma" class="headerlink" title="Pumping lemma"></a>Pumping lemma</h3><p>考虑这种情况</p>
-<p><img src="/Blog/intro/cmpt308/re_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们创建的新NFA接收这种形式的string $xy^iz$​</p>
 <p>pumping lemma就是说如果 $w &#x3D; xyz \in L$​</p>
-<p> <img src="/Blog/intro/cmpt308/re_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/intro/cmpt308/re_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
-<p>证明<img src="/Blog/intro/cmpt308/re_13.PNG" srcset="/img/loading.gif" lazyload> 不是正则表达式</p>
+<p>证明<img src="/Blog/intro/cmpt308/re_13.PNG" srcset="/Blog/img/loading.gif" lazyload> 不是正则表达式</p>
 <p>反证:</p>
 <p>假设它是regular expression</p>
 <p>就是说存在 DFA for L on $p$ states, $p \in \N$</p>
 <p>考虑 $w \in L$​, w 的长度大于等于 p ($|w| \ge p$​), 这种形式的正则肯定有这样一个string.</p>
 <p>那么根据假设 DFA accepts w</p>
 <p>根据抽屉原理, 由于$|w| \ge p$​, 肯定有一个state 我们进入了两次</p>
-<p><img src="/Blog/intro/cmpt308/re_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/re_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>也就是说我们可以选择让$w&#x3D;p$​, 即 $0^p1^p$</p>
 <p>根据 pumping lemma, 有三种情况</p>
 <ol>
@@ -385,7 +385,7 @@
 <li>判断DFA是否不接受任何字符串, 标记为$E_\text{DFA}$</li>
 <li>判断两个DFA是否等价, 即 如果w被一个accept, 另一个必须accept, 反之亦然. 标记为$EQ_\text{DFA}$</li>
 </ol>
-<p><img src="/Blog/intro/cmpt308/prop.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/prop.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Claim: $A_\text{DFA}, E_\text{DFA}, EQ_\text{DFA}$ are decidable (in polytime)</p>
 </blockquote>
@@ -395,7 +395,7 @@
 <p>我们要判断两个DFA $M_1, M_2$ 是否等价</p>
 <p>这等价于判断下面式子是否为真<br>$$<br>L(M_1)&#x3D;L(M_2)<br>$$<br>就是说判断两个DFA accept 的 language 是否一样</p>
 <p>而这是判断两个集合是否一样, 这又等价于判断</p>
-<p><img src="/Blog/intro/cmpt308/prop_1.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>A\Delta B &#x3D; (A-B) \cup (B-A)<br>$$<br>就是说 $A-B&#x3D;\empty$ 同时 $B-A&#x3D;\empty$</p>
+<p><img src="/Blog/intro/cmpt308/prop_1.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>A\Delta B &#x3D; (A-B) \cup (B-A)<br>$$<br>就是说 $A-B&#x3D;\empty$ 同时 $B-A&#x3D;\empty$</p>
 <p>我们可以创建一个新的DFA $C$ 来表示 $A-B$, 之后判断 C 的 language 是否为 empty set (即 $E_\text{DFA}$​, 我们知道怎么判断)</p>
 <p>C 要表示 $A-B$, 就是说如果有一个string $x&#x3D;x_1x_2…x_n \in \Sigma^\star$<br>$$<br>M_1 \ \to q_1 \xrightarrow {x_1}q_2\xrightarrow {x_2}\cdots \xrightarrow {x_n}q’<br>$$</p>
 <p>$$<br>M_2 \ \to p_1 \xrightarrow {x_1}p_2\xrightarrow {x_2}\cdots \xrightarrow {x_n}p’<br>$$</p>
@@ -404,7 +404,7 @@
 <p>我们让初始state为 $q_0&#x3D; {q_0^A \choose p_0^B}$​</p>
 <p>让转换函数为 $\delta {q \choose p} &#x3D; {\delta_A(q)\choose \delta_B(p)}$​ , 即分别对两个状态进行转换​</p>
 <p>states 为 $Q&#x3D;Q_A\times Q_B$, 因为我们让每个A的state 和B的state组合, 所以总共的 state 会 等于A,B states number 的乘积</p>
-<p>final state 就是 <img src="/Blog/intro/cmpt308/prop_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>final state 就是 <img src="/Blog/intro/cmpt308/prop_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样我们就得到了$A-B$​ 的 DFA</p>
 <p>同理可以得到 $B-A$ 的 DFA</p>
 <p>最后我们判断两个DFA 是否都只接受 empty set</p>
@@ -428,7 +428,7 @@
 <br>
 
 <h2 id="Turing-Machine"><a href="#Turing-Machine" class="headerlink" title="Turing Machine"></a>Turing Machine</h2><p>图灵机说的是由这样一个tape</p>
-<p><img src="/Blog/intro/cmpt308/tm.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/tm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>每次可以从头部读取一个value, 根据当前状态判断是否要修改当前value, 之后可以向左或向右移动头部</p>
 <p>finite automata 只能向右移动, 且无法修改value</p>
 <br>
@@ -453,20 +453,20 @@
 
 <p><strong>low-level algorithm</strong> </p>
 <p>$q_0$ 的作用是: 初始状态下, check left-most value</p>
-<p><img src="/Blog/intro/cmpt308/tm_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/tm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>$\delta(q_0, 0) &#x3D; (q_1, \epsilon, R)$ 指的是: 当前状态为 $q_0$, 如果输入为 0, 就转换状态为 $q_1$, 之后把 0 替换为 $\epsilon$, 把 header 向右移动一位</p>
 <br>
 
 <p>$q_1$ 的作用是: 找到 right-most input symbol</p>
-<p><img src="/Blog/intro/cmpt308/tm_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/tm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>$q_2$ 的作用: check right-most input 是否为 1</p>
-<p><img src="/Blog/intro/cmpt308/tm_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/tm_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>$q_3$ 的作用:  找到left most symbol, 并重置状态为$q_0$</p>
-<p><img src="/Blog/intro/cmpt308/tm_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/tm_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -474,7 +474,7 @@
 <br>
 
 <p>类似的我们还可以用 Turing Machine 来判断 string 是否为 Palindromes</p>
-<p><img src="/Blog/intro/cmpt308/tm_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/tm_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>high-level description:</p>
 <ol>
 <li>如果 input 是$\epsilon$​​, <strong>Accept</strong></li>
@@ -637,7 +637,7 @@
 <li><p>does not accept, 那么 $M_k \in D$​ (definition of D), 但由于 M Semi-decide D ($L(M)&#x3D;D$)因此 M应该 accept <code>&lt;Mk&gt;</code>, 矛盾</p>
 </li>
 </ol>
-<p><img src="/Blog/intro/cmpt308/d.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/d.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>这个问题替换 $D$ 和 $L(M)$ 是最关键的一步, 因此在定义$D$ 时, 要和 $L(M)$ 扯上关系</p>
 </blockquote>
@@ -651,7 +651,7 @@
 <p>我们想证明:</p>
 <p><code>D=&#123;&lt;M&gt;|TM M doesn&#39;t accept &lt;M&gt;&#125;</code> is decidable</p>
 <p>要证明这是decidable, 我们可以创建一个decider, 这个decider做的工作就是对 $H(M, \langle M\rangle)$ 进行取反</p>
-<p><img src="/Blog/intro/cmpt308/halt.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>通过这个 decider 我们可以 decide D, </p>
 <p>因此 如果 $A_{TM}$ 存在, 那么 D 存在 decider, 但是我们知道D无法被decide, 因此矛盾</p>
 <p>说明 $A_{TM}$ 不存在</p>
@@ -661,11 +661,11 @@
 
 <h4 id="相关证明"><a href="#相关证明" class="headerlink" title="相关证明"></a>相关证明</h4><p>我们知道 <code>A_TM = &#123;&lt;M, w&gt; | TM M accepts w&#125;</code> 是 undecidable problem, 但是 semi-decidable</p>
 <p>而 我们创建的 language <code>D=&#123;&lt;M&gt;|TM M doesn&#39;t accept &lt;M&gt;&#125;</code> 甚至不是 semi-decidable</p>
-<p><img src="/Blog/intro/cmpt308/halt_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>那么 language​</p>
-<p><img src="/Blog/intro/cmpt308/halt_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>是否是decidable?</p>
 <br>
 
@@ -673,7 +673,7 @@
 <p>因为我们只要对 $A_{TM}$​ 的 output 取反就得到 $\overline A_{TM}$​</p>
 <p>如果如果 $A_{TM}$ 是 decidable, 那么 $\overline A_{TM}$ 也是decidable, 反过来也一样<br>$$<br>\overline A_{TM} \text{ is decidable} \iff A_{TM}\text{ is decidable}<br>$$</p>
 <blockquote>
-<p>结论: The class of decidable language is closed under complement.<br>$$<br>\overline L \text{ is decidable} \iff L \text{ is decidable}<br>$$<br><img src="/Blog/intro/cmpt308/halt_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>结论: The class of decidable language is closed under complement.<br>$$<br>\overline L \text{ is decidable} \iff L \text{ is decidable}<br>$$<br><img src="/Blog/intro/cmpt308/halt_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 </blockquote>
 <br>
 
@@ -691,7 +691,7 @@
 <p>let $L\subseteq \Sigma^\star$​ be any semi-decidable language such that $\overline L$ is also semi-decidable. Then $L$ is decidable</p>
 </blockquote>
 <p>证明</p>
-<p><img src="/Blog/intro/cmpt308/halt_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>只要对给定input, 在两个TM中同时运行, 总有一个会accept, 因为两个都是 semi-decidable</p>
 <p>如果 $x\in L$ semi-decider for $L$ accepts</p>
 <p>反之如果 $x \notin L$, semi-decider for $\overline L$ accepts</p>
@@ -704,7 +704,7 @@
 <blockquote>
 <p>结论: The class of semi-decidable language is <strong>not</strong> closed under complement</p>
 </blockquote>
-<p><img src="/Blog/intro/cmpt308/halt_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -715,18 +715,18 @@
 <li><code>ALL_TM = &#123;&lt;M&gt; | M is a TM s.t. L(M) = Σ*&#125;</code> (M accept every string)</li>
 <li><code>EQ_TM = &#123;&lt;M1, M2&gt; | M1 &amp; M2 are TMs s.t. L(M1)=L(M2)&#125;</code></li>
 </ol>
-<p><img src="/Blog/intro/cmpt308/halt_6.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/halt_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这里有个要注意的点, R accept $M’$​ 代表 M does not accept w, 因为 R 是 $E_{TM}$​ 的 decider, R accept M’ 说明 L(M’) 是 empty set</p>
-<p><img src="/Blog/intro/cmpt308/halt_8.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/halt_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/halt_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个的思路也简单, 我们可以fix M2, 之后这个问题就可以转化为前两个问题了</p>
 <br>
 
 <br>
 
 <h2 id="Rice’s-Theorem"><a href="#Rice’s-Theorem" class="headerlink" title="Rice’s Theorem"></a>Rice’s Theorem</h2><p>定义:</p>
-<p><img src="/Blog/intro/cmpt308/rice_the_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>叫做 <strong>non-trivial property</strong> if</p>
 <ol>
 <li><p>$\exists \text { TM } M_1$, $\langle M \rangle \in p $    and    $\exists \text { TM } M_2, \langle M_2\rangle\notin p $</p>
@@ -763,7 +763,7 @@
 <p>(accept iff $M_1$ accept)”</p>
 </blockquote>
 <p>就是说</p>
-<p><img src="/Blog/intro/cmpt308/rice_the.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>也就是说 $\langle M’\rangle \in p \iff \langle M,w\rangle \notin A_{TM}$ </p>
 <p>$\langle M’\rangle \in p$ 意味着 $L(M’) &#x3D; L(M_\O)$, 也就是说 $M$ doesn’t accept w, 因此 $\langle M, w\rangle \notin A_{TM}$</p>
 <p>然而根据假设 $p$ is decidable, 因此我们可以 decide $\langle M’\rangle \in p$, 因此我们也可以decide  $\langle M,w\rangle \in A_{TM}$</p>
@@ -780,7 +780,7 @@
 
 <p>但是我们可以 verified 一些 simple programs 的正确性 (simple 意味着 understandable) </p>
 <p>Software Engineering 就是为了让我们写出易于理解, 易于验证的代码</p>
-<p><img src="/Blog/intro/cmpt308/rice_the_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>同理在机器学习中, Explainable AI (XAI) 也是一个热门话题, 如果你无法解释你设计的算法, 那大概率它不会有好的结果</p>
 <br>
 
@@ -797,7 +797,7 @@
 <p>证明思路: show $\overline A_{TM} \le E_{TM}$ (证明 $\overline A_{TM}$ 比 $E_{TM}$ 简单)</p>
 <br>
 
-<p>定义: 对于language $A, B$, 我们说 A is reducible to $B$ (via a mapping reduction) denoted by<br>$$<br>A\le B<br>$$<br>if there is a <strong>computable</strong> function<br>$$<br>R: \Sigma^\star \to \Sigma^\star<br>$$<br>such that $\forall x \in \Sigma^\star$<br>$$<br>x\in A \iff R(x) \in B<br>$$<br><img src="/Blog/intro/cmpt308/rice_the_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>定义: 对于language $A, B$, 我们说 A is reducible to $B$ (via a mapping reduction) denoted by<br>$$<br>A\le B<br>$$<br>if there is a <strong>computable</strong> function<br>$$<br>R: \Sigma^\star \to \Sigma^\star<br>$$<br>such that $\forall x \in \Sigma^\star$<br>$$<br>x\in A \iff R(x) \in B<br>$$<br><img src="/Blog/intro/cmpt308/rice_the_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>这么做的结果, 假设 $A\le B$</p>
@@ -806,7 +806,7 @@
 <li>如果 B 是 semi-decidable, $A$ 也是 semi-decidable</li>
 </ol>
 <p>因为我们可以这样创建一个semi-decider for $A$</p>
-<p><img src="/Blog/intro/cmpt308/rice_the_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>反过来</p>
@@ -829,7 +829,7 @@
 <p>then accept z”</p>
 <p>Output $\langle M’\rangle$</p>
 </blockquote>
-<p><img src="/Blog/intro/cmpt308/rice_the_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Check $R$ shows $\overline A_{TM} \le E_{TM}$</p>
@@ -856,7 +856,7 @@
 <p>另一个例子:</p>
 <p>证明  $E_{TM} \le EQ_{TM}$</p>
 <p>我们可以找到$R$:</p>
-<p><img src="/Blog/intro/cmpt308/map.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/map.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>where $M_\emptyset$ is some fixed TM s.t. $L(M_\emptyset)&#x3D;\emptyset$</p>
 <p>由于$E_{TM}$ is not semi-decidable, so does $EQ_{TM}$</p>
 <br>
@@ -864,7 +864,7 @@
 <br>
 
 <p><strong>另一个例子:</strong></p>
-<p><img src="/Blog/intro/cmpt308/inf.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/inf.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们要证明:</p>
 <ol>
 <li>INF is not decidable</li>
@@ -903,7 +903,7 @@
 <p>同样的思路, 通过给定的 &lt;M, w&gt; 构建 TM</p>
 <p>M’ &#x3D; On input x, simulate M on w, <strong>if M accept w, then reject x</strong></p>
 <p>有两种情况</p>
-<p><img src="/Blog/intro/cmpt308/rice_the_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>为什么? </p>
 <p>如果 M accept w, 那么 reject x, L(M’) 为空是显而易见的</p>
 <p>如果 M not accept w, 我们没有让它进行任何操作(没有让它accept), 所以 L(M’) 依然是空</p>
@@ -918,7 +918,7 @@
 <p>我们限制 M 的执行次数</p>
 <p>M’ &#x3D; On input x, simulate M on w <strong>for</strong> $|x|$ <strong>steps</strong>, <strong>if M accept w, then reject x else accept x</strong></p>
 <p>x 是 M’的 input, 这是一个变量, 此时</p>
-<p><img src="/Blog/intro/cmpt308/rice_the_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>为什么? 分析一下</p>
 <p><strong>case 1: M not accept w</strong></p>
 <p>此时在 $|x|$ 步 的运行中, 无论得出结果还是没有得出结果, M 都不会 accept w, 就是说 M’ accept x</p>
@@ -929,13 +929,13 @@
 <p>然而这种情况是有限的, 我们最多只能找到 $2^{t+1}$ 个这样的字符串 (即长度小于 t 的字符串)</p>
 <p>如果 $|x| \ge t$, M accept w, 即 M’ reject x</p>
 <p>此时 $L(M’)$ 只是这 $2^{t+1}$ 字符串的集合</p>
-<p><img src="/Blog/intro/cmpt308/rice_the_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/rice_the_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>因此 $\overline A_{TM}\le \text{INF}$</p>
 <br>
 
 <br>
 
-<h2 id="Recursively-Enumerable-RE"><a href="#Recursively-Enumerable-RE" class="headerlink" title="Recursively Enumerable(RE)"></a>Recursively Enumerable(RE)</h2><p><img src="/Blog/intro/cmpt308/re_en.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Recursively-Enumerable-RE"><a href="#Recursively-Enumerable-RE" class="headerlink" title="Recursively Enumerable(RE)"></a>Recursively Enumerable(RE)</h2><p><img src="/Blog/intro/cmpt308/re_en.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <ul>
 <li>$E$ starts with $\epsilon$ on the input tape</li>
 <li>$E$ may run forever</li>
@@ -974,17 +974,17 @@
 <p>而NTM是这样<br>$$<br>\delta: Q\times \Gamma \to P(Q\times \Gamma\times {L, R})<br>$$<br>$P$ 指的是power set</p>
 <p>例如: $\delta (q, a) &#x3D; {(q_1, a, L), (q_2, b, R), (q_1, b, L)}$</p>
 <p>我们可以把 Computation 看作时 Sequence of Configurations</p>
-<p><img src="/Blog/intro/cmpt308/config.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/config.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如在某一时刻运行到 $q_0$ , 可以把它可把$q_0$ 和此时的TM以及读取的位置作为snapshot, encoding成一个字符串</p>
 <p>假设下一步是 $\delta(q_0, x_1)&#x3D;(q_1, y_1, R)$</p>
-<p><img src="/Blog/intro/cmpt308/config_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/config_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时 DTM 和 NTM 差别就非常明显, DTM是一个path, NTM是一个tree (就像 DFA 和 NFA 一样)</p>
-<p><img src="/Blog/intro/cmpt308/config_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/config_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个tree可能无限长, 因为 NTM 也可能有死循环</p>
 <br>
 
 <p>同理, NTM M accepts w, if there exists some computation branch that is accepting:</p>
-<p><img src="/Blog/intro/cmpt308/config_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/config_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>对于 language 的定义是和 DTM 一样的.<br>$$<br>L(M) &#x3D; {w \in \Sigma^\star \text{ | M accepts w}}<br>$$</p>
@@ -1004,7 +1004,7 @@
 
 <h3 id="为什么使用-NTM"><a href="#为什么使用-NTM" class="headerlink" title="为什么使用 NTM"></a>为什么使用 NTM</h3><p>NTM 可以 non-deterministically guess</p>
 <p>例如我们定义<br>$$<br>\delta(q_0, \sqcup) &#x3D; {(q_0,0,R), (q_0, 1, R), (q_1, \sqcup, L)}<br>$$<br>那么这个代表什么?</p>
-<p><img src="/Blog/intro/cmpt308/ntm.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/ntm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>$\forall x&#x3D;x_1x_2\cdots x_n \in {0, 1}^{\star}$</p>
 <p>$q_0\epsilon\to ^\star x_1x_2\cdots x_{n-1} q_1x_n$</p>
 <br>
@@ -1042,7 +1042,7 @@
 
 <h2 id="Self-print"><a href="#Self-print" class="headerlink" title="Self print"></a>Self print</h2><p>self-replicating TMs</p>
 <p>我们能否构建一个TM $S$, s.t. $S$ will print its own description $<S>$</p>
-<p><img src="/Blog/intro/cmpt308/sp.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/sp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们无法通过单个TM实现这个操作, 这类似先有鸡还是先有蛋的问题</p>
 <p>例如: print(“program”)</p>
 <p>要打印上面的信息我们就要 print(‘print(“program”)’)</p>
@@ -1051,7 +1051,7 @@
 
 <p>思路:</p>
 <p>明显上面 hard code 的方式是不可取的</p>
-<p><img src="/Blog/intro/cmpt308/sp_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/sp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们有两个TM, A, B</p>
 <ol>
 <li>B got its own description <code>&lt;B&gt;</code> from A</li>
@@ -1068,7 +1068,7 @@
 <p>定义: <code>&lt;A&gt; = q(&lt;B&gt;) = &lt;P_&lt;B&gt;&gt;</code> </p>
 <p>This TM $A$ will print out <code>&lt;B&gt;, &lt;A&gt;</code> can be reconstructed from the output <code>&lt;B&gt;</code> of A by computing <code>q(&lt;B&gt;)</code></p>
 <p>我们依然还没有确定 B</p>
-<p><img src="/Blog/intro/cmpt308/sp_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/sp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>定义TM B</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">On input z</span><br><span class="line">compute a = q(z)</span><br><span class="line">output a, z</span><br></pre></td></tr></table></figure>
 
@@ -1089,9 +1089,9 @@
 <br>
 
 <h2 id="Recursion-Theorem"><a href="#Recursion-Theorem" class="headerlink" title="Recursion Theorem"></a>Recursion Theorem</h2><p>For every computable function<br>$$<br>t:\Sigma^\star \times \Sigma^\star\to \Sigma^\star<br>$$<br>there is a TM $R$ s.t.</p>
-<p><img src="/Blog/intro/cmpt308/recur.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/recur.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>证明:</p>
-<p><img src="/Blog/intro/cmpt308/recur_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/recur_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <ul>
 <li><p>$T$ 是 已知的</p>
 </li>
@@ -1173,7 +1173,7 @@
 <p>证明:</p>
 <p>假设 $MIN_{TM}$ 是 finite, $MIN_{TM}&#x3D;(\langle M_1 \rangle\cdots \langle M_k \rangle)$ for some $k \in \N$</p>
 <p>let $b&#x3D;b_1b_2\cdots b_k \in {0, 1}^k$  be s.t.</p>
-<p><img src="/Blog/intro/cmpt308/min.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/min.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>定义 TM $A$:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">input x</span><br><span class="line"></span><br><span class="line">if x = &lt;Mi&gt; for some 1&lt;=i&lt;=k</span><br><span class="line">then accept iff bi = 0</span><br><span class="line">else reject</span><br></pre></td></tr></table></figure>
 
@@ -1227,11 +1227,11 @@
 <br>
 
 <p>Claim:</p>
-<p> <img src="/Blog/intro/cmpt308/random.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/intro/cmpt308/random.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>证明: </p>
-<p><img src="/Blog/intro/cmpt308/random_1.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/random_2.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/random_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>string 的个数大于图灵机的个数, 所以至少存在一个K-random string</p>
 <blockquote>
 <p>这里 $K(x) \ge n$ 这个条件是控制 random 的数量的</p>
@@ -1240,7 +1240,7 @@
 </blockquote>
 <blockquote>
 <p>Can we compute the function $K(x)$ ? No, 证明放在最底下</p>
-<p><img src="/Blog/intro/cmpt308/random_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>is not semi-decidable</p>
 </blockquote>
 <br>
@@ -1267,7 +1267,7 @@
 <br>
 
 <h3 id="Kolmogorov-Randomness"><a href="#Kolmogorov-Randomness" class="headerlink" title="Kolmogorov Randomness"></a>Kolmogorov Randomness</h3><p>Kolmogorov Complexity $K(x)$ of a binary string $x$ is</p>
-<p><img src="/Blog/intro/cmpt308/random_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这里 $|\langle M \rangle w|$ 是 description of x (denoted $d(x)$)</p>
 <br>
 
@@ -1300,10 +1300,10 @@
 </blockquote>
 <br>
 
-<h3 id="Basic-Properties-of-K-x"><a href="#Basic-Properties-of-K-x" class="headerlink" title="Basic Properties of $K(x)$"></a>Basic Properties of $K(x)$</h3><p><img src="/Blog/intro/cmpt308/random_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Basic-Properties-of-K-x"><a href="#Basic-Properties-of-K-x" class="headerlink" title="Basic Properties of $K(x)$"></a>Basic Properties of $K(x)$</h3><p><img src="/Blog/intro/cmpt308/random_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>证明: 定义 TM M “on input w, halt” $d(x)&#x3D;\langle M\rangle x$ , $|d(x)|\le c+|x|$ </p>
-<p><img src="/Blog/intro/cmpt308/random_6.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/random_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Incompressible-String"><a href="#Incompressible-String" class="headerlink" title="Incompressible String"></a>Incompressible String</h3><p>定义: 一个 binary string $x$ is c-compressible if<br>$$<br>K(x) \le |x|-c<br>$$<br><br></p>
@@ -1315,7 +1315,7 @@
 <br>
 
 <p>Theorem: </p>
-<p><img src="/Blog/intro/cmpt308/random_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>the minimal description $d(x)$ is not b-compressible</p>
 <p>证明思路: Optimally compressed string cannot be compressed any further</p>
 <br>
@@ -1369,7 +1369,7 @@
 <p>显然用短的那个</p>
 <br>
 
-<p>Compute $\Omega$ in stages<br>$$<br>\Omega_k &#x3D; \sum_{\text{TM M:} |\langle M\rangle _p| \le k \text{ and M halts on}  \langle M \rangle_p \text{ with k steps}} \frac 1 {2^{|\langle M \rangle_p|}}<br>$$<br><img src="/Blog/intro/cmpt308/random_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>Compute $\Omega$ in stages<br>$$<br>\Omega_k &#x3D; \sum_{\text{TM M:} |\langle M\rangle _p| \le k \text{ and M halts on}  \langle M \rangle_p \text{ with k steps}} \frac 1 {2^{|\langle M \rangle_p|}}<br>$$<br><img src="/Blog/intro/cmpt308/random_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>write each $\Omega_k$ in binary:<br>$$<br>\Omega_k &#x3D; 0.w_1w_2\cdots w_l<br>$$<br>这个迭代是收敛的, 当迭代到一定程度后 $\Omega_k$ 的前 $N$ 个digits 就不会再变动了, 此时  $\Omega_k$ 的前 $N$ 个digits 等于  $\Omega$ 的前 $N$ 个digits </p>
 <p>$\forall N\ge 1, \exists k\ge 1$ the first $N$ digits of $\Omega_k$ will stay as the first N digits of every $\Omega_{k’}$ for all $k’\ge k$</p>
 <br>
@@ -1384,7 +1384,7 @@
 <p>这个算法总是 terminates at stage $k$</p>
 <p>如果 TM A hasn’t halted on $\langle A \rangle_p$ within k steps, A doesn’t halt at all</p>
 <p>Indeed, suppose $A$ halts on $\langle A \rangle_p$ within $t\ge k$ steps then<br>$$<br>\Omega_t\ge  \Omega_k+ \frac 1 {2^{|\langle A\rangle_p|}}<br>$$<br>由于<br>$$<br>\frac 1 {2^{|\langle A\rangle_p|}}\ge \frac 1 {2^N}<br>$$<br>所以<br>$$<br>\Omega_t\ge  \Omega_k+ \frac 1 {2^N}<br>$$</p>
-<p><img src="/Blog/intro/cmpt308/random_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/random_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>然而这会导致 first $N$ digits of $\Omega_k$ changes! 我们知道前N个digits不会变, 所以矛盾</p>
 <br>
 
@@ -1446,9 +1446,9 @@
 <br>
 
 <p>arithmetic formulas are formed using:</p>
-<p><img src="/Blog/intro/cmpt308/formula.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/formula.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如:</p>
-<p><img src="/Blog/intro/cmpt308/formula_1.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>f(x)&#x3D;\exists y [x&#x3D;2\times y]<br>$$<br>这里 x 是一个free variable</p>
+<p><img src="/Blog/intro/cmpt308/formula_1.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>f(x)&#x3D;\exists y [x&#x3D;2\times y]<br>$$<br>这里 x 是一个free variable</p>
 <br>
 
 <p>定义:  a sentence is a formula with <strong>no</strong> free variables</p>
@@ -1471,15 +1471,15 @@
 <br>
 
 <p>axioms for the properties of $0, S,+, \times &#x3D;, \le$</p>
-<p><img src="/Blog/intro/cmpt308/formula_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/formula_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Induction Schema for each FO formula $\phi$</p>
-<p><img src="/Blog/intro/cmpt308/formula_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/formula_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Inference Rules: Classical Logic</p>
-<p><img src="/Blog/intro/cmpt308/formula_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/formula_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>定义: a proof of a formula $\phi$ is sequence $A_1, A_2,\cdots A_t&#x3D;\phi$ where $A_i$ is either an axiom or follows from some previous formulas using some inference rule.</p>
@@ -1507,8 +1507,8 @@
 <br>
 
 <p>证明:</p>
-<p><img src="/Blog/intro/cmpt308/incomplete.PNG" srcset="/img/loading.gif" lazyload></p>
-<p>思路: Since $\varphi$ is sound, <img src="/Blog/intro/cmpt308/sube.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/incomplete.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>思路: Since $\varphi$ is sound, <img src="/Blog/intro/cmpt308/sube.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们要证明 there exists <strong>true but NOT provable</strong> statements about natural numbers</p>
 <br>
 
@@ -1530,7 +1530,7 @@
 <br>
 
 <p>我们通过 reduce<br>$$<br>\overline A_{TM} \le \text{True}<br>$$<br>来证明, 这等价于</p>
-<p><img src="/Blog/intro/cmpt308/incomplete_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/incomplete_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -1556,8 +1556,8 @@
 <p>$\forall a_1,a_2\cdots a_m \in N$</p>
 <p>$\exists A,B \in N$ s.t.<br>$$<br>\beta (A, B, i)&#x3D;a_i, \forall 1 \le i\le m<br>$$<br>where<br>$$<br>\beta(x, y, i)&#x3D;{x \mod (1+y(i+1))}<br>$$</p>
 <blockquote>
-<p><img src="/Blog/intro/cmpt308/incomplete_2.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/cmpt308/incomplete_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/incomplete_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt308/incomplete_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 </blockquote>
 <br>
 
@@ -1583,7 +1583,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -1591,9 +1591,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
                     
                   </div>
                 
@@ -1610,19 +1610,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/09/Computability-and-Complexity2/">
+                      <a href="/Blog/2021/09/09/Computability-and-Complexity2/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Computability and Complexity (2)</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/26/Networking/">
+                      <a href="/Blog/2021/08/26/Networking/">
                         <span class="hidden-mobile">计算机网络</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -1665,7 +1665,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1674,7 +1674,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1714,18 +1714,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1778,7 +1778,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

@@ -1,43 +1,43 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
     <meta name="description" content="一个图主要是由节点和边来组成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论(一)-无权图基础">
-<meta property="og:url" content="http://example.com/2019/08/20/Unweighted-graph-basics/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/08/20/Unweighted-graph-basics/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="一个图主要是由节点和边来组成">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/Blog/intro/graph.png">
-<meta property="og:image" content="http://example.com/Blog/intro/graphloop.PNG">
-<meta property="og:image" content="http://example.com/Blog/intro/adjacency_matrix.PNG">
-<meta property="og:image" content="http://example.com/Blog/intro/adjacency_lists.PNG">
-<meta property="og:image" content="http://example.com/Blog/intro/perfectgraph.PNG">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/graph.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/graphloop.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/adjacency_matrix.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/adjacency_lists.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/perfectgraph.PNG">
 <meta property="article:published_time" content="2019-08-20T20:03:08.000Z">
 <meta property="article:modified_time" content="2019-08-21T04:57:34.906Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="图论算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/Blog/intro/graph.png">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/graph.png">
   
   
-  <title>图论(一)-无权图基础 - Hexo</title>
+  <title>图论(一)-无权图基础 - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -67,17 +67,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 
@@ -85,7 +85,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -104,9 +104,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -116,9 +116,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -128,9 +128,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -140,9 +140,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -152,9 +152,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -178,7 +178,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/Blog/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -246,7 +246,7 @@
             
             <div class="markdown-body">
               <p>一个图主要是由节点和边来组成</p>
-<p><img src="/Blog/intro/graph.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/graph.png" srcset="/Blog/img/loading.gif" lazyload></p>
 <span id="more"></span>
 
 <p>图主要用于表示两个事物之间的关系:</p>
@@ -277,7 +277,7 @@
 <br>
 
 <p>图根据实现的不同可以有 自环边(自己指向自己) 和 平行边(从一点到另一点有多条边).</p>
-<p><img src="/Blog/intro/graphloop.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/graphloop.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="图的实现"><a href="#图的实现" class="headerlink" title="图的实现"></a>图的实现</h2><p>图通常情况下有两种实现</p>
@@ -285,14 +285,14 @@
 <li>邻接矩阵 - 用于稠密图</li>
 <li>邻接表 - 用于稀疏图</li>
 </ol>
-<p><img src="/Blog/intro/adjacency_matrix.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/adjacency_lists.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/adjacency_matrix.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/adjacency_lists.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>可以看出, 当每个节点和大部分其他节点产生关系时(稠密图), 比较适合邻接矩阵 </p>
 <p>当每个节点只和部分节点产生联系(稀疏图), 则更适合邻接表</p>
 <br>
 
 <p>完全图: 特殊的稠密图, 每个节点和其他所有节点产生联系</p>
-<p><img src="/Blog/intro/perfectgraph.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/perfectgraph.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
  <br>
 
 <h3 id="邻接矩阵-稠密图"><a href="#邻接矩阵-稠密图" class="headerlink" title="邻接矩阵 - 稠密图"></a>邻接矩阵 - 稠密图</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ALGORITHM_DENSEGRAPH_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALGORITHM_DENSEGRAPH_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 稠密图 - 邻接矩阵</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DenseGraph</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> n, m;   <span class="comment">// n 为节点数, m为边数</span></span><br><span class="line">    <span class="type">bool</span> directed;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; g;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">DenseGraph</span>(<span class="type">int</span> n, <span class="type">bool</span> directed)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;n = n;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;directed = directed;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">            g.<span class="built_in">push_back</span>(<span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n , <span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~<span class="built_in">DenseGraph</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">V</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> n;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">E</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> m;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addEdge</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> w)</span></span>&#123;</span><br><span class="line">        <span class="built_in">assert</span>(v &gt;= <span class="number">0</span> &amp;&amp; v &lt; n);</span><br><span class="line">        <span class="built_in">assert</span>(w &gt;= <span class="number">0</span> &amp;&amp; w &lt; n);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">hasEdge</span>(v, w))</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        g[v][w] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(!directed)</span><br><span class="line">            g[w][v] = <span class="literal">true</span>;</span><br><span class="line">        m++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasEdge</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> w)</span></span>&#123;</span><br><span class="line">        <span class="built_in">assert</span>(v &gt;= <span class="number">0</span> &amp;&amp; v &lt; n);</span><br><span class="line">        <span class="built_in">assert</span>(w &gt;= <span class="number">0</span> &amp;&amp; w &lt; n);</span><br><span class="line">        <span class="keyword">return</span> g[v][w];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">                cout &lt;&lt; g[i][j] &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">            cout &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 相邻边的迭代器</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">adjIterator</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        DenseGraph &amp;G;</span><br><span class="line">        <span class="type">int</span> v;</span><br><span class="line">        <span class="type">int</span> index;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">adjIterator</span>(DenseGraph &amp;graph, <span class="type">int</span> v):<span class="built_in">G</span>(graph)&#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;v = v;</span><br><span class="line">            <span class="keyword">this</span>-&gt;index = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">begin</span><span class="params">()</span></span>&#123;</span><br><span class="line">            index = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">next</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(index += <span class="number">1</span>; index &lt; G.<span class="built_in">V</span>(); index++)</span><br><span class="line">                <span class="keyword">if</span>(G.g[v][index])</span><br><span class="line">                    <span class="keyword">return</span> index;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">isEnd</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> index &gt;= G.<span class="built_in">V</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
@@ -315,7 +315,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -323,9 +323,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
                     
                   </div>
                 
@@ -342,19 +342,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/20/Connected-component/">
+                      <a href="/Blog/2019/08/20/Connected-component/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">图论(二)-连通分量</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/08/15/UnionFind/">
+                      <a href="/Blog/2019/08/15/UnionFind/">
                         <span class="hidden-mobile">并查集 UnionFind</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -397,7 +397,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -406,7 +406,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -446,18 +446,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -510,7 +510,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>
