@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.3k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      11 分钟
     </span>
   
 
@@ -238,32 +238,32 @@
             <h1 style="display: none">git学习笔记</h1>
             
             <div class="markdown-body">
-              <h1 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h1><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &#x27;your_name&#x27;</span><br><span class="line">git config --global user.email &#x27;your_email@domain.com&#x27;</span><br><span class="line">git config --list --global 		# 显示配置信息</span><br></pre></td></tr></table></figure>
+              <h1 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h1><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">git config --global user.name &#x27;your_name&#x27;<br>git config --global user.email &#x27;your_email@domain.com&#x27;<br>git config --list --global 		# 显示配置信息<br></code></pre></td></tr></table></figure>
 
 <br>
 
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .		# 跟踪当前目录下的文件, 放出暂存区</span><br><span class="line">git commit -m &quot;first commit&quot;	# 提交</span><br></pre></td></tr></table></figure>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add .		# 跟踪当前目录下的文件, 放出暂存区<br>git commit -m &quot;first commit&quot;	# 提交<br></code></pre></td></tr></table></figure>
 
 <br>
 
-<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">git status		# 查看暂存区的状态</span><br><span class="line">git log			# 查看过去commit的状态</span><br><span class="line">git log --oneline 	# 简单查看</span><br><span class="line">git log -n4 	# 查看最近的4次</span><br><span class="line">git log --graph	# 以图形的方式查看commit的父子关系</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git diff --cached 	# 查看暂存区的和HEAD中的差别</span><br><span class="line">git diff 		# 默认查看工作区(还没commit的)和暂存区中的差别</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以指定多个文件</span></span><br><span class="line">git diff -- 文件名 	# 查看指定文件名的工作区和暂存区的区别, -- 可以省略</span><br><span class="line">git diff --cached 文件名 	# 查看指定文件暂存区和HEAD中的差别</span><br><span class="line"></span><br><span class="line">git diff &lt;hash&gt; &lt;hash&gt; [-- &lt;file&gt;]  # 查看两个commit中文件的差异, 可以指定看哪个文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">git status		# 查看暂存区的状态<br>git log			# 查看过去commit的状态<br>git log --oneline 	# 简单查看<br>git log -n4 	# 查看最近的4次<br>git log --graph	# 以图形的方式查看commit的父子关系<br><br><br>git diff --cached 	# 查看暂存区的和HEAD中的差别<br>git diff 		# 默认查看工作区(还没commit的)和暂存区中的差别<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">可以指定多个文件</span><br>git diff -- 文件名 	# 查看指定文件名的工作区和暂存区的区别, -- 可以省略<br>git diff --cached 文件名 	# 查看指定文件暂存区和HEAD中的差别<br><br>git diff &lt;hash&gt; &lt;hash&gt; [-- &lt;file&gt;]  # 查看两个commit中文件的差异, 可以指定看哪个文件<br><br></code></pre></td></tr></table></figure>
 
 <br>
 
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch -av	# 查看本地分支</span><br><span class="line">git checkout -b temp 21c243 # 基于给定hash创建分支, 分支名为temp, 同时切换到该分支</span><br><span class="line">git checkout (branchname) # 切换分支</span><br><span class="line">git branch -d (branchname/hash) # 删除分支</span><br><span class="line">git branch -D (branchname/hash) # 强行删除分支, 当-d不好用时可以用它</span><br></pre></td></tr></table></figure>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch -av	# 查看本地分支<br>git checkout -b temp 21c243 # 基于给定hash创建分支, 分支名为temp, 同时切换到该分支<br>git checkout (branchname) # 切换分支<br>git branch -d (branchname/hash) # 删除分支<br>git branch -D (branchname/hash) # 强行删除分支, 当-d不好用时可以用它<br></code></pre></td></tr></table></figure>
 
 <br>
 
-<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git mv oldname newname # 更改文件名</span><br><span class="line"></span><br><span class="line">git commit --amend 	# 修改最近一次的commit message</span><br><span class="line"></span><br><span class="line">git rebase -i hash # 修改以name/hash为根commit, 可以修改, 压缩 等等</span><br><span class="line"></span><br><span class="line">git rm &lt;file&gt;     # 删除文件, 工作区和暂存区都删除  </span><br></pre></td></tr></table></figure>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">git mv oldname newname # 更改文件名<br><br>git commit --amend 	# 修改最近一次的commit message<br><br>git rebase -i hash # 修改以name/hash为根commit, 可以修改, 压缩 等等<br><br>git rm &lt;file&gt;     # 删除文件, 工作区和暂存区都删除  <br></code></pre></td></tr></table></figure>
 
 <br>
 
-<h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;		# 暂存区回复成HEAD一样</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file&gt;		# 把工作区文件恢复成和暂存区一样</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit&gt;		# 把头指针指向指定commit, 同时把暂存区和工作区回复到这个commit一样的状态</span><br></pre></td></tr></table></figure>
+<h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">git reset HEAD &lt;file&gt;		# 暂存区回复成HEAD一样<br><br>git checkout -- &lt;file&gt;		# 把工作区文件恢复成和暂存区一样<br><br>git reset --hard &lt;commit&gt;		# 把头指针指向指定commit, 同时把暂存区和工作区回复到这个commit一样的状态<br></code></pre></td></tr></table></figure>
 
 <br>
 
 <h2 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h2><p> <em>stash</em>可以把当前工作现场“保存”起来,等以后恢复现场后继续工作 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash 			# 执行存储</span><br><span class="line">git stash list		# 查看一共有哪些存储</span><br><span class="line">git stash apply 	# 应用某个存储, 但不会从列表中删除, 默认使用第一个存储</span><br><span class="line">git stash apply stash@&#123;2&#125; # 使用第二个存储</span><br><span class="line"></span><br><span class="line">git stash pop		# 和apply一样, 但会从列表中删除 也可以用stash@&#123;&#125;来指定</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">git stash 			# 执行存储<br>git stash list		# 查看一共有哪些存储<br>git stash apply 	# 应用某个存储, 但不会从列表中删除, 默认使用第一个存储<br>git stash apply stash@&#123;2&#125; # 使用第二个存储<br><br>git stash pop		# 和apply一样, 但会从列表中删除 也可以用stash@&#123;&#125;来指定<br></code></pre></td></tr></table></figure>
 
 
             </div>

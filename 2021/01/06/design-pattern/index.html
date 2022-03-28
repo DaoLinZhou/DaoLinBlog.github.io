@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      672 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      6 分钟
     </span>
   
 
@@ -265,7 +265,7 @@
 
 <p><a target="_blank" rel="noopener" href="https://github.com/DaoLinZhou/DisignPattern/tree/main/src/com/zhou/design/creational/simplefactory">完整代码</a></p>
 <p>核心代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VideoFactory</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Video <span class="title function_">getVideo</span><span class="params">(String type)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;java&quot;</span>.equalsIgnoreCase(type))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JavaVideo</span>();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;python&quot;</span>.equalsIgnoreCase(type))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PythonVideo</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">VideoFactory</span> &#123;<br><br>    <span class="hljs-keyword">public</span> Video <span class="hljs-title function_">getVideo</span><span class="hljs-params">(String type)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;java&quot;</span>.equalsIgnoreCase(type))&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JavaVideo</span>();<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;python&quot;</span>.equalsIgnoreCase(type))&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PythonVideo</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>每当让工厂支持新的类时, 都要修改内部逻辑</p>
 <br>

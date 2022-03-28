@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="内存由操作系统统一管理 一个字节Byte有8个二进制位 计算机插两根2G内存条 等同于 插一根4G内存条 无论插多少根内存条, 计算机会把内存看成是一个整体来计算内存大小">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/2lines.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/memory2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/useapplication.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/memory3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/memory4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/2lines.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/memory2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/useapplication.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/memory3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/memory4.PNG">
 <meta property="article:published_time" content="2019-07-15T19:16:16.000Z">
 <meta property="article:modified_time" content="2019-07-15T20:51:53.082Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="操作系统">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/2lines.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/2lines.PNG">
   
   
   <title>内存管理 - Daolin&#39;s Repository</title>
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.1k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      10 分钟
     </span>
   
 
@@ -259,9 +259,9 @@
 <br>
 
 <p>两根地址总线有4种状态</p>
-<p><img src="/Blog/intro/2lines.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/2lines.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>32根地址总线就有2^32个状态, 2^32字节<br>$$<br>2^{32} &#x3D; 2^{10} * 2^{10} * 2^{10} * 2^2<br>$$</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">= 1024 * 1024 * 1024 * 4</span><br><span class="line">= 1024 * 1024 * 4K</span><br><span class="line">= 1024 * 4M</span><br><span class="line">= 4G</span><br></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">= 1024 * 1024 * 1024 * 4</span><br><span class="hljs-section">= 1024 * 1024 * 4K</span><br><span class="hljs-section">= 1024 * 4M</span><br><span class="hljs-section">= 4G</span><br></code></pre></td></tr></table></figure>
 
 <p>所以32位操作系统最多只能管理4G内存</p>
 <br>
@@ -279,7 +279,7 @@
 <p>1111 1111 … … 1111 1111    (64 个 1)</p>
 <br>
 
-<p><img src="/Blog/intro/memory2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/memory2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>右边的每一个格子都代表计算机中的一个字节, 每个字节可以保存8个二进制位的数据, 假设他们都是0</p>
 <p>最高位 0xffffffffffffffff    16个f, 因为一个f 对应 1111 四个一, 16 * 4 &#x3D; 64, 相当于64 个 1</p>
 <br>
@@ -291,12 +291,12 @@
 <br>
 
 <p>当我们买计算机时, 第一个应用程序就是操作系统. 其他的应用程序都是安装到操作系统上的. 所以实际上 应用程序是由操作系统来调用的</p>
-<p><img src="/Blog/intro/useapplication.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/useapplication.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>操作系统 不仅能给内存编号, 还可以给内存进行一定的规划</p>
 <p><strong>在64位操作系统中: 系统认为程序员使用的内存只要有前面48位就可以了</strong></p>
-<p><img src="/Blog/intro/memory3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/memory3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>即上图红框区域 0x0 到 0x7fffffffffffffff</p>
 <p>而0x7fffffffffffffff 之上的内存空间是给操作系统内核使用的</p>
 <br>
@@ -307,11 +307,11 @@
 <li>可以通过操作系统把应用程序关闭</li>
 <li>使操作系统更安全</li>
 </ul>
-<p><img src="/Blog/intro/memory4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/memory4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>假设我们写了一个c语言代码, 编译后存到磁盘</p>
 <p>一旦我们运行这个程序, 代码编译后的二进制数据就会加载到内存中, 即代码段</p>
 <p>我们可能会声明一些全局变量, 或者常量.这些放在数据段</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> i;</span><br><span class="line"><span class="type">int</span> global;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">const</span> <span class="hljs-type">int</span> i;<br><span class="hljs-type">int</span> global;<br></code></pre></td></tr></table></figure>
 
 <p>绿色区域为自由可分配内存</p>
 <p>栈: 第一个执行的函数, 如果这个函数调用其他函数会依次往下压栈.</p>

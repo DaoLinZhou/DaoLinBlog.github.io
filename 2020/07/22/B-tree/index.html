@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.2k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      11 分钟
     </span>
   
 
@@ -245,11 +245,11 @@
 
 <h1 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h1><p>B树是一种<strong>平衡的多路搜索树</strong></p>
 <p>3阶B树 (一个节点最多有3个子节点)</p>
-<p><img src="/Blog/intro/3-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/3-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>4阶B树 (一个节点最多有4个子节点)</p>
-<p><img src="/Blog/intro/4-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/4-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>5阶B树 (一个节点最多有5个子节点)</p>
-<p><img src="/Blog/intro/5-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/5-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -278,25 +278,25 @@
 <br>
 
 <h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><p>新添加的元素必定是添加到叶子节点. (和最后一层的某个节点融合)</p>
-<p><img src="/Blog/intro/insert_b_tree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>因为在二叉搜索树添加元素时, 我们就是添加到叶子节点, 而B树在某种程度上和二叉搜索树等价</p>
 <br>
 
 <p>然而和节点融合后, 可能节点的元素会超过限制. 这种现象称为上溢</p>
-<p><img src="/Blog/intro/insert_b_tree_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="上溢的解决-假设5阶"><a href="#上溢的解决-假设5阶" class="headerlink" title="上溢的解决(假设5阶)"></a>上溢的解决(假设5阶)</h3><p>5阶B树中, 每个节点最多存储4个元素, 当存储5个元素时就会上溢</p>
-<p><img src="/Blog/intro/insert_b_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p><strong>上溢节点的元素个数必然等于 m (m阶B树)</strong></p>
 <p>先求出上溢节点最中间元素的位置. 假设为k. 例如上图中k&#x3D;2.</p>
 <p>之后将k位置的元素向上与父节点合并. 再将**[0, k-1] 和 [k+1, m-1]**位置的元素分裂成两个子节点</p>
-<p><img src="/Blog/intro/insert_b_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>此时父节点可能再次上溢</p>
 <p>如果父节点上溢, 则重复这个过程. 例如上图中就要把40和它的父亲节点融合, 再进行分裂</p>
-<p><img src="/Blog/intro/insert_b_tree_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>极端的情况可能会一直分裂到根节点.</p>
 <blockquote>
 <p><strong>只有上溢到根节点, B树才会长高</strong></p>
@@ -304,7 +304,7 @@
 <br>
 
 <p>然而当m为偶数时, m阶B树上溢时如何选取中间元素? 中间位置有两个元素, 这两个元素选哪个作为中间元素都可以. 让它和父节点融合.</p>
-<p><img src="/Blog/intro/insert_b_tree_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -314,26 +314,26 @@
 <br>
 
 <p>5阶B树有一个陷阱</p>
-<p><img src="/Blog/intro/insert_b_tree_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>这就是下溢(underflow)</p>
 <p>下溢节点的元素数量必然等于 $ceil(m&#x2F;2) - 2$</p>
-<p><img src="/Blog/intro/insert_b_tree_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果下溢节点的临近兄弟节点至少有 $ceil(m&#x2F;2)$个元素, 可以向其借一个元素.</p>
 <p>将父节点的元素b插入下溢节点的0位置</p>
 <p>而再把 a 放到 b 原本的位置</p>
-<p><img src="/Blog/intro/insert_b_tree_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个操作实质就是<strong>旋转</strong>, 对b进行右旋操作</p>
-<p><img src="/Blog/intro/insert_b_tree_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>注意a的右孩子会变成b的左孩子</p>
 <br>
 
 <p>然而如果临近的兄弟节点无法借元素怎么办? ( 只有$ceil(m&#x2F;2)-1$个元素)</p>
 <p>此时应该将父节点的元素 b 挪下来和左右子节点进行合并</p>
-<p><img src="/Blog/intro/insert_b_tree_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时合并后的节点元素个数等于 $2*ceil(m&#x2F;2)-2 \le m-1$</p>
 <p>此时父节点又少了一个元素, 可以又会下溢, 依然要向上传播.</p>
 <blockquote>

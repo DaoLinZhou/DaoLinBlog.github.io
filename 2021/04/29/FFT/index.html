@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      5.5k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      47 分钟
     </span>
   
 
@@ -271,9 +271,9 @@
 <p>证明:</p>
 <p>假设我们有$d+1$ unique points<br>$$<br>(x_0, P(x_0)), (x_1, P(x_1)), \cdots (x_d, P(x_d))<br>$$<br>$P(x)&#x3D;p_0+p_1x+p_2x^2+\cdots+p_dx^d$</p>
 <p>我们想证明: 对于这些点, 只有一组coefficient</p>
-<p><img src="/Blog/intro/fft/fft_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>写作矩阵乘法:</p>
-<p><img src="/Blog/intro/fft/fft_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果$x_0,x_1\cdots x_d$ 都是unique, 那么矩阵就是可逆的(行列式不为0)</p>
 <p>也就是说Unique coefficient $p_0,p_1\cdots p_d$ 存在</p>
 <p>也就是说polynomial $P(x)$ unique</p>
@@ -286,7 +286,7 @@
 <p>$$<br>B(x)&#x3D;x^2-2x+1<br>$$</p>
 <p>$$<br>C(x)&#x3D;A(x)\cdot B(x)<br>$$</p>
 <p>$C(x)$ 是degree 4 的多项式, 因此需要5个点来表示</p>
-<p><img src="/Blog/intro/fft/fft_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们选定5个x, 分别求$A(x), B(x)$, 因此</p>
 <p>$A(x)$ 的 value representation 是: $[(-2,1),(-1, 0),(0, 1),(1,4),(2,9)]$</p>
 <p>$B(x)$ 的 value representation 是: $[(-2, 9),(-1, 4),(0,1),(1,0),(2,1)]$</p>
@@ -296,7 +296,7 @@
 <br>
 
 <p>因此我们的思路如下</p>
-<p><img src="/Blog/intro/fft/fft_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们有两个coefficient  representation 的polynomial, 我们知道使用value representation 进行乘法更快, 所以我们先用<strong>某种方法</strong>把coefficient representation 转换为 value representation</p>
 <p>之后将两个value representation的polynomial进行乘法得到结果的value representation</p>
 <p>最后用<strong>某种方法</strong>把value representation 转换为 coefficient representation</p>
@@ -310,7 +310,7 @@
 <p>我们要evaluate at $n\ge d+1$ points</p>
 <p>一种方法是随机选择 $n$ 个x点, 计算对应的 $P(x)$</p>
 <p>此时每一个点的evaluation 是$O(d)$的时间, 因此所有点的evaluation是$O(nd)&#x3D;O(d^2)$ 的时间</p>
-<p><img src="/Blog/intro/fft/fft_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>问题是我们能否做的更好?</p>
 <br>
 
@@ -319,7 +319,7 @@
 <p>此时我们应该选择哪些点?</p>
 <p>有没有那种: 知道一个点就可以立即知道的另一个点?</p>
 <p>如果我们pick $x&#x3D;1$, 求的$P(1)$后, 我们就可以立即知道 $P(-1)$</p>
-<p><img src="/Blog/intro/fft/fft_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>只要这些点都是 positive-negative pair, 因为 $P(-x)&#x3D;P(x)$</p>
 <br>
 
@@ -342,13 +342,13 @@
 
 <p>继续 Evaluate $P_e(x^2), P_o(x^2)$ each at $x_1^2, x_2^2\cdots, x_{n&#x2F;2}^2$ ($n&#x2F;2$ points)</p>
 <p>这就是一个递归问题</p>
-<p><img src="/Blog/intro/fft/fft_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>也就是$T(n)&#x3D;2T(n&#x2F;2)+O(n)$ 根据Master Theory整个算法的时间复杂度就是 $O(n\log n)$ 级别的</p>
 <br>
 
 <p>但是, 这个算法有一个问题, 在递归的时候, 我们要有positive-negative pairs. </p>
 <p>然而 $[x_1^2,x_2^2\cdots, x_{n&#x2F;2}^2]$ 不是 positive-negative pairs</p>
-<p><img src="/Blog/intro/fft/fft_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>因此recuesion breaks.</p>
 <p>是否可以让 $[x_1^2,x_2^2\cdots, x_{n&#x2F;2}^2]$ 是 positive-negative pairs?</p>
 <p>这里就要引入复数</p>
@@ -358,38 +358,38 @@
 
 <p>假设我们有一个degree 3 polynomial $P(x)&#x3D;x^3+x^2-x-1$</p>
 <p>我们需要4个点, 这些点要是positive-negative pairs</p>
-<p><img src="/Blog/intro/fft/fft_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>然而$x_1^2, x_2^2$ 应该是 positive-negative pair, 所以 $x_2^2&#x3D;-x_1^2$</p>
-<p><img src="/Blog/intro/fft/fft_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>幸运的是我们有选择$x$的权利</p>
-<p><img src="/Blog/intro/fft/fft_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而这些$x$ 其实是 $x^4&#x3D;1$的所有解, 我们叫做 $4^{\text{th}}$ roots of unity</p>
 <br>
 
 <p>而如果我们有degree 5的多项式, 那么就至少需要6个点.</p>
 <p>然而由于recursive 每次会分成两个sub problem, 所以点的个数如果是 $2^k$的格式会更方便计算, 所以这里我们选择8个点, $8^{\text{th}}$ roots of unity</p>
-<p><img src="/Blog/intro/fft/fft_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>更一般的情况下, 如果一个polynomial 是 degree d, 那么就要找到 $n\ge d+1$ 同时 $n&#x3D;2^k$ k是正整数</p>
 <br>
 
 <p>为什么这个结论成立?</p>
 <p>$N^{th}$ roots of unity 其实就是”圆”上均匀分布的n个点</p>
-<p><img src="/Blog/intro/fft/fft_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>angle 是 $\frac {2\pi}{n}$</p>
-<p><img src="/Blog/intro/fft/fft_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>而一个优美的方法来表示这些点就是使用欧拉公式(euler’s formula):<br>$$<br>e^{i\theta} &#x3D; \cos(\theta) + i\sin(\theta)<br>$$<br>因此我们可以定义:<br>$$<br>\omega &#x3D; e^{\frac {2\pi i}{n}}<br>$$<br><img src="/Blog/intro/fft/fft_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而一个优美的方法来表示这些点就是使用欧拉公式(euler’s formula):<br>$$<br>e^{i\theta} &#x3D; \cos(\theta) + i\sin(\theta)<br>$$<br>因此我们可以定义:<br>$$<br>\omega &#x3D; e^{\frac {2\pi i}{n}}<br>$$<br><img src="/Blog/Blog/intro/fft/fft_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果说我们要evaluate a polynomial at nth root of unity, 这意味着我们要求: $P(x)$ at $[1,\omega^1,\omega^2, \cdots,\omega^{n-1}]$ </p>
 <p>回到问题, 为什么这个work?</p>
 <p>所有点都是 Positive-Negative pair</p>
-<p><img src="/Blog/intro/fft/fft_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果我们在递归时, 会将每个点进行平方, 所以得到</p>
-<p><img src="/Blog/intro/fft/fft_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>依然是 Positive-Negative pair.</p>
 <p>每层递归都 hold 这个结果, 直到只有一个点 $1$</p>
 <br>
 
 <h2 id="FFT算法"><a href="#FFT算法" class="headerlink" title="FFT算法"></a>FFT算法</h2><p>因此根据上面的算法, 我们可以写出代码</p>
-<p><img src="/Blog/intro/fft/fft_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们知道 $x_j&#x3D;\omega^j$, 因此<br>$$<br>P(\omega^j)&#x3D;P_e(\omega^{2j})+\omega^jP_o(\omega^{2j})<br>$$</p>
 <p>$$<br>P(-\omega^j)&#x3D;P_e(\omega^{2j})-\omega^jP_o(\omega^{2j})<br>$$</p>
 <p>然而我们又知道 $-\omega^j&#x3D;\omega^{j+n&#x2F;2}$</p>
@@ -397,31 +397,31 @@
 <p>$$<br>y_o[j]&#x3D;P_o(\omega^{2j})<br>$$</p>
 <p>因此我们可以将式子改写为<br>$$<br>P(\omega^j)&#x3D;y_e[j]+\omega^jy_o[j]<br>$$</p>
 <p>$$<br>P(\omega^{j+n&#x2F;2})&#x3D;y_e[j]-\omega^jy_o[j]<br>$$</p>
-<p>最后:<br>$$<br>y&#x3D;[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]<br>$$<br><img src="/Blog/intro/fft/fft_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>最后:<br>$$<br>y&#x3D;[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]<br>$$<br><img src="/Blog/Blog/intro/fft/fft_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Interpolation-and-IFFT-Inverse-FFT"><a href="#Interpolation-and-IFFT-Inverse-FFT" class="headerlink" title="Interpolation and IFFT(Inverse FFT)"></a>Interpolation and IFFT(Inverse FFT)</h2><p>此时我们就有办法把coefficient representation转换为 value representation了.</p>
 <p>然而我们还要把 value representation 转换为 coefficient  representation</p>
 <p>对于这个问题有很多办法(参考numerical anaylisis 的interpolation), 这里我们关注IFFT</p>
 <p>我们知道</p>
-<p><img src="/Blog/intro/fft/fft_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而 $x_k&#x3D;\omega^k, \omega&#x3D;e^{\frac {2\pi i} {n}}$</p>
 <p>这使得我们可以重写matrix product</p>
-<p><img src="/Blog/intro/fft/fft_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个matrix 有个特别的名字: <strong>Discrete Fourier Transform (DFT) matrix</strong></p>
 <blockquote>
 <p>证明矩阵可逆: <a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/426932/why-are-vandermonde-matrices-invertible">https://math.stackexchange.com/questions/426932/why-are-vandermonde-matrices-invertible</a></p>
 </blockquote>
 <p>而interpolation就是要用这个矩阵的逆</p>
-<p><img src="/Blog/intro/fft/fft_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/fft/fft_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/fft/fft_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fft/fft_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ty0JcR6Dvis">算法执行实例</a></p>
 <br>
 
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># assume n is power of 2</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fft</span>(<span class="params">P: <span class="built_in">list</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(P)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> P</span><br><span class="line">    w = math.e ** (<span class="number">2</span> * <span class="number">1j</span> * math.pi / n)</span><br><span class="line">    P_e, P_o = P[::<span class="number">2</span>], P[<span class="number">1</span>::<span class="number">2</span>]</span><br><span class="line">    y_e, y_o = fft(P_e), fft(P_o)</span><br><span class="line">    y = [<span class="number">0j</span>] * n</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n // <span class="number">2</span>):</span><br><span class="line">        y[i] = y_e[i] + (w ** i) * y_o[i]</span><br><span class="line">        y[i + n // <span class="number">2</span>] = y_e[i] - (w ** i) * y_o[i]</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ifft</span>(<span class="params">P: <span class="built_in">list</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(P)</span><br><span class="line">    result = _ifft(P)</span><br><span class="line">    <span class="keyword">return</span> [item/n <span class="keyword">for</span> item <span class="keyword">in</span> result]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_ifft</span>(<span class="params">P: <span class="built_in">list</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(P)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> P</span><br><span class="line">    w = math.e ** (-<span class="number">2</span> * <span class="number">1j</span> * math.pi / n)</span><br><span class="line">    P_e, P_o = P[::<span class="number">2</span>], P[<span class="number">1</span>::<span class="number">2</span>]</span><br><span class="line">    y_e, y_o = _ifft(P_e), _ifft(P_o)</span><br><span class="line">    y = [<span class="number">0j</span>] * n</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n // <span class="number">2</span>):</span><br><span class="line">        y[i] = (y_e[i] + (w ** i) * y_o[i])</span><br><span class="line">        y[i + n // <span class="number">2</span>] = (y_e[i] - (w ** i) * y_o[i])</span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># assume n is power of 2</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fft</span>(<span class="hljs-params">P: <span class="hljs-built_in">list</span></span>):<br>    n = <span class="hljs-built_in">len</span>(P)<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span>:<br>        <span class="hljs-keyword">return</span> P<br>    w = math.e ** (<span class="hljs-number">2</span> * <span class="hljs-number">1j</span> * math.pi / n)<br>    P_e, P_o = P[::<span class="hljs-number">2</span>], P[<span class="hljs-number">1</span>::<span class="hljs-number">2</span>]<br>    y_e, y_o = fft(P_e), fft(P_o)<br>    y = [<span class="hljs-number">0j</span>] * n<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n // <span class="hljs-number">2</span>):<br>        y[i] = y_e[i] + (w ** i) * y_o[i]<br>        y[i + n // <span class="hljs-number">2</span>] = y_e[i] - (w ** i) * y_o[i]<br>    <span class="hljs-keyword">return</span> y<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ifft</span>(<span class="hljs-params">P: <span class="hljs-built_in">list</span></span>):<br>    n = <span class="hljs-built_in">len</span>(P)<br>    result = _ifft(P)<br>    <span class="hljs-keyword">return</span> [item/n <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> result]<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">_ifft</span>(<span class="hljs-params">P: <span class="hljs-built_in">list</span></span>):<br>    n = <span class="hljs-built_in">len</span>(P)<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span>:<br>        <span class="hljs-keyword">return</span> P<br>    w = math.e ** (-<span class="hljs-number">2</span> * <span class="hljs-number">1j</span> * math.pi / n)<br>    P_e, P_o = P[::<span class="hljs-number">2</span>], P[<span class="hljs-number">1</span>::<span class="hljs-number">2</span>]<br>    y_e, y_o = _ifft(P_e), _ifft(P_o)<br>    y = [<span class="hljs-number">0j</span>] * n<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n // <span class="hljs-number">2</span>):<br>        y[i] = (y_e[i] + (w ** i) * y_o[i])<br>        y[i + n // <span class="hljs-number">2</span>] = (y_e[i] - (w ** i) * y_o[i])<br>    <span class="hljs-keyword">return</span> y<br></code></pre></td></tr></table></figure>
 
 
             </div>

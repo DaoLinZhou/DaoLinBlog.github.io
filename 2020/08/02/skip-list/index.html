@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      950 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      8 分钟
     </span>
   
 
@@ -252,21 +252,21 @@
 <br>
 
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这是一个普通的有序链表</p>
-<p><img src="/Blog/intro/skip-list.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/skip-list.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果我们进行查找, 需要由左到右对每个节点进行访问. 然而我们知道这个链表是有序的. 那么我们是否可以让它可以跳过一些元素?</p>
-<p><img src="/Blog/intro/skip-list_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/skip-list_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>先从上面的链表找, 直到找到的元素大于寻找到元素, 就降低一层继续查找.</p>
-<p><img src="/Blog/intro/skip-list_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/skip-list_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>绿色线就是寻找路线</p>
 <br>
 
 <p>更进一步:</p>
-<p><img src="/Blog/intro/skip-list_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/skip-list_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<h2 id="跳跃表的搜索"><a href="#跳跃表的搜索" class="headerlink" title="跳跃表的搜索"></a>跳跃表的搜索</h2><p><img src="/Blog/intro/skip-list_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="跳跃表的搜索"><a href="#跳跃表的搜索" class="headerlink" title="跳跃表的搜索"></a>跳跃表的搜索</h2><p><img src="/Blog/Blog/intro/skip-list_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>正如上面所述:</p>
 <ol>
 <li>从顶层链表的的首元素开始, 从左往右搜索, 直到找到一个大于等于目标的元素, 或者空节点.</li>
@@ -305,7 +305,7 @@
 <br>
 
 <h2 id="使用多节点实现"><a href="#使用多节点实现" class="headerlink" title="使用多节点实现"></a>使用多节点实现</h2><p>然而还有另外一种实现方式. 就是每个元素使用多个节点</p>
-<p><img src="/Blog/intro/spherical_coor_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/spherical_coor_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如这张图, 元素1就有3个节点, 每个节点有一个指向右边的指针和一个指向下方的指针.</p>
 <p>更进一步, 如果要实现双向的, 上下左右各需要一个指针.</p>
 <p>而且每个元素的要使用多个节点. 这样占用的内存是较大的.</p>

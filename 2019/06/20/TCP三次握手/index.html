@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="我将通过Wireshark 这款软件对B站进行抓包, 来分析TCP的三次握手">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/ping.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/Three-way-handshake.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/ping.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/handshake.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/countryfight.jpg">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/ping.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Three-way-handshake.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/ping.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/handshake.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/countryfight.jpg">
 <meta property="article:published_time" content="2019-06-21T06:55:11.000Z">
 <meta property="article:modified_time" content="2019-06-21T23:49:25.791Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="网络">
 <meta property="article:tag" content="tcp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/ping.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/ping.PNG">
   
   
   <title>TCP三次握手 - Daolin&#39;s Repository</title>
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.9k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      16 分钟
     </span>
   
 
@@ -246,7 +246,7 @@
             
             <div class="markdown-body">
               <p>我将通过Wireshark 这款软件对B站进行抓包, 来分析TCP的三次握手</p>
-<p><img src="/Blog/intro/ping.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/ping.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <span id="more"></span>
 
 <h2 id="TCP-的三次握手"><a href="#TCP-的三次握手" class="headerlink" title="TCP 的三次握手"></a>TCP 的三次握手</h2><p>当应用程序希望通过TCP与另一个应该程序通信时, 则会发送一个通信请求, 这个请求必须被送到一个确切的地址. </p>
@@ -256,21 +256,21 @@
 <h3 id="什么是全双工-Full-Duplex"><a href="#什么是全双工-Full-Duplex" class="headerlink" title="什么是全双工 (Full Duplex)"></a>什么是全双工 (Full Duplex)</h3><p>计算机 A 给 B 发送信息, 在发送信息的同时, B 也能给 A 回发信息</p>
 <br/>
 
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/Blog/intro/Three-way-handshake.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/Blog/Blog/intro/Three-way-handshake.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>可以看到 服务器向客户端发送ack 就是 SYN 和 SEQ 的和 (x+1), 同时自己也要初始化一个序列号</p>
 <p>而 客户端 向服务器发送的第二次请求中, seq就等于上次收到的ack的值, 并且携带的ack为y+1, 即期望下一次服务器发送的seq</p>
 <br/>
 
 <h3 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h3><h4 id="准备工作-获取B站的ip地址"><a href="#准备工作-获取B站的ip地址" class="headerlink" title="准备工作: 获取B站的ip地址"></a>准备工作: 获取B站的ip地址</h4><p>既然要抓包, 首先要知道要抓 “谁” 的包, 通过 ping 命令获取 B站 ip</p>
-<p><img src="/Blog/intro/ping.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/ping.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <h4 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h4><p>启动 Wireshark 选择WALN, 并且开启捕获 刷新b站页面</p>
 <p>设置过滤规则:</p>
 <p>​    我们只关注 ip 为 148.153.38.118 的相应和请求</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip.src == 148.153.38.118 || ip.dst == 148.153.38.118</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ip</span>.src == <span class="hljs-number">148.153.38.118</span> || ip.dst == <span class="hljs-number">148.153.38.118</span><br></code></pre></td></tr></table></figure>
 
 
 
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/Blog/intro/handshake.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/Blog/Blog/intro/handshake.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>148.153.38.118 是b站的 ip, 那么本机的ip便为 172.29.154.49</p>
 <h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>下面的解析过程最好配合流程图观看</p>
 <p>首先本机向B站发送一个SYN包, seq (从本机往B站的seq) &#x3D;0,</p>
@@ -287,7 +287,7 @@
 <h3 id="从一个故事说起"><a href="#从一个故事说起" class="headerlink" title="从一个故事说起"></a>从一个故事说起</h3><p>我记得自己以前看过一个故事, 描述的就是TCP为什么要握手3次, 但是如今已经找不到原文了, 所以只能把我记忆中的故事大概讲述一遍.</p>
 <h4 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h4><p>现在有三个国家, A B C.</p>
 <p>A要联合B一起攻打C, 于是送信给B国, 告诉他XXX时间, 你我两国一起攻打C国. </p>
-<p><img src="/Blog/intro/countryfight.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/countryfight.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>但问题是, 信使送信可能会被C国截获, 导致B不知道要攻打C国, 而A国却在约定的时间傻fufu地冲上去了. </p>
 <p>所以B国要给A国回个信, 告诉他, “我知道了, 在XXX时间, 咱俩一起进攻C国”</p>
 <p>问题又来了, 信使送信可能会被C国截获, B国知道要在XXX时间攻打C国, 但A不知道B知道(有点绕口),</p>

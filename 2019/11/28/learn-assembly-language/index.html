@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="预先了解: 什么是汇编语言和寄存器: http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;01&#x2F;assembly-language-primer.html windows与linux汇编差异: https:&#x2F;&#x2F;blog.csdn.net&#x2F;chuchus&#x2F;article&#x2F;details&#x2F;38469403 如何使用gdb查看汇编代码: https:&#x2F;&#x2F;blog.csdn.net&#x2F;">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/difference_assembly_language.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/x86_intel_register.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/rax_and_eax_cpp.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/rax_and_eax_relationship.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/eax_detail.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/use_asm_in_cpp.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/difference_assembly_language.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/x86_intel_register.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/rax_and_eax_cpp.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/rax_and_eax_relationship.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/eax_detail.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/use_asm_in_cpp.PNG">
 <meta property="article:published_time" content="2019-11-29T00:52:47.000Z">
 <meta property="article:modified_time" content="2019-12-14T05:15:26.419Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/difference_assembly_language.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/difference_assembly_language.PNG">
   
   
   <title>汇编语言学习 - Daolin&#39;s Repository</title>
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      2.4k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      20 分钟
     </span>
   
 
@@ -253,7 +253,7 @@
 </blockquote>
 <span id="more"></span>
 
-<h1 id="x64-intel-汇编"><a href="#x64-intel-汇编" class="headerlink" title="x64 intel 汇编"></a>x64 intel 汇编</h1><p><img src="/Blog/intro/difference_assembly_language.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h1 id="x64-intel-汇编"><a href="#x64-intel-汇编" class="headerlink" title="x64 intel 汇编"></a>x64 intel 汇编</h1><p><img src="/Blog/Blog/intro/difference_assembly_language.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此图初学不用掌握, 后面会讲解每个指令</p>
 <br>
 
@@ -271,12 +271,12 @@
 <br>
 
 <p>通常, CPU会先将内存中的数据存到内存中, 然后再对寄存器中的数据进行运算, 再赋值回去.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 伪代码 b = a+1</span><br><span class="line"></span><br><span class="line"># 1.把a的值读取到寄存器</span><br><span class="line">mov eax, [a]</span><br><span class="line"></span><br><span class="line"># 2.对寄存器内的数据进行+1</span><br><span class="line">add eax, 1</span><br><span class="line"></span><br><span class="line"># 3.赋值回去</span><br><span class="line">mov [b], eax</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><pre><code class="hljs assembly"># 伪代码 b = a+1<br><br># 1.把a的值读取到寄存器<br>mov eax, [a]<br><br># 2.对寄存器内的数据进行+1<br>add eax, 1<br><br># 3.赋值回去<br>mov [b], eax<br></code></pre></td></tr></table></figure>
 
 <br>
 
 <h3 id="x64-汇编-寄存器"><a href="#x64-汇编-寄存器" class="headerlink" title="x64 汇编 - 寄存器"></a>x64 汇编 - 寄存器</h3><p>不同汇编(AT&amp;T)的寄存器也可能不一样</p>
-<p><img src="/Blog/intro/x86_intel_register.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/x86_intel_register.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>主要关注最左边的那一列</p>
 <p>RAX \ RBX \ RCX \ RDX 一般被称为通用寄存器</p>
 <p>而剩余的那部分一般习惯用于特殊用途, 严格来说这些也是通用寄存器</p>
@@ -288,7 +288,7 @@
 <br>
 
 <h3 id="RAX-和-EAX"><a href="#RAX-和-EAX" class="headerlink" title="RAX 和 EAX"></a>RAX 和 EAX</h3><p>然而在通过VS对c++进行反编译时, 我们却可以看到还有eax, 那么什么是eax? rax和eax之间有什么关系?</p>
-<p><img src="/Blog/intro/rax_and_eax_cpp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rax_and_eax_cpp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>64bit (64位环境下), RAX \ RBX \ RCX \ RDX 是通用寄存器</p>
@@ -304,7 +304,7 @@
 <br>
 
 <p>但是为了<strong>向后兼容</strong>, 它被设计成这样</p>
-<p><img src="/Blog/intro/rax_and_eax_relationship.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rax_and_eax_relationship.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>它把64位寄存器的<strong>一半</strong>拿出来, 当作32位的寄存器用, 正如最开始那张图上所表示, 这些寄存器是分为2半的, 左边和右边各4个字节, 其中最低的4个字节就是eax寄存器.</p>
 <p><strong>rax 里面包含 eax</strong></p>
 <p>同理, 32位为了兼容16位, 也分出一半 (最低的两个字节) 给ax来用</p>
@@ -316,37 +316,37 @@
 
 <p>一般R开头的寄存器是64bit, 占8字节</p>
 <p>一般E开头的寄存器是32bit, 占4字节</p>
-<p><img src="/Blog/intro/eax_detail.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/eax_detail.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>ABCD这四个通用寄存器在汇编的发展过程中是一直存在的</p>
 <br>
 
-<h2 id="在c-中嵌入汇编-内联汇编"><a href="#在c-中嵌入汇编-内联汇编" class="headerlink" title="在c++中嵌入汇编 (内联汇编)"></a>在c++中嵌入汇编 (内联汇编)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">// 内联汇编</span></span><br><span class="line">	__asm &#123;</span><br><span class="line">		mov eax, a</span><br><span class="line">		add eax, <span class="number">1</span></span><br><span class="line">		mov a, eax</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="在c-中嵌入汇编-内联汇编"><a href="#在c-中嵌入汇编-内联汇编" class="headerlink" title="在c++中嵌入汇编 (内联汇编)"></a>在c++中嵌入汇编 (内联汇编)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-comment">// 内联汇编</span><br>	__asm &#123;<br>		mov eax, a<br>		add eax, <span class="hljs-number">1</span><br>		mov a, eax<br>	&#125;<br>	cout &lt;&lt; a &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>通过 __asm包裹的代码就是汇编代码, 但它只是表面上的汇编, 真实的汇编不可能有a这个东西</p>
-<p><img src="/Blog/intro/use_asm_in_cpp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_asm_in_cpp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__asm &#123;</span><br><span class="line">	mov ax, 10</span><br><span class="line">	mov eax, 11223344H</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">__asm &#123;<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ax</span>, <span class="hljs-number">10</span><br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>, <span class="hljs-number">11223344H</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>考虑这段代码, 当对eax进行赋值时会覆盖掉ax, 同样对ax的更改也会影响到eax的低2位</p>
 <br>
 
 <h2 id="intel-汇编指令学习"><a href="#intel-汇编指令学习" class="headerlink" title="intel 汇编指令学习"></a>intel 汇编指令学习</h2><h3 id="mov-dest-src"><a href="#mov-dest-src" class="headerlink" title="mov dest src"></a>mov dest src</h3><p>将 src 的内容赋值给 dest</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mov dest src</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mov</span> dest src<br></code></pre></td></tr></table></figure>
 
 <h3 id="地址值"><a href="#地址值" class="headerlink" title="[地址值]"></a>[地址值]</h3><p>中括号[ ] 里面放的都是内存地址</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mov dword ptr [ebp-8], 3</span><br><span class="line"></span><br><span class="line"># 假设 ebp-8的值为1122h, 同时省略前面一大串</span><br><span class="line"># 将3这个值放到1122h这个地址所在的存储空间</span><br><span class="line">mov [1122h], 3</span><br><span class="line"></span><br><span class="line"># 然而赋值是要提前知道容器所占空间的大小</span><br><span class="line"># 例如: int a = 5, int是4个字节, 就是说用4个字节存储5</span><br><span class="line"># 所以当我们把数值放入某块内存空间时要指定单位</span><br><span class="line"># word    是 2个字节</span><br><span class="line"># dword   是 4个字节(double word)</span><br><span class="line"># qword   是 8个字节(quad word)</span><br><span class="line"># ptr 是固定写法</span><br><span class="line">mov dword ptr [1122h], 3</span><br><span class="line"></span><br><span class="line"># 但1122h 这个地址只占一个字节, 怎么才会占4个字节?</span><br><span class="line"># 要么向上延伸, 要么向下延伸</span><br><span class="line"># 一般来说都是往高地址走, 即占用1122h, 1123h, 1124h, 1125h</span><br><span class="line"></span><br><span class="line"># 从1122h这个存储空间读取4个字节到eax</span><br><span class="line"># 同样往高地址走, 读取 1122h, 1123h, 1124h, 1125h</span><br><span class="line">mov eax, dword ptr [1122h]</span><br><span class="line"></span><br><span class="line"># 同样我们可以在vs的内存中找到地址, 计算里面的值是不是我们要的结果, 注意读取的顺序, 因为cpu有大小端模式, 通常我们使用的都是小端模式, 即从低字节开始存储,</span><br><span class="line"># 一个变量的地址值, 是它所有字节地址中的最小值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs assembly">mov dword ptr [ebp-8], 3<br><br># 假设 ebp-8的值为1122h, 同时省略前面一大串<br># 将3这个值放到1122h这个地址所在的存储空间<br>mov [1122h], 3<br><br># 然而赋值是要提前知道容器所占空间的大小<br># 例如: int a = 5, int是4个字节, 就是说用4个字节存储5<br># 所以当我们把数值放入某块内存空间时要指定单位<br># word    是 2个字节<br># dword   是 4个字节(double word)<br># qword   是 8个字节(quad word)<br># ptr 是固定写法<br>mov dword ptr [1122h], 3<br><br># 但1122h 这个地址只占一个字节, 怎么才会占4个字节?<br># 要么向上延伸, 要么向下延伸<br># 一般来说都是往高地址走, 即占用1122h, 1123h, 1124h, 1125h<br><br># 从1122h这个存储空间读取4个字节到eax<br># 同样往高地址走, 读取 1122h, 1123h, 1124h, 1125h<br>mov eax, dword ptr [1122h]<br><br># 同样我们可以在vs的内存中找到地址, 计算里面的值是不是我们要的结果, 注意读取的顺序, 因为cpu有大小端模式, 通常我们使用的都是小端模式, 即从低字节开始存储,<br># 一个变量的地址值, 是它所有字节地址中的最小值<br></code></pre></td></tr></table></figure>
 
 <br>
 
 <h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>调用函数, 后面接函数的地址</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call    00081000</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs assembly">call    00081000<br></code></pre></td></tr></table></figure>
 
 <br>
 
 <h3 id="lea-dest-地址值"><a href="#lea-dest-地址值" class="headerlink" title="lea dest, [地址值]"></a>lea dest, [地址值]</h3><p>与mov的差别</p>
 <p>load effect address 装在一个有效的地址值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 直接将1122h这个地址值赋值给eax</span><br><span class="line"># eax == 1122h</span><br><span class="line">lea eax, [1122h]</span><br><span class="line"></span><br><span class="line"># 把1122h这个地址内存储的数据赋值给eax</span><br><span class="line">mov eax, dword ptr [1122h]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs assembly"># 直接将1122h这个地址值赋值给eax<br># eax == 1122h<br>lea eax, [1122h]<br><br># 把1122h这个地址内存储的数据赋值给eax<br>mov eax, dword ptr [1122h]<br></code></pre></td></tr></table></figure>
 
 <br>
 

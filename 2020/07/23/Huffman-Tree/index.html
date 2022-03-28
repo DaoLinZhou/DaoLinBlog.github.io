@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      654 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      6 分钟
     </span>
   
 
@@ -244,12 +244,12 @@
 <span id="more"></span>
 
 <h1 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h1><h2 id="哈夫曼编码-Huffman-Coding"><a href="#哈夫曼编码-Huffman-Coding" class="headerlink" title="哈夫曼编码(Huffman Coding)"></a>哈夫曼编码(Huffman Coding)</h2><p>是现代压缩算法的基础.</p>
-<p><img src="/Blog/intro/huffman_coding_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/huffman_coding_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>然而使用哈夫曼编码可以压缩至41个二进制位. 约为原来长度的68%(不过传输的时候也要把树一起传输过去. 某些情况下甚至可能比原来还长)</p>
 <br>
 
 <h2 id="哈夫曼树-1"><a href="#哈夫曼树-1" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><p>先计算出每个字母的出现频率(作为权值)</p>
-<p><img src="/Blog/intro/huffman_coding_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/huffman_coding_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>利用这些权值, 构建一颗哈夫曼树</p>
 <br>
 
@@ -262,13 +262,13 @@
 </ol>
 <br>
 
-<p><img src="/Blog/intro/huffman_coding_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/intro/huffman_coding_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/huffman_coding_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/huffman_coding_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>最后这颗树就是哈夫曼树</p>
 <br>
 
 <h2 id="构建哈夫曼编码"><a href="#构建哈夫曼编码" class="headerlink" title="构建哈夫曼编码"></a>构建哈夫曼编码</h2><p>left 为0, right 为1, 可以得到5个字母对应的哈夫曼编码</p>
-<p><img src="/Blog/intro/huffman_coding_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/huffman_coding_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <table>
 <thead>
 <tr>
@@ -287,7 +287,7 @@
 <td align="center">1111</td>
 </tr>
 </tbody></table>
-<p> <img src="/Blog/intro/huffman_coding_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/huffman_coding_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于每个字母的编码都不是另外一个字母编码的<strong>前缀</strong> 所以一定能解析出来</p>
 <br>
 
