@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="简单线性回归和多元线性回归 以及MSE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3入门机器学习(3)-线性回归法">
+<meta property="og:url" content="http://example.com/2020/04/27/machine-learning-3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简单线性回归和多元线性回归 以及MSE">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/intro/muti_l_reg_2.PNG">
+<meta property="article:published_time" content="2020-04-28T02:47:19.000Z">
+<meta property="article:modified_time" content="2020-05-04T06:24:19.328Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python3">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/intro/muti_l_reg_2.PNG">
+  
+  
+  <title>python3入门机器学习(3)-线性回归法 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/intro/longyin.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python3入门机器学习(3)-线性回归法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-27 19:47" pubdate>
+        April 27, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python3入门机器学习(3)-线性回归法</h1>
+            
+            <div class="markdown-body">
+              <p>简单线性回归和多元线性回归</p>
+<p>以及MSE</p>
+<span id="more"></span>
+
+<h1 id="线性回归法-Linear-Regression"><a href="#线性回归法-Linear-Regression" class="headerlink" title="线性回归法 Linear Regression"></a>线性回归法 Linear Regression</h1><ul>
+<li>解决回归问题</li>
+<li>思想简单, 实现容易</li>
+<li>许多强大的非线性模型的基础</li>
+<li>结果具有很好的可解释性</li>
+<li>蕴含机器学习中的很多重要思想</li>
+</ul>
+<br>
+
+<h2 id="什么是线性回归算法"><a href="#什么是线性回归算法" class="headerlink" title="什么是线性回归算法"></a>什么是线性回归算法</h2><p><img src="/Blog/intro/linear_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>现在在坐标平面上每一个点都表示一个数据, 线性回归算法说: 我们认为房屋的面积(X) 和房屋的价格(Y) 成线性关系</p>
+<p>即随着房屋面积的增大, 价格也跟着增大</p>
+<p>再这样的假设下, 我们可不可以找到一条直线, 最大程度”拟合”样本特征和样本输出之间的关系</p>
+<p><img src="/Blog/intro/linear_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>注意: 同样是画出一个二维平面图, 可是现在的二维平面图和kNN分类问题的二维平面图有很大的区别</p>
+<p><img src="/Blog/intro/knn_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于分类问题来说, <strong>横轴和纵轴都是样本的特征</strong>, 就是说每一个点有2个样本特征: 肿瘤的大小, 和肿瘤的发现时间</p>
+<p>而这个样本的输出标记是什么? 是被这个点是蓝色的点还是红色的点所表示的</p>
+<p><img src="/Blog/intro/linear_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>但是在线性回归算法例子中, 之后<strong>横轴是样本特征, 纵轴就已经是样本的输出标记了</strong></p>
+<p>这是因为在回归问题中, 真正要预测的是一个具体的数值, 这个具体的数值实在一个连续的空间里的, 而不是简单的可以用不同颜色代表不同类别来区分的, 所以它需要占用一个坐标轴的位置</p>
+<p>如果想看有两个样本特征的回归问题的话, 就需要在3维空间中进行观测了</p>
+<p><img src="/Blog/intro/linear_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于样本特征只有一个, 称为<strong>简单线性回归</strong></p>
+<p>顾名思义, 简单线性回归是更加简单的, 通过对简单线性回归的学习, 其实可以学习到线性回归算法的很多内容, 之后再将它推广到样本特征有多个的情况下(<strong>多元线性回归</strong>)</p>
+<br>
+
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p><img src="/Blog/intro/linear_reg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>要找到一个回归线在最大程度拟合这些点, 回归线的形式就是y&#x3D;ax+b, a是斜率, b是截距</p>
+<p><img src="/Blog/intro/linear_reg_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>相应对于第i个点来说就对应一个样本特征x<sup>(i)</sup>, 对应的输出标记就是y<sup>(i)</sup></p>
+<p><img src="/Blog/intro/linear_reg_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>如果我们找到y&#x3D;ax+b这条直线的话, 换句话说找到 a 和 b 的话, 就可以把 x<sup>(i) </sup> 代入式子中</p>
+<p>得到的值就是使用简单线性回归法预测出来的对于x<sup>(i)</sup>这个值对应y的预测, 通常用 y_hat<sup>(i)</sup> 表示, 相应的, 预测值和真值之间就会有一个差距.</p>
+<p>假设我们找到了最佳拟合的直线方程, 那么我们就希望 y<sup>(i)</sup> 和 y_hat<sup>(i)</sup> 的差距尽可能小</p>
+<p>表达 y<sup>(i)</sup> 和 y_hat<sup>(i)</sup> 的差距:<br>$$<br>y^{(i)} - \hat y^{(i)}<br>$$<br>但是有可能值为负数, 这是不合理的, 因此还有一种办法就是使用绝对值<br>$$<br>|y^{(i)} - \hat y^{(i)}|<br>$$<br>使用绝对值表示是可以的, 但是在后面计算a, b的时候使用绝对值是非常不方便的, 因为这个函数不是处处可导的函数, 但是为了计算 a 和 b 的值需要找到方程的极值, 需要整个函数可导. <strong>不过, 在衡量线性回归法的性能时还会用到绝对值这个思想</strong></p>
+<p>如果不使用绝对值, 那么一个非常简单的思路就是求平方<br>$$<br>(y^{(i)} - \hat y^{(i)})^2<br>$$<br>既抵消了正负号, 这个函数又是一个处处可导的函数. 用它来衡量y<sup>(i)</sup> 和 y_hat<sup>(i)</sup> 的差距, 相应的考虑到所有的样本的话, 就是这样的一个式子<br>$$<br>\sum^m_{i&#x3D;1} (y^{(i)} - \hat y^{(i)})^2<br>$$<br>现在的目标就是使得上面这个式子尽可能小, 而我们知道<br>$$<br>\hat y^{(i)} &#x3D; ax^{(i)}+b<br>$$<br>代入上面的式子中就是<br>$$<br>\sum^m_{i&#x3D;1} (y^{(i)} - ax^{(i)}-b)^2<br>$$<br>现在目标就是找到 a 和 b 的值, 使得这个式子尽可能小</p>
+<p>注意: 对于这个式子来说只有a和b两个值是未知数, 我们已知所有的 y<sup>(i)</sup>和x<sup>(i)</sup>, 因为是监督学习, 我们要首先提供一组数据, 这组数据中的每一个样本都有它对应的x和y</p>
+<br>
+
+<h3 id="抽象出参数学习的一个核心思想"><a href="#抽象出参数学习的一个核心思想" class="headerlink" title="抽象出参数学习的一个核心思想"></a>抽象出参数学习的一个核心思想</h3><p><img src="/Blog/intro/linear_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>先不急着求具体的数值, 先看一下目前为止推导出来的目标</p>
+<p><strong>找到某一些参数, 使得某一个函数尽可能小</strong>, 这是典型的一种机器学习算法的推导思路</p>
+<p>换句话说我们所谓的建模的过程, 就是找到一个模型, 最大程度拟合数据, 在线性回归算法中, 这个模型就是一个直线方程</p>
+<p>所谓的最大拟合数据, 其实本质就是找到这样一个函数, 我们称这个函数为<strong>损失函数(loss function)</strong>, 也就是说度量出模型没有拟合住样本的这一部分</p>
+<blockquote>
+<p>有的算法中度量拟合的部分, 这种情况下, 称这个函数为<strong>效用函数(utility function)</strong></p>
+</blockquote>
+<p class="note note-success">不管是损失函数还是效用函数, 机器学习算法都是通过分析问题, 确定问题的损失函数或者效用函数(有时候统称为目标函数), 通过最优化损失函数或着效用函数, 获得机器学习的模型</p>
+
+<p class="note note-warning">这里所说的不是具体某个算法, 而是一种求解机器学习算法的思路</p>
+
+<p>近乎可以说所有的<strong>参数学习</strong>算法都是这样一个套路: 线性回归, 多项式回归, 逻辑回归, SVM, 神经网络… …</p>
+<blockquote>
+<p>正是因为机器学习中大部分的算法都拥有这样一个思路, 有一个学科就显得非常重要: <strong>最优化原理</strong></p>
+<p>实际上最优化原理绝对不仅仅是机器学习算法中所使用的思路, 在传统算法领域中, 最优化原理也发挥着重要的作用</p>
+<p>因为计算机解决的大部分问题其实本质都是最优化问题: 最短路径, 最小生成树……</p>
+<p>在最优化原理领域还有一个分支是<strong>凸优化</strong>, 它解决的是特殊的优化问题</p>
+</blockquote>
+<br>
+
+<h3 id="a和b的数学推导"><a href="#a和b的数学推导" class="headerlink" title="a和b的数学推导"></a>a和b的数学推导</h3><p>回到我们的目标</p>
+<p><img src="/Blog/intro/linear_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这个问题是一个典型的最小二乘法问题: 最小化误差的平方</p>
+<p>通过最小二乘法我们可以求出具体的a和b的表达式</p>
+<p><img src="/Blog/intro/linear_reg_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>$$<br>\sum^m_{i&#x3D;1} (y^{(i)} - ax^{(i)}-b)^2&#x3D;J(a,b)<br>$$<br>把这个式子叫做 J(a, b), 一定要注意, 对于这个式子a和b才是未知数, 而不是x, y. x和y是监督学习提供给我们的已知的信息</p>
+<p>数学上很多时候用 J 表示损失函数, 有一些教材使用 cost 的方式所谓损失函数</p>
+<p>现在要求损失函数的最小值, 就是求这个函数的极值</p>
+<p>求函数极值的一个最基本的方法就是对这个函数的各个未知分量求导(求偏导) 让它的导数等于0, 在导数等于 0 的地方, 就是函数极值的地方</p>
+<p><img src="/Blog/intro/linear_reg_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="推导b"><a href="#推导b" class="headerlink" title="推导b"></a>推导b</h4><p>$$<br>\sum^m_{i&#x3D;1} (y^{(i)} - ax^{(i)}-b)^2<br>$$</p>
+<p>对b求偏导, 把其余未知量都当作常量, 对b求导</p>
+<p><img src="/Blog/intro/linear_reg_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们可以将它拆开<br>$$<br>\sum^m_{i&#x3D;1}y^{(i)}-a\sum^m_{i&#x3D;1}x^{(i)}-\sum^m_{i&#x3D;1}b&#x3D;0<br>$$<br>由于b是一个常数, 所以最后一项相当于m个b相乘, 因此式子被化成这个样子<br>$$<br>\sum^m_{i&#x3D;1}y^{(i)}-a\sum^m_{i&#x3D;1}x^{(i)}-m*b&#x3D;0<br>$$</p>
+<p>$$<br>mb&#x3D;\sum^m_{i&#x3D;1}y^{(i)}-a\sum^m_{i&#x3D;1}x^{(i)}<br>$$</p>
+<p>此时等式两边同时除以m, 所有 y<sup>(i)</sup> 的和除以m就是y的均值, 同理所有 x<sup>(i)</sup> 的和除以m就是x的均值<br>$$<br>b&#x3D;\bar y-a\bar x<br>$$<br><br></p>
+<h4 id="推导a"><a href="#推导a" class="headerlink" title="推导a"></a>推导a</h4><p>$$<br>\sum^m_{i&#x3D;1} (y^{(i)} - ax^{(i)}-b)^2<br>$$</p>
+<p>对a求偏导, 把其余未知量都当作常量, 对a求导</p>
+<p><img src="/Blog/intro/linear_reg_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>由于我们已经求出 b 的表达式, 我们就可以把 b 带入式子中<br>$$<br>\sum^m_{i&#x3D;1} (y^{(i)} - ax^{(i)}-\bar y+a\bar x)x^{(i)}&#x3D;0<br>$$<br>现在对于这个式子来说只有a这一个未知数, 所以整理出来以后就能得到 a 的表达式</p>
+<p>首先把外面的 x<sup>(i)</sup> 乘进括号里<br>$$<br>\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - a(x^{(i)})^2-x^{(i)}\bar y+a\bar xx^{(i)})<br>$$</p>
+<p>$$<br>\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - x^{(i)}\bar y-a(x^{(i)})^2+a\bar xx^{(i)})<br>$$</p>
+<p>$$<br>\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - x^{(i)}\bar y)-\sum^m_{i&#x3D;1} (a(x^{(i)})^2-a\bar xx^{(i)})<br>$$</p>
+<p>此时未知数a都在后面, 作为所有项的一个归并项<br>$$<br>\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - x^{(i)}\bar y)-a\sum^m_{i&#x3D;1} ((x^{(i)})^2-\bar xx^{(i)})&#x3D;0<br>$$</p>
+<p>$$<br>a&#x3D;\frac{\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - x^{(i)}\bar y)} {\sum^m_{i&#x3D;1} ((x^{(i)})^2-\bar xx^{(i)})}<br>$$</p>
+<p>其实这个a已经是最后的结果了, 如果编程的话, 使用按照这个式子去计算 a 是没有问题的</p>
+<p>不过我们在对这个式子进行一下整理, 会得到一个更为简洁的表达式, 而对于这个更加简洁的表达式, 我们可以在编程时使用一些技巧加速它的过程</p>
+<p> 看看对于a这个式子还能怎么变型<br>$$<br>a&#x3D;\frac{\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - x^{(i)}\bar y)} {\sum^m_{i&#x3D;1} ((x^{(i)})^2-\bar xx^{(i)})}<br>$$<br>由于<br>$$<br>\sum^m_{i&#x3D;1} x^{(i)}&#x3D;m\bar x<br>$$<br><img src="/Blog/intro/linear_reg_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>相当于是将x和y的位置对调了, 同时还能推出这个, 因为x_bar, y_bar都是常数</p>
+<p><img src="/Blog/intro/linear_reg_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这两项是一样的</p>
+<p><img src="/Blog/intro/linear_reg_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>有了这个结论, 就可以对a这个式子进行下变换<br>$$<br>a&#x3D;\frac{\sum^m_{i&#x3D;1} (x^{(i)}y^{(i)} - x^{(i)}\bar y)} {\sum^m_{i&#x3D;1} ((x^{(i)})^2-\bar xx^{(i)})}<br>$$<br><img src="/Blog/intro/linear_reg_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>因为<br>$$<br>\sum^m_{i&#x3D;1}\bar xy^{(i)} &#x3D;\sum^m_{i&#x3D;1} \bar x\bar y<br>$$</p>
+<p>$$<br>\sum^m_{i&#x3D;1}\bar xx^{(i)} &#x3D;\sum^m_{i&#x3D;1} \bar x\bar x<br>$$</p>
+<p>用因式分解整理一下</p>
+<p><img src="/Blog/intro/linear_reg_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>此时a就变成了更为干净的一个式子,虽然和原来的复杂度差不多. 在具体实现是其实我们会看到, 对于这个式子在实现的时候会简单很多</p>
+<br>
+
+<h2 id="实现Simple-Linear-Regression"><a href="#实现Simple-Linear-Regression" class="headerlink" title="实现Simple Linear Regression"></a>实现Simple Linear Regression</h2><p>通过上面的公式进行变成实现公式</p>
+<p><img src="/Blog/intro/fomular_simp_l_r.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/simple_linear_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 后面会拓展为X来表示矩阵</span></span><br><span class="line">    x = np.array([<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>, <span class="number">4.</span>, <span class="number">5.</span>])</span><br><span class="line">    y = np.array([<span class="number">1.</span>, <span class="number">3.</span>, <span class="number">2.</span>, <span class="number">3.</span>, <span class="number">5.</span>])</span><br><span class="line"></span><br><span class="line">    x_mean = np.mean(x)</span><br><span class="line">    y_mean = np.mean(y)</span><br><span class="line"></span><br><span class="line">    num = <span class="number">0.0</span></span><br><span class="line">    d = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> x_i, y_i <span class="keyword">in</span> <span class="built_in">zip</span>(x, y):</span><br><span class="line">        num += (x_i - x_mean) * (y_i - y_mean)</span><br><span class="line">        d += (x_i - x_mean) ** <span class="number">2</span></span><br><span class="line">    a = num / d</span><br><span class="line">    b = y_mean - a * x_mean</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(a)   <span class="comment"># 0.8</span></span><br><span class="line">    <span class="built_in">print</span>(b)   <span class="comment"># 0.4</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 画预测线</span></span><br><span class="line">    y_hat = a * x + b</span><br><span class="line">    plt.scatter(x, y)</span><br><span class="line">    plt.plot(x, y_hat, color=<span class="string">&quot;red&quot;</span>)</span><br><span class="line">    plt.axis([<span class="number">0</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">6</span>])</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/fomular_simp_l_r_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>如果新来了一个x&#x3D;6, 那么预测的y就是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_predict = <span class="number">6</span></span><br><span class="line">y_predict = a * x_predict + b    <span class="comment"># 5.2</span></span><br></pre></td></tr></table></figure>
+
+<p>一旦把公式推导出来后, 实现是非常容易的</p>
+<br>
+
+<p>使用scikit-learn中的封装方法对SimpleLinearRegression进行封装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一个版本</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleLinearRegression1</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化 Simple Linear Regression 模型&quot;&quot;&quot;</span></span><br><span class="line">        self.a_ = <span class="literal">None</span></span><br><span class="line">        self.b_ = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, x_train, y_train</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; 根据训练数据集x_train, y_train训练Simple Linear Regression 模型 &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> x_train.ndim == <span class="number">1</span>, \</span><br><span class="line">            <span class="string">&quot;Simple Linear Regressor can only solve single feature training data&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">len</span>(x_train) == <span class="built_in">len</span>(y_train), \</span><br><span class="line">            <span class="string">&quot;the size of x_train must be equal to the size of y_train&quot;</span></span><br><span class="line">        x_mean = np.mean(x_train)</span><br><span class="line">        y_mean = np.mean(y_train)</span><br><span class="line"></span><br><span class="line">        num = <span class="number">0.0</span></span><br><span class="line">        d = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> x_i, y_i <span class="keyword">in</span> <span class="built_in">zip</span>(x_train, y_train):</span><br><span class="line">            num += (x_i - x_mean) * (y_i - y_mean)</span><br><span class="line">            d += (x_i - x_mean) ** <span class="number">2</span></span><br><span class="line">        self.a_ = num / d</span><br><span class="line">        self.b_ = y_mean - self.a_ * x_mean</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, x_predict</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定待预测数据集x_predict, 返回表示x_predict的结果向量&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> x_predict.ndim == <span class="number">1</span>, \</span><br><span class="line">            <span class="string">&quot;Simple Linear Regressor can only solve single feature training data.&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.a_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.b_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>, \</span><br><span class="line">            <span class="string">&quot;must fit before predict!&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> np.array([self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> x_predict])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_predict</span>(<span class="params">self, x_single</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定单个待预测数据x_single, 返回x_signle的预测结果值&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> self.a_ * x_single + self.b_</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;SimpleLinearRegression1()&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到和kNN算法的区别, 根本不需要保存训练数据集, 训练数据集的意义就是训练模型的参数</p>
+<p>一旦fit得到的参数a和b, 那么训练数据集就没有用了</p>
+<p>在具体预测时, 只需要使用学习到的a和b这两个值对每一个预测数据进行计算就好了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    x = np.array([<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>, <span class="number">4.</span>, <span class="number">5.</span>])</span><br><span class="line">    y = np.array([<span class="number">1.</span>, <span class="number">3.</span>, <span class="number">2.</span>, <span class="number">3.</span>, <span class="number">5.</span>])</span><br><span class="line">    x_predict = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">    reg1 = SimpleLinearRegression1()</span><br><span class="line">    reg1.fit(x, y)</span><br><span class="line">    y_predict = reg1.predict(np.array([x_predict]))</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(reg1.a_)		<span class="comment"># 0.8</span></span><br><span class="line">    <span class="built_in">print</span>(reg1.b_)		<span class="comment"># 0.4</span></span><br><span class="line">    <span class="built_in">print</span>(y_predict)	<span class="comment"># [5.2]</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="向量化运算"><a href="#向量化运算" class="headerlink" title="向量化运算"></a>向量化运算</h2><p><img src="/Blog/intro/linear_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们的目的是优化这样一个损失函数, 使得这个损失函数达到最小值</p>
+<p><img src="/Blog/intro/fomular_simp_l_r.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>b的计算非常简单, 主要是a的计算</p>
+<p>然而使用for循环的方式效率是比较低的, 如果我们把循环的方式改为向量运算的方式, 性能会大大提升, 这就是向量化运算</p>
+<p>然而, 仔细观察a这个式子</p>
+<p><img src="/Blog/intro/simple_linear_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>a的分子相当于两个向量进行点乘, 即两个向量各个元素相乘再相加. </p>
+<p><img src="/Blog/intro/vec_simple_linear_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> a的分母就是两个w进行点乘</p>
+<p>这样就可以直接使用numpy中向量的运算法则快速地求出来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleLinearRegression2</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化 Simple Linear Regression 模型&quot;&quot;&quot;</span></span><br><span class="line">        self.a_ = <span class="literal">None</span></span><br><span class="line">        self.b_ = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, x_train, y_train</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot; 根据训练数据集x_train, y_train训练Simple Linear Regression 模型 &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> x_train.ndim == <span class="number">1</span>, \</span><br><span class="line">            <span class="string">&quot;Simple Linear Regressor can only solve single feature training data&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">len</span>(x_train) == <span class="built_in">len</span>(y_train), \</span><br><span class="line">            <span class="string">&quot;the size of x_train must be equal to the size of y_train&quot;</span></span><br><span class="line">        x_mean = np.mean(x_train)</span><br><span class="line">        y_mean = np.mean(y_train)</span><br><span class="line"></span><br><span class="line">        w = x_train - x_mean</span><br><span class="line">        v = y_train - y_mean</span><br><span class="line">		</span><br><span class="line">        <span class="comment"># 向量化运算</span></span><br><span class="line">        self.a_ = w.dot(v)/w.dot(w)</span><br><span class="line">        self.b_ = y_mean - self.a_ * x_mean</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, x_predict</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定待预测数据集x_predict, 返回表示x_predict的结果向量&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> x_predict.ndim == <span class="number">1</span>, \</span><br><span class="line">            <span class="string">&quot;Simple Linear Regressor can only solve single feature training data.&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.a_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.b_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>, \</span><br><span class="line">            <span class="string">&quot;must fit before predict!&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> np.array([self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> x_predict])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_predict</span>(<span class="params">self, x_single</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定单个待预测数据x_single, 返回x_signle的预测结果值&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> self.a_ * x_single + self.b_</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;SimpleLinearRegression2()&quot;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="衡量线性回归法的指标"><a href="#衡量线性回归法的指标" class="headerlink" title="衡量线性回归法的指标"></a>衡量线性回归法的指标</h2><p><img src="/Blog/intro/train_test_split.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>kNN算法是把原始数据集分为<strong>训练数据集</strong>和<strong>测试数据集</strong>, 用训练数据集训练出模型, 然后使用模型来预测测试数据集, 将预测结果和真实的结果进行对比, 得到<strong>分类准确度</strong>, 用它来衡量算法的性能</p>
+<p>而对于回归算法, 应该如何评价模型的好坏?</p>
+<br>
+
+<p>以简单线性回归算法为例, 来说明问题.</p>
+<p><img src="/Blog/intro/linear_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>而在使用的时候也是要把原始数据分为训练数据集和测试数据集</p>
+<p>而找到a和b使得上面的式子尽可能小其实是对训练数据集来说的</p>
+<p><img src="/Blog/intro/simple_linear_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>其实也就是 y_train的真实数据 和 y_train的预测数据 的差的平方尽可能小</p>
+<p><img src="/Blog/intro/simple_linear_reg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>当我们训练结束后得到 a 和 b, 将x_test代入a 和 b 中去. 相应地得到 y 的预测值<br>$$<br>\hat y_{test}^{(i)} &#x3D; ax_{test}^{(i)}+b<br>$$<br>显然可以和训练时的目标函数一样, 把测试数据代入损失函数作为衡量标准</p>
+<p><img src="/Blog/intro/simple_linear_reg_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>不过这里有一个问题, 这个衡量标准是和m相关的</p>
+<p>如果两个人都做了一个房产预测算法, A用这个标准得到的误差的平方和的累计是1000, 而B得到的误差是800. 这就说明B的短发更好吗?</p>
+<p>显然不能, 因为我们不知道A, B 的测试数据集的数量. 如果A的测试数据集有10000个元素, 误差的累计只有1000, 而B的测试数据集有10个元素, 误差的累计就已经达到800</p>
+<br>
+
+<h3 id="均方误差-MSE-Mean-Squared-Error"><a href="#均方误差-MSE-Mean-Squared-Error" class="headerlink" title="均方误差 MSE (Mean Squared Error)"></a>均方误差 MSE (Mean Squared Error)</h3><p>所以我们可以非常简单地改进一下这个衡量标准</p>
+<p><img src="/Blog/intro/MSE_fomular.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>就是取一下平均值, 相当于让衡量标准和测试样本数无关</p>
+<p>这个衡量标准还是有关问题, 就是量纲上的问题. 如果预测房产以万元为单位, 那么这个衡量标准就是万元的平方</p>
+<p>这个量纲有的时候可能会带来麻烦, 所以一个简单的改进方式就是开一下根</p>
+<br>
+
+<h3 id="均方根误差-RMSE-Root-Mean-Squared-Error"><a href="#均方根误差-RMSE-Root-Mean-Squared-Error" class="headerlink" title="均方根误差 RMSE (Root Mean Squared Error)"></a>均方根误差 RMSE (Root Mean Squared Error)</h3><p><img src="/Blog/intro/rMSE_fomular.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这样, 量纲就和y的量纲是一致的</p>
+<p>其实 RMSE 和 MSE 本质是一样的 (尽管两者的值不同)</p>
+<p>MSE大, RMSE也跟着大, 反之亦然. 他们具体的区别就是在作报告时, 对量纲是否敏感</p>
+<p>在某些时候, 使用RMSE采用同样的量纲的话, 这个误差背后的<strong>意义</strong>将更加明显</p>
+<br>
+
+<h3 id="平均绝对误差-MAE-Mean-Absolute-Error"><a href="#平均绝对误差-MAE-Mean-Absolute-Error" class="headerlink" title="平均绝对误差 MAE (Mean Absolute Error)"></a>平均绝对误差 MAE (Mean Absolute Error)</h3><p>对于线性回归算法还有另外一个评测标准:</p>
+<p><img src="/Blog/intro/mae.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>它的意思就是, 既然对于每一个 y<sup>i</sup>都预测了一个y_hat<sup>i</sup> , 那么直接计算它们距离(差的绝对值) 的和再取平均值就可以衡量线性回归算法了</p>
+<p>线性回归算法在训练的过程中, 损失函数没有定义成这样的形式是因为绝对值不是一个处处可导的函数, 所以它不方便求极值</p>
+<p>但是这样一个方法完全可以用来评价线性回归算法</p>
+<p class="note note-warning">评价一个算法所使用的标准, 和训练模型时最优化的目标函数是可以完全不一致的</p>
+
+<br>
+
+<p>用真实数据作为例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> SimpleLinearRegression <span class="keyword">import</span> SimpleLinearRegression</span><br><span class="line"><span class="keyword">from</span> model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment"># 波士顿房产数据</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    boston = datasets.load_boston()</span><br><span class="line">    <span class="comment"># 由于是简单线性回归, 所以只取一个维度的特征</span></span><br><span class="line">    x = boston.data[:, <span class="number">5</span>]</span><br><span class="line">    y = boston.target</span><br><span class="line"></span><br><span class="line">    x = x[y &lt; <span class="number">50</span>]</span><br><span class="line">    y = y[y &lt; <span class="number">50</span>]</span><br><span class="line"></span><br><span class="line">    x_train, x_test, y_train, y_test = train_test_split(x, y, seed=<span class="number">666</span>)</span><br><span class="line">    reg = SimpleLinearRegression()</span><br><span class="line">    reg.fit(x_train, y_train)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 可视化展示数据及预测线</span></span><br><span class="line">    plt.scatter(x_train, y_train)</span><br><span class="line">    plt.plot(x_train, reg.predict(x_train), color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">    y_predict = reg.predict(x_test)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># MSE</span></span><br><span class="line">    mse_test = np.<span class="built_in">sum</span>((y_predict-y_test)**<span class="number">2</span>) / <span class="built_in">len</span>(y_test)</span><br><span class="line">    <span class="comment"># RMSE 可以解释为平均误差在4.9万美元左右</span></span><br><span class="line">    rmse_test = sqrt(mse_test)</span><br><span class="line">    <span class="comment"># MAE 在mae尺度下, 平均误差为3.5万美元左右</span></span><br><span class="line">    mae_test = np.<span class="built_in">sum</span>(np.<span class="built_in">abs</span>(y_predict-y_test)) / <span class="built_in">len</span>(y_test)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(mse_test)     <span class="comment"># 24.15</span></span><br><span class="line">    <span class="built_in">print</span>(rmse_test)    <span class="comment"># 4.91</span></span><br><span class="line">    <span class="built_in">print</span>(mae_test)     <span class="comment"># 3.54</span></span><br></pre></td></tr></table></figure>
+
+<p>同样可以把这三个指标封装到函数中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">mean_squared_error</span>(<span class="params">y_true, y_predict</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y_true和y_predict之间的MSE&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">len</span>(y_true) == <span class="built_in">len</span>(y_predict), \</span><br><span class="line">        <span class="string">&quot;the size of y_true must be equal to the size of y_predict&quot;</span></span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>((y_true - y_predict) ** <span class="number">2</span>) / <span class="built_in">len</span>(y_true)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">root_mean_squared_error</span>(<span class="params">y_true, y_predict</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y_true和y_predict之间的RMSE&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> sqrt(mean_squared_error(y_true, y_predict))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mean_absolute_error</span>(<span class="params">y_true, y_predict</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y_true和y_predict之间的MAE&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">len</span>(y_true) == <span class="built_in">len</span>(y_predict), \</span><br><span class="line">        <span class="string">&quot;the size of y_true must be equal to the size of y_predict&quot;</span></span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>(np.absolute(y_true-y_predict)) / <span class="built_in">len</span>(y_true)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>scikit-learn中的MSE和MAE</p>
+<p>使用方法和我们自己封装的也是一样的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(mean_squared_error(y_test, y_predict))</span><br><span class="line"><span class="built_in">print</span>(mean_absolute_error(y_test, y_predict))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="RMSE-vs-MAE"><a href="#RMSE-vs-MAE" class="headerlink" title="RMSE vs MAE"></a>RMSE vs MAE</h3><p><img src="/Blog/intro/simple_linear_reg_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们说RMSE和MAE的量纲是一样的, 都是原始数据中y对应的量纲</p>
+<p>但是在上面编程的例子中发现 RMSE(4.91) 比 MAE(3.54) 要大一些</p>
+<p>其实通过这个式子就能理解这个原因, 这个原因是因为RMSE是将错误值进行平方, 平方后再累加开根, 如果某一个错误值非常大(假设为100), 经过平方之后这个差距就扩大到10000</p>
+<p><strong>就是说RMSE有放大样本中预测结果和真实结果之间较大的差距的趋势</strong></p>
+<p>而MAE是没有这个趋势的, 它直接反应样本的预测结果和真实结果之间的差距, 没有平方操作</p>
+<p>因此某种意义上讲, <strong>让RMSE这个值更小相对意义更大一些</strong>, 因为这就意味着整个样本中<strong>最大的错误值</strong>相应比较小</p>
+<p>而我们训练回归算法的时候, 目标函数就是MSE, 即RMSE根号下的那一部分, 而这个本质和优化RMSE是一样的</p>
+<p>换句话说在简单线性回归的训练的过程中, 我们使用目标函数就是在想办法减少最终预测的结果最大的误差相应的差距</p>
+<p>这也是目标函数选取误差的平方, 而不是绝对值的另外一个优势</p>
+<br>
+
+<h2 id="最好的衡量线性回归法的指标-R-Square"><a href="#最好的衡量线性回归法的指标-R-Square" class="headerlink" title="最好的衡量线性回归法的指标 R Square"></a>最好的衡量线性回归法的指标 R Square</h2><p><img src="/Blog/intro/simple_linear_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>上面提到的RMSE, MAE 其实还有它们的问题</p>
+<p>回忆一下分类问题指标, 就是准确度, 1最好, 0最差</p>
+<p>即使解决不同的分类问题, 我们也可以很容易地比较它们之间的优劣</p>
+<p>但是 RMSE 和 MAE 都是没有这样的性质的, 例如: 预测房产的误差是10000, 而预测成绩的误差是10, 那么我们如何判断算法作用在哪个问题上更好? </p>
+<p>无法判断, 因为10000和10对应的是不同种类的东西, 不能直接比较, 这就是RMSE, MAE的局限性</p>
+<p>但这个问题是可以解决的, 就是采用一个新的指标 R Squared</p>
+<br>
+
+<p>r方的计算方法如下</p>
+<p><img src="/Blog/intro/r_square.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>SS<sub>residual</sub> : Residual Sum of Squares</p>
+<p>SS<sub>total</sub> : Total Sum of Square</p>
+<p>有的教材也写作<br>$$<br>R^2 &#x3D; 1-\frac {SS_{error}}{SS_{total}}<br>$$<br>其实就是这么计算的</p>
+<p><img src="/Blog/intro/simple_linear_reg_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="R-Square-有什么意义-它为什么好"><a href="#R-Square-有什么意义-它为什么好" class="headerlink" title="R Square 有什么意义, 它为什么好"></a>R Square 有什么意义, 它为什么好</h3><p><img src="/Blog/intro/simple_linear_reg_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>分子是一个模型预测产生的错误</p>
+<p>分母也可以理解为一个模型, 模型就是y&#x3D;y的均值, 只不过这个模型和x无关, 就是说, 不管来哪个x, 我都预测结果是y的均值</p>
+<p>这是一个非常朴素的模型, 对于这样的模型, 通常在机器学习领域和统计学领域也有一个相应的名词 (Baseline Model)</p>
+<p>这个模型的错误肯定是比较多的, 因为完全不考虑x, 直接生硬的将所有输入都预测为样本均值, 而模型预测产生的错误相应应该是比较少的, 因为它充分考虑了 x 和 y 的关系</p>
+<br>
+
+<p>基于此, 就可以这样理解这个式子</p>
+<p>我们使用 Baseline 模型进行预测会产生非常多的错误, 而用我们自己的模型进行预测相应的也会产生一些错误, 但是同时也会减少一些错误, 而用1减去它们, 其实就相当于衡量了<strong>模型拟合住数据的地方</strong></p>
+<p>相当于衡量了模型没有产生错误的响应的指标</p>
+<p><img src="/Blog/intro/simple_linear_reg_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>R Square 相当于把回归问题的结果也归约到0-1之间, 并且1是最好, 0是最差</p>
+<p>此时就可以使用这个指标来针对同样一个算法应用在不同问题上的结果进行比较</p>
+<p> <img src="/Blog/intro/simple_linear_reg_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>化简一下, 分母就是MSE, 分子就是y的方差, 如果写成这样, 计算R Square就变得更加容易了</p>
+<blockquote>
+<p>R Square背后还有更加深刻的统计意义, 可以参考</p>
+<p><a target="_blank" rel="noopener" href="https://daolinzhou.github.io/Blog/2020/04/04/stat-203/#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Linear-Regression">统计自整理-线性回归</a></p>
+</blockquote>
+<p>R Square这个值衡量的是我们的模型对比 y&#x3D;y的均值 这个基准模型的效果是怎样的</p>
+<br>
+
+<h3 id="编程实现R-Square"><a href="#编程实现R-Square" class="headerlink" title="编程实现R Square"></a>编程实现R Square</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">r2_score</span>(<span class="params">y_true, y_predict</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算 y_true和 y_predict 之间的 R Score&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> - mean_squared_error(y_true, y_predict) / np.var(y_true)</span><br></pre></td></tr></table></figure>
+
+<p>当然 scikit-learn 中的计算R Square的封装和我们的依然是一样的</p>
+<p>同样在SimpleLinearRegression中封装进score函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleLinearRegression</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 其余方法略过... ...</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">score</span>(<span class="params">self, x_test, y_test</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;根据测试数据集 x_test 和 y_test 确定当前模型的准确度&quot;&quot;&quot;</span></span><br><span class="line">    y_predict = self.predict(x_test)</span><br><span class="line">    <span class="keyword">return</span> r2_score(y_test, y_predict)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><p>之前一直解决的是简单线性回归问题, 也就是假设样本只有一个特征值, 但是在真实世界中一个样本是有很多特征值的, 甚至有成千上万个特征值</p>
+<p><img src="/Blog/intro/muti_l_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这幅图中, 每一个点对应x坐标的一个值, 同时对应y坐标的一个输出的标记, 当x<sup>(i)</sup>只是一个数字的时候对应的就是简单线性回归问题</p>
+<br>
+
+<p>但如果x<sup>(i)</sup>对应一个向量的话</p>
+<p><img src="/Blog/intro/muti_l_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这种情况下, 其实就是多元线性回归问题, y就可以写作是</p>
+<p><img src="/Blog/intro/muti_l_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>换句话说, 数据有多少特征, 有多少个维度, 每一个特征前面都有一个系数, 于此同时, 整条直线还有一个截距, 用θ<sub>0</sub>表示</p>
+<p>如果可以学习到这些参数, 那么对于一个样本X<sup>(i)</sup>就可以这样求出多元线性回归对应的预测值</p>
+<p><img src="/Blog/intro/muti_l_reg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>可以看到和简单线性回归是非常相似的, 区别只是从1个特征拓展到n个特征</p>
+<p>其实求解这个问题的思路也和简单线性回归方法是一致的, 依然是使子下面式子尽可能小<br>$$<br>\sum^m_{i&#x3D;1}(y^{(i)}-\hat y^{(i)})^2<br>$$<br>因为这个式子表达的意思就是预测结果和真实结果之间的差的平方和</p>
+<p>一方面它是连续可导的, 另一方面它将限定最大的误差</p>
+<p><img src="/Blog/intro/muti_l_reg_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>可以将所有的θ整理为一个向量</p>
+<p><img src="/Blog/intro/muti_l_reg_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>把式子在改变一点</p>
+<p><img src="/Blog/intro/muti_l_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>让式子整体每一项都是一致的, 因此让θ<sub>0</sub>也乘以一个X的值, X<sup>(i)</sup>的第0个特征</p>
+<p>X<sup>(i)</sup>其实本来没有第0个特征, 这是一个虚构的特征, 为了能和θ<sub>0</sub>结合在一起, 让整个推导更加方便.</p>
+<p>这个第0个特征是恒等于1的</p>
+<p><img src="/Blog/intro/muti_l_reg_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>此时就可以说,  X<sup>(i)</sup>是这样一个向量</p>
+<p><img src="/Blog/intro/muti_l_reg_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> X<sup>(i)</sup>是一个行向量, 它代表从X矩阵中抽出一行, 因为此时X已经是一个矩阵了, 每一行代表一个样本, 每一列代表一个特征</p>
+<br>
+
+<p>此时把θ和 X<sup>(i)</sup>都表示为向量的形式的话</p>
+<p><img src="/Blog/intro/muti_l_reg_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>此时就可以简单的把这样表示y的第i行的预测值<br>$$<br>\hat y^{(i)}&#x3D;X^{(i)}*\theta<br>$$<br>依然是向量的点乘操作, 所有元素相乘再相加</p>
+<p>把这个式子再进行推广, 推广到所有的样本上</p>
+<p><img src="/Blog/intro/muti_l_reg_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>有可能一些机器学习书上不太区分X<sub>b</sub>和X, 但其实X<sub>b</sub>是比X多了一列. 这里为了表述的严谨, 把二者区分开, X代表原来的有m个样本, 每个样本有n个特征的矩阵(m * n), 而X<sub>b</sub>是一个m行n+1列的矩阵, 新增了一列, 在第一列的位置, 相应的值全都是1</p>
+</blockquote>
+<p>θ是一个有n+1个元素的列向量</p>
+<p><img src="/Blog/intro/muti_l_reg_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>此时<br>$$<br>\hat y &#x3D; X_b*\theta<br>$$<br>y_hat是一个向量, 这个向量就是使用多元线性回归法得到的参数θ, 对X中每一个样本进行预测的结果 (矩阵点乘)</p>
+<p><img src="/Blog/intro/muti_l_reg_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>因此就把目标推导成这个样子, 前半部分是1 * m的行向量, 后半部分是m * 1的列向量</p>
+<p>此时多元线性回归问题就变成了估计一个θ使得下面式子最小<br>$$<br>(y-X _b\cdot\theta)^T(y-X _b\cdot\theta)<br>$$<br>依然是使用最小二乘法的思路, 对θ中的每一个变量求导, 让它的值等于0, 只不过此时是在整个矩阵上进行运算.</p>
+<blockquote>
+<p>在矩阵上求导, 求极值的过程的数学推导可能会超出一些院校的本科学习范围, 这里就不给出推导的过程了, 只给出结果:</p>
+<p><img src="/Blog/intro/muti_l_reg_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>也有不用极限的推导方法, 可以看<a target="_blank" rel="noopener" href="https://daolinzhou.github.io/Blog/2020/03/06/play-with-linear-algebra-4/#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95-least-squares-Approximation">线性代数补充知识-最小二乘法</a></p>
+<p>其实在使用多元线性回归时, 还有另外的方法能估计出θ的值</p>
+</blockquote>
+<p>这个式子被称为是: <strong>多元线性回归的正规方程解(Normal Equation)</strong></p>
+<p><img src="/Blog/intro/muti_l_reg_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> 虽然看起来这个式子很好, 通过监督学习可以拿到 X<sub>b</sub>和y, 但其实这里是有一个问题的.</p>
+<p>问题: 时间复杂度高: O(n^3) (优化O(n^2.4))</p>
+<blockquote>
+<p>n没有区分是行数还是列数, 在实际应用时, 不管是样本量非常大, 例如有100万个样本(行数), 或者说样本特征非常多, 例如有100万个特征(列数), 使用正规方程解都会有计算非常慢的效率问题</p>
+<p>这个问题其实是有解决方案的, 而且这个解决方案通常是更常用的求解多元线性回归的一种方法</p>
+</blockquote>
+<p>这种能直接得到数学解的模型其实是非常少见的</p>
+<p>优点: 不需要对数据进行归一化处理</p>
+<p>因为通过数学分析, 我们最后估计出的θ就是原始数据进行数学运算的结果, 这种运算的过程中是不存来量纲的问题的, 最后求出来的θ也只是系数而已, 没有量纲的问题</p>
+<br>
+
+<h3 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h3><p>θ是由n+1个数值组成的向量, 但是对于实际上样本来说只有n个维度, θ<sub>0</sub>是截距. </p>
+<p><img src="/Blog/intro/muti_l_reg_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>在有的时候进行线性回归时, 最终报告给用户结果时, 有可能不是把θ这个整体报告给用户, 而是将截距(intercept)和系数(coefficients)两部分分开</p>
+<p>这样做的原因是因为在系数部分, 每一个值都对应着原来样本中的一个特征, 这个系数在某种程度上讲可以用来描述这些特征对于最终样本的贡献程度</p>
+<p> 而 θ<sub>0</sub> 和样本是不相干的, 它只是一个偏移. 所以把这两部分分开</p>
+<p>后序还会继续说明系数对于整体样本特征的解释</p>
+<br>
+
+<h3 id="编程实现LinearRegression"><a href="#编程实现LinearRegression" class="headerlink" title="编程实现LinearRegression"></a>编程实现LinearRegression</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> metrics <span class="keyword">import</span> r2_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearRegression</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化Linear Regression模型&quot;&quot;&quot;</span></span><br><span class="line">        self.coef_ = <span class="literal">None</span></span><br><span class="line">        self.intercept_ = <span class="literal">None</span></span><br><span class="line">        self._theta = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit_normal</span>(<span class="params">self, X_train, y_train</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;根据训练数据集X_train, y_train训练Linear Regression&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>], \</span><br><span class="line">            <span class="string">&quot;the size of X_train must be equal to the size of y_train&quot;</span></span><br><span class="line">        X_b = np.hstack([np.ones((<span class="built_in">len</span>(X_train), <span class="number">1</span>)), X_train])</span><br><span class="line">        self._theta = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y_train)</span><br><span class="line">        self.intercept_ = self._theta[<span class="number">0</span>]</span><br><span class="line">        self.coef_ = self._theta[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X_predict</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定待预测数据集X_predict, 返回X_predict的结果向量&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.intercept_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.coef_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>, \</span><br><span class="line">            <span class="string">&quot;must fit before predict&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X_predict.shape[<span class="number">1</span>] == <span class="built_in">len</span>(self.coef_), \</span><br><span class="line">            <span class="string">&quot;the feature number of X_predict must be equal to X_train&quot;</span></span><br><span class="line">        X_b = np.hstack([np.ones((<span class="built_in">len</span>(X_predict), <span class="number">1</span>)), X_predict])</span><br><span class="line">        <span class="keyword">return</span> X_b.dot(self._theta)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">score</span>(<span class="params">self, x_test, y_test</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;根据测试数据集 x_test 和 y_test 确定当前模型的准确度&quot;&quot;&quot;</span></span><br><span class="line">        y_predict = self.predict(x_test)</span><br><span class="line">        <span class="keyword">return</span> r2_score(y_test, y_predict)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;LinearRegression()&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试用例</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    boston = datasets.load_boston()</span><br><span class="line">    X = boston.data</span><br><span class="line">    y = boston.target</span><br><span class="line"></span><br><span class="line">    X = X[y &lt; <span class="number">50</span>]</span><br><span class="line">    y = y[y &lt; <span class="number">50</span>]</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="number">666</span>)</span><br><span class="line">    reg = LinearRegression()</span><br><span class="line">    reg.fit_normal(X_train, y_train)</span><br><span class="line">    <span class="built_in">print</span>(reg.score(X_test, y_test)) <span class="comment"># 0.8129</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>之前说kNN也可以进行回归预测</p>
+<h3 id="对比scikit-learn中的kNN回归和线性回归"><a href="#对比scikit-learn中的kNN回归和线性回归" class="headerlink" title="对比scikit-learn中的kNN回归和线性回归"></a>对比scikit-learn中的kNN回归和线性回归</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 准备数据</span></span><br><span class="line">    boston = datasets.load_boston()</span><br><span class="line">    X = boston.data</span><br><span class="line">    y = boston.target</span><br><span class="line">    X = X[y &lt; <span class="number">50</span>]</span><br><span class="line">    y = y[y &lt; <span class="number">50</span>]</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 线性回归</span></span><br><span class="line">    lin_reg = LinearRegression()</span><br><span class="line">    lin_reg.fit(X_train, y_train)</span><br><span class="line">    <span class="built_in">print</span>(lin_reg.score(X_test, y_test))    <span class="comment"># 0.8129</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># kNN回归</span></span><br><span class="line">    knn_reg = KNeighborsRegressor()</span><br><span class="line">    knn_reg.fit(X_train, y_train)</span><br><span class="line">    <span class="built_in">print</span>(knn_reg.score(X_test, y_test))    <span class="comment"># 0.5865</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 尽管目前kNN算法效果不好, 但由于kNN有超参数, 所以用网格搜索找到最好的超参数</span></span><br><span class="line">    param_grid = [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;weights&quot;</span>: [<span class="string">&#x27;uniform&#x27;</span>],</span><br><span class="line">            <span class="string">&quot;n_neighbors&quot;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;weights&quot;</span>: [<span class="string">&#x27;distance&#x27;</span>],</span><br><span class="line">            <span class="string">&quot;n_neighbors&quot;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)],</span><br><span class="line">            <span class="string">&quot;p&quot;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    knn_reg = KNeighborsRegressor()</span><br><span class="line">    grid_search = GridSearchCV(knn_reg, param_grid, n_jobs=-<span class="number">1</span>, verbose=<span class="number">1</span>)</span><br><span class="line">    grid_search.fit(X_train, y_train)</span><br><span class="line">    <span class="built_in">print</span>(grid_search.best_params_)</span><br><span class="line">    <span class="built_in">print</span>(grid_search.best_score_)  <span class="comment"># 是哟个CV方式衡量的, 0.652, 和前面的score没有比较性</span></span><br><span class="line">    <span class="built_in">print</span>(grid_search.best_estimator_.score(X_test, y_test))    <span class="comment"># 0.716</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 虽然最后的值稍小, 一种原因是因为找到的是使用CV衡量标准中score最高的模型, 而不是我们的计算方法得到的score最高的模型</span></span><br><span class="line">    <span class="comment"># 第二个原因就是没有对数据进行归一化(尽管Linear Regression不需要进行归一化, 但kNN需要)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 归一化后的kNN回归</span></span><br><span class="line">    standardScaler = StandardScaler()</span><br><span class="line">    standardScaler.fit(X_train, y_train)</span><br><span class="line">    X_train_standard = standardScaler.transform(X_train)</span><br><span class="line">    X_test_standard = standardScaler.transform(X_test)</span><br><span class="line"></span><br><span class="line">    knn_reg = KNeighborsRegressor()</span><br><span class="line">    knn_reg.fit(X_train_standard, y_train)</span><br><span class="line">    <span class="built_in">print</span>(knn_reg.score(X_test_standard, y_test))   <span class="comment"># 0.8479</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>scikit-learn中线性回归添不添加第一列的1是无所谓的</strong>, (代表截距的列), 添加和不添加结果是一样的</p>
+<p>可以看到线性回归的 score为0.8129</p>
+<p>默认kNN的 score为 0.5865</p>
+<p>找到最佳超参数的kNN为 0.716</p>
+<p>归一化数据后默认kNN为 0.8479</p>
+<br>
+
+<h2 id="更多关于线性回归模型的讨论"><a href="#更多关于线性回归模型的讨论" class="headerlink" title="更多关于线性回归模型的讨论"></a>更多关于线性回归模型的讨论</h2><h3 id="线性回归模型的可解释性"><a href="#线性回归模型的可解释性" class="headerlink" title="线性回归模型的可解释性"></a>线性回归模型的可解释性</h3><p><img src="/Blog/intro/muti_l_reg_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>线性回归模型的系数是可以解读, 系数的正负代表它对应的特征和最终预测的目标是正相关还是负相关, 如果为正说明是正相关, 换句话说这个特征越大, 最终预测的结果就越大. 而系数绝对值的大小就说明了影响的程度</p>
+<br>
+
+<h3 id="线性回归总结"><a href="#线性回归总结" class="headerlink" title="线性回归总结"></a>线性回归总结</h3><p>线性回归算法是典型的参数学习, 而kNN是非参数学习</p>
+<p>只能解决回归问题, 虽然很多分类方法中, 使用了线性回归的思想, 线性回归是基础(逻辑回归). 对比kNN: 既可以解决分类问题, 又可以解决回归问题</p>
+<p>线性回归对数据有假设: 数据间有线性关系. 对比kNN: 对数据没有假设</p>
+<blockquote>
+<p>其实可以稍微改进一下线性回归法, 使得它可以处理非线性问题. 也就是说线性回归法的思路不仅仅可以解决线性问题. </p>
+</blockquote>
+<p>优点: 对数据具有强解释性</p>
+<br>
+
+<p>之前说多元线性回归的正规方程解(Normal Equation)的复杂度太高了</p>
+<p><img src="/Blog/intro/muti_l_reg_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>那么还有什么解法?   <strong>梯度下降法</strong></p>
+<p>梯度下降法不仅仅是可以解决线性回归问题中的一种方法, 更是在机器学习中求解最优模型的通用的方法</p>
+<p>甚至对于某些模型来说, 只能使用梯度下降法求得最优模型</p>
+<p>这是因为对于更复杂的模型来说, 是无法得到一个非常简洁的公式来获得这些模型相应的参数的</p>
+<br>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/27/machine-learning-4/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python3入门机器学习(4)-梯度下降法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/20/machine-learning-2/">
+                        <span class="hidden-mobile">python3入门机器学习(2)-kNN算法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

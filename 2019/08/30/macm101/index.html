@@ -1,0 +1,2296 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MACM特殊符号1¬ ∀ ∃ ∈ ∉ ⊆ △ ∩    —Counting— Ex.1-1 Choose one group activity how many choice? 4 + 2 &#x3D; 6 4 movies 2 board games Ex.1-2 Choose one movie then play a board game, how many choices? 4 * 2 &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散数学-MACM">
+<meta property="og:url" content="http://example.com/2019/08/30/macm101/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MACM特殊符号1¬ ∀ ∃ ∈ ∉ ⊆ △ ∩    —Counting— Ex.1-1 Choose one group activity how many choice? 4 + 2 &#x3D; 6 4 movies 2 board games Ex.1-2 Choose one movie then play a board game, how many choices? 4 * 2 &amp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Blog/intro/counting.png">
+<meta property="og:image" content="http://example.com/Blog/intro/ur.jpg">
+<meta property="og:image" content="http://example.com/Blog/intro/cr.png">
+<meta property="og:image" content="http://example.com/Blog/intro/20190507202814.png">
+<meta property="og:image" content="http://example.com/Blog/intro/20190507203043.png">
+<meta property="og:image" content="http://example.com/Blog/intro/20190507203431.png">
+<meta property="og:image" content="http://example.com/Blog/intro/x1x2x3.png">
+<meta property="og:image" content="http://example.com/Blog/intro/repetition.png">
+<meta property="og:image" content="http://example.com/Blog/intro/algebraicproofs.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559078935688.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559082835815.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559083390959.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559113711157.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559114195400.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559114579461.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559115302440.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1559966922116.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1560638908820.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1560645235256.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1560645347749.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1560645439887.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1560645502553.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1561094526600.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562537394016.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562538905528.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562546745139.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562547541552.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562891437025.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562891814929.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562895274226.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562895359805.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562895413049.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562902696552.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562902807678.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1562903239986.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563172525946.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563174018487.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563213456949.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563258053693.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563479087304.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563479321615.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563485017953.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563485017953.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563505197916.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563505790541.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563505851198.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563506489440.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563506395631.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1563506412654.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1564296188217.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1564429825746.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1564430456227.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1564430708990.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1564859121708.png">
+<meta property="og:image" content="http://example.com/Blog/intro/1564864406544.png">
+<meta property="og:image" content="http://example.com/Blog/intro/counting_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/isomorphic.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/except_ball_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/except_ball.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/recur.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/recur_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/solve_first_ord_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/solve_first_ord_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/solve_first_ord_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/solve_first_ord_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_6.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_7.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/second_order_8.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/nhrrs.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/nhrrs_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/nhrrs_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/nhrrs_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/nhrrs_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/nhrrs_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/merge.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/merge_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/merge_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_6.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_7.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_8.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_9.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_10.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_11.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_12.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_13.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_14.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_15.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_16.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_17.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_18.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_19.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_20.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_21.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_22.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_23.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_24.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_25.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_26.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_27.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_28.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/generating_function_29.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/summetion_op.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/summetion_op_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/summetion_op_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/trails.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/trails_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/planar.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/planar_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/planar_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/planar_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/planar_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_6.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_7.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/faces_8.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/hc.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/hc_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/hc_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/hc_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/hc_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/hc_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_6.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_7.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_8.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_9.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_10.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_11.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_12.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_13.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_14.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_15.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_16.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_17.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_18.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/tree_19.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/articulation_point.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/articulation_point_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/articulation_point_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/articulation_point_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/articulation_point_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/articulation_point_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/wg.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/wg_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/wg_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/wg_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_1.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_2.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_3.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_4.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_5.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_6.PNG">
+<meta property="og:image" content="http://example.com/Blog/intro/lt_3.PNG">
+<meta property="article:published_time" content="2019-08-30T18:15:20.000Z">
+<meta property="article:modified_time" content="2020-12-08T02:14:29.674Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="离散数学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/Blog/intro/counting.png">
+  
+  
+  <title>离散数学-MACM - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="离散数学-MACM">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-08-30 11:15" pubdate>
+        August 30, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">离散数学-MACM</h1>
+            
+            <div class="markdown-body">
+              <h1 id="MACM"><a href="#MACM" class="headerlink" title="MACM"></a>MACM</h1><h2 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">¬ ∀ ∃ ∈ ∉ ⊆ △ ∩</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="—Counting—"><a href="#—Counting—" class="headerlink" title="—Counting—"></a>—Counting—</h2><p><img src="/Blog/intro/counting.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>Ex.1-1</strong></p>
+<p>Choose one group activity how many choice?</p>
+<p>4 + 2 &#x3D; 6</p>
+<p>4 movies 2 board games</p>
+<p><strong>Ex.1-2</strong></p>
+<p>Choose one movie then play a board game, how many choices?</p>
+<p>4 * 2 &#x3D; 8</p>
+<h3 id="The-Rule-of-Sum"><a href="#The-Rule-of-Sum" class="headerlink" title="The Rule of Sum:"></a>The Rule of Sum:</h3><p>• If a first task can be performed in m ways</p>
+<p>and a second task can be performed in n</p>
+<p>ways, and the two tasks are mutually</p>
+<p>exclusive (cannot be performed</p>
+<p>simultaneously), then performing either</p>
+<p>task can be accomplished in any one of m+n ways (Ex. 1-3)</p>
+<h3 id="The-Rule-of-Product"><a href="#The-Rule-of-Product" class="headerlink" title="The Rule of Product:"></a>The Rule of Product:</h3><p>• If a task can be broken down into the first</p>
+<p>and second stages, and if there are m</p>
+<p>possible outcomes for the first stage and n</p>
+<p>possible outcomes for the second stage,</p>
+<p>then the whole task can be accomplished </p>
+<p>in m·n ways (Ex. 1-4) </p>
+<p>Ex.1.7</p>
+<p>How many different ways are there to re-arrange the<br>letters in the word “ART”? </p>
+<p>3! &#x3D; 3 * 2 * 1 &#x3D; 6</p>
+<p>Ex.1.8</p>
+<p>There are 25 students in this class, the top five<br>students will receive an A, how many such<br>arrangements are there? </p>
+<p>​    25 * 24 * 23 * 22 * 21</p>
+<p>&#x3D;    25! &#x2F; (25-5)!</p>
+<h3 id="P-n-r"><a href="#P-n-r" class="headerlink" title="P(n, r)"></a>P(n, r)</h3><p>If there are n distinct objects, and r is an integer<br>(1 ≤ r ≤ n), then the number of permutations of size<br>r of these n objects is defined as:<br>$$<br>P(n, r) &#x3D; n(n-1)(n-1)…(n-r+1)<br>        &#x3D; n!&#x2F;(n-r)!<br>$$</p>
+<p>If there are n objects with:</p>
+<ul>
+<li><p>n1 indistinguishable objects of type 1,</p>
+</li>
+<li><p>n2 indistinguishable objects of type 2,<br>:<br>:</p>
+</li>
+<li><p>nr indistinguishable objects of type r<br>and n1 + n2 + … + nr &#x3D; n, then there are<br>$$<br>n! &#x2F; n1!n2!…nr!<br>$$</p>
+</li>
+</ul>
+<p><img src="/Blog/intro/ur.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>how many ways from (1, 1) to (6, 4)</p>
+<p>up -&gt; u</p>
+<p>right -&gt; r</p>
+<p>so it can change to find how many ways to connect “uuurrrrr”.</p>
+<p>8! &#x2F; (3! * 5!)</p>
+<p>Ex.1-15</p>
+<p>For example in (Ex.1-8), the 5 students who<br>receive an A in this course will not care what order<br>they are in (as long as they receive an A)  25  students.</p>
+<p>So a-b-c-d-e &amp; b-d-e-c-a  are same</p>
+<p>25! &#x2F; (20! * 5!)</p>
+<h3 id="C-n-r"><a href="#C-n-r" class="headerlink" title="C(n, r)"></a>C(n, r)</h3><p>Given n distinct objects, a combination (or<br>selection) of r objects (0 ≤ r ≤ n) without order<br>corresponds to r! permutations of size r from the n<br>objects.<br>•The number of combinations C(n,r) of size r from<br>the n objects is </p>
+<p><img src="/Blog/intro/cr.png" srcset="/img/loading.gif" lazyload></p>
+<p>Ex.1-18</p>
+<p>Anagrams of the word “TALLAHASSEE”<br>such that no two ʻAʼs are adjacent </p>
+<ol>
+<li>pick out A</li>
+</ol>
+<p>T L L H S S E E</p>
+<p>there are 8!&#x2F;(2! * 2! * 2!) ways to sort them.</p>
+<ol start="2">
+<li>then insert A in to each gap</li>
+</ol>
+<p>8 letters so there are 9 gaps.</p>
+<p>therefore choose 3 from 9 is C(9, 3)</p>
+<p>Answer is :    8! * C(9, 3) &#x2F;(2! * 2! * 2!) </p>
+<p>Ex. </p>
+<p>9 women ,6 men sit around circle.</p>
+<p>no men sit in together</p>
+<ol>
+<li><p>9 w sit in circle &#x3D; 9!&#x2F;9</p>
+</li>
+<li><p>9 empty choose 6 for men &#x3D; C(9, 6)</p>
+</li>
+<li><p>6 different men have 6! choices</p>
+</li>
+</ol>
+<ul>
+<li><p>women are fixed.</p>
+<p>so it is no longer be a circle.</p>
+<p>therefore men have 6! choices but not 5! choices.</p>
+</li>
+</ul>
+<h3 id="Combination-Summation-Notation"><a href="#Combination-Summation-Notation" class="headerlink" title="Combination - Summation Notation"></a>Combination - Summation Notation</h3><p>Given a list of terms am, am+1, am+2, … , am+n, where m<br>and n are integers (n≥0), a summation can be written<br>in Sigma (∑) notation as: </p>
+<p><img src="/Blog/intro/20190507202814.png" srcset="/img/loading.gif" lazyload></p>
+<p>​                </p>
+<h3 id="Combination-Binomial-Theorem"><a href="#Combination-Binomial-Theorem" class="headerlink" title="Combination - Binomial Theorem"></a>Combination - Binomial Theorem</h3><p>If x and y are variables and n is a positive integer,</p>
+<p><img src="/Blog/intro/20190507203043.png" srcset="/img/loading.gif" lazyload></p>
+<p>why?</p>
+<p>for example :</p>
+<p>(x+y)^3 &#x3D; (x1+y) (x2+y) (x3+y)</p>
+<p>if we looking for the const before x^2 * y</p>
+<p>that means we choose 2 of x form x1, x2 ,x3</p>
+<p>that is C(3, 2)</p>
+<p>Let n be an integer (n&gt;0), then</p>
+<p><img src="/Blog/intro/20190507203431.png" srcset="/img/loading.gif" lazyload></p>
+<p>why?</p>
+<p>(1+1)^n &#x3D; 2^n</p>
+<p>also it fits (x+y)^n</p>
+<p>same reason</p>
+<p>(1-1)^n &#x3D; 0^n</p>
+<h3 id="Combinations-Multinomial-Theorem"><a href="#Combinations-Multinomial-Theorem" class="headerlink" title="Combinations - Multinomial Theorem"></a>Combinations - Multinomial Theorem</h3><p><img src="/Blog/intro/x1x2x3.png" srcset="/img/loading.gif" lazyload></p>
+<p>(x1+x2+x3)^9 </p>
+<p>C x1^3 * x2^4 * x3^2</p>
+<p>C &#x3D; 9! &#x2F; (3! * 4! *2!)</p>
+<h3 id="Combinations-with-repetition"><a href="#Combinations-with-repetition" class="headerlink" title="Combinations - with repetition"></a>Combinations - with repetition</h3><p><strong>EX.</strong></p>
+<p>7 students in the restaurant. There are 4 options for them a, b, c, d.</p>
+<p>How many different purchases are possible(from the view point of the restaurant)</p>
+<p>from the view point of the restaurant, so 7 student are the same, restaurant don’t care who wants what</p>
+<p>possible ways:</p>
+<p>aaa bb c d    -&gt;    ### | ## | # | #</p>
+<p>aaaaaaa        -&gt;    ####### | | |</p>
+<p>abbcccc         -&gt;    # | ## | #### |</p>
+<p>3 dividers, 7 students</p>
+<p>7+4-1 &#x3D; 10 spaces</p>
+<p>choose 7 for the student the rest are for dividers.</p>
+<p>answer is (10 choose 7)</p>
+<p><img src="/Blog/intro/repetition.png" srcset="/img/loading.gif" lazyload></p>
+<p>It is also like put 7 identical balls into 4 distinct boxes(a, b, c, d)</p>
+<p>answer is same.</p>
+<p><strong>Ex.2</strong></p>
+<p>x1 + x2 + x3 + x4 &#x3D; 8;</p>
+<p>x1-x4 are all &gt;&#x3D; 0</p>
+<p>how many ways?</p>
+<p>It’s just like put 8 same balls in to 4 different bags, 8+4-1 &#x3D; 11</p>
+<p>answer is (11 chooses 8)</p>
+<p><strong>Ex.3</strong></p>
+<p>x1 + x2 + x3 + x4 &#x3D; 32</p>
+<p>xi &gt;&#x3D; -2</p>
+<ol>
+<li>get 2 from every box (x), 32 + 2 + 2 +2 &#x3D; 40</li>
+<li>put 40 back to each box(x)</li>
+</ol>
+<p>40+4-1 &#x3D; 43</p>
+<p>answer is (43 choose 40)</p>
+<h2 id="—Logic—"><a href="#—Logic—" class="headerlink" title="—Logic—"></a>—Logic—</h2><h3 id="Logical-Connectives"><a href="#Logical-Connectives" class="headerlink" title="Logical Connectives"></a>Logical Connectives</h3><p>Statement (propositions) are declarative sentences that are either true or false.</p>
+<p>Truth values of proposition can be true (T or 1) or false (F or 0)</p>
+<h4 id="Logic-operations"><a href="#Logic-operations" class="headerlink" title="Logic operations:"></a>Logic operations:</h4><ul>
+<li>Not (negation)</li>
+<li>AND(conjunction)</li>
+<li>OR (disjunction)</li>
+<li>XOR(exclusive OR)</li>
+<li>Implication</li>
+<li>Biconditional</li>
+</ul>
+<h5 id="Negation-not"><a href="#Negation-not" class="headerlink" title="Negation (not)"></a>Negation (not)</h5><p>“ ¬ “ mean negation</p>
+<p>p      1    0</p>
+<p>¬p    0    1</p>
+<p>when p is true ¬p is false</p>
+<h5 id="Conjunction-and"><a href="#Conjunction-and" class="headerlink" title="Conjunction (and)"></a>Conjunction (and)</h5><p>“ ^ “ means conjunction</p>
+<p>p        0    0    1    1</p>
+<p>q        0    1    0    1</p>
+<p>p^q    0    0    0    1</p>
+<p>the proposition is true when <strong>both</strong> p and q are true.</p>
+<h5 id="Disjunction-or"><a href="#Disjunction-or" class="headerlink" title="Disjunction (or)"></a>Disjunction (or)</h5><p>“ v “ means disjunction</p>
+<p>p        0    1    0    1</p>
+<p>q        0    0    1    1</p>
+<p>p v q      0    1    1    1</p>
+<p>the proposition is true when <strong>at least</strong> one of p and q is true.</p>
+<h5 id="Exclusive-OR-Xor"><a href="#Exclusive-OR-Xor" class="headerlink" title="Exclusive OR (Xor)"></a>Exclusive OR (Xor)</h5><p>“ ⊻ “ means Exclusive OR</p>
+<p>p        0    1    0    1</p>
+<p>q        0    0    1    1</p>
+<p>p ⊻ q      0    1    1    0</p>
+<p>the proposition is true when <strong>only</strong> one of p and q is true.</p>
+<h5 id="Implication-gt"><a href="#Implication-gt" class="headerlink" title="Implication    -&gt;"></a>Implication    -&gt;</h5><p>p          0    0    1    1</p>
+<p>q          0    1    0    1</p>
+<p>p-&gt;q    1    1    0    1</p>
+<p>p is called the hypothesis, antecedent or premise</p>
+<p>q is called the conclusion or consequence</p>
+<p>p-&gt; q called p is sufficient for q</p>
+<p>​        or q is necessary for p</p>
+<p>For example, If I got A on the course I will buy a laptop.</p>
+<p>p    got A</p>
+<p>q    buy a laptop</p>
+<p>I didn’t say I won’t buy one if I didn’t got A, Therefore, if I didn’t get A. It is ok to buy one or not buy one.</p>
+<p>But if I got A, I must buy it. If I got A and I didn’t buy it, then the proposition is false.</p>
+<p>(p1 ^ p2 ^ p3 … pn) -&gt; r</p>
+<p>if any p is false then the answer is true.</p>
+<p>only all p are true and r is false the answer is false.</p>
+<h5 id="Biconditional-lt-gt"><a href="#Biconditional-lt-gt" class="headerlink" title="Biconditional    &lt;-&gt;"></a>Biconditional    &lt;-&gt;</h5><p>p if and only if q</p>
+<p>p &lt;-&gt; q precisely when p-&gt;q is true and q-&gt;p is true</p>
+<p>p        0    0    1    1</p>
+<p>q        0    1    0    1</p>
+<p>p&lt;-&gt;q    1    0    0    1</p>
+<p>p &lt;-&gt; q    &#x3D;&gt;    (p-&gt;q) ^ (q-&gt;p)</p>
+<p>​            &#x3D;&gt;    ¬ (p ⊻ q)</p>
+<h4 id="tautology-and-contradictions"><a href="#tautology-and-contradictions" class="headerlink" title="tautology and contradictions"></a>tautology and contradictions</h4><p>if a proposition is always true then it is tautology (T)</p>
+<p>if a proposition is always false then it is contradiction(F)</p>
+<p>p        1    0</p>
+<p>¬p          0    1</p>
+<p>p V¬p    1    1</p>
+<p>p^¬p     0    0</p>
+<h4 id="tabular-proofs"><a href="#tabular-proofs" class="headerlink" title="tabular proofs"></a>tabular proofs</h4><p>p : s-&gt;r    q : ¬s V r</p>
+<p>p &lt;&#x3D;&gt; q     means p and q are logically equal</p>
+<p>p         0    0    1    1</p>
+<p>q         0    1    0    1</p>
+<p>p-&gt;q       1    1    0    1</p>
+<p>¬p V q    1    1    0    1</p>
+<p>p-&gt;q      &lt;&#x3D;&gt;    ¬p V q</p>
+<p>(p-&gt;q)    &lt;-&gt;    (¬p V q)</p>
+<p>those two are tautology, because</p>
+<p>T &lt;-&gt; T     T</p>
+<p>T &lt;-&gt; F     F</p>
+<p>F &lt;-&gt; T     F</p>
+<p>F &lt;-&gt; F     T</p>
+<p><img src="/Blog/intro/algebraicproofs.png" srcset="/img/loading.gif" lazyload></p>
+<p>Ex1.</p>
+<p>proof (x V ¬y) ^ y &lt;&#x3D;&gt; x ^ y</p>
+<p>​        (x V ¬y) ^ y</p>
+<p>&lt;&#x3D;&gt;    (x^y) V (¬y ^ y)</p>
+<p>because ¬y ^ y is always false</p>
+<p>so</p>
+<p>&lt;&#x3D;&gt;    (x^y) V false</p>
+<p>&lt;&#x3D;&gt;    x^y</p>
+<p>Ex2.</p>
+<p>p-&gt;False &lt;&#x3D;&gt; ¬p V False &lt;&#x3D;&gt; ¬p</p>
+<p>Ex3. </p>
+<p>​    (p v q v r) ^ (p v t v ¬q) ^ (p v ¬t v r)</p>
+<p>because p^(q v r) &lt;&#x3D;&gt; (p^q) V (p^r)</p>
+<p>so take p out</p>
+<p>&lt;&#x3D;&gt;     p V [ (q v r) ^ (t v ¬q) ^ (¬t v r) ]</p>
+<p>&lt;&#x3D;&gt;     p V [ (q v r) ^ (¬t v r) ^ (t v ¬q) ]</p>
+<p>&lt;&#x3D;&gt;     p V [ (r V (q  ^ ¬t))  ^ (t v ¬q) ]</p>
+<p>let q ^ ¬t equal to H</p>
+<p>then ¬q v t is  ¬H</p>
+<p>so </p>
+<p>&lt;&#x3D;&gt;p V [(r V H) ^  ¬H]</p>
+<p>&lt;&#x3D;&gt;p V [(r ^  ¬H) V (H ^  ¬H)]</p>
+<p>&lt;&#x3D;&gt;p V [(r ^  ¬H) V False]</p>
+<p>&lt;&#x3D;&gt;p V (r ^  ¬H)</p>
+<p>&lt;&#x3D;&gt;p V (r ^  (¬q v t))</p>
+<h3 id="Rules-of-Inference"><a href="#Rules-of-Inference" class="headerlink" title="Rules of Inference"></a>Rules of Inference</h3><p>Given the implication p → q, the following<br>implications are defined:</p>
+<ul>
+<li>The <strong>converse</strong> : q -&gt; p</li>
+<li>The <strong>inverse</strong>: ¬p -&gt; ¬q</li>
+<li>The <strong>contrapositive</strong> : ¬q -&gt; ¬p    &lt;&#x3D;&gt;    p -&gt; q</li>
+</ul>
+<p><img src="/Blog/intro/1559078935688.png" srcset="/img/loading.gif" lazyload alt="1559078935688"></p>
+<p>Proof:</p>
+<p>Modus Ponens (law of detachment)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p	// fomular above the line  we assume is true</span><br><span class="line">p-&gt;q</span><br><span class="line">------</span><br><span class="line">q</span><br></pre></td></tr></table></figure>
+
+<p>True table</p>
+<p>p        1    1    0    0</p>
+<p>q        1    0    1    0</p>
+<p>p -&gt; q    1    0    1    1</p>
+<p>we only focuse on p and p-&gt;q are true.</p>
+<p>so q is true.</p>
+<p>Example: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">proof :</span><br><span class="line"></span><br><span class="line">1.		p-&gt;q</span><br><span class="line">2.		q-&gt;(r ^ s)</span><br><span class="line">3.		¬r v (¬t v u)</span><br><span class="line">4.		p ^ t</span><br><span class="line">		--------</span><br><span class="line">		u</span><br><span class="line"></span><br><span class="line">(1)(2): p-&gt;(r ^ s)	(5)</span><br><span class="line">(4):	p			(6)</span><br><span class="line">(5)(6)	(r ^ s)		(7)</span><br><span class="line">(7)		r			(8)</span><br><span class="line">(3)		¬r v (t-&gt;u)	(9)</span><br><span class="line">(9)		r-&gt;(t-&gt;u)	(10)</span><br><span class="line">(8)(10)	t-&gt;u		(11)</span><br><span class="line">(4)		t			(12)</span><br><span class="line">(11)(12)	u		</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="—-Quantifiers-—"><a href="#—-Quantifiers-—" class="headerlink" title="— Quantifiers —"></a>— Quantifiers —</h2><h3 id="Universal-Quantification-∀"><a href="#Universal-Quantification-∀" class="headerlink" title="Universal Quantification ∀"></a>Universal Quantification ∀</h3><p>“∀” means “for all”</p>
+<p><strong>∀xP(x)</strong> is true <strong>if and only if</strong> </p>
+<p><strong>P(x1)∧P(x2)∧…∧P(xn)</strong>     is true</p>
+<h3 id="Existential-Quantification"><a href="#Existential-Quantification" class="headerlink" title="Existential Quantification"></a>Existential Quantification</h3><p>“∃” means “For some”</p>
+<p><strong>∃xP(x)</strong> is true <strong>if and only if</strong> </p>
+<p><strong>P(x1)vP(x2)v…vP(xn)</strong>     is true</p>
+<p><img src="/Blog/intro/1559082835815.png" srcset="/img/loading.gif" lazyload alt="1559082835815"></p>
+<p><img src="/Blog/intro/1559083390959.png" srcset="/img/loading.gif" lazyload alt="1559083390959"></p>
+<p><strong>The first one and last one are one way</strong></p>
+<p>Example:</p>
+<p>∃x[P(x) ^ Q(x)] &#x3D;&gt; [∃x(P(x)) ^ ∃x(Q(x))]</p>
+<p>∃x “all student”</p>
+<p>P(x) &#x3D; x is male</p>
+<p>Q(x) &#x3D; x is female</p>
+<p>if we say that  <strong>[∃x(P(x)) ^ ∃x(Q(x))]</strong></p>
+<p>that means:</p>
+<p><strong>one of the student is male, one of the student is female</strong></p>
+<p>and <strong>∃x[P(x) ^ Q(x)]</strong> means:</p>
+<p><strong>one of the student is male and female</strong></p>
+<p>it is wrong, so we can’t say  <strong>[∃x(P(x)) ^ ∃x(Q(x))] &lt;&#x3D;&gt; ∃x[P(x) ^ Q(x)]</strong></p>
+<p> only <strong>∃x[P(x) ^ Q(x)] &#x3D;&gt; [∃x(P(x)) ^ ∃x(Q(x))]</strong></p>
+<h3 id="Negation-of-Quantifiers"><a href="#Negation-of-Quantifiers" class="headerlink" title="Negation of Quantifiers"></a>Negation of Quantifiers</h3><p>Often we use statements which are the negation of a quantification<br>The logical equivalent statement is defined as follows:<br>$$<br>¬∀xP(x) &#x3D; ∃x¬P(x)<br>$$</p>
+<p>$$<br>¬∃xP(x) &#x3D; ∀x¬P(x)<br>$$</p>
+<p><img src="/Blog/intro/1559113711157.png" srcset="/img/loading.gif" lazyload alt="1559113711157"></p>
+<h3 id="Multiple-Quantifiers"><a href="#Multiple-Quantifiers" class="headerlink" title="Multiple Quantifiers"></a>Multiple Quantifiers</h3><p>In the universe of integers:<br>Let P(x,y) &#x3D; “x + y &#x3D; 0”, then what are the truth<br>values of: </p>
+<ol>
+<li>∀x ∃y P(x,y)</li>
+<li>∃x ∀y P(x,y)</li>
+</ol>
+<p>(1) means : For all x, there is a y , that makes x+y &#x3D; 0</p>
+<p>(2) means : There is a x, for all y, that makes x+y &#x3D; 0</p>
+<p>so (1) is true, but (2) is false.</p>
+<p>thouse two are not equal valid</p>
+<hr>
+<p>Let Q(x,y) &#x3D; “x·y &#x3D; y·x”, what is the truth value of:<br>(Ex.3-12)</p>
+<ol>
+<li>∀x ∀y Q(x,y)</li>
+<li>∀y ∀x Q(x,y)</li>
+</ol>
+<p>(1) means : For all x, for all y, that x·y &#x3D; y·x </p>
+<p>(2) means : For all y, for all x, that x·y &#x3D; y·x </p>
+<p>(1) &lt;&#x3D;&gt; (2)</p>
+<p><img src="/Blog/intro/1559114195400.png" srcset="/img/loading.gif" lazyload alt="1559114195400"></p>
+<p><img src="/Blog/intro/1559114579461.png" srcset="/img/loading.gif" lazyload alt="1559114579461"></p>
+<p><strong>Example 1:</strong></p>
+<p>proof:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">∀x(p(x) -&gt; q(x))</span><br><span class="line">∀x(q(x) -&gt; r(x))</span><br><span class="line">-----------------</span><br><span class="line">∀x(p(x) -&gt; r(x))</span><br></pre></td></tr></table></figure>
+
+<p>∀x(p(x) -&gt; q(x)) is true, </p>
+<p>for arbitrary (任意数) element a,</p>
+<p>p(a) -&gt; q(a)</p>
+<p>∀x(q(x) -&gt; r(x)) is true,</p>
+<p>for arbitrary element b,</p>
+<p>q(b) -&gt; r(b)</p>
+<p>since b is arbitrary, b can be a,</p>
+<p>so the fomular change to </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p(a) -&gt; q(a)</span><br><span class="line">q(a) -&gt; r(a)</span><br><span class="line">-----------------</span><br><span class="line">p(a) -&gt; r(a)</span><br></pre></td></tr></table></figure>
+
+<p>by Universal Generalization</p>
+<p>p(a) -&gt; r(a)     is     ∀x(p(x) -&gt; r(x))</p>
+<hr>
+<p>Example 2.</p>
+<p>proof: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(1)		∀x(p(x) -&gt; q(x))</span><br><span class="line">		_________________</span><br><span class="line">		∃x¬(p(x)) -&gt; ∃x(q(x))</span><br><span class="line">		</span><br><span class="line">(1)		∀xp(x) -&gt; ∀xq(x)		(2)</span><br><span class="line">(2)		¬∀xp(x) v ∀xq(x)		(3)</span><br><span class="line">(3)		∃x¬(p(x)) v ∀xq(x)		(4)</span><br><span class="line">		if ∀xq(x) is true, then ∃x(q(x)) must be true</span><br><span class="line">		so</span><br><span class="line">		∃x¬(p(x)) -&gt; ∃x(q(x))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Proof-of-Theorems"><a href="#Proof-of-Theorems" class="headerlink" title="Proof of Theorems"></a>Proof of Theorems</h3><p><img src="/Blog/intro/1559115302440.png" srcset="/img/loading.gif" lazyload alt="1559115302440"></p>
+<p>Example of proof by contradiction:</p>
+<p>proof √2 is Irrational number(无理数)</p>
+<p>Assume (¬p) √2 is rattional,</p>
+<p>∃n,m; √2 &#x3D; m&#x2F;n    (n,m no common factor)</p>
+<p>m &#x3D; √2 n &#x3D;&gt; m^2 &#x3D; 2n^2</p>
+<p>m^2 is even so m is even.</p>
+<p>∃k, m &#x3D; 2k, so</p>
+<p>4k^2 &#x3D; 2n^2</p>
+<p>2 k^2 &#x3D; n^2</p>
+<p>n^2 is even, n is even.</p>
+<p>so m,n both even, 2 is common factor, but n,m should no common factor</p>
+<p>so √2 is Irrational number</p>
+<p>Exercise:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">	¬(∀x∀y[(x&lt;y) -&gt; ∃z(x&lt;z&lt;y)])</span><br><span class="line">&lt;=&gt;	∃x∃y¬[¬(x&lt;y) v ∃z(x&lt;z&lt;y)]</span><br><span class="line">&lt;=&gt;	∃x∃y ((x&lt;y) ^ ¬∃z(x&lt;z&lt;y))</span><br><span class="line">&lt;=&gt;	∃x∃y ((x&lt;y) ^ ∀z¬(x&lt;z&lt;y))</span><br><span class="line">&lt;=&gt; ∃x∃y ((x&lt;y) ^ ∀z¬(x&lt;z ^ z&lt;y))</span><br><span class="line">&lt;=&gt; ∃x∃y ((x&lt;y) ^ ∀z(¬(x&lt;z) v ¬(z&lt;y))</span><br><span class="line">&lt;=&gt; ∃x∃y ((x&lt;y) ^ ∀z(x &gt;= z V z &gt;= y)</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">	∀x[p(x) v q(x)]		(1)	</span><br><span class="line">	∃x¬p(x)				(2)</span><br><span class="line">	∀x[¬q(x) v r(x)]	(3)</span><br><span class="line">	∀x[s(x) -&gt; ¬r(x)]	(4)</span><br><span class="line">	_________________</span><br><span class="line">	∃x ¬s(x)</span><br><span class="line"></span><br><span class="line">(2) there exist c in u, that ¬p(c)</span><br><span class="line">(1)	p(c) v q(c)</span><br><span class="line">(3)	¬q(c) v r(c)</span><br><span class="line">(4)	s(c) -&gt; ¬r(c)</span><br><span class="line"></span><br><span class="line">so the fomular change to:</span><br><span class="line">	p(c) v q(c)		(1)</span><br><span class="line">	¬p(c)			(2)</span><br><span class="line">	¬q(c) v r(c)	(3)</span><br><span class="line">	s(c) -&gt; ¬r(c)	(4)</span><br><span class="line">	___________________</span><br><span class="line">	¬s(c)</span><br><span class="line"></span><br><span class="line">(3)		q(x) -&gt; r(c)	(5)</span><br><span class="line">(5)		¬r(c) -&gt; ¬q(c)	(6)</span><br><span class="line">(4)(6)	s(c) -&gt; ¬q(c)	(7)</span><br><span class="line">(2)(1)	q(c)			(8)</span><br><span class="line">(7)(8)	¬s(c)</span><br><span class="line">		∃x ¬s(x)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="—-Number-Theory-—"><a href="#—-Number-Theory-—" class="headerlink" title="— Number Theory —"></a>— Number Theory —</h2><h3 id="Division"><a href="#Division" class="headerlink" title="Division"></a>Division</h3><p>a|b means there is a c, so that b &#x3D; ac</p>
+<p>3|9     9 &#x3D; 3*3</p>
+<h4 id="Theorem-1-2-3"><a href="#Theorem-1-2-3" class="headerlink" title="Theorem 1,2,3"></a>Theorem 1,2,3</h4><p><strong>1)</strong></p>
+<p>if     <strong>a|b</strong> , <strong>a|c</strong>     then     <strong>a|(b+c)</strong></p>
+<p>proof:    a|b &#x3D;&gt; ∃k1 ak1 &#x3D; b</p>
+<p>​           a|c &#x3D;&gt; ∃k2  ak2 &#x3D; c</p>
+<p>b+c &#x3D; ak1+ak2 &#x3D; a(k1+k2)</p>
+<p>because k1 + k2 is integer, so a|(b+c)</p>
+<p><strong>In general      a|b     a|c    then     a|bx+cy     for any integer</strong></p>
+<p><strong>2)</strong></p>
+<p>if     <strong>a|b</strong>     then     <strong>a|bc</strong>     for all integers c</p>
+<p><strong>3)</strong></p>
+<p>• if     a|b     and     b|c,     then     a|c</p>
+<p>proof:</p>
+<p>​    a|b &#x3D;&gt; ∃k1 b &#x3D; ak1</p>
+<p>​    b|c &#x3D;&gt; ∃k2  c &#x3D; bk2</p>
+<p>​    c &#x3D; ak1k2    k1*k2 is integer</p>
+<p>​    so  a|c</p>
+<h3 id="Prime-Number-质数"><a href="#Prime-Number-质数" class="headerlink" title="Prime Number 质数"></a>Prime Number 质数</h3><p>定义:</p>
+<p>​    A positive integer greater than 1 is called prime if<br>​    the only positive factors of p are 1 and p.<br>​    Otherwise, it is called composite. </p>
+<p>prime : 13, 7</p>
+<p>composite: 12, 9</p>
+<h4 id="Well-Ordering-Primcipal"><a href="#Well-Ordering-Primcipal" class="headerlink" title="Well Ordering Primcipal"></a>Well Ordering Primcipal</h4><p>If you have a collection of positive integers, then that collection has a least element</p>
+<h5 id="Theorem4"><a href="#Theorem4" class="headerlink" title="Theorem4:"></a>Theorem4:</h5><p>If m is an positive integer, and m is compositive</p>
+<p>then there exist p, p is prime number such that p|m</p>
+<p>proof:</p>
+<p>​    if there is a collection (n1, n2, n3 ….) such that is false (they are all comositive, and the don’t have prime factor)</p>
+<p>​    by <strong>WOR</strong> ∃n such that n &lt; ni, </p>
+<p>​    ∃n1n2;    n &#x3D; n1*n2</p>
+<p>​    &#x3D;&gt; n1 &lt; n ^ n2 &lt; n</p>
+<p>​    n1, n2 are not prime since n</p>
+<p>​    n1^ n2 are compositive</p>
+<p>​    n1 &lt; n, n2 &lt; n since n is the least element</p>
+<p>​    n1 is not in that collection, therefore </p>
+<p>​    ∃p; p|n,</p>
+<p>​    p|n1 ^ n1 | n &#x3D;&gt; p|n    <strong>contradiction</strong></p>
+<h5 id="Theorem-5"><a href="#Theorem-5" class="headerlink" title="Theorem 5:"></a>Theorem 5:</h5><p>There are infiniteley many prime numbers</p>
+<p>proof: </p>
+<p>​    Assume the total number of prime numbers are finite    p1, p2, p3… pn</p>
+<p>​    a &#x3D; p1 * p2 * p3 * … * pn + 1</p>
+<p>​    since a &gt; pi,     a is composite</p>
+<p>​    ∃p such that p|a</p>
+<p>​    pi | a</p>
+<p>​    pi | p1 * p2 … pn</p>
+<p>​    so pi | (p1 * p2 … pn +1) - (p1 * p2 … pn) </p>
+<p>​    pi | 1</p>
+<p>​    pi &#x3D; 1</p>
+<p>​    1 is not prime number, comtradiction</p>
+<h5 id="Theorem-6"><a href="#Theorem-6" class="headerlink" title="Theorem 6:"></a><strong>Theorem 6:</strong></h5><p>If n is a composite integer, then n has a prime<br>divisor less than or equal to <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116"></p>
+<p>proof:</p>
+<p>​    n is composite     ∃m1m2</p>
+<p>​    n &#x3D; m1 * m2</p>
+<p>​    m1 &gt; <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116">     ^     m2 &gt; <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116"></p>
+<p>​    m1m2 &gt; <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116">*<img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116"></p>
+<p>​    ¬(m1 &gt; <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116"> )    v     ¬( m2 &gt; <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116">)</p>
+<p>​    Assume m1 &lt;  <img src="/Blog/intro/1559966922116.png" srcset="/img/loading.gif" lazyload alt="1559966922116"></p>
+<p>​    m1 is compositive     p | m1</p>
+<p>​    </p>
+<p>​    m1 | n    p | m1</p>
+<p>​    so p | n</p>
+<h3 id="gcd-and-lcm"><a href="#gcd-and-lcm" class="headerlink" title="gcd and lcm"></a>gcd and lcm</h3><p>gcd greatest common divisor</p>
+<p>lcm least common multiple</p>
+<h4 id="Theorem-7"><a href="#Theorem-7" class="headerlink" title="Theorem 7:"></a>Theorem 7:</h4><p>if a&gt;b then gcd(a,b) &#x3D; gcd(a-b, b)</p>
+<p>proof:</p>
+<p>​    gcd(a,b) &#x3D; d1</p>
+<p>​    gcd(a-b,d) &#x3D; d2</p>
+<p>​    d1|a ^ d1|b    &#x3D;&gt; d1|ax+by &#x3D;&gt; d1|a-b ^ d1|b    &#x3D;&gt; d1|d2    (because d2 is greatest divisor)</p>
+<p>​    d2|a-b ^ d2|b</p>
+<p>​    d2|(a-b) + b &#x3D;&gt; d2|a    &#x3D;&gt; d2|d1 (because d1 is greatest common divisor)</p>
+<p>​    because d1|d2 ^ d2|d1    d1 &#x3D;&#x3D; d2</p>
+<h4 id="Theorem-8"><a href="#Theorem-8" class="headerlink" title="Theorem 8 :"></a>Theorem 8 :</h4><p>​    if a,b,c are positive integers, the diophuntine equation ax+by&#x3D;c has an integer solution (x0, y0)</p>
+<p>​    if and only if gcd(a,b)|c</p>
+<h4 id="Theorem-9"><a href="#Theorem-9" class="headerlink" title="Theorem 9:"></a>Theorem 9:</h4><p>​    let a, b be positive integer, p is prime number</p>
+<p>​    if p|ab then p|a or p|b</p>
+<p>​    </p>
+<p>proof:</p>
+<p>if p | a then Done    </p>
+<p>else gcd(p,a) &#x3D; 1</p>
+<p>since gcd(p,a) &#x3D; 1, c&#x3D;1</p>
+<p>px+ay&#x3D;1 has a integer solution    (by Theorem 8)</p>
+<p>pbx+aby&#x3D;b </p>
+<p>because p|ab so let ab &#x3D; pk</p>
+<p>pbx + aby &#x3D; b &#x3D;&gt;    pbx + pky &#x3D; b</p>
+<p>so then p|b</p>
+<h4 id="theorem-10"><a href="#theorem-10" class="headerlink" title="theorem 10:"></a>theorem 10:</h4><p>ab &#x3D; gcd(a,b)*lcm(a,b)</p>
+<h3 id="modular"><a href="#modular" class="headerlink" title="modular"></a>modular</h3><p>Let a be an integer and m be a positive integer.<br>The remainder when a is divided by m is denoted<br>a mod m.</p>
+<p>a mod m &#x3D; r     a&#x3D;mq+r     0&lt;&#x3D;r&lt;m</p>
+<p>a≡b (mod on m)    m | a-b</p>
+<h4 id="Theorem-11"><a href="#Theorem-11" class="headerlink" title="Theorem 11:"></a>Theorem 11:</h4><p>if     a≡b(mod on m) and c≡d(mod on m)</p>
+<p>then    a+c≡b+d (mod on m)    ac≡bd(mod on m)</p>
+<h4 id="Theorem-12"><a href="#Theorem-12" class="headerlink" title="Theorem 12:"></a>Theorem 12:</h4><p>a &#x3D; bq+r</p>
+<p>gcd(a,b) &#x3D; gcd(b, r)</p>
+<p>Example </p>
+<p>gcd(a, b) &#x3D; 1    if a|bc    proof a|c</p>
+<p>ax+by&#x3D;1 (c&#x3D;1) has a integer solution </p>
+<p>ax0+by0 &#x3D; 1</p>
+<p>acx0+bcy0 &#x3D; c</p>
+<p>because a|bc</p>
+<p>a|acx0 and a|bcy0</p>
+<p>so a|(acx0+bcy0)</p>
+<p>​    a|c(ax0+by0)</p>
+<p>​    a|c*1</p>
+<p>​    a|c</p>
+<p>Example</p>
+<p>gcd(a,b)&#x3D;d</p>
+<p>show gcd(a&#x2F;d, b&#x2F;d)&#x3D;1</p>
+<p>ax+by&#x3D;d has a integer solution</p>
+<p>∃x0y0</p>
+<p>ax0+by0&#x3D;d</p>
+<p>(a&#x2F;d) x0 +(b&#x2F;d) y0 &#x3D; 1</p>
+<p>so gcd(a&#x2F;d,b&#x2F;d)&#x3D;1</p>
+<p>Example:</p>
+<p>2^1234 ≡ ? (mod on 17)</p>
+<p>2^4 &#x3D; 16 ≡ -1 (mod on 17)</p>
+<p>2^8 ≡ 1 (mod on 17)</p>
+<p>2^8^154  *  2^2 ≡1 * 2^2 (mod on 17)</p>
+<p>so ? &#x3D; 4</p>
+<p>example:</p>
+<p>为什么3的倍数,各项之和也是3的倍数</p>
+<p>n &#x3D; a0 * 10^0 + a1 * 10 + … + an * 10^n</p>
+<p>10 ≡ 1(mod on 3)</p>
+<p>so a0 * 1 + a1 * 1 … + an * 1 </p>
+<h2 id="—Set-Theory—"><a href="#—Set-Theory—" class="headerlink" title="—Set Theory—"></a>—Set Theory—</h2><h3 id="set"><a href="#set" class="headerlink" title="set :"></a>set :</h3><p>S &#x3D; {}</p>
+<p>A &#x3D; {2,3,4}</p>
+<p>∈ means belongs to<br>∉   means not belongs to</p>
+<p>2 ∈ A     99  ∉ A</p>
+<p>empty set: {} or ∅ </p>
+<h3 id="set-builder"><a href="#set-builder" class="headerlink" title="set builder:"></a>set builder:</h3><p>A &#x3D; {2k | 0&lt;k&lt;5, k: integer}</p>
+<p>​        </p>
+<h3 id="size-of-set"><a href="#size-of-set" class="headerlink" title="size of set"></a>size of set</h3><p>|A| &#x3D; 3    size of A</p>
+<p>Important Set</p>
+<p><img src="/Blog/intro/1560638908820.png" srcset="/img/loading.gif" lazyload alt="1560638908820"></p>
+<h3 id="sub-Set"><a href="#sub-Set" class="headerlink" title="sub Set"></a>sub Set</h3><p>A is a sub set of B</p>
+<p>A ⊆ B</p>
+<p>∀x(x ∈ A-&gt; x ∈ B)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">		¬∀x(x ∈ A-&gt; x ∈ B)</span><br><span class="line">&lt;=&gt;		∃x ¬( ¬(x ∈ A) v (x ∈ B))</span><br><span class="line">&lt;=&gt;		∃x (x ∈ A) ^ (x ∉ B)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="same-set"><a href="#same-set" class="headerlink" title="same set:"></a>same set:</h4><p>A &#x3D; B iff A ⊆ B ^ B ⊆ A</p>
+<h4 id="proper-Subset"><a href="#proper-Subset" class="headerlink" title="proper Subset:"></a>proper Subset:</h4><p>A ⊂ B</p>
+<ol>
+<li><p>∀x(x ∈ A-&gt; x ∈ B)</p>
+</li>
+<li><p>∃x (x ∈ B) ^ (x ∉ A)</p>
+</li>
+</ol>
+<h3 id="Theorem-1"><a href="#Theorem-1" class="headerlink" title="Theorem 1"></a>Theorem 1</h3><p>A ⊆ B ^ B ⊆ C    &#x3D;&gt;    A ⊆ C</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">because A ⊆ B</span><br><span class="line">so 		∀x(x ∈ A -&gt; x ∈ B)</span><br><span class="line"></span><br><span class="line">because B ⊆ C</span><br><span class="line">so		∀x(x ∈ B -&gt; x ∈ C)</span><br><span class="line"></span><br><span class="line">so we need to proof:</span><br><span class="line">∀x(x ∈ A -&gt; x ∈ B)</span><br><span class="line">∀x(x ∈ B -&gt; x ∈ C)</span><br><span class="line">___________________</span><br><span class="line">∀x(x ∈ A -&gt; x ∈ C)</span><br><span class="line"></span><br><span class="line">use arbitrary a </span><br><span class="line"></span><br><span class="line">x ∈ A -&gt; x ∈ B</span><br><span class="line">x ∈ B -&gt; x ∈ C</span><br><span class="line">________________</span><br><span class="line">x ∈ A -&gt; x ∈ C</span><br></pre></td></tr></table></figure>
+
+<h3 id="Theorem-2"><a href="#Theorem-2" class="headerlink" title="Theorem 2"></a>Theorem 2</h3><p>If A ⊂ B and B ⊆ C then A ⊂ C</p>
+<p>proof:</p>
+<ol>
+<li><p>∀x(x ∈ A -&gt; x ∈ C)</p>
+</li>
+<li><p>∃x (x ∈ C ^ x ∉ A)</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">by:</span><br><span class="line">A ⊆ B ^ B ⊆ C 	=&gt;	A ⊆ C</span><br><span class="line">we got ∀x(x ∈ A -&gt; x ∈ C)</span><br><span class="line"></span><br><span class="line">because A ⊂ B </span><br><span class="line">so		∃x(x ∈ B ^ x ∉ A)</span><br><span class="line">because B ⊆ C</span><br><span class="line">		x ∈ B =&gt; x ∈ C</span><br><span class="line">		x ∈ C ^ x ∉ A</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Theorem-3"><a href="#Theorem-3" class="headerlink" title="Theorem 3"></a>Theorem 3</h3><p>A be a set in a given universe U, then {} ⊆ A. Also, if A!&#x3D;{} then {} ⊂ A</p>
+<ol>
+<li><p>∀x(x ∈ {} -&gt; x ∈ A)</p>
+<p>x ∈ {} is false so the whole statement is true</p>
+</li>
+<li><p>if A !&#x3D; {} &#x3D;&gt; {} ⊂ A</p>
+<p>{} ⊆ A  is  true</p>
+<p>∃x(x ∈ A ^ x ∉ {})</p>
+<p>a is a arbitrary element in A</p>
+<p>A !&#x3D; {} -&gt; a ∈ A</p>
+<p>A has at least 1 element</p>
+<p>a ∈ A ^ a ∉ {}    &#x3D;&gt;    ∃x(x ∈ A ^ x ∉ {})    true</p>
+</li>
+</ol>
+<h3 id="Power-Sets"><a href="#Power-Sets" class="headerlink" title="Power Sets"></a>Power Sets</h3><p>Given a set A in a given universe U, a power set of<br>A is the set of all possible subsets of the set A. It is<br>denoted by P(A).</p>
+<p>Example:</p>
+<p>A &#x3D; {1,2}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(A) = &#123;&#123;&#125;, &#123;1&#125;, &#123;2&#125;, &#123;1,2&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>|P(A)| &#x3D; 2^2 &#x3D; 4</p>
+<p>if    |A| &#x3D; n then |P(A)| &#x3D; 2^n</p>
+<p>(n choose 0) +(n choose 1) … (n choose n) &#x3D; 2^n</p>
+<h3 id="Theorem-4"><a href="#Theorem-4" class="headerlink" title="Theorem 4:"></a>Theorem 4:</h3><p>(n+1 choose r) &#x3D; (n choose r) + (n choose r-1)</p>
+<p>proof:</p>
+<p>A &#x3D; {a1, a2, a3 … an, b}</p>
+<p>(n+1 choose r) select r element from A</p>
+<ol>
+<li>not include b, select r from ai (n choose r)</li>
+<li>include b, select r-1 from ai (n choose r-1)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">				1</span><br><span class="line">			1		1</span><br><span class="line">	</span><br><span class="line">          	1		2		1</span><br><span class="line">		(3 c 1)	  (3 c 2)</span><br><span class="line">	1		3		3		1</span><br><span class="line">			  \	  /</span><br><span class="line">1		4		6		4		1</span><br><span class="line">			 (4 c 2)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Set-Operations"><a href="#Set-Operations" class="headerlink" title="Set Operations"></a>Set Operations</h3><p><img src="/Blog/intro/1560645235256.png" srcset="/img/loading.gif" lazyload alt="1560645235256"></p>
+<p><img src="/Blog/intro/1560645347749.png" srcset="/img/loading.gif" lazyload alt="1560645347749"></p>
+<p><img src="/Blog/intro/1560645439887.png" srcset="/img/loading.gif" lazyload alt="1560645439887"></p>
+<p><img src="/Blog/intro/1560645502553.png" srcset="/img/loading.gif" lazyload alt="1560645502553"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A1, A2, A3 are sets</span><br><span class="line"></span><br><span class="line">A1 U A2 U A3 </span><br><span class="line"></span><br><span class="line">&lt;=&gt;		U Ai</span><br><span class="line">	i∈&#123;1,2,3&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Theorem-5-1"><a href="#Theorem-5-1" class="headerlink" title="Theorem 5:"></a>Theorem 5:</h3><p>if A, B are sets in a universe U, then A and B are disjoint iff AUB &#x3D; A△B</p>
+<p>​            iff</p>
+<p>A ∩ B &#x3D; {}  &lt;&#x3D;&gt; A U B &#x3D; A△B</p>
+<p>because A U B &#x3D; A△B</p>
+<ol>
+<li>A U B ⊆  A△B</li>
+<li>A△B ⊆  A U B      -&gt; always true</li>
+</ol>
+<p>by 1</p>
+<p>a ∈ AUB</p>
+<p>a ∈ AUB ^ a ∉ A ∩ B</p>
+<p>so a ∈ AUB </p>
+<h3 id="Theorem-6-1"><a href="#Theorem-6-1" class="headerlink" title="Theorem 6"></a>Theorem 6</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. A ⊆ B</span><br><span class="line"></span><br><span class="line">2. A U B = B</span><br><span class="line"></span><br><span class="line">3. A ∩ B = A</span><br><span class="line"></span><br><span class="line">4. !B ⊆ !A</span><br></pre></td></tr></table></figure>
+
+
+
+<p>proof (3)(4)</p>
+<p>!B means not in B</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">a ∈ !B =&gt; a ∉ B =&gt; a ∉ A ∩ B</span><br><span class="line">!A = &#123;x| x ∈ U ^ x ∉ A &#125;</span><br><span class="line">A ∩ B = A 	=&gt;	a ∉ A =&gt; a ∈ !A</span><br><span class="line"></span><br><span class="line">Assume</span><br><span class="line">!B !⊆ !A</span><br><span class="line">there exist c;</span><br><span class="line">c ∈ !B ^ c ∉ !A</span><br><span class="line">focus on c ∉ !A</span><br><span class="line">=&gt;	c ∈ A</span><br><span class="line">	because A = A ∩ B</span><br><span class="line">=&gt;	c ∈ A ∩ B</span><br><span class="line">=&gt;	c ∈ B	but c ∈ !B</span><br><span class="line">	contradiction</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Example:</p>
+<p>show</p>
+<p>!!A &#x3D; A</p>
+<p>so we need to proof:</p>
+<ol>
+<li><p>!!A ⊆ A</p>
+</li>
+<li><p>A ⊆ !!A</p>
+<p>!!A ⊆ A    &lt;&#x3D;&gt;    a ∈ !!A     &lt;&#x3D;&gt;    a ∉ !A    &lt;&#x3D;&gt;    a ∈ A</p>
+</li>
+</ol>
+<p>Example:</p>
+<p>simplfy !(A △ B)</p>
+<p>!(A △ B)    &#x3D;&gt;    !((A U B) - (A ∩ B))</p>
+<p>​        because A - B &#x3D; A ∩ !B</p>
+<p>​             &#x3D;&gt;    !((A U B) ∩ ! (A ∩ B))</p>
+<p>​             &#x3D;&gt;    !(A U B) U (A ∩ B)</p>
+<p>​             &#x3D;&gt;     (!A ∩ !B) U (A ∩ B)</p>
+<p>​             &#x3D;&gt;    !A ∩ ((!B U A) ∩ (!B U B))</p>
+<p>​             &#x3D;&gt;    !A ∩ (!B U A)</p>
+<p>​             &#x3D;&gt;    (!A ∩ !B) U (!A ∩ A)</p>
+<p>​            &#x3D;&gt;    !A ∩ !B</p>
+<p>Example:</p>
+<p>proof :    A ⊆ B iff A ∩ !B &#x3D; {}</p>
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. proof A ∩ !B = &#123;&#125;	=&gt;	A ⊆ B</span><br><span class="line"></span><br><span class="line">	a ∈ A </span><br><span class="line">=&gt;	a ∉ !B</span><br><span class="line">=&gt;	a ∈ B</span><br><span class="line">=&gt;	A ⊆ B</span><br><span class="line"></span><br><span class="line">2. proof A ⊆ B 	=&gt;	A ∩ !B = &#123;&#125;</span><br><span class="line">	assume (A ∩ !B) != &#123;&#125;</span><br><span class="line">	c ∈ (A ∩ !B)</span><br><span class="line">=&gt;	(c ∈ A) ∩ (c ∈ !B)</span><br><span class="line">because c ∈ A and A ⊆ B</span><br><span class="line">so		c ∈ B</span><br><span class="line">because c ∈ !B</span><br><span class="line">so		c ∉ B	contradiction</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Set-Theory-Application"><a href="#Set-Theory-Application" class="headerlink" title="Set Theory Application"></a>Set Theory Application</h3><p>A &#x3D; {a, b, c, d}</p>
+<p>B &#x3D; {2, 4, -1}</p>
+<p>A * B &#x3D; {(a,b) | a ∈ A ^ b ∈ B }</p>
+<p>​      &#x3D; {(a, 2), (a, 4), (a, -1) … }</p>
+<p>|A| &#x3D; m</p>
+<p>|B| &#x3D; n</p>
+<p>|A * B| &#x3D; mn</p>
+<h3 id="Counting-Sets"><a href="#Counting-Sets" class="headerlink" title="Counting Sets"></a>Counting Sets</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|A U B| = |A| + |B| - |A ∩ B|</span><br><span class="line"></span><br><span class="line">|A U B U C| = |(A U B) U C|</span><br><span class="line">			= |A U B| + |C| - |(A U B) ∩ C|</span><br><span class="line">			= |A| + |B| - |A ∩ B| + |C| - |(A U B) ∩ C|</span><br><span class="line">			= |A| + |B| + |C| - |A ∩ B| - |(A ∩ C) U (B ∩ C)|</span><br><span class="line">			= |A| + |B| + |C| - |A ∩ B| - [|A ∩ C| + |B ∩ C| - |A ∩ C ∩ B ∩ C|]</span><br><span class="line">			= |A| + |B| + |C| - |A ∩ B| - |A ∩ C| - |B ∩ C| + |A ∩ B ∩ (C ∩ C)|</span><br><span class="line">			= |A| + |B| + |C| - |A ∩ B| - |A ∩ C| - |B ∩ C| + |A ∩ B ∩ C|</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/1561094526600.png" srcset="/img/loading.gif" lazyload alt="1561094526600"></p>
+<h4 id="notes"><a href="#notes" class="headerlink" title="notes:"></a>notes:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|A U !A| = |u|</span><br><span class="line">|A| + |!A| = |u| </span><br><span class="line">|A| + |!A| - |A ∩ !A| = |u|</span><br><span class="line">because A ∩ !A = &#123;&#125;</span><br><span class="line">so		|A ∩ !A| = 0</span><br><span class="line">|A| + |!A| = |u|</span><br><span class="line">|!A| = |u| - |A|</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="problem"><a href="#problem" class="headerlink" title="problem:"></a>problem:</h3><h4 id="ex1"><a href="#ex1" class="headerlink" title="ex1."></a>ex1.</h4><p>​        in 5 days, each day can play one game A, B or C. In how many ways can he play each game at least once.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">_______</span><br><span class="line">|AUBUC|   =  |u| - |AUBUC|</span><br><span class="line"></span><br><span class="line">|!A ∩ !B ∩ !C| = |u| - |AUBUC|</span><br><span class="line">A : All events don&#x27;t play A</span><br><span class="line">B : All events don&#x27;t play B</span><br><span class="line">C : All events don&#x27;t play C</span><br><span class="line"></span><br><span class="line">!A : play A at least once</span><br><span class="line">!B : play B at least once</span><br><span class="line">!C : play C at least once</span><br><span class="line"></span><br><span class="line">|!A ∩ !B ∩ !C| : play A, B, C at least once</span><br><span class="line">|A ∩ B| : only play C</span><br><span class="line">= |u| - (|A| + |B| + |C| - |A ∩ B| - |B ∩ C| - |C ∩ A| + |A ∩ B ∩ C|)</span><br><span class="line">= 3^5 - (2^5 + 2^5 + 2^5 - 1 - 1 - 1 + 0)</span><br><span class="line">= 3^5 - 3*2^5 + 3</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="ex2"><a href="#ex2" class="headerlink" title="ex2."></a>ex2.</h4><p>​    How many arrangement of the letters on the word “MISCELLANEOUS” have no pair of consecutive identical letter?</p>
+<p>​    2 E, 2 L, 2 S</p>
+<p>A : E together     !A :  E not together</p>
+<p>B : L together     !B :  L not together</p>
+<p>C : S together     !C :  S not together</p>
+<p>A ∩ B : EE,LL together at same time</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">|!A ∩ !B ∩ !C| = |u| - |A U B U C|</span><br><span class="line">			   = (13!/2!2!2!) - 3 * (12!/2!2!) + 3 * (11!/2!) - 10!</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="期中example"><a href="#期中example" class="headerlink" title="期中example"></a>期中example</h4><p>5位数 只有两个相同的数字, 几中可能</p>
+<p>结果 (10 choose 2)(2^5 - 2) - (9 choose 1)(2^4 - 1)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">10 choose 2, for example 1, 8</span><br><span class="line">2^5 所有的可能</span><br><span class="line">2 	11111, 88888 两个坏情况</span><br><span class="line">9 	choose 1, start with 0</span><br><span class="line">2^4 所有0开头的可能</span><br><span class="line">1 	坏情况: 00000</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="analytic-probability"><a href="#analytic-probability" class="headerlink" title="analytic probability"></a>analytic probability</h3><p>A ⊆ S  so |A| &lt;&#x3D; |S|</p>
+<p>Pr(A) &#x3D; |A| &#x2F; |S|</p>
+<p>ex1.</p>
+<p>S1 &#x3D; {1, 2, 3, 4, 5, 6}</p>
+<p>S2 &#x3D; {H, T}</p>
+<p>A : I will get H</p>
+<p>A : {(1,H), (2,H) … (6,H)}</p>
+<p>B : I will get 6</p>
+<p>B : {(6,H), (6,T)}</p>
+<p>Pr(A U B) &#x3D; Pr(A) + Pr(B) - Pr(A ∩ B)</p>
+<p>Pr(A) &#x3D; |A| &#x2F; |s1*s2| &#x3D; 6&#x2F;12 &#x3D; 1&#x2F;2</p>
+<p>Pr(B) &#x3D; |B| &#x2F; |s1*s2| &#x3D; 2&#x2F;12 &#x3D; 1&#x2F;6</p>
+<p>Pr(A ∩ B) &#x3D; 1&#x2F;12</p>
+<p>pr(A U B) &#x3D; 1&#x2F;2 + 1&#x2F;6 - 1&#x2F;12 &#x3D; 7&#x2F;12</p>
+<p>ex2.  </p>
+<p>​    Pr(!A) &#x3D; 1 - Pr(A) </p>
+<p>​    A U !A &#x3D; S</p>
+<p>​    Pr(AU!A) &#x3D; Pr(S) &#x3D; 1</p>
+<p>​    Pr(A) + Pr(!A) - Pr(A ∩ !A) &#x3D; 1 </p>
+<p>​     Pr(A ∩ !A) &#x3D; 0</p>
+<p>​    Pr(!A) &#x3D; 1- Pr(A)</p>
+<p>ex3.</p>
+<p>​    A, B ⊆ S</p>
+<p>​    Pr(A) &#x3D; 0.4</p>
+<p>​    Pr(B) &#x3D; 0.3</p>
+<p>​    Pr(A ∩ B) &#x3D; 0.2</p>
+<p>​    </p>
+<p>determine: Pr(!B) , Pr(!(AUB)), Pr(A ∩ !B)</p>
+<p>Pr(!B) &#x3D; 1- 0.3 &#x3D; 0.7</p>
+<p>Pr(!(AUB)) &#x3D; 1- Pr(A U B) &#x3D; 1 - Pr(A) - Pr(B) + Pr(A ∩ B)</p>
+<p>​                                            &#x3D; 1 - 0.4 -0.3 + 0.2</p>
+<p>​                                            &#x3D; 0.5</p>
+<p>because  Pr(A ∩ B) &#x3D; 0.2 </p>
+<p>(A ∩ B) U (A ∩ !B) </p>
+<p>​        &#x3D; (A ∩ B) +  (A ∩ !B) - (A ∩ B) ∩  (A ∩ !B)</p>
+<p>​        &#x3D; (A ∩ B) +  (A ∩ !B)</p>
+<p>​        &#x3D; A ∩ (B U !B) </p>
+<p>​        &#x3D; A</p>
+<p>(A ∩ B) ∩  (A ∩ !B) &#x3D; A ∩ (B ∩ !B) &#x3D; {}</p>
+<p>Pr(A ∩ !B) &#x3D; Pr(A) - Pr(A ∩ B) + Pr((A ∩ B) ∩  (A ∩ !B))&#x3D; 0.4 - 0.2 + 0 &#x3D; 0.2</p>
+<p>(A ∩ B) ,  (A ∩ !B) are both subset of A, so</p>
+<p>|A| &#x3D; |A ∩ !B| + |A ∩ B| - |(A ∩ B) ∩  (A ∩ !B)| </p>
+<p>ex4. </p>
+<p>Toss coin 10 times, what is the prop of getting 7 H</p>
+<p>(10 choose 7) &#x2F; 2^10</p>
+<p>ex5.</p>
+<p>probability of “Full house”</p>
+<p>for example:    13, 13, 13, 5, 5</p>
+<p>(13 choose 1)(4 choose 3) * (12 choose 1)(4 choose 2) &#x2F; (52 choose 5)</p>
+<h2 id="—Mathematical-Induction-MI-—"><a href="#—Mathematical-Induction-MI-—" class="headerlink" title="—Mathematical Induction(MI)—"></a>—Mathematical Induction(MI)—</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">P(1)</span><br><span class="line">P(k) -&gt; P(k+1)</span><br><span class="line">______________</span><br><span class="line">∀x P(x)</span><br><span class="line"></span><br><span class="line">1. P(1) is true</span><br><span class="line">2. assume P(k) is true, proof P(k+1) is true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>example:</p>
+<p>proof: 1+2+3 … n &#x3D; n(n+1)&#x2F;2     {n &gt;&#x3D; 1}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">p(1): 1 = 1*(1+1)/2 	true</span><br><span class="line">Assume p(k) is true</span><br><span class="line">p(k): 1+2+3...+k-1 + k = k*(k+1)/2</span><br><span class="line"></span><br><span class="line">Claim p(k+1) is True</span><br><span class="line">p(k+1): 1+2+3...+k-1 + k + (k+1) = (k+1)*(k+2)/2</span><br><span class="line"></span><br><span class="line">LHS : 1+2+3+...+k+(k+1)</span><br><span class="line">= k*(k+1)/2 + k+1</span><br><span class="line">= (k+1)(k+2)/2		true</span><br><span class="line"></span><br><span class="line">so 1+2+3 ... n = n(n+1)/2 is true</span><br></pre></td></tr></table></figure>
+
+
+
+<p>example:</p>
+<p>p(n): n &lt; 2^n    for all positive integers</p>
+<p>least element is 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">P(1) = 1 &lt; 2^1</span><br><span class="line">Assume p(k): k&lt;2^k is true</span><br><span class="line">Claim: p(k+1) is true</span><br><span class="line"></span><br><span class="line">proof: k+1 &lt; 2 ^ (k+1)</span><br><span class="line"></span><br><span class="line">k &lt; 2^k </span><br><span class="line">so 2k &lt; 2^k * 2^k</span><br><span class="line">2k &lt; 2^(k+1)</span><br><span class="line">k &gt;= 1</span><br><span class="line">so 2k &gt;= 1+k</span><br><span class="line">k+1 &lt; 2^(k+1)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>example: </p>
+<p>P(n) : 3 | n^3 - n        n is positive integer</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">p(1): 3|0	true</span><br><span class="line">Assume p(k) is true</span><br><span class="line">Claim p(k+1) is true</span><br><span class="line"></span><br><span class="line">(k+1)^3 - (k+1)</span><br><span class="line">= k^3 + 3k^2 + 3k + 1 - k - 1</span><br><span class="line">= (K^3 - k) + 3(k^2 + k)</span><br><span class="line">because p(k) is true</span><br><span class="line">so 3 | K^3 - k</span><br><span class="line">so 3 | (K^3 - k) + 3(k^2 + k)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Fibonacci-Number"><a href="#Fibonacci-Number" class="headerlink" title="Fibonacci Number"></a>Fibonacci Number</h3><p>0,1,1,2,3,5,8,13 …</p>
+<p>Fn - F(n-1) + F(n-2)</p>
+<p>F0 &#x3D; 0, F1 &#x3D; 1</p>
+<p>example: </p>
+<p>proof : p(n) n &gt;&#x3D;0; p(n) : F0 + F1 +… Fn &#x3D; F(n+2)-2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">p(0): F0 = F2 - 2</span><br><span class="line">	   0 = -1	False</span><br><span class="line">p(1): F0 + F1 = F3 - 2</span><br><span class="line">	   1 = 0	False</span><br><span class="line">p(2): F0 + F1 + F2 = F4 - 2</span><br><span class="line">	   2 = 1	False</span><br><span class="line">Therefore, p(n) is wrong</span><br><span class="line">but let&#x27;s look at p(k)</span><br><span class="line"></span><br><span class="line">Assume p(k) is true</span><br><span class="line">F0+F1+..+Fk = Fk+2 - 2 is true</span><br><span class="line"></span><br><span class="line">Claim p(k+1) is true</span><br><span class="line">F0+F1....+Fk+F(k+1) = F(k+3)-2</span><br><span class="line"></span><br><span class="line">LHS: F(k+2)-2+F(k+1)</span><br><span class="line">= F(k+1) + F(k+2) - 2</span><br><span class="line">= F(k+3) - 2</span><br><span class="line"></span><br><span class="line">although p(1) is wrong, we still proof p(k) is true.</span><br><span class="line">but we can see</span><br><span class="line">if proof: F0 + F1 +... Fn = F(n+2)-1</span><br><span class="line">then p(1) is true, p(k) is also true.</span><br><span class="line"></span><br><span class="line">Base is important!!!</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>example:</p>
+<p>an &#x3D; a(n-1) +a(n-2) + a(n-3), a0 &#x3D; 1, a1 &#x3D; 2, a2 &#x3D; 3</p>
+<p>proof an &lt;&#x3D; 3^n</p>
+<p>p(0) a0 &lt;&#x3D; 3^0    1&lt;&#x3D;1 true</p>
+<p>p(1) 2 &lt;&#x3D; 3^2    p(2) 3 &lt;&#x3D; 3^3     true</p>
+<p>Assume p(k) is true ak &lt; 3^k</p>
+<p>Claim p(k+1) is true</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">strong Induction</span><br><span class="line"></span><br><span class="line">p(1)^p(2)...^p(k)^p(k+1)</span><br><span class="line">________________________</span><br><span class="line">		∀n p(n)</span><br></pre></td></tr></table></figure>
+
+<p>use Strong Induction</p>
+<p>Assume p(m) is true am &lt;&#x3D; 3^m, m&lt;&#x3D;k</p>
+<p>ak+1 &#x3D; ak + a(k-1) + a(k-2) &lt;&#x3D; 3^k + 3^(k-1) + 3^(k-2)</p>
+<p>​                                                &#x3D; 3^k(1+1&#x2F;3+1&#x2F;9) &lt; 3 ^ (k+1)</p>
+<p>example:</p>
+<p>Harmonic Swquence</p>
+<p>H1 &#x3D; 1</p>
+<p>H2 &#x3D; 1+ 1&#x2F;2</p>
+<p>H3 &#x3D; 1 + 1&#x2F;2 +1&#x2F;3</p>
+<p>show that 1 + n&#x2F;2 &lt;&#x3D; H(2^n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">p(1) 1+1/2 &lt;= H2 true</span><br><span class="line">p(2) 1+1 &lt;= H4 true</span><br><span class="line"></span><br><span class="line">Assume p(k) 1+ k/2 &lt;= H(2^k) is true</span><br><span class="line">claim p(k+1) is true</span><br><span class="line"></span><br><span class="line">1+(k+1)/2 &lt;= H(2^(k+1))</span><br><span class="line">RHS : H(2(k+1))</span><br><span class="line"> = H(2^k) + 1/(2^k+1)+1/(2^k+2)...+1/(2^k+2^k)</span><br><span class="line"> so</span><br><span class="line"> H(2^(k+1)) &gt;= 1 + k/2 + 1/(2^k+1)+1/(2^k+2)...+1/(2^k+2^k)</span><br><span class="line"> </span><br><span class="line"> because </span><br><span class="line"> 1&lt;= 2^k</span><br><span class="line"> ...</span><br><span class="line"> 2^k &lt;= 2^k</span><br><span class="line"> so</span><br><span class="line"> 1+2^k &lt;= 2^k + 2^k</span><br><span class="line"> ..</span><br><span class="line"> 2^k + 2^k &lt;= 2^k + 2^k</span><br><span class="line"> </span><br><span class="line"> 1/(2^k+1) &gt;= 1/(2^k+2^k)</span><br><span class="line"> ...</span><br><span class="line"> 1/(2^k+2^k) &gt;= 1/(2^k+2^k)</span><br><span class="line"> </span><br><span class="line"> so</span><br><span class="line"> 1/(2^k+1)+1/(2^k+2)...+1/(2^k+2^k) &gt;= 2^k/(2^k+2^k)</span><br><span class="line"> 									 = 1/2</span><br><span class="line"> 1+(k+1)/2 &lt;= H(2^(k+1))</span><br><span class="line"> </span><br><span class="line"> note</span><br><span class="line"> when k -&gt; 无限</span><br><span class="line"> H(2^k) -&gt; 无限</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="—Function—"><a href="#—Function—" class="headerlink" title="—Function—"></a>—Function—</h2><p><img src="/Blog/intro/1562537394016.png" srcset="/img/loading.gif" lazyload alt="1562537394016"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">funciton defination:</span><br><span class="line"></span><br><span class="line">∀a∈A ∃b∈B f(a) = b</span><br><span class="line"></span><br><span class="line">∀a∈A, b1∈B, b2∈B(f(a)=b1 ^ f(a)=b2 -&gt; b1=b2)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ex)</p>
+<p>let f: IR -&gt; IR f(x) &#x3D; 2x+4</p>
+<p>show that f is a function from IR to IR</p>
+<p>f(a) &#x3D; b1 &#x3D;&gt; 2a+4 &#x3D; b1</p>
+<p>f(a) &#x3D; b2 &#x3D; &gt;2a+4 &#x3D; b2</p>
+<p>b1 &#x3D; b2</p>
+<p>b &#x3D; 2a+4 ∈IR</p>
+<h3 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">f1, f2 : A -&gt; IR</span><br><span class="line"></span><br><span class="line">(f1+f2) : A -&gt; IR , (f1+f2)(x) = f1(x) + f2(x)</span><br><span class="line"></span><br><span class="line">(f1*f2) : A -&gt; IR, (f1 * f2)(x) = f1(x) * f2(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">composition:</span><br><span class="line">f: C-&gt;B</span><br><span class="line">g: A-&gt;C</span><br><span class="line">(fog)(x) : A -&gt; B</span><br><span class="line">def: (fog)(x) = f(g(x))</span><br><span class="line"></span><br><span class="line">  g	  f</span><br><span class="line">A	C	B</span><br><span class="line">   fog</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="ont-to-one-or-injective"><a href="#ont-to-one-or-injective" class="headerlink" title="ont-to-one or injective"></a>ont-to-one or injective</h4><p>definition</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">∀b, a1, a2(f(a1)=b ^ f(a2)=b -&gt; a1 = a2)</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">∀a1, a2(f(a1) = f(a2) -&gt; a1 = a2)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ex) show f(x) &#x3D; 2x-3  f:R-&gt;R is injective</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f(a1) = f(a2) =&gt; 2a1 - 3 = 2a2 -3</span><br><span class="line">			  =&gt; 2a1 = 2a2</span><br><span class="line">			  =&gt; a1 = a2</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="onto-or-surjective"><a href="#onto-or-surjective" class="headerlink" title="onto or surjective"></a>onto or surjective</h4><p><img src="/Blog/intro/1562538905528.png" srcset="/img/loading.gif" lazyload alt="1562538905528"></p>
+<p>this function is not injective &#x2F; one to one</p>
+<p>​                            not surjective&#x2F; onto because f in B doesn’t relate to any element in A</p>
+<p>defination:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">∀b∃a f(a) = b</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ex)</p>
+<p>Q1. If f and g are both injective then fog is injective</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">proof:</span><br><span class="line">(fog)(a1) = (fog)(a2)</span><br><span class="line">=&gt;	f(g(a1)) = f(g(a2))</span><br><span class="line">=&gt;	g(a1) = g(a2)</span><br><span class="line">=&gt;	a1 = a2</span><br></pre></td></tr></table></figure>
+
+<p>Q2.If f and g are both surjective then fog is surjective</p>
+<p>Q3. If fog is injective then f is injective</p>
+<p>Q4. If fog is injective then g is injective</p>
+<p>Q5. If fog is surgective then f is surgective</p>
+<p>Q6. If fog is surgective then g is surgective</p>
+<p>Q4 proof:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Assume g is not injective </span><br><span class="line">∃a1,a2 g(a1)=g(a2) ^ a1!=a2</span><br><span class="line">g(a1), g(a2) ∈ C (domain of f)</span><br><span class="line"></span><br><span class="line">f(g(a1)) = f(g(a2))</span><br><span class="line">because it is injective</span><br><span class="line">(fog)(a1) = (fog)(a2)</span><br><span class="line">a1 = a2 (contradiction!)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Q3 conter example:</p>
+<p><img src="/Blog/intro/1562546745139.png" srcset="/img/loading.gif" lazyload alt="1562546745139"></p>
+<p>Q5: proof</p>
+<p>Q5. If fog is surgective then f is surgective</p>
+<p><img src="/Blog/intro/1562547541552.png" srcset="/img/loading.gif" lazyload alt="1562547541552"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def of surjective is</span><br><span class="line">∀b∃a f(a) = b</span><br><span class="line"></span><br><span class="line">¬def ∃b∀a f(a)!=b</span><br><span class="line">∃b∈B ∀c∈C f(c)!=b</span><br><span class="line">exists b in B</span><br><span class="line">c is arbitrary in c</span><br><span class="line">since fog is surjective and b ∈ B</span><br><span class="line">there exist a ∈ A (fog)(a) = b</span><br><span class="line">					f(g(a)) = b</span><br><span class="line">					g(a) ∈ C</span><br><span class="line">					but f(c) != b (contradiction)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Bijective"><a href="#Bijective" class="headerlink" title="Bijective"></a>Bijective</h4><p>both injective and sujective</p>
+<p> Let Abe a set.  The identity function on A is the function 1A:A→Awhere 1A(x) &#x3D; x where x∈A</p>
+<h3 id="How-many-functions"><a href="#How-many-functions" class="headerlink" title="How many functions"></a>How many functions</h3><p>|A| &#x3D;  4     |B| &#x3D; 3     f:A-&gt;B</p>
+<p>3^4 choice. Each element in A can have 3 choices</p>
+<p>|A| &#x3D; m    |B| &#x3D; n    f:A-&gt;B</p>
+<p>n^m choices</p>
+<p>|A| &#x3D; 3     |B|&#x3D;4</p>
+<p>in total 4^3</p>
+<p>injective 4 * 3 * 2 first element in A can choose 4, second can choose 3, third can choose 2</p>
+<h4 id="How-many-on-to-functions"><a href="#How-many-on-to-functions" class="headerlink" title="How many on to functions?"></a>How many on to functions?</h4><p>onto &#x3D; total - not onto</p>
+<h5 id="what-is-not-onto"><a href="#what-is-not-onto" class="headerlink" title="what is not onto?"></a>what is not onto?</h5><p>if no g, 2^4 functions</p>
+<p>if no e or f, 2^4 functions</p>
+<p>intotal 3*2^4, </p>
+<p><img src="/Blog/intro/1562891437025.png" srcset="/img/loading.gif" lazyload alt="1562891437025"></p>
+<p>but there are also some bad cases</p>
+<p><img src="/Blog/intro/1562891814929.png" srcset="/img/loading.gif" lazyload alt="1562891814929"></p>
+<p>when we ignore g, abcd point to e, when we ignore f, abcd point to e.</p>
+<p>so we count this twice.</p>
+<p>not onto :  (3 * 2 ^ 4) - (3 * 1 ^ 4)</p>
+<p>so onto &#x3D; total - not onto</p>
+<p>​                &#x3D; 3^4 - (A-&gt;{e,f} + A-&gt;{e,g} + A-&gt;{f,g}) </p>
+<p>​                        + ({A-&gt;{e} + A-&gt;{f} + A-&gt;{g}})</p>
+<p>​                &#x3D; 3^4 - (3 * 2 ^ 4) + (3 * 1 ^ 4)</p>
+<h5 id="In-general"><a href="#In-general" class="headerlink" title="In general"></a>In general</h5><p>|A| &#x3D; m,    |B| &#x3D; n</p>
+<p>number of onto function f:A-&gt;B</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n^m - (n choose n-1)(n-1)^m + (n choose n-2)(n-2)^m - + - +.... (-1)^(n-2) * (n choose 2) * 2^m + (-1)^(n-1) * (n choose 1) * 1^m</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/1562895274226.png" srcset="/img/loading.gif" lazyload alt="1562895274226"></p>
+<h3 id="S-m-n"><a href="#S-m-n" class="headerlink" title="S(m,n)"></a>S(m,n)</h3><p><img src="/Blog/intro/1562895359805.png" srcset="/img/loading.gif" lazyload alt="1562895359805"></p>
+<p>so the number of onto function is n! S(m,n)</p>
+<p><img src="/Blog/intro/1562895413049.png" srcset="/img/loading.gif" lazyload alt="1562895413049"></p>
+<h4 id="Thorem"><a href="#Thorem" class="headerlink" title="Thorem"></a>Thorem</h4><p>1 &lt;&#x3D; n &lt;&#x3D; m</p>
+<p>S(m+1, n) &#x3D; S(m, n-1) + n*S(m,n)</p>
+<p>ex)</p>
+<p>f:A-&gt;B</p>
+<p>|A| &#x3D; 7,     |B| &#x3D; 3</p>
+<p>number of onto is 3!S(7,3)</p>
+<p>example: </p>
+<p>m distinct object n distinct container, such that no container empty.</p>
+<p>|A| &#x3D; m    |B| &#x3D; n</p>
+<p>answer : n! S(m, n) all onto function</p>
+<p>m distinct object n identical container , no container empty</p>
+<p>&#x3D; number onto function &#x2F; n!</p>
+<p>&#x3D; n!S(m,n) &#x2F; n!</p>
+<p>&#x3D;S(m, n)</p>
+<p>m distinct object n identical container. container can be empty</p>
+<p>S(m, n) + S(m,n-1)+…S(m,1)</p>
+<p>ex)</p>
+<p><img src="/Blog/intro/1562902696552.png" srcset="/img/loading.gif" lazyload alt="1562902696552"></p>
+<p><img src="/Blog/intro/1562902807678.png" srcset="/img/loading.gif" lazyload alt="1562902807678"></p>
+<h3 id="floor-ceil-function"><a href="#floor-ceil-function" class="headerlink" title="floor, ceil function"></a>floor, ceil function</h3><p><img src="/Blog/intro/1562903239986.png" srcset="/img/loading.gif" lazyload alt="1562903239986"></p>
+<p>floor(3.5) &#x3D; 3    &#x2F;&#x2F;向下取整</p>
+<p>ceil(3.5) &#x3D; 4    &#x2F;&#x2F;向上取整</p>
+<h3 id="codomain-and-range"><a href="#codomain-and-range" class="headerlink" title="codomain and range"></a>codomain and range</h3><p><img src="/Blog/intro/1563172525946.png" srcset="/img/loading.gif" lazyload alt="1563172525946"></p>
+<p>ex)</p>
+<p>f: IR -&gt; IR</p>
+<p>f(x) &#x3D; floor(x)</p>
+<p>Domain: IR</p>
+<p>Codomain: IR</p>
+<p>Range: Integer</p>
+<p>Integer ⊆ IR</p>
+<h3 id="Inverse-function"><a href="#Inverse-function" class="headerlink" title="Inverse function"></a>Inverse function</h3><p>f: A-&gt;B    </p>
+<p>inverse of f: f-1 : B -&gt; A</p>
+<p>(f o f-1)(x) &#x3D; x        f( f-1(x) ) &#x3D; x</p>
+<p>(f-1 o f)(x) &#x3D; x</p>
+<p><img src="/Blog/intro/1563174018487.png" srcset="/img/loading.gif" lazyload alt="1563174018487"></p>
+<h3 id="defination"><a href="#defination" class="headerlink" title="defination"></a>defination</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">f:A -&gt; B</span><br><span class="line">∀a∈A, ∃b∈B f(a) = b</span><br><span class="line"></span><br><span class="line">f-1 : B -&gt; A</span><br><span class="line">∀b∈B, ∃a∈A f-1(b) = a</span><br><span class="line"></span><br><span class="line">f-1(b) = a	also means	f(a) = b</span><br><span class="line">so if we change to f(a) = b</span><br><span class="line"></span><br><span class="line">∀b∈B, ∃a∈A f(a) = b</span><br><span class="line">then it means f is surjective</span><br><span class="line">also f should be injective</span><br><span class="line">thus, f is bijective</span><br></pre></td></tr></table></figure>
+
+
+
+<p>show that (gof)-1 &#x3D; f-1 o g-1</p>
+<p>f: A-&gt;B</p>
+<p>g: B-&gt;C</p>
+<p>(fog)-1 &#x3D; [g(f(x))]-1 &#x3D; [A-&gt;B-&gt;C]-1 &#x3D; C -&gt; A</p>
+<p>f-1 o g-1 &#x3D; f-1(g-1(x)) &#x3D; C -&gt; B -&gt; A &#x3D; C -&gt; A</p>
+<h3 id="Thorem-1"><a href="#Thorem-1" class="headerlink" title="Thorem"></a>Thorem</h3><p>if function f has an inverse, then it is unique</p>
+<p>proof:</p>
+<p>f has inverse function, then f is bijective</p>
+<p>if f has two inverse function f1 and f2</p>
+<p><img src="/Blog/intro/1563213456949.png" srcset="/img/loading.gif" lazyload alt="1563213456949"></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/35715284?sort=created">https://www.zhihu.com/question/35715284?sort=created</a></p>
+<p><img src="/Blog/intro/1563258053693.png" srcset="/img/loading.gif" lazyload alt="1563258053693"></p>
+<p><img src="/Blog/intro/1563479087304.png" srcset="/img/loading.gif" lazyload alt="1563479087304"></p>
+<h3 id="Pigeonhole-Principle"><a href="#Pigeonhole-Principle" class="headerlink" title="Pigeonhole Principle"></a>Pigeonhole Principle</h3><p>If k+1 or more objects are placed into k boxes,<br>then there is at least one box containing two<br>or more of the objects.</p>
+<h4 id="In-general-1"><a href="#In-general-1" class="headerlink" title="In general"></a>In general</h4><p>If N objects are placed into k boxes, then<br>there is at least one box containing at least<br>ceil(N&#x2F;k) objects</p>
+<p>ex) 37 people, how many are guaranteed to be born on same month</p>
+<p>object : people 37</p>
+<p>boxes : month 12</p>
+<p>There is a box with ceil(37&#x2F;12) &#x3D; 4 people</p>
+<p>ex) let S &#x3D; {1,2,3,4…10}</p>
+<p>prove that any subset of S of size 6 must contain 2 elements that add to 11</p>
+<p>Boxes : {1,10} {2,9} {3,8} {4,7} {5,6} &#x3D; 5</p>
+<p>objects : N &#x3D; 6</p>
+<p>so ceil(6&#x2F;5) &#x3D; 2</p>
+<h2 id="Relations"><a href="#Relations" class="headerlink" title="Relations"></a>Relations</h2><p>A {a,b,c}</p>
+<p>B{1,2}</p>
+<p>{(a,1)} ⊆ A x B     This is a relation</p>
+<p>{(a,1), (b,1), (b,2)} ⊆ A x B     This is also a relation</p>
+<p><img src="/Blog/intro/1563479321615.png" srcset="/img/loading.gif" lazyload alt="1563479321615"></p>
+<p>function is  relation</p>
+<p>ex) A, B two sets</p>
+<p>|A| &#x3D; 5 , |B| &#x3D; 6</p>
+<p>any assignment A-&gt;B</p>
+<p>|A*B| &#x3D; 30</p>
+<p>function &#x3D; 6^5</p>
+<p>total relation &#x3D; 2^30    30条线, 每条线有两个选择, 在或不在</p>
+<p>probality of not function (2^30 - 6^5)&#x2F;2^30</p>
+<hr>
+<p>A &#x3D; {a, b, c}</p>
+<p>B &#x3D; {1, 2}</p>
+<p>R ⊆ A * B</p>
+<p>{(a,1), (c,1)}</p>
+<p>(a,1) also call aR1    (c,1) also call cR1</p>
+<h3 id="Reflexive"><a href="#Reflexive" class="headerlink" title="Reflexive"></a>Reflexive</h3><p>definition : </p>
+<p>Let R be a relation on set A, ∀x∈A, (x,x)∈R</p>
+<p>A &#x3D; {a,b,c}</p>
+<p>R ⊆ A * B</p>
+<p>R &#x3D; {(a,a), (b,b), (a,c), (a,b)}</p>
+<p>it is not reflexive because (c, c) is not a element in R</p>
+<p>in order to make A be reflexive, R shoule have all (a,a), (b,b), (c, c). then it can have other elements </p>
+<p>How many reflexive relations?</p>
+<p>|A| &#x3D; n</p>
+<p><img src="/Blog/intro/1563485017953.png" srcset="/img/loading.gif" lazyload alt="1563485017953"></p>
+<p>we must have (a1,a1) - (an, an) those n elements, the rest elements are n^2 - n</p>
+<p>for all elements we have two choices : choose or not choose</p>
+<p>therefore there are 2^(n^2-n) reflexive relations</p>
+<p>total relations are 2^(n^2) </p>
+<h3 id="symmetric"><a href="#symmetric" class="headerlink" title="symmetric"></a>symmetric</h3><p>let R be a relation on set A</p>
+<p>(x,y) ∈ R -&gt; (y, x) ∈R     ∀x,y∈A</p>
+<p>xRy -&gt; yRx</p>
+<p>ex) A &#x3D; {a, b, c}</p>
+<p>R &#x3D; {(a,a), (b,b)}    </p>
+<p>Ref ? no</p>
+<p>sym? yes</p>
+<p>R &#x3D; {(a,b),(b,a), (c,c), (c,a)}</p>
+<p>R is not symmetric because (a,c) and (c,a) are not both appear</p>
+<p>How many of function should symmetric?</p>
+<p><img src="/Blog/intro/1563485017953.png" srcset="/img/loading.gif" lazyload alt="1563485017953"></p>
+<p>first we can choose the diagonal , 同时如果我们选择了任何右上角的元素, 就要同时选择左下角的对应元素 </p>
+<p>所以我们能选择的元素为 n + (n^2 - n)&#x2F;2</p>
+<p> &#x3D; (n^2 + n)&#x2F;2</p>
+<p>so there are 2 ^ ((n^2 + n)&#x2F;2) symmetric relations</p>
+<h3 id="Transitive-property"><a href="#Transitive-property" class="headerlink" title="Transitive property"></a>Transitive property</h3><p>∀x,y,z ∈ A     xRy ^ yRz -&gt; xRz</p>
+<p>ex)</p>
+<p>R:{(x,y) | xy &gt;&#x3D; 0} on Z</p>
+<p>ref ? yes (x, x)∈R , xx &gt;&#x3D; 0</p>
+<p>sym? yes (x, y) -&gt; (y, x)</p>
+<p>Trans? no (x,y)(y,z) -&gt; (x,z)</p>
+<p>if x &#x3D; -2, y &#x3D; 0, z &#x3D; 3</p>
+<p>xy &#x3D; 0 &gt;&#x3D; 0</p>
+<p>yz &#x3D; 0 &gt;&#x3D; 0</p>
+<p>zx &#x3D; -6 &lt; 0    wrong</p>
+<h3 id="Antisymmetric"><a href="#Antisymmetric" class="headerlink" title="Antisymmetric"></a>Antisymmetric</h3><p>∀x,y∈A xRy ^ yRx -&gt; x &#x3D; y</p>
+<p>symmetric ∀x,y ∈A  xRy -&gt; yRx</p>
+<p>A &#x3D; {a,b,c}</p>
+<p>R&#x3D;{(a,a)} </p>
+<p>R sym? yes    anti? yes</p>
+<p>symmetric is not opposite of antisymmetric</p>
+<p>How many antisymmetric?</p>
+<p><img src="/Blog/intro/1563505197916.png" srcset="/img/loading.gif" lazyload alt="1563505197916"></p>
+<p>对角线的所有元素有两种情况, choose or not choose </p>
+<p>A和B是对应关系  即 A(ai,aj) B(aj, ai)</p>
+<p>A B 不能同时出现, 那么就有三种情况</p>
+<p>A 在, B 不在</p>
+<p>A不在, B在</p>
+<p>A不在, B 不在</p>
+<p>所以有 2^n * 3^((n^2-n)&#x2F;2) 个antisymmetric</p>
+<h3 id="direct-graphs"><a href="#direct-graphs" class="headerlink" title="direct graphs"></a>direct graphs</h3><p><img src="/Blog/intro/1563505790541.png" srcset="/img/loading.gif" lazyload alt="1563505790541"></p>
+<p><img src="/Blog/intro/1563505851198.png" srcset="/img/loading.gif" lazyload alt="1563505851198"></p>
+<p><img src="/Blog/intro/1563506489440.png" srcset="/img/loading.gif" lazyload alt="1563506489440"></p>
+<p><img src="/Blog/intro/1563506395631.png" srcset="/img/loading.gif" lazyload alt="1563506395631"></p>
+<p><img src="/Blog/intro/1563506412654.png" srcset="/img/loading.gif" lazyload alt="1563506412654"></p>
+<h3 id="Maximal-minimal-elements"><a href="#Maximal-minimal-elements" class="headerlink" title="Maximal, minimal elements"></a>Maximal, minimal elements</h3><p>Given a poset (A, R):</p>
+<ul>
+<li>x ∈ A is a <strong>maximal</strong> element if (a !&#x3D; x) -&gt; (x, a) !∈ R, ∀a∈A<ul>
+<li>简单来说就是在Hasse 图中， 没有任何元素在这个元素之上</li>
+</ul>
+</li>
+<li>y ∈ A is a <strong>minimal</strong> element if (a !&#x3D; y) -&gt; (a, y) !∈ R, ∀a∈A<ul>
+<li>简单来说就是在Hasse 图中， 没有任何元素在这个元素之下</li>
+</ul>
+</li>
+</ul>
+<h3 id="Greatest，-least-element"><a href="#Greatest，-least-element" class="headerlink" title="Greatest， least element"></a>Greatest， least element</h3><p>Given a poset (A, R):</p>
+<ul>
+<li><p>x ∈ A is a <strong>Greatest</strong> element if (a, x) ∈ R, ∀a∈A</p>
+<ul>
+<li>即, 在Hasse图中， 所以元素(包括自己, 因为reflexable)都在这个元素下方</li>
+</ul>
+</li>
+<li><p>y ∈ A is a <strong>least</strong> element if (y, a) ∈ R, ∀a∈A</p>
+<ul>
+<li>即, 在Hasse图中， 所以元素(包括自己, 因为reflexable)都在这个元素上方</li>
+</ul>
+</li>
+</ul>
+<p>可以看出来， greatest 和 maximal 是两种看问题的方式</p>
+<p>greatest： 我在所有元素的上面</p>
+<p>maximal：没有元素在我上面</p>
+<p>ex) proof: The greatest element if it exit then it is unique</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Assume there are two greatest element</span><br><span class="line">x1, x2, x1 != x2</span><br><span class="line"></span><br><span class="line">By greatest definition</span><br><span class="line"></span><br><span class="line">∀a∈R aRx1</span><br><span class="line">so x2Rx1</span><br><span class="line"></span><br><span class="line">∀a∈R aRx2</span><br><span class="line">so x1Rx2</span><br><span class="line"></span><br><span class="line">because x1Rx2 x2Rx1 and it is a poset.</span><br><span class="line">by Antisymmetric x1 == x2</span><br><span class="line">but we said x1 != x2</span><br><span class="line">contradition</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ex) proof: A greatest element is the maximal elem </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">∀a∈R aRx</span><br><span class="line">Assume there is a element b, b!=x xRb</span><br><span class="line">bRx, xRb, x==b </span><br><span class="line">contradition!</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">∀a∈R aRx</span><br><span class="line">if a != x</span><br><span class="line">Assume in contrary that (x,a)!∈R is False</span><br><span class="line">(x,a)∈R, xRa</span><br><span class="line">by anti-sym aRx ^ xRa -&gt; a=x</span><br></pre></td></tr></table></figure>
+
+<p>ex)</p>
+<p><img src="/Blog/intro/1564296188217.png" srcset="/img/loading.gif" lazyload alt="1564296188217"></p>
+<p>greatest: no</p>
+<p>least: no</p>
+<p>maximal: b, d</p>
+<p>minimal: a, c</p>
+<h3 id="GLB-and-LUB"><a href="#GLB-and-LUB" class="headerlink" title="GLB and LUB"></a>GLB and LUB</h3><p>Given a poset (A,R), let B ⊆ A:</p>
+<p>y is the greatest lower bound of B if ∀(x, y)∈R, where x is a lower bound of B</p>
+<p>y is the least upper bound of B if ∀(y, x) ∈ R where x ia an upper bound of B</p>
+<p>如果x是子集A的最小上界， x是一个上界，并且小于A的任何其他上界</p>
+<p>如果x是子集A的最大下界， x是一个下界，并且大于A的任何其他下界</p>
+<p><img src="/Blog/intro/1564429825746.png" srcset="/img/loading.gif" lazyload alt="1564429825746"></p>
+<h3 id="Lattices"><a href="#Lattices" class="headerlink" title="Lattices"></a>Lattices</h3><p>A poset (A, R) is called a lattice if for all x, y ∈A, both:</p>
+<ul>
+<li>the least upper bound of {x, y} and</li>
+<li>the greatest lower bound of {x, y}</li>
+</ul>
+<p>exist.</p>
+<p>个人认为， 一个lattices需要有greatest 和 least， 有待考证</p>
+<p>ex）</p>
+<p><img src="/Blog/intro/1564430456227.png" srcset="/img/loading.gif" lazyload alt="1564430456227"></p>
+<p>f,g,b,d : max</p>
+<p>a: leatest element , min</p>
+<p>Not lattices, if I choose f, g, No upper bound, so no least upper bound</p>
+<p>sometimes even we can have upper bound, we may still don’t have least upper bound</p>
+<p>ex)</p>
+<p><img src="/Blog/intro/1564430708990.png" srcset="/img/loading.gif" lazyload alt="1564430708990"></p>
+<p>if I choose a, b.</p>
+<p>c, d are upper bound, but no least upper bound</p>
+<h3 id="Topological-Sorting"><a href="#Topological-Sorting" class="headerlink" title="Topological Sorting"></a>Topological Sorting</h3><p><img src="/Blog/intro/1564859121708.png" srcset="/img/loading.gif" lazyload alt="1564859121708"></p>
+<p>we want change partial order to linear order, we call it Topological Sort</p>
+<p>steps:</p>
+<pre><code>1. pick 1 from maximal or minimal
+ 2. distroy that element and path, then continue do (1) untile no element
+</code></pre>
+<p>ex) the partial order in the front change to linear order</p>
+<p>f &gt; g &gt; h &gt; e &gt; d &gt; a &gt; b &gt; c</p>
+<p>一次只能作一件事, 所以完成d之前要先完成abc, 而abc互相没有关联, 所有abc顺序无所谓</p>
+<h4 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h4><p>(A,R) be a poset, A is totally ordered if ∀x, y ∈ A either xRy or yRx</p>
+<p>R is total order(linear order)</p>
+<h3 id="Equivalence-Relation"><a href="#Equivalence-Relation" class="headerlink" title="Equivalence Relation"></a>Equivalence Relation</h3><p>A relation R on set S is an equivalence relation if R is reflexive, <strong>symmetric</strong>, and transitive</p>
+<h4 id="Equivalence-Class"><a href="#Equivalence-Class" class="headerlink" title="Equivalence Class:"></a>Equivalence Class:</h4><p>Let R be an equivalence relation on set A:</p>
+<p>​    The set of all elements that are related to an element a ∈ A is called the equivalence class of a. </p>
+<p>​    Denoted [a]</p>
+<p> <img src="/Blog/intro/1564864406544.png" srcset="/img/loading.gif" lazyload alt="1564864406544"></p>
+<p>​    def: [a] &#x3D; {x|xRa}</p>
+<p>it can also change to aRx, because symmetric</p>
+<p>Theorem:</p>
+<p>(i) aRb</p>
+<p>(ii) [a] &#x3D; [b]</p>
+<p>(iii) [a] ∩ [b] !&#x3D; {}</p>
+<p>&#x2F;&#x2F; [a] [b] 只要有一个元素相同, [a] [b]就是一个集合</p>
+<p>proof:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(i) =&gt; (ii)</span><br><span class="line"></span><br><span class="line">in order to proof [a] = [b]</span><br><span class="line">we must proof [a] ⊆ [b] ^ [b] ⊆ [a]</span><br><span class="line"></span><br><span class="line">proof: [a] ⊆ [b]</span><br><span class="line">k is arbitrary element such that k ∈ [a]</span><br><span class="line">by def</span><br><span class="line">kRa, aRk</span><br><span class="line">because aRb and it is transitive</span><br><span class="line">so kRb</span><br><span class="line">k ∈ [b]</span><br><span class="line"></span><br><span class="line">proof: [b] ⊆ [a]</span><br><span class="line">p is arbitrary element</span><br><span class="line">p ∈ [b]</span><br><span class="line">by def pRb ^ bRp</span><br><span class="line">because aRb</span><br><span class="line">by sym</span><br><span class="line">bRa</span><br><span class="line">by transitive</span><br><span class="line">pRa</span><br><span class="line">p∈[a]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(ii) =&gt; (iii)</span><br><span class="line">[a] = [b]</span><br><span class="line">a ∈ [a] </span><br><span class="line">a ∈ [b]</span><br><span class="line">a ∈ [a] ^ a ∈ [b] =&gt; [a] ∩ [b] != &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(iii) =&gt; (i) important</span><br><span class="line">by (iii)</span><br><span class="line">∃c, c∈[a]∩[b] =&gt; c∈[a] ^ c∈[b]</span><br><span class="line">cRa, cRb</span><br><span class="line">because sym</span><br><span class="line">cRa ^ aRc</span><br><span class="line">by transitive</span><br><span class="line">aRc ^ cRb</span><br><span class="line">aRb</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ex)</p>
+<p>(Z, R) xRy iff 4|x-y</p>
+<p>reflexive: x-x&#x3D;0</p>
+<p>​                4|0</p>
+<p>so            4 | x-x</p>
+<p>so             xRx</p>
+<p>symmetric:  if 4|x-y</p>
+<p>​                        4|k(x-y)</p>
+<p>when k &#x3D; -1</p>
+<p>​                        4 | y-x</p>
+<p>so xRy, yRx</p>
+<p>transative     4|x-y, 4|y-z proof 4|x-z</p>
+<p>​                    x-y &#x3D; 4k</p>
+<p>​                    y-z &#x3D; 4p</p>
+<p>​                    x-y+y-z &#x3D; x-z &#x3D; 4(k+p)</p>
+<p>​                    4| 4(k+p)</p>
+<p>​                    so 4|x-z</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0]U[1]U[2]U[3] = Z</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<blockquote>
+<p>Counting 的一个有趣的问题</p>
+<p><img src="/Blog/intro/counting_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>28本不同的书有多少种不同的方式放到4个书架上?</p>
+<p>这道题要拆开来看: 先看28本<strong>相同</strong>的书如何放到4个书架上再看有这28本书(不同)如何排列</p>
+</blockquote>
+<br>
+
+<h1 id="MACM-201"><a href="#MACM-201" class="headerlink" title="MACM 201"></a>MACM 201</h1><h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><p>$K_n$ 有n个顶点的完全图</p>
+<p>${n\choose 2}$edges in a $K_n$</p>
+<h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><p>定义:</p>
+<p>一个图, G &#x3D; (V, E) 是一个二分图, 如果我们可以分出两个vertex set $V_1, V_2$满足下列条件</p>
+<ol>
+<li>$V_1\cap V_2 &#x3D; \empty$</li>
+<li>$V_1 \cup V_2 &#x3D; V$</li>
+<li>every edge in $E$ is incident with one vertex in $V_1$ and one vertex in $V_2$</li>
+</ol>
+<br>
+
+<p>定义:</p>
+<p>$K_{m, n}$ n, m为非负整数, 我们定义一个<strong>complete bipartite graph</strong> $K_{m, n}$ 为 $|V_1|&#x3D;m, |V_2|&#x3D;n$ and</p>
+<br>
+$$
+E=\{\{v_1, v_2\}|v_1\in V_1\ and\ v_2\in V_2  \}
+$$
+<br>
+
+<p>$|V_1|\cdot|V_2|$ edges in $K_{m, n}$</p>
+<p>因为一个边有两个顶点, 第一个顶点有$|V_1|$种可能, 第二个顶点有$|V_2|$ 种可能</p>
+<br>
+
+<br>
+
+<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><ol>
+<li>有多少图有n个顶点? $2^{n \choose 2}$</li>
+</ol>
+<p>一共有 nC2 条边, 每条边有两种可能, 存在或不存在.</p>
+<br>
+
+<ol start="2">
+<li>有多少图有n个顶点m条边? ${n \choose 2} \choose m$</li>
+</ol>
+<p>nC2条边, 这些边中选m个组成一个图</p>
+<br>
+
+<p>$V_1, V_2$ are disjoint sets with$|V_1| &#x3D; n, |V_2| &#x3D; m$</p>
+<ol start="3">
+<li>(V1, V2) 能组成多少二分图? $2^{nm}$</li>
+</ol>
+<p>nm条边, 每条边可以存在或不存在</p>
+<br>
+
+<ol start="4">
+<li>(V1, V2) 能组成多少k条边的二分图? ${nm \choose k}$</li>
+</ol>
+<p>总共有nm条边, 选k条</p>
+<br>
+
+<h3 id="SubGraph"><a href="#SubGraph" class="headerlink" title="SubGraph"></a>SubGraph</h3><p>定义:</p>
+<p>让$G &#x3D; (V, E), G’ &#x3D; (V’, E’)$是两张图</p>
+<p>如果 $V’\in V, E’\in E$, 那么 $G’$ 就是 $G$ 的子图</p>
+<br>
+
+<h4 id="Sapnning-subGraph"><a href="#Sapnning-subGraph" class="headerlink" title="Sapnning subGraph"></a>Sapnning subGraph</h4><p>$G’$ 是 $G$ 的子图, 如果$G’$ 包含所有 $G$的顶点($V’&#x3D;V$), 那么就称$G’$ 是 $G$ 的 spanning subgraph</p>
+<p>我们有选择边的权利, 但是没有选择点的权利.</p>
+<br>
+
+<ol start="5">
+<li>$K_{n1, n2}$ 有多少个Sapnning subgraph? $2^{n_1n_2}$</li>
+</ol>
+<p>其实这个问题等同于问题3, (V1, V2) 能组成多少二分图. 我们没有选择点的权利, 我们只能选择每条边是否存在, 一共有n1乘n2条边</p>
+<br>
+
+<ol start="6">
+<li>$K_{n1n2}$有多少m条边的Spanning subgraph? $n_1n_2 \choose m$</li>
+</ol>
+<p>等同于问题4, (V1, V2) 能组成多少k条边的二分图</p>
+<br>
+
+<br>
+
+<ol start="7">
+<li>$K_n$ 有几个4顶点路径</li>
+</ol>
+<p>一个path有4个顶点. 第一个顶点有n个选择, 第二个顶点有n-1个选择….<br>$$<br>n\cdot (n-1)\cdot (n-2)\cdot(n-3)<br>$$<br>然而 A-B-C-D 和 D-C-B-A 是一条路径, 所以在除以2<br>$$<br>\frac{n\cdot (n-1)\cdot (n-2)\cdot(n-3)}{2}<br>$$<br><br></p>
+<h4 id="Induced-subgraph"><a href="#Induced-subgraph" class="headerlink" title="Induced subgraph"></a>Induced subgraph</h4><p>G &#x3D; (V, E) 是一张图, 让 $V’ \in V$, The subgraph of G <strong>induced</strong> by $V’$ is the subgraph $G’&#x3D;(V’,E’)$ where</p>
+<br>
+$$
+E' = \{\{u,v\}|\{u,v\}\in V' and\ \{u,v\}\in E \}
+$$
+<br>
+
+<p>换句话说, 如果我们有一张图G, induced subgraph是这样, 可以选定G的一些点. 但是我们没有选择边的权利, 这些点相邻的边必须存在在induced subgraph中(除非边的一个端点不存在)</p>
+<p>这也相当于将原图中某些点(以及点相邻的边) 删去后得到的图</p>
+<br>
+
+<p>如果一张图G&#x3D;(V, E),  |V| &#x3D; n, G有多少induced subgraph</p>
+<p>$2^n$</p>
+<p>n个点, 每个点选择在或不在</p>
+<p>&lt;br</p>
+<br>
+
+<h4 id="Isomorphic-Graphs-同构"><a href="#Isomorphic-Graphs-同构" class="headerlink" title="Isomorphic Graphs(同构)"></a>Isomorphic Graphs(同构)</h4><p>$G&#x3D;(V_1, E_1), H&#x3D;(V_2,E_2)$, G 和 H 是同构如果有一个 bijection (one to one and onto)$f:V_1 -&gt;V_2$ , such that<br>$$<br>{u,v} \in E_1 &lt;&#x3D;&gt; {f(u), f(v)}\in E_2<br>$$<br>The function f is called an isomorphism.</p>
+<br>
+
+<p>如果两个图是同构, 他们必须有同样的性质</p>
+<p>同样的顶点数, 同样的边数, 同样的degree, 同样的cycle….</p>
+<p><img src="/Blog/intro/isomorphic.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>目前没有快速的算法测试两场图是同构.</p>
+<br>
+
+<br>
+
+<h2 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h2><p>把m个球扔进n个箱子中, 空箱子的期望值是多少?</p>
+<p>让X &#x3D; number of empty bins</p>
+<p>所以$X&#x3D;\sum_{i&#x3D;1}^n x_i$, $x_i&#x3D;1$如果第i个箱子为空, 反之为0<br>$$<br>E(X)&#x3D;E(x_1+x_2\cdots+x_n)&#x3D;\sum_{i&#x3D;1}^n E(x_i)<br>$$</p>
+<p>$$<br>E(x_i) &#x3D; 0<em>Pr(x_i&#x3D;0)+1</em>Pr(x_i&#x3D;1)&#x3D;1(\frac {n-1} n)^m<br>$$</p>
+<p>$$<br>E(X) &#x3D;\sum_{i&#x3D;1}^nE(x_i)&#x3D;n(\frac {n-1} n)^m<br>$$</p>
+<p><img src="/Blog/intro/except_ball_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>有多少箱子中有1个球?</p>
+<p><img src="/Blog/intro/except_ball.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Recurrence-Relations"><a href="#Recurrence-Relations" class="headerlink" title="Recurrence Relations"></a>Recurrence Relations</h2><h3 id="Linear-recurrence-relation"><a href="#Linear-recurrence-relation" class="headerlink" title="Linear recurrence relation"></a>Linear recurrence relation</h3><p><img src="/Blog/intro/recur.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>例如斐波那契数列<br>$$<br>f_{n+1} &#x3D; f_n+f_{n-1}<br>$$<br>等价于<br>$$<br>f_{n+1} - f_n - f_{n-1} &#x3D; 0<br>$$<br>这个就是2nd order homogeneous recurrence.</p>
+<p>因为(n+1) - (n-1) &#x3D; 2. 所以是2nd order</p>
+<br>
+
+<p>例题:</p>
+<p>让$S_n$ 是一个长度为n的binary string set, 它有一个性质(1后面必须跟着0)(所以1不能用于结尾)</p>
+<ol>
+<li><p>list $S_1,S_2, S_3$</p>
+</li>
+<li><p>let $c_n&#x3D;|S_n|$ Give a recurrence relation for $c_n$</p>
+</li>
+</ol>
+<br>
+$$
+S_0 = \{""\},\ S_1 = \{0\},\ S_2=\{00, 10\},\ S_3=\{000,010, 100\}
+$$
+一个长度为n的string可以这样组成
+$$
+0u, where\ \ u\in S_{n-1}
+$$
+
+<p>$$<br>10w, where\ \ w \in S_{n-2}<br>$$</p>
+<p>所以:<br>$$<br>c_n &#x3D; c_{n-1} + c_{n-2},\ \ \  c_0 &#x3D; 1, c_1 &#x3D; 1<br>$$<br>就是斐波那契数列</p>
+<br>
+
+<p><img src="/Blog/intro/recur_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Solve-Recurrence-Relations"><a href="#Solve-Recurrence-Relations" class="headerlink" title="Solve Recurrence Relations"></a>Solve Recurrence Relations</h3><br>
+
+<h4 id="Solve-First-Order-Recurrence-Relations"><a href="#Solve-First-Order-Recurrence-Relations" class="headerlink" title="Solve First Order Recurrence Relations"></a>Solve First Order Recurrence Relations</h4><p><img src="/Blog/intro/solve_first_ord_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>一定要check一下, check和MI很像, 检查base, 检查n</p>
+<p><img src="/Blog/intro/solve_first_ord_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<blockquote>
+<p> Theorem</p>
+<p>Every sequence x0, x1, x2… satisfying the recurrence $x_n&#x3D;dx_{n-1}$ has the general solution $x_n&#x3D;cd^n$ for come constant c. (The sequence is a geometric progression)<br>$$<br>x_0&#x3D;c<br>$$</p>
+<p>$$<br>x_1&#x3D;dx_0&#x3D;dc &#x3D;cd<br>$$</p>
+<p>$$<br>x_2&#x3D;dx_1&#x3D;d(cd)&#x3D;cd^2<br>$$</p>
+<p>$$<br>x_k&#x3D;dx_{k-1}&#x3D;d(cd^{k-1})&#x3D;cd^k<br>$$</p>
+<p><img src="/Blog/intro/solve_first_ord_3.PNG" srcset="/img/loading.gif" lazyload></p>
+</blockquote>
+<p><img src="/Blog/intro/solve_first_ord_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h4 id="Solve-Second-Order-Recurrence-Relation"><a href="#Solve-Second-Order-Recurrence-Relation" class="headerlink" title="Solve Second Order Recurrence Relation"></a>Solve Second Order Recurrence Relation</h4><p>second order 的解法就不像 First order那么直接, 但也相当巧妙</p>
+<p>假设我们现在有一个Second Order RRS.<br>$$<br>ax_n+bx_{x-1}+cx_{n-2}&#x3D;0, for\ n \ge 2<br>$$<br>假设$x_n&#x3D;r^n$是上面式子的一个解, 因为:</p>
+<p>$$<br>a_n&#x3D;da_{n-1}\ \ \ \ solve\ \ to \ \ \ \ a_n&#x3D;cd^n<br>$$<br>所以替换$x_n和r^n$<br>$$<br>ar^n+br^{n-1}+cr^{n-2}&#x3D;0,\ for\ n\ge 2<br>$$</p>
+<p>$$<br>r^{n-2}(ar^2+br+c)&#x3D;0<br>$$</p>
+<p>$r^{n-2}$ 不为0, 所以 $ar^2+br+c&#x3D;0$</p>
+<p>Observe that the $n\ge 2$ condition is redundant in equation (2). If this holds for $n&#x3D;2$, then it holds for all larger values (multiplying by powers ofrgives theother equations). This reduces us to a familiar equation</p>
+<p>这样就解出了 r</p>
+<blockquote>
+<p>A number $r$ satisfies $ar^2+br+c&#x3D;0$ if and only if $x_n&#x3D;r^n$ is a solution to our recurrence</p>
+</blockquote>
+<p><img src="/Blog/intro/second_order.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>例题:</p>
+<p><img src="/Blog/intro/second_order_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>check:</p>
+<p>当 $x_n&#x3D;2^n$<br>$$<br>x_n-5_{n-1}+6x_{n-2}&#x3D;0<br>$$</p>
+<p>$$<br>2^n-5<em>2^{n-1}+6</em>2^{n-2}&#x3D;2^n+2^{n-2}(6-10)&#x3D;2^n-2^n&#x3D;0<br>$$</p>
+<p>同理$x_n&#x3D;3^n$也通过check.</p>
+<br>
+
+<br>
+
+<p>定理:</p>
+<p><img src="/Blog/intro/second_order_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>例题:</p>
+<p><img src="/Blog/intro/second_order_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>通过初始值(base value) 解出系数</p>
+<br>
+
+<p>通解:</p>
+<p><img src="/Blog/intro/second_order_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>例题:</p>
+<p><img src="/Blog/intro/second_order_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>但是有可能我们得到两个复数解. 或者有两个相同的实数根</p>
+<p><img src="/Blog/intro/second_order_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>如果有两个相同的实数根:</p>
+<p>很显然其中一个根就是$r^n$, 但另一个根怎么办? 我们在前面乘以一个n</p>
+<p>$nr^n$是一个变量, 和$r^n$不同, 可以作为另一个解</p>
+<p><img src="/Blog/intro/second_order_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>例子:</p>
+<p><img src="/Blog/intro/second_order_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h4 id="Solving-first-order-non-homogenous-RRS"><a href="#Solving-first-order-non-homogenous-RRS" class="headerlink" title="Solving first order non-homogenous RRS"></a>Solving first order non-homogenous RRS</h4><p><img src="/Blog/intro/nhrrs.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/nhrrs_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>求和公式<br>$$<br>\sum_{i&#x3D;1}^ni &#x3D; \frac {n(n+1)}2<br>$$</p>
+<p>$$<br>\sum_{i&#x3D;1}^ni^2&#x3D;\frac {n(n+1)(2n+1)}6<br>$$</p>
+<p>$$<br>\sum_{i&#x3D;0}^{n-1}a^i&#x3D;\frac {a^n-1}{a-1}<br>$$</p>
+<p>$$<br>\sum_{k&#x3D;0}^n{n \choose k} &#x3D; 2^n<br>$$</p>
+<p>$$<br>\sum_{k&#x3D;0}^nk{n\choose k}&#x3D;n2^{n-1}<br>$$</p>
+<br>
+
+<h4 id="Solving-Non-Homogeneous-Relations"><a href="#Solving-Non-Homogeneous-Relations" class="headerlink" title="Solving Non-Homogeneous Relations"></a>Solving Non-Homogeneous Relations</h4><p>Non-Homogeneous relation概念之前就说过.</p>
+<p>怎么解这个RRS?</p>
+<blockquote>
+<p> 定理</p>
+<p><img src="/Blog/intro/nhrrs_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>Non-Homogeneous 的 General Solution 是 Non-Homogeneous的一个特解+Homogeneous的通解</p>
+</blockquote>
+<br>
+
+<p>例子:</p>
+<p>$x_n&#x3D;6x_{n-1}+3^n$ for $n&gt;1, x+0&#x3D;7$</p>
+<p>首先解 Homogeneous 的通解<br>$$<br>x_n-6x_{n-1}&#x3D;0<br>$$</p>
+<p>$$<br>r-6&#x3D;0\ \rightarrow \ \ \ \  r&#x3D;6<br>$$</p>
+<p>所以通解是 $x_n^{(h)}&#x3D;C\cdot 6^n$</p>
+<p>再找一个Non-Homogeneous的特解, 我们尝试 $x_n^{(p)}&#x3D;k3^n$, 代入式子中<br>$$<br>k3^n&#x3D;6(k3^{n-1})+3^n<br>$$</p>
+<p>$$<br>-3k&#x3D;3<br>$$</p>
+<p>解得k&#x3D;-1</p>
+<p>所以一个特解是$x_n^{(p)}&#x3D;-3^n$</p>
+<br>
+
+<p>那么这个Non-Homogeneous的通解是<br>$$<br>x_n &#x3D; C6^n-3^n<br>$$<br>代入$x_0&#x3D;7$ 解出 C &#x3D; 8</p>
+<p>所以:<br>$$<br>x_n &#x3D; 8\cdot6^n-3^n<br>$$<br><br></p>
+<p>例子:</p>
+<p><img src="/Blog/intro/nhrrs_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<p>然而很有可能, homogeneous 的通解包括了一些non-homogeneous 的特解.</p>
+<p>就像之前Homogeneous的通解中两个解都是一样的情况, 我们要找到一个方式在找到一个解</p>
+<p><img src="/Blog/intro/nhrrs_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>如果f(n)是 $kr^n$ 这种形式. 我们要找particular solution时要尝试的解是$x_n^{(p)}&#x3D;Cr^n$ 如果 这是homogeneous的解的一部分, 则尝试 $x_n^{(p)}&#x3D;Cn^mr^n$</p>
+<p>如果f(n)是$kn^d$这种形式, 则尝试$<em>n^{(p)}&#x3D;a_dn^d+a</em>{d-1}n^{d-1}\cdots a_1n+a_0$这种形式的解</p>
+<p>如果有一项$n^t$是homogeneous的解的一部分, 则整体乘以$n^s$, 使得它和homog的solution没有关系</p>
+<p><img src="/Blog/intro/nhrrs_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Divide-and-Conquer-Algorithms"><a href="#Divide-and-Conquer-Algorithms" class="headerlink" title="Divide and Conquer Algorithms"></a>Divide and Conquer Algorithms</h2><p><img src="/Blog/intro/merge.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/merge_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/merge_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Generating-Functions"><a href="#Generating-Functions" class="headerlink" title="Generating Functions"></a>Generating Functions</h2><p>定义:</p>
+<p>如果 $P(x)$ 是一个多项式那么 $<a href="P(x)">x^k</a>$ 就代表 $x^k$ 在$P(x)$ 中的系数</p>
+<br>
+
+<p>例题:</p>
+<p><img src="/Blog/intro/generating_function.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这个多项式的$x^7$可能有多个组合, 可能是$x^1x^3x^3$…这就代表$a_1&#x3D;1, a_2&#x3D;3, a_3&#x3D;3$ 这样让他们组成$x^7$ 而$a_i$可能是0, 1, 2, 3. 所以相乘时 每个x的指数分别是0,1,2,3. 相乘就是从第一个括号中选一个x乘以第二个括号中选一个x, 乘以第三个括号中选一个x.</p>
+<p>如果最后结果为$x^7$, 那么就是一个解$x^7$的系数+1, 因此左后$x^7$的系数就是解的个数.</p>
+<br>
+
+<p>同理, 如果掷两次骰子, 问有多少次和为6.<br>$$<br>P(x) &#x3D; (x^1+x^2\cdots x^6)^2<br>$$<br>答案就是$[x^6]P(x)&#x3D;5$</p>
+<p>掷一个骰子可能得到的值是1-6</p>
+<br>
+
+<p>特殊一点, 如果每个a的值的限制不同?</p>
+<p><img src="/Blog/intro/generating_function_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>这和以前counting中的一个问题类似</p>
+<p><img src="/Blog/intro/generating_function_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/intro/generating_function_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<p>所有的多项式都可以看作时generating function.</p>
+<p>只要把其余项的系数看作是0即可</p>
+<p><img src="/Blog/intro/generating_function_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Generating-function-的-inverse"><a href="#Generating-function-的-inverse" class="headerlink" title="Generating function 的 inverse"></a>Generating function 的 inverse</h3><p>A(x) 和 B(x) 是两个 generating function</p>
+<p>如果$A(x)\cdot B(x) &#x3D; 1,\ A(x)&#x3D;\frac 1 {B(x)}, B(x)&#x3D;\frac 1 {A(x)}$, 二者互为inverse</p>
+<p><img src="/Blog/intro/generating_function_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>例题:</p>
+<p><img src="/Blog/intro/generating_function_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="计算Generating-Function"><a href="#计算Generating-Function" class="headerlink" title="计算Generating Function"></a>计算Generating Function</h3><p>定义:</p>
+<p><img src="/Blog/intro/generating_function_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+$$
+\frac 1 {1-x}=1+x+x^2+x^3+\cdots=\sum_{n=0}^\infin x^n
+$$
+
+<p>$$<br>\frac 1 {(1-x)^k}&#x3D;(1+x+x^2+x^3+\cdots)^k<br>$$</p>
+<p>那么此时 $x^n$ 的系数的含义是什么</p>
+<p>可以类比将n个球扔进k个盒子中的可能. 转换为counting problem. 那么这个系数就是${n+k-1 \choose n}$</p>
+<p>因此<br>$$<br>\frac 1 {(1-x)^k}&#x3D;(1+x+x^2+x^3+\cdots)^k&#x3D;\sum_{n&#x3D;0}^{\infin}{n+k-1 \choose n}x^n<br>$$<br><img src="/Blog/intro/generating_function_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>&#x2F;&#x2F; TODO 这里和 泰勒序列很像, 可能和泰勒展开有一些关系</p>
+<p><img src="/Blog/intro/generating_function_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>再一般化: 我们可以拆解一个rational function:</p>
+<p><img src="/Blog/intro/generating_function_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>这个还可以用来解一些看起来无关的难题</p>
+<p><img src="/Blog/intro/generating_function_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="通过Generating-Function-解决Recurrences"><a href="#通过Generating-Function-解决Recurrences" class="headerlink" title="通过Generating Function 解决Recurrences"></a>通过Generating Function 解决Recurrences</h3><p><img src="/Blog/intro/generating_function_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_24.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_25.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_26.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>思想:</p>
+<p><img src="/Blog/intro/generating_function_27.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_28.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/generating_function_29.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Summation-Operator"><a href="#Summation-Operator" class="headerlink" title="Summation Operator"></a>Summation Operator</h3><p>如何计算<br>$$<br>\sum_{i&#x3D;1}^ni^2, \ \ \ \sum_{i&#x3D;1}^ni^3, \ \ ,\sum_{i&#x3D;1}^ni^4<br>$$<br><br></p>
+<p>让 $A(x)&#x3D;a_0+a_1x+a_2x^2+\cdots$</p>
+<p>那么<br>$$<br>A(x)(\frac 1{1-x}) &#x3D; (a_0+a_1x+a_2x^2+\cdots)\cdot (1+x+x^2+x^3\cdots)<br>$$</p>
+<p>$$<br>&#x3D;a_0+(a_0+a_1)x+(x_0+a_1+a_2)x^2 \cdots+(a_0+a_1\cdots a_n)x^n+\cdots<br>$$</p>
+<p>所以$A(x)(\frac 1{1-x})$ 是下面序列的generating function<br>$$<br>a_0,\ \ a_0+a_1,\ \ a_0+a_1+a_2\cdots<br>$$<br>因此我们称$\frac 1 {1-x}$ 为 <strong>summetion operator</strong></p>
+<br>
+
+<p><img src="/Blog/intro/summetion_op.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>如何求$\sum_{i&#x3D;1}^ni^2$</p>
+<p>既然我们知道 $a_n&#x3D;n^2$的 generating function 是$\frac {x+x^2}{(1-x)^3}$</p>
+<p>我们要求和就是求$\frac {x+x^2}{(1-x)^3} \cdot \frac 1{1-x}$的第n项系数</p>
+<p>用 summetion operator 生成一个新的函数, 这个函数的第n项代表原本函数前n项之和</p>
+<p><img src="/Blog/intro/summetion_op_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/summetion_op_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="图论-1"><a href="#图论-1" class="headerlink" title="图论"></a>图论</h2><h3 id="multigraph"><a href="#multigraph" class="headerlink" title="multigraph"></a>multigraph</h3><p>定义: multigraph G&#x3D;(V, E) is a set V of vertices and a <strong>multiset</strong> E of of edges where each edge is in $V\times V$.</p>
+<p>Simple graphs are multigraphs with no loops and no parallel edges.</p>
+<p>举个例子:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V=&#123;1, 2, 3, 4&#125;, E=&#123;&#123;1,2&#125;, &#123;1,2&#125;,&#123;2,3&#125;,&#123;3,3&#125;, &#123;3,4&#125;, &#123;4,1&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1-2这条边出现两次,  且有3-3这个自环边</p>
+<br>
+
+<h3 id="walk"><a href="#walk" class="headerlink" title="walk"></a>walk</h3><p>定义: 让x,y是multigraph的两个顶点. G&#x3D;(V, E), walk in G is a finite alternating sequence.</p>
+<p>$$<br>xe_1x_1e_2\cdots e_{n-1}x_{n-1}e_ny<br>$$<br>就是一个顶点一个边, 一个顶点一个边…</p>
+<p>如果$x&#x3D;y$ 就说是close walk, 如果$x\ne y$ 就说是open walk</p>
+<br>
+
+<h3 id="Trails-and-Circults"><a href="#Trails-and-Circults" class="headerlink" title="Trails and Circults"></a>Trails and Circults</h3><p>路径和回路, 定义 :</p>
+<ul>
+<li>A Trail from x to y is an open walk in G that has no repeated edges</li>
+<li>A circuit from x to x is a close walk in G that has no repeated edges.</li>
+</ul>
+<p><img src="/Blog/intro/trails.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/trails_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Planar-graph"><a href="#Planar-graph" class="headerlink" title="Planar graph"></a>Planar graph</h3><p>我们说G是一个plannar, 如果G<strong>有一种</strong>绘制方法, 使得所有边不相交.</p>
+<p><img src="/Blog/intro/planar.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>有两个关键的Observation:</p>
+<p>$K_{3,3} 和 K_5$不是planar. 后续证明一个图不是planner就是使用这两个observation</p>
+<p><img src="/Blog/intro/planar_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="subdivision"><a href="#subdivision" class="headerlink" title="subdivision"></a>subdivision</h4><p>如果在一个图的一条边上添加一个点, 这样就把这条边分为两部分. </p>
+<p>通过这种操作得到的图叫做原图的subdivision</p>
+<p><img src="/Blog/intro/planar_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>如果说H是G的subdivision, 那么H是planar <strong>if and only if</strong> G 是planner.</p>
+<p>这就意味着, 如果一张图的subdivision中如果包含$K_{3,3}$和 $K_5$, 那么这张图就不是Planar.</p>
+<p><img src="/Blog/intro/planar_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/planar_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Faces"><a href="#Faces" class="headerlink" title="Faces"></a>Faces</h3><p>具体的定义就不细说了, 直接上图:</p>
+<p><img src="/Blog/intro/faces.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>定理: Euler’s fomular</p>
+<p><img src="/Blog/intro/faces_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>证明: 通过数学归纳法</p>
+<p>base case: 当 $|E| &#x3D; 0$ 时, 只有一个顶点, 没有边, face为1<br>$$<br>|V|-|E|+|F| &#x3D; 1-0+1&#x3D;2<br>$$<br>假设 fomular 对于小于 n 个边的graph成立</p>
+<p>此时有两种情况:</p>
+<ol>
+<li>此时图中有环</li>
+</ol>
+<p><img src="/Blog/intro/faces_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>那么一定有一条边, 边的一侧时一个face, 另一次是另一个face.</p>
+<p>如果把这条边删掉, 就是n-1条边的图. 根据我们的假设, fomular对此时的子图成立(在原图上删去一条边, 删去一个面)<br>$$<br>|V|-(|E|-1)+(|F|-1) &#x3D; 2<br>$$</p>
+<p>$$<br>|V|-|E|+|F|&#x3D;2<br>$$</p>
+<p>成立;</p>
+<ol start="2">
+<li>如果此时图中没有环</li>
+</ol>
+<p>那么就一定有一个顶点的degree为1.</p>
+<p>如果删去这条边, 顶点个数-1, 边数-1, face数不变. 此时图的边数也是n-1, fomular hold this graph</p>
+<p><img src="/Blog/intro/faces_3.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>(|V|-1)-(|E|-1)+|F|&#x3D;2<br>$$</p>
+<p>$$<br>|V|-|E|+|F|&#x3D;2<br>$$</p>
+<p>根据数据归纳法, 此时 fomular 成立</p>
+<br>
+
+<br>
+
+<h4 id="Face-degree"><a href="#Face-degree" class="headerlink" title="Face degree"></a>Face degree</h4><p><img src="/Blog/intro/faces_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/faces_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/faces_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>此时就可以证明 $K_5$ 不是 planar</p>
+<p>因为 $K_5$ 有5个顶点 10条边<br>$$<br>10&#x3D;|E| &gt; 3|V|-6&#x3D;9<br>$$<br>根据上面的定理,  $K_5$ 不是 planar</p>
+<br>
+
+<p><img src="/Blog/intro/faces_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>根据这个定理, 就可以证明$K_{3,3}$ 不是planar.</p>
+<br>
+
+<h3 id="Dual-graph"><a href="#Dual-graph" class="headerlink" title="Dual graph"></a>Dual graph</h3><p><img src="/Blog/intro/faces_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="哈密尔顿路径和哈密尔顿回路"><a href="#哈密尔顿路径和哈密尔顿回路" class="headerlink" title="哈密尔顿路径和哈密尔顿回路"></a>哈密尔顿路径和哈密尔顿回路</h3><p><img src="/Blog/intro/hc.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/hc_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Neccessary-and-sufficient-condition"><a href="#Neccessary-and-sufficient-condition" class="headerlink" title="Neccessary and sufficient condition"></a>Neccessary and sufficient condition</h3><p>P 是一个property of graphs, C 是 set of conditions</p>
+<ol>
+<li>C is <strong>neccessary</strong> for P if every graph stisfying P also satisfies C (P &#x3D;&gt; C)</li>
+<li>C is <strong>sufficient</strong> for P if every graph stisfying C also satisfies P (C &#x3D;&gt; P)</li>
+<li>if C is both <strong>neccessary and sufficient</strong> for P. Then a graph G satisfies P if and only if G satisfies C. We say C characterize when P is satisfied. (C&lt;&#x3D;&gt;P)</li>
+</ol>
+<p><img src="/Blog/intro/hc_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>neccessary :</p>
+<ol>
+<li>如果G 是一张有哈密尔顿回路的图, G-v is connected for every vertex $v\in V$</li>
+<li>如果 $G(V,E)$ 是一个 bipartite graph, $V&#x3D;V_1 \cup V_2$, 如果G是一个哈密顿回路, 那么 $|V_1| &#x3D; |V_2|$</li>
+</ol>
+<p>sufficient:</p>
+<p><img src="/Blog/intro/hc_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/hc_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/hc_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><p><img src="/Blog/intro/tree.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="root"><a href="#root" class="headerlink" title="root"></a>root</h4><p><img src="/Blog/intro/tree_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h4 id="traversal"><a href="#traversal" class="headerlink" title="traversal"></a>traversal</h4><p><img src="/Blog/intro/tree_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Spanniing-Tree"><a href="#Spanniing-Tree" class="headerlink" title="Spanniing Tree"></a>Spanniing Tree</h4><p><img src="/Blog/intro/tree_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>两种生成spanning tree的方法</p>
+<p><img src="/Blog/intro/tree_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/tree_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="割点-Articulation-Point"><a href="#割点-Articulation-Point" class="headerlink" title="割点(Articulation Point)"></a>割点(Articulation Point)</h3><p><img src="/Blog/intro/articulation_point.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>$G&#x3D;(V,E)$ 一个顶点 $v\in V$ 是一个割点 iff 有两个不同的顶点 x, y. $x\ne v \ne y$ 并且x,y之间所有的path都包含v</p>
+<p><img src="/Blog/intro/articulation_point_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/intro/articulation_point_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>寻找割点的算法</p>
+<p><img src="/Blog/intro/articulation_point_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/articulation_point_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/articulation_point_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="有权图和最小生成树"><a href="#有权图和最小生成树" class="headerlink" title="有权图和最小生成树"></a>有权图和最小生成树</h3><p><img src="/Blog/intro/wg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/wg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p><strong>切分定理</strong></p>
+<p><img src="/Blog/intro/wg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Kruskal’s-算法"><a href="#Kruskal’s-算法" class="headerlink" title="Kruskal’s 算法"></a>Kruskal’s 算法</h4><p><img src="/Blog/intro/wg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h4 id="Labelled-Trees-adn-Prufer-Sequence"><a href="#Labelled-Trees-adn-Prufer-Sequence" class="headerlink" title="Labelled Trees adn Prufer Sequence"></a>Labelled Trees adn Prufer Sequence</h4><p><img src="/Blog/intro/lt.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/lt_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/lt_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这里最重要的一点就是一一对应的关系.</p>
+<p><img src="/Blog/intro/lt_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/lt_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/lt_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/lt_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>这个算法我简易从小数据集进行理解:</p>
+<p>例如依然是这幅图, 我们首先移除 leaf 2, 写入code 7</p>
+<p><img src="/Blog/intro/lt_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>如果进行逆操作, 此时我们图中缺少index 2, 而index 2 应该和7连接, 所以逆操作就是添加2-7这条边.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/07/simple-algorithm-problem-solving-experience/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">简单算法的解题经验(一)</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/28/shortest-path/">
+                        <span class="hidden-mobile">图论(六)-最短路径</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

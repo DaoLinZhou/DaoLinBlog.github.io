@@ -1,0 +1,1114 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="多项式回归 过拟合与欠拟合 学习曲线 交叉验证 偏差错误与方差错误 模型正则化: 岭回归, LASSO, 弹性网 L1, L2正则, Lp范数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3入门机器学习(6)-多项式回归与模型泛化">
+<meta property="og:url" content="http://example.com/2020/05/01/machine-learning-6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多项式回归 过拟合与欠拟合 学习曲线 交叉验证 偏差错误与方差错误 模型正则化: 岭回归, LASSO, 弹性网 L1, L2正则, Lp范数">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/intro/muti_reg_2.PNG">
+<meta property="article:published_time" content="2020-05-01T20:33:12.000Z">
+<meta property="article:modified_time" content="2020-05-25T04:28:37.550Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python3">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/intro/muti_reg_2.PNG">
+  
+  
+  <title>python3入门机器学习(6)-多项式回归与模型泛化 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/intro/about-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python3入门机器学习(6)-多项式回归与模型泛化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-01 13:33" pubdate>
+        May 1, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python3入门机器学习(6)-多项式回归与模型泛化</h1>
+            
+            <div class="markdown-body">
+              <p>多项式回归</p>
+<p>过拟合与欠拟合</p>
+<p>学习曲线</p>
+<p>交叉验证</p>
+<p>偏差错误与方差错误</p>
+<p>模型正则化: 岭回归, LASSO, 弹性网</p>
+<p>L1, L2正则, Lp范数</p>
+<span id="more"></span>
+
+<h1 id="多项式回归与模型泛化"><a href="#多项式回归与模型泛化" class="headerlink" title="多项式回归与模型泛化"></a>多项式回归与模型泛化</h1><br>
+
+<h2 id="什么是多项式回归"><a href="#什么是多项式回归" class="headerlink" title="什么是多项式回归"></a>什么是多项式回归</h2><p>之前介绍的线性回归法有一个很大的局限性: <strong>假设数据背后是存在线性关系的</strong></p>
+<p>但是在实际应用场景中, “<strong>具有线性关系</strong>“ 这么强的假设的数据集是比较少的, 更多数据之间是具有<strong>非线性关系</strong>的</p>
+<p>然而可以使用一种非常简单的手段改进线性回归法, 使得它可以对非线性的数据进行处理(预测), 也就是多项式回归</p>
+<p>进而通过多项式回归这个方法引出机器学习中最为重要的一个概念: <strong>模型泛化</strong></p>
+<br>
+
+<p><img src="/Blog/intro/PCA_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>之前在线性回归中, 我们想找到一条直线, 使得这条直线能够尽可能地拟合这些数据 </p>
+<p>如果在这个简单的示例中, 所有的数据只有一个特征的话, 这条直线就可以写作 y&#x3D;ax+b, x就是样本特征, a 和 b 是模型要求出来的参数</p>
+<br>
+
+<p>不过对于有一些数据:</p>
+<p><img src="/Blog/intro/muti_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>虽然也可以使用线性回归的方式来拟合这种数据, 但是其实它是具有更加强的非线性关系的</p>
+<p>换句话说, 如果用一根二次曲线来拟合数据的话效果会更好. 对于一个二次曲线来说, 假设所有的样本也只有一个特征, 相应的方程就可以写成这样<br>$$<br>y&#x3D;ax^2+bx+c<br>$$<br>这个式子中, 虽然我们将它称为二次方程, 但是我们可以从另外一个角度来理解这个式子: </p>
+<p><strong>如果我们将 x<sup>2</sup> 理解为一个特征, x理解为另外一个特征</strong></p>
+<p>换句话说, 本来样本只有一个特征x, 现在把它看作是有两个特征这样的一个数据集, 多了一个特征 x<sup>2</sup> , 从这个角度理解的话, 其实这个式子依然是一个线性回归的式子</p>
+<p>但是从x的角度来看, 是一个非线性的方程. 这样的方式就叫做<strong>多项式回归</strong></p>
+<blockquote>
+<p>相当于为样本多添加了一些特征, 这些特征是原来样本的多项式项</p>
+<p>增加了这些项之后就可以使用线性回归的思路更好地拟合原来的数据, 但是本质上我们求出来的是对于原来的特征而言的非线性曲线</p>
+</blockquote>
+<br>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 数据集</span></span><br><span class="line">    x = np.random.uniform(-<span class="number">3</span>, <span class="number">3</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x**<span class="number">2</span> + x + <span class="number">2</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用普通的线性回归</span></span><br><span class="line">    lin_reg = LinearRegression()</span><br><span class="line">    lin_reg.fit(X, y)</span><br><span class="line">    y_predict = lin_reg.predict(X)</span><br><span class="line"></span><br><span class="line">    plt.scatter(x, y)</span><br><span class="line">    plt.plot(x, y_predict, color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/muti_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这就是普通线性回归的结果, 而如果使用多项式回归, 就要添加一个特征</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新的数据集, 有2个维度(特征)</span></span><br><span class="line">   X_new = np.hstack([X**<span class="number">2</span>, X])</span><br><span class="line">   </span><br><span class="line">   lin_reg = LinearRegression()</span><br><span class="line">   lin_reg.fit(X_new, y)</span><br><span class="line">   y_predict = lin_reg.predict(X_new)</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 由于是非线性的, 所以要对数据进行排序再进行绘制</span></span><br><span class="line">   indexes = np.argsort(x)</span><br><span class="line"></span><br><span class="line">   plt.scatter(x, y)</span><br><span class="line">   plt.plot(x[indexes], y_predict[indexes], color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">   plt.show()</span><br><span class="line">   </span><br><span class="line">   <span class="comment"># 系数 [0.53914309 1.08045403]</span></span><br><span class="line">   <span class="built_in">print</span>(lin_reg.coef_)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/muti_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这两个系数, 和生成样本的方式是拟合的 分别是 0.5 和 1</p>
+<blockquote>
+<p>用线性回归的思路, 解决非线性回归的问题: <strong>求参</strong></p>
+</blockquote>
+<p>多项式回归再机器学习算法上并没有新的地方, 完全是使用线性回归的思路. 它的关键在于<strong>为原来的数据样本添加新的特征</strong>, 而我们得到新的特征的方式是原有特征的多项式组合, 采用这样的方式就可以解决非线性问题</p>
+<p class="note note-warning">
+    于此同时, 这个思路也值得注意, PCA算法是对数据进行降维处理, 而多项式回归算法显然是做相反的事情, <b>它让数据集升维</b>, 升高维度后(添加新的特征之后), 使得算法可以更好地拟合高维度的数据. 
+    这个思路在后面SVM中还会再次见到
+</p>
+
+<br>
+
+<br>
+
+<h2 id="scikit中的多项式回归"><a href="#scikit中的多项式回归" class="headerlink" title="scikit中的多项式回归"></a>scikit中的多项式回归</h2><p>PolynomialFeatures</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    x = np.random.uniform(-<span class="number">3</span>, <span class="number">3</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x**<span class="number">2</span> + x + <span class="number">2</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">   	<span class="comment"># 设置最高为2次项</span></span><br><span class="line">    poly = PolynomialFeatures(degree=<span class="number">2</span>)</span><br><span class="line">    poly.fit(X)</span><br><span class="line">    X2 = poly.transform(X)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(X2[:<span class="number">5</span>, :])</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    分别是X的 0次方, 1次方, 2次方</span></span><br><span class="line"><span class="string">    [[ 1.         -1.24170356  1.54182773]</span></span><br><span class="line"><span class="string">     [ 1.          2.89819499  8.39953419]</span></span><br><span class="line"><span class="string">     [ 1.         -2.08666526  4.35417192]</span></span><br><span class="line"><span class="string">     [ 1.          2.40031645  5.76151905]</span></span><br><span class="line"><span class="string">     [ 1.          1.07686046  1.15962845]]</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    lin_reg2 = LinearRegression()</span><br><span class="line">    lin_reg2.fit(X2, y)</span><br><span class="line">    y_predict2 = lin_reg2.predict(X2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># scikit-learn中线性回归添不添加第一列的1是无所谓的</span></span><br><span class="line">    <span class="comment"># X3 = X2[:, 1:]</span></span><br><span class="line">    <span class="comment"># lin_reg3 = LinearRegression()</span></span><br><span class="line">    <span class="comment"># lin_reg3.fit(X3, y)</span></span><br><span class="line">    <span class="comment"># y_predict3 = lin_reg3.predict(X3)</span></span><br><span class="line">    <span class="comment"># print(all((y_predict2 - y_predict3) &lt; 1e-6))</span></span><br><span class="line"></span><br><span class="line">    plt.scatter(x, y)</span><br><span class="line">    plt.plot(np.sort(x), y_predict2[np.argsort(x)], color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以看到, 此时使用线性回归传入的矩阵第一列全是1, 也就是传入的是一个X_b矩阵(可以回到线性回归章节看X_b和X矩阵有什么不同)</p>
+<p>然而在之前使用线性回归我们只传一个X矩阵, scikit-learn中, 二者是无所谓的</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [0.         1.03198969 0.5154626 ]</span></span><br><span class="line"><span class="built_in">print</span>(lin_reg2.coef_)</span><br><span class="line"><span class="comment"># 2.1146972475744947</span></span><br><span class="line"><span class="built_in">print</span>(lin_reg2.intercept_)</span><br></pre></td></tr></table></figure>
+
+<p>这个0就是对于第一列所有数据拟合结果为0</p>
+<br>
+
+<br>
+
+<h3 id="关于PolynomialFeatures"><a href="#关于PolynomialFeatures" class="headerlink" title="关于PolynomialFeatures"></a>关于PolynomialFeatures</h3><p>现在的所有例子中X都有一个特征, 如果X中有两个特征会怎么样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    X = np.arange(<span class="number">1</span>, <span class="number">11</span>).reshape(-<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">    poly = PolynomialFeatures(degree=<span class="number">2</span>)</span><br><span class="line">    poly.fit(X)</span><br><span class="line">    X2 = poly.transform(X)</span><br><span class="line">    <span class="built_in">print</span>(X2.shape)     <span class="comment"># (5, 6)</span></span><br><span class="line">    <span class="built_in">print</span>(X2)</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    第一列是0次幂, 第二列和第三列是一次幂的项, x1和x2</span></span><br><span class="line"><span class="string">    二次幂的特征有3列, 分别x1平方, x1乘以x2, x2平方</span></span><br><span class="line"><span class="string">    [[  1.   1.   2.   1.   2.   4.]</span></span><br><span class="line"><span class="string">     [  1.   3.   4.   9.  12.  16.]</span></span><br><span class="line"><span class="string">     [  1.   5.   6.  25.  30.  36.]</span></span><br><span class="line"><span class="string">     [  1.   7.   8.  49.  56.  64.]</span></span><br><span class="line"><span class="string">     [  1.   9.  10.  81.  90. 100.]]</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以想象, 如果是3次幂, 则会有10列</p>
+<p><img src="/Blog/intro/muti_reg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>当 degree 传入 i 的话, PolynomialFeatures将会自动生成degree &lt;&#x3D; i 的所有多项式的项</p>
+<p>也就是说经过PolynomialFeatures之后, 样本的总特征数将呈现指数级增长</p>
+<p>这个特性一方面使得PolynomialFeatures非常强大, 因为它涉及到所有可能的多项式的特征, 不过于此同时也会带来一些问题 (过拟合与欠拟合问题)</p>
+<br>
+
+<h3 id="Pipeline-管道"><a href="#Pipeline-管道" class="headerlink" title="Pipeline 管道"></a>Pipeline 管道</h3><p>可以方便使用多项式回归的方式</p>
+<p>我们使用多项式回归的过程是怎样的? </p>
+<ol>
+<li><p>要将原本的数据通过PolynomialFeatures生成多项式的特征的样本数据</p>
+</li>
+<li><p>之前是将生成的多项式样本数据直接送给了LinearRegression</p>
+<p>但如果degree的值非常大, 这些样本数据之间生成的差距就会非常大例如1的100次方和10的100次方</p>
+<p>而由于数据分布不均衡, 在梯度下降的过程中就会非常慢, 此时最好进行数据归一化</p>
+</li>
+</ol>
+<p>因此整体进行了3步:</p>
+<p><strong>生成多项式的特征, 数据的归一化, 线性回归</strong></p>
+<p>而Pipeline就可以将这三步合在一起, 使得每一次在调用的时候不用重复这三步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> Pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures, StandardScaler</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    x = np.random.uniform(-<span class="number">3</span>, <span class="number">3</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x ** <span class="number">2</span> + x + <span class="number">2</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    poly_reg = Pipeline([</span><br><span class="line">        <span class="comment"># 字符串只是名字, 任意取即可</span></span><br><span class="line">        (<span class="string">&#x27;poly&#x27;</span>, PolynomialFeatures(degree=<span class="number">2</span>)),</span><br><span class="line">        (<span class="string">&#x27;std_scaler&#x27;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&#x27;lin_reg&#x27;</span>, LinearRegression())</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 非常智能地, 先将X通过PolynomialFeatures</span></span><br><span class="line">    <span class="comment"># 再通过StandardScaler, 最后得到全新的X和y再送给LinearRegression</span></span><br><span class="line">    poly_reg.fit(X, y)</span><br><span class="line">    y_predict = poly_reg.predict(X)</span><br></pre></td></tr></table></figure>
+
+<p>也能得到一个二次曲线</p>
+<p>scikit-learn并没有多项式回归这样的类, 但是我们可以通过Pipeline方便地自己创建出多项式回归的类</p>
+<br>
+
+<br>
+
+<h2 id="过拟合和欠拟合"><a href="#过拟合和欠拟合" class="headerlink" title="过拟合和欠拟合"></a>过拟合和欠拟合</h2><p>有了多项式回归就可以对非线性数据进行拟合, 进而求解回归问题</p>
+<p>不过, 过度的使用多项式回归将会牵扯机器学习领域一个非常重要的问题: <strong>过拟合 (over fitting)</strong> 和 <strong>欠拟合(under fitting)</strong></p>
+<br>
+
+<p>用实际的例子解释什么叫过拟合与欠拟合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> Pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures, StandardScaler</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">PolynomialRegression</span>(<span class="params">degree</span>):</span><br><span class="line">    <span class="keyword">return</span> Pipeline([</span><br><span class="line">        (<span class="string">&quot;ploy&quot;</span>, PolynomialFeatures(degree=degree)),</span><br><span class="line">        (<span class="string">&quot;standard&quot;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&quot;lin_reg&quot;</span>, LinearRegression())</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    np.random.seed(<span class="number">666</span>)</span><br><span class="line">    x = np.random.uniform(-<span class="number">3</span>, <span class="number">3</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x ** <span class="number">2</span> + x + <span class="number">2</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    lin_reg = LinearRegression()</span><br><span class="line">    lin_reg.fit(X, y)</span><br><span class="line">    y_predict = lin_reg.predict(X)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用均方误差进行衡量</span></span><br><span class="line">    <span class="comment"># MSE=3.07</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y, y_predict))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># degree 传入2的结果是非常好的</span></span><br><span class="line">    poly2_reg = PolynomialRegression(<span class="number">2</span>)</span><br><span class="line">    poly2_reg.fit(X, y)</span><br><span class="line">    y2_predict = poly2_reg.predict(X)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># MSE=1.09</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y, y2_predict))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然而如果degree传入其他值会怎么样?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">poly10_reg = PolynomialRegression(<span class="number">10</span>)</span><br><span class="line">   poly10_reg.fit(X, y)</span><br><span class="line">   y10_predict = poly10_reg.predict(X)</span><br><span class="line">   <span class="comment"># MSE=1.05</span></span><br><span class="line">   <span class="built_in">print</span>(mean_squared_error(y, y10_predict))</span><br></pre></td></tr></table></figure>
+
+<p>可以看出, degree&#x3D;10的情况下MSE&#x3D;1.05, 比degree&#x3D;2的情况还要小</p>
+<p>此时画图看看拟合曲线</p>
+<p><img src="/Blog/intro/muti_reg_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>甚至可以更加极端, 让degree&#x3D;100, MSE就更小了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">poly100_reg = PolynomialRegression(<span class="number">100</span>)</span><br><span class="line">   poly100_reg.fit(X, y)</span><br><span class="line">   y100_predict = poly100_reg.predict(X)</span><br><span class="line">   <span class="comment"># MSE=0.68</span></span><br><span class="line">   <span class="built_in">print</span>(mean_squared_error(y, y100_predict))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/muti_reg_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>实际上当degree&#x3D;100时, 绘制的图形并不是我们计算出来的拟合曲线, 这是因为这个图像绘制的曲线只是原有的数据点之间对应的y的预测值连接出来的结果</p>
+<p>不过有很多地方没有数据点, 所以这个连接的结果和原来的曲线不一样, 真正的曲线图像:</p>
+<p><img src="/Blog/intro/muti_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>这里就可以分析一下, 显然: <strong>多项式回归, degree传入的值越高最终的拟合结果就会越好.</strong> </p>
+<blockquote>
+<p>道理非常简单, 有这么多样本点, 我们总能找到一根曲线, 这根曲线能将所有的样本点都进行拟合</p>
+<p>就是说让所有的样本点都落在曲线上, 使得整体的均方误差为0 (相应的degree的取值应该是非常高的)</p>
+</blockquote>
+<p>这个拟合的结果虽然从均方误差的角度来看是更加好的, 但它真的是能反应样本数值走势的曲线吗? 显然并不是这样</p>
+<p>虽然使得所有拟合的点获得了更小的误差, 但是这根曲线完全不是我们想要的样子, 这种情况就称为<strong>过拟合(over fitting)</strong></p>
+<p>而直接使用一根来拟合样本数据, 这种方式显然也没有非常好地反应原始数据的样本特征, 但它的错误不是太过复杂了, 而是太过简单了. 这种情况就称为<strong>欠拟合(under fitting)</strong></p>
+<br>
+
+<p>如果原始数据是用过二次方程生成的, 使用一次方程得到的结果就是<strong>欠拟合</strong>, 而使用高于二次的方程进行预测就是<strong>过拟合</strong></p>
+<p>如何识别过拟合和欠拟合?</p>
+<br>
+
+<br>
+
+<h2 id="为什么要训练数据集和测试数据集"><a href="#为什么要训练数据集和测试数据集" class="headerlink" title="为什么要训练数据集和测试数据集"></a>为什么要训练数据集和测试数据集</h2><h3 id="衡量基准的偏移"><a href="#衡量基准的偏移" class="headerlink" title="衡量基准的偏移"></a>衡量基准的偏移</h3><p>机器学习主要解决的问题是过拟合</p>
+<p>在看一眼上面生成的曲线:</p>
+<p><img src="/Blog/intro/muti_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>虽然我们学习整个曲线使得整个样本的均方误差最小, 但如果用这根曲线进行预测的话</p>
+<p><img src="/Blog/intro/predict_poly_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>紫色点是新的样本点, 经过拟合曲线预测的结果, 很显然紫色的点看起来和蓝色的点不在一个趋势上. 这个预测值很有可能是错误的</p>
+<p>换句话说, 在过拟合的情况下, 虽然这个曲线能把原来的样本点拟合的非常好, 但一旦来了新的样本点, 它就不能进行很好的预测了</p>
+<p>此时就称<strong>这个模型的泛化能力是非常弱的</strong></p>
+<br>
+
+<p>我们训练模型不是为了最大程度地拟合这些点, 而是为了获得一个可以预测的模型, 当面对新的数据时, 通过模型可以得到很好的解答</p>
+<p>正因为如此, 我们衡量模型对于<strong>训练数据</strong>拟合程度有多好是没有意义的</p>
+<p>我们真正需要衡量的是<strong>模型的泛化能力有多好</strong></p>
+<br>
+
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>面对这种情况应该怎么做? 很简单, 之前也一直在使用</p>
+<p>就是使用: <strong>训练测试数据集的分离</strong></p>
+<p><img src="/Blog/intro/knn_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>获得模型只使用训练数据集, 而测试数据对于模型来说就是全新的数据, 如果使用训练数据得到的模型面对测试数据也能得到很好的结果的话, 我们就说模型的泛化能力是很强的</p>
+<p>因为它能通过训练数据得到的结果很好的给出测试数据这些从来没有见过的数据的结果</p>
+<p>但如果模型面对测试数据效果很差, 就说明模型的泛化能力是很弱的, 多半我们就遭遇了过拟合</p>
+<br>
+
+<br>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> Pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures, StandardScaler</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">PolynomialRegression</span>(<span class="params">degree</span>):</span><br><span class="line">    <span class="keyword">return</span> Pipeline([</span><br><span class="line">        (<span class="string">&quot;ploy&quot;</span>, PolynomialFeatures(degree=degree)),</span><br><span class="line">        (<span class="string">&quot;standard&quot;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&quot;lin_reg&quot;</span>, LinearRegression())</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    np.random.seed(<span class="number">666</span>)</span><br><span class="line">    x = np.random.uniform(-<span class="number">3</span>, <span class="number">3</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x ** <span class="number">2</span> + x + <span class="number">2</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="number">666</span>)</span><br><span class="line">    lin_reg = LinearRegression()</span><br><span class="line">    lin_reg.fit(X_train, y_train)</span><br><span class="line">    y_predict = lin_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 2.21</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y_predict))</span><br><span class="line"></span><br><span class="line">    poly2_reg = PolynomialRegression(degree=<span class="number">2</span>)</span><br><span class="line">    poly2_reg.fit(X_train, y_train)</span><br><span class="line">    y2_predict = poly2_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 0.80</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y2_predict))</span><br><span class="line"></span><br><span class="line">    poly10_reg = PolynomialRegression(degree=<span class="number">10</span>)</span><br><span class="line">    poly10_reg.fit(X_train, y_train)</span><br><span class="line">    y10_predict = poly10_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 0.92, 说明degree=10的时候模型泛化能力变弱了</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y10_predict))</span><br><span class="line"></span><br><span class="line">    poly100_reg = PolynomialRegression(degree=<span class="number">100</span>)</span><br><span class="line">    poly100_reg.fit(X_train, y_train)</span><br><span class="line">    y100_predict = poly100_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 13123135111, 这个误差非常大, 预测结果极差</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y100_predict))</span><br></pre></td></tr></table></figure>
+
+<p>上面的实验实际上是在测试模型的复杂度</p>
+<p>多项式回归degree的阶数越高, 模型就越复杂, 而机器算法是有这样一个图的</p>
+<p><img src="/Blog/intro/predict_poly_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><strong>模型的复杂度</strong>对于不同的算法来说是不同的意思</p>
+<p>对于多项式回归来说, 阶数越高模型越复杂</p>
+<p>而对于kNN来说k越小模型越复杂, k越大模型越简单, k取最大值(即样本总数)的时候是最简单的, 问题就变成了看整个样本里那种样本最多</p>
+<blockquote>
+<p>对于不同算法来说, 模型复杂度的定义不一样</p>
+<p>但是每一个模型都可以通过参数的调整使得它从简单变复杂</p>
+</blockquote>
+<p><strong>模型准确率</strong>代表模型能多么好地预测数据</p>
+<br>
+
+<p><img src="/Blog/intro/predict_poly_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于训练数据来说, 随着模型复杂度的上升, 准确率也在上升</p>
+<p>而对于测试数据来说, 前期随着模型复杂度的上升, 准确率也在上升, 而在一定程度后, 模型的复杂程度再上升是会导致准确率下降的</p>
+<p>其实就是这样一个过程:  欠拟合-&gt;合适-&gt;过拟合</p>
+<br>
+
+<p>这张图只是示意图, 对于不同的算法放进来得到的图是不一样的</p>
+<p>但整体是这样一个趋势</p>
+<br>
+
+<p class="note note-success">欠拟合(underfitting): 算法训练的模型不能完整表述数据关系
+<br><br>
+过拟合(overfitting): 算法所训练的模型过多地表达了数据间的<b>噪音</b>关系(通常采集到的数据都是有噪音的)</p>
+
+<br>
+
+<p>其实我们要找到是泛化能力最好的地方, 换句话说, 对于测试数据模型准确率最高的地方.</p>
+<p><img src="/Blog/intro/predict_poly_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>而其实之前使用<strong>网格搜索</strong>一直就是这么干的</p>
+<p>一直就是把数据分为训练数据集和测试数据集, 对于不同参数训练出的模型去寻找使得测试数据集的结果最好的对应的那组参数作为最终获得的模型参数</p>
+<p>然而使用这种方式虽然已经可以评测模型的泛化能力了, 但它还不是最好的方法.</p>
+<br>
+
+<br>
+
+<h2 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h2><p><img src="/Blog/intro/predict_poly_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>虽然kNN和多项式回归是符合这样的逻辑的, 但它们都不适合绘制这样的曲线</p>
+<p>不过, 对于欠拟合和过拟合还有另外一个曲线可以提供可视化的方法: <strong>学习曲线</strong></p>
+<p>学习曲线描述的是: 随着训练样本的逐渐增多, 算法训练出的模型的表现能力</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    np.random.seed(<span class="number">666</span>)</span><br><span class="line">    x = np.random.uniform(-<span class="number">3</span>, <span class="number">3</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x ** <span class="number">2</span> + x + <span class="number">2</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, size=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制学习曲线</span></span><br><span class="line">    <span class="comment"># 每次都多一点训练数据, 以此来观察模型在训练数据集和测试数据集上的表现</span></span><br><span class="line">    train_score = []</span><br><span class="line">    test_score = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">76</span>):</span><br><span class="line">        lin_reg = LinearRegression()</span><br><span class="line">        lin_reg.fit(X_train[:i], y_train[:i])</span><br><span class="line"></span><br><span class="line">        y_train_predict = lin_reg.predict(X_train[:i])</span><br><span class="line">        train_score.append(mean_squared_error(y_train[:i], y_train_predict))</span><br><span class="line"></span><br><span class="line">        y_test_predict = lin_reg.predict(X_test)</span><br><span class="line">        test_score.append(mean_squared_error(y_test, y_test_predict))</span><br><span class="line"></span><br><span class="line">    plt.plot(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">76</span>), np.sqrt(train_score), label=<span class="string">&quot;train&quot;</span>)</span><br><span class="line">    plt.plot(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">76</span>), np.sqrt(test_score), label=<span class="string">&quot;test&quot;</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>依然是这样一组数据</p>
+<p><img src="/Blog/intro/learning_graph_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/learning_graph.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这就是对于这个样本数据来说, 线性回归模型得到的学习曲线</p>
+<p>简单分析一下这个学习曲线:</p>
+<p><strong>大体趋势</strong>: </p>
+<p>​    在训练数据集上的误差是在逐渐升高的, 因为训练数据越来越多, 数据点越多, 越难拟合所有的数据, 在刚开始的时候误差的累计比较快, 到了一定程度误差的累计是较为稳定的</p>
+<p>​    对于测试数据集来说, 当使用非常少的数据训练时, 测试误差非常大, 而当训练样本多到一定程度, 测试的误差就会逐渐减小, 减小到一定程度后就不会小太多了, 达到一种相对稳定的情况, 最终训练误差和测试误差大体是在一个量级的</p>
+<br>
+
+<p>为了适用于其他算法, 将这个过程提炼成一个函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">plot_learning_curve</span>(<span class="params">algo, X_train, X_test, y_train, y_test</span>):</span><br><span class="line">    train_score = []</span><br><span class="line">    test_score = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(X_train)+<span class="number">1</span>):</span><br><span class="line">        algo.fit(X_train[:i], y_train[:i])</span><br><span class="line"></span><br><span class="line">        y_train_predict = algo.predict(X_train[:i])</span><br><span class="line">        train_score.append(mean_squared_error(y_train[:i], y_train_predict))</span><br><span class="line"></span><br><span class="line">        y_test_predict = algo.predict(X_test)</span><br><span class="line">        test_score.append(mean_squared_error(y_test, y_test_predict))</span><br><span class="line"></span><br><span class="line">    plt.plot(<span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(X_train)+<span class="number">1</span>), np.sqrt(train_score), label=<span class="string">&quot;train&quot;</span>)</span><br><span class="line">    plt.plot(<span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(X_train)+<span class="number">1</span>), np.sqrt(test_score), label=<span class="string">&quot;test&quot;</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.axis([<span class="number">0</span>, <span class="built_in">len</span>(X_train)+<span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>])</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>而此时调用这个函数看degree&#x3D;2时的多项式回归模型的学习曲线</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot_learning_curve(PolynomialRegression(<span class="number">2</span>), X_train, X_test, y_train, y_test)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/learning_graph_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这个曲线在总体趋势上和线性回归是一致的, 不过最大的区别就是线性回归的误差稳定在1.7左右的位置. 而对于二阶多项式回归, 误差稳定在1左右</p>
+<p>二阶多项式回归学习曲线稳定的位置较低, 说明使用二阶多项式回归拟合的结果是比较好的</p>
+<br>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot_learning_curve(PolynomialRegression(<span class="number">20</span>), X_train, X_test, y_train, y_test)</span><br></pre></td></tr></table></figure>
+
+<p>如果degree取20, 学习曲线为</p>
+<p><img src="/Blog/intro/learning_graph_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>依然是train是上升, test下降, 但整体这个图像和前面的图像也有巨大区别. 区别在于: <strong>在相对稳定的时候, train和test两个曲线的间距是比较大的</strong></p>
+<p>这就说明, 模型在训练数据集上拟合的比较好, 但在测试数据集上误差依然很大, 这种情况通常就是过拟合, 泛化能力不够</p>
+<br>
+
+<br>
+
+<h2 id="验证数据集与交叉验证"><a href="#验证数据集与交叉验证" class="headerlink" title="验证数据集与交叉验证"></a>验证数据集与交叉验证</h2><p><img src="/Blog/intro/learning_graph_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>train-test-split 比只使用训练数据得到的模型靠谱的多, 但是严格来说, 它有它不靠谱的地方</p>
+<p>问题就是这样做有可能<strong>针对测试数据集过拟合</strong></p>
+<p>虽然是使用训练数据获得了模型, 但每次通过测试数据来测试模型的好坏, 一旦发现模型不好, 就换一个参数重新训练</p>
+<p>这个过程模型是围绕测试数据集打转的: 我们在想办法寻找一组参数, 这组参数使得<strong>用训练数据集获得的模型在测试数据集上效果最好</strong></p>
+<p>如何解决这个问题?</p>
+<br>
+
+<h3 id="验证数据集"><a href="#验证数据集" class="headerlink" title="验证数据集"></a>验证数据集</h3><p>解决的办法是把数据分成3部分: 训练数据集, 验证数据集, 测试数据集</p>
+<p><img src="/Blog/intro/learning_graph_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><strong>训练数据集</strong>依然是用于训练模型</p>
+<p><strong>验证数据集</strong>做的是<strong>原来测试数据集</strong>做的事情, 把验证数据送给模型, 找到一组参数使得模型针对验证数据来说达到最优</p>
+<p>这样的一个模型在训练结束之后, <strong>测试数据</strong>再给模型, 这样才能得到这个模型最终的性能</p>
+<br>
+
+<p>换句话说, <strong>测试数据集是不参与模型的创建的</strong>, 而训练数据集(用于训练)和验证数据集(用于评判)都参与了模型的创建</p>
+<p>但是测试数据对模型是完全不可知的, 相当于在模拟真正的真实环境中, 模型完全不知道的一个数据</p>
+<p>在创建过程结束之后, 确定好这就是模型, 再把测试数据送进去, 得到模型最终的性能</p>
+<p><img src="/Blog/intro/learning_graph_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>最终用测试数据得到的模型的测试结果是更加准确的, 可以评判模型的结果</p>
+<br>
+
+<p><img src="/Blog/intro/learning_graph_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>不过这么做还是有一个问题, 这个问题在于<strong>随机</strong></p>
+<p>由于每一次验证数据集都是随机的从原来的数据中切出来的, 因此训练数据集有可能过拟合验证数据集, 但是只有这一个数据集, 一旦这个验证数据集中有比较极端的数据, 就可能导致模型不准确</p>
+<br>
+
+<h3 id="交叉验证-Cross-Validation"><a href="#交叉验证-Cross-Validation" class="headerlink" title="交叉验证 Cross Validation"></a>交叉验证 Cross Validation</h3><p>是比较正规的, 比较标准的, 调整模型参数的时候, 看模型性能的方式</p>
+<p>什么是交叉验证?</p>
+<p><img src="/Blog/intro/learning_graph_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于训练数据来说, 通常分成k份, 假设分为3份, ABC</p>
+<p>接下来就是将ABC分别作为验证数据集</p>
+<p><img src="/Blog/intro/learning_graph_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这样一来, 每一个训练数据集与验证数据集的搭配都会产生一个模型</p>
+<p><img src="/Blog/intro/learning_graph_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这三个模型在每一个对应的验证数据集上都会求出一个指标, 这些<strong>性能指标的平均</strong>作为最终衡量当前算法得到的模型的标准</p>
+<p><img src="/Blog/intro/learning_graph_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这样做由于有一个求平均的过程, 所以不会由于一份验证数据集中极端的数据而导致最终训练出来的模型有过大的偏差</p>
+<p>所以这样做比只设立一个验证数据集要靠谱</p>
+<p>因此通常调参的时候要使用交叉验证的方式的</p>
+<br>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split, cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    digits = datasets.load_digits()</span><br><span class="line">    X = digits.data</span><br><span class="line">    y = digits.target</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.4</span>, random_state=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试 train_test_split</span></span><br><span class="line">    best_score, best_p, best_k = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">11</span>):</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            knn_clf = KNeighborsClassifier(weights=<span class="string">&quot;distance&quot;</span>, n_neighbors=k, p=p)</span><br><span class="line">            knn_clf.fit(X_train, y_train)</span><br><span class="line">            score = knn_clf.score(X_test, y_test)</span><br><span class="line">            <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">                best_score, best_p, best_k = score, p, k</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best K =&quot;</span>, best_k)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best P =&quot;</span>, best_p)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best Score =&quot;</span>, best_score)</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Best K = 3</span></span><br><span class="line"><span class="string">    Best P = 4</span></span><br><span class="line"><span class="string">    Best Score = 0.9860917941585535</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用交叉验证</span></span><br><span class="line">    <span class="comment"># 传入一个算法以及一个X_train, y_train,</span></span><br><span class="line">    <span class="comment"># 就会自动进行交叉验证的过程, 同时返回生成的k个模型每个模型对应的准确率</span></span><br><span class="line">    best_score, best_p, best_k = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">11</span>):</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            knn_clf = KNeighborsClassifier(weights=<span class="string">&quot;distance&quot;</span>, n_neighbors=k, p=p)</span><br><span class="line">            <span class="comment"># 默认将训练数据集分成五份进行交叉验证, 不同机器可能不一样, 可以通过cv参数指定分成几份</span></span><br><span class="line">            scores = cross_val_score(knn_clf, X_train, y_train, cv=<span class="number">5</span>)</span><br><span class="line">            score = np.mean(scores)</span><br><span class="line">            <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">                best_score, best_p, best_k = score, p, k</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best K =&quot;</span>, best_k)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best P =&quot;</span>, best_p)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best Score =&quot;</span>, best_score)</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Best K = 2</span></span><br><span class="line"><span class="string">    Best P = 2</span></span><br><span class="line"><span class="string">    Best Score = 0.9851507321274763</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>通常情况下我们还是更原意相信 Cross Validation 的结果, 因为train-test-split可能仅仅是过拟合了这组测试数据集而已</p>
+<p>而我们交叉验证最后的score不是上面的0.985, 进行交叉验证只是为了拿到最好的p和k, 通过这组参数就可以得到一个最佳的KNN模型, 用这个模型再去预测测试数据集得到的结果才是真正的score</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">best_knn_clf = KNeighborsClassifier(weights=<span class="string">&quot;distance&quot;</span>, n_neighbors=<span class="number">2</span>, p=<span class="number">2</span>)</span><br><span class="line">best_knn_clf.fit(X_train, y_train)</span><br><span class="line">real_score = best_knn_clf.score(X_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(real_score)	<span class="comment"># 0.980528511821975</span></span><br></pre></td></tr></table></figure>
+
+<p>这个score才是用三交叉验证(因为默认是分成3份) 的方式找到了KNN算法最佳参数组合的score, k&#x3D;2, p&#x3D;2</p>
+<p>X_test 和 y_test 在寻找参数的过程中是完全没有用到的, 也就是说用完全没有见过的模型来测试准确率</p>
+<p>不过, 这些其实在用网格搜索的时候已经进行了, 这是scikit-learn中网格搜索自带的功能GridSearchCV 的CV就是交叉验证的意思</p>
+<p>网格搜索:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">param_grid = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;weights&#x27;</span>: [<span class="string">&#x27;distance&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;n_neighbors&#x27;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">11</span>)],</span><br><span class="line">        <span class="string">&#x27;p&#x27;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">knn_clf = KNeighborsClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 交叉验证默认把数据分成5份, 也可以通过参数cv指定分成几份</span></span><br><span class="line"><span class="comment"># 总共验证5*9*5=255组</span></span><br><span class="line"><span class="comment"># Fitting 5 folds for each of 45 candidates, totalling 225 fits</span></span><br><span class="line">grid_search = GridSearchCV(knn_clf, param_grid, verbose=<span class="number">1</span>, cv=<span class="number">5</span>)</span><br><span class="line">grid_search.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0.9851507321274763</span></span><br><span class="line"><span class="built_in">print</span>(grid_search.best_score_)   </span><br><span class="line"><span class="comment"># &#123;&#x27;n_neighbors&#x27;: 2, &#x27;p&#x27;: 2, &#x27;weights&#x27;: &#x27;distance&#x27;&#125;</span></span><br><span class="line"><span class="built_in">print</span>(grid_search.best_params_)  </span><br><span class="line">	</span><br><span class="line"><span class="comment"># 通过最好的模型对测试数据集进行测试</span></span><br><span class="line">best_knn_clf = grid_search.best_estimator_</span><br><span class="line"><span class="built_in">print</span>(best_knn_clf.score(X_test, y_test))   <span class="comment"># 0.980528511821975</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到得到的所有结果都和交叉验证是吻合的</p>
+<br>
+
+<p>交叉验证调参的过程中, 评价模型的准确度更加靠谱</p>
+<p>通常要把训练集分成k份, 就叫做 k-folds cross validation</p>
+<p>缺点: 每次训练k个模型, 相当于整体性能慢了k倍, 但是找到的参数通常可以更加信赖</p>
+<br>
+
+<h3 id="留一法-LOO-CV"><a href="#留一法-LOO-CV" class="headerlink" title="留一法 LOO-CV"></a>留一法 LOO-CV</h3><p>极端情况下, k-folds cross validation可以变成一种叫做**留一法(LOO-CV) **的交叉验证方式 (Leave-One-Out Cross Validation)</p>
+<p>如果训练数据集有m个样本, 就把它分成m份</p>
+<p>换句话说每次都将m-1份样本进行训练, 然后去看剩下的一个样本预测的准不准,  将这些结果进行平均, 作为衡量当前参数下模型的预测的准确度</p>
+<p>这么做将完全不受随机的影响, 最接近模型的真正的性能指标</p>
+<p>缺点: 计算量巨大 (一般计算量不够的时候都不会采用; 但在一些论文中, 为了学术严谨, 可能会采用)</p>
+<br>
+
+<br>
+
+<h2 id="偏差方差权衡-Bias-Variance-Trade-off"><a href="#偏差方差权衡-Bias-Variance-Trade-off" class="headerlink" title="偏差方差权衡 Bias Variance Trade off"></a>偏差方差权衡 Bias Variance Trade off</h2><p>过拟合与欠拟合都会使得训练的机器学习模型在真实的预测的过程中产生各种误差</p>
+<p>那么出现这个种误差应该怎么进行分类? 即偏差方差的权衡</p>
+<br>
+
+<h3 id="偏差和方差"><a href="#偏差和方差" class="headerlink" title="偏差和方差"></a>偏差和方差</h3><p><img src="/Blog/intro/bias_var.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>偏差描述偏离了中心的程度, 方差描述数据之间的密集程度</p>
+<p>机器学习可以理解为是<strong>解决一个问题</strong>, 这个问题就是靶子的中心</p>
+<p>而根据数据来拟合一个模型, 进而预测这个问题. 拟合出的模型就是打出去的这些枪</p>
+<p>那么模型就有可能犯<strong>偏差</strong>和<strong>方差</strong>两种错误</p>
+<br>
+
+<p>所以一般来说, 我们训练一个模型, 这个模型会有误差, 这个误差通常来源于3方面<br>$$<br>模型误差&#x3D;偏差(Bias)+方差(Variance)+不可避免的误差<br>$$<br>不可避免的误差我们是无能为力的, 它是客观存在的</p>
+<p>例如: 采集的数据本身就是有噪音的, 这是无论怎样改进模型, 改进算法都不能避免的</p>
+<p>但是偏差和方差这两个问题却是和算法&#x2F;模型相关</p>
+<br>
+
+<h3 id="偏差"><a href="#偏差" class="headerlink" title="偏差"></a>偏差</h3><p><img src="/Blog/intro/bias_var.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>导致偏差的主要原因: <strong>对问题本身的假设不正确</strong></p>
+<p>例如: 在非线性回归中使用线性回归</p>
+<p><strong>欠拟合</strong>(underfitting) 就是这样一个例子, 由于训练算法对于整个数据是欠拟合的, 所以导致整体模型具有非常高的偏差</p>
+<p>还有可能是<strong>训练数据采用的特征和这个问题完全没有关系</strong></p>
+<br>
+
+<h3 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h3><p><img src="/Blog/intro/bias_var.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>表现: <strong>数据一点点扰动都会较大地影响模型</strong>. </p>
+<p>通常原因: 使用的模型太复杂.</p>
+<p>模型没有完全地学习到问题的实质, 而学习到了很多的噪音</p>
+<p><strong>过拟合</strong>(overfitting) 会极大地引入方差</p>
+<br>
+
+<h3 id="权衡"><a href="#权衡" class="headerlink" title="权衡"></a>权衡</h3><blockquote>
+<p>有一些算法天生是高方差的算法. 如kNN</p>
+<p><strong>非参数学习</strong>通常都是<strong>高方差</strong>算法. 因为不对数据进行任何假设</p>
+<p>有一些算法天生是高方差算法. 如线性回归.</p>
+<p><strong>参数学习</strong>通常都是<strong>高偏差</strong>算法. 因为对数据具有极强的假设</p>
+</blockquote>
+<p>大多数算法具有相应的参数, 可以调整偏差和方差</p>
+<p>例如kNN算法中的k, k越小, 模型越复杂, 模型的方差越大, 偏差越小</p>
+<p>例如线性回归中使用多项式回归</p>
+<br>
+
+<p>可以看出偏差可方差通常是矛盾的, 互相制约. </p>
+<p>​        降低偏差, 会提高方差</p>
+<p>​        降低方差, 会提高偏差</p>
+<br>
+
+<p>如果算法训练出的模型, 通过实践发现是一个低偏差, 低方差的模型, 固然非常好, 但实际情况下通常不是这么理想的</p>
+<p>通常算法本身具有错误, 这个时候我们通常需要观察算法主要的错误是集中在偏差的位置还是方差的位置</p>
+<p>看看能不能让偏差和方差到达一定的<strong>平衡</strong>. 换句话说: 不要特别高的方差, 也不要特别高的偏差</p>
+<p>我们可能不能完全杜绝错误, 但是让它有一点偏差, 也有一点方差, 而不是集中在一个方向上</p>
+<p>达到这个目标, 通常也是机器学习算法在调参的过程中要做到主要的一个事情</p>
+<br>
+
+<p>机器学习的主要挑战来自于<strong>方差</strong></p>
+<p>这个说法只局限于<strong>算法层面</strong>上, 在问题层面上不一定是这个样子.</p>
+<p>因为我们还对很多问题的理解太过肤浅, 对特征的选择非常重要(<strong>特征工程</strong>)</p>
+<p>但假设已经有了比较好的数据, 数据也有比较好的特征. 问题主要是通过算法基于数据得到可靠的结果, 此时主要挑战大多是来自于方差的</p>
+<p>换句话说, 可以很容易就让模型非常复杂, 而让模型偏差非常低, 而这样的模型由于具有高方差, 泛化能力很差, 最终也没有非常好的表现. </p>
+<blockquote>
+<p>过拟合问题是很多算法工程师都要解决的问题</p>
+</blockquote>
+<p>解决<strong>过拟合的问题&#x2F;高方差问题</strong>的通常手段:</p>
+<ol>
+<li><p>降低模型复杂度</p>
+</li>
+<li><p>减少数据维度; 降噪 (通常高方差问题就是因为模型学习了太多噪音信息)</p>
+</li>
+<li><p>增加样本数, 增大训练数据规模 (有的时候算法具有高方差是因为模型太过复杂, 模型中的参数非常多, 而样本数不足以支撑计算这么复杂的参数)</p>
+<p>神经网络和深度学习就是最典型的一个例子.</p>
+</li>
+<li><p>使用验证集</p>
+</li>
+<li><p><strong>模型正则化</strong></p>
+</li>
+</ol>
+<br>
+
+<br>
+
+<h2 id="模型正则化-Regularization"><a href="#模型正则化-Regularization" class="headerlink" title="模型正则化 Regularization"></a>模型正则化 Regularization</h2><p>解决过拟合问题, 或者说模型中含有巨大方差误差的问题有一个非常标准的处理手段: 模型正则化</p>
+<p><img src="/Blog/intro/muti_reg_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>上面的图是使用多项式回归过拟合的例子, 曲线非常弯曲陡峭, 对于这根曲线来说, 相应的每个多项式的项前面的系数数会非常大, 也就是说对于θ系数, 某些θ会非常大</p>
+<p>模型正则化做的事情就是希望<strong>限制这些系数的大小</strong></p>
+<br>
+
+<h3 id="岭回归-Ridge-Regression"><a href="#岭回归-Ridge-Regression" class="headerlink" title="岭回归 Ridge Regression"></a>岭回归 Ridge Regression</h3><p>模型正则化是以怎样的思路解决这个问题?</p>
+<p>回到线性回归问题的目标:</p>
+<p><img src="/Blog/intro/model_regular.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>希望这个损失函数尽可能小, 这等同于求原始数据y和使用θ预测的y_hat的均方误差尽可能小 (因为目标函数就等于MSE乘以样本总数)</p>
+<p><img src="/Blog/intro/model_regular_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>但是这里如果过拟合的话, θ的系数就会非常大, 怎么限制让theta的系数不要太大? 改变一下损失函数, 将损失函数变成这个样子</p>
+<p><img src="/Blog/intro/model_regular_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>最后这一项是所有θ<sub>i</sub>的平方和在乘以一个常数 α&#x2F;2</p>
+<br>
+
+<p>将这个函数加进目标函数里<br>$$<br>\alpha \frac 12 \sum_{i&#x3D;1}^n \theta_i^2<br>$$<br>此时要让目标函数尽可能小就不仅要让MSE尽可能小, 还要顾及后面这一项</p>
+<p>而这一项是所有θ<sub>i</sub>的平方和, 所以要让这一项非常小就要让所有θ<sub>i</sub>非常小. </p>
+<p>通过这个方式, 在最小化 J(θ) 的时候相应的就要考虑让所有 θ<sub>i</sub> 都小</p>
+<br>
+
+<p><img src="/Blog/intro/model_regular_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>有几个细节需要注意</p>
+<ol>
+<li>对所有θ<sub>i</sub>求平方和时<strong>没有把θ<sub>0</sub>加进去</strong>, 这是因为θ<sub>0</sub> 本身不是任何一个x的系数, 它只是一个截距. 它只决定整个<strong>曲线的高低</strong>, 但不决定<strong>曲线每一部分的的陡峭和缓和程度</strong></li>
+<li>这个1&#x2F;2 是一个惯例, <strong>加不加都可以</strong>, 加上1&#x2F;2 的原因是因为求解线性回归使用梯度下降法, 需要对 J(θ) 进行求导, 由于在后面的狮子里每一项都有一个平方, 所以求导后就会是2乘θ<sub>i</sub>, 这个2和1&#x2F;2相互抵消了</li>
+<li>α是一个新的超参数, 它是一个权重, 代表我们希望θ小的程度占优化整个损失函数程度多少</li>
+</ol>
+<p>如果α&#x3D;0, 相当于J(θ)没有加入模型正则化.</p>
+<blockquote>
+<p>模型正则化不仅有这一种方式, 还有其他方式</p>
+</blockquote>
+<p>这种模型正则化的方式又被称为<strong>岭回归 Ridge Regression</strong></p>
+<br>
+
+<p>编程实践: 使用岭回归</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression, Ridge</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> Pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures, StandardScaler</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">PolynomialRegression</span>(<span class="params">degree</span>):</span><br><span class="line">    <span class="keyword">return</span> Pipeline([</span><br><span class="line">        (<span class="string">&quot;poly&quot;</span>, PolynomialFeatures(degree=degree)),</span><br><span class="line">        (<span class="string">&quot;standard&quot;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&quot;lin_reg&quot;</span>, LinearRegression())</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">RidgeRegression</span>(<span class="params">degree, alpha</span>):</span><br><span class="line">    <span class="keyword">return</span> Pipeline([</span><br><span class="line">        (<span class="string">&quot;poly&quot;</span>, PolynomialFeatures(degree=degree)),</span><br><span class="line">        (<span class="string">&quot;standard&quot;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&quot;ridge_reg&quot;</span>, Ridge(alpha=alpha))</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 封装绘图的代码, 为指定模型图</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot_model</span>(<span class="params">model</span>):</span><br><span class="line">    X_plot = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">100</span>).reshape(<span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    y_plot = model.predict(X_plot)</span><br><span class="line"></span><br><span class="line">    plt.scatter(x, y)</span><br><span class="line">    plt.plot(X_plot[:, <span class="number">0</span>], y_plot, color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    plt.axis([-<span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">6</span>])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_ridge_regression</span>(<span class="params">degree, alpha, X_train, X_test, y_train, y_test</span>):</span><br><span class="line">    <span class="comment"># 训练岭回归模型</span></span><br><span class="line">    ridge_reg = RidgeRegression(degree, alpha)</span><br><span class="line">    ridge_reg.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算测试数据集的mse</span></span><br><span class="line">    y_predict = ridge_reg.predict(X_test)</span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y_predict))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制曲线</span></span><br><span class="line">    plot_model(ridge_reg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    np.random.seed(<span class="number">42</span>)</span><br><span class="line">    x = np.random.uniform(-<span class="number">3.0</span>, <span class="number">3.0</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x + <span class="number">3</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    np.random.seed(<span class="number">666</span>)</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 多项式回归</span></span><br><span class="line">    poly_reg = PolynomialRegression(<span class="number">20</span>)</span><br><span class="line">    poly_reg.fit(X_train, y_train)</span><br><span class="line">    y_poly_predict = poly_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 167.94</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y_poly_predict))</span><br><span class="line">    plot_model(poly_reg)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 岭回归, degree和多项式回归一样取20, 观察alpha对曲线的影响</span></span><br><span class="line">    <span class="comment"># mse = 1.32</span></span><br><span class="line">    test_ridge_regression(<span class="number">20</span>, <span class="number">0.0001</span>, X_train, X_test, y_train, y_test)   </span><br><span class="line">    <span class="comment"># mse = 1.18</span></span><br><span class="line">    test_ridge_regression(<span class="number">20</span>, <span class="number">1</span>, X_train, X_test, y_train, y_test)  </span><br><span class="line">    <span class="comment"># mse = 1.31</span></span><br><span class="line">    test_ridge_regression(<span class="number">20</span>, <span class="number">100</span>, X_train, X_test, y_train, y_test)   </span><br><span class="line">    <span class="comment"># mse = 1.84</span></span><br><span class="line">    test_ridge_regression(<span class="number">20</span>, <span class="number">100000000</span>, X_train, X_test, y_train, y_test)      </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可以看到, 使用岭回归进行预测的<strong>泛化能力</strong>, 远强于普通的多项式回归, 所有岭回归预测的值 mse 都远远小于多项式回归的mse</p>
+<br>
+
+<p>多项式回归的曲线</p>
+<p><img src="/Blog/intro/model_regular_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>alpha &#x3D; 0.0001 时的RidgeRegression的曲线</p>
+<p><img src="/Blog/intro/model_regular_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>alpha&#x3D;1 时的RidgeRegression的曲线</p>
+<p><img src="/Blog/intro/model_regular_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>alpha&#x3D;100 时的RidgeRegression的曲线, 这个曲线已经相当平滑了</p>
+<p><img src="/Blog/intro/model_regular_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>alhpa特别特别大的时候的曲线, 近乎就是一条直线, 优化损失函数就变成优化最后一项, 就是要让所有θ的平方和尽量小, 所有θ&#x3D;0</p>
+<p><img src="/Blog/intro/model_regular_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>使用岭回归就引入了另外一个超参数α</p>
+</blockquote>
+<br>
+
+<br>
+
+<h3 id="LASSO回归-LASSO-Regularization"><a href="#LASSO回归-LASSO-Regularization" class="headerlink" title="LASSO回归 LASSO Regularization"></a>LASSO回归 LASSO Regularization</h3><p>LASSO 就是 Least Absolute Shrinkage and Selection Operator Regression</p>
+<br>
+
+<p>岭回归的任务是</p>
+<p><img src="/Blog/intro/LASSO.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>其实LASSO回归的原理和岭回归是一样的, 只不过在怎么表达θ最小这件事情上选用了一个不同的指标</p>
+<p><img src="/Blog/intro/LASSO_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们可以用<strong>θ的平方</strong>来代表θ的大小, 也可以用<strong>θ的绝对值</strong>来代表θ的大小</p>
+<p>α依然是用于调节正则化项, 让θ尽可能小的程度占优化整个损失函数的程度</p>
+<p>LASSO 就是 Least Absolute Shrinkage and Selection Operator Regression</p>
+<blockquote>
+<p>Selection Operator 选择运算符, LASSO有一定的Selection的功能, 后面会介绍</p>
+</blockquote>
+<br>
+
+<p>LASSO回归加入的正则化项和岭回归有一些不同, 但是从数学的意义上理解似乎都是让θ<sub>i</sub>尽可能小</p>
+<p>那么最终LASSO的结果是什么样子的, 和岭回归又有怎样的不同</p>
+<p>LASSO的效果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression, Lasso</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> Pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures, StandardScaler</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">PolynomialRegression</span>(<span class="params">degree</span>):</span><br><span class="line">    <span class="keyword">return</span> Pipeline([</span><br><span class="line">        (<span class="string">&quot;poly&quot;</span>, PolynomialFeatures(degree=degree)),</span><br><span class="line">        (<span class="string">&quot;standard&quot;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&quot;lin_reg&quot;</span>, LinearRegression())</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">LassoRegression</span>(<span class="params">degree, alpha</span>):</span><br><span class="line">    <span class="keyword">return</span> Pipeline([</span><br><span class="line">        (<span class="string">&quot;poly&quot;</span>, PolynomialFeatures(degree=degree)),</span><br><span class="line">        (<span class="string">&quot;standard&quot;</span>, StandardScaler()),</span><br><span class="line">        (<span class="string">&quot;lasso_reg&quot;</span>, Lasso(alpha=alpha))</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot_model</span>(<span class="params">model</span>):</span><br><span class="line">    X_plot = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">100</span>).reshape(<span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    y_plot = model.predict(X_plot)</span><br><span class="line"></span><br><span class="line">    plt.scatter(x, y)</span><br><span class="line">    plt.plot(X_plot[:, <span class="number">0</span>], y_plot, color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    plt.axis([-<span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">6</span>])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_lasso_regression</span>(<span class="params">degree, alpha, X_train, X_test, y_train, y_test</span>):</span><br><span class="line">    <span class="comment"># 训练岭回归模型</span></span><br><span class="line">    lasso_reg = LassoRegression(degree, alpha)</span><br><span class="line">    lasso_reg.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算测试数据集的mse</span></span><br><span class="line">    y_predict = lasso_reg.predict(X_test)</span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y_predict))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘制曲线</span></span><br><span class="line">    plot_model(lasso_reg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    np.random.seed(<span class="number">42</span>)</span><br><span class="line">    x = np.random.uniform(-<span class="number">3.0</span>, <span class="number">3.0</span>, size=<span class="number">100</span>)</span><br><span class="line">    X = x.reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    y = <span class="number">0.5</span> * x + <span class="number">3</span> + np.random.normal(<span class="number">0</span>, <span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    np.random.seed(<span class="number">666</span>)</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y)</span><br><span class="line"></span><br><span class="line">    poly_reg = PolynomialRegression(<span class="number">20</span>)</span><br><span class="line">    poly_reg.fit(X_train, y_train)</span><br><span class="line">    y_poly_predict = poly_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 167.94</span></span><br><span class="line">    <span class="built_in">print</span>(mean_squared_error(y_test, y_poly_predict))</span><br><span class="line">    plot_model(poly_reg)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># LASSO 回归</span></span><br><span class="line">    <span class="comment"># 比Ridge的alpha大了不少, 这是因为Ridge的那一项是theta的平方和</span></span><br><span class="line">    <span class="comment"># 1.149</span></span><br><span class="line">    test_lasso_regression(<span class="number">20</span>, <span class="number">0.01</span>, X_train, X_test, y_train, y_test)</span><br><span class="line">    <span class="comment"># 1.121</span></span><br><span class="line">    test_lasso_regression(<span class="number">20</span>, <span class="number">0.1</span>, X_train, X_test, y_train, y_test)</span><br><span class="line">    <span class="comment"># 1.840</span></span><br><span class="line">    test_lasso_regression(<span class="number">20</span>, <span class="number">1</span>, X_train, X_test, y_train, y_test)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用方式和Ridge一样</p>
+<br>
+
+<p>多项式回归的曲线:</p>
+<p><img src="/Blog/intro/model_regular_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>LASSO回归 alpha &#x3D; 0.01</p>
+<p><img src="/Blog/intro/LASSO_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>LASSO回归 alpha &#x3D; 0.1</p>
+<p><img src="/Blog/intro/LASSO_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>LASSO回归 alpha &#x3D; 1</p>
+<p><img src="/Blog/intro/LASSO_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>和Ridge Regression不同, Ridge Regression的曲线虽然越来越平缓, 但是它始终是一个曲线的样子</p>
+<p>而LASSO Regression在alpha取0.1的时候, 这条线近乎就是一条直线. 这个特性是由LASSO这个式子正则化的特殊性所决定的</p>
+<br>
+
+<h3 id="对比-Ridge-和-LASSO"><a href="#对比-Ridge-和-LASSO" class="headerlink" title="对比 Ridge 和 LASSO"></a>对比 Ridge 和 LASSO</h3><p><img src="/Blog/intro/LASSO_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>在alpha&#x3D;100的Ridge中, 我们很难让得到的模型是倾斜的直线, 它总是弯曲的形状</p>
+<p>而在alpha&#x3D;0.1的LASSO中, 虽然得到的也是一根曲线, 但近乎是一条直线</p>
+<p>直线和曲线的区别在哪里?</p>
+<p>Ridge Regression得到的是曲线, 就说明依然有很多X(特征)有系数</p>
+<p>当使用LASSO时, 很多X前面不在有系数, 系数为0, 也就是一部分θ<sub>i</sub>等于0</p>
+<p>这样正是LASSO的一个特点: <strong>LASSO趋向于使得一部分theta值变为0. 所以可以作为特征选择用</strong></p>
+<br>
+
+<p>这也就是LASSO中Selection Operator的意思, 如果使用LASSO的过程中某些θ等于0, 就代表LASSO认为这个θ对应的特征是完全没有用的. 而剩下θ不等于0的特征就是LASSO认为有用的特征</p>
+<p>LASSO可以当作<strong>特征选择</strong>用</p>
+<br>
+
+<h4 id="为什么会产生这样一个作用"><a href="#为什么会产生这样一个作用" class="headerlink" title="为什么会产生这样一个作用:"></a>为什么会产生这样一个作用:</h4><p>先看Ridge Regression<br>$$<br>J(\theta)&#x3D;MSE(y,\hat y;\theta)+\frac \alpha 2 \sum_{i&#x3D;1}^n\theta_i^2<br>$$<br>当alpha趋于无穷时, 只来看后面的θ, 此时θ一定是逐渐变为0, 但我们要看它是怎么变为0的, 用梯度下降法的角度考虑, 后面这一项对应的梯度就是</p>
+<p><img src="/Blog/intro/LASSO_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>每一个式子对每一个theta求导就是这样, 而每一个theta都是有值的, 所以在梯度下降的过程中, 就会以这样的曲线下降到0点</p>
+<p><img src="/Blog/intro/LASSO_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>在这样一个过程中, θ都是有值的</p>
+<br>
+
+<p>但是LASSO不同<br>$$<br>J(\theta)&#x3D;MSE(y,\hat y;\theta)+ \alpha  \sum_{i&#x3D;1}^n|\theta_i|<br>$$<br>LASSO的损失函数中, 如果alpha趋于无穷, 后边的θ有绝对值, 其实是不可导的, 不过也可以用一个分类函数来刻画它的导数</p>
+<p><img src="/Blog/intro/LASSO_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这个梯度就是α乘以一个向量, 这个向量里的值不是正负1就是0, 也就是说, 在坐标里表示</p>
+<p><img src="/Blog/intro/LASSO_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>下降的过程中, 首先将一个维度降维0 (-1, -1的方向), 再沿着轴的方向到达零点(0, -1的方向)</p>
+<p>LASSO并不是以曲线的方式, 而是以直线的方式下降, 下降的过程中, 某些位置就会达到0点, 使得LASSO Regression最后的结果包含很多0</p>
+<blockquote>
+<p>另外一个点就是: </p>
+<p>使用平方的方式虽然限制的是整体, 更主要限制的是最大的θ, 让最大的theta尽可能小, 可以想象一下将一组数的平方和降低最有效的方法就是将最大的数降低, 直到有另一个数比这个数大</p>
+<p>而通过绝对值限制整体, 当对某一个数进行降低时, 只有再这个数等于0的时候才会停止.</p>
+</blockquote>
+<br>
+
+<p>正是因为这样的特性, LASSO可能会错误地将一些原本是有用的特征也变为0</p>
+<p>所以从计算的准确度来讲, 还是Ridge更为准确</p>
+<p>但是如果特征特别大, 例如多项式回归degree&#x3D;100, 此时使用LASSO也可以起到将模型变小这样一个作用</p>
+<br>
+
+<p><img src="/Blog/intro/LASSO_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>岭回归和LASSO回归都是在原始的损失函数后面添加一项</p>
+<p>这一项的作用都是期望尽量减少学习到的theta的大小, 使得模型的泛化能力更强</p>
+<br>
+
+<p>对于这两种方式, 在损失函数后面添加的两项不同. 实际上正两种计算方式在之前就出现过</p>
+<p><img src="/Blog/intro/LASSO_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>机器学习领域中, 对于不同的应用可能会发明一些不同的名词来表达不同的衡量标准</p>
+<ul>
+<li><p>Ridge 和 LASSO 是用来衡量正则化</p>
+</li>
+<li><p>MSE 和 MAE 是用来衡量回归结果的好坏</p>
+</li>
+<li><p>欧拉距离和曼哈顿距离是用来衡量两点之间距离的大小</p>
+</li>
+</ul>
+<p><strong>但是他们背后本质的数学思想是非常相近的, 表达出的数学的含义也近乎是一致的</strong></p>
+<p>只不过应用在不同的场景中, 就产生不同的效果, 进而生成了不同的名词</p>
+</blockquote>
+<br>
+
+<h2 id="L1-L2-和弹性网络"><a href="#L1-L2-和弹性网络" class="headerlink" title="L1, L2, 和弹性网络"></a>L1, L2, 和弹性网络</h2><h3 id="L1正则-L2正则"><a href="#L1正则-L2正则" class="headerlink" title="L1正则, L2正则"></a>L1正则, L2正则</h3><p>而谈到距离, 之前在kNN算法中提到两点之间距离的重要性, 同时提出一个概念: 明可夫斯基距离</p>
+<p><img src="/Blog/intro/LASSO_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>将这种形式再进行一次泛化</p>
+<p><img src="/Blog/intro/LASSO_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于任意一个向量x都可以求这样一个值:</p>
+<p>第i个维度的绝对值的p次方, 求和之后再开p次方根</p>
+<p>在数学上我们通常称之为: <strong>Lp范数</strong>, </p>
+<blockquote>
+<p>如果p&#x3D;1就是L1范数, p&#x3D;2就是L2范数</p>
+</blockquote>
+<p>当p&#x3D;1, 就是从0点到x的曼哈顿距离, p&#x3D;2就是从0点到x的欧拉距离</p>
+<blockquote>
+<p>又引入了一个新的概念, 这个概念是和之前学的概念完全不冲突的 </p>
+</blockquote>
+<br>
+
+<p>对于岭回归Ridge的这个正则化的项通常称为<strong>L2的正则项</strong>, 和<strong>L2的范数</strong>的区别就是<strong>没有开根</strong>. </p>
+<p>不过有的时候也就直接称之为L2范数了, 因为正则项是用在损失函数中进行最优化的, 而加上开根号是不影响最终的结果的, 但是不开根式子更加简单</p>
+<p><img src="/Blog/intro/LASSO_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>LASSO回归添加的正则项是L1正则项</p>
+<p><img src="/Blog/intro/LASSO_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>相应的就有Ln正则项, 只要依据Lp范数这个式子取写即可</p>
+<p>不过在模型正则化的过程中很少使用p&gt;2的正则项, 但是理论上, 在数学上是存在这些正则项的</p>
+<br>
+
+<h3 id="L0正则项"><a href="#L0正则项" class="headerlink" title="L0正则项"></a>L0正则项</h3><p>实际上还存在L0正则项这个概念</p>
+<p><img src="/Blog/intro/LASSO_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>就是让<strong>θ的个数</strong>尽量小, θ越少越好, 这一项描述的是非零θ的个数</p>
+<p>同样L0正则也很少被使用, 因为对于L0正则, 求解这个问题(最优化损失函数)是一个NP难的问题</p>
+<blockquote>
+<p>不能使用梯度下降法这类的方式, 甚至求解出一个数学公式</p>
+<p>这一项本事是一个离散项, 它是一个离散最优化问题, 可能要穷举各种θ为0的可能性, 依次来计算出 J(θ), 进而决定出让哪些θ为0, 哪些不为0</p>
+<p>如果想限制θ的个数, 实际用L1取代, 因为L0正则的优化是一个NP难的问题</p>
+</blockquote>
+<br>
+
+<h3 id="弹性网-Elastic-Net"><a href="#弹性网-Elastic-Net" class="headerlink" title="弹性网 Elastic Net"></a>弹性网 Elastic Net</h3><p><img src="/Blog/intro/LASSO_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>无论是岭回归还是LASSO, 无论是L1正则还是L2正则. 都是对MSE后面添加一个L1正则项或L2正则项形成新的损失函数</p>
+<p>而弹性网则是结合这两种方式, 在MSE后面添加一个L1正则项, 再添加一个L2正则项, 只不过引入一个新的<strong>超参数r</strong>, 来<strong>表示两个正则项之间的比例是怎样的</strong></p>
+<p>L1正则项前面是r, 而L2正则项前面是1-r, (除以2时因为这是LASSO本身带的1&#x2F;2, 和新来的超参数r是没有关系的)</p>
+<p>通过这样一个方式对原有模型进行正则化处理, 就同时结合了岭回归和LASSO回归的优势. 这种回归就称为<strong>弹性网</strong></p>
+<blockquote>
+<p>实际应用进行模型正则化的过程中, 通常应该先尝试岭回归, 对于岭回归来说它的计算是相对精准的. </p>
+<p>如果计算量撑得住的话, 因为岭回归不具有特征选择的功能, 所以特征数太多的话整体计算量会非常大</p>
+<p>此时应该优先选择弹性网, 这是因为弹性网结合了岭回归计算的优点, 又结合LASSO可以进行特征选择这样的优势</p>
+<p>而LASSO回归的缺点在于由于它急于将某些 θ 降为0, 这个过程可能会产生一些错误</p>
+</blockquote>
+<p>由此可以总结出机器学习算法的一点共同性</p>
+<blockquote>
+<p>弹性网同时结合了岭回归和LASSO回归的优势</p>
+<p>小批量梯度下降法结合了批量梯度下降法和随机梯度下降法的优势</p>
+<p>机器学习中经常使用这样的方式创建出新的方法, 其实它想表达的内容是非常简单的</p>
+</blockquote>
+<br>
+
+<h1 id="补充-岭回归的理论与编程"><a href="#补充-岭回归的理论与编程" class="headerlink" title="补充: 岭回归的理论与编程"></a>补充: 岭回归的理论与编程</h1><p>岭回归的目的是最小化这样一个损失函数<br>$$<br>J(\theta) &#x3D; ||y-X\theta||^2 + \alpha \sum_{i&#x3D;0}^n \theta^2<br>$$</p>
+<p>$$<br>J(\theta)&#x3D;(y-X\theta)^T\cdot(y-X\theta)+\alpha\cdot\theta^T\theta<br>$$</p>
+<p><img src="/Blog/intro/ridge_regression_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>因此求出来θ的公式<br>$$<br>\theta&#x3D;(X^TX+\alpha I)^{-1}\cdot X^Ty<br>$$</p>
+<h2 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h2><p>然而在编程中有一个问题, 就是, 编程的时候, 对所有θ<sub>i</sub>求平方和时<strong>没有把θ<sub>0</sub>加进去</strong>, 而在前面的式子的计算中却又使用了θ<sub>0</sub></p>
+<p>而在公式推导的时候是没有区分</p>
+<p>而其实解决的办法也很简单, 那就是在计算之前进行一次demean操作, 同时记录一下X各个维度的mean, 在求出所有系数之后在进行偏移</p>
+<p>因为线性回归一定会经过mean, 所以代入就可以求出偏移量θ<sub>0</sub></p>
+<p><strong>相当于把回归线的中心先偏移到原点, 求出回归线的形状之后, 在偏移回去</strong></p>
+<p>这就是下面函数 fit-math-2 的实现思路</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> metrics <span class="keyword">import</span> r2_score</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Ridge</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, alpha=<span class="number">0</span></span>):</span><br><span class="line">        self.coef_ = <span class="literal">None</span></span><br><span class="line">        self.intercept_ = <span class="literal">None</span></span><br><span class="line">        self._theta = <span class="literal">None</span></span><br><span class="line">        self.alpha = alpha</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit_math_1</span>(<span class="params">self, X_train, y_train</span>):</span><br><span class="line">        <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>], \</span><br><span class="line">            <span class="string">&quot;the size of X_train must be equal to the size of y_train&quot;</span></span><br><span class="line">        X_b = np.hstack([np.ones((<span class="built_in">len</span>(X_train), <span class="number">1</span>)), X_train])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 岭回归的第一行第一列应该为0, X_b的第一列表示的是截距, 而岭回归不应该计算截距</span></span><br><span class="line">        alphaMatrix = self.alpha * np.identity(X_b.shape[<span class="number">1</span>])</span><br><span class="line">        alphaMatrix[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        self._theta = np.linalg.inv(X_b.T.dot(X_b)+alphaMatrix).dot(X_b.T).dot(y_train)</span><br><span class="line">        self.intercept_ = self._theta[<span class="number">0</span>]</span><br><span class="line">        self.coef_ = self._theta[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit_math_2</span>(<span class="params">self, X_train, y_train</span>):</span><br><span class="line">        <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>], \</span><br><span class="line">            <span class="string">&quot;the size of X_train must be equal to the size of y_train&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># demean</span></span><br><span class="line">        X_means = np.mean(X_train, axis=<span class="number">0</span>)</span><br><span class="line">        X = X_train - X_means</span><br><span class="line">        y_mean = np.mean(y_train)</span><br><span class="line">        y = y_train - y_mean</span><br><span class="line"></span><br><span class="line">        alphaMatrix = self.alpha * np.identity(X.shape[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        self.coef_ = np.linalg.inv(X.T.dot(X) + alphaMatrix).dot(X.T).dot(y)</span><br><span class="line">        self.intercept_ = y_mean - self.coef_.dot(X_means)</span><br><span class="line">        self._theta = np.concatenate([np.array([self.intercept_]), self.coef_])</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X_train, y_train</span>):</span><br><span class="line">        <span class="keyword">return</span> self.fit_math_1(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X_predict</span>):</span><br><span class="line">        <span class="keyword">assert</span> self.intercept_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.coef_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>, \</span><br><span class="line">            <span class="string">&quot;must fit before predict&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X_predict.shape[<span class="number">1</span>] == <span class="built_in">len</span>(self.coef_), \</span><br><span class="line">            <span class="string">&quot;the feature number of X_predict must be equal to X_train&quot;</span></span><br><span class="line">        X_b = np.hstack([np.ones((<span class="built_in">len</span>(X_predict), <span class="number">1</span>)), X_predict])</span><br><span class="line">        <span class="keyword">return</span> X_b.dot(self._theta)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">score</span>(<span class="params">self, x_test, y_test</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;根据测试数据集 x_test 和 y_test 确定当前模型的准确度&quot;&quot;&quot;</span></span><br><span class="line">        y_predict = self.predict(x_test)</span><br><span class="line">        <span class="keyword">return</span> r2_score(y_test, y_predict)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Ridge()&quot;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h2><p>而 fit-math-1这个函数的思路是这样的: </p>
+<p>线性回归的公式是这样:<br>$$<br>\theta&#x3D;(X^TX)^{-1}\cdot X^Ty<br>$$<br>而岭回归, 考虑<strong>所有</strong>θ<sub>i</sub>的公式是这样<br>$$<br>\theta&#x3D;(X^TX+\alpha I)^{-1}\cdot X^Ty<br>$$</p>
+<blockquote>
+<p>注意此时<strong>X代表的是X_b</strong>, 也就是在原本X前面添加一列向量, 这列向量全是1, 因为此时考虑θ<sub>0</sub></p>
+</blockquote>
+<p>可以看出区别只有αI这一部分, X<sup>T</sup>X是n阶方阵, n为X的列数, 也就是特征的个数, 也就是θ的个数</p>
+<p>因此大胆假设, 在对角线第一个位置加上α就说明要约束第一个θ, 也就是θ<sub>0</sub></p>
+<p>对角线第二个位置加上alpha就是说明要约束第二个θ, 也就是θ<sub>1</sub>.</p>
+<p>因此如果我们不希望约束θ<sub>0</sub>的时候, 就把对角线第一个位置加上0而不是alpha, 就可以了.</p>
+<blockquote>
+<p>测试结果是一样的, 说明这个思路是正确的 </p>
+<p>这样甚至可以玩一些花样, 可以通过调整对角线上的元素来实现:</p>
+<ol>
+<li><p>对某些系数希望添加约束, 某些系数不约束</p>
+</li>
+<li><p>某些系数的约束加强, 对某些系数的约束减弱</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="数学验证思路2"><a href="#数学验证思路2" class="headerlink" title="数学验证思路2"></a>数学验证思路2</h2><p>$$<br>J(\theta)&#x3D;(y-X\theta)^T\cdot(y-X\theta)+\alpha\cdot\theta^T\theta<br>$$</p>
+<p>此时就相当于最优化这样一个损失函数, α<sub>i</sub>是对第i个θ元素的约束<br>$$<br>J(\theta) &#x3D; ||y-X\theta||^2 + \sum_{i&#x3D;0}^n \alpha_i\cdot\theta_i^2<br>$$</p>
+<p>$$<br>J(\theta) &#x3D; ||y-X\theta||^2 + \theta^T\cdot \alpha  \cdot \theta<br>$$</p>
+<p><img src="/Blog/intro/ridge_dia.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><strong>α是一个对角矩阵</strong>, α对角线的第一个元素相当于对θ第一个元素的约束, α对角线的的第二个元素相当于对θ第二个元素的约束</p>
+<p>依然是求导, 和上面没有任何变化, 只不过α此时是一个矩阵</p>
+<p>此时的解就是<br>$$<br>\theta&#x3D;(X^TX+\alpha)^{-1}\cdot X^Ty<br>$$</p>
+<blockquote>
+<p>由于自己定义的θ中, 第0项代表的是截距(偏移量), 所以把α的对角线上第1个元素设为0就代表不对这个系数进行约束</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/05/machine-learning-7/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python3入门机器学习(7)-逻辑回归</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/28/machine-learning-5/">
+                        <span class="hidden-mobile">python3入门机器学习(5)-PCA与梯度上升法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

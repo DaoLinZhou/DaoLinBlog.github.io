@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="kNN算法以及它的超参数 train-test-split衡量标准 网格搜索 数据归一化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3入门机器学习(2)-kNN算法">
+<meta property="og:url" content="http://example.com/2020/04/20/machine-learning-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="kNN算法以及它的超参数 train-test-split衡量标准 网格搜索 数据归一化">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/intro/lris_flowers_9.PNG">
+<meta property="article:published_time" content="2020-04-21T02:41:51.000Z">
+<meta property="article:modified_time" content="2020-05-04T06:23:28.539Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python3">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/intro/lris_flowers_9.PNG">
+  
+  
+  <title>python3入门机器学习(2)-kNN算法 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python3入门机器学习(2)-kNN算法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-20 19:41" pubdate>
+        April 20, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python3入门机器学习(2)-kNN算法</h1>
+            
+            <div class="markdown-body">
+              <p>kNN算法以及它的超参数</p>
+<p>train-test-split衡量标准</p>
+<p>网格搜索</p>
+<p>数据归一化</p>
+<span id="more"></span>
+
+<h1 id="k近邻算法-kNN"><a href="#k近邻算法-kNN" class="headerlink" title="k近邻算法 (kNN)"></a>k近邻算法 (kNN)</h1><p>k近邻算法(k-Nearest Neighbors) 是最基础的分类算法, 非常适合入门</p>
+<p>kNN算法特点:</p>
+<ol>
+<li>思想极度简单</li>
+<li>应用数学知识少 (几乎为零)</li>
+<li>效果好 (缺点以后说)</li>
+<li>可以解释机器学习算法使用过程中的很多细节问题</li>
+<li>更完整的刻画机器学习应用的流程</li>
+</ol>
+<br>
+
+<p>之前说过, 已知的数据点其实是分布在一个特征空间中的 (可视化方便通常使用二维屏幕)</p>
+<p><img src="/Blog/intro/knn_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>可以看出对于每一个病源, 它的肿瘤大小和发现的时间就构成了在这个特征平面中的一个点</p>
+<p>对于这个点, 我们又已经知道了它是一个恶性的肿瘤(蓝色)还是良性的肿瘤(红色), 这样就获得了8个数据点的初始信息</p>
+<p>如果这时新来了一个病人(绿色的点)</p>
+<p><img src="/Blog/intro/knn_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们怎样判断它可能是良性肿瘤还是恶性肿瘤?</p>
+<br>
+
+<p>k近邻算法是这样一个算法:</p>
+<p>首先要取一个k值, 这里让k&#x3D;3, 具体k值要怎么取在后续有详细的介绍 (暂时可以理解机器学习的使用者根据经验取得了一个经验上的最好值)</p>
+<p>如果k&#x3D;3的话, 对于每一个新的数据点, k近邻算法做的就是在所有的点中寻找与这个点<strong>最近</strong>的3个点</p>
+<p><img src="/Blog/intro/knn_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这三个点以自己的结果进行投票</p>
+<p>现在对于这个点最近的3个点都是代表恶性肿瘤的蓝色的点, 所以投票结果蓝色对红色是(3:0)</p>
+<p>因此k近邻算法就说这个新的点有很大的概率也是一个蓝色的点</p>
+<p><img src="/Blog/intro/knn_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>k近邻的算法本质是认为: <strong>如果两个样本足够的相似, 那么它就有更高的概率属于同一个类别</strong></p>
+<p>当然很有可能只看离他最近的一个样本是不准确的, 所以多看几个样本, 看和它最相似k个样本中那个类别最多, 我们就认为这个新的点属于那个类别</p>
+<p>这里我们描述两个样本是否相似(<strong>相似性</strong>)就是靠两个样本在特征空间中的<strong>距离</strong>来进行描述的</p>
+<p>最为常用的就是欧拉距离</p>
+<p><img src="/Blog/intro/knn_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>由于连加表示不方便, 所以有时也用Σ符号表示<br>$$<br>\sqrt{\sum^n_{i&#x3D;1}(X^{(a)}_i - X^{(b)}_i)^2}<br>$$<br><br></p>
+<p>如果又新来的一个点</p>
+<p><img src="/Blog/intro/knn_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于这一个点, 离他最近的3个点的红色和蓝色的比是(2:1), 红色胜出, 所以k近邻算法就告诉我们这个点有更高概率是红色(良性肿瘤)</p>
+<p><img src="/Blog/intro/knn_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>k近邻算法首先可以解决的就是监督学习中<strong>分类</strong>这类问题</p>
+<p>不过k近邻算法其实也可以解决回归问题</p>
+<br>
+
+<h2 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">kNN_classify</span>(<span class="params">k, X_train, y_train, x</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> <span class="number">1</span> &lt;= k &lt;= X_train.shape[<span class="number">0</span>], <span class="string">&quot;k must be valid&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>], \</span><br><span class="line">        <span class="string">&quot;the size of X_train must equal to the size of y_train&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> X_train.shape[<span class="number">1</span>] == x.shape[<span class="number">0</span>], \</span><br><span class="line">        <span class="string">&quot;the feature number of x must be equal to X_train&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算所有点到预测点的距离, 即对向量取模</span></span><br><span class="line">    distance = [np.linalg.norm(x_train - x) <span class="keyword">for</span> x_train <span class="keyword">in</span> X_train]</span><br><span class="line">    <span class="comment"># 排序, 返回索引</span></span><br><span class="line">    nearest = np.argsort(distance)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从索引中取前k个元素进行投票</span></span><br><span class="line">    topK_y = [y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:k]]</span><br><span class="line">    votes = Counter(topK_y)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    raw_data_X = [[<span class="number">3.39</span>, <span class="number">2.33</span>],</span><br><span class="line">                  [<span class="number">3.11</span>, <span class="number">1.78</span>],</span><br><span class="line">                  [<span class="number">1.34</span>, <span class="number">3.36</span>],</span><br><span class="line">                  [<span class="number">3.58</span>, <span class="number">4.67</span>],</span><br><span class="line">                  [<span class="number">2.28</span>, <span class="number">2.86</span>],</span><br><span class="line">                  [<span class="number">7.42</span>, <span class="number">4.69</span>],</span><br><span class="line">                  [<span class="number">5.74</span>, <span class="number">3.53</span>],</span><br><span class="line">                  [<span class="number">9.17</span>, <span class="number">2.51</span>],</span><br><span class="line">                  [<span class="number">7.79</span>, <span class="number">3.42</span>],</span><br><span class="line">                  [<span class="number">7.93</span>, <span class="number">0.79</span>]]</span><br><span class="line">    raw_data_y = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">    X_train = np.array(raw_data_X)</span><br><span class="line">    y_train = np.array(raw_data_y)</span><br><span class="line">    x = np.array([<span class="number">8.09</span>, <span class="number">3.36</span>])</span><br><span class="line">    </span><br><span class="line">    predict_y = kNN_classify(<span class="number">6</span>, X_train, y_train, x)</span><br><span class="line">    <span class="built_in">print</span>(predict_y)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><img src="/Blog/intro/category_task_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>之前讲过机器学习的流程, 将大量的学习资料喂给机器学习算法, 算法就会训练出一个模型, 来了一个样例之后将它送入模型, 模型就能预测出相应的结果</p>
+<p><img src="/Blog/intro/knn_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于kNN来说”大量的学习资料”就是X_train, y_train</p>
+<p>机器学习算法训练模型这个过程在英文中称为 fit(拟合), 就是说算法要得到一个模型, 这个模型要能拟合我们的训练数据集 </p>
+<p>输入样例送给模型之后, 这个模型获得输出结果的过程称为predict(预测)</p>
+<br>
+
+<p>然而对于kNN算法来说, 我们并没有得到什么<strong>模型</strong></p>
+<p>确实如此, 可以说kNN是 (唯一) 一个不需要训练过程的算法</p>
+<blockquote>
+<p>k近邻算法是非常特殊的, 可以被认为是没有模型的算法</p>
+<p>但是如果换一个角度去看, 我们也可以认为<strong>训练数据集本身就是kNN算法的模型</strong></p>
+<p>而scikit-learn的设计上, 就是使用这样一个设计方式, 这是为了可以方便地和其他算法统一</p>
+</blockquote>
+<p><img src="/Blog/intro/knn_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>所以机器学习算法变得非常简单, 就是将X_train, y_train这个训练数据集拷贝过来形成”模型”, 而相对复杂的其实是在预测(predict)的过程</p>
+<p>但不管怎么样, 使用这样的方式还是为kNN算法找到了一个拟合(fit)的过程</p>
+<p>scikit-learn这个框架下, 对于所有的机器学习算法, 我们都是统一地先进行一下 fit 得到模型, 之后进行 predict 过程, 只不过对于kNN算法来说, fit的过程是非常简单的 </p>
+<br>
+
+<h2 id="使用scikit-learn中的kNN"><a href="#使用scikit-learn中的kNN" class="headerlink" title="使用scikit-learn中的kNN"></a>使用scikit-learn中的kNN</h2><p>scikit-learn中的面向对象算法都是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 数据</span></span><br><span class="line">    raw_data_X = [[<span class="number">3.39</span>, <span class="number">2.33</span>],</span><br><span class="line">                  [<span class="number">3.11</span>, <span class="number">1.78</span>],</span><br><span class="line">                  [<span class="number">1.34</span>, <span class="number">3.36</span>],</span><br><span class="line">                  [<span class="number">3.58</span>, <span class="number">4.67</span>],</span><br><span class="line">                  [<span class="number">2.28</span>, <span class="number">2.86</span>],</span><br><span class="line">                  [<span class="number">7.42</span>, <span class="number">4.69</span>],</span><br><span class="line">                  [<span class="number">5.74</span>, <span class="number">3.53</span>],</span><br><span class="line">                  [<span class="number">9.17</span>, <span class="number">2.51</span>],</span><br><span class="line">                  [<span class="number">7.79</span>, <span class="number">3.42</span>],</span><br><span class="line">                  [<span class="number">7.93</span>, <span class="number">0.79</span>]]</span><br><span class="line">    raw_data_y = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">    X_train = np.array(raw_data_X)</span><br><span class="line">    y_train = np.array(raw_data_y)</span><br><span class="line">    x = np.array([<span class="number">8.09</span>, <span class="number">3.36</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># scikitlearn 中所有机器学习算法都是先创建对象, 再fit, 最后predict </span></span><br><span class="line">    kNN_classifier = KNeighborsClassifier(n_neighbors=<span class="number">6</span>)</span><br><span class="line">    kNN_classifier.fit(X_train, y_train)</span><br><span class="line">    X_predict = x.reshape(<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">    y_predict = kNN_classifier.predict(X_predict)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(y_predict[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>模仿scikit-learn中的kNN对原本的代码进行改造</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">KNNClassifier</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, k</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化kNN分类器&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> k &gt;= <span class="number">1</span>, <span class="string">&quot;k must be valid&quot;</span></span><br><span class="line">        self.k = k</span><br><span class="line">        self._X_train = <span class="literal">None</span></span><br><span class="line">        self._y_train = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X_train, y_train</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;根据训练数据集X_train和y_train训练kNN分类器&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.k &lt;= X_train.shape[<span class="number">0</span>], \</span><br><span class="line">            <span class="string">&quot;the size of X_train must be at least k.&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>], \</span><br><span class="line">            <span class="string">&quot;the size of X_train must equal to the size of y_train&quot;</span></span><br><span class="line"></span><br><span class="line">        self._X_train = X_train</span><br><span class="line">        self._y_train = y_train</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X_predict</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定待预测数据集X_predict, 返回表示X_predict的结果向量&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self._X_train <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self._y_train <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>, \</span><br><span class="line">            <span class="string">&quot;must fit before predict!&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X_predict.shape[<span class="number">1</span>] == self._X_train.shape[<span class="number">1</span>], \</span><br><span class="line">            <span class="string">&quot;the feature number of X_predict must be equal to X_train&quot;</span></span><br><span class="line">        y_predict = [self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> X_predict]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_predict)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_predict</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;给定单个待预测数据x, 返回x的预测结果值&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self._X_train.shape[<span class="number">1</span>] == x.shape[<span class="number">0</span>], \</span><br><span class="line">            <span class="string">&quot;the feature number of x must be equal to X_train&quot;</span></span><br><span class="line"></span><br><span class="line">        distance = [np.linalg.norm(x_train - x) <span class="keyword">for</span> x_train <span class="keyword">in</span> self._X_train]</span><br><span class="line">        nearest = np.argsort(distance)</span><br><span class="line"></span><br><span class="line">        topK_y = [self._y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:self.k]]</span><br><span class="line">        votes = Counter(topK_y)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;KNN(k=%d)&quot;</span> % self.k</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 数据</span></span><br><span class="line">    raw_data_X = [[<span class="number">3.39</span>, <span class="number">2.33</span>], [<span class="number">3.11</span>, <span class="number">1.78</span>],</span><br><span class="line">                  [<span class="number">1.34</span>, <span class="number">3.36</span>], [<span class="number">3.58</span>, <span class="number">4.67</span>],</span><br><span class="line">                  [<span class="number">2.28</span>, <span class="number">2.86</span>], [<span class="number">7.42</span>, <span class="number">4.69</span>],</span><br><span class="line">                  [<span class="number">5.74</span>, <span class="number">3.53</span>], [<span class="number">9.17</span>, <span class="number">2.51</span>],</span><br><span class="line">                  [<span class="number">7.79</span>, <span class="number">3.42</span>], [<span class="number">7.93</span>, <span class="number">0.79</span>]]</span><br><span class="line">    raw_data_y = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">    X_train = np.array(raw_data_X)</span><br><span class="line">    y_train = np.array(raw_data_y)</span><br><span class="line">    x = np.array([<span class="number">8.09</span>, <span class="number">3.36</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测</span></span><br><span class="line">    kNN_classifier = KNNClassifier(<span class="number">6</span>)</span><br><span class="line">    kNN_classifier.fit(X_train, y_train)</span><br><span class="line">    x_predict = x.reshape(<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">    y_predict = kNN_classifier.predict(x_predict)</span><br><span class="line">    <span class="built_in">print</span>(y_predict)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="判断机器学习算法的性能"><a href="#判断机器学习算法的性能" class="headerlink" title="判断机器学习算法的性能"></a>判断机器学习算法的性能</h2><p>首先我们把<strong>所有</strong>的<strong>原始数据</strong>都当作<strong>训练数据</strong></p>
+<p>然后用训练数据训练出<strong>模型</strong>, 具体再kNN算法中, 就表现在每当来了一个新的数据, 新的数据要和训练中的所有的数据都来求出相应的距离, 得出前k小的距离, 投票看新的数据属于那种类别</p>
+<p>换句话说: 用全部的训练数据得到的模型用来预测新的数据的所属类型.</p>
+<p><img src="/Blog/intro/knn_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>然而, 得到这个模型的意义在于要在真实的环境中使用这个模型</p>
+<p>可是我们现在这么做是有很大的问题的</p>
+<ol>
+<li>我们拿所有的训练数据得到的模型, 我们只能把这个模型放到真实的环境中使用了, 可是如果我们得到的模型很差怎么办? 我们根本没有机会取真实地调整它就去使用它了</li>
+<li>真实环境难以拿到真实的label, 这种情况下我们根本无从知道模型是好是坏, 只能听天由命的让它运行在真实环境中</li>
+</ol>
+<p>这些问题都在告诉我们: <strong>用所有的原始数据来当训练集去直接训练模型, 投入到生产环境中这样的做法是不恰当的</strong></p>
+<br>
+
+<p>改进这个问题最简单的一个方法就是<strong>训练和测试数据集的分离</strong></p>
+<p><img src="/Blog/intro/knn_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>从原始数据中抽取一大部分(80%)数据作为训练数据, 剩余的数据(20%)作为测试数据 </p>
+<p>这样我们只用蓝色的训练数据训练模型, 拿到模型之后把测试数据扔进模型来让模型预测</p>
+<p>由于测试数据有真实的label值, 就可以很容易地看到训练数据训练出的模型的性能, 并且可以改进算法得到更好的模型</p>
+<p>这种方式就叫做<strong>train test split</strong></p>
+<p>然而这种方式其实在判断机器学习算法的过程中也存在它的问题, 这个问题也是以后再说.</p>
+<br>
+
+<h2 id="使用-train-test-split-测试算法"><a href="#使用-train-test-split-测试算法" class="headerlink" title="使用 train test split 测试算法"></a>使用 train test split 测试算法</h2><p>根据上面的思想, 写出一个函数由于拆分训练数据和测试数据</p>
+<p>仿照sklearn.model_selection下设计的的train_test_split接口</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">train_test_split</span>(<span class="params">X, y, test_ratio=<span class="number">0.2</span>, seed=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将数据 X 和 y 按照 test_ratio分割成X_train, X_test, y_train, y_test&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> X.shape[<span class="number">0</span>] == y.shape[<span class="number">0</span>], \</span><br><span class="line">        <span class="string">&quot;the size of X must be equal to the size of y&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="number">0.0</span> &lt;= test_ratio &lt;= <span class="number">1.0</span>, \</span><br><span class="line">        <span class="string">&quot;test_ratio must be valid&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 方便debug</span></span><br><span class="line">    <span class="keyword">if</span> seed:</span><br><span class="line">        np.random.seed(seed)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获得索引的随机排列以及测试数据集的大小</span></span><br><span class="line">    shuffle_indexes = np.random.permutation(<span class="built_in">len</span>(X))</span><br><span class="line">    test_size = <span class="built_in">int</span>(test_ratio * <span class="built_in">len</span>(X))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取训练数据集和测试数据集的indexes</span></span><br><span class="line">    test_indexes = shuffle_indexes[:test_size]</span><br><span class="line">    train_indexes = shuffle_indexes[test_size:]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取训练数据集和测试数据集</span></span><br><span class="line">    X_train = X[train_indexes]</span><br><span class="line">    y_train = y[train_indexes]</span><br><span class="line">    X_test = X[test_indexes]</span><br><span class="line">    y_test = y[test_indexes]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> X_train, X_test, y_train, y_test</span><br></pre></td></tr></table></figure>
+
+<p>进行测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 原始数据, 使用scikit-learn中的鸢尾花数据</span></span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    X = iris.data</span><br><span class="line">    y = iris.target</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, <span class="number">0.2</span>)</span><br><span class="line">    my_knn_clf = KNNClassifier(k=<span class="number">3</span>)</span><br><span class="line">    my_knn_clf.fit(X_train, y_train)</span><br><span class="line">    y_predict = my_knn_clf.predict(X_test)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测准确率</span></span><br><span class="line">    predict_ratio = np.<span class="built_in">sum</span>(y_predict == y_test) / <span class="built_in">len</span>(y_test)</span><br><span class="line">    <span class="built_in">print</span>(predict_ratio)</span><br></pre></td></tr></table></figure>
+
+<p>预测的准确率大多在0.9以上, 可以看出kNN的简单的思想本身是非常强大的</p>
+<br>
+
+<h2 id="分类准确度"><a href="#分类准确度" class="headerlink" title="分类准确度"></a>分类准确度</h2><p>另一个例子, 手写数字识别, 原始数据的样本大小为1700+</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 原始数据集, 手写数字识别</span></span><br><span class="line">    digits = datasets.load_digits()</span><br><span class="line">    X = digits.data</span><br><span class="line">    y = digits.target</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 预测</span></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_ratio=<span class="number">0.2</span>)</span><br><span class="line">    my_knn_clf = KNNClassifier(k=<span class="number">3</span>)</span><br><span class="line">    my_knn_clf.fit(X_train, y_train)</span><br><span class="line">    y_predict = my_knn_clf.predict(X_test)</span><br><span class="line"></span><br><span class="line">    predict_ratio = np.<span class="built_in">sum</span>(y_predict == y_test) / <span class="built_in">len</span>(y_test)</span><br><span class="line">    <span class="built_in">print</span>(predict_ratio) <span class="comment"># 0.9777158774373259</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>顺便说一下,  每个数字对应64个特征, 转化为8*8排列成矩阵后可以看出, 每个数字就代表了图片上对应点的灰度, 随便取一个样本, 对应的矩阵和它的图像如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> some_digit = X[<span class="number">450</span>]</span><br><span class="line"> some_digit_image = some_digit.reshape(<span class="number">8</span>, <span class="number">8</span>)</span><br><span class="line"> <span class="built_in">print</span>(some_digit_image)</span><br><span class="line"> plt.imshow(some_digit_image, cmap = matplotlib.cm.binary)</span><br><span class="line"> plt.show()</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">[[ 0.  0.  0.  5.  8.  0.  0.  0.]</span></span><br><span class="line"><span class="string">[ 0.  0.  1. 15. 10.  5.  0.  0.]</span></span><br><span class="line"><span class="string">[ 0.  0.  9. 11. 10. 10.  0.  0.]</span></span><br><span class="line"><span class="string">[ 0.  2. 15.  2. 14.  6.  0.  0.]</span></span><br><span class="line"><span class="string">[ 0.  8. 13.  5. 14. 13.  4.  0.]</span></span><br><span class="line"><span class="string">[ 0. 11. 16. 16. 16. 14.  3.  0.]</span></span><br><span class="line"><span class="string">[ 0.  0.  0.  3. 16.  0.  0.  0.]</span></span><br><span class="line"><span class="string">[ 0.  0.  0.  7. 10.  0.  0.  0.]]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/Blog/intro/knn_11.PNG" srcset="/img/loading.gif" lazyload></p>
+</blockquote>
+<p>对于分类任务来说, 分类结束后看一下分类准确率是多少是一个非常常见的操作, 因此可以对这个操作再进行一下封装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">accuracy_score</span>(<span class="params">y_true, y_predict</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算y_true和y_predict之间的准确率&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> y_true.shape[<span class="number">0</span>] == y_predict.shape[<span class="number">0</span>], \</span><br><span class="line">        <span class="string">&quot;the size of y_true must be equal to the size of y_predict&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(y_true == y_predict) / <span class="built_in">len</span>(y_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在先前的类中再添加一个方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">KNNClassifier</span>:</span><br><span class="line">	<span class="comment"># 之前代码省略... ...</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">score</span>(<span class="params">self, X_test, y_test</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;根据测试数 据集 X_test 和 y_test确定当前模型的准确度&quot;&quot;&quot;</span></span><br><span class="line">        y_predict = self.predict(X_test)</span><br><span class="line">        <span class="keyword">return</span> accuracy_score(y_test, y_predict)</span><br></pre></td></tr></table></figure>
+
+<p>我们之前调用kNN算法全都是直接为k值传一个默认的值, 那么在具体实际使用时应该传什么值合适? 这就涉及到机器学习算法中一类非常重要的问题: <strong>超参数</strong></p>
+<br>
+
+<h2 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h2><p>什么叫超参数? 简单的说就是在<strong>运行</strong>机器学习算法<strong>之前</strong>需要指定的参数</p>
+<p>kNN算法中的k就是最为典型的一个超参数</p>
+<p>和超参数对应的一个概念叫做<strong>模型参数</strong></p>
+<ul>
+<li>超参数: 在算法运行前需要决定的参数</li>
+<li>模型参数: 算法过程中学习的参数</li>
+</ul>
+<p>kNN没有模型参数, k是典型的超参数</p>
+<p>机器学习算法工程师的一个重要工作就是<strong>调参</strong>, 调的就是超参数</p>
+<br>
+
+<h3 id="如何寻找好的超参数"><a href="#如何寻找好的超参数" class="headerlink" title="如何寻找好的超参数"></a>如何寻找好的超参数</h3><p>由于机器学习算法应用在不同的领域中<strong>领域知识</strong>通常是有意义的, 不同领域中面对不同问题最好的超参数是不一样的</p>
+<p>某些问题有比较好的<strong>经验数值</strong>, 有些算法框架中的一些默认数值就是经验数值, 例如scikit-learn中默认的k的值为5</p>
+<p>然而即使如此也有可能具体的问题的超参数是和经验数值不一样的, 那就只能使用<strong>实验搜索</strong>了, 即尝试几组不同的超参数, 取效果最好的参数值</p>
+<p>调参的例子:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    digits = datasets.load_digits()</span><br><span class="line">    X = digits.data</span><br><span class="line">    y = digits.target</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    best_score = <span class="number">0.0</span></span><br><span class="line">    best_k = -<span class="number">1</span></span><br><span class="line">    <span class="comment"># 尝试k=[1,10] 找最好的k</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">        knn_clf = KNeighborsClassifier(n_neighbors=k)</span><br><span class="line">        knn_clf.fit(X_train, y_train)</span><br><span class="line">        score = knn_clf.score(X_test, y_test)</span><br><span class="line">        <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">            best_score = score</span><br><span class="line">            best_k = k</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_k = &quot;</span>, best_k)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_score = &quot;</span>, best_score)</span><br></pre></td></tr></table></figure>
+
+<p>如果我们找到最好k的值是10的话, 此时我们有必要对10以上的数在进行一下搜索</p>
+<p>这是因为通常来讲, 不同的参数决定了不同的分类的准确率, 它们之间是呈现一个连续的变化的</p>
+<p>如果我们找到最好的参数值在<strong>边界</strong>上时, 就意味着有可能有更好的值在边界外面</p>
+<p>kNN算法并不只有k这一个超参数, 其实这个算法中还潜藏着一个非常重要的超参数, 与此同时这个超参数也对应着kNN算法的一个不太一样的用法</p>
+<br>
+
+<h3 id="kNN算法的另一个超参数"><a href="#kNN算法的另一个超参数" class="headerlink" title="kNN算法的另一个超参数"></a>kNN算法的另一个超参数</h3><p>现在的kNN算法, 当k&#x3D;3时, 我们就找到离我们当前要判断的节点(绿色节点)最近的三个节点</p>
+<p><img src="/Blog/intro/knn_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>由于离绿色节点中最近的有2个蓝色节点, 一个红色节点所以蓝色的节点获胜</p>
+<p>这里虽然我们考虑了离绿色节点最近的三个节点, 但我们却忽略了最近的三个节点相应的距离是多少</p>
+<p><img src="/Blog/intro/knn_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这个绿色的节点其实离红色的节点是最近的, 虽然蓝色节点是离绿色节点次近的两个节点, 可是还是离绿色的节点比较远</p>
+<p>所以此时进行投票的话, 红色节点的票是否应该比 两个蓝色节点的票<strong>权重</strong>要重一些?</p>
+<p>这就是k近邻算法的另外一个用法, 就是考虑权重</p>
+<p>通常而言, 考虑权重时是将倒数作为权重, 这样离得越近权重就越大</p>
+<p><img src="/Blog/intro/knn_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>因此当我们考虑距离的时候, 红色获胜</p>
+<br>
+
+<p>而且当我们考虑距离之后还有另外一个优点</p>
+<p><img src="/Blog/intro/knn_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们之前一直没有谈一个问题就是使用普通的k近邻算法的话, 比如k&#x3D;3的话, 分类的样本数最终也有3类的话, 就很有可能产生平票的情况</p>
+<p>比如说上图, 最近的3个节点分别是红蓝紫, 如果是之前的算法就只能随机选出一个结果—这其实是不合理的</p>
+<p>而当我考虑距离之后就可以非常好地解决平票的问题, 此时实际比较的是离它最近的节点, 依然是红色节点获胜</p>
+<p>考虑距离的调参:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    digits = datasets.load_digits()</span><br><span class="line">    X = digits.data</span><br><span class="line">    y = digits.target</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    best_method = <span class="string">&quot;&quot;</span></span><br><span class="line">    best_score = <span class="number">0.0</span></span><br><span class="line">    best_k = -<span class="number">1</span></span><br><span class="line">    <span class="comment"># 考虑距离和不考虑距离</span></span><br><span class="line">    <span class="keyword">for</span> method <span class="keyword">in</span> [<span class="string">&quot;uniform&quot;</span>, <span class="string">&quot;distance&quot;</span>]:</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">            knn_clf = KNeighborsClassifier(n_neighbors=k, weights=method)</span><br><span class="line">            knn_clf.fit(X_train, y_train)</span><br><span class="line">            score = knn_clf.score(X_test, y_test)</span><br><span class="line">            <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">                best_score = score</span><br><span class="line">                best_k = k</span><br><span class="line">                best_method = method</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_k = &quot;</span>, best_k)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_score = &quot;</span>, best_score)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_method = &quot;</span>, best_method)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="关于距离的更多定义"><a href="#关于距离的更多定义" class="headerlink" title="关于距离的更多定义"></a>关于距离的更多定义</h2><p>考虑到了距离就不得不提另外一个话题: 什么是距离</p>
+<p>至今位置我们在kNN算法中说道的距离都是指<strong>欧拉距离</strong><br>$$<br>\sqrt{\sum^n_{i&#x3D;1}(X^{(a)}_i - X^{(b)}_i)^2}<br>$$<br>说道距离还有一个非常著名的曼哈顿距离</p>
+<p><img src="/Blog/intro/distancemanhadun.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>曼哈顿距离就是指两个点在每个维度上的距离和</p>
+<p>在上图的二维平面中, 两个点的曼哈顿距离就是它们在x方向上的差值加上在y方向上的差值</p>
+<p>上图中红蓝黄三条线都是曼哈顿距离, 而绿色的线是曼哈顿距离</p>
+<br>
+
+<p>同样是距离, 我们可以使用曼哈顿距离, 还可以使用欧拉距离</p>
+<p>我们对欧拉距离的这个式子再进行一下推导</p>
+<p><img src="/Blog/intro/oula_fomular.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>小括号再平方就等同于是绝对值再平方, 我们可以把开根号理解成是1&#x2F;2次幂</p>
+<p><img src="/Blog/intro/distance_ol_manha.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>欧拉距离是每一项为2次幂, 式子总体取1&#x2F;2次幂</p>
+<p>而曼哈顿距离可以理解为式子总体是1次幂, 并且每一项的和是1次幂</p>
+<p>这样看来曼哈顿距离和欧拉距离在数学形式上是具有一定的一致性的</p>
+<p>我们把这个一致性进行一下推广</p>
+<p><img src="/Blog/intro/distance_ol_manha_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>每一项求p次方, 最终求整体和的1&#x2F;p次方, 这个就是<strong>明可夫斯基距离(Minkowski Distance)</strong><br>$$<br>{(\sum^n_{i&#x3D;1}|X^{(a)}_i - X^{(b)}_i|^p)}^\frac 1 p<br>$$</p>
+<ul>
+<li><p>当p&#x3D;1时, 明可夫斯基距离就相当于是曼哈顿距离</p>
+</li>
+<li><p>当p&#x3D;2时, 明可夫斯基距离就相当于是欧拉距离</p>
+</li>
+<li><p>… …</p>
+</li>
+</ul>
+<p><strong>在这种情况下, 我们又获得了一个新的超参数, p</strong></p>
+<p>当p&gt;&#x3D;3时, 明可夫斯基距离具体表达的数学上的意义就不进行深究了</p>
+<p>我们只是得到了一个超参数p, 进而在算法中对于这个超参数相应的进行搜索, 来看对于我们这个问题p取谁更好</p>
+<p>scikit-learn中KNeighborsClassifier构造函数就有参数p, 默认为2, 取得就是欧拉距离</p>
+<br>
+
+<h2 id="超参数p的调参"><a href="#超参数p的调参" class="headerlink" title="超参数p的调参"></a>超参数p的调参</h2><p>同样进行调参:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    digits = datasets.load_digits()</span><br><span class="line">    X = digits.data</span><br><span class="line">    y = digits.target</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    best_p = -<span class="number">1</span></span><br><span class="line">    best_score = <span class="number">0.0</span></span><br><span class="line">    best_k = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">            knn_clf = KNeighborsClassifier(n_neighbors=k, weights=<span class="string">&quot;distance&quot;</span>, p=p)</span><br><span class="line">            knn_clf.fit(X_train, y_train)</span><br><span class="line">            score = knn_clf.score(X_test, y_test)</span><br><span class="line">            <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">                best_score = score</span><br><span class="line">                best_k = k</span><br><span class="line">                best_p = p</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_k = &quot;</span>, best_k)         <span class="comment"># best_k =  3</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_score = &quot;</span>, best_score) <span class="comment"># best_score =  0.9888888888888889</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;best_p = &quot;</span>, best_p)         <span class="comment"># best_p =  2</span></span><br></pre></td></tr></table></figure>
+
+<p>这种搜索策略有一个名字<strong>网格搜索</strong>, 对于k, p两个参数, 其实就形成了 k * p 这样的网格, 对其中每一个点所代表的数据进行了一下搜索来找其中的最好值</p>
+<p>不过在这里在具体搜索过程中有的时候会有一些麻烦, 比如weight这个参数, 当我们使用uniform时就不牵扯p这个参数, 但当使用distance时又会牵扯p这个参数</p>
+<p>换句话说, <strong>超参数之间可能存在相互依赖的关系</strong></p>
+<p>那么如何能一次性地把超参数全都列出来, 运行一遍程序就能得到最好的超参数的组合?</p>
+<p>scikit-learn专门为网格搜索封装了一种专门的方式, 学习这种方式可以更加方便地实现寻找最好的超参数的过程</p>
+<br>
+
+<h2 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h2><p>不过我们网格搜索的实现是使用自己写的for循环, 对于一些超参数之间是存在依赖关系的</p>
+<p>比如 p 这个超参数只有在 weights&#x3D;”distance” 时才有意义.</p>
+<p>为了让我们更加方便地使用网格搜索的方式寻找最佳的超参数, scikit-learn为我们封装了一种方式<strong>Grid Search</strong></p>
+<br>
+
+<h3 id="Grid-Search的使用方式"><a href="#Grid-Search的使用方式" class="headerlink" title="Grid Search的使用方式"></a>Grid Search的使用方式</h3><p>首先要定义使用的参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV, train_test_split</span><br><span class="line"></span><br><span class="line">param_grid = [</span><br><span class="line">    <span class="comment"># 第一组网格搜索</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment"># 要遍历的参数及对应的取值范围</span></span><br><span class="line">        <span class="string">&quot;weights&quot;</span>: [<span class="string">&#x27;uniform&#x27;</span>],</span><br><span class="line">        <span class="string">&quot;n_neighbors&quot;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line">     &#125;,</span><br><span class="line">    <span class="comment"># 第二组网格搜做</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;weights&quot;</span>: [<span class="string">&#x27;distance&#x27;</span>],</span><br><span class="line">        <span class="string">&quot;n_neighbors&quot;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)],</span><br><span class="line">        <span class="string">&quot;p&quot;</span>: [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    digits = datasets.load_digits()</span><br><span class="line">    X = digits.data</span><br><span class="line">    y = digits.target</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>)</span><br><span class="line"></span><br><span class="line">    knn_clf = KNeighborsClassifier()</span><br><span class="line">    grid_search = GridSearchCV(knn_clf, param_grid)</span><br><span class="line">    grid_search.fit(X_train, y_train)</span><br><span class="line">    <span class="built_in">print</span>(grid_search.best_estimator_)</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    KNeighborsClassifier(algorithm=&#x27;auto&#x27;, leaf_size=30, metric=&#x27;minkowski&#x27;,</span></span><br><span class="line"><span class="string">                         metric_params=None, n_jobs=None, n_neighbors=3, p=2,</span></span><br><span class="line"><span class="string">                         weights=&#x27;distance&#x27;)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 打印最高分数</span></span><br><span class="line">    <span class="built_in">print</span>(grid_search.best_score_)</span><br><span class="line">    <span class="comment"># 打印最佳参数</span></span><br><span class="line">    <span class="built_in">print</span>(grid_search.best_params_)</span><br><span class="line">    <span class="comment"># 获得训练好的模型并进行预测</span></span><br><span class="line">    knn_clf = grid_search.best_estimator_</span><br><span class="line">    knn_clf.score(X_test, y_test)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到, 得到的最佳超参数和我们自己得到的是不太一样的, 表格搜索中用来评价分类器准确度的方式是更加复杂的方式, 是CV代表的方式(<strong>Cross-validation</strong>), 后序我们会详细的介绍. </p>
+<p>Cross-validation其实是比train-test-split方式更加准确的</p>
+<p>GridSearchCV有一个构造参数 n_jobs 用来指定使用几个核来运行, 如果为-1则会用上所有核</p>
+<p>还有一个构造参数 verbose, 就是在搜索的过程中进行一些输出, 传入一个整数, 数值越大输出的内容就越详细, 一般2就够用了</p>
+<br>
+
+<h2 id="其他超参数"><a href="#其他超参数" class="headerlink" title="其他超参数"></a>其他超参数</h2><p>提到距离我们使用的是<strong>明可夫斯基距离</strong>, 对于这个距离有一个超参数p, 但是我们还可以采用其他距离, 即统计学中的相似度</p>
+<ul>
+<li>向量空间余弦相似度 Cosine Similarity</li>
+<li>调整余弦相似度 Adjusted Cosine Similarity</li>
+<li>皮尔森相关系数 Pearson Correlation Coefficient(统计学中的r)</li>
+<li>Jaccard相关系数 Jaccard Coefficient</li>
+</ul>
+<p>scikit-learn 中的 KNeighborsClassifier 的构造函数中有一个metric参数, 默认的值是”minkowski”, 即使用明可夫斯基距离</p>
+<p>我们可以修改这个参数来让它使用其他的距离, 可以接收的参数值都定义在sklearn.neighbors.DistanceMetric中, <strong>metric也是一个超参数</strong></p>
+<p>然而我们现在探讨的距离其实还缺少一个非常重要的因素</p>
+<br>
+
+<h2 id="数据归一化-Feature-Scaling"><a href="#数据归一化-Feature-Scaling" class="headerlink" title="数据归一化 Feature Scaling"></a>数据归一化 Feature Scaling</h2><p>之前使用kNN算法来完成分类任务时, 其实少了非常重要的一步</p>
+<p>那就是数据归一化(Feature Scaling)</p>
+<br>
+
+<h3 id="为什么要进行数据归一化"><a href="#为什么要进行数据归一化" class="headerlink" title="为什么要进行数据归一化?"></a>为什么要进行数据归一化?</h3><p><img src="/Blog/intro/feature_scaling.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>对于样本1来说肿瘤大小为1cm, 发现200天了. 而对于样本2来说肿瘤大小是5cm, 发现100天</p>
+<p>那么这两个样本之间的距离是怎样的呢? 如果使用欧拉距离就是<br>$$<br>\sqrt {(1-5)^2-(200-100)^2}<br>$$<br>显然, 这种情况下<strong>距离的大小</strong>被<strong>发现的时间</strong>所主导了, 因为间隔了100天, 而肿瘤的大小只相差4cm</p>
+<p>虽然在样本数据中5和1相差5倍之多, 而200和100只相差了2倍</p>
+<p>但是由于我们的量纲不同, 导致了最终的距离主要衡量的是发现时间的天数之间的差值, 这是因为肿瘤大小之间的差值太小了</p>
+<p><img src="/Blog/intro/feature_scaling_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>而如果我们把发现时间的单位换算为年, 此时这两个样本之间的距离由被肿瘤大小的距离所主导, 0.55-0.27这个数组变得特别地小</p>
+<p>而在这个量纲下5-1由变得非常大</p>
+<p>如果我们不进行数据的基本处理的话, 这样直接计算两个样本之间的距离很有可能是有偏差的, 不能非常好的<strong>同时</strong>反映出样本中<strong>每一个</strong>特征的重要程度, 正是因为如此, 我们要对数据进行归一化处理</p>
+<br>
+
+<p><strong>解决方案: 将所有数据都映射到同一尺度</strong></p>
+<br>
+
+<h3 id="最值归一化-normalization-x2F-normalize"><a href="#最值归一化-normalization-x2F-normalize" class="headerlink" title="最值归一化(normalization &#x2F; normalize)"></a>最值归一化(normalization &#x2F; normalize)</h3><p>通常最简单的方式就是<strong>最值归一化</strong></p>
+<p>最值归一化: 把所有数据映射到 0-1 之间<br>$$<br>x_{scale} &#x3D; \frac {x-x_{min}} {x_{max}-x_{min}}<br>$$<br>对于每一个特征, 求出这个特征对应的最大值和最小值的差, 然后对于每一个特征点到最小值的距离比上这个差就得到一个0-1之间的数</p>
+<p>这相当于是先把数据映射到 [0, x<sub>max</sub>-x<sub>min</sub>] 这个范围中, 然后来找对于x而言相比于整个范围所占的比例是多少</p>
+<p>这种方法是一种简单的做法, <strong>它适用于分布有明显边界的情况; 受outlier影响较大</strong></p>
+<p>有明显边界: 例如考试分数的边界为[0, 100], 颜色的边界为[0, 255]</p>
+<p>无明显边界: 收入, 有的人的收入是极其高的(outlier), 如果一个人的月收入是100万元, 而其余所有人的月收入是1万元, 那么映射到0-1之间大部分数都聚集在0.01附近, 这个数据的映射结果是不够好的</p>
+<p>相应的一个改进方式就是使用均值方差归一化</p>
+<br>
+
+<h3 id="均值方差归一化-standardization-x2F-standardize"><a href="#均值方差归一化-standardization-x2F-standardize" class="headerlink" title="均值方差归一化 (standardization &#x2F; standardize)"></a>均值方差归一化 (standardization &#x2F; standardize)</h3><p>均值方差归一化: 把所有数据归一到均值为0方差为1的分布中(统计学中求z值)</p>
+<p>这样做的结果是: 数据并不保证在0-1之间, 但是所有数据的均值是在0的位置, 并且整体数据的方差为1</p>
+<p>这种归一化的方式适用于<strong>数据分布没有明显的边界; 有可能存在极端数据值</strong>, 其实即使数据有明显边界, 使用这种方式也是非常好的</p>
+<p>所以除非像考试分数这样有非常明确的边界, 一般情况都使用均值方差归一化<br>$$<br>x_{scale}&#x3D; \frac {x-x_{mean}} s<br>$$<br>s为标准差, 就算是方差的开根</p>
+<p>统计学中的z值<br>$$<br>z &#x3D; \frac {x-E(x)} {\sqrt {V(x)}}<br>$$</p>
+<h3 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h3><p>最值归一化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 向量的最值归一化</span></span><br><span class="line">    x = np.random.randint(<span class="number">0</span>, <span class="number">100</span>, size=<span class="number">100</span>)</span><br><span class="line">    normalized_x = (x - np.<span class="built_in">min</span>(x)) / (np.<span class="built_in">max</span>(x) - np.<span class="built_in">min</span>(x))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 矩阵的最值归一化</span></span><br><span class="line">    X = np.random.randint(<span class="number">0</span>, <span class="number">100</span>, size=(<span class="number">50</span>, <span class="number">2</span>))</span><br><span class="line">    X = np.array(X, dtype=<span class="built_in">float</span>)</span><br><span class="line">    <span class="comment"># 如果特征较多可以用循环</span></span><br><span class="line">    X[:, <span class="number">0</span>] = (X[:, <span class="number">0</span>] - np.<span class="built_in">min</span>(X[:, <span class="number">0</span>])) / (np.<span class="built_in">max</span>(X[:, <span class="number">0</span>]) - np.<span class="built_in">min</span>(X[:, <span class="number">0</span>]))</span><br><span class="line">    X[:, <span class="number">1</span>] = (X[:, <span class="number">1</span>] - np.<span class="built_in">min</span>(X[:, <span class="number">1</span>])) / (np.<span class="built_in">max</span>(X[:, <span class="number">1</span>]) - np.<span class="built_in">min</span>(X[:, <span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># plt.scatter(X[:, 0], X[:, 1])</span></span><br><span class="line">    <span class="comment"># plt.show()</span></span><br><span class="line">    <span class="built_in">print</span>(np.mean(X[:, <span class="number">1</span>]))</span><br><span class="line">    <span class="built_in">print</span>(np.std(X[:, <span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>均值方程归一化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    X = np.random.randint(<span class="number">0</span>, <span class="number">100</span>, (<span class="number">50</span>, <span class="number">2</span>))</span><br><span class="line">    X = np.array(X, dtype=<span class="built_in">float</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(X[<span class="number">0</span>])):</span><br><span class="line">        <span class="comment"># 计算第i列的均值和标准差</span></span><br><span class="line">        mean_x = np.mean(X[:, i])</span><br><span class="line">        std_x = np.std(X[:, i])</span><br><span class="line">        <span class="comment"># 均值方程归一化</span></span><br><span class="line">        X[:, i] = (X[:, i] - mean_x) / std_x</span><br><span class="line"></span><br><span class="line">    plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>])</span><br><span class="line">    plt.show()</span><br><span class="line">    <span class="built_in">print</span>(np.mean(X[:, <span class="number">1</span>])) <span class="comment"># 约等于0</span></span><br><span class="line">    <span class="built_in">print</span>(np.std(X[:, <span class="number">1</span>]))  <span class="comment"># 约等于1</span></span><br></pre></td></tr></table></figure>
+
+<p>即使有outlier, 数据整体依然满足均值为0, 方差为1, (方差归一就说明标准差为1), 不会形成有偏的数据</p>
+<p>不过将这两种归一化的方式具体地应用在机器学习算法之前的<strong>数据处理</strong>的时候, 还是有一些注意事项</p>
+<br>
+
+<h2 id="如何对测试数据集归一化"><a href="#如何对测试数据集归一化" class="headerlink" title="如何对测试数据集归一化?"></a>如何对测试数据集归一化?</h2><p>对于<strong>原始数据集</strong>我们将其分为<strong>训练数据集</strong>和<strong>测试数据集</strong>, 如果我们要用归一化后的数据来训练模型的话显然首先我们要对训练数据集进行归一化处理</p>
+<p><img src="/Blog/intro/feature_scaling_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>比如说进行均值方差这样的归一化, 就要求出训练数据集的均值(mean_train)和标准差(std_train)</p>
+<p>当我们这样进行归一化之后, 将这样的训练数据集用于训练模型, 最终我们使用训练的模型来预测数据的话, 对于测试相应的也要进行归一化处理</p>
+<p>那么对于测试数据集如何进行归一化处理? 难道也是求出测试数据集的均值(mean_test)和标准差(std_test) 来对它进行标准化?</p>
+<p><img src="/Blog/intro/feature_scaling_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>但这么做其实是不对的</p>
+<p>正确的做法是将<strong>测试数据集</strong>使用<strong>训练数据集</strong>的均值(mean_train)和标准差(std_train)来进行归一化</p>
+<p><img src="/Blog/intro/feature_scaling_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这是因为测试数据是模拟真实环境</p>
+<ul>
+<li>真实环境很有可能无法得到所有测试数据的均值和方差</li>
+<li>对数据的归一化也是算法的一部分</li>
+</ul>
+<blockquote>
+<p>虽然可以得到测试数据集中的均值和方差, 但在实际使用中每次只来了一个样本, 那么这一个样本的均值和方差是什么?</p>
+<p>因此为了让它归一化, 我们只能让它使用训练数据集的均值和方差进行归一化</p>
+</blockquote>
+<p>因此是要保留训练数据集得到的均值和方差</p>
+<br>
+
+<h2 id="scikit-learn中的数据归一化"><a href="#scikit-learn中的数据归一化" class="headerlink" title="scikit-learn中的数据归一化"></a>scikit-learn中的数据归一化</h2><p>为了方便地进行操作, 在scikit-learn中专门封装了一个类Scaler</p>
+<p>封装就是想办法让Scaler这个类和机器学习算法这个类的整体的使用流程是一致的</p>
+<p><img src="/Blog/intro/feature_scaling_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>Scaler的fit函数就是求出训练数据集的一些统计指标, 比如说对于均值方差归一化来说, 就是求出均值和标准差</p>
+<p>之后Scaler中保存了关键信息, 再来其他的样例之后, Scalar就可以对输入样例进行一步transform来得到归一化后的输出结果</p>
+<br>
+
+<p>使用scikit-learn中的StandardScaler</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    X = iris.data</span><br><span class="line">    y = iris.target</span><br><span class="line"></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">666</span>)</span><br><span class="line"></span><br><span class="line">    standardScaler = StandardScaler()</span><br><span class="line">    standardScaler.fit(X_train)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 打印均值</span></span><br><span class="line">    <span class="built_in">print</span>(standardScaler.mean_)</span><br><span class="line">    <span class="comment"># 打印std标准差, scale可以理解为描述数据的分布范围</span></span><br><span class="line">    <span class="comment"># 其实方程和标准差只是描述数据分布范围的一种统计指标</span></span><br><span class="line">    <span class="comment"># 其实还有其他的统计指标可以描述数据分布范围</span></span><br><span class="line">    <span class="built_in">print</span>(standardScaler.scale_)</span><br><span class="line"></span><br><span class="line">    X_train = standardScaler.transform(X_train)</span><br><span class="line">    X_test_standard = standardScaler.transform(X_test)</span><br><span class="line"></span><br><span class="line">    knn_clf = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br><span class="line">    knn_clf.fit(X_train, y_train)</span><br><span class="line">    <span class="built_in">print</span>(knn_clf.score(X_test_standard, y_test)) <span class="comment"># 1.0的准确度</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当训练数据进行归一化处理后, 测试数据也必须进行归一化处理</p>
+<br>
+
+<h2 id="模仿scikit-learn中的Scaler编写自己的Scaler"><a href="#模仿scikit-learn中的Scaler编写自己的Scaler" class="headerlink" title="模仿scikit-learn中的Scaler编写自己的Scaler"></a>模仿scikit-learn中的Scaler编写自己的Scaler</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">StandardScaler</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.mean_ = <span class="literal">None</span></span><br><span class="line">        self.scale_ = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;根据训练数据集X获得数据的均值和标准差&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X.ndim == <span class="number">2</span>, <span class="string">&quot;The dimension of X must be 2&quot;</span></span><br><span class="line"></span><br><span class="line">        self.mean_ = np.array([np.mean(X[:, i]) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(X.shape[<span class="number">1</span>])])</span><br><span class="line">        self.scale_ = np.array([np.std(X[:, i]) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(X.shape[<span class="number">1</span>])])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">transform</span>(<span class="params">self, X</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;将X根据这个StandardScaler进行均值方差归一化处理&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X.ndim == <span class="number">2</span>, <span class="string">&quot;The dimension of X must be 2&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.mean_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> self.scale_ <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>, \</span><br><span class="line">            <span class="string">&quot;must fit before transform!&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> X.shape[<span class="number">1</span>] == <span class="built_in">len</span>(self.mean_), \</span><br><span class="line">            <span class="string">&quot;the feature number of X must be equal to mean_ and std_&quot;</span></span><br><span class="line"></span><br><span class="line">        resX = np.empty(shape=X.shape, dtype=<span class="built_in">float</span>)</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> <span class="built_in">range</span>(X.shape[<span class="number">1</span>]):</span><br><span class="line">            resX[:, col] = (X[:, col] - self.mean_[col]) / self.scale_[col]</span><br><span class="line">        <span class="keyword">return</span> resX</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>scikit-learn中也包含最值归一化, sklearn.preprocessing.MinMaxScaler, 这个Scaler的使用过程和StandardScaler是完全一样的</p>
+</blockquote>
+<br>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>k近邻算法是解决分类问题的算法, 不仅如此, 它天然地可以解决多分类问题, 它的思想简单, 效果强大</p>
+<p>不仅如此, 使用k近邻算法还可以解决回归问题</p>
+<p><img src="/Blog/intro/knn_thinking.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>回归问题就是我们具体要预测的是一个数值, 对于要预测的节点, 找到离它最近的k个节点, 由于是监督学习所以都有真实的值</p>
+<p>上图的绿色节点的值大概可以预测为与它最近的3个节点的均值</p>
+<p>当然也可以考虑上离它最近的3个节点对应的距离, 它们可以代表权值, 100离得更近, 所以权值更高, 使用加权平均的算法预测.</p>
+<p>不管怎么说, k近邻算法是可以解决回归问题的</p>
+<p>scikit-learn中封装了KNeighborsRegressor这个类, 它就是使用k近邻算法解决回归问题的类</p>
+<br>
+
+<p><strong>缺点1: k近邻算法的缺点是效率低下</strong></p>
+<p>如果训练集有m个样本, n个特征, 则预测每一个新的数据需要O(m*n)</p>
+<p>k近邻算法也有一些优化方式, 可以使用树结构: KD-Tree, Ball-Tree</p>
+<p>但即使如此k近邻算法依然是效率非常低的算法</p>
+<br>
+
+<p><strong>缺点2 : 高度数据相关</strong></p>
+<p>当然, 机器学习算法就是喂给它数据来进行预测, 所以理论上来说, 所有机器学习算法都是高度数据相关的</p>
+<p>不过k近邻算法相对而言, 对outlier更加敏感, 假设我们用3近邻算法, 但在样本中有2个错误的值的话就足矣让预测出现错误了, 哪怕在样本空间中是有大量正确样本的</p>
+<br>
+
+<p><strong>缺点3 : 预测结果不具有可解释性</strong></p>
+<p>我们只是找到了和要预测样本距离比较近的样本我们就说要预测的样本属于这个类别, 但是我们要预测的样本为什么属于这个类别我们根本无从知晓</p>
+<p>很多研究上, 只是拿到结果是远远不够的, 我们希望对预测结果有一定的解释性, 进而能通过这些解释去推广或去制作新的工具</p>
+<br>
+
+<p><strong>缺点4 : 维数灾难</strong></p>
+<p>维数灾难的概念: 随着维度的增加, “看似相近”的两个点之间的距离越来越大</p>
+<p>而k近邻算法非常依赖两个点之间的距离的计算, 这使得一旦我们使用k近邻算法处理高维数据的时候就很有可能遭受维数灾难</p>
+<p><img src="/Blog/intro/knn_thinking_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>10000维看似恨到, 实际就只能表达一个100*100像素的灰色图片</p>
+<p>实际生产环境中, 很多领域处理成千上万, 乃至几十万维的数据都是非常正常的</p>
+<p>解决方案就是降维</p>
+<br>
+
+<h3 id="机器学习流程回顾"><a href="#机器学习流程回顾" class="headerlink" title="机器学习流程回顾"></a>机器学习流程回顾</h3><p><img src="/Blog/intro/knn_thinking_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>首先要把原始数据分为训练数据集和测试数据集, 之后对数据进行归一化, 将归一化后的数据进行训练得到最终的模型</p>
+<p><img src="/Blog/intro/knn_thinking_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>之后对于测试数据集也要使用同样的Scaler进行归一化, 然后计算分类的准确度</p>
+<p><img src="/Blog/intro/knn_thinking_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>为了获得最好的模型, 要使用网格搜索寻找最好的超参数, 进而得到最好的模型</p>
+<p class="note note-danger">注意: 机器学习算法有一些隐式的超参数, 就算最简单的kNN算法也有k, p, weight等等超参数</p>
+
+<br>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/27/machine-learning-3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python3入门机器学习(3)-线性回归法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/10/machine-learning/">
+                        <span class="hidden-mobile">python3入门机器学习(1)</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,2067 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库">
+<meta property="og:url" content="http://example.com/2021/05/13/Database/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据库">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/intro/database/database.PNG">
+<meta property="article:published_time" content="2021-05-13T19:12:39.000Z">
+<meta property="article:modified_time" content="2021-08-05T23:37:44.380Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/intro/database/database.PNG">
+  
+  
+  <title>数据库 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/intro/longyin.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数据库">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-13 12:12" pubdate>
+        May 13, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据库</h1>
+            
+            <div class="markdown-body">
+              <p>数据库</p>
+<span id="more"></span>
+
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>Database Management System(<strong>DBMS</strong>)</p>
+<p><img src="/Blog/intro/database/database.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p><strong>DBMS 的好处</strong></p>
+<p>所有对数据的访问都通过DBMS管理</p>
+<ul>
+<li>Design and implementation advantages<ul>
+<li>Logical data independence</li>
+<li>Physical data independence</li>
+<li>Reduced application development time</li>
+</ul>
+</li>
+<li>Use advantage<ul>
+<li>Efficient access</li>
+<li>Data integrity and security</li>
+<li>Concurrent access and concurrency control</li>
+<li>Crash recovery</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<p><img src="/Blog/intro/database/database_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Data-Models"><a href="#Data-Models" class="headerlink" title="Data Models"></a>Data Models</h2><p>A database <strong>models</strong> a real-world enterprise</p>
+<p>A data model is a <strong>formal language</strong> for describing data</p>
+<ul>
+<li>A <strong>schema</strong> is a description of a <strong>particular collection of data</strong> using a particular data model</li>
+</ul>
+<p>最常用的 data model 是 <strong>relation data model</strong></p>
+<p>这个model最主要的就是 <strong>relation</strong>, 可以表示为一个<strong>table with rows and columns</strong></p>
+<p>Web database 和 Big Data databases 一般不使用 relation model</p>
+<br>
+
+<br>
+
+<h2 id="Levels-of-Abstraction"><a href="#Levels-of-Abstraction" class="headerlink" title="Levels of Abstraction"></a>Levels of Abstraction</h2><p>数据可以被表述为three levels of abstraction</p>
+<ol>
+<li>Physical Schema<ul>
+<li>The lowest level schema, which describes how data is stored and indexed</li>
+</ul>
+</li>
+<li>Conceptual(or logical) Schema<ul>
+<li>What (not how) data is stored, described in terms of data model.</li>
+</ul>
+</li>
+<li>External (or View) Schema<ul>
+<li>The highest level schema, describing how some users interact with the data. There can be multiple views</li>
+</ul>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F/8143441?fr=aladdin">数据库3模式</a></p>
+<h2 id="Data-independence"><a href="#Data-independence" class="headerlink" title="Data independence"></a>Data independence</h2><p>Physical data independence</p>
+<ul>
+<li>允许physical schema modified without rewriting application programs</li>
+<li>Usually to improve performance, like adding or removing an index or moving a file to a new disk</li>
+</ul>
+<br>
+
+<p>Logical data independence</p>
+<ul>
+<li>Shields user from changes in the logical schema </li>
+<li>Allows the logical schema to be modified without rewriting application programs, like adding an attribute to a relation</li>
+</ul>
+<br>
+
+<h2 id="Database-Language"><a href="#Database-Language" class="headerlink" title="Database Language"></a>Database Language</h2><p>Database language 允许一个创建, 修改, 请求 一个database </p>
+<p>Structured Query Language (SQL)</p>
+<p>SQL 有4 components:</p>
+<ul>
+<li><strong>Data Definition Language (DDL)</strong>, use to create and modify database schemas.</li>
+<li><strong>Data Manipulation Language(DML)</strong>, used to modify and query records.</li>
+<li><strong>Transaction Control Language (TCL) and Data Control Language(DCL)</strong></li>
+</ul>
+<br>
+
+<p>Data Definition Language</p>
+<p>DDL 可以 create 整个 Database, 允许 <strong>integrity constraints</strong> to be specified </p>
+<ul>
+<li>Domain constraints</li>
+<li>Referential integrity</li>
+<li>Assertions</li>
+<li>Authorization</li>
+</ul>
+<p>The DDL is also used to modify existing DB schema:</p>
+<ul>
+<li>Addition of new tables</li>
+<li>Deletion of tables</li>
+<li>Addition of attributes</li>
+</ul>
+<br>
+
+<p>Data Manipulation Language</p>
+<p>DML 允许 访问 或 修改 database 中的 data</p>
+<ul>
+<li>Retrieve information stored in the database</li>
+<li>Insert new information into database</li>
+<li>Delete information from the database</li>
+<li>Modify information stored in the database.</li>
+</ul>
+<br>
+
+<p>There are 2 basic types of DML:</p>
+<ol>
+<li><p>Procedural: users specify what data is required and how it should be retrieved.</p>
+</li>
+<li><p>Declarative (nonprocedural): user specify what data is required without specifying how it should be retrieved.</p>
+</li>
+</ol>
+<br>
+
+<br>
+
+<p>目前 relation model 是最流行的database model</p>
+<p>这有两个难点:</p>
+<ol>
+<li>面向对象<ul>
+<li>Object models do not match well to relational models</li>
+</ul>
+</li>
+<li>The rise of the <strong>web</strong> and <strong>Big Data</strong><ul>
+<li>Large amounts of distributed data</li>
+<li>Difficult to manage in a conventional relational database</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<p>SQL or NoSQL</p>
+<p>SQL database 的 data model 是从Set Theory衍生过来的</p>
+<p>NoSQL database 使用不一样的data model</p>
+<ul>
+<li>with variable schema</li>
+</ul>
+<br>
+
+<h2 id="Database-Design"><a href="#Database-Design" class="headerlink" title="Database Design"></a>Database Design</h2><p>设计Database的目标:</p>
+<ul>
+<li>Produce a set of <strong>Tables</strong> that can store the data required by an <strong>Enterprise</strong></li>
+<li>Relational database tables represent <strong>Entities</strong> and <strong>Relationships</strong> between entities</li>
+<li>A database of students might include the entities student and course, and the relationship student <strong>takes</strong> course</li>
+</ul>
+<br>
+
+<p>Database often model <strong>large and complex enterprises</strong></p>
+<ul>
+<li>没有人可以理解所有需求</li>
+</ul>
+<p>Database 的设计者必须和user讨论requirements</p>
+<ul>
+<li>把 requirement 转换为 high level design</li>
+<li>和user确认design</li>
+<li>把 high level design 转换为 database schema</li>
+</ul>
+<blockquote>
+<p>Design Overview</p>
+<ul>
+<li>Requirement Analysis</li>
+<li>Conceptual Database Design</li>
+<li>Logical Database Design<ul>
+<li>Schema Refinement</li>
+</ul>
+</li>
+<li>Physical Database Design</li>
+<li>Security Design</li>
+</ul>
+</blockquote>
+<h3 id="Requirement-Analysis"><a href="#Requirement-Analysis" class="headerlink" title="Requirement Analysis"></a>Requirement Analysis</h3><p>database 是要model 真实世界的 enterprise</p>
+<ul>
+<li>What <strong>data</strong> is to be stored</li>
+<li>What <strong>application</strong> are required to work with the database?</li>
+<li>Which are the most frequent and most important <strong>operations</strong>?</li>
+</ul>
+<h3 id="Conceptual-Database-Design"><a href="#Conceptual-Database-Design" class="headerlink" title="Conceptual Database Design"></a>Conceptual Database Design</h3><p>Use a <strong>model</strong> to develop a high-level description</p>
+<p>Identify the <strong>entities</strong> and <strong>relationships</strong> (and information to be stored about them)</p>
+<p>Identify integrity constraints ( also known as business rules)</p>
+<p>Check with the client that the model is appropriate.</p>
+<ul>
+<li>Correct the model and repeat as necessary</li>
+</ul>
+<br>
+
+<h3 id="Logical-Database-Design"><a href="#Logical-Database-Design" class="headerlink" title="Logical Database Design"></a>Logical Database Design</h3><p>选择要使用的data model</p>
+<p>选择 DBMS</p>
+<ul>
+<li>这是指database management systemproduct to purchase or license</li>
+</ul>
+<p>把 conceptual schema 转换(映射)为 database schema of the chosen model</p>
+<br>
+
+<h3 id="Design-Notes"><a href="#Design-Notes" class="headerlink" title="Design Notes"></a>Design Notes</h3><p>designer 必须决定如何<strong>表达(represent)</strong> stuff bo be modeled in the database</p>
+<p>有两件事要避免:</p>
+<ol>
+<li>Redundancy : information should not be repeated</li>
+<li>Incompleteness: it should be possible to record all desired information</li>
+</ol>
+<br>
+
+<h3 id="Entity-Relationship-Model"><a href="#Entity-Relationship-Model" class="headerlink" title="Entity-Relationship Model"></a>Entity-Relationship Model</h3><p>ER Model has similarities to other modeling languages like <strong>UML</strong></p>
+<p>ER Model 主要的成分是:</p>
+<ul>
+<li>Entities</li>
+<li>Attributes</li>
+<li>Relationships</li>
+<li>Constraints</li>
+</ul>
+<br>
+
+<h3 id="Entity-Relationship-Diagram"><a href="#Entity-Relationship-Diagram" class="headerlink" title="Entity-Relationship Diagram"></a>Entity-Relationship Diagram</h3><p>ER Diagram show the structure of a database <strong>graphically</strong></p>
+<ul>
+<li>Simple symbols</li>
+</ul>
+<br>
+
+<p>例子:</p>
+<p>长方形代表entities, 菱形代表relaitonships, 椭圆代表 attributes</p>
+<p><img src="/Blog/intro/cmpt354/relationship.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Entities-and-Entity-Sets"><a href="#Entities-and-Entity-Sets" class="headerlink" title="Entities and Entity Sets"></a>Entities and Entity Sets</h3><p>An <strong>Entity</strong> is a <strong>distinguishable object</strong>, meaning it can be distinguished from other objects</p>
+<p>例如: 某个苹果手机</p>
+<p>Entities 可以是抽象的也可以是具体的</p>
+<p>Entity Set 就是 Entities 的集合</p>
+<p>例如: 所有中国的苹果手机</p>
+<p>Entity Sets need not be <strong>disjoint</strong>, 两个entitiy set 可以包含相同的entity</p>
+<br>
+
+<h3 id="Attribute"><a href="#Attribute" class="headerlink" title="Attribute"></a>Attribute</h3><p>一个 Entity 是由多个Attributes 描述的 </p>
+<blockquote>
+<p>属性就是对物质的观测, 如果一个东西无法被观测(没有属性), 那么它就不存在</p>
+</blockquote>
+<p>一些attribute是由别的attribute衍生来的</p>
+<p><img src="/Blog/intro/cmpt354/relationship_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>每个attribute都有Domain</p>
+<br>
+
+<h3 id="Composite-Attribute"><a href="#Composite-Attribute" class="headerlink" title="Composite Attribute"></a>Composite Attribute</h3><p>Composite Attribute are divided into sub-parts</p>
+<p>They group <strong>related attributes</strong> together</p>
+<p>Composite attributes should be replaced with their sub-parts, to make it easier to derive a set of tables from the ER diagram later</p>
+<br>
+
+<h3 id="Multivalued-Attributes"><a href="#Multivalued-Attributes" class="headerlink" title="Multivalued Attributes"></a>Multivalued Attributes</h3><p>Multi-valued attributes should be <strong>replaced with an entity set</strong> and a relationship created to represent the connection between the two sets</p>
+<p>There is sometimes <strong>no clear distinction between entities and attributes</strong></p>
+<br>
+
+<h3 id="Derived-Attributes"><a href="#Derived-Attributes" class="headerlink" title="Derived Attributes"></a>Derived Attributes</h3><p>可以由其他attribute 计算得到, 不需要存在数据库中</p>
+<p><img src="/Blog/intro/cmpt354/relationship_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h3><p>Difference between entities in an entity set are expressed in terms of their attributes</p>
+<p>两个entities 不能所有属性都相同(无法区别)</p>
+<p>keys应该是unique的</p>
+<h3 id="Super-Key"><a href="#Super-Key" class="headerlink" title="Super Key"></a>Super Key</h3><p>A superkey is any set of <strong>attributes whose values uniquely identify an entity</strong> in an entity set</p>
+<p>Entity sets <strong>can have multiple superkeys,</strong> and additional superkeys can be created by taking a key attribute and adding other attributes</p>
+<p>任何一个属性和一个super key组合成为的新的key也是一个super key(一定唯一)</p>
+<h3 id="Candidate-Key"><a href="#Candidate-Key" class="headerlink" title="Candidate Key"></a>Candidate Key</h3><p>A candidate key is <strong>minimal superkey</strong>, 就是说一个super key with no <strong>unnecessary attributes</strong></p>
+<ul>
+<li>That is not the same as the superkey with the fewest attributes</li>
+<li>A Person superkey of <code>&#123;SIN, lastname&#125;</code> doesn’t need the last name to uniquely identify people</li>
+</ul>
+<p>A relation can have <strong>more than one candidate key</strong></p>
+<br>
+
+<h3 id="Primary-Key"><a href="#Primary-Key" class="headerlink" title="Primary Key"></a>Primary Key</h3><p><img src="/Blog/intro/cmpt354/relationship_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>primary key 必须是 Candidate Key(minimal super key)</p>
+<p>primary key 的值应该永远不改变(或者说尽可能不改变)</p>
+<p>通常我们生成primary key</p>
+<br>
+
+<h3 id="Relationship-Sets"><a href="#Relationship-Sets" class="headerlink" title="Relationship Sets"></a>Relationship Sets</h3><p>A Relationship is an association between two or more entities</p>
+<p>A Relationship set is a set of relationships of the same type.</p>
+<p>Relationship sets may have Descriptive Attributes</p>
+<ul>
+<li>They can’t be part of the primary key, but they’re useful for <strong>properties that can’t be associated with either of the participating entity sets</strong></li>
+</ul>
+<br>
+
+<p>An n-ary relationship set R is an association between n entity sets <code>E1, ... En</code> where R is a subset of <code>&#123;(e1,...en) | e1 in E1, ... en in En&#125;</code></p>
+<p><strong>Binary</strong> relationships are the most common</p>
+<p>例如: relationship between two entities, which can even be the same entity</p>
+<p><img src="/Blog/intro/cmpt354/relationship_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/relationship_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Mapping-Cardinalities"><a href="#Mapping-Cardinalities" class="headerlink" title="Mapping Cardinalities"></a>Mapping Cardinalities</h3><p>假设有binary relationship R, between 2 entity sets A, B</p>
+<ul>
+<li><strong>Mapping Cardinalities</strong> specify <strong>how many entities of B can be associated with one entity in A</strong>, and vice-versa</li>
+<li>Alternatively, the number of relationships of set R that may be participated in by one entity in set A (or B)</li>
+<li>Those two statements are the same for binary relationships, but not ternary or greater ones</li>
+</ul>
+<p>A <strong>key constraint</strong> exists between A and R if A entities can be <strong>associated only with a signle B entity</strong></p>
+<br>
+
+<h3 id="One-to-One-Relationship"><a href="#One-to-One-Relationship" class="headerlink" title="One to One Relationship"></a>One to One Relationship</h3><p><img src="/Blog/intro/cmpt354/relationship_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="One-to-Many-Relationship"><a href="#One-to-Many-Relationship" class="headerlink" title="One to Many Relationship"></a>One to Many Relationship</h3><p><img src="/Blog/intro/cmpt354/relationship_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Many-to-One-Relationship"><a href="#Many-to-One-Relationship" class="headerlink" title="Many to One Relationship"></a>Many to One Relationship</h3><p><img src="/Blog/intro/cmpt354/relationship_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Many-to-Many-Relationship"><a href="#Many-to-Many-Relationship" class="headerlink" title="Many to Many Relationship"></a>Many to Many Relationship</h3><p><img src="/Blog/intro/cmpt354/relationship_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>When drawing an ER Diagram relationships should only be given descriptive attributes</p>
+<ul>
+<li>Tables representing relationship sets <strong>inherit hte primary key attributes</strong> of the participating entity sets</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/relationship_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Participation-Constraints"><a href="#Participation-Constraints" class="headerlink" title="Participation Constraints"></a>Participation Constraints</h3><p>Indicate that each entity in an entity set must be involved in at least one relationship</p>
+<p>Participation is said to be either <strong>total</strong>(there is a constraint) or <strong>partial</strong> (no constraint)</p>
+<p>total participation 用双线表示</p>
+<p><img src="/Blog/intro/cmpt354/relationship_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/relationship_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/relationship_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Weak-Entity-Sets"><a href="#Weak-Entity-Sets" class="headerlink" title="Weak Entity Sets"></a>Weak Entity Sets</h3><p>A <strong>Weak Entity</strong> cannot be identified by its attributes alone.</p>
+<ul>
+<li>A member of a weak entity set is identified by combining its <strong>partial key</strong> with the primary key of another entity set.</li>
+<li>The other entity set is referred to as the <strong>Owner Entity Set</strong></li>
+</ul>
+<p>Weak entity sets are permitted only when:</p>
+<ul>
+<li>The owner and the weak entity set participate in a <strong>one to many identifying relationship set</strong></li>
+<li>The weak entity set has <strong>total participation</strong> in the identifying relationship</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/weak_entity.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Class-Hierarchies"><a href="#Class-Hierarchies" class="headerlink" title="Class Hierarchies"></a>Class Hierarchies</h3><p>有时候把entity set中的 entity 划分为多个 Subclass 可能更有用</p>
+<p>类似于面向对象</p>
+<p>每个entity in a subclass 同样是superclass 中的一员</p>
+<p>subclass entities 继承 super class 的 attributes</p>
+<ul>
+<li>The subclass entity may also have <strong>additional attributes</strong></li>
+</ul>
+<p>Class hierarchies 可能有多层</p>
+<br>
+
+<p>subclass relationship 代表 “is a” 关系</p>
+<ul>
+<li><strong>Specialization</strong> is the process of identifying subsets with additional attributes from an existing entity set. (A specializes B)</li>
+<li><strong>Generalization</strong> is the process of identifying common characteristics (attributes) of entity sets, and creating new entity sets with those attributes (B generalizes A)</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/weak_entity_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Design-Constraints"><a href="#Design-Constraints" class="headerlink" title="Design Constraints"></a>Design Constraints</h3><p>The participation of entities in a subclass is defined in one of two ways:</p>
+<ul>
+<li>If participation is <strong>condition-defined</strong>, an entity is only a member of a subclass if it meets some condition,例如: 只有能挤奶的牛才叫奶牛( condition 就是能挤奶, subclass就是奶牛)</li>
+<li>If participation is <strong>user-defined</strong>, an entity is assigned to a subclass by the database user, 老板指定一些员工升职为项目manager</li>
+</ul>
+<h3 id="Overlap-Constraints"><a href="#Overlap-Constraints" class="headerlink" title="Overlap Constraints"></a>Overlap Constraints</h3><p>一个entity 可能属于多个subclass</p>
+<p>如果两个subclass 是 disjoint, 那么一个entity就不可能同时属于这两个subclass: 例如一个animal 不可能既是鸟又是鱼</p>
+<p>两个subclass也可能overlapping: 例如一个人既可以是顾客也可以是员工</p>
+<p>default, subclass 是 disjoint, 如果需要overlap, 则需要手动在ER diagram中指出</p>
+<h3 id="Coverage-Constraints"><a href="#Coverage-Constraints" class="headerlink" title="Coverage Constraints"></a>Coverage Constraints</h3><p>A <strong>coverage constraint</strong> indicates that each superclass entity <strong>must belong</strong> to a subclass</p>
+<ul>
+<li>This can be specified on an ER diagram by drawing a double line from the superclass to the triangle</li>
+<li>For example, 载具类有car 和 boat subclasses without <strong>coverage constraint</strong>, 因为可能有一些载具既不是car 也不是boat</li>
+<li>A Football Player class, on the other hand, might have full coverage for all of the different positions on the team (Quarterback, Running Back, Kicker, etc), since every player must also fulfill one of these roles.</li>
+</ul>
+<h3 id="Aggregation-Introduction"><a href="#Aggregation-Introduction" class="headerlink" title="Aggregation Introduction"></a>Aggregation Introduction</h3><p><img src="/Blog/intro/cmpt354/weak_entity_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>可以把ternary relationship 转为binary relationship</p>
+<p><img src="/Blog/intro/cmpt354/weak_entity_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/weak_entity_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/weak_entity_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Aggregation"><a href="#Aggregation" class="headerlink" title="Aggregation"></a>Aggregation</h3><p>指出一个relationship set 参与另一个 relationship set. </p>
+<ul>
+<li>An abstraction that treats relationship sets as higher level entities, for the purpose of participation in other relationships.</li>
+</ul>
+<p>When should we use aggregation?</p>
+<ul>
+<li><p>When there is <strong>a relationship between an entity set and another relationship</strong>.</p>
+</li>
+<li><p>Aggregation is often used with <strong>non-binary relationships</strong></p>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/weak_entity_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Entity-Relationship-Design-Principles"><a href="#Entity-Relationship-Design-Principles" class="headerlink" title="Entity Relationship Design Principles"></a>Entity Relationship Design Principles</h3><p><strong>Faithfulness</strong></p>
+<ul>
+<li><p>The design must be <strong>faithful to the specification</strong> and the enterprise that is being represented.</p>
+</li>
+<li><p>All the <strong>relevant aspects</strong> of the enterprise should be <strong>represented in the model.</strong></p>
+</li>
+</ul>
+<p><strong>Avoid Redundancy</strong></p>
+<ul>
+<li><strong>Redundant representations</strong> make the ER diagram <strong>harder to understand.</strong></li>
+<li>It <strong>wastes storage space in the database</strong>, and may lead to <strong>inconsistencies</strong>.</li>
+</ul>
+<p><strong>Simplicity</strong></p>
+<ul>
+<li>Use the <strong>fewest number of entities and relationships necessary</strong> to model the enterprise</li>
+<li>Where possible, <strong>use attributes instead</strong> of entity sets and relationships</li>
+</ul>
+<p><strong>Specify As Many Constraints As Possible</strong></p>
+<ul>
+<li>Ensure that <strong>all key constraints and participation constraints are specified</strong></li>
+<li>Some constraints simply <strong>won’t be able to be modeled</strong> in your diagram, and that’s okay</li>
+</ul>
+<br>
+
+<br>
+
+<p><img src="/Blog/intro/cmpt354/weak_entity_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Relation-Schema"><a href="#Relation-Schema" class="headerlink" title="Relation Schema"></a>Relation Schema</h2><p>例如我们有一个数据表, 记录学生</p>
+<p>学生有这些属性: 姓名, 年龄, 成绩</p>
+<p><code>(姓名, 年龄, 成绩)</code> 就是schema 而具体的数据 <code>(周xx, 20, 100)</code> 则是instance</p>
+<p>同时schema会指定属性的domain, 例如年龄不可为负数</p>
+<p><img src="/Blog/intro/cmpt354/table.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Integrity-Constraints"><a href="#Integrity-Constraints" class="headerlink" title="Integrity Constraints"></a>Integrity Constraints</h2><p>integrity Constraints 限制了数据库中能存储的数据(禁止无用数据, 例如两个sin一样的人)</p>
+<p>当定义Database Schema时, 需要指定integrity constraints</p>
+<p>A DBMS checks every update to ensure that it does not violate any integrity constraint</p>
+<br>
+
+<p>Types of Integrity Constraints:</p>
+<ol>
+<li><strong>Domain Constraints</strong><ul>
+<li>Specified when tables are created by selecting the type of the data (e.g. dob and DATETIME)</li>
+</ul>
+</li>
+<li><strong>Key Constraints</strong><ul>
+<li>指定primary key 以及其他 candidate key</li>
+</ul>
+</li>
+<li><strong>Foreign Key Constraints</strong><ul>
+<li>Referencing the primary key of other tables</li>
+</ul>
+</li>
+<li><strong>General Constraints</strong><ul>
+<li>anything else</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<p>Primary Key 定义了unique set of attributes that will be used to identify a record in a table</p>
+<p>在一些情况下有明显的primary key (例如 SIN) 其他情况primary key 要被system自动生成</p>
+<p><img src="/Blog/intro/cmpt354/primary_key.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>Foreign Keys</p>
+<p><img src="/Blog/intro/cmpt354/primary_key_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/primary_key_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>The <strong>attributes</strong> of the <strong>foreign key</strong> and the <strong>referenced primary key must</strong> be <strong>consistent</strong></p>
+<ul>
+<li>The same number of attributes with compatible attribute type, but the attribute names may be different</li>
+</ul>
+<p>A foreign key references the <strong>entire primary key</strong></p>
+<p>如果primary key 是 compound, 那么foreign key也必须是compound. not multiple single-attribute foreign keys</p>
+<p><img src="/Blog/intro/cmpt354/primary_key_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>General Constraints</p>
+<p>database 可能需要使用 primary key, foreign key, domain consraint 以外的 constraint</p>
+<p>例如: limiting domain values to subsets of their domain, like limiting grades to actual grades like A and not G, or other constraints involving multiple attributes</p>
+<p>SQL 支持两种 general constraints</p>
+<ol>
+<li><strong>Table constraints</strong>, associated with a single table</li>
+<li><strong>Assertions</strong>, which may involve several tables and are checked when any of these tables are modified</li>
+</ol>
+<br>
+
+<h2 id="Enforcing-Integrity-Constraints"><a href="#Enforcing-Integrity-Constraints" class="headerlink" title="Enforcing Integrity Constraints"></a>Enforcing Integrity Constraints</h2><p>当一个有constraint 的 table 被修改, constraints must be checked</p>
+<h3 id="Enforcing-Primary-Keys"><a href="#Enforcing-Primary-Keys" class="headerlink" title="Enforcing Primary Keys"></a>Enforcing Primary Keys</h3><p>一个primary key constraint 有2种violated(违反)的方法</p>
+<ol>
+<li>当update 或 insert 一个 record可能会导致primary key重复</li>
+<li>当update 或 insert 一个 record可能会导致primary key为null</li>
+</ol>
+<p>In either case, the transaction must be rejected</p>
+<h3 id="Enforcing-Foreign-Keys"><a href="#Enforcing-Foreign-Keys" class="headerlink" title="Enforcing Foreign Keys"></a>Enforcing Foreign Keys</h3><p><img src="/Blog/intro/cmpt354/primary_key_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/primary_key_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/primary_key_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/primary_key_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/primary_key_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>Two distinct tuples in a relation instance cannot have identical values in all fields of a superkey, or if two entities have the same superkey values, they must have the same values for their other attributes</p>
+<p><img src="/Blog/intro/cmpt354/primary_key_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Generalizing-Superkeys"><a href="#Generalizing-Superkeys" class="headerlink" title="Generalizing Superkeys"></a>Generalizing Superkeys</h2><p><img src="/Blog/intro/cmpt354/primary_key_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/primary_key_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/intro/cmpt354/table_design_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/table_design_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Relational-Query-Languages"><a href="#Relational-Query-Languages" class="headerlink" title="Relational Query Languages"></a>Relational Query Languages</h2><p><strong>Query Language</strong> 允许 <strong>manipulation</strong> and <strong>retrieval</strong> of data from a database</p>
+<p>Query Language 不是 general-purpose programming language</p>
+<br>
+
+<p>Two <strong>mathematical query languages</strong> form the basis for SQL(and other query languages):</p>
+<ol>
+<li><strong>Relational Algebra</strong>: a procedural query language that is relatively close to SQL</li>
+<li><strong>Relational Calculus</strong>: a non-procedural language</li>
+</ol>
+<br>
+
+<h3 id="Procedural-vs-Non-Procedural"><a href="#Procedural-vs-Non-Procedural" class="headerlink" title="Procedural vs. Non-Procedural"></a>Procedural vs. Non-Procedural</h3><p><strong>Procedural query</strong> consists of a series of operations which describe a <strong>step by step process for calculating the answer</strong>.</p>
+<p>告诉某件事情要怎么一步一步做来得到结果</p>
+<p>例如: 左转, 直行50m, 右转…</p>
+<p><strong>Non-procedural (or declarative) query</strong> describes what <strong>output is desired</strong>, and not how to compute it.</p>
+<p>例如: 前往中心大街</p>
+<br>
+
+<h3 id="Result-of-a-Query"><a href="#Result-of-a-Query" class="headerlink" title="Result of a Query"></a>Result of a Query</h3><p>Query 作用在一个 relation instance, 得到的结果也是一个relation instance</p>
+<p>The <strong>schema</strong> of the result relation 取决于 input relation and the query</p>
+<p>由于 result 是一个relation instance 所以 这个结果也可以作为另一个query的input<br>$$<br>?(x)&#x3D;y, ?(y)&#x3D;z ,\cdots<br>$$<br><br></p>
+<h3 id="Referring-to-Fields"><a href="#Referring-to-Fields" class="headerlink" title="Referring to Fields"></a>Referring to Fields</h3><p>Fields in an instance can be referred to either by <strong>position</strong> (例如 column 1) or by <strong>name</strong></p>
+<ul>
+<li><strong>Position notation</strong> is easier for <strong>formal definitions</strong></li>
+<li>Using field <strong>names</strong> make queries <strong>easier to read</strong></li>
+</ul>
+<p>The <strong>schema</strong> of the result is <strong>inherited</strong> from the <strong>input relations</strong></p>
+<br>
+
+<h3 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h3><p>The <strong>Selection</strong> operator, $\sigma$ specifies the <strong>rows</strong> to be retained from the input relation.</p>
+<p>A selection has the form $\sigma_{\text{condition}}(\text{relation})$ where <strong>condition</strong> is a Boolean expression</p>
+<ul>
+<li>Terms in the condition are <strong>comparisons between two fields</strong>(or a field and a constant)</li>
+<li>Using one of the <strong>comparison operators</strong>: <code>&lt;, &lt;=, ==, !=, &gt;= ,&gt;</code></li>
+<li>Terms may be <strong>connected</strong> by <code>^</code> (and) or <code>v</code> (or)</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/query.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Projection"><a href="#Projection" class="headerlink" title="Projection"></a>Projection</h3><p>Projection operator $\pi$ 指定 <strong>columns to be retained</strong> from the input relation</p>
+<p>A selection has the form: $\pi_{\text{columns}}(\text{relation})$</p>
+<ul>
+<li>Where columns is <strong>comma separated list</strong> of column names</li>
+<li>The list contains the <strong>names of the columns to be retained</strong> in the result relation</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/query_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>Selection 和 Projection <strong>eliminated duplicates</strong>, 由于relations 都是sets</p>
+<p>在SQL 中, duplicate elimination is expensive, 所以 it’s <strong>only done when explicitly requested</strong></p>
+<p>Both operations require one input relation</p>
+<p>Selection 的 output 的 schema 和 input relation 的 schema 一样</p>
+<p>Projection 的 output 的 schema 仅仅包含projection list 中的那些属性</p>
+<p><img src="/Blog/intro/cmpt354/query_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Non-Procedural-Languages"><a href="#Non-Procedural-Languages" class="headerlink" title="Non-Procedural Languages"></a>Non-Procedural Languages</h2><p><img src="/Blog/intro/cmpt354/query_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_24.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_25.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_26.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_27.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_28.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/query_29.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="Components-of-SQL"><a href="#Components-of-SQL" class="headerlink" title="Components of SQL"></a>Components of SQL</h3><p><img src="/Blog/intro/cmpt354/sql_syntax.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>SQL 不支持remove duplicates, 除非instructed to do so</p>
+<p>因为这需要sort数据, sort比较耗时</p>
+<p>SQL query return a <strong>multiset</strong>, or <strong>bag</strong> of rows.</p>
+<p>A bag 允许一个element 多次出现, 但是 elements 是 unsorted</p>
+<p>例如 (1, 2, 1) and (2, 1, 1) are the <strong>same bag</strong></p>
+<p>The <strong>DISTINCT</strong> keyword specifies that duplicates are to be removed from a result.</p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Set-Operations"><a href="#Set-Operations" class="headerlink" title="Set Operations"></a>Set Operations</h3><p>SQL 支持 union, intersection, and set difference operations</p>
+<ul>
+<li><strong>UNION</strong>, <strong>INTERSECT</strong>, and <strong>EXCEPT</strong>. EXCEPT 有时也被叫做 MINUS</li>
+<li>这些操作必须再 union compatible tables 上执行</li>
+</ul>
+<p>尽管这些操作在SQL 标准中支持, 但是具体实现可能不同</p>
+<p>EXCEPT may not be implemented, like MySQL, but can be emulated with JOINs.</p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_24.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_25.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_26.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_27.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_28.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>和其他sql命令不同</p>
+<p>UNION, INTERSECT, and EXCEPT 会默认去重, 除非使用 keyword <strong>ALL</strong></p>
+<p>如果使用 ALL, 假设有m copies of a row in the upper query and n copies in the lower:</p>
+<ul>
+<li>UNION returns $m+n$ copies</li>
+<li>INTERSECT returns $min(m,n)$ copies</li>
+<li>EXCEPT returns $m-n$ copies</li>
+</ul>
+<p>通常不使用ALL</p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_29.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_30.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Join"><a href="#Join" class="headerlink" title="Join"></a>Join</h3><p>SQL allows tables to be <strong>joined in the FROM clause</strong></p>
+<p>SQL joins implement <strong>relational algebra joins.</strong></p>
+<p><strong>Natural joins</strong> and <strong>theta joins</strong> are implemented by combining <strong>join types and conditions</strong></p>
+<p>SQL also allows <strong>outer joins</strong> which <strong>retain records</strong> of one or both tables that do not match the condition</p>
+<p>Exact syntax and implementation of joins for a DBMS <strong>may differ from the SQL standard</strong></p>
+<h4 id="Join-Types"><a href="#Join-Types" class="headerlink" title="Join Types"></a>Join Types</h4><p><strong>INNER</strong>: only includes records where attributes from both tables meet the join condition</p>
+<p><strong>LEFT OUTER</strong> : includes records from the left table that do not meet the join condition</p>
+<p><strong>RIGHT OUTER</strong>: includes records from the right table that do not meet the join condition</p>
+<p><strong>FULL OUTER</strong> : includes records from both tables that do not meet the join condition</p>
+<br>
+
+<h4 id="Join-Conditions"><a href="#Join-Conditions" class="headerlink" title="Join Conditions"></a>Join Conditions</h4><p><strong>NATURAL</strong>: equality on all attributes in common</p>
+<p><strong>USING</strong> $(A_1…,A_n)$: equality on all the attributes in the attribute list</p>
+<p>**ON(condition) ** join using condition</p>
+<blockquote>
+<p>If no condition is specified for an inner join, the <strong>Cartesian product</strong> is returned</p>
+<p>A condition must be specified for an outer join</p>
+</blockquote>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_31.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_32.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_33.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sql_syntax_34.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Nested-Queries"><a href="#Nested-Queries" class="headerlink" title="Nested Queries"></a>Nested Queries</h2><p>嵌套queries, 就是 一个query 里嵌套另一个sub-query</p>
+<p>subquery 可以在:</p>
+<ul>
+<li>in the <strong>FROM</strong> clause</li>
+<li>in the <strong>WHERE</strong> clause</li>
+<li>in the <strong>HAVING</strong> clause</li>
+</ul>
+<p>Sub-queries referred to in the WHERE clause are <strong>often used in additional set operations</strong></p>
+<p>可以多层嵌套</p>
+<br>
+
+<h2 id="Additional-Set-Operations"><a href="#Additional-Set-Operations" class="headerlink" title="Additional Set Operations"></a>Additional Set Operations</h2><ul>
+<li>IN</li>
+<li>NOT IN</li>
+<li>EXISTS</li>
+<li>NOT EXISTS</li>
+<li>UNIQUE</li>
+<li>ANY</li>
+<li>ALL</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/set_op.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Uncorrelated-Queries"><a href="#Uncorrelated-Queries" class="headerlink" title="Uncorrelated Queries"></a>Uncorrelated Queries</h3><p>上面的这个query 包含的uncorrelated or independent sub-query</p>
+<ul>
+<li>The sub-query <strong>does not contain references to attributes of the outer query</strong></li>
+</ul>
+<p>independent sub-query 可以 evaluated <strong>before evaluation of the outer query</strong>  and needs to be <strong>evaluated only once</strong></p>
+<ul>
+<li>The sub-query result can be checked for each row of the outer query</li>
+<li>The <strong>cost</strong> is the cost for performing the sub-query (once) and the cost of scanning the outer relation</li>
+</ul>
+<br>
+
+<p><img src="/Blog/intro/cmpt354/set_op_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Correlated-Queries"><a href="#Correlated-Queries" class="headerlink" title="Correlated Queries"></a>Correlated Queries</h3><p>The previous query contained a <strong>correlated sub-query</strong>, with <strong>reference to attributes of the outer query</strong></p>
+<ul>
+<li><code>WHERE C.customerID= O.customerID</code></li>
+<li>This is evaluated once for each row in the outer query</li>
+</ul>
+<p>通常是比较费时的</p>
+<br>
+
+<h3 id="Division-using-NOT-EXISTS"><a href="#Division-using-NOT-EXISTS" class="headerlink" title="Division using NOT EXISTS"></a>Division using NOT EXISTS</h3><p>Find the names and customerIDs of customers who have an account in <strong>all branches</strong>.</p>
+<ul>
+<li>This is an example of a query that would use division, however, <strong>division is often not implemented in SQL</strong></li>
+<li>You can still compute it using NOT EXISTS or EXCEPT</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/set_op_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="UNIQUE-and-NOT-UNIQUE"><a href="#UNIQUE-and-NOT-UNIQUE" class="headerlink" title="UNIQUE and NOT UNIQUE"></a>UNIQUE and NOT UNIQUE</h2><p>The UNIQUE operator tests to see if there are no duplicate records in a query</p>
+<ul>
+<li>UNIQUE returns TRUE if no row appears twice in the answer to the sub-query.</li>
+<li>Two rows are equal if, for each attribute, the attribute values in one row equal the values in the second</li>
+<li>Also, if the sub-query contains only one row or is empty, UNIQUE returns true</li>
+</ul>
+<p>NOT UNIQUE tests to see if there are at least two identical rows in the sub-query</p>
+<p><img src="/Blog/intro/cmpt354/set_op_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Grouping-Aggregations"><a href="#Grouping-Aggregations" class="headerlink" title="Grouping Aggregations"></a>Grouping Aggregations</h2><p>Consider a query to find out how many accounts there are in each branch</p>
+<ul>
+<li>This requires that there are multiple counts, one for each branch</li>
+<li>In other words a series of aggregations, based on the value of the branch name</li>
+<li>Given the syntax shown so far this is not possible to achieve in one query</li>
+<li>But it is possible using the GROUP BY clause</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/set_op_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>Order Of Evaluation</p>
+<p>1.<strong>Create the Cartesian product</strong> of the tables in the <strong>FROM</strong> clause.</p>
+<p>2.<strong>Remove rows</strong> not meeting the <strong>WHERE</strong> condition.</p>
+<p>3.<strong>Remove columns</strong> not in the <strong>SELECT</strong> clause.</p>
+<p>4.<strong>Sort records into groups</strong> by the <strong>GROUP BY</strong> clause.</p>
+<p>5.<strong>Remove groups</strong> not meeting the <strong>HAVING</strong> clause.</p>
+<p>6.Create <strong>one row</strong> for each <strong>group</strong>.</p>
+<p>7.<strong>Eliminate duplicates</strong> if <strong>DISTINCT</strong> is specified</p>
+<br>
+
+<br>
+
+<h2 id="Price-Queries"><a href="#Price-Queries" class="headerlink" title="Price Queries"></a>Price Queries</h2><p><img src="/Blog/intro/cmpt354/set_op_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Applying-Other-Operations"><a href="#Applying-Other-Operations" class="headerlink" title="Applying Other Operations"></a>Applying Other Operations</h3><ul>
+<li>Apply other operations as Customer-Owns-Account (COA) records are computed, instead of writing out the entire COA relation and then reading it in again</li>
+<li>The selection and projection therefore do not require any additional disk reads or writes, since they are applied on the fly</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/set_op_24.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_25.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Equivalent-Query-Changes"><a href="#Equivalent-Query-Changes" class="headerlink" title="Equivalent Query Changes"></a>Equivalent Query Changes</h3><p>The new query makes two major changes:</p>
+<ul>
+<li><p>The selections and some preliminary projections occur before any relations are joined.</p>
+</li>
+<li><p>The Cartesian products are replaced with joins</p>
+</li>
+</ul>
+<p>Otherwise, the two are equivalent, computing the same result in different ways.</p>
+<ul>
+<li>The order in which the operations are performed, however, is very different</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/set_op_26.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_27.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Customer-Sub-Query-Cost"><a href="#Customer-Sub-Query-Cost" class="headerlink" title="Customer Sub-Query Cost"></a>Customer Sub-Query Cost</h3><p>We can follow a similar process for the Customer sub-query.</p>
+<ul>
+<li>At worst, the cost of the query is 10,000 blocks</li>
+</ul>
+<p>The size of the result depends on the size of each record and the number of Bobs.</p>
+<ul>
+<li>The first name condition is very selective, so let’s assume that just 0.01% of first names are Bobs.</li>
+<li>10 records on 1 disk block.</li>
+</ul>
+<h3 id="Estimated-Total-Cost"><a href="#Estimated-Total-Cost" class="headerlink" title="Estimated Total Cost"></a>Estimated Total Cost</h3><p>The estimated total cost of the new query is roughly equal to the sum of the table sizes.</p>
+<ul>
+<li>Account was scanned to perform a sub-query.</li>
+<li>Customer was scanned for its sub-query.</li>
+<li>At worst, the first join requires reading Owns once.</li>
+<li>Then joining the relatively small result of that join to Account</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/set_op_28.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/set_op_29.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Normal-Form"><a href="#Normal-Form" class="headerlink" title="Normal Form"></a>Normal Form</h2><h3 id="Desirable-DB-Qualities"><a href="#Desirable-DB-Qualities" class="headerlink" title="Desirable DB Qualities"></a>Desirable DB Qualities</h3><ul>
+<li><p>Minimal repetition of data</p>
+<ul>
+<li>避免inefficiency in space usage and data processing, as well as potential loss of data integrity caused by data inconsistencies.</li>
+<li>不使用foreign keys 来连接表</li>
+</ul>
+</li>
+<li><p>Lossless joins</p>
+<ul>
+<li>确保当两个table are joined, the appropriate data(and only that data) is returned.</li>
+</ul>
+</li>
+</ul>
+<p>例子:</p>
+<p><img src="/Blog/intro/cmpt354/normalize.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>Record data about accounts and who owns them.</p>
+<p>A customer can own multiple accounts and accounts can be owned by multiple customers</p>
+<ul>
+<li>Account &#x3D; [customerID, accNumber, balance, type]</li>
+</ul>
+<p>There are multiple rows for each account, making the table <strong>larger than it would be if account data was stored separately.</strong></p>
+<p>What happens if we want to add 10% to the balance of account owned by customer 13?</p>
+<p>其余的两个row不会受到影响, 但是他们也应该增长, 因为这三个是same account</p>
+<p><img src="/Blog/intro/cmpt354/normalize_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>Decompose就是将大table拆分为多个小table</p>
+<p><img src="/Blog/intro/cmpt354/normalize_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="如何得到理想的Database-Characteristics"><a href="#如何得到理想的Database-Characteristics" class="headerlink" title="如何得到理想的Database Characteristics"></a>如何得到理想的Database Characteristics</h3><p>一种方法是create an <strong>ERD</strong> that 严格遵循rules, 之后 把它转成relational database schema</p>
+<ul>
+<li>No composite attribute</li>
+<li>No set-valued attribute</li>
+<li>Relationship sets may only have descriptive attributes</li>
+</ul>
+<p>Another way is to perform a <strong>decomposition</strong> of the information required for the database</p>
+<ul>
+<li>确保 resulting tables satisfy one or more <strong>Normal Forms</strong></li>
+</ul>
+<p>Normal Form:</p>
+<p>In a nutshell, a <strong>Normal Form</strong> (developed alongside the original relational model) is a <strong>property a relation</strong> (table) in a relational database possesses if it meets particular rules, which in turn <strong>ensures certain qualities</strong></p>
+<p>有很多不同的 Normal Forms 每个都有different requirements and benfits</p>
+<p>This process of organizing a bunch of random data attributes in line with a Normal Form is called Database Normalization.</p>
+<br>
+
+<p>例子: Developing a Database for a Department’s Assets</p>
+<p>假设我们要developing 一个 small database to  record information about the use of a <strong>capital assets</strong> by <strong>departments</strong> of a company.</p>
+<ul>
+<li><p>The company has <strong>multiple departments</strong>, each of which can <strong>process multiple assets</strong></p>
+</li>
+<li><p><strong>Each asset</strong> may also be <strong>shared</strong> between <strong>multiple departments</strong>, and we might like to track how much each department is using each asset.</p>
+</li>
+</ul>
+<p>Outlining the Attributes</p>
+<ul>
+<li>每个 <strong>department</strong> has a <strong>unique name</strong>, as well as a <strong>manager</strong> with a <strong>SIN, phone extension</strong>, and <strong>name</strong> of their own.</li>
+<li>每个 asset 有一个 name 和一个 unique number 以及 purchase cost, date of purchase, type, Capital Cost Allowance class and depreciation rate.</li>
+</ul>
+<p>An asset’s <strong>depreciation</strong> rate and <strong>CCA</strong> are <strong>based on its type</strong></p>
+<br>
+
+<p>Outlining the attribute</p>
+<p>每个 <strong>department</strong> 有 <strong>unique name</strong>, as well as a <strong>manager</strong> with a <strong>SIN, phone extension</strong>, and <strong>name</strong> of their own.</p>
+<p><img src="/Blog/intro/cmpt354/normalize_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="First-Normal-Form"><a href="#First-Normal-Form" class="headerlink" title="First Normal Form"></a>First Normal Form</h3><p>在一张表中维护所有的数据, 但是<strong>remove repeating groups</strong></p>
+<ul>
+<li>Add rows for the repeated groups</li>
+<li>The table now has a <strong>compound primary key</strong>(e.g. department, assetNumber)</li>
+<li>This result in <strong>fixed-length records</strong><ul>
+<li>This <strong>reduces disk fragmentation</strong> and is compliant with the relational model which is required for most DBMS’s</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/normalize_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们在这里能用1NF吗?</p>
+<p>考虑下面schema:</p>
+<p>Department &#x3D; [<u>departemntName</u>, <u>assetNumber</u>, managerSIN, managerName, ManagerPhone, assetName, cost, purchaseDate, type, depreciation, cca, usage]</p>
+<p>The  table’s compound key means 每一行都代表一个instance of a department owning a particular asset</p>
+<p>每添加一个asset, 我们都需要重新 fill 所有 department information</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h4><p>Introduces redundancy</p>
+<ul>
+<li>Much of the data needs to be repeated. For example, all of the department data (like the manager’s name) would need to be repeatedfor each asset that a department owns</li>
+</ul>
+<p>This leads to <strong>Anomalies</strong></p>
+<ul>
+<li>Insert Anomalies</li>
+<li>Delete Anomalies</li>
+<li>Update Anomalies</li>
+</ul>
+<h4 id="Anomalies-Explored"><a href="#Anomalies-Explored" class="headerlink" title="Anomalies Explored"></a>Anomalies Explored</h4><ul>
+<li>Insert Anomalies<ul>
+<li>A <strong>department cannot be inserted</strong> if it doesn’t have <strong>at least one asset</strong>, because of the compound primary key.</li>
+</ul>
+</li>
+<li>Delete Anomalies<ul>
+<li><strong>Deleting the last asset</strong> of a department also <strong>deletes the department</strong></li>
+</ul>
+</li>
+<li>Update Anomalies<ul>
+<li><strong>Many records may have to be changed</strong> to change the value of <strong>one attribute</strong>, such as a change to the department manager’s phone number requiring every asset’s record to be updated</li>
+</ul>
+</li>
+</ul>
+<h3 id="Second-Normal-Form"><a href="#Second-Normal-Form" class="headerlink" title="Second Normal Form"></a>Second Normal Form</h3><p>1NF中 there are <strong>non-key attributes</strong> that depend on only <strong>part of the compound key.</strong></p>
+<p>remove those Partial-Key Dependencies.</p>
+<p>如果一组attributes only depends on <strong>part of</strong> the key, separate the attributes into a new table.</p>
+<p>In each table, each non&#x3D;key attribute should be dependent only on the entire primary key.</p>
+<p>This result in a <strong>Second Normal Form decomposition</strong></p>
+<p><img src="/Blog/intro/cmpt354/normalize_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p>可以使用2NF吗?</p>
+<p><img src="/Blog/intro/cmpt354/normalize_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>这个确实可行, 但是如果所有assets of the <strong>same type</strong> are supposed to have the <strong>same depreciation rate and CCA?</strong></p>
+<br>
+
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点:"></a>缺点:</h4><p>2NF 只考虑 partial key dependencies, 忽略了 non-key dependencies</p>
+<p>因此 2NF 同样遇到了和 1NF 一样的问题:</p>
+<ul>
+<li>Redundancy</li>
+<li>Insert, delete and update anomalies<ul>
+<li>For example, CCA rate and depreciation depend on asset type, but the type is not part of a primary key</li>
+</ul>
+</li>
+</ul>
+<h3 id="Third-Normal-Form"><a href="#Third-Normal-Form" class="headerlink" title="Third Normal Form"></a>Third Normal Form</h3><p>移除所有 non-key dependencies</p>
+<ul>
+<li>Remove the attributes with a non-key dependency from the table</li>
+<li><strong>Create a new table</strong> containing those attributes and the attribute(s) that they depend on, the latter being the <strong>primary key</strong> of the new table</li>
+</ul>
+<p>Third Normal Form decomposition:</p>
+<ul>
+<li>All records are <strong>fixed-length</strong></li>
+<li>There are <strong>no delete, insert, or update anomalies</strong></li>
+<li>There is <strong>very little redundancy</strong></li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/normalize_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><p>superkey 是一组attribute that <strong>uniquely identifies a record</strong></p>
+<ul>
+<li>Let R be the relation schema, subset $K$ of $R$ is a superkey if:<ul>
+<li>For all pairs $t_1$ and $t_2$ in R,  $t_1\ne t_2, t_1[K]\ne t_2[K]$</li>
+</ul>
+</li>
+</ul>
+<p>和Key不同, 一个 <strong>functional dependency</strong> is a <strong>constraint</strong> on any set of attributes</p>
+<ul>
+<li>Functional dependencies can assist us in <strong>achieving a desirable decomposition</strong></li>
+</ul>
+<br>
+
+<h3 id="Decomposition-Goals"><a href="#Decomposition-Goals" class="headerlink" title="Decomposition Goals:"></a>Decomposition Goals:</h3><ol>
+<li><strong>Lossless Join</strong><ul>
+<li>The decomposition should not result in a lossy join if <strong>tables</strong> are <strong>re-combined</strong></li>
+<li>A lossy join is a join where the resulting table <strong>includes data that should not exist.</strong></li>
+</ul>
+</li>
+<li><strong>Dependency Preservation</strong><ul>
+<li>If a set of attributes depends on an attribute, that dependency should be <strong>maintained in one table</strong>, to avoid having to join tables to test whether the data is correct</li>
+</ul>
+</li>
+<li><strong>No Redundancy</strong><ul>
+<li>A decomposition should contain a minimum amount of redundancy</li>
+<li>This goal is <strong>less important</strong> than the <strong>preceding two goals</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="Functional-Dependencies"><a href="#Functional-Dependencies" class="headerlink" title="Functional Dependencies"></a>Functional Dependencies</h3><p>A <strong>Functional Dependency</strong> is an <strong>integrity constraint(完整性约束)</strong> that <strong>generalizes</strong> the idea of a <strong>key</strong>.</p>
+<ul>
+<li>If $R$ is a relation and $X$ and $Y$ are sets of attributes of $R$, then an instance $r$ of $R$ satisfies the FD $X\to Y$ if<ul>
+<li>For all tuples $t_1, t_2$ in r if $t_1.X&#x3D;t_2.X$ then $t_1.Y&#x3D;t_2.Y$</li>
+<li>例如: $\text{type} \to cca$ depreciation, which states that cca and depreciation must be the same for any two assets that have the same type</li>
+</ul>
+</li>
+</ul>
+<p>A functional dependency is a statement about <strong>all possible legal instances of a relation</strong></p>
+<h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><p>We can <strong>test relations</strong> to see if they are <strong>legal</strong> under a given set of functional dependencies</p>
+<ul>
+<li>如果一个relationship R is legal under a set of functional dependencies F, then <strong>R satisfies F</strong></li>
+</ul>
+<p>To specify constraints on a set of legal relations:</p>
+<ul>
+<li>If a schema, R, is to be constrained so that it satisfies a set of FDs, F, then <strong>F holds on R</strong></li>
+</ul>
+<h3 id="FD-Example"><a href="#FD-Example" class="headerlink" title="FD Example:"></a>FD Example:</h3><p><img src="/Blog/intro/cmpt354/fd.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="FDs-and-Keys"><a href="#FDs-and-Keys" class="headerlink" title="FDs and Keys"></a>FDs and Keys</h3><p>primary key constraint 是一种FD的特例</p>
+<p>如果有FD: $X\to Y$ on R and $Y$ is the set of all attributes of R, <strong>then X is a superkey</strong></p>
+<ul>
+<li>X 可能不是candidate key(or a primary key)</li>
+<li>The definition of FD <strong>does not require</strong> that the set of attributes is <strong>minimal</strong></li>
+</ul>
+<h3 id="Reasoning-about-FDs"><a href="#Reasoning-about-FDs" class="headerlink" title="Reasoning about FDs"></a>Reasoning about FDs</h3><p>A set of FDs, F, can be identified for a relation by enquiring about the problem domain</p>
+<ul>
+<li>in other words, talk to your client</li>
+</ul>
+<p>Given a set of FDs, <strong>additional FDs can usually be identified</strong></p>
+<ul>
+<li>we say the additional FDs are <strong>implied by F</strong></li>
+</ul>
+<p>The <strong>set of all FDs implied by F</strong> is called the <strong>closure of F</strong>, denoted $F*$</p>
+<ul>
+<li>$F*$ can be calculate by repeatedly applying Armstrong’s Axiom’s to F.</li>
+</ul>
+<h3 id="Calculating-Closure-and-Cover"><a href="#Calculating-Closure-and-Cover" class="headerlink" title="Calculating Closure and Cover"></a>Calculating Closure and Cover</h3><p>A set of functional dependencies, F, can imply further FDs</p>
+<ul>
+<li>The set of all FDs implied by F is know as closure of $F$, or $F*$</li>
+<li>The minimal set of FDs from which F* can be calculated is know as the <strong>canonical cover</strong></li>
+</ul>
+<p>We can use axioms, or rules of inference, to reason about FDs</p>
+<ul>
+<li>Known as Armstrong’s Axioms</li>
+</ul>
+<h3 id="Armstrong’s-Axioms"><a href="#Armstrong’s-Axioms" class="headerlink" title="Armstrong’s Axioms"></a>Armstrong’s Axioms</h3><ul>
+<li>Reflexivity<ul>
+<li>IF $Y \subseteq X$ then $X\to Y$ (如果Y是X是子集)</li>
+</ul>
+</li>
+<li>Augmentation<ul>
+<li>If $X\to Y$ then $XZ\to YZ$ for any $Z$</li>
+<li>Note that $Z\to Z$<ul>
+<li>A functional dependency $X \to Y$ is referred to as trivial when $Y\subseteq X$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transitivity<ul>
+<li>If $X\to Y$ and $Y\to Z$ then $X\to Z$</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/fd_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/fd_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Decomposition"><a href="#Decomposition" class="headerlink" title="Decomposition"></a>Decomposition</h2><h3 id="Boyce-Codd-Normal-Form"><a href="#Boyce-Codd-Normal-Form" class="headerlink" title="Boyce Codd Normal Form"></a>Boyce Codd Normal Form</h3><p><strong>BCNF</strong> is a desirable normal form that can be found by <strong>identifying functional dependencies</strong></p>
+<ul>
+<li>BCNF <strong>eliminates all redundancy</strong> that can be discovered by studying a set of FDs, although BCNF <strong>ignores multi-valued dependencies</strong></li>
+<li>Generally, <strong>BCNF is preferable to 3NF</strong></li>
+</ul>
+<p><strong>3NF allow some redundancy</strong></p>
+<br>
+
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>Boyce-Codd Normal Form is <strong>defined</strong> in terms of <strong>functional dependencies</strong></p>
+<p>A relational schema, $R$ is in BCNF with respect to a set of FDs F if</p>
+<p>for all FDs in $F*$ of the form $X \to Y$  where $X\subseteq R, Y\subseteq R$</p>
+<ul>
+<li>at least one of the following holds:<ol>
+<li>$X\to Y$ is trivial (i.e. $Y\subseteq X$ or $[name] \to [name]$)</li>
+<li>X is a super key for $R$</li>
+</ol>
+</li>
+</ul>
+<h3 id="Third-Normal-Form-Definition"><a href="#Third-Normal-Form-Definition" class="headerlink" title="Third Normal Form Definition"></a>Third Normal Form Definition</h3><p>A relational schema, $R$, is in 3NF with respect to a <strong>set of FDs</strong>, $F$, if:</p>
+<ul>
+<li>For all FDs in $F*$ of the form $X\to Y$ where $X\subseteq R$ and $Y \subseteq R$</li>
+<li>At least one of the following holds:<ol>
+<li>$X\to Y$ is trivial (e.g. $Y\subseteq X$)</li>
+<li>X is a superkey for R</li>
+<li>$(Y-X)$ is contained in a <strong>candidate key for R</strong></li>
+</ol>
+</li>
+</ul>
+<br>
+
+<p>3NF 和 BCNF 唯一的区别就是最后一个condiiton</p>
+<br>
+
+<h3 id="BCNF-Description"><a href="#BCNF-Description" class="headerlink" title="BCNF Description"></a>BCNF Description</h3><p>In a <strong>BCNF decompposition</strong>, the only FDs are those where <strong>the key of the table determines attributes</strong>(except for trival dependencies)</p>
+<p>Each <strong>table</strong> represents either an entity set or a relationship set identified by the key and described by the <strong>remaining attributes</strong></p>
+<p>A <strong>database design</strong> is in <strong>BCNF</strong> if <strong>each table schema</strong> is in <strong>BCNF</strong></p>
+<br>
+
+<p>Assume that there is some schema $R$ and a non-trivial dependency $X \to Y$ which causes a violation of BCNF</p>
+<ul>
+<li>This is because $X$ is not a key for the entire table (R)</li>
+</ul>
+<p>R should be decomposed into $(X \cup Y)$ and $(R-(Y-X))$</p>
+<p>e.g.: <code>Asset = &#123;assetNumber, assetName, cost, purchaseDate, type, depreciation, cca&#125;</code></p>
+<p>where <code>(type -&gt; type, cca, depreciation)</code></p>
+<p>Decompose Asset into:</p>
+<ul>
+<li><code>[type, cca, depreciation]</code> and</li>
+<li><code>[Asset- (type, cca, depreciation - type)]</code><ul>
+<li>i.e. <code>[assetNumber, assetName, cost, purchaseDate, type]</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/bcnf.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/bcnf_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Lossless-Join-Decompositions"><a href="#Lossless-Join-Decompositions" class="headerlink" title="Lossless Join Decompositions"></a>Lossless Join Decompositions</h3><p>Consider decomposing a relation schema $R$​, with a set of FDs, $F$, into two relations,$ X$ and $Y$</p>
+<ul>
+<li>如果original relation 可以被 recovered by joining X and Y, it is <strong>lossless-join decomposition</strong> with respect to F.</li>
+</ul>
+<p>A decomposition is <strong>only lossless if and only if</strong> $F^+$ contains either $X\cap Y \to X$ or $X\cap Y \to Y$</p>
+<p>例如: the attribute common to $X$ and $Y$​ must contain a key for either X or Y</p>
+<p><img src="/Blog/intro/cmpt354/example.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Dependency-Preserving-Decompositions"><a href="#Dependency-Preserving-Decompositions" class="headerlink" title="Dependency-Preserving Decompositions"></a>Dependency-Preserving Decompositions</h3><p>Consider decomposing a relation schema $R$, with a set of FDs, $F$, into two relations,$ X$ and $Y$</p>
+<ul>
+<li>The projection of $F$​, $F_x$​, on X is the set of FDs in $F^+$​​ that <strong>only involve attributes of X</strong><ul>
+<li>A FD $A\to B$​ is only in $F_x$ if all the attributes of A and B are in X</li>
+</ul>
+</li>
+</ul>
+<p>A decomposition of $R$​ is <strong>dependency preserving</strong> if $(F_x\cup F_y)^+ &#x3D; F^+$​</p>
+<p>if that is the case, then only the dependencies of Fx and Fy need to be enforced, as all the FDs in $F^+$ will be satisfied.</p>
+<br>
+
+<h3 id="Schema-Refinement"><a href="#Schema-Refinement" class="headerlink" title="Schema Refinement"></a>Schema Refinement</h3><p>In practice, a database designer usually uses an <strong>ER diagram</strong> (or something similar) for an initial design</p>
+<p>Ideally, a <strong>good ER design</strong> should lead to a <strong>collection of tables with no redundancy problem</strong></p>
+<ul>
+<li>ER design is complex and subjective, and certain constraints cannot be expressed in ER diagrams</li>
+</ul>
+<p>A decomposition derived from an ER diagram <strong>may need further refinement</strong>, to ensure that it is in 3NF or BCNF.</p>
+<br>
+
+<h3 id="Constraints-on-Entity-Sets"><a href="#Constraints-on-Entity-Sets" class="headerlink" title="Constraints on Entity Sets"></a>Constraints on Entity Sets</h3><p>当创建ERDs 时, 很容易miss dependencies within an entity set.</p>
+<p>The problem becomes particularly relevant in practice when designing larger schemas</p>
+<ul>
+<li>现实中很多databases 有成百上千的tables, and still only roughly approximate reality</li>
+</ul>
+<p>A correct ERD would <strong>create additional entity sets for the dependencies</strong></p>
+<p>这就是为什么FDs以及database design的知识非常重要</p>
+<br>
+
+<h3 id="Identifying-Attributes"><a href="#Identifying-Attributes" class="headerlink" title="Identifying Attributes"></a>Identifying Attributes</h3><p><strong>Identifying FDs</strong> can make it easier to <strong>associate attributes</strong> with the <strong>correct entity set</strong></p>
+<ul>
+<li>一些情况下, attribute may associated with the wrong entity set</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/decomp.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/decomp_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/decomp_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/decomp_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Other-Normal-Forms"><a href="#Other-Normal-Forms" class="headerlink" title="Other Normal Forms"></a>Other Normal Forms</h3><p>Further normal forms exist which deal with issues <strong>not covered by functional dependencies</strong></p>
+<p><strong>Forth Normal Form</strong> deals with multi-valued dependencies.</p>
+<ul>
+<li>There is a 4NF decomposition algorithm similar to the BCNF decomposition algorithm, and a set of rules for inferring additional MVDs</li>
+</ul>
+<p><strong>Fifth Normal Form</strong> addresses even more complex and rare situations where 4NF is not sufficient</p>
+ <br>
+
+<br>
+
+<p><img src="/Blog/intro/cmpt354/decomp_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/decomp_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><h3 id="Primary-and-Candidate-Key-Constraints"><a href="#Primary-and-Candidate-Key-Constraints" class="headerlink" title="Primary and Candidate Key Constraints"></a>Primary and Candidate Key Constraints</h3><ul>
+<li>Every table should have a <strong>primary key</strong></li>
+<li>A primary key constraint specifies that:<ul>
+<li>The attributes of the primary key <strong>cannot be null</strong></li>
+<li>The primary key <strong>must be unique</strong></li>
+</ul>
+</li>
+<li><strong>Violating a primary key</strong> causes the violating update or insertion to be <strong>rejected</strong></li>
+<li>其余的candidate keys 可以用 UNIQUE</li>
+</ul>
+<br>
+
+<h3 id="Foreign-Key-Constraints"><a href="#Foreign-Key-Constraints" class="headerlink" title="Foreign Key Constraints"></a>Foreign Key Constraints</h3><p><img src="/Blog/intro/cmpt354/decomp_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/decomp_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/intro/cmpt354/decomp_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/decomp_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="General-Constraints"><a href="#General-Constraints" class="headerlink" title="General Constraints"></a>General Constraints</h3><p>A general or table constraint is a <strong>constraint over a single table</strong></p>
+<ul>
+<li>included in a table’s <code>CREATE TABLE</code> statement</li>
+<li>Table constraints <strong>may refer to other tables</strong></li>
+</ul>
+<p>Defined with the <strong>CHECK</strong> keyword followed by a <strong>description of the constraint</strong>.</p>
+<ul>
+<li>The constraint description is a <strong>Boolean expression</strong>, evaluating to true or false</li>
+<li>If the condition evaluates to <strong>false</strong>, the update is <strong>rejected</strong></li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/constrain.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="User-Defined-Functions"><a href="#User-Defined-Functions" class="headerlink" title="User-Defined Functions"></a>User-Defined Functions</h3><p><img src="/Blog/intro/cmpt354/constrain_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Domain-Constraints"><a href="#Domain-Constraints" class="headerlink" title="Domain Constraints"></a>Domain Constraints</h3><p><img src="/Blog/intro/cmpt354/constrain_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="SQL-Triggers-and-Indexes"><a href="#SQL-Triggers-and-Indexes" class="headerlink" title="SQL Triggers and Indexes"></a>SQL Triggers and Indexes</h3><h4 id="Assertions"><a href="#Assertions" class="headerlink" title="Assertions"></a>Assertions</h4><p><strong>Table constraint</strong> apply to <strong>only one</strong> table</p>
+<p><strong>Assertions</strong> are constraints that are <strong>separate from CREATE TABLE</strong> statements</p>
+<ul>
+<li>Similar to <strong>domain constraints</strong> they are separate statements in the database schema</li>
+<li>Assertions are <strong>tested</strong> whenever the database is updated. Therefore, they may introduce <strong>significant overhead</strong></li>
+</ul>
+<p>Transact-SQL (MS SQL) <strong>does not implement assertions</strong></p>
+<p><img src="/Blog/intro/cmpt354/constrain_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Trigger"><a href="#Trigger" class="headerlink" title="Trigger"></a>Trigger</h4><p><img src="/Blog/intro/cmpt354/constrain_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/constrain_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="After-Trigger-Order"><a href="#After-Trigger-Order" class="headerlink" title="After Trigger Order"></a>After Trigger Order</h4><p>After triggers only fire after <strong>referential cascade action</strong> and <strong>constraints checks</strong></p>
+<ul>
+<li>Such constraints checks must succeed, otherwise the transaction would not take place</li>
+</ul>
+<p>Specifically, the order is:</p>
+<ol>
+<li>Enforce constraints</li>
+<li>Enforce foreign key constraints</li>
+<li>Create inserted and deleted tables</li>
+<li>Executing the triggering statement</li>
+<li>Execute after trigger</li>
+</ol>
+<h4 id="Trigger-Actions"><a href="#Trigger-Actions" class="headerlink" title="Trigger Actions"></a>Trigger Actions</h4><p><img src="/Blog/intro/cmpt354/trigger.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Trigger-Conditions"><a href="#Trigger-Conditions" class="headerlink" title="Trigger Conditions"></a>Trigger Conditions</h4><p><img src="/Blog/intro/cmpt354/trigger_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Inserted-and-Deleted"><a href="#Inserted-and-Deleted" class="headerlink" title="Inserted and Deleted"></a>Inserted and Deleted</h4><p>When a table is changed, <strong>temporary tables</strong> are created containing the changed data.</p>
+<ul>
+<li>The <strong>inserted table</strong> contains records that were <strong>inserted</strong> by a transaction</li>
+<li>The <strong>deleted table</strong> contains records that were <strong>removed</strong> by a transaction</li>
+<li>If a table is updated, the inserted table contains the <strong>new rows</strong> and the <strong>deleted table</strong> cantains the <strong>old rows</strong></li>
+</ul>
+<br>
+
+<p><img src="/Blog/intro/cmpt354/trigger_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Trigger-Summary"><a href="#Trigger-Summary" class="headerlink" title="Trigger Summary"></a>Trigger Summary</h4><p>Triggers can be used for many purposes</p>
+<ul>
+<li>enforcing <strong>bussiness rules</strong></li>
+<li>Adding <strong>functionality</strong> to the database</li>
+<li>…</li>
+</ul>
+<p>Triggers do carry <strong>overhead</strong></p>
+<ul>
+<li>Constraints should be enforced by <strong>PKs, FKs</strong> and simple <strong>check constraints</strong> where possible</li>
+<li>Trigger 应该尽可能高效</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="Introduction-to-Indexes"><a href="#Introduction-to-Indexes" class="headerlink" title="Introduction to Indexes"></a>Introduction to Indexes</h3><p>A <strong>Index</strong> is a data structure that provides <strong>efficient access to records</strong></p>
+<ul>
+<li>Based on the value of one or more attributes</li>
+<li>An index on a database is conceptually similar to an <strong>index at the back of a book</strong><ul>
+<li>The index provides data to <strong>efficiently locate a record in a table</strong>, without reading the entire thing.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h4 id="Table-Scans"><a href="#Table-Scans" class="headerlink" title="Table Scans"></a>Table Scans</h4><p>Database tables are typically resident on secondary storage. such as hard drives</p>
+<ul>
+<li>A table may be too large to fit in main memory</li>
+</ul>
+<p>寻找record最基本的方法是 <strong>read the table from disk</strong></p>
+<p>这需要扫描整个table, 这是非常低效的, 只为了获取一两个records而扫描整个table</p>
+<br>
+
+<p>An index is a <strong>secondary data structure that maps attribute values to record IDs</strong></p>
+<ul>
+<li>A record ID contains the disk address of a record<ul>
+<li>Indexes typically allow records to be looked up with a handful of disk reads</li>
+</ul>
+</li>
+<li>Typically OLTP(online transactional processing) database indexes are variations of two data structures:<ol>
+<li>Hash tables</li>
+<li>(Binary) search trees</li>
+</ol>
+</li>
+</ul>
+<br>
+
+<h4 id="Hash-Indexes"><a href="#Hash-Indexes" class="headerlink" title="Hash Indexes"></a>Hash Indexes</h4><p>A <strong>Hash index</strong> is a hash table where the <strong>hash function maps attribute values to record IDs</strong></p>
+<ul>
+<li>Hash indexes are very fast, 一般只需要1次或两次 disk read</li>
+</ul>
+<p>A good hash function is <strong>uniform</strong> and <strong>random</strong></p>
+<ul>
+<li>Therefore, we cannot map a range of attribute values to related locations in the hash table</li>
+<li>That means we can’t use hash indexes for range searches</li>
+</ul>
+<h3 id="Tree-Indexes"><a href="#Tree-Indexes" class="headerlink" title="Tree Indexes"></a>Tree Indexes</h3><p>A Tree index direct searches in much the same way as a binary search tree</p>
+<ul>
+<li>in practice database 不使用 BST</li>
+<li>而是使用B tree(或B+tree) 是一个 n-ary tree structure</li>
+</ul>
+<p>Tree indexes are <strong>not as fast as hash indexes</strong>, but <strong>do support range searches</strong></p>
+<br>
+
+<h3 id="Clustered-Indexes"><a href="#Clustered-Indexes" class="headerlink" title="Clustered Indexes"></a>Clustered Indexes</h3><p>A database table may be supported by a number of indexes</p>
+<ul>
+<li>one (and only one) of these indexes can be a clustered index</li>
+</ul>
+<p>A clustered index is one where the underlying data file is sorted on the <strong>index search key</strong></p>
+<ul>
+<li>That is, the <strong>attribute</strong> used to <strong>look up index entries</strong></li>
+<li>Clustered indexes provide <strong>much more support for range queries</strong> than un-clustered indexes, provided that the index is tree index</li>
+</ul>
+<br>
+
+<h3 id="There’s-No-such-Thing-As-A-Free-Lunch"><a href="#There’s-No-such-Thing-As-A-Free-Lunch" class="headerlink" title="There’s No such Thing As A Free Lunch"></a>There’s No such Thing As A Free Lunch</h3><p>Indexes increase the efficiency of operations requiring look-up of attribute values</p>
+<p>However, there is a cost to maintaining indexes</p>
+<ul>
+<li>Every <strong>insertion</strong> and <strong>deletion requires modification of each index</strong> on the table</li>
+<li><strong>Updates</strong> may require modification of indexes</li>
+</ul>
+<h3 id="Which-Attribute"><a href="#Which-Attribute" class="headerlink" title="Which Attribute?"></a>Which Attribute?</h3><p>Database tables 支持 multiple indexes</p>
+<ul>
+<li>with single attributes search keys or…</li>
+<li>Compound(multi-attribute) search keys</li>
+</ul>
+<p>The database administrator is responsible for determining which indexes to create.</p>
+<ul>
+<li>This requires <strong>analyzing workloads</strong></li>
+<li>Modern DBMS’s have tool to aid in determining which indexes are appropriate for a table, called <strong>Index Tuning</strong></li>
+</ul>
+<br>
+
+<h3 id="Database-Programming"><a href="#Database-Programming" class="headerlink" title="Database Programming"></a>Database Programming</h3><p>Users <strong>do not usually interact directly</strong> with a database via the DBMS</p>
+<ul>
+<li>The DBMS provides a “back-end” that stores the data on a database server</li>
+</ul>
+<p>A <strong>separate application</strong> is built on top of the database in a general purpose programming language</p>
+<ul>
+<li>This application can <strong>retrieve and manipulate data</strong> from the database as necessary</li>
+</ul>
+<h3 id="Application-Types"><a href="#Application-Types" class="headerlink" title="Application Types"></a>Application Types</h3><p><img src="/Blog/intro/cmpt354/trigger_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Accessing-a-Database"><a href="#Accessing-a-Database" class="headerlink" title="Accessing a Database"></a>Accessing a Database</h3><p><img src="/Blog/intro/cmpt354/trigger_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Embedding-SQL"><a href="#Embedding-SQL" class="headerlink" title="Embedding SQL"></a>Embedding SQL</h3><p><img src="/Blog/intro/cmpt354/trigger_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="SQL-Statement-Status"><a href="#SQL-Statement-Status" class="headerlink" title="SQL Statement Status"></a>SQL Statement Status</h3><p><img src="/Blog/intro/cmpt354/trigger_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Cursor-Introduction"><a href="#Cursor-Introduction" class="headerlink" title="Cursor Introduction"></a>Cursor Introduction</h3><p><img src="/Blog/intro/cmpt354/trigger_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/trigger_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Database-Connections"><a href="#Database-Connections" class="headerlink" title="Database Connections"></a>Database Connections</h3><p>A <strong>database connection</strong> allows a database server and client software to <strong>communicate</strong></p>
+<ul>
+<li>The client uses the connection to <strong>send commands</strong> and <strong>receive replies</strong> from the database server</li>
+</ul>
+<p>Connections are built by supplying a <strong>driver</strong> with a <strong>connection string</strong></p>
+<ul>
+<li>The connection string gives the address of the database</li>
+</ul>
+<br>
+
+<h4 id="Making-a-Connection"><a href="#Making-a-Connection" class="headerlink" title="Making a Connection"></a>Making a Connection</h4><p>It is common for an application program to run on a <strong>different machine than the database</strong></p>
+<p>The application has to:</p>
+<ul>
+<li>Open a connection to the database<ul>
+<li>This entails specifying the URL of the server’s machine and providing <strong>login information</strong></li>
+</ul>
+</li>
+<li>Once the connection is made, the program can <strong>interact with the database</strong></li>
+<li>The connection should be <strong>close when finished</strong></li>
+</ul>
+<br>
+
+<h4 id="Multiple-Database-Connectivity"><a href="#Multiple-Database-Connectivity" class="headerlink" title="Multiple Database Connectivity"></a>Multiple Database Connectivity</h4><p>Embedded SQL programs allow the <strong>same source code</strong> to be compiled work with <strong>different DBMS’s</strong></p>
+<ul>
+<li>However, the embedded SQL calls are translated into host language functions by a <strong>DBMS-specific preprocessor</strong></li>
+<li>Therefore, the final executable code <strong>only works with one DBMS</strong></li>
+</ul>
+<p>Various APIs allow a single executable to access different DBMS’s <strong>without recompilation</strong></p>
+<ul>
+<li>例如 ODBC and JDBC</li>
+</ul>
+<br>
+
+<h4 id="ODBC-and-JDBC"><a href="#ODBC-and-JDBC" class="headerlink" title="ODBC and JDBC"></a>ODBC and JDBC</h4><p>ODBC and JDBC integrate SQL with programming languages</p>
+<ul>
+<li>OCBC : Open Database Connectivity</li>
+<li>JDBC : A sun trademark (not Java Database Connectivity)</li>
+</ul>
+<p>The integration is through an API and allows:</p>
+<ul>
+<li>Access to different DBMS’s without recompilation</li>
+<li>Simultaneous access to several different DBMS’s</li>
+</ul>
+<p>Achieved by introducing an <strong>extra level of indirection</strong></p>
+<ul>
+<li>A <strong>DBMS-specific driver</strong> interacts with the DBMS</li>
+<li>The drivers are loaded dynamically on demand</li>
+</ul>
+<br>
+
+<h4 id="ODBC-Components"><a href="#ODBC-Components" class="headerlink" title="ODBC Components"></a>ODBC Components</h4><p>The <strong>Application</strong> starts and ends connection with the database</p>
+<p>The <strong>Driver Manager</strong> loads ODBC drivers and passes calls to the appropriate driver.</p>
+<p>The <strong>Driver</strong> makes a connection to the <strong>Data Source</strong> and translates the data source and the ODBC standard</p>
+<p>The database <strong>processes commands</strong> from the driver and <strong>returns the result</strong></p>
+<br>
+
+<h5 id="Making-a-Connection-1"><a href="#Making-a-Connection-1" class="headerlink" title="Making a Connection"></a>Making a Connection</h5><p>First, create an ODBC (Open Database Connectivity) data source</p>
+<ul>
+<li>In windows, use <strong>Windows Data Source Administrator</strong></li>
+</ul>
+<p>The <strong>data source</strong> itself would be your SQL database with ODBC providing the <strong>connection interface</strong></p>
+<p>The connection method <strong>vary be language and implementation</strong></p>
+<ul>
+<li>Depending on your choice of language and compiler, there may be library classes to assist with connecting (e.g. the Microsoft Foundation Classes CRecordSet classes)</li>
+<li>In addition, the IDE may provide support for database applications</li>
+</ul>
+<br>
+
+<h4 id="JDBC-Components"><a href="#JDBC-Components" class="headerlink" title="JDBC Components"></a>JDBC Components</h4><p>Like ODBC, the JDBC API has four main components</p>
+<ul>
+<li>Application</li>
+<li>Driver manager</li>
+<li>Data source specific drivers</li>
+<li>Data source</li>
+</ul>
+<p>There are <strong>different types of JDBC drivers,</strong> dependent on the <strong>relationship</strong> between the <strong>application</strong> and the <strong>source data</strong></p>
+<br>
+
+<h4 id="JDBC-Classes-and-Interfaces"><a href="#JDBC-Classes-and-Interfaces" class="headerlink" title="JDBC Classes and Interfaces"></a>JDBC Classes and Interfaces</h4><p>JDBC contains classes and interfaces that support</p>
+<ul>
+<li>Connecting to a remote data source</li>
+<li>Executing SQL statements</li>
+<li>Transaction management</li>
+<li>Exception handling</li>
+</ul>
+<h4 id="Stored-Procedures"><a href="#Stored-Procedures" class="headerlink" title="Stored Procedures"></a>Stored Procedures</h4><p>A Stored Procedure is a <strong>program executed with a single SQL statement</strong></p>
+<ul>
+<li>The procedure is <strong>executed at the database server,</strong> and the result of the stored procedure can then be <strong>returned to the application</strong> (if needed)</li>
+</ul>
+<p>This contracts the use of Cursors which may require that the database is locked while the cusor is in use.</p>
+<p>DBMS resources (e.g. looks and memory) may be tied up while an application is <strong>processing records retrieved by a cursor</strong></p>
+<p>Stored procedures are beneficial for <strong>software engineering reasons</strong></p>
+<br>
+
+<h4 id="Benefits-of-Stored-Procedures"><a href="#Benefits-of-Stored-Procedures" class="headerlink" title="Benefits of Stored Procedures"></a>Benefits of Stored Procedures</h4><p><img src="/Blog/intro/cmpt354/sp.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Stored-Procedure-Support"><a href="#Stored-Procedure-Support" class="headerlink" title="Stored Procedure Support"></a>Stored Procedure Support</h4><p><img src="/Blog/intro/cmpt354/sp_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h3 id="Database-Programming-1"><a href="#Database-Programming-1" class="headerlink" title="Database Programming"></a>Database Programming</h3><h4 id="Architectures"><a href="#Architectures" class="headerlink" title="Architectures"></a>Architectures</h4><ol>
+<li>Single Tier<ul>
+<li>Basic, old-fashioned approach</li>
+</ul>
+</li>
+<li>Two Tier<ul>
+<li>Client-Server architecture</li>
+</ul>
+</li>
+<li>Three (and multi) Tier<ul>
+<li>Used for many web systems</li>
+<li>Very scalable</li>
+</ul>
+</li>
+</ol>
+<h4 id="Single-Tier-Architecture"><a href="#Single-Tier-Architecture" class="headerlink" title="Single Tier Architecture"></a>Single Tier Architecture</h4><p>Database applications used to be on a single tier containing</p>
+<ul>
+<li>The database management system</li>
+<li>Application logic and business rules</li>
+<li>User interface</li>
+</ul>
+<p>Typically, such application ran on a <strong>mainframe</strong>, and were accessed by users through <strong>dumb terminals.</strong></p>
+<p>Dumb terminals do not have the computational power to support a GUI, while centralizing computation of GUI, while centralizing computation of GUIs makes it impossible for a single server to support thousands of users.</p>
+<br>
+
+<h4 id="Client-Server-Architecture"><a href="#Client-Server-Architecture" class="headerlink" title="Client-Server Architecture"></a>Client-Server Architecture</h4><p>Two-tier architectures consist of client and server computers</p>
+<ul>
+<li><strong>Clients</strong> typically implement the <strong>GUI</strong><ul>
+<li>Referred to as thin clients, e.g. streaming services like Netflix</li>
+<li>Server implements the business logic and data management</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt354/sp_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Thin-vs-Thick-Clients"><a href="#Thin-vs-Thick-Clients" class="headerlink" title="Thin vs Thick Clients"></a>Thin vs Thick Clients</h4><p>A <strong>thick client</strong> is one where the client software implements the UI and part of the <strong>business logic</strong></p>
+<ul>
+<li>For example, video games</li>
+</ul>
+<p>Thick clients are <strong>less common for OLTP</strong></p>
+<ul>
+<li><strong>No central place</strong> to update and maintain the business logic</li>
+<li>The server must trust that the client application code will run correctly(and not be tampered with)</li>
+<li>Thick clients <strong>do not scale well</strong><ul>
+<li>More communication is needed between the application and the server than between the UI and the application</li>
+</ul>
+</li>
+</ul>
+<h4 id="Clients"><a href="#Clients" class="headerlink" title="Clients"></a>Clients</h4><p>Clients are <strong>not responsible for data processing.</strong></p>
+<ul>
+<li>They request input from the users, pass that on as requests to the server, then analyze and present the results to the user</li>
+</ul>
+<p>Clients are not dependent on the <strong>location of data</strong></p>
+<p>Clients can be optimized for the <strong>presentation of the data</strong>, with options to present the data differently depending on the client’s processor</p>
+<br>
+
+<h4 id="Three-Tier-Architecture"><a href="#Three-Tier-Architecture" class="headerlink" title="Three-Tier Architecture"></a>Three-Tier Architecture</h4><p>The thin-client <strong>two-tier</strong> architecture <strong>separates presentation</strong> from the rest of the application</p>
+<p>Three-tier architecture further <strong>separates the application logic</strong> from the <strong>data management</strong></p>
+<p><img src="/Blog/intro/cmpt354/sp_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Presentation-Layer"><a href="#Presentation-Layer" class="headerlink" title="Presentation Layer"></a>Presentation Layer</h4><p>Responsible for handling the <strong>user’s interactions</strong> with the <strong>middle tier</strong></p>
+<ul>
+<li>One application may have multiple versions that correspond to different interfaces.</li>
+</ul>
+<p>The presentation layer itself <strong>may be further broken up into layers</strong></p>
+<h4 id="Style-Sheets"><a href="#Style-Sheets" class="headerlink" title="Style Sheets"></a>Style Sheets</h4><p><img src="/Blog/intro/cmpt354/sp_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Business-Logic-Layer"><a href="#Business-Logic-Layer" class="headerlink" title="Business Logic Layer"></a>Business Logic Layer</h4><p><img src="/Blog/intro/cmpt354/sp_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Data-Management-Layer"><a href="#Data-Management-Layer" class="headerlink" title="Data Management Layer"></a>Data Management Layer</h4><p><img src="/Blog/intro/cmpt354/sp_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Three-Tier-Advantages"><a href="#Three-Tier-Advantages" class="headerlink" title="Three-Tier Advantages"></a>Three-Tier Advantages</h4><p><img src="/Blog/intro/cmpt354/sp_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="Web-Databases"><a href="#Web-Databases" class="headerlink" title="Web Databases"></a>Web Databases</h4><p><img src="/Blog/intro/cmpt354/sp_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt354/sp_21.PNG" srcset="/img/loading.gif" lazyload></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/14/Principles-of-Compiler-Design/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Principles of Compiler Design</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/29/FFT/">
+                        <span class="hidden-mobile">FFT</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

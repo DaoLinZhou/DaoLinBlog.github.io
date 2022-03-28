@@ -1,0 +1,817 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="python3 实用编程技巧进阶笔记(一)  数据结构与算法相关 字符串相关 对象迭代与反迭代相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3编程技巧(一)">
+<meta property="og:url" content="http://example.com/2019/09/27/python3-skills-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="python3 实用编程技巧进阶笔记(一)  数据结构与算法相关 字符串相关 对象迭代与反迭代相关">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Blog/intro/format.PNG">
+<meta property="article:published_time" content="2019-09-27T08:17:21.000Z">
+<meta property="article:modified_time" content="2019-10-12T02:52:55.892Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/Blog/intro/format.PNG">
+  
+  
+  <title>python3编程技巧(一) - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python3编程技巧(一)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-27 01:17" pubdate>
+        September 27, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python3编程技巧(一)</h1>
+            
+            <div class="markdown-body">
+              <p>python3 实用编程技巧进阶笔记(一)</p>
+<ol>
+<li>数据结构与算法相关</li>
+<li>字符串相关</li>
+<li>对象迭代与反迭代相关</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="数据结构与算法相关"><a href="#数据结构与算法相关" class="headerlink" title="数据结构与算法相关"></a>数据结构与算法相关</h1><br>
+
+<h2 id="在列表-字典-集合中筛选元素"><a href="#在列表-字典-集合中筛选元素" class="headerlink" title="在列表, 字典, 集合中筛选元素"></a>在列表, 字典, 集合中筛选元素</h2><p>建议使用解析的方式而不是过滤器</p>
+<br>
+
+<p><strong>原始方法</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data = [-<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, -<span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">res = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> x &gt; <span class="number">0</span>:</span><br><span class="line">        res.append(x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>列表解析</strong> 和 过滤器方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="comment"># _ 和 i一样是变量名, 但是用_可以明确代表我们没有用到它, </span></span><br><span class="line"><span class="comment"># 生成size为 10 的列表, 元素取值在[-10, 10]之间</span></span><br><span class="line">l = [randint(-<span class="number">10</span>, <span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表解析</span></span><br><span class="line">res = [x <span class="keyword">for</span> x <span class="keyword">in</span> l <span class="keyword">if</span> x &gt;= <span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 过滤器方式</span></span><br><span class="line">g = <span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x &gt;= <span class="number">0</span>, l)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(g))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>字典解析</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成随机字典</span></span><br><span class="line">d = &#123;<span class="string">&#x27;student%d&#x27;</span> % i: randint(<span class="number">50</span>, <span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">20</span>)&#125;</span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典解析</span></span><br><span class="line">res = &#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> d.items() <span class="keyword">if</span> v &gt;= <span class="number">90</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 过滤器</span></span><br><span class="line">g = <span class="built_in">filter</span>(<span class="keyword">lambda</span> item: item[<span class="number">1</span>] &gt;= <span class="number">90</span>, d.items())</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>(g))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>集合解析</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成随机集合</span></span><br><span class="line">s = &#123;randint(<span class="number">0</span>, <span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合解析</span></span><br><span class="line">res = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> s <span class="keyword">if</span> x % <span class="number">3</span> == <span class="number">0</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="如何为元组的元素命名"><a href="#如何为元组的元素命名" class="headerlink" title="如何为元组的元素命名"></a>如何为元组的元素命名</h2><br>
+
+<p><strong>正常情况下使用元组</strong></p>
+<p>需要使用数字下标进行访问, 可读性差</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xxx_func</span>(<span class="params">student</span>):</span><br><span class="line">    <span class="keyword">if</span> student[<span class="number">1</span>] &lt; <span class="number">18</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> student[<span class="number">2</span>] == <span class="string">&#x27;male&#x27;</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">student = (<span class="string">&#x27;Jim&#x27;</span>, <span class="number">16</span>, <span class="string">&#x27;male&#x27;</span>, <span class="string">&#x27;jim@qq.com&#x27;</span>)</span><br><span class="line">xxx_func(student)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>第一种解决方案</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1, 声明常量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过拆包自动赋值0-3</span></span><br><span class="line">NAME, AGE, SEX, EMAIL = <span class="built_in">range</span>(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>第二种解决方案</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法2 使用枚举类</span></span><br><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> IntEnum</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">StudentEnum</span>(<span class="title class_ inherited__">IntEnum</span>):</span><br><span class="line">    NAME = <span class="number">0</span></span><br><span class="line">    AGE = <span class="number">1</span></span><br><span class="line">    SEX = <span class="number">2</span></span><br><span class="line">    EMAIL = <span class="number">3</span></span><br><span class="line">    </span><br><span class="line">StudentEnum.NAME</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>第三种解决方案</strong>    (推荐)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法3 使用内置命名元组</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"></span><br><span class="line">Student = namedtuple(<span class="string">&#x27;Student&#x27;</span>, [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;sex&#x27;</span>, <span class="string">&#x27;email&#x27;</span>])</span><br><span class="line">s2 = Student(<span class="string">&#x27;Jim&#x27;</span>, <span class="number">16</span>, <span class="string">&#x27;male&#x27;</span>, <span class="string">&#x27;jim@qq.com&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(s2.name)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="为字典排序"><a href="#为字典排序" class="headerlink" title="为字典排序"></a>为字典排序</h2><br>
+
+<p>有两个方案:</p>
+<ol>
+<li><p>变成值在前的元组, 之后对所有元组进行排序</p>
+</li>
+<li><p>传递sorted函数的key参数</p>
+</li>
+</ol>
+<br>
+
+<p><strong>数据准备</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">d = &#123;k: randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> k <span class="keyword">in</span> <span class="string">&#x27;abcdefgh&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方案1</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (方法1) 列表解析</span></span><br><span class="line">l = [(v, k) <span class="keyword">for</span> k, v <span class="keyword">in</span> d.items()]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(l))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(l, reverse=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># (方法2) zip</span></span><br><span class="line"><span class="comment"># zip传入多个list, 会一次把每个list的元素进行组合</span></span><br><span class="line">l2 = <span class="built_in">list</span>(<span class="built_in">zip</span>(d.values(), d.keys()))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(l2))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方案2</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指明对那个字段进行排序</span></span><br><span class="line">l3 = <span class="built_in">sorted</span>(d.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(l3)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>排好序后要更新字典</p>
+<p><strong>在原字典上更新</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, (k, v) <span class="keyword">in</span> <span class="built_in">enumerate</span>(l3, <span class="number">1</span>):</span><br><span class="line">    d[k] = (i, v)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>字典解析</strong>, 把结果存储在新字典中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字典解析 新建字典更新</span></span><br><span class="line">ans = &#123;k: (i, v) <span class="keyword">for</span> i, (k, v) <span class="keyword">in</span> <span class="built_in">enumerate</span>(l3, <span class="number">1</span>)&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="统计序列中元素的频度"><a href="#统计序列中元素的频度" class="headerlink" title="统计序列中元素的频度"></a>统计序列中元素的频度</h2><p>之后就可以用排序或堆操作求出频率前n的元素</p>
+<br>
+
+<p>方案1: 将序列转换为字典{元素:频度}, 根据字典中的值排序</p>
+<p>方案2: 使用标准库中collections中的Counter</p>
+<br>
+
+<p><strong>生成数据</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">0</span>, <span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>)]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方案1</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = <span class="built_in">dict</span>.fromkeys(data, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> data:</span><br><span class="line">    d[x] += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方案2</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line">c = Counter(data)</span><br><span class="line">c.most_common(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>使用堆取出前3小的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">heapq.nsmallest(<span class="number">3</span>, [(v, k)<span class="keyword">for</span> k, v <span class="keyword">in</span> d.items()])</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="如何保持字典有序-py3-5"><a href="#如何保持字典有序-py3-5" class="headerlink" title="如何保持字典有序(py3.5)"></a><strong>如何保持字典有序</strong>(py3.5)</h2><p>python3.5及一下版本中 dict是无序的, 就是说放入元素的顺序和迭代的顺序不同, 因此如果想要保持字典有序, 应该实用collections.OrderedDict</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice</span><br><span class="line"></span><br><span class="line">od = OrderedDict()</span><br><span class="line">od[<span class="string">&#x27;c&#x27;</span>] = <span class="number">1</span></span><br><span class="line">od[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line">od[<span class="string">&#x27;a&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(od.keys())</span><br></pre></td></tr></table></figure>
+
+<p>和普通的字典一样, OrderedDict不支持切片操作</p>
+<p>所以可以使用itertools下的islice 对这两种字典进行切片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">od = OrderedDict()</span><br><span class="line">od[<span class="string">&#x27;c&#x27;</span>] = <span class="number">1</span></span><br><span class="line">od[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line">od[<span class="string">&#x27;a&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片[1:2]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(islice(od, <span class="number">1</span>, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">d = &#123;&#125;</span><br><span class="line">d[<span class="string">&#x27;c&#x27;</span>] = <span class="number">1</span></span><br><span class="line">d[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line">d[<span class="string">&#x27;a&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片[0:2]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(islice(d, <span class="number">2</span>)))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>python3.6以上dict默认就是有序的字典, 但这不意味着这个类就没有用处, 如果我们希望代码能够向下兼容, 那么依然要使用OrderedDict作为有序字典</p>
+<br>
+
+<h2 id="双端队列-以及把对象保存到磁盘"><a href="#双端队列-以及把对象保存到磁盘" class="headerlink" title="双端队列, 以及把对象保存到磁盘"></a>双端队列, 以及把对象保存到磁盘</h2><p>双端队列, 就是左右两端都可以入队, 出队</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化数据, 大小(没传是无限大小</span></span><br><span class="line"><span class="comment"># 初始化数据有6个, 但只会保存最后5个</span></span><br><span class="line">q = deque([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">5</span>)</span><br><span class="line">q.append(<span class="number">2</span>)</span><br><span class="line">q.appendleft(<span class="number">6</span>)</span><br><span class="line">q.pop()</span><br><span class="line">q.popleft()</span><br><span class="line"><span class="built_in">print</span>(q)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>把对象保存到磁盘, 并读取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把对象保存到文件当中, b代表以2进制保存</span></span><br><span class="line">pickle.dump(q, <span class="built_in">open</span>(<span class="string">&#x27;save.pkl&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取时也要以二进制读取</span></span><br><span class="line">newq = pickle.load(<span class="built_in">open</span>(<span class="string">&#x27;save.pkl&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(newq)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h1><h2 id="拆分有多个分隔符的字符串"><a href="#拆分有多个分隔符的字符串" class="headerlink" title="拆分有多个分隔符的字符串"></a>拆分有多个分隔符的字符串</h2><p>方法1: 对每个分隔符进行依次拆分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_split</span>(<span class="params">s, seps</span>):</span><br><span class="line">    res = [s]</span><br><span class="line">    <span class="keyword">for</span> sep <span class="keyword">in</span> seps:</span><br><span class="line">        t = []</span><br><span class="line">        <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> ss: t.extend(ss.split(sep)), res))</span><br><span class="line">        res = t</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="comment"># s是要分割的字符串</span></span><br><span class="line"><span class="built_in">print</span>(my_split(s, <span class="string">&quot;,|\t&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者用reduce, 可读性差</span></span><br><span class="line">res = reduce(<span class="keyword">lambda</span> l, sep: <span class="built_in">sum</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> ss: ss.split(sep), l), []), <span class="string">&#x27;,;|\t&#x27;</span>, [s])</span><br></pre></td></tr></table></figure>
+
+<p>方法2: 使用正则表达式</p>
+<p>虽然运行较慢(<del>都用python了还计较什么快慢啊</del>), 但实现简单, 比较推荐</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">res = re.split(<span class="string">&#x27;[;,|\t]+&#x27;</span>, s)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="更改-py和-sh结尾的文件的权限"><a href="#更改-py和-sh结尾的文件的权限" class="headerlink" title="更改.py和.sh结尾的文件的权限"></a>更改.py和.sh结尾的文件的权限</h2><p>遍历文件, 找到以.py和.sh结尾的文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> stat</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fn <span class="keyword">in</span> os.listdir():</span><br><span class="line">    <span class="comment"># fn是字符串, 这里判断fn是否以.py或.sh结尾</span></span><br><span class="line">    <span class="keyword">if</span> fn.endswith((<span class="string">&#x27;.py&#x27;</span>, <span class="string">&#x27;.sh&#x27;</span>)):</span><br><span class="line">        <span class="comment"># 获取这个文件的状态</span></span><br><span class="line">        fs = os.stat(fn)</span><br><span class="line">        <span class="comment"># chmod更改它的读写权限</span></span><br><span class="line">        os.chmod(fn, fs.st_mode | stat.S_IXUSR)</span><br></pre></td></tr></table></figure>
+
+<p>题外话</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls = os.listdir()</span><br><span class="line"><span class="built_in">print</span>(os.stat(ls[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印出的信息</span></span><br><span class="line"><span class="comment"># os.stat_result(st_mode=33206, st_ino=19421773393487791, st_dev=1980143530, st_nlink=1, st_uid=0, st_gid=0, st_size=228, st_atime=1569906241, st_mtime=1569906241, st_ctime=1569906241)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里我们要更改的就是st_mode&#x3D;33206, 即100666, 即 rw-rw-rw-</p>
+<p>而后面三位是我们要关注的, linux下最大权限是777, 即 rwxrwxrwx</p>
+<p>这里我们通过二进制’或’操作把666改为766</p>
+<br>
+
+<h2 id="连接多个字符串"><a href="#连接多个字符串" class="headerlink" title="连接多个字符串"></a>连接多个字符串</h2><br>
+
+<p>通常我们使用+号来连接字符串</p>
+<p>但是如果我们有一个字符串list, 要把它们都拼接起来, 使用+号的时间复杂度和空间复杂度都很大</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">l = [<span class="string">&quot;&lt;0112&gt;&quot;</span>, <span class="string">&quot;&lt;32&gt;&quot;</span>, <span class="string">&quot;&lt;1024x768&gt;&quot;</span>, <span class="string">&quot;&lt;60&gt;&quot;</span>, <span class="string">&quot;&lt;1&gt;&quot;</span>, <span class="string">&quot;&lt;100.0&gt;&quot;</span>]</span><br><span class="line">s = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="built_in">int</span> l:</span><br><span class="line">    s += i</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">s = reduce(<span class="built_in">str</span>.__add__, l)</span><br></pre></td></tr></table></figure>
+
+<p>这两种写法是等价的,  但是每一次for循环中, 我们都会开辟新的空间给s(str是不可变的), 所以浪费了大量的空间和时间</p>
+<br>
+
+<p>有没有一种方法可以一次性开辟所有空间, 之后赋值进去?</p>
+<p>使用<strong>join</strong>函数</p>
+<p>join函数的作用是把list中所有字符串用调用join的str拼接起来</p>
+<p>例如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s2 = <span class="string">&quot;-&quot;</span>.join(l)</span><br><span class="line"><span class="comment"># &lt;0112&gt;-&lt;32&gt;-&lt;1024x768&gt;-&lt;60&gt;-&lt;1&gt;-&lt;100.0&gt;</span></span><br><span class="line"><span class="built_in">print</span>(s2)</span><br></pre></td></tr></table></figure>
+
+<p>而如果调用join的是空字符串, 那么就可以快速拼接字符串list了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s2 = <span class="string">&quot;&quot;</span>.join(l)</span><br></pre></td></tr></table></figure>
+
+<p>这种方法远远大于+号操作</p>
+<br>
+
+<p>但并不是所有的字符串拼接都应该实用join, 小量的字符串, 或者服用率高的拼接可以使用+号, 而且这样可读性也强</p>
+<br>
+
+<h2 id="字符串进行左中右对齐"><a href="#字符串进行左中右对齐" class="headerlink" title="字符串进行左中右对齐"></a>字符串进行左中右对齐</h2><p>方法1: 使用str的ljust, rjust, center函数进行左中右对齐</p>
+<p>方法2: 使用 format()的方法传递类似 &lt;10, &gt;10, ^10进行对齐</p>
+<p><strong>方法1</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s.ljust(<span class="number">10</span>, <span class="string">&quot;,&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(s.rjust(<span class="number">10</span>, <span class="string">&#x27;-&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(s.center(<span class="number">10</span>, <span class="string">&#x27;=&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印结果</span></span><br><span class="line"><span class="comment"># abc,,,,,,,</span></span><br><span class="line"><span class="comment"># -------abc</span></span><br><span class="line"><span class="comment"># ===abc====</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方法2</strong></p>
+<p>&lt;左对齐, &gt;右对齐, ^中间对齐, 填充字符写在符号前面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">format</span>(s, <span class="string">&#x27;&lt;10&#x27;</span>))		<span class="comment"># 左对齐, 总共10位</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">format</span>(s, <span class="string">&#x27;*&gt;10&#x27;</span>))	<span class="comment"># 右对齐, 总共10位, 用*号填充</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">format</span>(s, <span class="string">&#x27;s^10&#x27;</span>))	<span class="comment"># 中间对齐, 10位, 用s填充</span></span><br><span class="line"><span class="built_in">print</span>(s.__format__(<span class="string">&#x27;-&lt;10&#x27;</span>))	<span class="comment"># 左对齐, 10位, -号填充, 等同与第一行</span></span><br><span class="line"><span class="comment"># 只有实现了__format__内置函数的类才能使用format函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印结果</span></span><br><span class="line"><span class="comment"># abc       </span></span><br><span class="line"><span class="comment"># *******abc</span></span><br><span class="line"><span class="comment"># sssabcssss</span></span><br><span class="line"><span class="comment"># abc-------</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>这两种方法默认填充都是空格</p>
+<br>
+
+<p><strong>用途</strong>, 可以用来格式话map&#x2F;json</p>
+<p>遍历map.keys(), 求出key的最大长度, 就可以通过进行格式化操作</p>
+<p><img src="/Blog/intro/format.PNG" srcset="/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="去掉字符串中不需要的字符"><a href="#去掉字符串中不需要的字符" class="headerlink" title="去掉字符串中不需要的字符"></a>去掉字符串中不需要的字符</h2><br>
+
+<ol>
+<li>去掉两端的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;    lllafa   &#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s.strip())	<span class="comment"># 默认去除空白字符</span></span><br><span class="line"></span><br><span class="line">s2 = <span class="string">&#x27;===aaa==+-=&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s2.strip(<span class="string">&#x27;=+-&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<ol start="2">
+<li>去除指定位置的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s3 = <span class="string">&#x27;abc:1234&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s3[:<span class="number">3</span>] + s3[<span class="number">4</span>:])</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<ol start="3">
+<li>去除&#x2F;更改 某一种字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s3.replace(<span class="string">&quot; &quot;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正则</span></span><br><span class="line">re.sub(<span class="string">&#x27;[ \t\n]+&#x27;</span>, <span class="string">&#x27;&#x27;</span>, s3)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<ol start="4">
+<li>使用translate方法, 批量把字符进行替换</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;abc1234xyz&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s.translate(&#123;<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>): <span class="string">&#x27;A&#x27;</span>, <span class="built_in">ord</span>(<span class="string">&#x27;b&#x27;</span>): <span class="string">&#x27;B&#x27;</span>&#125;))</span><br></pre></td></tr></table></figure>
+
+<p>注意, key一定是unicode, 而string内置了一个maketrans方法, 可以帮我们生成这个map</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(s.translate(s.maketrans(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;XYZ&#x27;</span>)))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="对象迭代与反迭代相关"><a href="#对象迭代与反迭代相关" class="headerlink" title="对象迭代与反迭代相关"></a>对象迭代与反迭代相关</h1><h2 id="如何实现可迭代对象和迭代器对象"><a href="#如何实现可迭代对象和迭代器对象" class="headerlink" title="如何实现可迭代对象和迭代器对象"></a>如何实现可迭代对象和迭代器对象</h2><p>我们可以使用for-in来迭代一个对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable, Iterator</span><br><span class="line"></span><br><span class="line">l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> l:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p>如果一个对象想要被for-in迭代的话, 必须时Iterable的一个实例, 即:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isinstance</span>(l, Iterable) 	<span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<p>或者说, list是Iterable的一个子类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">issubclass</span>(<span class="built_in">list</span>, Iterable)		<span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>for 循环拿到可迭代对象之后, 会调用内置函数iter, 把这个对象传进去</p>
+<p>而它的返回结果就是一个迭代器对象</p>
+<p><strong>iter(可迭代对象) 会生成一个调用器对象</strong></p>
+<p>每次调用生成的是<strong>不同</strong>的迭代器对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ito = <span class="built_in">iter</span>(l)</span><br><span class="line"><span class="built_in">isinstance</span>(ito, Iterator)	<span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<p>那么iter是怎么工作的呢?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">iter</span>(l)</span><br><span class="line">l.__iter__()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 两者等价, iter就是调用对象的__iter__方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 而Iterable的抽象方法就是__iter__</span></span><br><span class="line"><span class="built_in">print</span>(Iterable.__abstractmethods__)</span><br><span class="line"><span class="comment"># frozenset(&#123;&#x27;__iter__&#x27;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>迭代器对象才是我们真正要进行迭代的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(it))</span><br><span class="line"><span class="built_in">print</span>(it.__next__())</span><br><span class="line"></span><br><span class="line"><span class="comment"># next调用的就是迭代器对象的__next__方法, 上面两者等价</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当迭代到最后, 无法再次进行迭代时, 如果我们继续迭代, 会抛出StopIteration</span></span><br><span class="line"><span class="comment"># for循环会处理这个异常, 此时循环结束</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>之前也说过调用iter时每次生成的是不同的迭代器对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">it1 = <span class="built_in">iter</span>(l)</span><br><span class="line">it2 = <span class="built_in">iter</span>(l)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(it1)</span><br><span class="line"><span class="built_in">next</span>(it1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># it1 的前两个元素已经消费了, 而it2的元素还都在</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(it1))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(it2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># [3, 4, 5]</span></span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>迭代器对象也是可迭代对象</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">it = <span class="built_in">iter</span>(l)</span><br><span class="line"></span><br><span class="line"><span class="built_in">isinstance</span>(it, Iterable)		<span class="comment"># True</span></span><br><span class="line"><span class="built_in">isinstance</span>(it, Iterator)		<span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际上 it.__iter__()会返回自身</span></span><br><span class="line"><span class="comment"># 注意此时返回的对象不是之前说的&quot;不同的迭代器&quot;, 而是自身</span></span><br><span class="line"><span class="built_in">print</span>(it.__iter__() <span class="keyword">is</span> it)		<span class="comment"># True</span></span><br><span class="line"></span><br><span class="line">it2 = <span class="built_in">iter</span>(l)</span><br><span class="line">it3 = <span class="built_in">iter</span>(it2)</span><br><span class="line"><span class="comment"># 对it2 做出改变it3也会改变</span></span><br><span class="line"><span class="comment"># 消耗了it2的所有元素</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(it2))	<span class="comment"># [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment"># it3中没有元素了</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(it3))	<span class="comment"># []</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 所以对于Iterator 的实例, 也可以使用for循环</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> it:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>接下来我们要实现一个迭代器和可迭代对象</p>
+<p>首先先来看Iterator和Iterable的源码</p>
+<p>在 Lib&#x2F;_collections_abc.py 下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Iterable</span>(metaclass=ABCMeta):</span><br><span class="line"></span><br><span class="line">    __slots__ = ()</span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">False</span>:</span><br><span class="line">            <span class="keyword">yield</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__subclasshook__</span>(<span class="params">cls, C</span>):</span><br><span class="line">        <span class="keyword">if</span> cls <span class="keyword">is</span> Iterable:</span><br><span class="line">            <span class="keyword">return</span> _check_methods(C, <span class="string">&quot;__iter__&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NotImplemented</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span>(<span class="title class_ inherited__">Iterable</span>):</span><br><span class="line"></span><br><span class="line">    __slots__ = ()</span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;Return the next item from the iterator. When exhausted, raise StopIteration&#x27;</span></span><br><span class="line">        <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__subclasshook__</span>(<span class="params">cls, C</span>):</span><br><span class="line">        <span class="keyword">if</span> cls <span class="keyword">is</span> Iterator:</span><br><span class="line">            <span class="keyword">return</span> _check_methods(C, <span class="string">&#x27;__iter__&#x27;</span>, <span class="string">&#x27;__next__&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NotImplemented</span></span><br></pre></td></tr></table></figure>
+
+<p>我们的Iterator要实现next和iter方法, Iterable要实现iter方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable, Iterator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WeatherIterator</span>(<span class="title class_ inherited__">Iterator</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, cities</span>):</span><br><span class="line">        self.cities = cities</span><br><span class="line">        self.index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 如果不能继续迭代, 抛出StopIteration异常</span></span><br><span class="line">        <span class="keyword">if</span> self.index == <span class="built_in">len</span>(self.cities):</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="comment"># 拿到下一个city的名称</span></span><br><span class="line">        city = self.cities[self.index]</span><br><span class="line">        <span class="comment"># 指向下一个位置</span></span><br><span class="line">        self.index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.get_weather(city)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_weather</span>(<span class="params">self, city</span>):</span><br><span class="line">        <span class="comment"># 爬取天气信息</span></span><br><span class="line">        url = <span class="string">&#x27;http://wthrcdn.etouch.cn/weather_mini?city=&#x27;</span> + city</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        data = r.json()[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;forecast&#x27;</span>][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> city, data[<span class="string">&#x27;high&#x27;</span>], data[<span class="string">&#x27;low&#x27;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WeatherIterable</span>(<span class="title class_ inherited__">Iterable</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, cities</span>):</span><br><span class="line">        self.cities = cities</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> WeatherIterator(self.cities)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>进行迭代</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">w</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> w:</span><br><span class="line">        <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    w = WeatherIterable([<span class="string">&#x27;北京&#x27;</span>, <span class="string">&#x27;上海&#x27;</span>, <span class="string">&#x27;大连&#x27;</span>] * <span class="number">10</span>)</span><br><span class="line">    show(w)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">20</span>)</span><br><span class="line">    show(w)</span><br></pre></td></tr></table></figure>
+
+<p>思考: 如果我们只使用Iterator也可以进行迭代, 为什么要实现Iterable?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 如果这里使用Iterator</span></span><br><span class="line">    w = WeatherIterator([<span class="string">&#x27;北京&#x27;</span>, <span class="string">&#x27;上海&#x27;</span>, <span class="string">&#x27;大连&#x27;</span>] * <span class="number">10</span>)</span><br><span class="line">    show(w)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">20</span>)</span><br><span class="line">    show(w)</span><br></pre></td></tr></table></figure>
+
+<p>遍历时会调用iter方法获得iterator对象, 使用WeatherIterable 每次返回的是一个新的对象, 而使用WeatherIterator每次返回的都是自身, 所以如果使用WeatherIterator 遍历完一次后, 第二次遍历会得不到任何值, 因为Iterator是一次性消耗品, 用完就没有了</p>
+<br>
+
+<h2 id="使用生成器函数实现可迭代对象"><a href="#使用生成器函数实现可迭代对象" class="headerlink" title="使用生成器函数实现可迭代对象"></a>使用生成器函数实现可迭代对象</h2><br>
+
+<p><strong>期望效果</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> PrimeNumbers(<span class="number">1</span>, <span class="number">30</span>):</span><br><span class="line">        <span class="built_in">print</span>(n)</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong>:</p>
+<p>实现一个类, 将该类的iter内置方法实现成生成器函数, yield所有我们期望的值</p>
+<br>
+
+<p><strong>实现</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PrimeNumbers</span>(<span class="title class_ inherited__">Iterable</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, a, b</span>):</span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(self.a, self.b+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> self.is_prime(k):</span><br><span class="line">                <span class="keyword">yield</span> k</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">self, k</span>):</span><br><span class="line">        <span class="comment"># if k &lt; 2:</span></span><br><span class="line">        <span class="comment">#     return False</span></span><br><span class="line">        <span class="comment"># for i in range(2, math.sqrt(k)):</span></span><br><span class="line">        <span class="comment">#     if k % i == 0:</span></span><br><span class="line">        <span class="comment">#         return False</span></span><br><span class="line">        <span class="comment"># return True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span> <span class="keyword">if</span> k &lt; <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">all</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> i: k % i, <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(math.sqrt(k))+<span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+
+<p>all 会返回True如果参数中所有元素都为True, 这里我们抛弃了传统的写法, 而是使用更加有python风格的写法</p>
+<br>
+
+<h2 id="如何-进行-x2F-实现-反向迭代"><a href="#如何-进行-x2F-实现-反向迭代" class="headerlink" title="如何 进行&#x2F;实现 反向迭代"></a>如何 进行&#x2F;实现 反向迭代</h2><p>如何进行反向迭代?</p>
+<ol>
+<li>reverse之后再迭代 (缺点: 改变原本元素的位置)</li>
+<li>通过切片[::-1]取得反向列表后再迭代 (缺点: 占用新的空间)</li>
+<li>使用 reversed() 函数, 它将调用类内部的reversed方法返回一个反向迭代器, 使用它进行迭代</li>
+</ol>
+<br>
+
+<p><strong>实现</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> Decimal</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FloatRange</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, a, b, step=<span class="number">0.1</span></span>):</span><br><span class="line">        self.a = Decimal(<span class="built_in">str</span>(a))</span><br><span class="line">        self.b = Decimal(<span class="built_in">str</span>(b))</span><br><span class="line">        self.step = Decimal(<span class="built_in">str</span>(step))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        t = self.a</span><br><span class="line">        <span class="keyword">while</span> t &lt;= self.b:</span><br><span class="line">            <span class="keyword">yield</span> <span class="built_in">float</span>(t)</span><br><span class="line">            t += self.step</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__reversed__</span>(<span class="params">self</span>):</span><br><span class="line">        t = self.b</span><br><span class="line">        <span class="keyword">while</span> t &gt;= self.a:</span><br><span class="line">            <span class="keyword">yield</span> <span class="built_in">float</span>(t)</span><br><span class="line">            t -= self.step</span><br></pre></td></tr></table></figure>
+
+<p>yield是上面写过的使用生成器函数实现可迭代对象</p>
+<p>这里我们要使用decimal.Decimal, 它和java中的BigDecimal很像, 当传入的是str类型的数字时, 可以进行精确的计算. </p>
+<p>注意我们期望的是float值, 所以在yield时要转化成float</p>
+<p>实现reversed内置函数就可以实现反向迭代</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    fr = FloatRange(<span class="number">3.0</span>, <span class="number">4.0</span>, <span class="number">0.2</span>)</span><br><span class="line">    <span class="comment"># 正向迭代</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> fr:</span><br><span class="line">        <span class="built_in">print</span>(x+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 反向迭代</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">reversed</span>(fr):</span><br><span class="line">        <span class="built_in">print</span>(x+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="切片的原理-amp-如何对迭代器进行切片"><a href="#切片的原理-amp-如何对迭代器进行切片" class="headerlink" title="切片的原理 &amp; 如何对迭代器进行切片"></a>切片的原理 &amp; 如何对迭代器进行切片</h2><br>
+
+<p>首先了解一下切片是如何工作的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个list, 0-9</span></span><br><span class="line">l = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># [] 运算符就是调用__getitem__</span></span><br><span class="line"><span class="built_in">print</span>(l[<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(l.__getitem__(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 而切片操作依然使用的是[]运算符</span></span><br><span class="line"><span class="comment"># 不过传入的是slice对象</span></span><br><span class="line"><span class="built_in">print</span>(l[<span class="number">2</span>:<span class="number">8</span>])</span><br><span class="line"><span class="built_in">print</span>(l.__getitem__(<span class="built_in">slice</span>(<span class="number">2</span>, <span class="number">8</span>)))</span><br></pre></td></tr></table></figure>
+
+<p>所以可以看到, 如果进行迭代的对象没有getitem内置方法就不能进行切片</p>
+<p>但是我们可以使用itertools.islice对可迭代对象进行切片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;./word.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对f对象进行切片, 语义上是 f[5:9:4]</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> islice(f, <span class="number">5</span>, <span class="number">9</span>, <span class="number">4</span>):</span><br><span class="line">    <span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure>
+
+<p>islice会从遍历0到指定结束位置的元素, 之后的元素不会遍历</p>
+<br>
+
+<p><strong>仿写islice</strong> 帮助理解原理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_islice</span>(<span class="params">iterable, start, end, step=<span class="number">1</span></span>):</span><br><span class="line">    tmp = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i, x <span class="keyword">in</span> <span class="built_in">enumerate</span>(iterable):</span><br><span class="line">        <span class="keyword">if</span> i &gt;= end:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> i &gt;= start:</span><br><span class="line">            <span class="keyword">if</span> tmp == <span class="number">0</span>:</span><br><span class="line">                tmp = step</span><br><span class="line">                <span class="keyword">yield</span> x</span><br><span class="line">            tmp -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(my_islice(<span class="built_in">range</span>(<span class="number">100</span>, <span class="number">150</span>), <span class="number">10</span>, <span class="number">20</span>, <span class="number">3</span>)))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="如何在for语句里迭代多个可迭代对象"><a href="#如何在for语句里迭代多个可迭代对象" class="headerlink" title="如何在for语句里迭代多个可迭代对象"></a>如何在for语句里迭代多个可迭代对象</h2><p>此时有两种情况, 并行迭代和串行迭代</p>
+<p>并行迭代: 同时访问多个迭代器中的某一个位置的元素</p>
+<p>串行迭代: 访问完一个迭代器中所有对象后可以接着访问下一个迭代器中的对象</p>
+<br>
+
+<p><strong>并行迭代的实现</strong></p>
+<p>使用zip(), 传入多个可迭代对象, 它会以元组的方式进行配对</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">chinese = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line">math = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line">english = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># zip的长度等于所有可迭代对象中最短的长度</span></span><br><span class="line"><span class="built_in">zip</span>(chinese, math, english)</span><br><span class="line"></span><br><span class="line">t = []</span><br><span class="line"><span class="keyword">for</span> s1, s2, s3 <span class="keyword">in</span> <span class="built_in">zip</span>(chinese, math, english):</span><br><span class="line">    t.append(s1 + s2 + s3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># sum要传入可迭代对象, 我们就不用拆包了</span></span><br><span class="line">t2 = [<span class="built_in">sum</span>(s) <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">zip</span>(chinese, math, english)]</span><br><span class="line"></span><br><span class="line">t3 = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">sum</span>, <span class="built_in">zip</span>(chinese, math, english)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对与比较简单的操作也可以使用map</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># map 本身就支持并行操作</span></span><br><span class="line">t4 = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> s1, s2, s3: s1+s2+s3, chinese, math, english))</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>串行迭代的实现</strong></p>
+<p>使用itertools.chain , 传入多个可迭代对象, 它会把它们合并为一个可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line"></span><br><span class="line">l = <span class="built_in">list</span>(chain([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>], [<span class="number">8</span>, <span class="number">9</span>]))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(l)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>例子2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">c1 = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">21</span>)]</span><br><span class="line">c2 = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">22</span>)]</span><br><span class="line">c3 = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">23</span>)]</span><br><span class="line">c4 = [randint(<span class="number">60</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">24</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表解析, 过滤大于90的元素, 之后求len</span></span><br><span class="line">num = <span class="built_in">len</span>([x <span class="keyword">for</span> x <span class="keyword">in</span> chain(c1, c2, c3, c4) <span class="keyword">if</span> x &gt; <span class="number">90</span>])</span><br><span class="line"><span class="built_in">print</span>(num)</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/11/python3-skills-2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python3编程技巧(二)</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/26/python-excel-database/">
+                        <span class="hidden-mobile">Python操作Excel和MySql</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
