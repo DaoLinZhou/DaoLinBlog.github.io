@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,310 +16,23 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="title: algorithm analysisdate: 2021-01-13 19:05:48tags:  算法分析categories: 算法与数据结构banner_img: &#x2F;intro&#x2F;internet.jpgindex_img: &#x2F;intro&#x2F;cmpt307&#x2F;merge_sort.PNG">
+    <meta name="description" content="test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Daolin&#39;s Repository">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2022/03/27/algorithm-analysis/">
+<meta property="og:title" content="algorithm analysis">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/01/13/algorithm-analysis/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
-<meta property="og:description" content="title: algorithm analysisdate: 2021-01-13 19:05:48tags:  算法分析categories: 算法与数据结构banner_img: &#x2F;intro&#x2F;internet.jpgindex_img: &#x2F;intro&#x2F;cmpt307&#x2F;merge_sort.PNG">
+<meta property="og:description" content="test">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/2022/03/27/algorithm-analysis/Blog/intro/cmpt307/aa_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/aa_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/aa_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/aa_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/aa_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/aa_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/insertion_sort.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/notations_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/msa_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/matrix_m_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/master.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/master_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dis_var.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heapify.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heap.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heap_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heap_sort.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heap_sort_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heap_sort_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/heap_sort_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_14.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_15.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/quick_sort_16.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/radix_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_14.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_15.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_16.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_17.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/hash_table_18.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/bst_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_14.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_15.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_16.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_17.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_18.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_19.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_20.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_21.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_22.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_23.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_24.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_25.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_26.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_27.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_28.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_29.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_30.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_31.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_32.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_33.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_34.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_35.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_36.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_pro_37.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/greedy_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/huffman.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/huffman_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/huffman_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/huffman_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/huffman_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/Amortized_analysis.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/Amortized_analysis_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/Amortized_analysis_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/Amortized_analysis_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/dynamic_table_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/b_tree_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/fibonacci_heap_14.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_14.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_15.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_16.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_17.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_18.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_19.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/graph_alg_20.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/min_span_tree_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_13.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_14.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_15.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_16.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_17.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_18.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_19.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_20.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_21.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_22.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_23.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_24.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_25.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_26.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_27.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_28.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_29.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_30.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_31.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_32.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_33.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_34.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_35.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_36.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_37.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/shortest_path_38.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_1.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_4.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_5.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_6.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_7.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_8.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_9.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_10.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_11.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_12.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/floyd_13.PNG">
-<meta property="article:published_time" content="2022-03-28T05:12:51.589Z">
-<meta property="article:modified_time" content="2022-04-02T03:52:58.686Z">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort.PNGte">
+<meta property="article:published_time" content="2021-01-14T03:05:48.000Z">
+<meta property="article:modified_time" content="2022-04-02T06:00:16.821Z">
 <meta property="article:author" content="Daolin">
+<meta property="article:tag" content="算法分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/2022/03/27/algorithm-analysis/Blog/intro/cmpt307/aa_1.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt307/merge_sort.PNGte">
   
   
-  <title>Daolin&#39;s Repository</title>
+  <title>algorithm analysis - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -392,7 +105,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -404,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -416,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -428,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -440,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -464,12 +177,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/internet.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="algorithm analysis">
               
             </span>
 
@@ -479,8 +192,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-27 22:12" pubdate>
-        March 27, 2022 pm
+      <time datetime="2021-01-13 19:05" pubdate>
+        January 13, 2021 pm
       </time>
     </span>
   
@@ -499,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      123 分钟
+      124 分钟
     </span>
   
 
@@ -528,15 +241,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">algorithm analysis</h1>
             
             <div class="markdown-body">
-              <hr>
-<p>title: algorithm analysis<br>date: 2021-01-13 19:05:48<br>tags:</p>
-<ul>
-<li>算法分析<br>categories: 算法与数据结构<br>banner_img: /intro/internet.jpg<br>index_img: /intro/cmpt307/merge_sort.PNG</li>
-</ul>
-<hr>
+              <p>test</p>
 <span id="more"></span>
 <h2 id="算法的要求"><a href="#算法的要求" class="headerlink" title="算法的要求"></a>算法的要求</h2><p><strong>Correctness</strong>(正确):  如果对于任何给定<strong>输入</strong>, 算法都会在<strong>有限的步骤</strong>内给予正确的<strong>输出</strong> (an algorithm for a problem is correct if for any input instance ofthe problem, the algorithm gives a correct output in finite steps)</p>
 <p><strong>Efficiency</strong>(效率): 如果算法以输入大小终止于<strong>多项式时间</strong>，则该算法是有效的 (an algorithm is efficient if the algorithm terminates in polynomialtime (many steps) in the size of the input)</p>
@@ -703,25 +411,7 @@
 <p>一种直观的想法就是尝试所有的可能. 再从中找到最小值</p>
 <p><img src="/Blog/intro/cmpt307/msa_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>通过这个图可以看出是一个$O(n^2)$ 的算法</p>
-<div class="code-wrapper"><pre><code class="lang-c++">class Solution &#123;
-public:
-    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123; 
-        int max = nums[0];
-        int n = nums.size() - 1;
-        for(int i = 0; i &lt;= n; i++)&#123;
-            int sum = 0;
-            // find max subarray [i...k]
-            for(int k = i; k &lt;= n; k++)&#123;
-                sum += nums[k];
-                if(sum &gt; max)&#123;
-                    max = sum;
-                &#125;
-            &#125;
-        &#125;
-        return max;
-    &#125;
-&#125;;
-</code></pre></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123; <br>        <span class="hljs-type">int</span> max = nums[<span class="hljs-number">0</span>];<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n; i++)&#123;<br>            <span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br>            <span class="hljs-comment">// find max subarray [i...k]</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = i; k &lt;= n; k++)&#123;<br>                sum += nums[k];<br>                <span class="hljs-keyword">if</span>(sum &gt; max)&#123;<br>                    max = sum;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p><br></p>
 <p>然而这道题可以使用分治算法</p>
 <p>对于一个数组$A[1:n]$ 我们可以把它分为两个部分 $A[1:m] ,A[m+1:n]$</p>
@@ -738,84 +428,7 @@ public:
 <p><img src="/Blog/intro/cmpt307/msa_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt307/msa_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt307/msa_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<div class="code-wrapper"><pre><code class="lang-c++">class Solution &#123;
-public:
-
-    // find subarray cross mid from [l, r]
-    int getMaxCrossingSubArray(vector&lt;int&gt;&amp; nums, int l, int r, int mid,
-                   int&amp; ret_l, int&amp; ret_r)&#123;
-        // [l, mid]
-        int max_l = 0;
-        int sum_l = 0;
-        int c_i = mid+1;
-        for(int i = mid; i &gt;= l; i--)&#123;
-            sum_l += nums[i];
-            if(sum_l &gt; max_l)&#123;
-                max_l = sum_l;
-                c_i = i;
-            &#125;
-        &#125;
-
-        // [mid+1, r]
-        int max_r = 0;
-        int sum_r = 0;
-        int c_j = mid;
-        for(int j = mid+1; j &lt;= r; j++)&#123;
-            sum_r += nums[j];
-            if(sum_r &gt; max_r)&#123;
-                max_r = sum_r;
-                c_j = j;
-            &#125;
-        &#125;
-
-        ret_l = c_i;
-        ret_r = c_j;
-        return max_l + max_r;
-    &#125;
-
-    // find subarray from [l, r]
-    int getMaxSubArray(vector&lt;int&gt;&amp; nums, int l, int r, int&amp; ret_l, int&amp; ret_r)&#123;
-        if(l == r)&#123;
-            ret_l = ret_r = l;
-            return nums[l];
-        &#125;
-
-        int mid = (r+l)/2;
-        int li = 0, lj = 0;
-        int ri = 0, rj = 0;
-        int ci = 0, cj = 0;
-        int max_sum_l = getMaxSubArray(nums, l, mid, li, lj);
-        int max_sum_r = getMaxSubArray(nums, mid+1, r, ri, rj);
-        int max_sum_c = getMaxCrossingSubArray(nums, l, r, mid, ci, cj);
-
-        // find the max return value between 2 sub arrays
-        int ret_max;
-        if(max_sum_l &gt; max_sum_r)&#123;
-            ret_l = li;
-            ret_r = lj;
-            ret_max = max_sum_l;
-        &#125;else&#123;
-            ret_l = ri;
-            ret_r = r;
-            ret_max = max_sum_r;
-        &#125;
-
-        // if ci and cj are valid and the sum is biggest
-        if(ci &lt;= cj &amp;&amp; max_sum_c &gt; ret_max)&#123;
-            ret_l = ci;
-            ret_r = cj;
-            ret_max = max_sum_c;
-        &#125;
-
-        return ret_max;
-    &#125;
-
-    int maxSubArray(vector&lt;int&gt;&amp; nums) &#123;
-        int l = 0, r = 0;
-        return getMaxSubArray(nums, 0, nums.size()-1, l, r);
-    &#125;
-&#125;;
-</code></pre></div>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <br>    <span class="hljs-comment">// find subarray cross mid from [l, r]</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMaxCrossingSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> mid,</span></span><br><span class="hljs-params"><span class="hljs-function">                   <span class="hljs-type">int</span>&amp; ret_l, <span class="hljs-type">int</span>&amp; ret_r)</span></span>&#123;<br>        <span class="hljs-comment">// [l, mid]</span><br>        <span class="hljs-type">int</span> max_l = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> sum_l = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> c_i = mid+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = mid; i &gt;= l; i--)&#123;<br>            sum_l += nums[i];<br>            <span class="hljs-keyword">if</span>(sum_l &gt; max_l)&#123;<br>                max_l = sum_l;<br>                c_i = i;<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-comment">// [mid+1, r]</span><br>        <span class="hljs-type">int</span> max_r = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> sum_r = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> c_j = mid;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = mid+<span class="hljs-number">1</span>; j &lt;= r; j++)&#123;<br>            sum_r += nums[j];<br>            <span class="hljs-keyword">if</span>(sum_r &gt; max_r)&#123;<br>                max_r = sum_r;<br>                c_j = j;<br>            &#125;<br>        &#125;<br>        <br>        ret_l = c_i;<br>        ret_r = c_j;<br>        <span class="hljs-keyword">return</span> max_l + max_r;<br>    &#125;<br>    <br>    <span class="hljs-comment">// find subarray from [l, r]</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMaxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span>&amp; ret_l, <span class="hljs-type">int</span>&amp; ret_r)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(l == r)&#123;<br>            ret_l = ret_r = l;<br>            <span class="hljs-keyword">return</span> nums[l];<br>        &#125;<br>        <br>        <span class="hljs-type">int</span> mid = (r+l)/<span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> li = <span class="hljs-number">0</span>, lj = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> ri = <span class="hljs-number">0</span>, rj = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> ci = <span class="hljs-number">0</span>, cj = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> max_sum_l = <span class="hljs-built_in">getMaxSubArray</span>(nums, l, mid, li, lj);<br>        <span class="hljs-type">int</span> max_sum_r = <span class="hljs-built_in">getMaxSubArray</span>(nums, mid+<span class="hljs-number">1</span>, r, ri, rj);<br>        <span class="hljs-type">int</span> max_sum_c = <span class="hljs-built_in">getMaxCrossingSubArray</span>(nums, l, r, mid, ci, cj);<br>        <br>        <span class="hljs-comment">// find the max return value between 2 sub arrays</span><br>        <span class="hljs-type">int</span> ret_max;<br>        <span class="hljs-keyword">if</span>(max_sum_l &gt; max_sum_r)&#123;<br>            ret_l = li;<br>            ret_r = lj;<br>            ret_max = max_sum_l;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            ret_l = ri;<br>            ret_r = r;<br>            ret_max = max_sum_r;<br>        &#125;<br>        <br>        <span class="hljs-comment">// if ci and cj are valid and the sum is biggest</span><br>        <span class="hljs-keyword">if</span>(ci &lt;= cj &amp;&amp; max_sum_c &gt; ret_max)&#123;<br>            ret_l = ci;<br>            ret_r = cj;<br>            ret_max = max_sum_c;<br>        &#125;<br>        <br>        <span class="hljs-keyword">return</span> ret_max;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">getMaxSubArray</span>(nums, <span class="hljs-number">0</span>, nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>, l, r);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p><br></p>
 <p><br></p>
 <p>证明算法的正确性:</p>
@@ -866,12 +479,7 @@ public:
 <h2 id="Randomized-Algorithms-and-Average-Case-Analysis"><a href="#Randomized-Algorithms-and-Average-Case-Analysis" class="headerlink" title="Randomized Algorithms and Average Case Analysis"></a>Randomized Algorithms and Average Case Analysis</h2><p>ALG-Example:</p>
 <p>假设有一个算法是这样</p>
 <p>传入一个size n 的序列 $a_1, a_2\cdots a_n$</p>
-<div class="code-wrapper"><pre><code class="lang-pseudocode">x = 0;
-for i = 1 to n do:
-    if a[i] &gt; x:
-        x = a[i];
-        call f(a[i]);
-</code></pre></div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">x = 0;<br>for i = 1 to n do:<br>	if a[i] &gt; x:<br>		x = a[i];<br>		call f(a[i]);<br></code></pre></td></tr></table></figure>
 <p>就是说每当我们遇见一个数, 它比它前面所有值都大时, 我们就调用一个函数$f$</p>
 <p>假设函数 $f$ 的运行时间是 $t$</p>
 <p>那么这个算法的运行时间是多少?</p>
@@ -899,16 +507,7 @@ for i = 1 to n do:
 <h3 id="Randomized-Algorithms"><a href="#Randomized-Algorithms" class="headerlink" title="Randomized Algorithms"></a>Randomized Algorithms</h3><p>如果一个算法不仅仅被input决定, 还被一些outcome random event 影响, 那么它就是随机算法(例如用random number generator)</p>
 <ul>
 <li><p>Let <strong>RANDOM</strong>(a, b) be a function returns an integer $j$ with$a\le j\le b$</p>
-<div class="code-wrapper"><pre><code class="lang-pseudocode">j = Random(l, r)
-
-input sequence A[j] of A:
-
-x = 0;
-for i = 1 to n do:
-    if a[i] &gt; x:
-        x = a[i]
-        call f(a[i])
-</code></pre></div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">j = Random(l, r)<br><br>input sequence A[j] of A:<br><br>x = 0;<br>for i = 1 to n do:<br>	if a[i] &gt; x:<br>		x = a[i]<br>		call f(a[i])<br></code></pre></td></tr></table></figure>
 <p><br></p>
 </li>
 </ul>
@@ -1188,14 +787,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
 <p><br></p>
 <p>假设我们用一个binary array $A$表示一个数$x$, 数组长度为$k$</p>
 <p>$A[0]$ 是 lowest-order bit, $A[k-1]$ 是 highest-order bit. $x=\sum_{i=0}^{k-1}2^iA[i]$</p>
-<div class="code-wrapper"><pre><code class="lang-pseudocode">Increment(A) /*Add 1 mod 2^k to A*/
-    i = 0;
-    while i &lt; k and A[i] = 1 do:
-        A[i] = 0;
-        i ++;
-    if i &lt; k:
-        A[i] = 1;
-</code></pre></div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">Increment(A) /*Add 1 mod 2^k to A*/<br>	i = 0;<br>	while i &lt; k and A[i] = 1 do:<br>		A[i] = 0;<br>		i ++;<br>	if i &lt; k:<br>		A[i] = 1;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>Cost of a sequence of $n$ increments to $A$<ul>
 <li>Brute-force analysis: $O(k)$ for one increment, $O(kn)$ for $n$ increment</li>
@@ -1423,6 +1015,20 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/">算法分析</a>
+                    
+                  </div>
                 
               </div>
               
@@ -1437,13 +1043,19 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/Blog/2021/04/29/FFT/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">FFT</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2021/09/09/Computability-and-Complexity2/">
-                        <span class="hidden-mobile">Computability and Complexity (2)</span>
-                        <span class="visible-mobile">Next</span>
+                      <a href="/Blog/2021/01/11/Numerical-Analysis/">
+                        <span class="hidden-mobile">Numerical Analysis</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -1486,7 +1098,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1495,7 +1107,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1587,6 +1199,48 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
