@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="选择排序 (Selection Sort)  O(n^2)总结:代码复杂程度: 简单 时间复杂度: O(n^2) 空间复杂度: O(1) 稳定性: 不稳定 特点:  交换次数最少的排序 思想:  遍历n变数组, 每一次找当前乱序部分最小的元素, 把它和乱序部分第一个元素互换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="选择排序 Selection Sort">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/22/Selection-Sort/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="选择排序 (Selection Sort)  O(n^2)总结:代码复杂程度: 简单 时间复杂度: O(n^2) 空间复杂度: O(1) 稳定性: 不稳定 特点:  交换次数最少的排序 思想:  遍历n变数组, 每一次找当前乱序部分最小的元素, 把它和乱序部分第一个元素互换">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-06-22T07:00:08.000Z">
+<meta property="article:modified_time" content="2019-06-22T07:51:10.879Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="排序算法">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>选择排序 Selection Sort - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="选择排序 Selection Sort">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-06-22 00:00" pubdate>
+        June 22, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">选择排序 Selection Sort</h1>
+            
+            <div class="markdown-body">
+              <h2 id="选择排序-Selection-Sort-O-n-2"><a href="#选择排序-Selection-Sort-O-n-2" class="headerlink" title="选择排序 (Selection Sort)  O(n^2)"></a>选择排序 (Selection Sort)  O(n^2)</h2><h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><p>代码复杂程度: 简单</p>
+<p>时间复杂度: O(n^2)</p>
+<p>空间复杂度: O(1)</p>
+<p>稳定性: 不稳定</p>
+<p><strong>特点</strong>:  交换次数最少的排序</p>
+<p>思想:  <strong>遍历n变数组, 每一次找当前乱序部分最小的元素, 把它和乱序部分第一个元素互换</strong></p>
+<span id="more"></span>
+
+<br/>
+
+<h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><p>如果数组的元素为 {3, 8, 2, 5, 1, 4, 7}</p>
+<p>则首先遍历一遍数组, 寻找最小元素, 最小元素为 1, 把 1 和 3 交换位置</p>
+<p>第一次循环:        {<strong>1</strong>, 8, 2, 5, <strong>3</strong>, 4, 7}         排好序的部分为  {1}  乱序部分为 {8, 2, 5, 3, 4, 7}</p>
+<p>第二次循环:        {1, <strong>2</strong>, <strong>8</strong>, 5, 3, 4, 7}        互换2, 8 的位置, 排好序的部分为  {1, 2}  乱序部分为 {8, 5, 3, 4, 7}</p>
+<p>第三次循环:        {1, 2, <strong>3</strong>, 5, <strong>8</strong>, 4, 7}        互换3, 8 的位置, 排好序的部分为  {1, 2, 3}  乱序部分为 {5, 8, 4, 7}</p>
+<p>第四次循环:        {1, 2, 3, <strong>4</strong>, 8, <strong>5</strong>, 7}         互换4, 5 的位置, 排好序的部分为  {1, 2, 3, 4}  乱序部分为 {8, 5, 7}</p>
+<p>第五次循环:        {1, 2, 3, 4, <strong>5</strong>, <strong>8</strong>, 7}         互换5, 8 的位置, 排好序的部分为  {1, 2, 3, 4, 5}  乱序部分为 {8, 7}</p>
+<p>第六次循环:        {1, 2, 3, 4, 5, <strong>7</strong>, <strong>8</strong>}         互换5, 8 的位置, 排好序的部分为  {1, 2, 3, 4, 5, 7}  乱序部分为 {8}</p>
+<p>第七次循环:        {1, 2, 3, 4, 5, 7, <strong>8</strong>}         互换8, 8 的位置, 排好序的部分为  {1, 2, 3, 4, 5, 7, 8}  乱序部分为 {}</p>
+<br/>
+
+<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">selectionSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-comment">// i 为乱序部分第一个元素</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++)&#123;<br>        <span class="hljs-comment">// 找到 [i, n) 中最小值</span><br>        <span class="hljs-type">int</span> minIndex = i;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = i; j &lt; n; j++)<br>            <span class="hljs-comment">// 如果当前小于标记元素, 则把标记当前元素为最小元素</span><br>            <span class="hljs-keyword">if</span>(arr[j] &lt; arr[minIndex])<br>                minIndex = j;<br>        <span class="hljs-comment">// 把最小值 和 i 互换</span><br>        <span class="hljs-built_in">swap</span>(arr[i], arr[minIndex]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br />
+
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析:"></a>复杂度分析:</h3><h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度:"></a>时间复杂度:</h4><p>一共有两层循环, 内层循环 j 的遍历数量受到 外层循环 i 的影响</p>
+<p>i &#x3D; 0 时, j 要从 0 遍历到 n-1,    即: n</p>
+<p>i &#x3D; 1 时, j 要从 1 遍历到 n-1,    即: n-1</p>
+<p>i &#x3D; 2 时, j 要从 2 遍历到 n-1,    即: n-2</p>
+<p>… …</p>
+<p>i &#x3D; n-1 时, j 要从 n-1 遍历到 n-1, 即: 1</p>
+<p>所以一共要遍历: n + (n-1) + (n-2) + … + 1 次</p>
+<p>根据等差数列求和公式: (n+1)*n&#x2F;2 &#x3D; (n^2 + n)&#x2F;2</p>
+<p>而对于时间复杂度我们只关注指数最大的那一项, 而忽略常数和其他.</p>
+<p>所以是时间复杂度为 O(n^2)</p>
+<br/>
+
+<h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度:"></a>空间复杂度:</h4><p>通过代码可以看到, 我们除了i, j 以外, 只声明了一个 minIndex 变量</p>
+<p>所以空间复杂度为 O(1)</p>
+<p>是常数级别</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2019/06/22/tcp-wavehand/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TCP 四次挥手</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2019/06/20/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/">
+                        <span class="hidden-mobile">TCP三次握手</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

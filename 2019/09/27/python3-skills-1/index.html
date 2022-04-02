@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="python3 实用编程技巧进阶笔记(一)  数据结构与算法相关 字符串相关 对象迭代与反迭代相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3编程技巧(一)">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/09/27/python3-skills-1/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="python3 实用编程技巧进阶笔记(一)  数据结构与算法相关 字符串相关 对象迭代与反迭代相关">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/format.PNG">
+<meta property="article:published_time" content="2019-09-27T08:17:21.000Z">
+<meta property="article:modified_time" content="2019-10-12T02:52:55.892Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="python3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/format.PNG">
+  
+  
+  <title>python3编程技巧(一) - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python3编程技巧(一)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-27 01:17" pubdate>
+        September 27, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      12k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      102 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python3编程技巧(一)</h1>
+            
+            <div class="markdown-body">
+              <p>python3 实用编程技巧进阶笔记(一)</p>
+<ol>
+<li>数据结构与算法相关</li>
+<li>字符串相关</li>
+<li>对象迭代与反迭代相关</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="数据结构与算法相关"><a href="#数据结构与算法相关" class="headerlink" title="数据结构与算法相关"></a>数据结构与算法相关</h1><br>
+
+<h2 id="在列表-字典-集合中筛选元素"><a href="#在列表-字典-集合中筛选元素" class="headerlink" title="在列表, 字典, 集合中筛选元素"></a>在列表, 字典, 集合中筛选元素</h2><p>建议使用解析的方式而不是过滤器</p>
+<br>
+
+<p><strong>原始方法</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><pre><code class="hljs python">data = [-<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br><br>res = []<br><br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> data:<br>    <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span>:<br>        res.append(x)<br><br><span class="hljs-built_in">print</span>(res)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>列表解析</strong> 和 过滤器方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><br><span class="hljs-comment"># _ 和 i一样是变量名, 但是用_可以明确代表我们没有用到它, </span><br><span class="hljs-comment"># 生成size为 10 的列表, 元素取值在[-10, 10]之间</span><br>l = [randint(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)]<br><br><span class="hljs-comment"># 列表解析</span><br>res = [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> l <span class="hljs-keyword">if</span> x &gt;= <span class="hljs-number">0</span>]<br><span class="hljs-built_in">print</span>(res)<br><br><span class="hljs-comment"># 过滤器方式</span><br>g = <span class="hljs-built_in">filter</span>(<span class="hljs-keyword">lambda</span> x: x &gt;= <span class="hljs-number">0</span>, l)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(g))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>字典解析</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成随机字典</span><br>d = &#123;<span class="hljs-string">&#x27;student%d&#x27;</span> % i: randint(<span class="hljs-number">50</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">20</span>)&#125;<br><span class="hljs-built_in">print</span>(d)<br><br><span class="hljs-comment"># 字典解析</span><br>res = &#123;k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> d.items() <span class="hljs-keyword">if</span> v &gt;= <span class="hljs-number">90</span>&#125;<br><span class="hljs-built_in">print</span>(res)<br><br><span class="hljs-comment"># 过滤器</span><br>g = <span class="hljs-built_in">filter</span>(<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>] &gt;= <span class="hljs-number">90</span>, d.items())<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">dict</span>(g))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>集合解析</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成随机集合</span><br>s = &#123;randint(<span class="hljs-number">0</span>, <span class="hljs-number">20</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>)&#125;<br><br><span class="hljs-comment"># 集合解析</span><br>res = &#123;x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> s <span class="hljs-keyword">if</span> x % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>&#125;<br><span class="hljs-built_in">print</span>(res)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="如何为元组的元素命名"><a href="#如何为元组的元素命名" class="headerlink" title="如何为元组的元素命名"></a>如何为元组的元素命名</h2><br>
+
+<p><strong>正常情况下使用元组</strong></p>
+<p>需要使用数字下标进行访问, 可读性差</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">xxx_func</span>(<span class="hljs-params">student</span>):<br>    <span class="hljs-keyword">if</span> student[<span class="hljs-number">1</span>] &lt; <span class="hljs-number">18</span>:<br>        <span class="hljs-keyword">pass</span><br><br>    <span class="hljs-keyword">if</span> student[<span class="hljs-number">2</span>] == <span class="hljs-string">&#x27;male&#x27;</span>:<br>        <span class="hljs-keyword">pass</span><br><br>    <span class="hljs-comment"># ...</span><br><br><br>student = (<span class="hljs-string">&#x27;Jim&#x27;</span>, <span class="hljs-number">16</span>, <span class="hljs-string">&#x27;male&#x27;</span>, <span class="hljs-string">&#x27;jim@qq.com&#x27;</span>)<br>xxx_func(student)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>第一种解决方案</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法1, 声明常量</span><br><br><span class="hljs-comment"># 通过拆包自动赋值0-3</span><br>NAME, AGE, SEX, EMAIL = <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>第二种解决方案</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法2 使用枚举类</span><br><span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> IntEnum<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">StudentEnum</span>(<span class="hljs-title class_ inherited__">IntEnum</span>):<br>    NAME = <span class="hljs-number">0</span><br>    AGE = <span class="hljs-number">1</span><br>    SEX = <span class="hljs-number">2</span><br>    EMAIL = <span class="hljs-number">3</span><br>    <br>StudentEnum.NAME<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>第三种解决方案</strong>    (推荐)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法3 使用内置命名元组</span><br><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple<br><br>Student = namedtuple(<span class="hljs-string">&#x27;Student&#x27;</span>, [<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-string">&#x27;sex&#x27;</span>, <span class="hljs-string">&#x27;email&#x27;</span>])<br>s2 = Student(<span class="hljs-string">&#x27;Jim&#x27;</span>, <span class="hljs-number">16</span>, <span class="hljs-string">&#x27;male&#x27;</span>, <span class="hljs-string">&#x27;jim@qq.com&#x27;</span>)<br><span class="hljs-built_in">print</span>(s2.name)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="为字典排序"><a href="#为字典排序" class="headerlink" title="为字典排序"></a>为字典排序</h2><br>
+
+<p>有两个方案:</p>
+<ol>
+<li><p>变成值在前的元组, 之后对所有元组进行排序</p>
+</li>
+<li><p>传递sorted函数的key参数</p>
+</li>
+</ol>
+<br>
+
+<p><strong>数据准备</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><br>d = &#123;k: randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;abcdefgh&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方案1</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># (方法1) 列表解析</span><br>l = [(v, k) <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> d.items()]<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(l))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(l, reverse=<span class="hljs-literal">True</span>))<br><br><span class="hljs-comment"># (方法2) zip</span><br><span class="hljs-comment"># zip传入多个list, 会一次把每个list的元素进行组合</span><br>l2 = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(d.values(), d.keys()))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(l2))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方案2</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 指明对那个字段进行排序</span><br>l3 = <span class="hljs-built_in">sorted</span>(d.items(), key=<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(l3)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>排好序后要更新字典</p>
+<p><strong>在原字典上更新</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i, (k, v) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(l3, <span class="hljs-number">1</span>):<br>    d[k] = (i, v)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>字典解析</strong>, 把结果存储在新字典中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 字典解析 新建字典更新</span><br>ans = &#123;k: (i, v) <span class="hljs-keyword">for</span> i, (k, v) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(l3, <span class="hljs-number">1</span>)&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="统计序列中元素的频度"><a href="#统计序列中元素的频度" class="headerlink" title="统计序列中元素的频度"></a>统计序列中元素的频度</h2><p>之后就可以用排序或堆操作求出频率前n的元素</p>
+<br>
+
+<p>方案1: 将序列转换为字典{元素:频度}, 根据字典中的值排序</p>
+<p>方案2: 使用标准库中collections中的Counter</p>
+<br>
+
+<p><strong>生成数据</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br>data = [randint(<span class="hljs-number">0</span>, <span class="hljs-number">20</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">30</span>)]<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方案1</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d = <span class="hljs-built_in">dict</span>.fromkeys(data, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> data:<br>    d[x] += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>方案2</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br>c = Counter(data)<br>c.most_common(<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>使用堆取出前3小的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> heapq<br><br>heapq.nsmallest(<span class="hljs-number">3</span>, [(v, k)<span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> d.items()])<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="如何保持字典有序-py3-5"><a href="#如何保持字典有序-py3-5" class="headerlink" title="如何保持字典有序(py3.5)"></a><strong>如何保持字典有序</strong>(py3.5)</h2><p>python3.5及一下版本中 dict是无序的, 就是说放入元素的顺序和迭代的顺序不同, 因此如果想要保持字典有序, 应该实用collections.OrderedDict</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict<br><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> islice<br><br>od = OrderedDict()<br>od[<span class="hljs-string">&#x27;c&#x27;</span>] = <span class="hljs-number">1</span><br>od[<span class="hljs-string">&#x27;b&#x27;</span>] = <span class="hljs-number">2</span><br>od[<span class="hljs-string">&#x27;a&#x27;</span>] = <span class="hljs-number">3</span><br><br><span class="hljs-built_in">print</span>(od.keys())<br></code></pre></td></tr></table></figure>
+
+<p>和普通的字典一样, OrderedDict不支持切片操作</p>
+<p>所以可以使用itertools下的islice 对这两种字典进行切片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">od = OrderedDict()<br>od[<span class="hljs-string">&#x27;c&#x27;</span>] = <span class="hljs-number">1</span><br>od[<span class="hljs-string">&#x27;b&#x27;</span>] = <span class="hljs-number">2</span><br>od[<span class="hljs-string">&#x27;a&#x27;</span>] = <span class="hljs-number">3</span><br><br><span class="hljs-comment"># 切片[1:2]</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(islice(od, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)))<br><br>d = &#123;&#125;<br>d[<span class="hljs-string">&#x27;c&#x27;</span>] = <span class="hljs-number">1</span><br>d[<span class="hljs-string">&#x27;b&#x27;</span>] = <span class="hljs-number">2</span><br>d[<span class="hljs-string">&#x27;a&#x27;</span>] = <span class="hljs-number">3</span><br><br><span class="hljs-comment"># 切片[0:2]</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(islice(d, <span class="hljs-number">2</span>)))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>python3.6以上dict默认就是有序的字典, 但这不意味着这个类就没有用处, 如果我们希望代码能够向下兼容, 那么依然要使用OrderedDict作为有序字典</p>
+<br>
+
+<h2 id="双端队列-以及把对象保存到磁盘"><a href="#双端队列-以及把对象保存到磁盘" class="headerlink" title="双端队列, 以及把对象保存到磁盘"></a>双端队列, 以及把对象保存到磁盘</h2><p>双端队列, 就是左右两端都可以入队, 出队</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br><br><span class="hljs-comment"># 初始化数据, 大小(没传是无限大小</span><br><span class="hljs-comment"># 初始化数据有6个, 但只会保存最后5个</span><br>q = deque([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>], <span class="hljs-number">5</span>)<br>q.append(<span class="hljs-number">2</span>)<br>q.appendleft(<span class="hljs-number">6</span>)<br>q.pop()<br>q.popleft()<br><span class="hljs-built_in">print</span>(q)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>把对象保存到磁盘, 并读取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pickle<br><br><span class="hljs-comment"># 把对象保存到文件当中, b代表以2进制保存</span><br>pickle.dump(q, <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;save.pkl&#x27;</span>, <span class="hljs-string">&#x27;wb&#x27;</span>))<br><br><span class="hljs-comment"># 读取时也要以二进制读取</span><br>newq = pickle.load(<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;save.pkl&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>))<br><span class="hljs-built_in">print</span>(newq)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h1><h2 id="拆分有多个分隔符的字符串"><a href="#拆分有多个分隔符的字符串" class="headerlink" title="拆分有多个分隔符的字符串"></a>拆分有多个分隔符的字符串</h2><p>方法1: 对每个分隔符进行依次拆分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_split</span>(<span class="hljs-params">s, seps</span>):<br>    res = [s]<br>    <span class="hljs-keyword">for</span> sep <span class="hljs-keyword">in</span> seps:<br>        t = []<br>        <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> ss: t.extend(ss.split(sep)), res))<br>        res = t<br>    <span class="hljs-keyword">return</span> res<br><br><span class="hljs-comment"># s是要分割的字符串</span><br><span class="hljs-built_in">print</span>(my_split(s, <span class="hljs-string">&quot;,|\t&quot;</span>))<br><br><span class="hljs-comment"># 或者用reduce, 可读性差</span><br>res = reduce(<span class="hljs-keyword">lambda</span> l, sep: <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> ss: ss.split(sep), l), []), <span class="hljs-string">&#x27;,;|\t&#x27;</span>, [s])<br></code></pre></td></tr></table></figure>
+
+<p>方法2: 使用正则表达式</p>
+<p>虽然运行较慢(<del>都用python了还计较什么快慢啊</del>), 但实现简单, 比较推荐</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>res = re.split(<span class="hljs-string">&#x27;[;,|\t]+&#x27;</span>, s)<br><span class="hljs-built_in">print</span>(res)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="更改-py和-sh结尾的文件的权限"><a href="#更改-py和-sh结尾的文件的权限" class="headerlink" title="更改.py和.sh结尾的文件的权限"></a>更改.py和.sh结尾的文件的权限</h2><p>遍历文件, 找到以.py和.sh结尾的文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> stat<br><br><span class="hljs-keyword">for</span> fn <span class="hljs-keyword">in</span> os.listdir():<br>    <span class="hljs-comment"># fn是字符串, 这里判断fn是否以.py或.sh结尾</span><br>    <span class="hljs-keyword">if</span> fn.endswith((<span class="hljs-string">&#x27;.py&#x27;</span>, <span class="hljs-string">&#x27;.sh&#x27;</span>)):<br>        <span class="hljs-comment"># 获取这个文件的状态</span><br>        fs = os.stat(fn)<br>        <span class="hljs-comment"># chmod更改它的读写权限</span><br>        os.chmod(fn, fs.st_mode | stat.S_IXUSR)<br></code></pre></td></tr></table></figure>
+
+<p>题外话</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">ls = os.listdir()<br><span class="hljs-built_in">print</span>(os.stat(ls[<span class="hljs-number">0</span>]))<br><br><span class="hljs-comment"># 打印出的信息</span><br><span class="hljs-comment"># os.stat_result(st_mode=33206, st_ino=19421773393487791, st_dev=1980143530, st_nlink=1, st_uid=0, st_gid=0, st_size=228, st_atime=1569906241, st_mtime=1569906241, st_ctime=1569906241)</span><br><br></code></pre></td></tr></table></figure>
+
+<p>这里我们要更改的就是st_mode&#x3D;33206, 即100666, 即 rw-rw-rw-</p>
+<p>而后面三位是我们要关注的, linux下最大权限是777, 即 rwxrwxrwx</p>
+<p>这里我们通过二进制’或’操作把666改为766</p>
+<br>
+
+<h2 id="连接多个字符串"><a href="#连接多个字符串" class="headerlink" title="连接多个字符串"></a>连接多个字符串</h2><br>
+
+<p>通常我们使用+号来连接字符串</p>
+<p>但是如果我们有一个字符串list, 要把它们都拼接起来, 使用+号的时间复杂度和空间复杂度都很大</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">l = [<span class="hljs-string">&quot;&lt;0112&gt;&quot;</span>, <span class="hljs-string">&quot;&lt;32&gt;&quot;</span>, <span class="hljs-string">&quot;&lt;1024x768&gt;&quot;</span>, <span class="hljs-string">&quot;&lt;60&gt;&quot;</span>, <span class="hljs-string">&quot;&lt;1&gt;&quot;</span>, <span class="hljs-string">&quot;&lt;100.0&gt;&quot;</span>]<br>s = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-built_in">int</span> l:<br>    s += i<br>    <br><span class="hljs-comment"># 或者</span><br>s = reduce(<span class="hljs-built_in">str</span>.__add__, l)<br></code></pre></td></tr></table></figure>
+
+<p>这两种写法是等价的,  但是每一次for循环中, 我们都会开辟新的空间给s(str是不可变的), 所以浪费了大量的空间和时间</p>
+<br>
+
+<p>有没有一种方法可以一次性开辟所有空间, 之后赋值进去?</p>
+<p>使用<strong>join</strong>函数</p>
+<p>join函数的作用是把list中所有字符串用调用join的str拼接起来</p>
+<p>例如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">s2 = <span class="hljs-string">&quot;-&quot;</span>.join(l)<br><span class="hljs-comment"># &lt;0112&gt;-&lt;32&gt;-&lt;1024x768&gt;-&lt;60&gt;-&lt;1&gt;-&lt;100.0&gt;</span><br><span class="hljs-built_in">print</span>(s2)<br></code></pre></td></tr></table></figure>
+
+<p>而如果调用join的是空字符串, 那么就可以快速拼接字符串list了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">s2 = <span class="hljs-string">&quot;&quot;</span>.join(l)<br></code></pre></td></tr></table></figure>
+
+<p>这种方法远远大于+号操作</p>
+<br>
+
+<p>但并不是所有的字符串拼接都应该实用join, 小量的字符串, 或者服用率高的拼接可以使用+号, 而且这样可读性也强</p>
+<br>
+
+<h2 id="字符串进行左中右对齐"><a href="#字符串进行左中右对齐" class="headerlink" title="字符串进行左中右对齐"></a>字符串进行左中右对齐</h2><p>方法1: 使用str的ljust, rjust, center函数进行左中右对齐</p>
+<p>方法2: 使用 format()的方法传递类似 &lt;10, &gt;10, ^10进行对齐</p>
+<p><strong>方法1</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;abc&#x27;</span><br><span class="hljs-built_in">print</span>(s.ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot;,&quot;</span>))<br><span class="hljs-built_in">print</span>(s.rjust(<span class="hljs-number">10</span>, <span class="hljs-string">&#x27;-&#x27;</span>))<br><span class="hljs-built_in">print</span>(s.center(<span class="hljs-number">10</span>, <span class="hljs-string">&#x27;=&#x27;</span>))<br><br><span class="hljs-comment"># 打印结果</span><br><span class="hljs-comment"># abc,,,,,,,</span><br><span class="hljs-comment"># -------abc</span><br><span class="hljs-comment"># ===abc====</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>方法2</strong></p>
+<p>&lt;左对齐, &gt;右对齐, ^中间对齐, 填充字符写在符号前面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">format</span>(s, <span class="hljs-string">&#x27;&lt;10&#x27;</span>))		<span class="hljs-comment"># 左对齐, 总共10位</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">format</span>(s, <span class="hljs-string">&#x27;*&gt;10&#x27;</span>))	<span class="hljs-comment"># 右对齐, 总共10位, 用*号填充</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">format</span>(s, <span class="hljs-string">&#x27;s^10&#x27;</span>))	<span class="hljs-comment"># 中间对齐, 10位, 用s填充</span><br><span class="hljs-built_in">print</span>(s.__format__(<span class="hljs-string">&#x27;-&lt;10&#x27;</span>))	<span class="hljs-comment"># 左对齐, 10位, -号填充, 等同与第一行</span><br><span class="hljs-comment"># 只有实现了__format__内置函数的类才能使用format函数</span><br><br><span class="hljs-comment"># 打印结果</span><br><span class="hljs-comment"># abc       </span><br><span class="hljs-comment"># *******abc</span><br><span class="hljs-comment"># sssabcssss</span><br><span class="hljs-comment"># abc-------</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>这两种方法默认填充都是空格</p>
+<br>
+
+<p><strong>用途</strong>, 可以用来格式话map&#x2F;json</p>
+<p>遍历map.keys(), 求出key的最大长度, 就可以通过进行格式化操作</p>
+<p><img src="/Blog/Blog/intro/format.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="去掉字符串中不需要的字符"><a href="#去掉字符串中不需要的字符" class="headerlink" title="去掉字符串中不需要的字符"></a>去掉字符串中不需要的字符</h2><br>
+
+<ol>
+<li>去掉两端的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;    lllafa   &#x27;</span><br><span class="hljs-built_in">print</span>(s.strip())	<span class="hljs-comment"># 默认去除空白字符</span><br><br>s2 = <span class="hljs-string">&#x27;===aaa==+-=&#x27;</span><br><span class="hljs-built_in">print</span>(s2.strip(<span class="hljs-string">&#x27;=+-&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<ol start="2">
+<li>去除指定位置的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">s3 = <span class="hljs-string">&#x27;abc:1234&#x27;</span><br><span class="hljs-built_in">print</span>(s3[:<span class="hljs-number">3</span>] + s3[<span class="hljs-number">4</span>:])<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<ol start="3">
+<li>去除&#x2F;更改 某一种字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">s3.replace(<span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&#x27;&#x27;</span>)<br><br><span class="hljs-comment"># 正则</span><br>re.sub(<span class="hljs-string">&#x27;[ \t\n]+&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, s3)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<ol start="4">
+<li>使用translate方法, 批量把字符进行替换</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;abc1234xyz&#x27;</span><br><span class="hljs-built_in">print</span>(s.translate(&#123;<span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;a&#x27;</span>): <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;b&#x27;</span>): <span class="hljs-string">&#x27;B&#x27;</span>&#125;))<br></code></pre></td></tr></table></figure>
+
+<p>注意, key一定是unicode, 而string内置了一个maketrans方法, 可以帮我们生成这个map</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(s.translate(s.maketrans(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-string">&#x27;XYZ&#x27;</span>)))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="对象迭代与反迭代相关"><a href="#对象迭代与反迭代相关" class="headerlink" title="对象迭代与反迭代相关"></a>对象迭代与反迭代相关</h1><h2 id="如何实现可迭代对象和迭代器对象"><a href="#如何实现可迭代对象和迭代器对象" class="headerlink" title="如何实现可迭代对象和迭代器对象"></a>如何实现可迭代对象和迭代器对象</h2><p>我们可以使用for-in来迭代一个对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Iterable, Iterator<br><br>l = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> l:<br>    <span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure>
+
+<p>如果一个对象想要被for-in迭代的话, 必须时Iterable的一个实例, 即:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">isinstance</span>(l, Iterable) 	<span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+
+<p>或者说, list是Iterable的一个子类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">issubclass</span>(<span class="hljs-built_in">list</span>, Iterable)		<span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>for 循环拿到可迭代对象之后, 会调用内置函数iter, 把这个对象传进去</p>
+<p>而它的返回结果就是一个迭代器对象</p>
+<p><strong>iter(可迭代对象) 会生成一个调用器对象</strong></p>
+<p>每次调用生成的是<strong>不同</strong>的迭代器对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">ito = <span class="hljs-built_in">iter</span>(l)<br><span class="hljs-built_in">isinstance</span>(ito, Iterator)	<span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
+
+<p>那么iter是怎么工作的呢?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">iter</span>(l)<br>l.__iter__()<br><br><span class="hljs-comment"># 两者等价, iter就是调用对象的__iter__方法</span><br><br><span class="hljs-comment"># 而Iterable的抽象方法就是__iter__</span><br><span class="hljs-built_in">print</span>(Iterable.__abstractmethods__)<br><span class="hljs-comment"># frozenset(&#123;&#x27;__iter__&#x27;&#125;)</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>迭代器对象才是我们真正要进行迭代的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(it))<br><span class="hljs-built_in">print</span>(it.__next__())<br><br><span class="hljs-comment"># next调用的就是迭代器对象的__next__方法, 上面两者等价</span><br><br><span class="hljs-comment"># 当迭代到最后, 无法再次进行迭代时, 如果我们继续迭代, 会抛出StopIteration</span><br><span class="hljs-comment"># for循环会处理这个异常, 此时循环结束</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>之前也说过调用iter时每次生成的是不同的迭代器对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">it1 = <span class="hljs-built_in">iter</span>(l)<br>it2 = <span class="hljs-built_in">iter</span>(l)<br><br><span class="hljs-built_in">next</span>(it1)<br><span class="hljs-built_in">next</span>(it1)<br><br><span class="hljs-comment"># it1 的前两个元素已经消费了, 而it2的元素还都在</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(it1))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(it2))<br><br><span class="hljs-comment"># [3, 4, 5]</span><br><span class="hljs-comment"># [1, 2, 3, 4, 5]</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>迭代器对象也是可迭代对象</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python">it = <span class="hljs-built_in">iter</span>(l)<br><br><span class="hljs-built_in">isinstance</span>(it, Iterable)		<span class="hljs-comment"># True</span><br><span class="hljs-built_in">isinstance</span>(it, Iterator)		<span class="hljs-comment"># True</span><br><br><span class="hljs-comment"># 实际上 it.__iter__()会返回自身</span><br><span class="hljs-comment"># 注意此时返回的对象不是之前说的&quot;不同的迭代器&quot;, 而是自身</span><br><span class="hljs-built_in">print</span>(it.__iter__() <span class="hljs-keyword">is</span> it)		<span class="hljs-comment"># True</span><br><br>it2 = <span class="hljs-built_in">iter</span>(l)<br>it3 = <span class="hljs-built_in">iter</span>(it2)<br><span class="hljs-comment"># 对it2 做出改变it3也会改变</span><br><span class="hljs-comment"># 消耗了it2的所有元素</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(it2))	<span class="hljs-comment"># [1, 2, 3, 4, 5]</span><br><span class="hljs-comment"># it3中没有元素了</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(it3))	<span class="hljs-comment"># []</span><br><br><span class="hljs-comment"># 所以对于Iterator 的实例, 也可以使用for循环</span><br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> it:<br>    <span class="hljs-built_in">print</span>(x)<br><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>接下来我们要实现一个迭代器和可迭代对象</p>
+<p>首先先来看Iterator和Iterable的源码</p>
+<p>在 Lib&#x2F;_collections_abc.py 下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Iterable</span>(metaclass=ABCMeta):<br><br>    __slots__ = ()<br><br><span class="hljs-meta">    @abstractmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">False</span>:<br>            <span class="hljs-keyword">yield</span> <span class="hljs-literal">None</span><br><br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__subclasshook__</span>(<span class="hljs-params">cls, C</span>):<br>        <span class="hljs-keyword">if</span> cls <span class="hljs-keyword">is</span> Iterable:<br>            <span class="hljs-keyword">return</span> _check_methods(C, <span class="hljs-string">&quot;__iter__&quot;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Iterator</span>(<span class="hljs-title class_ inherited__">Iterable</span>):<br><br>    __slots__ = ()<br><br><span class="hljs-meta">    @abstractmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&#x27;Return the next item from the iterator. When exhausted, raise StopIteration&#x27;</span><br>        <span class="hljs-keyword">raise</span> StopIteration<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self<br><br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__subclasshook__</span>(<span class="hljs-params">cls, C</span>):<br>        <span class="hljs-keyword">if</span> cls <span class="hljs-keyword">is</span> Iterator:<br>            <span class="hljs-keyword">return</span> _check_methods(C, <span class="hljs-string">&#x27;__iter__&#x27;</span>, <span class="hljs-string">&#x27;__next__&#x27;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span><br></code></pre></td></tr></table></figure>
+
+<p>我们的Iterator要实现next和iter方法, Iterable要实现iter方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Iterable, Iterator<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">WeatherIterator</span>(<span class="hljs-title class_ inherited__">Iterator</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, cities</span>):<br>        self.cities = cities<br>        self.index = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-comment"># 如果不能继续迭代, 抛出StopIteration异常</span><br>        <span class="hljs-keyword">if</span> self.index == <span class="hljs-built_in">len</span>(self.cities):<br>            <span class="hljs-keyword">raise</span> StopIteration<br>        <span class="hljs-comment"># 拿到下一个city的名称</span><br>        city = self.cities[self.index]<br>        <span class="hljs-comment"># 指向下一个位置</span><br>        self.index += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> self.get_weather(city)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_weather</span>(<span class="hljs-params">self, city</span>):<br>        <span class="hljs-comment"># 爬取天气信息</span><br>        url = <span class="hljs-string">&#x27;http://wthrcdn.etouch.cn/weather_mini?city=&#x27;</span> + city<br>        r = requests.get(url)<br>        data = r.json()[<span class="hljs-string">&#x27;data&#x27;</span>][<span class="hljs-string">&#x27;forecast&#x27;</span>][<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">return</span> city, data[<span class="hljs-string">&#x27;high&#x27;</span>], data[<span class="hljs-string">&#x27;low&#x27;</span>]<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">WeatherIterable</span>(<span class="hljs-title class_ inherited__">Iterable</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, cities</span>):<br>        self.cities = cities<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> WeatherIterator(self.cities)<br><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>进行迭代</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>(<span class="hljs-params">w</span>):<br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> w:<br>        <span class="hljs-built_in">print</span>(x)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    w = WeatherIterable([<span class="hljs-string">&#x27;北京&#x27;</span>, <span class="hljs-string">&#x27;上海&#x27;</span>, <span class="hljs-string">&#x27;大连&#x27;</span>] * <span class="hljs-number">10</span>)<br>    show(w)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;-&quot;</span> * <span class="hljs-number">20</span>)<br>    show(w)<br></code></pre></td></tr></table></figure>
+
+<p>思考: 如果我们只使用Iterator也可以进行迭代, 为什么要实现Iterable?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 如果这里使用Iterator</span><br>    w = WeatherIterator([<span class="hljs-string">&#x27;北京&#x27;</span>, <span class="hljs-string">&#x27;上海&#x27;</span>, <span class="hljs-string">&#x27;大连&#x27;</span>] * <span class="hljs-number">10</span>)<br>    show(w)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;-&quot;</span> * <span class="hljs-number">20</span>)<br>    show(w)<br></code></pre></td></tr></table></figure>
+
+<p>遍历时会调用iter方法获得iterator对象, 使用WeatherIterable 每次返回的是一个新的对象, 而使用WeatherIterator每次返回的都是自身, 所以如果使用WeatherIterator 遍历完一次后, 第二次遍历会得不到任何值, 因为Iterator是一次性消耗品, 用完就没有了</p>
+<br>
+
+<h2 id="使用生成器函数实现可迭代对象"><a href="#使用生成器函数实现可迭代对象" class="headerlink" title="使用生成器函数实现可迭代对象"></a>使用生成器函数实现可迭代对象</h2><br>
+
+<p><strong>期望效果</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> PrimeNumbers(<span class="hljs-number">1</span>, <span class="hljs-number">30</span>):<br>        <span class="hljs-built_in">print</span>(n)<br></code></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong>:</p>
+<p>实现一个类, 将该类的iter内置方法实现成生成器函数, yield所有我们期望的值</p>
+<br>
+
+<p><strong>实现</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">PrimeNumbers</span>(<span class="hljs-title class_ inherited__">Iterable</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, a, b</span>):<br>        self.a = a<br>        self.b = b<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.a, self.b+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> self.is_prime(k):<br>                <span class="hljs-keyword">yield</span> k<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">is_prime</span>(<span class="hljs-params">self, k</span>):<br>        <span class="hljs-comment"># if k &lt; 2:</span><br>        <span class="hljs-comment">#     return False</span><br>        <span class="hljs-comment"># for i in range(2, math.sqrt(k)):</span><br>        <span class="hljs-comment">#     if k % i == 0:</span><br>        <span class="hljs-comment">#         return False</span><br>        <span class="hljs-comment"># return True</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span> <span class="hljs-keyword">if</span> k &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> <span class="hljs-built_in">all</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> i: k % i, <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, <span class="hljs-built_in">int</span>(math.sqrt(k))+<span class="hljs-number">1</span>)))<br></code></pre></td></tr></table></figure>
+
+<p>all 会返回True如果参数中所有元素都为True, 这里我们抛弃了传统的写法, 而是使用更加有python风格的写法</p>
+<br>
+
+<h2 id="如何-进行-x2F-实现-反向迭代"><a href="#如何-进行-x2F-实现-反向迭代" class="headerlink" title="如何 进行&#x2F;实现 反向迭代"></a>如何 进行&#x2F;实现 反向迭代</h2><p>如何进行反向迭代?</p>
+<ol>
+<li>reverse之后再迭代 (缺点: 改变原本元素的位置)</li>
+<li>通过切片[::-1]取得反向列表后再迭代 (缺点: 占用新的空间)</li>
+<li>使用 reversed() 函数, 它将调用类内部的reversed方法返回一个反向迭代器, 使用它进行迭代</li>
+</ol>
+<br>
+
+<p><strong>实现</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> decimal <span class="hljs-keyword">import</span> Decimal<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FloatRange</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, a, b, step=<span class="hljs-number">0.1</span></span>):<br>        self.a = Decimal(<span class="hljs-built_in">str</span>(a))<br>        self.b = Decimal(<span class="hljs-built_in">str</span>(b))<br>        self.step = Decimal(<span class="hljs-built_in">str</span>(step))<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        t = self.a<br>        <span class="hljs-keyword">while</span> t &lt;= self.b:<br>            <span class="hljs-keyword">yield</span> <span class="hljs-built_in">float</span>(t)<br>            t += self.step<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__reversed__</span>(<span class="hljs-params">self</span>):<br>        t = self.b<br>        <span class="hljs-keyword">while</span> t &gt;= self.a:<br>            <span class="hljs-keyword">yield</span> <span class="hljs-built_in">float</span>(t)<br>            t -= self.step<br></code></pre></td></tr></table></figure>
+
+<p>yield是上面写过的使用生成器函数实现可迭代对象</p>
+<p>这里我们要使用decimal.Decimal, 它和java中的BigDecimal很像, 当传入的是str类型的数字时, 可以进行精确的计算. </p>
+<p>注意我们期望的是float值, 所以在yield时要转化成float</p>
+<p>实现reversed内置函数就可以实现反向迭代</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    fr = FloatRange(<span class="hljs-number">3.0</span>, <span class="hljs-number">4.0</span>, <span class="hljs-number">0.2</span>)<br>    <span class="hljs-comment"># 正向迭代</span><br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> fr:<br>        <span class="hljs-built_in">print</span>(x+<span class="hljs-number">1</span>)<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;-&quot;</span>*<span class="hljs-number">20</span>)<br><br>    <span class="hljs-comment"># 反向迭代</span><br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">reversed</span>(fr):<br>        <span class="hljs-built_in">print</span>(x+<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="切片的原理-amp-如何对迭代器进行切片"><a href="#切片的原理-amp-如何对迭代器进行切片" class="headerlink" title="切片的原理 &amp; 如何对迭代器进行切片"></a>切片的原理 &amp; 如何对迭代器进行切片</h2><br>
+
+<p>首先了解一下切片是如何工作的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个list, 0-9</span><br>l = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))<br><br><span class="hljs-comment"># [] 运算符就是调用__getitem__</span><br><span class="hljs-built_in">print</span>(l[<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(l.__getitem__(<span class="hljs-number">3</span>))<br><br><span class="hljs-comment"># 而切片操作依然使用的是[]运算符</span><br><span class="hljs-comment"># 不过传入的是slice对象</span><br><span class="hljs-built_in">print</span>(l[<span class="hljs-number">2</span>:<span class="hljs-number">8</span>])<br><span class="hljs-built_in">print</span>(l.__getitem__(<span class="hljs-built_in">slice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>)))<br></code></pre></td></tr></table></figure>
+
+<p>所以可以看到, 如果进行迭代的对象没有getitem内置方法就不能进行切片</p>
+<p>但是我们可以使用itertools.islice对可迭代对象进行切片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> islice<br><br>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;./word.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br><br><span class="hljs-comment"># 对f对象进行切片, 语义上是 f[5:9:4]</span><br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> islice(f, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>, <span class="hljs-number">4</span>):<br>    <span class="hljs-built_in">print</span>(line)<br></code></pre></td></tr></table></figure>
+
+<p>islice会从遍历0到指定结束位置的元素, 之后的元素不会遍历</p>
+<br>
+
+<p><strong>仿写islice</strong> 帮助理解原理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_islice</span>(<span class="hljs-params">iterable, start, end, step=<span class="hljs-number">1</span></span>):<br>    tmp = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i, x <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(iterable):<br>        <span class="hljs-keyword">if</span> i &gt;= end:<br>            <span class="hljs-keyword">break</span><br><br>        <span class="hljs-keyword">if</span> i &gt;= start:<br>            <span class="hljs-keyword">if</span> tmp == <span class="hljs-number">0</span>:<br>                tmp = step<br>                <span class="hljs-keyword">yield</span> x<br>            tmp -= <span class="hljs-number">1</span><br><br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(my_islice(<span class="hljs-built_in">range</span>(<span class="hljs-number">100</span>, <span class="hljs-number">150</span>), <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">3</span>)))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="如何在for语句里迭代多个可迭代对象"><a href="#如何在for语句里迭代多个可迭代对象" class="headerlink" title="如何在for语句里迭代多个可迭代对象"></a>如何在for语句里迭代多个可迭代对象</h2><p>此时有两种情况, 并行迭代和串行迭代</p>
+<p>并行迭代: 同时访问多个迭代器中的某一个位置的元素</p>
+<p>串行迭代: 访问完一个迭代器中所有对象后可以接着访问下一个迭代器中的对象</p>
+<br>
+
+<p><strong>并行迭代的实现</strong></p>
+<p>使用zip(), 传入多个可迭代对象, 它会以元组的方式进行配对</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><br><span class="hljs-comment"># 生成数据</span><br>chinese = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>)]<br>math = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>)]<br>english = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>)]<br><br><span class="hljs-comment"># zip的长度等于所有可迭代对象中最短的长度</span><br><span class="hljs-built_in">zip</span>(chinese, math, english)<br><br>t = []<br><span class="hljs-keyword">for</span> s1, s2, s3 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(chinese, math, english):<br>    t.append(s1 + s2 + s3)<br><br><span class="hljs-comment"># sum要传入可迭代对象, 我们就不用拆包了</span><br>t2 = [<span class="hljs-built_in">sum</span>(s) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(chinese, math, english)]<br><br>t3 = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">sum</span>, <span class="hljs-built_in">zip</span>(chinese, math, english)))<br><br></code></pre></td></tr></table></figure>
+
+<p>对与比较简单的操作也可以使用map</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># map 本身就支持并行操作</span><br>t4 = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> s1, s2, s3: s1+s2+s3, chinese, math, english))<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>串行迭代的实现</strong></p>
+<p>使用itertools.chain , 传入多个可迭代对象, 它会把它们合并为一个可迭代对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> chain<br><br>l = <span class="hljs-built_in">list</span>(chain([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">8</span>, <span class="hljs-number">9</span>]))<br><br><span class="hljs-built_in">print</span>(l)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>例子2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> chain<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><br>c1 = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">21</span>)]<br>c2 = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">22</span>)]<br>c3 = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">23</span>)]<br>c4 = [randint(<span class="hljs-number">60</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">24</span>)]<br><br><span class="hljs-comment"># 列表解析, 过滤大于90的元素, 之后求len</span><br>num = <span class="hljs-built_in">len</span>([x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> chain(c1, c2, c3, c4) <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">90</span>])<br><span class="hljs-built_in">print</span>(num)<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2019/10/11/python3-skills-2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python3编程技巧(二)</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2019/09/26/python-excel-database/">
+                        <span class="hidden-mobile">Python操作Excel和MySql</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

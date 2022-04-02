@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="多层感知器, 反向传播">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多层感知器MLP与反向传播">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/30/MLP/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="多层感知器, 反向传播">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/nn.PNG">
+<meta property="article:published_time" content="2020-05-31T00:45:35.000Z">
+<meta property="article:modified_time" content="2020-06-03T02:09:42.505Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="python3">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/nn.PNG">
+  
+  
+  <title>多层感知器MLP与反向传播 - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/longyin.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="多层感知器MLP与反向传播">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-30 17:45" pubdate>
+        May 30, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      74 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">多层感知器MLP与反向传播</h1>
+            
+            <div class="markdown-body">
+              <p> 多层感知器, 反向传播</p>
+<span id="more"></span>
+
+<h1 id="多层感知器MLP与反向传播"><a href="#多层感知器MLP与反向传播" class="headerlink" title="多层感知器MLP与反向传播"></a>多层感知器MLP与反向传播</h1><p>我将尝试用简单的语言谈谈我对MLP的理解</p>
+<h2 id="MLP"><a href="#MLP" class="headerlink" title="MLP"></a>MLP</h2><p>MLP应该算是最简单的神经网络了吧, 虽然是深度学习, 但是和普通的机器学习一样, 都是通过已有的数据训练出一个模型. 通过模型来进行预测</p>
+<p><img src="/Blog/Blog/intro/category_task_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因此在我眼里, MLP和逻辑回归非常相似. 甚至可以把每一个神经元都看作是一个小的逻辑回归.</p>
+<br>
+
+<p>记得对于逻辑回归, 我的理解是寻找一组θ, 使得sigmoid函数可以表示概率.</p>
+<p>而对于MLP来说, 就是找到<strong>多组θ</strong>来使得整个神经网络模型可以预测输出结果.</p>
+<p><img src="/Blog/Blog/intro/nn.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>这是一个神经网络的例子, 可以看到数据是这样前向传递的, 每一个节点都由前一层的所有节点决定.</p>
+<p>计算方式也是极为简单, 就是给前一层的每一个节点一个权值(wight), 再加上一个偏置(bias), 最后放入一个激活函数中<br>$$<br>a_1^{L+1} &#x3D; \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)<br>$$<br>L+1层的第1个节点是由第L层所有的节点计算出来的</p>
+<p>这也是我说每个神经元(节点)都是小的逻辑回归的原因. 因为这完全就是逻辑回归的思路. </p>
+<p>可以想象, 在极端的情况下, 只有<strong>一个隐藏层</strong>, 这个隐藏层中只有<strong>一个神经元</strong>, 那么这个神经网络就退化成了<strong>逻辑回归</strong>. (对于MLP来说, 第一层为输入层, 最后一层为输出层, 中间的其余层为隐藏层)</p>
+<br>
+
+<p><strong>输入层的神经元(节点)的个数是固定的, 它等同于样本的特征数.</strong></p>
+<p>因为这就是神经网络的思想, 下一层是根据上一层的节点进行加权求和计算出来的, 理所当然, 我们要给予不同的特征不同的权值.</p>
+<p><strong>同时输出层的神经元的个数也是固定的, 它等同与预测结果的特征数.</strong></p>
+<p>换句话说, 我们所能改变的只有隐藏层的个数, 以及每一层的节点数.</p>
+<br>
+
+<blockquote>
+<p>在接下来的讲解中, 激活函数统一使用sigmoid, 当然MLP的激活函数并不局限于此</p>
+</blockquote>
+<br>
+
+<h2 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h2><p>前向传播就是一个矩阵的乘法, 每一个节点计算的公式也早已给出<br>$$<br>a_1^{L+1} &#x3D; \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)<br>$$<br>为了更直观的看到计算的方式, 将以下图MLP为例子, 来看它是怎么工作的.</p>
+<p><img src="/Blog/Blog/intro/mlp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>暂且不管sigmoid函数, 单看加权求和的那一部分, 就是一个矩阵的乘法</p>
+<blockquote>
+<p>w<sub>ij</sub><sup>k</sup>的意思是第k层, 第i个节点所连接的第 j 条边</p>
+</blockquote>
+<p><img src="/Blog/Blog/intro/mlp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>矩阵中每一个w都对应一个边. 因此从前一层计算下一层的方式可以看作是矩阵乘法之后再接一个sigmoid函数</p>
+<blockquote>
+<p>我习惯于让矩阵的每一行代表下一个节点所需要的权值.</p>
+<p>也就是矩阵的第一行是为了求得下一层第一个节点所要用到的权值.</p>
+<p>同理第n行就是第n个节点的权值. 所以矩阵应该是m * n的</p>
+<p>m代表第L+1层(下一层)的节点个数</p>
+<p>n代表第L层(当前层)的节点个数</p>
+</blockquote>
+<p><img src="/Blog/Blog/intro/mlp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>也就是说, 只要直到每条边(权值w), 和偏置(b), 以及输入层的数据. 就可以得到最后输出层的结果.</p>
+<p>问题的关键是: 如何找到合适的权值w和偏置b, 使得整个网络可以正确预测. </p>
+<br>
+
+<h2 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h2><p>可以说MLP的核心就是反向传播. 但反向传播的核心是梯度下降, 也就是说, 本质上还是通过梯度(求导)来调整w和b</p>
+<p>损失函数这里使用最为简单的<br>$$<br>C&#x3D;\frac 12 \sum_j(p_j-y_j)^2<br>$$<br>还有交叉熵等损失函数. p为预测值, y为真实值.</p>
+<blockquote>
+<p>为什么选这个函数? 同样也是因为mathematically convenience 也就是说在数学处理上更方便</p>
+</blockquote>
+<br>
+$$
+a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)
+$$
+现在假设a<sub>1</sub><sup>L+1</sup>是最终的输出层. 也就是p
+
+<p>如果此时 p &lt; y, 我们要怎么调整才能使得p接近y?</p>
+<p><img src="/Blog/Blog/intro/mlp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<ol>
+<li>调整权值w</li>
+<li>调整偏置b</li>
+<li>调整节点a</li>
+</ol>
+<p>显然p取决于上一层的这三个因素. 所以有这三种方法.</p>
+<p>但是调整节点a是无法做到的. 因为节点a取决于上上层的w, b和a.</p>
+<p>也就是说, 此层我们只能调整w和b.</p>
+<br>
+
+<p>首先看如何调整w</p>
+<p><img src="/Blog/Blog/intro/mlp_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mlp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mlp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>就是对这六条边求导(梯度). <strong>这个时候一定要耐心推导, 这样有利于最后的编程实现</strong></p>
+<p><img src="/Blog/Blog/intro/mlp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>同理可以求出其余的边的导</p>
+<p><img src="/Blog/Blog/intro/mlp_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>但是仅仅求出导还不够, 要让它们按照原本矩阵的排列方式进行排列, 这样才能用矩阵减法来快速地调整所有w.</p>
+<p><img src="/Blog/Blog/intro/mlp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mlp_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mlp_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>在写这个矩阵的时候, 有一种重复工作的感觉</p>
+<p>可以看出, 连接一个节点的两条边的导数的写法基本是一致的. 只是下标不同而已</p>
+<p>最后化简的结果也就是这样</p>
+</blockquote>
+<p>而这个向量正是输出层的梯度</p>
+<p><img src="/Blog/Blog/intro/mlp_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>而对于b求导就更为简单了, 因为b的系数一直是1, 所以它的导就等于</p>
+<p><img src="/Blog/Blog/intro/mlp_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>推广一下:</p>
+<p><img src="/Blog/Blog/intro/mlp_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>这样就暂且有了些思路, 在实现的时候先对b求梯度, 在通过b的梯度计算出w的梯度</p>
+</blockquote>
+<br>
+
+<blockquote>
+<p>网上有一章我认为非常好的图</p>
+<p><img src="/Blog/Blog/intro/backprop.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>简单来说思想就是: 损失函数对于当前边的导等于下一个神经元对当前边的导乘以下一个神经元对损失函数的导</p>
+<p>这样, 对于全局的求导就变成了对于局部的求导. 有点递归的感觉.(整体的值等于当前的值加上之后的值)</p>
+<br>
+
+<p>就是说每一层的求梯度既是相关的, 又是独立的.</p>
+<p>相关是因为当前层的梯度要依赖与下一层的梯度.</p>
+<p>独立是因为只要求出当前层对下一个节点的梯度, 就能求出对总体的梯度. 使得每一层的梯度的求法可以分离.</p>
+<p>这样作的好处就是可以<strong>在不同层使用不同的激活函数, 输出层还可以指定不同的损失函数</strong>. Keras就是这么设计的.</p>
+</blockquote>
+<br>
+
+<p>然而还没完, 再向前推一层, 对输入层和隐藏层之间的边进行求导</p>
+<p><img src="/Blog/Blog/intro/mlp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mlp_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>依然是下一层的梯度乘以(<strong>不是点乘</strong>)σ’(下一层节点) 再点乘上一层的节点</p>
+<br>
+
+<p>值得注意的一点是: 下一层(节点)的梯度和下一层边的梯度是不一样的</p>
+<p><img src="/Blog/Blog/intro/mlp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于边求梯度的时候我们是对w求导, 所以余下的系数为a.</p>
+<p>但是对节点求导, 也就是对a求导余下的就应该是w.</p>
+<p><img src="/Blog/Blog/intro/mlp_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mlp_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>可以看到代表权值的矩阵是可以横向增加的, 因此当且层的梯度就等于bias的导乘以<strong>权值矩阵</strong>(正向传播时使用的权值矩阵)</p>
+<p>又用到了bias的导数</p>
+<br>
+
+<p>整理一下思路:</p>
+<p>对于每一层来说, 要求三个梯度</p>
+<ol>
+<li>通过前一层的梯度求bias的梯度</li>
+<li>通过bias的梯度求weight的梯度</li>
+<li>通过bias的梯度求节点a的梯度 (作为当前层的梯度为下一层做准备)</li>
+</ol>
+<p>后两个的梯度依赖与bias的梯度, 所以应该先求出bias的梯度</p>
+<blockquote>
+<p>这里在实现时, 还有一个细节, 要先求出a的梯度再更新weight, 因为a的梯度依赖与旧的weight</p>
+</blockquote>
+<br>
+
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sigmoid</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> / (<span class="hljs-number">1</span> + np.exp(-x))<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dsigmoid</span>(<span class="hljs-params">y</span>):<br>    <span class="hljs-keyword">return</span> y * (<span class="hljs-number">1</span> - y)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">tanh</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> np.tanh(x)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dtanh</span>(<span class="hljs-params">y</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span> - y ** <span class="hljs-number">2</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MLPClassifier</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, layers, activation=<span class="hljs-string">&#x27;tanh&#x27;</span>, epochs=<span class="hljs-number">20</span>, learning_rate=<span class="hljs-number">0.01</span></span>):<br>        <span class="hljs-comment"># 第一层为输入层, 层数应等于样本特征数</span><br>        <span class="hljs-comment"># 最后一层为输出层</span><br>        <span class="hljs-comment"># 再算上中间层, 所以len(layers)最小为3</span><br>        self.epochs = epochs<br>        self.eta = learning_rate<br><br>        self.layers = [np.zeros(layers[<span class="hljs-number">0</span>])]<br>        self.weights = []<br>        self.biases = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(layers) - <span class="hljs-number">1</span>):<br>            <span class="hljs-comment"># 这三个者的初始值是随意的</span><br>            weight = np.random.random((layers[i + <span class="hljs-number">1</span>], layers[i]))<br>            layer = np.ones(layers[i + <span class="hljs-number">1</span>])<br>            bias = np.random.random(layers[i + <span class="hljs-number">1</span>])<br>            self.weights.append(weight)<br>            self.layers.append(layer)<br>            self.biases.append(bias)<br><br>        <span class="hljs-keyword">if</span> activation == <span class="hljs-string">&#x27;tanh&#x27;</span>:<br>            self.activation = tanh<br>            self.dactivation = dtanh<br>        <span class="hljs-keyword">elif</span> activation == <span class="hljs-string">&#x27;sigmoid&#x27;</span>:<br>            self.activation = sigmoid<br>            self.dactivation = dsigmoid<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit</span>(<span class="hljs-params">self, X, y</span>):<br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.epochs):<br>            <span class="hljs-comment"># 随机梯度下降</span><br>            indexes = np.random.permutation(X.shape[<span class="hljs-number">0</span>])<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(X.shape[<span class="hljs-number">0</span>]):<br>                self.forward(X[indexes[i]])<br>                self.backward(y[indexes[i]])<br>        <span class="hljs-keyword">return</span> self<br>	<br>    <span class="hljs-comment"># 方便二维图像的可视化, 实际预测的结果可能不止有一个维度, 不一定能和数值进行比较</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict</span>(<span class="hljs-params">self, X</span>):<br>        <span class="hljs-keyword">return</span> np.where(self.predict_prob(X) &gt;= <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict_prob</span>(<span class="hljs-params">self, X</span>):<br>        y = np.empty((X.shape[<span class="hljs-number">0</span>], <span class="hljs-built_in">len</span>(self.layers[-<span class="hljs-number">1</span>])))<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(X.shape[<span class="hljs-number">0</span>]):<br>            self.forward(X[i])<br>            y[i, :] = self.layers[-<span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">return</span> y<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, inputs</span>):<br>        self.layers[<span class="hljs-number">0</span>][:] = inputs<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(self.weights)):<br>            self.layers[i + <span class="hljs-number">1</span>] = self.activation(self.weights[i].dot(self.layers[i]) + self.biases[i])<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">backward</span>(<span class="hljs-params">self, y</span>):<br>        <span class="hljs-comment"># y 是真实的标签值</span><br>        y_predict = self.layers[-<span class="hljs-number">1</span>]<br>        pre_gradient_neurons = y - y_predict<br><br>        <span class="hljs-comment"># 从最后一层到第一层进行遍历, 第0层是输入层, 不在遍历范围内</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(self.layers) - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>):<br>            gradient_bias = pre_gradient_neurons * self.dactivation(self.layers[i])<br>            gradient_weight = gradient_bias.reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>).dot(self.layers[i - <span class="hljs-number">1</span>].reshape(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>))<br><br>            <span class="hljs-comment"># 先根据当前的 weight 和 gradient_bias 计算下一层的梯度, 再更新weight</span><br>            pre_gradient_neurons = gradient_bias.dot(self.weights[i - <span class="hljs-number">1</span>])<br><br>            self.weights[i - <span class="hljs-number">1</span>] += self.eta * gradient_weight<br>            self.biases[i - <span class="hljs-number">1</span>] += self.eta * gradient_bias<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>测试代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_decision_boundary</span>(<span class="hljs-params">model, X</span>):<br>    axis = [np.<span class="hljs-built_in">min</span>(X[:, <span class="hljs-number">0</span>]), np.<span class="hljs-built_in">max</span>(X[:, <span class="hljs-number">0</span>]), np.<span class="hljs-built_in">min</span>(X[:, <span class="hljs-number">1</span>]), np.<span class="hljs-built_in">max</span>(X[:, <span class="hljs-number">1</span>])]<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>, <span class="hljs-string">&#x27;#EE82EE&#x27;</span>, <span class="hljs-string">&#x27;#00FFFF&#x27;</span>, <span class="hljs-string">&#x27;#7FFFAA&#x27;</span>, <span class="hljs-string">&#x27;#BDB76B&#x27;</span>])<br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">1000</span>, noise=<span class="hljs-number">0.1</span>, random_state=<span class="hljs-number">666</span>)<br><br>    <span class="hljs-comment"># 当层数增多时, epochs也应该增多, 不然会欠拟合, 因为要训练的参数增多了</span><br>    n = MLPClassifier((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>), activation=<span class="hljs-string">&#x27;tanh&#x27;</span>, epochs=<span class="hljs-number">300</span>, learning_rate=<span class="hljs-number">0.01</span>)<br>    n.fit(X, y)<br><br>    plot_decision_boundary(n, X)<br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
+
+<p><img src="/Blog/Blog/intro/mlp_predict.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">n = MLPClassifier((<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), activation=<span class="hljs-string">&#x27;tanh&#x27;</span>, epochs=<span class="hljs-number">300</span>, learning_rate=<span class="hljs-number">0.01</span>)<br></code></pre></td></tr></table></figure>
+
+<p>如果只设立一个隐藏层, 隐藏层只有一个节点就退化为了逻辑回归.</p>
+<p><img src="/Blog/Blog/intro/mlp_predict_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>逻辑回归在没有进行升维的时候是线性分割的, 这和上图是一样的.</p>
+<br>
+
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>说到底多层感知器的作用就是加速. 因为逻辑回归有升维这个过程, 尤其是升维过高, 数据的特征就越来越多, 训练的时间也就越长.</p>
+<p>而多层感知器的输入是数据原本的特征, 不需要升维就能解决非线性问题. 且每一层所做的事情就是矩阵的乘法. 所以每一层的时间复杂度都是线性的.</p>
+<p><br><br></p>
+<p>和其他的机器学习算法一样. 假设有一个函数g(x), 数据是通过这个函数进行分类, 而多层感知器整体可以看作一个函数f(x), 通过梯度下降&#x2F;反向传播, 让f(x)逼近g(x)</p>
+<p>然而值得思考的是, 人们的思考方式是否针对如同一个函数一样, 输入固定, 输出就固定?</p>
+<p><br><br></p>
+<p>多层感知器还有一个特点: 它的输出可以是多个特征的.</p>
+<p>机器学习中, 分类问题的输出是类别(一个数字), 回归问题的输出也是一个具体的数.</p>
+<p>但是多层感知器的输出却可以有多个特征. 这样有没有可能达到: 输入样本, 输出新的样本, 新的样本再作为输入…</p>
+<p><br><br></p>
+<p>还有另一个思考, tanh是把数据映射到(-1, 1)之间, 为什么预测时使用0.5, 而不是0作为阈值? </p>
+<p>我是这么认为的: 逻辑回归中sigmoid是映射到(0, 1)之间, 可以表示概率. 但实际上并不是表示概率. 而是在说<strong>通过sigmoid这样的函数得到的结果, 可以用0.5这根线进行划分</strong> 因为逻辑回归所做的事情就是: 看能否用0.5划分-&gt; 不能的的话就进行梯度下降, 重复这个过程.</p>
+<p>而这个思想是一样的, tanh得到的结果不表示概率, 而是说通过训练使得使用这种操作得到的结果可以通过0.5这条线进行最好的划分.</p>
+<p>0.5是哪来的? 因为输入数据的label都是0和1, 所以分界点在0.5.</p>
+<p><br><br></p>
+<p>使用sigmoid方法进行训练得到的决策边界是线性的. 而使用tanh分界得到的是弯曲的. 其中的差别是什么?</p>
+<p>一种说法是因为tanh是无偏的, 它的对称点在0这个位置. 而sigmoid的对称点在0.5这个位置?</p>
+<br>
+
+<blockquote>
+<p>如果不用激活函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合，这种情况就是最原始的感知机(Perceptron)</p>
+<p>如果使用的话，激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，这样神经网络就可以应用到众多的非线性模型中</p>
+</blockquote>
+<br>
+
+<hr>
+
+<br>
+
+<h2 id="基于小批量梯度下降实现的代码"><a href="#基于小批量梯度下降实现的代码" class="headerlink" title="基于小批量梯度下降实现的代码"></a>基于小批量梯度下降实现的代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sigmoid</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> / (<span class="hljs-number">1</span> + np.exp(-x))<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dsigmoid</span>(<span class="hljs-params">y</span>):<br>    <span class="hljs-keyword">return</span> y * (<span class="hljs-number">1</span> - y)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">tanh</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> np.tanh(x)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dtanh</span>(<span class="hljs-params">y</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span> - y ** <span class="hljs-number">2</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MLPClassifier</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, layers, activation=<span class="hljs-string">&#x27;tanh&#x27;</span>, epochs=<span class="hljs-number">20</span>, batch_size=<span class="hljs-number">1</span>, learning_rate=<span class="hljs-number">0.01</span></span>):<br>        <span class="hljs-comment"># 第一层为输入层, 层数应等于样本特征数</span><br>        <span class="hljs-comment"># 最后一层为输出层</span><br>        <span class="hljs-comment"># 再算上中间层, 所以len(layers)最小为3</span><br>        self.epochs = epochs<br>        self.eta = learning_rate<br>        self.batch_size = batch_size<br><br>        self.layers = [np.zeros((layers[<span class="hljs-number">0</span>], batch_size))]<br>        self.weights = []<br>        self.biases = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(layers) - <span class="hljs-number">1</span>):<br>            weight = np.random.random((layers[i + <span class="hljs-number">1</span>], layers[i]))<br>            layer = np.ones((layers[i + <span class="hljs-number">1</span>], batch_size))<br>            bias = np.random.random((layers[i + <span class="hljs-number">1</span>], <span class="hljs-number">1</span>))<br>            self.weights.append(weight)<br>            self.layers.append(layer)<br>            self.biases.append(bias)<br><br>        <span class="hljs-keyword">if</span> activation == <span class="hljs-string">&#x27;tanh&#x27;</span>:<br>            self.activation = tanh<br>            self.dactivation = dtanh<br>        <span class="hljs-keyword">elif</span> activation == <span class="hljs-string">&#x27;sigmoid&#x27;</span>:<br>            self.activation = sigmoid<br>            self.dactivation = dsigmoid<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit</span>(<span class="hljs-params">self, X, y</span>):<br>        <span class="hljs-comment"># 如果y有多个维度的话, y的每一列为一个真实的标签</span><br>        <span class="hljs-keyword">if</span> y.ndim == <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">assert</span> y.shape[<span class="hljs-number">1</span>] == X.shape[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;each column of y is a label of a row in X&quot;</span><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.epochs):<br>            indexes = np.random.permutation(X.shape[<span class="hljs-number">0</span>])<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(X.shape[<span class="hljs-number">0</span>] // self.batch_size):<br>                start_index = i * self.batch_size<br>                end_index = start_index + self.batch_size<br>                self.forward(X[indexes[start_index:end_index]])<br>                self.backward(y[indexes[start_index:end_index]])<br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict</span>(<span class="hljs-params">self, X</span>):<br>        <span class="hljs-keyword">return</span> np.where(self.predict_prob(X) &gt;= <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict_prob</span>(<span class="hljs-params">self, X</span>):<br>        <span class="hljs-comment"># 优化了predict函数, 进行向量化处理</span><br>        self.forward(X)<br>        y = self.layers[-<span class="hljs-number">1</span>].copy()<br>        <span class="hljs-keyword">return</span> y<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, inputs</span>):<br>        self.layers[<span class="hljs-number">0</span>] = inputs.T<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(self.weights)):<br>            self.layers[i + <span class="hljs-number">1</span>] = self.activation(self.weights[i].dot(self.layers[i]) + self.biases[i])<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">backward</span>(<span class="hljs-params">self, y</span>):<br>        <span class="hljs-comment"># y 是真实的标签值</span><br>        y_predict = self.layers[-<span class="hljs-number">1</span>]<br>        pre_gradient_neurons = y - y_predict<br>        <span class="hljs-comment"># 从最后一层到第一层进行遍历, 第0层是输入层, 不在遍历范围内</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(self.layers) - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>):<br>            <span class="hljs-comment"># 对每一个样本计算bias, weight, neurons的梯度, 再求均值做为最后的梯度</span><br>            gradient_bias_matrix = pre_gradient_neurons * self.dactivation(self.layers[i])<br>            gradient_weight = gradient_bias_matrix.dot(self.layers[i - <span class="hljs-number">1</span>].T) / self.batch_size<br>            pre_gradient_neurons = np.<span class="hljs-built_in">sum</span>(gradient_bias_matrix.T.dot(self.weights[i - <span class="hljs-number">1</span>]), axis=<span class="hljs-number">0</span>) \<br>                .reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) / self.batch_size<br>            <span class="hljs-comment"># 此时weight和neurons的梯度依赖与bias的梯度矩阵, 而不是平均梯度, 所以最后求bias的平均梯度</span><br>            gradient_bias = np.mean(gradient_bias_matrix, axis=<span class="hljs-number">1</span>).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br><br>            self.weights[i - <span class="hljs-number">1</span>] += self.eta * gradient_weight<br>            self.biases[i - <span class="hljs-number">1</span>] += self.eta * gradient_bias<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2020/05/31/calculus/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">微积分</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2020/05/23/anomaly-detection/">
+                        <span class="hidden-mobile">异常检测 Anomaly Detection</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,2065 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Godel’s Incompleteness TheoremAnother proof“I am not provable”  For every proof system $P$ containing $PA$ we construct an explicit true but not provable arithmetic sentence.$$G \equiv \text{“G is n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Computability and Complexity (2)">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/09/09/Computability-and-Complexity2/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Godel’s Incompleteness TheoremAnother proof“I am not provable”  For every proof system $P$ containing $PA$ we construct an explicit true but not provable arithmetic sentence.$$G \equiv \text{“G is n">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt308/turing-machine.PNG">
+<meta property="article:published_time" content="2021-09-10T03:40:38.000Z">
+<meta property="article:modified_time" content="2021-12-12T06:43:12.348Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt308/turing-machine.PNG">
+  
+  
+  <title>Computability and Complexity (2) - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Computability and Complexity (2)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-09 20:40" pubdate>
+        September 9, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      46k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      382 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Computability and Complexity (2)</h1>
+            
+            <div class="markdown-body">
+              <span id="more"></span>
+
+<h1 id="Godel’s-Incompleteness-Theorem"><a href="#Godel’s-Incompleteness-Theorem" class="headerlink" title="Godel’s Incompleteness Theorem"></a>Godel’s Incompleteness Theorem</h1><h2 id="Another-proof"><a href="#Another-proof" class="headerlink" title="Another proof"></a>Another proof</h2><p>“I am not provable”</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>For every proof system $P$ containing $PA$ we construct an <strong>explicit</strong> true but not provable arithmetic sentence.<br>$$<br>G \equiv \text{“G is not provable in P”}<br>$$</p>
+<p>$$<br>\text{“I am not provable”}<br>$$</p>
+<p>假设我们有 sentence $G$</p>
+<ul>
+<li>如果 $G$ is false: 说明 $G$ is provable in $P$, 因此 $P$ is <strong>not</strong> sound (因为 $P$ 可以 prove 一个 false sentence)</li>
+<li>如果 $G$ is true: 说明 $G$ is not provable in $P$, 因此 $P$ is <strong>not</strong> complete (因为 $P$ 无法 prove 一个 true statement)</li>
+</ul>
+<p>也就是说 $P$ is not sound 或者 $P$ is not complete</p>
+<br>
+
+<p>然而目前我们只是使用自然语言描述$G$, 如何真正创建 sentence $G$?</p>
+<h2 id="Constructing-the-sentence-G"><a href="#Constructing-the-sentence-G" class="headerlink" title="Constructing the sentence $G$"></a>Constructing the sentence $G$</h2><h3 id="Godel-numbers"><a href="#Godel-numbers" class="headerlink" title="Godel numbers"></a>Godel numbers</h3><p>所有的 arithmetic formula (包括 sequence of formulas) $A$ 可以用一个<strong>unique</strong> number $\varphi(A)$ 表达 (encoding)</p>
+<br>
+
+<p><strong>Dual rule of numbers</strong></p>
+<ol>
+<li>a number $n$ is just a number $n$ (an input for formula $A(x)$)</li>
+<li>a number n is interpreted as Godel number of a formula $B$, s.t. $\varphi(B)&#x3D;n, B&#x3D;\varphi^{-1}(n)$</li>
+</ol>
+<blockquote>
+<p>和图灵机类似, 一个number $n$ 既可以表示一个数字, 也可以作为一个 formula 的 encoding 的结果(代表这个formula)</p>
+</blockquote>
+<p>因此, $A(n)$ 可能会 refer to another formula (with the Godel number $n$)</p>
+<p>If $n &#x3D; \varphi(A(n))$ (the Grodel number of $A(n)$), then $A$ refers to itself (<strong>self-reference for arithmetic formulas</strong>)</p>
+<br>
+
+<p>定义:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>根据 proof system 的定义, function $\text{proof}(n,m)$ is computable</p>
+<blockquote>
+<p>can check if something is a valid proof, and $\varphi, \varphi^{-1}$ are computable</p>
+</blockquote>
+<br>
+
+<p>By <strong>Grodel’s Lemma</strong>, TMs can be “simulated” by arithmetic formulas</p>
+<p>因此, 存在一个 arithmetic formula<br>$$<br>\text{Proof(x,y)}<br>$$<br>s.t. $\forall a, b \in N$, $\text{Proof(a,b) is true} \iff \varphi^{-1} (a) \text{ is a proof of }\varphi^{-1}(b) \text{ in P}$</p>
+<br>
+
+<p>定义:<br>$$<br>\text{Thm(y)} \equiv \exists x \text{ Proof(x,y)}<br>$$</p>
+<blockquote>
+<p>这里 $y$ 是一个 free variable, $\varphi^{-1}(y)$ is provable in $P$</p>
+</blockquote>
+<p>我们希望<img src="/Blog/Blog/intro/cmpt308/incomplete_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>where $n&#x3D;\varphi (G)$</p>
+<br>
+
+<p>错误的方式:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>正确的方式:</p>
+<p>定义一个 substitution function<br>$$<br>sub(m,n)&#x3D;j<br>$$<br>where</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>The function $sub(m,n)$ is computable, So by Godel’s Lemma, have an arithmetic formula<br>$$<br>\text{SUB}(x,y,z)<br>$$<br>s.t. $\forall m,n,j \in N, \text{SUB(m,n,j)}&#x3D;True \iff sub(m,n)&#x3D;j$</p>
+<br>
+
+<p>此时我们就可以构建一个 self-referential formula</p>
+<ol>
+<li><p>$A(x)\equiv \neg\text{Thm}(sub(x,x))$</p>
+<p>即 $\exists y(\text{SUB(x,x,y)} \wedge \neg\text{Thm(y)})$</p>
+</li>
+<li><p>$n_0&#x3D;\varphi (A(x))$</p>
+</li>
+<li><p>$G\equiv A(n_0)$</p>
+</li>
+</ol>
+<p>就是说<br>$$<br>G\equiv \neg \text{Thm}(sub(n_0, n_0))<br>$$<br>这里 $sub(n_0, n_0) &#x3D; \varphi(A(n_0))&#x3D;\varphi(G)$</p>
+<p>第一个 $n_0$ 代表 $\varphi (A(x))$, 第二个$n_0$ 就代表 $n_0$ 这个数 </p>
+<br>
+
+<p>得到$G$<br>$$<br>G\equiv \text{“G is not provable in P”}<br>$$<br><br></p>
+<br>
+
+<h1 id="Godel’s-Second-Incompleteness-Theorem"><a href="#Godel’s-Second-Incompleteness-Theorem" class="headerlink" title="Godel’s Second Incompleteness Theorem"></a>Godel’s Second Incompleteness Theorem</h1><p>定义: a proof system $P$ is <strong>consistent</strong> if $P$ doesn’t prove $A \wedge \neg A (\equiv \bot)$</p>
+<blockquote>
+<p>就是说这个 proof system 可以出错, 但是它对 sentence 的判定应该是唯一的, 不能即认为一个sentence是对的也是错的</p>
+</blockquote>
+<p>等价的:</p>
+<p>a proof system $P$ for $PA$ is <strong>consistent</strong> if $P$ doesn’t prove $1&#x3D;0$</p>
+<blockquote>
+<p>因为 $P$ proves $1\ne 0$ from the axioms of $PA$ ($\forall x , S(x)\ne 0$), 如果它又证明 $1&#x3D;0$ 说明这个proof system not consistent</p>
+</blockquote>
+<br>
+
+<p>Soundness $\to$ Consistency</p>
+<p>证明: $P$ is sound: $P\to A$, then $A$ is true</p>
+<p>$P$ is not consistent 意味着 $P\to A\wedge \neg A$ (not true)</p>
+<br>
+
+<p>We have an arithmetic sentence expressing that $P$ is consistent:<br>$$<br>Cons_P \equiv \text{“(1&#x3D;0) is not provable in P”}<br>$$</p>
+<p>$$<br>\equiv \neg \text{Thm}(\varphi(\text{“1&#x3D;0”}))<br>$$</p>
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Consistent</th>
+<th>Sound</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Syntactic</td>
+<td>Semantic</td>
+</tr>
+<tr>
+<td>$\exists$ arithm formula $Cons_P&#x3D;\equiv \neg \text{Thm}(\varphi(\text{“1&#x3D;0”}))$</td>
+<td>$\forall \Psi((P\to \Psi)\implies\text{True}(\Psi))$ 然而没有formula可以表达 $\text{True}$ (Tarski’s Thm), 所以没有对应的 arithm formula</td>
+</tr>
+</tbody></table>
+<br>
+
+<br>
+
+<p><strong>Godel’s second incompleteness theorem</strong></p>
+<p>Fix any proof system $P$ containing $PA$, and satisfying some provability conditions.</p>
+<p>If $P$ is <strong>CONSISTENT</strong>, then $P$ <strong>cannot prove its own consistency</strong>, 即<br>$$<br>P\not\to Cons_P<br>$$<br><br></p>
+<p>Claim: If $P$ is consistent, then $G\equiv \text{“I’m not provable in P”}$ is not provable in $P$</p>
+<p>that is $Cons_P\to G$</p>
+<p>证明: 这等价与证明 $\neg G \to \neg Cons_P$</p>
+<br>
+$$
+G\equiv \neg \exists x \text{ Proof(x,g), where } g=\varphi(G)
+$$
+
+<p>$$<br>\neg G\equiv \exists x \text{ Proof(x,g)}<br>$$</p>
+<p>$$<br>\equiv P \implies G<br>$$</p>
+<p>即 $\text{ Proof(m,g)}$ is true for some $m \in N$ </p>
+<p>By the <strong>provability assumptions</strong> on $P$, we get<br>$$<br>P\implies \text{Proof(m,g)}<br>$$</p>
+<blockquote>
+<p>This is one of the provability assumptions that we must make about the proof system $P$</p>
+<p>简单来说就是如果 $P$ proves $G$ 那么 $P$ 就能 proves (“$P$ proves $G$”)</p>
+<p>If for two natural number $a, b$, the formula $\text{Proof(a, b)}$ is actually true, then the system $P$ proves the formula  $\text{Proof(a, b)}$</p>
+<p>This can be thought of as some “restricted completeness” of $P$: all true formula of the form $\text{Proof(a, b)}$ are in fact provable in $P$ </p>
+</blockquote>
+<p>then<br>$$<br>P\implies \exists x \text{ Proof(x,g)} &#x3D; \neg G<br>$$<br>此时 $P\implies G$ and $P\implies \neg G$</p>
+<p>so $P$ is inconsistent</p>
+<br>
+
+<br>
+
+<h2 id="Proof-of-second-Incompleteness-Theorem"><a href="#Proof-of-second-Incompleteness-Theorem" class="headerlink" title="Proof of second Incompleteness Theorem"></a>Proof of second Incompleteness Theorem</h2><p>我们要show:</p>
+<p>if $P \implies Cons_P$, then $P$ is inconsistent</p>
+<br>
+
+<p>using the provability assumptions on $P$, we get that the proof of claim above can be formalized within $P$ itself, so<br>$$<br>P\implies (Cons_P\to G)<br>$$<br>suppose $P\implies Cons_P$ </p>
+<p>Then $P\implies G$</p>
+<p>by the provability assumptions on $P$<br>$$<br>P\implies \text{“} P\implies G\text{“} (\equiv \neg G)<br>$$<br>因此 $P\implies \neg G$ and $P\implies G$</p>
+<p>所以 $P$ is inconsistent.</p>
+<blockquote>
+<p>The provability conditions on $P$ required for Godel’s second Incompleteness Theroem (due to Lob)</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</blockquote>
+<br>
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th>Computability</th>
+<th>Logic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\exists$undecidable problems</td>
+<td>$\forall$ sound proof system $P$, $\exists$ true but not provable statements</td>
+</tr>
+<tr>
+<td>(self-referential) example $D$ of an undecidable problem</td>
+<td>(self-referential) example $G$ of a true but non-provable statement</td>
+</tr>
+<tr>
+<td>Natural problems like the Halting Problem that are undecidable</td>
+<td>Natural statement $Cons_P$ is true but not provable by any consistent proof system</td>
+</tr>
+<tr>
+<td>Recursion Theorem: TMs that can refer to their own code</td>
+<td>see below</td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="Recursion-Theorem-for-Arithmetic-Formulas"><a href="#Recursion-Theorem-for-Arithmetic-Formulas" class="headerlink" title="Recursion Theorem for Arithmetic Formulas"></a>Recursion Theorem for Arithmetic Formulas</h2><p>Let $A(x)$ be any arithmetic formula, then $\exists$ arithmetic sentence $B$ s.t.<br>$$<br>B\equiv A(n)<br>$$<br>where $n&#x3D;\varphi(B)$</p>
+<br>
+
+<p>证明:</p>
+<p>让<br>$$<br>C(x)&#x3D;A(sub(x,x))<br>$$</p>
+<p>$$<br>a&#x3D;\varphi(C(x))<br>$$</p>
+<p>$$<br>B&#x3D;C(a)<br>$$</p>
+<br>
+
+<p>那么</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Tarski’s-Theorem"><a href="#Tarski’s-Theorem" class="headerlink" title="Tarski’s Theorem"></a>Tarski’s Theorem</h2><p>There is No arithmetic formula $\text{Truth(x)}$ s.t. $\forall n\in N$<br>$$<br>\text{Truth(n)}\iff \varphi^{-1}(n) \text{ is true over N}<br>$$<br>证明: by contradiction</p>
+<p>假设 such an arithmetic formula $\text{Truth(x)}$ 存在</p>
+<p>让 $A&#x3D;\neg \text{Truth(x)}$</p>
+<p>by Recursion Theorem, there is a sentence<br>$$<br>B\equiv A(\varphi(B)) \equiv \neg\text{Truth}(\varphi(B))<br>$$<br>即 $B\equiv \text{“I’m false”}$</p>
+<p>B 是 sentence, 没有 free variable, 也就是说 它要么为 true 要么为false</p>
+<p>然而 B 无法为 true 或 false, 无论那种情况都会产生矛盾</p>
+<p>因此contradiction</p>
+<br>
+
+<blockquote>
+<p>Presburger arithmetic ($+$ only, no $\times$) is both sound and complete (因为这个的功能太弱了)</p>
+<p>而$PA$ 太强了, 以至于它无法证明自己的 consistency (我们只能相信$PA$ 是consistent, 因为它至今没有出现反例)</p>
+<p>$PA \not \to Cons_{PA}$</p>
+<p>然而我们可以找到一个比$PA$ 更强大的proof system 来证明 $PA$ 是 consistent</p>
+<p>$PA \subseteq ZFC$ (set theroy)</p>
+<p>然而同样的问题, set theory 本身无法证明自己的 consistency, 那么可能它可以证明everything<br>$$<br>ZFC \not \to Cons_{ZFC}<br>$$</p>
+</blockquote>
+<br>
+
+<br>
+
+<p>目前我们说明 R.E.( recursive enumerable &#x2F; semi-decidable ) $\ne$ Recursive (decidable)</p>
+<p>接下来考虑 complexity, 以及最著名的 Np vs P</p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h1 id="Complexity-Theory"><a href="#Complexity-Theory" class="headerlink" title="Complexity Theory"></a>Complexity Theory</h1><p><img src="/Blog/Blog/intro/cmpt308/complexity.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>Complexity Theory &#x3D; Computability Theory <strong>with Bounded Resources</strong></p>
+</blockquote>
+<blockquote>
+<p>Computational Resources:</p>
+<ul>
+<li><strong>time</strong>, number of computation steps</li>
+<li><strong>space</strong>, number of tape cells used</li>
+<li><strong>randomness</strong>, number of random bits used</li>
+</ul>
+</blockquote>
+<br>
+
+<h2 id="Computational-Models"><a href="#Computational-Models" class="headerlink" title="Computational Models"></a>Computational Models</h2><ul>
+<li>Deterministic TM (DTM)</li>
+<li>Nondeterministic TM (NTM)</li>
+<li>Probabilistic&#x2F;randomized TM (PTM)</li>
+</ul>
+<br>
+
+<h2 id="Deterministic-Time-Complexity-P"><a href="#Deterministic-Time-Complexity-P" class="headerlink" title="Deterministic Time Complexity(P)"></a>Deterministic Time Complexity(P)</h2><p>DTM 的每一步可以看作是一个configuration</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们定义 worst-case time measure over all inputs of size $n$ 为<br>$$<br>\text{Time} _{M}(n)&#x3D;\max _{x:|x|&#x3D;n}(time _M(x))<br>$$<br>for $t:\N \to \N$, (t 是一个function, 输入是natural number, 输出也是 natural number) define</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>e.g. $\text{TIME}(n), \text{TIME}(n^2), \text{TIME}(2^n)$</p>
+<p>$\text{TIME}(n)$ 代表 all problems can be decide in linear time<br>$$<br>P&#x3D;\bigcup_{k&gt;0} \text{TIME}(n^k)<br>$$<br>$P$ 是所有可以在 polynomial time 解决的问题的集合</p>
+<blockquote>
+<p>Efficient algo &#x3D; Polytime algo</p>
+</blockquote>
+<br>
+
+<p>那么 $P$ 有什么特殊的, 为什么要研究它?</p>
+<ol>
+<li><p>$P$ is <strong>robust</strong>: other models of computation (K-tape TM,RAM, etc…) can be simulated by a 1-tape TM with poly slowdown only. $P$ 是 model independent 的</p>
+</li>
+<li><p>$P$ is closed under polytime reductions:</p>
+<p>if $B\in P$ and $A\le _P B$ ($A$ is polytime reducible to $B$) then $A\in P$ (如果我们在polytime可以解决B, 而我们有可以用B解决A, 则A也可以在polytime内解决)</p>
+</li>
+<li><p>$P$ contains many natural, efficiently solvable problems</p>
+</li>
+</ol>
+<br>
+
+<p>为什么我们忽略 constant factor?</p>
+<p>假设我们有一个TM $M$, runtime $t(n)$</p>
+<p>$\forall \text{const c} &gt; 1$ </p>
+<p>我们可以建立一个新的TM $M’$, with runtime $n+\frac {t(n)}{c}$ and $L(M’)&#x3D;L(M)$</p>
+<p>就是说我们可以建立一个新的, 有同样功能的 TM, 且 runtime 可以消去 $c$</p>
+<blockquote>
+<p>思想: “compress” each c-tape of symbols of $\Gamma$ of $M$ into a single super-symbol of $\Gamma’$ of $M’$</p>
+<p>例如, 定义 $\Gamma’&#x3D;\Gamma^c$</p>
+<p>then M’ can simulate “about $c$ steps of M” in 2 steps</p>
+<p>原本读取c个symbol时, 要进行一堆操作, 而现在, 我们读取c个symbol, 将它们作为一个symbol 进行操作</p>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="Nondeterministic-Polytime-NP"><a href="#Nondeterministic-Polytime-NP" class="headerlink" title="Nondeterministic Polytime (NP)"></a>Nondeterministic Polytime (NP)</h2><p><img src="/Blog/Blog/intro/cmpt308/complexity_3.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>\text{NTime} _M(n)&#x3D;\max _{x:|x|&#x3D;n}(time _M(x))<br>$$<br>For $t:\N\to \N$ (t 是一个function, 输入是natural number, 输出也是 natural number)</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>first definition of $NP$<br>$$<br>NP&#x3D;\bigcup_{k&gt;0} \text{NTIME}(n^k)<br>$$</p>
+<blockquote>
+<p>NP 处理的是 decision problem, 而不是 search problem</p>
+</blockquote>
+<br>
+
+<p>second definition of $NP$(equivalent)</p>
+<br>
+
+<p>对于 language $L$, 我们可以判断$L$ 是否在$NP$中</p>
+<p>我们有 Prover $P$, 和 Verifier $V$ (Prover可能说谎, 所以才有Verifier)</p>
+<p>input x, x 会同时传给 $P$ 和 $V$, 而它们会判断 $x$ 是否在 $L$ 中</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Prover $P$ 的算力是无尽的(unbounded), 而 Verifier $V$ is a <strong>deterministic polytime algorithm</strong> (say, time $O(n^c)$ )</p>
+<p>Prover 是用来帮助 Verifier 判断 $x$ 是否在 $L$ 中: Prover 会把一个”proof” $\pi$ (some string that shows&#x2F;proofs $x\in L$) 发送给 $V$<br>$$<br>|\pi| \le O(n^c)<br>$$<br>for some constant $c\ge 0$</p>
+<p>因为 Verifier 需要$O(n^c)$ 的时间来判断 proof 的正确性, 所以 proof 最多只能用 $O(n^c)$ 的时间</p>
+<br>
+
+<p>定义: The language decided by the prover-verifier pair $(P, V)$ </p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>例如:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<hr>
+
+<p>此时我们可以定义 $NP$ (second definition)</p>
+<p>$L\in NP$ iff there is a prover-verifier pair $(P, V)$, s.t. $V$ is a deterministic ploytime algorithm (time $O(n^c)$ for some $c\ge 0$) and $L(P, V)&#x3D;L$</p>
+<hr>
+
+<p>so $L\in NP$ if $\exists c \ge 0$ s.t.</p>
+<ul>
+<li>$\forall x\in L, \exists$ witness&#x2F;proof $\pi, |\pi|\le O(|x|^c)$ that can be verified in deterministic  polytime by a verifier $V(x, \pi)$</li>
+<li>$\forall x \notin L$, no such witness $\pi$ exists (i.e. all candidate $\pi$’s will be reject by $V$)</li>
+</ul>
+<br>
+
+<br>
+
+<p>The class NP captures lots of natural important problems:</p>
+<p>Given a set of constraints (can be efficiently checked), Is there a way to satisfy all of them?</p>
+<p>and if so, give me a solution which I can check for correctness</p>
+<blockquote>
+<p>例如我们要规划学生考试时间, constraints 可能是</p>
+<ol>
+<li>学生的任意两门课不能在同一时间考试</li>
+<li>….</li>
+</ol>
+<p>某个人规划好了一个时间表, 我们可以对照这些 constraints 一个一个 check 是否符合.</p>
+</blockquote>
+<blockquote>
+<p>寻找一个 NP problems 的 solution (或者说判断solution是否存在) 很难, 但判断这个solution是否正确很容易</p>
+</blockquote>
+<br>
+
+<br>
+
+<p>为什么这么说:<br>$$<br>\text{Decidable}\to P<br>$$</p>
+<p>$$<br>\text{Semi-Decidable}\to NP<br>$$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果 $V$ 的 time complexity 是 $P$, 那么$L(P,V)$所表示的 class of the languages  就是NP (这是NP的定义)</p>
+<p>如果我们把 V 的 polytime decide algorithm 改为 some decider ($V\in Dec$) , V is computable by halting machine, 我们不对这个turing machine的 runtime 进行任何约束</p>
+<p>此时 , $L(P,V)$所表示的 class of the languages  就是 Semi-Decidable language</p>
+<blockquote>
+<p>exercise, proof (2) , $V\in \text{Dec} \implies {L(P,V)}&#x3D;\text{Semi-Dec}$</p>
+</blockquote>
+<blockquote>
+<p>exercise: proof the two definition of $NP$ are equivalent</p>
+<p>def2 $\to$ def1 (backward)</p>
+<p>如果我们有一个这样的 game 模型</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们可以构建 NTM</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs livecodeserver">&gt;<span class="hljs-keyword">on</span> <span class="hljs-title">input</span> <span class="hljs-title">x</span><br><br>&gt;non-deterministic guess <span class="hljs-keyword">a</span> proof <span class="hljs-literal">pi</span><br>&gt;<span class="hljs-keyword">if</span> verify V accept proof <span class="hljs-literal">pi</span><br><span class="hljs-keyword">then</span> accept<br></code></pre></td></tr></table></figure>
+
+<p>这是 non-deterministic time computation, 无论我们的guess是什么, 我们运行 polytime in all branches</p>
+</blockquote>
+<br>
+
+<p>一个著名的问题 $NP&#x3D;P$ ?</p>
+<p>我们知道 semi-Dec $\ne$ Dec, 然而依然不知道 $NP\ne P$</p>
+<br>
+
+<br>
+
+<br>
+
+<h2 id="The-Satisfiability-SAT-Problem"><a href="#The-Satisfiability-SAT-Problem" class="headerlink" title="The Satisfiability (SAT) Problem"></a>The Satisfiability (SAT) Problem</h2><p>$\text{SAT} \in NP$</p>
+<p>Given: propositional logic formula $\varphi(x_1,x_2\cdots,x_n)$</p>
+<p>Decide: is $\varphi(x_1,x_2\cdots,x_n)$ satisfiable?</p>
+<p>That is, is there $a_1, a_2\cdots a_n \in (T,F)$ such that $\varphi(x_1,x_2\cdots,x_n)$ is True</p>
+<br>
+
+<p>例如:<br>$$<br>\varphi(x,y,z)\equiv (\overline x \vee y)\wedge (x\vee \overline z)\wedge (\overline y)<br>$$<br>Is $\varphi(x,y,z)$ satisfiable? Yes, $x&#x3D;F, y&#x3D;F, z&#x3D;F$</p>
+<br>
+
+<blockquote>
+<p>为什么说 SAT $\in$ NP, 我们说有一个 non-deterministic ploytime algorithm to solve this problem</p>
+<p>可以创建一个NTM, non-determinately guess 这 n 个值(n个bits), 检查结果是否为true </p>
+</blockquote>
+<blockquote>
+<p>这个问题是 NP complete 的(之后会定义什么是NP complete), 同时可以说是 mother of other NP complete problem</p>
+</blockquote>
+<h2 id="Search-vs-Decision-problem"><a href="#Search-vs-Decision-problem" class="headerlink" title="Search vs Decision problem"></a>Search vs Decision problem</h2><p>$\text{SAT}$ is a decision problem</p>
+<p>Given $\varphi(x_1,x_2\cdots,x_n)$, decide if $\varphi$ is satisfiable.</p>
+<br>
+
+<p>$\text{SAT-Search}$:</p>
+<p>Given $\varphi(x_1,x_2\cdots,x_n)$, find a satisfying assignment $(a_1,\cdots, a_n)$ to $\varphi$ if $\varphi$ is satisfiable</p>
+<blockquote>
+<p>我们希望解决 SAT-search, 然而其实解决 SAT 等价于解决 SAT-Search</p>
+<p>Backward: 如果我们可以 <strong>efficiently</strong> solve SAT-Search, 那么这个结果就是 SAT 的结果. 这是 Decision-To-Search reduction</p>
+<p>Forward: 需要建立 Search-To-Decision reduction</p>
+<p>$\text{SAT-Search} \in P^\text{SAT}$ (即 SAT-Search can be solved in polytime if we allowed access to SAT)</p>
+<p>这种 reduction 也叫做 truing reduction</p>
+</blockquote>
+<br>
+
+<p>Binary Search</p>
+<ul>
+<li>unknown integer $x$ , $1\le x\le N$</li>
+<li>may ask Yes&#x2F;No question $x\ge A$ for any $1\le A\le N$</li>
+</ul>
+<p>use Binary Search to determine $x$ in time $O(\log_N)$</p>
+<p>使用类似的步骤我们可以得到 $\text{SAT-Search} \in P^\text{SAT}$</p>
+<p>我们可以进行binary search on 0, 1</p>
+<p>假设 $\varphi(x_1,\cdots, x_n) \in \text{SAT}$</p>
+<p>那么 $\varphi(0,\cdots, x_n) \in \text{SAT}$ 或 $\varphi(1,\cdots, x_n) \in \text{SAT}$ (可以用binary search决定)</p>
+<p>set $a_1$ so that $\varphi(a_1,x_2\cdots,x_n)\in \text{SAT}$</p>
+<p>之后对 $x_2\cdots x_n$ 继续执行这个操作, 直到得到 $(a_1,a_2\cdots,a_n)$</p>
+<p>算法:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-built_in">input</span> <span class="hljs-symbol">&lt;phi&gt;</span><br><br><span class="hljs-keyword">if</span> <span class="hljs-symbol">&lt;phi&gt;</span> not in SAT, then <span class="hljs-keyword">return</span> No<br><span class="hljs-keyword">endif</span><br><br><span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>..n<br>	ai = <span class="hljs-number">0</span><br>	<span class="hljs-keyword">if</span> &lt;phi(a1,...ai,x_&#123;i+<span class="hljs-number">1</span>&#125;,...<span class="hljs-keyword">xn</span>)&gt; not in SAT<br>		ai = <span class="hljs-number">1</span><br>	end <span class="hljs-keyword">if</span><br><span class="hljs-keyword">endfor</span><br><br>reutrn (a1, a2..., <span class="hljs-keyword">an</span>)<br></code></pre></td></tr></table></figure>
+
+<p>因此 $\text{SAT} \in P \iff \text{SAT-Search} \in P$</p>
+<blockquote>
+<p>similar “Search-To-Decision” holds for <strong>most NP-problems</strong>. Hence, it’s enough to study the complexity of decision problems. [NP is a class of decision problems]</p>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="一些重要的-NP-问题"><a href="#一些重要的-NP-问题" class="headerlink" title="一些重要的 NP 问题"></a>一些重要的 NP 问题</h2><p>$$<br>\text{HamPath}&#x3D;{\langle G, s,t\rangle \text{ | G is a digraph with a Hamitonian path from s to t} }<br>$$</p>
+<p>$$<br>\text{Clique} &#x3D; { \langle G, k\rangle\text{ | G is a graph with a clique of size k} }<br>$$</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%9B%A2%E9%97%AE%E9%A2%98/6243011?fr=aladdin">分团问题</a><br>$$<br>\text{SubsetSum}&#x3D;{ \langle a_1,a_2\cdots a_n, t\rangle | \exists S\subseteq {1,…n} \text{ s.t. } \sum_{i\in S}a_i&#x3D;t}<br>$$<br><br></p>
+<blockquote>
+<p>Exercises: TODO</p>
+<ol>
+<li>Check that all the problems above $\in$ NP</li>
+<li>Define the corresponding Search versions HamPath-Search, Clique-Search, SubsetSum-Search</li>
+<li>Define Search-to-Decision reductions for all the example NP problems above</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>注意: 有些时候没有明显的 “Search-to-Decision” reduction is known</p>
+<p>例如:</p>
+<p>Composite: Give $\langle n\rangle$, decide if $n$ is composite (has a non-trivial factor)</p>
+<p>Composite-Search: Give $\langle n\rangle$, find a non-trivial factor of $n$, if it exists</p>
+<p>Composite $\in$ P  (Agrawal, Kayal, Saxena 在 2003年证明了)</p>
+<p>然而 Composite-Search 等价于 Factoring, 我们不知道 Factoring 是否能在 PolyTime 解决</p>
+<p>我们只知道Factoring 可以在 Quantum PolyTime 解决</p>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="Polytime-Reduction"><a href="#Polytime-Reduction" class="headerlink" title="Polytime Reduction"></a>Polytime Reduction</h2><p>和 computability 的 reduction 一样, 不过这个 function 必须是 polytime-computable</p>
+<p>$f$ is a polytime reduction from $A$ to $B$, if</p>
+<ol>
+<li>$f$ is computable in polytime, and</li>
+<li>$\forall x, x\in A \iff f(x)\in B$</li>
+</ol>
+<br>
+
+<p>记作 $A\le_PB$</p>
+<p>Theorem: $A\le_P B$ and $B\in P$ , then $A\in P$</p>
+<br>
+
+<h2 id="NP-Completeness"><a href="#NP-Completeness" class="headerlink" title="NP-Completeness"></a>NP-Completeness</h2><p>What is a <strong>hardest</strong> problem in $NP$?</p>
+<p>a language $B\in NP$ is “the hardest” if<br>$$<br>\forall A\in NP, A\le_pB<br>$$<br><img src="/Blog/Blog/intro/cmpt308/np.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>Language $B$ is NP-complete if</p>
+<ol>
+<li>$B\in NP$</li>
+<li>$\forall A\in NP, A\le_pB$</li>
+</ol>
+<blockquote>
+<p>language $B$ is $\text{NP-hard}$ if $\forall A\in NP, A\le_pB$</p>
+<p>因此 $B$ is NP-complete if $B$ is NP-hard AND $B\in NP$</p>
+</blockquote>
+<p>Remark:</p>
+<ol>
+<li>Each NP-complete problem $B$ is a hardest problem in $NP$ (every other NP problem is reducible to $B$)</li>
+<li>For every two NP-Complete problem $A, B$, we have <img src="/Blog/Blog/intro/cmpt308/np_1.PNG" srcset="/Blog/img/loading.gif" lazyload>, $A, B$ 是 polytime-equivalent</li>
+<li>let $A$ be any $\text{NP-complete}$ problem, then $A\in P \iff P&#x3D;NP$</li>
+<li>$\forall A,B\in NP$ , $A$ is NP-complete and $A\le_PB$ . Then $B$ is NP-complete</li>
+</ol>
+<blockquote>
+<p>exercise: verify 3, 4</p>
+</blockquote>
+<blockquote>
+<p>这是个很有趣的问题, 就是说对于所有NP问题, 我们都可以用一个NP-complete的方法解决.</p>
+<p>换句话说就是我们一直在解决同一个问题, 只不过有时候我们叫它 $SAT$ 有时我们叫它 Hamitonian path…</p>
+</blockquote>
+<br>
+
+<p>是否存在NP-complete problem? 毕竟我们无法真的尝试对所有NP问题进行reduction</p>
+<h2 id="“Trivial”-NP-complete-problem"><a href="#“Trivial”-NP-complete-problem" class="headerlink" title="“Trivial” NP-complete problem"></a>“Trivial” NP-complete problem</h2><p>$$<br>A_{NTM}^p &#x3D; {\langle M, w, 1^t\rangle \text{ | NTM M accepts w within t steps}}<br>$$</p>
+<p>claim: $A_{NTM}^p$ is NP-complete</p>
+<p>证明: </p>
+<ol>
+<li>$A_{NTM}^p\in NP$</li>
+</ol>
+<p>直接 simulate M on w, non-determinately for t steps</p>
+<ol start="2">
+<li>$\forall L\in NP$ show $L\le_p A_{NTM}^p$</li>
+</ol>
+<p>$L$ has $NTM$ M, deciding $L$ in time $n^c$ (some const $c&gt;0$).</p>
+<p>我们需要一个 polytime-reduction $f$ s.t. $\forall x, x\in L\iff f(x)\in A_{NMT}^p$, 显然<br>$$<br>f(x) :&#x3D; \langle M, x, 1^{|x|^c} \rangle<br>$$<br><br></p>
+<h2 id="SAT-is-NP-Complete"><a href="#SAT-is-NP-Complete" class="headerlink" title="SAT is NP-Complete"></a>SAT is NP-Complete</h2><p>Cook-Levin Thm(1971) 证明的</p>
+<ol>
+<li>SAT $\in$ NP</li>
+<li>$\forall L \in NP, L\le_p SAT$</li>
+</ol>
+<br>
+
+<p>定义: SAT (Satisfiability)</p>
+<p>Given: formula $\varphi(x_1,x_2,\cdots x_n)$</p>
+<p>Decide: is $\varphi$ satisfiable?</p>
+<br>
+
+<ol>
+<li>SAT $\in$ NP (显而易见, 我们可以根据NP的第二个定义证明)</li>
+<li>$\forall L\in NP, L\le_p SAT$</li>
+</ol>
+<p>Let $L\in NP$ be arbitrary</p>
+<p>Let $NTM$ M decide $L$ in non-determinate time $O(n^c)$</p>
+<p>我们希望有一个 polytime 的 computable function $f:\Sigma^\star \to \Sigma^\star$ s.t. $\forall x$<br>$$<br>x\in L \iff f(x) \in SAT<br>$$</p>
+<blockquote>
+<p>回顾: Godel shows (1933)<br>$$<br>\text{TM M, input x} \implies \Psi \text{(arithmetic sentence)}<br>$$<br>s.t. M accepts x $\iff \Psi$ is true over $\N$</p>
+<p>注意 $\Psi$ 是一个sentence, no free variable</p>
+</blockquote>
+<p>现在我们希望 polytime NTM $M$ , input $x$ $\implies$ $\varphi(y_1,y_2\cdots y_t)$ (propositional logical formula)</p>
+<p>s.t. M accept x $\iff \varphi$ is satisfiable</p>
+<p> $f(x)\to \varphi_x(y_1, \cdots,y_t,z_1,\cdots,z_t)$ , where $t\le O(|x|^c)$</p>
+<p>我们希望得到一个function, 输入一个input $x$, 返回一个formula, depend on input x, 这个formula有两种 variable $y_i,z_i$ 每一种variable的个数都是polynomial级别的</p>
+<br>
+
+<h3 id="Computation-of-NTM-M-on-x-x-x3D-n"><a href="#Computation-of-NTM-M-on-x-x-x3D-n" class="headerlink" title="Computation of NTM M on x, $|x|&#x3D;n$:"></a>Computation of NTM M on x, $|x|&#x3D;n$:</h3><blockquote>
+<p>如果我们对TM遵循一定格式, 那么把它转化为logical formula 会简单许多, 所以第一步我们要把 TMs 转换为同一种格式 (nice structed)</p>
+</blockquote>
+<p><strong>step 1)</strong> Making the given NTM $M$ into a structured NTM:<br>$$<br>\delta_M(\star, \star)&#x3D;{ (\star, \star,\star) }<br>$$</p>
+<p>$$<br>\max(|\delta_M(\star, \star)|)&#x3D;B<br>$$</p>
+<p>我们可以使用的状态转换函数是有限的, 假设有 $B$ 个.</p>
+<p>现在我们希望$B&#x3D;2$, 我们可以构建一个新的NTM, with $B&#x3D;2$ 并且等价于原本的NTM</p>
+<p>using extra states and instructions, we can simulate $M$ with a NTM $M’$ s.t. $L(M)&#x3D;L(M’)$ and<br>$$<br>\max(|\delta_M(\star, \star)|)&#x3D;2<br>$$<br><br></p>
+<p>这个步骤是比较简单的, 就像是一个4叉树, 我们总是可以使用一个二叉树来表示它</p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>注意: runtime of $M’ \le$ O(runtime of $M$) </p>
+<br>
+
+<p><strong>step 2)</strong></p>
+<p>Convert this NTM $M’$ into the following NTM $M’’$</p>
+<p>注意: 当$M’$ 进行non-deterministically guess时,  根据step 1, 它只有两种选择</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-keyword">on</span> input x, |x|=n<br><br>nondeterministically guess m=O(n^c) bits b1,b2,...bm<br><br>Simulate M<span class="hljs-comment">&#x27; on x for follows:</span><br>	<span class="hljs-keyword">if</span> at <span class="hljs-keyword">step</span> i, M<span class="hljs-comment">&#x27; needs to take a nondet step choosing between two options &#123;(q0, *, *), (q1, *, *)&#125;, choose the option bi</span><br>	就是说如果bi是<span class="hljs-number">0</span>就走q0, 如果bi是<span class="hljs-number">1</span>就走q1<br></code></pre></td></tr></table></figure>
+
+<p>NTM 可以 combine <strong>deterministic</strong> and <strong>non-deterministic</strong> step of computation</p>
+<p>而我们这一步操作把所有 non-deterministic step 放到了deterministic step 的前面. 我们知道这个算法是polytime的, 因此我们知道它能运行多少步, 即我们知道$m$</p>
+<br>
+
+<p>NTM $M’’$ is a canonical “guess &amp; check” NP algorithm</p>
+<p>NP algorithm: First make a non-deterministic guess, then deterministically check if the guess is good</p>
+<br>
+
+<p>此时我们就可以假设我们的NTM $M$ for $L\in NP$ 都是遵循这种形式</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">on input x, <span class="hljs-pattern-match">|x|=n</span><br><span class="hljs-pattern-match"></span><br><span class="hljs-pattern-match">nondeterministically guess b1, b2,<span class="hljs-operator">...</span>bt (t=<span class="hljs-constructor">O(<span class="hljs-params">n</span>^<span class="hljs-params">c</span>)</span>)</span><br><span class="hljs-pattern-match"><span class="hljs-constructor">Then</span> simulate a deterministically ploytime <span class="hljs-constructor">TM</span></span><br><span class="hljs-pattern-match"><span class="hljs-constructor">M0(<span class="hljs-params">x</span>, <span class="hljs-params">b1</span>, <span class="hljs-params">b2</span><span class="hljs-operator">...</span>, <span class="hljs-params">bt</span>)</span> (time <span class="hljs-constructor">O(<span class="hljs-params">n</span>^<span class="hljs-params">c</span>)</span>)</span><br><span class="hljs-pattern-match">accept iff <span class="hljs-constructor">M0</span> accept</span><br></code></pre></td></tr></table></figure>
+
+<p>因此<br>$$<br>\text{M accept x}\iff \exists b_1b_2…b_t \ M_0(x,b_1b_2…b_t) \text{ accepts}<br>$$<br><br></p>
+<p>Consider time $T\le poly(n)$ computation of $M_0$ on inputs $x, |x|&#x3D;n$ and $y, |y|&#x3D;t \le O(n^c)$ </p>
+<p>$x&#x3D;x_1x_2…x_n, y&#x3D;y_1y_2…y_t$</p>
+<p>假设 TM 是 one tape</p>
+<p>初始状态: conf 0</p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果我们从$q_0$出发, 运行$T$ 步, 起始点和终止点最远只能是$T$</p>
+<p>因此 $q_0$ 左边 $T$ tape 和右边 $T$ tape, 总共 $2T$ tape 是运行当前TM最多使用空间. 其余的所有tape我们都无法碰触</p>
+<p>即 The relevant portion of the tape is of length $\le 2T$<br>$$<br>\text{conf}_0\to\text{conf}_1\to\cdots \to \text{conf}_T<br>$$<br>is an accepting computation of $M_0$ on $x,y \iff$ </p>
+<ol>
+<li>start right: $\text{conf}_0&#x3D;q_0xy$ (这里描述的是tape的样子, $q_0$ 在x,y的左边)</li>
+<li>finish right: $\text{conf}<em>T&#x3D;\star q</em>{acc}\star$ (这里描述的是tape的样子, 即最后是accept state)</li>
+<li>move right: $\text{conf}_{i-1}{\to^{M_0}} \text{conf}_i, \forall 1\le i\le T$</li>
+</ol>
+<p>我们需要encode each of 1, 2, 3 with prop. formula</p>
+<br>
+
+<p><strong>Coding a configuration in binary</strong></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>$\perp$ 代表当前位置没有state, 只有一个state是当前state, 其余都是$\perp$ </p>
+<p>举个例子</p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>in binary:</p>
+<p>Each block is encoded with</p>
+<p>$Q$ 个state + $\perp$ , $\Gamma$是tape的alpha bit<br>$$<br>\le \lceil \log_2(|Q|+1) \rceil+\lceil \log_2|\Gamma| \rceil &#x3D; d<br>$$<br>bits &#x2F; propositional variables<br>$$<br>z_1,z_2\cdots z_d<br>$$<br>每个configuration 有 2T blocks, 每个 block 有 d bits, 也就是说有 2Td variables</p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>总共有 $T$ configurations</p>
+<p>因此, total number propositional variables to encode a time-T computation of $M_0$ on $x,y$ is $2T^2d \le poly(n)$ (因为 $T$ is polynomial in $n$)</p>
+<p>让 $m&#x3D;2T^2d$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>give $\text{conf}_{i-1}$</p>
+<p>我们想知道 $\text{conf}_{i}$ 是否正确</p>
+<p>然而我们并不需要整个 $\text{conf}<em>{i-1}$ , 只需要在 $j$ 的周围两个内看看即可, 因为从 $\text{conf}</em>{i-1}$ 到 $\text{conf}_{i}$ 只运行了一步.</p>
+<blockquote>
+<p>turing machine’s computation is very local thing. “locality” of TM 是这个证明能成功的重要原因</p>
+</blockquote>
+<p><img src="/Blog/Blog/intro/cmpt308/np_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>由于我们在思考$M_0$ 而 $M_0$ 不是NTM, 所以只有一种可能</p>
+</blockquote>
+<p><img src="/Blog/Blog/intro/cmpt308/np_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>由于window只需要4个参数(const number of variables), 也就是说我们可以在constant 的时间内检查完一个窗口. 我们可以用一个constant size of formula 来做这步操作, 有$ T$ 个窗口, 这个formula 的size大约就是$T$(忽略常量)</p>
+<p>$T$ 是 polynomial, 也就是说 $MOVE$ 的 size 是 polynomial</p>
+<br>
+
+<p><img src="/Blog/Blog/intro/cmpt308/np_13.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>M \text{ accepts } x\iff<br>$$</p>
+<p>$$<br> \exists y&#x3D;y_1…y_t\ M_0 \text{ accepts }x,y \iff<br>$$</p>
+<p>$$<br>\exists y\exists z\ \varphi(x, y, z) \iff<br>$$</p>
+<p>$$<br>\Psi_x(y,z)&#x3D;\varphi(x,y,z) \in SAT<br>$$</p>
+<p>The reduction $L\le_p SAT$<br>$$<br>x\to \Psi_x(y,z)<br>$$</p>
+<ul>
+<li>$x\in L \iff \Psi_x$ is satisfiable</li>
+<li>$\Psi_x$ can be constructed in $poly(|x|)$ time</li>
+</ul>
+<p>(Cook-Levin Theorem) Done! </p>
+<blockquote>
+<p>TM 的所有 computation 会被 code to bits, 用prepositional variables来存储这些bits. 这就是collection of prepositional variables that I will define a formula for.</p>
+<p>formula will check this collection of variables, 当我们把它们看作 coding of configurations 时是正确的</p>
+<p>看config0 能否走到config1</p>
+</blockquote>
+<br>
+
+<h3 id="SAT-的变种-variants-all-NP-complete"><a href="#SAT-的变种-variants-all-NP-complete" class="headerlink" title="SAT 的变种(variants) (all NP-complete)"></a>SAT 的变种(variants) (all NP-complete)</h3><p><img src="/Blog/Blog/intro/cmpt308/np_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>3-SAT 是 NP complete 但是 2-SAT 可以在polytime 解决 </p>
+</blockquote>
+<br>
+
+<p>什么是CNF</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">https://en.wikipedia.org/wiki/Conjunctive_normal_form</a></p>
+<br>
+
+<h3 id="CNF-SAT-is-NP-complete"><a href="#CNF-SAT-is-NP-complete" class="headerlink" title="CNF-SAT is NP-complete"></a>CNF-SAT is NP-complete</h3><p>证明: </p>
+<ol>
+<li>$\text{CNF-SAT} \in NP$, yes</li>
+<li>$SAT\le_p \text{CNF-SAT}$</li>
+</ol>
+<p>我们需要把一个任意的 formula $\varphi (x_1,…x_n)$ map to a CNF formula $\psi(y_1,…,y_m)$</p>
+<p>so $\varphi \text{ is satisfiable} \iff \psi \text{ is satisfiable}$</p>
+<p>这是 satisfiability equivalent (not logically equivalent). 就是说 $\varphi$ 不用等价与 $\psi$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>$\varphi$ is satisfiable $\iff \exists x_1x_2x_3x_4x_7x_{13}$ s.t.</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们希望$\text{gate}_6$ 是true</p>
+<p>因此对于 $\psi$ 我们添加6个variable来代表$\text{gate}$<br>$$<br>\psi(x_1,x_2,x_3,x_4,x_7,x_{13}, y_1, y_2, y_3, y_4, y_5, y_6)<br>$$</p>
+<p>$$<br>&#x3D;\bigwedge^6_{i&#x3D;1} \text{“} y_i\equiv \text{the value of gate i”} \wedge y_6<br>$$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p> Observe : $\varphi \text{ is satisfiable} \iff \psi \text{ is satisfiable}$</p>
+<p>Convert $\psi$ to an equivalent CNF, using the rules:</p>
+<ul>
+<li>$a\iff b$ is $(a\to b) \wedge (b\to a)$</li>
+<li>$a\to b$ is $\neg a\vee b$</li>
+<li>$a\vee (b\wedge c)$ is $(a\vee b) \wedge (a\vee c)$</li>
+<li>$\overline {a \vee b}$ is $\overline a \wedge \overline b$</li>
+<li>$\overline {a \wedge b}$ is $\overline a \vee \overline b$</li>
+</ul>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Overall, get $\bigwedge \text{CNFs}\equiv \text{CNF}$</p>
+<p>so $\text{CNF-SAT}$ is NP-complete</p>
+<br>
+
+<br>
+
+<h3 id="3-SAT-is-NP-Complete"><a href="#3-SAT-is-NP-Complete" class="headerlink" title="3-SAT is NP-Complete"></a>3-SAT is NP-Complete</h3><p>CNF的证明就已经把问题转换成3-CNF了</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>$\forall k\ge 3$, K-SAT is NP-complete</p>
+<p>因为 K-SAT contains 3-SAT, 所以 3-SAT $\le_p$ K-SAT</p>
+</blockquote>
+<br>
+
+<h3 id="2-SAT-is-in-P"><a href="#2-SAT-is-in-P" class="headerlink" title="2-SAT is in P"></a>2-SAT is in P</h3><p>$\text{2-SAT} \in P$</p>
+<br>
+
+<p>证明:</p>
+<p>思路对于一个 $\text{2-SAT}$ 例如: $(x\vee \overline y) \wedge (\overline x \vee \overline z)\wedge (y\vee z)$</p>
+<p>每一个clause, 都是 $a\vee b$ 的形式, 而这等价于<br>$$<br>a \vee b \equiv \neg a\to b \equiv \neg b \to a<br>$$<br>我们可以基于此构建一个有向图 on nodes $x, \overline x , y, \overline y, z, \overline z$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果 $w \iff \overline w$ , 即可以从一个$w$推导出 $\overline w$, 同时 $\overline w$ 可以推导出 $w$</p>
+<p>说明 $w, \overline w$ 是等价的</p>
+<p>如果存在这样一个环, 就说明 formula 无法被 satisfy</p>
+<br>
+
+<p>举个例子:<br>$$<br>(\overline x \vee y) \wedge (\overline y \vee x) \wedge \overline x \wedge y<br>$$<br>这里 $\overline x$ 可以看作 $\overline x \vee \overline x$, 同理 $y$ 也一样</p>
+<p>而在这个例子中,  存在这样一个环<br>$$<br>x\to \overline x \to \overline y \to y\to x<br>$$<br>$x\iff \overline x$</p>
+<p>我们可以在 deterministic polytime check a graph $G$ on $2n$ nodes has a path $w\to \overline w$ and a path $\overline w \to w$ for some variable $w\in { x_1,x_2,…x_n}$</p>
+<p>因此 2-SAT $\in$ P</p>
+<br>
+
+<br>
+
+<h3 id="NAE-3SAT-is-NP-complete"><a href="#NAE-3SAT-is-NP-complete" class="headerlink" title="NAE-3SAT is NP complete"></a>NAE-3SAT is NP complete</h3><p>NAE-3SAT 就是一个 3-SAT, 它的 assignment 在满足 formula 的同时每一个 clause 包含一个True literal 和一个 False literal</p>
+<p>证明方法1.</p>
+<p>TODO:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>另一种简单的证法:</p>
+<p>对于 3-CNF, 对于它的每一个clause, 我们都可以拆分成这样<br>$$<br>(y_1\vee y_2 \vee y_3)\to (y_1 \vee y_2 \vee z_i) \wedge (\overline z_i\vee y_3\vee False)<br>$$<br>如果 这个 3CNF 可以被satisfy, 那么这个NAE-3SAT就可以被satisfy</p>
+<br>
+
+<h2 id="NP-Complete-graph-problems"><a href="#NP-Complete-graph-problems" class="headerlink" title="NP-Complete graph problems"></a>NP-Complete graph problems</h2><h3 id="Independent-Set-IS"><a href="#Independent-Set-IS" class="headerlink" title="Independent Set(IS)"></a>Independent Set(IS)</h3><p>Given a graph $G&#x3D;(V,E)$ and an integer $K\ge 0$, decide if $G$ has an independent set of size $\ge K$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>就是说在这个graph中选 至少$K$个点, 而这些点中没有相连的边</p>
+<br>
+
+<p>Thm: <strong>IS is NP-complete</strong></p>
+<p>证明: </p>
+<ol>
+<li><p>$IS \in NP$ (easy)</p>
+</li>
+<li><p>$3SAT\le_pIS$</p>
+</li>
+</ol>
+<p>对于 3-CNF $\varphi(x_1,x_2…x_n)&#x3D;C_1\wedge C_2\wedge \cdots \wedge C_m$</p>
+<p>我们可以构建一个 graph $G&#x3D;(V,E), |V|&#x3D;3m, K&#x3D;m$, 使得:<br>$$<br>\varphi \in 3SAT \iff (G,K)\in IS<br>$$<br><br></p>
+<p>对于一个3-CNF, 例如: $\phi&#x3D;(x_1\vee \overline x_2\vee x_4)\wedge (\overline x_1\vee x_2 \vee \overline x_3)\wedge (x_2 \vee \overline x_3 \vee \overline x_4)$</p>
+<p>我们可以创建出这样一个图, 每个clause对应一个三角形</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>这个图有 $m$ 个 clause.</p>
+<p><strong>forward &#x3D;&gt;</strong></p>
+<p>如果 $\phi$ is satisfiable, 那么我们希望我们创建的graph $G$ 有 large Independent set. 同时反过来也一样</p>
+<p>如果$G$ 有large independent set, 我们不能选择同一个三角形中的两个点, 因为他们connect by an edge</p>
+<p>最好的情况下是在每个三角形中选择一个点, 因此最大$|IS|&#x3D;m$</p>
+<p>如果 $\phi$ is satisfiable, 每个clause至少有一个true literal. 我们choose exactly one true literal per clause</p>
+<br>
+
+<p><img src="/Blog/Blog/intro/cmpt308/sat_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>backward &lt;&#x3D;</strong></p>
+<p>如果 $G$ 有 large independent set, 我们能否让 $\phi$ satisfiable?</p>
+<p>不能, 因为如果我们在第一个三角形中选 $x_1$ 第二个三角形中选$\overline x_1$ 作为 independent set 中的元素, 那么对于 $\phi$ 来说, 就必须同时满足 $x_1\wedge \overline x_1&#x3D;True$ 而这是不可能的.</p>
+<p>因此我们要确保: 当选中 $x$ 时, 无法在图中选择 $\overline x$. 这个方法就是把图的所有元素和它的complement 进行连接, 这样我们就无法同时选择它们了</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时如果G中有$|IS|&#x3D;m$ 那么 $\phi$ 就可以被 satisfy</p>
+<p>而这个改变不会影响forward的推导, 同时由满足backward.</p>
+<br>
+
+<br>
+
+<h3 id="CLIQUE"><a href="#CLIQUE" class="headerlink" title="CLIQUE"></a>CLIQUE</h3><p>CLIQUE: give a graph $G&#x3D;(V,E)$ and an integer $K\ge 0$ decide if $G$ has a clique of size $\ge K$</p>
+<p>clique 就是给定图的一个子图, 且这个子图是一个完全图(和IS正好相反)</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p><strong>Thm: CLIQUE is NP-complete</strong></p>
+<p>证明:</p>
+<ol>
+<li>CLIQUE $\in NP$ (guess $K$ points, check edge number, easy)</li>
+<li>$IS \le_p CLIQUE$</li>
+</ol>
+<p>这个也简单, 因为<br>$$<br>\text{G has an indep set of size K} \iff G^c \text{ has a clique of size K}<br>$$<br>因此我们只要求这个图的complement, 再运行 IS 算法即可</p>
+<br>
+
+<h3 id="3-COL"><a href="#3-COL" class="headerlink" title="3-COL"></a>3-COL</h3><p>Given a graph $G&#x3D;(V,E)$ decide if $G$ is 3-colorable.</p>
+<blockquote>
+<p>$G$ is 3-colorable if there is a coloring $c:V\to{R,G,B}$ s.t. $\forall (u, v)\in E$ $c(u)\ne c(v)$</p>
+<p>对一个图的所有点进行着色(RGB), 使得这个图没有一个边的两点是同一个颜色</p>
+</blockquote>
+<blockquote>
+<p>2-COL 很简单. 只要判断图是不是二分图即可</p>
+</blockquote>
+<p>3-COL is NP-complete</p>
+<p>证明: </p>
+<ol>
+<li><p>3-COL $\in$ NP (easy)</p>
+</li>
+<li><p>NAE-3SAT $\le_p$ 3-COL</p>
+</li>
+</ol>
+<p>对于一个 3-CNF $\phi(x_1,..x_n)&#x3D;C_1\wedge C_2 \wedge …\wedge C_m$</p>
+<p>和一个 graph $G&#x3D;(V,E), |V|&#x3D;3m+2n+1$ 映射, 使得:<br>$$<br>\phi \in \text{NAE-3SAT} \iff G\in \text{3-COL}<br>$$<br>例如 $\phi&#x3D;(x_1\vee \overline x_2\vee x_4) \wedge (x_2\vee \overline x_3 \vee x_4)\wedge (\overline x_1 \vee \overline x_2 \vee \overline x_3)$</p>
+<p>NAE-assignment 是 $x_1&#x3D;T, x_2&#x3D;F, x_3&#x3D;F,x_4&#x3D;F$</p>
+<p>如何构建图?</p>
+<p>和IS 类似, 每个clause可以看作是一个三角形</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时这个图肯定是3 colorable, 然而我们希望 3-colorable relate to satisfying assignment. 我们可以把3-color R, B, G看作数字<br>$$<br>R&#x3D;0, B&#x3D;1,G&#x3D;2<br>$$<br>0 代表 false, 1 代表 true, 我们不在乎 2</p>
+<p>每个clause要有at least one true and at least one false literals. 最后一个可以是true也可以是false </p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>然而backward 通常是难点</p>
+<p>如果我们有一个3-colourable graph, 如何使得$\phi$ satisfiable?</p>
+<p>如果我们color $x_1$ 1 (true), 那么我们希望再之后color的时候 $\overline x_1$是 0 (false)</p>
+<p>这里和IS的证明思想有点像, 所以如果我们连接 $x, \overline x$ 的话</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时却无法奏效, 因为 2 我们不确定是true还是false.</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>例如这条红色的边, 它连接的两个 color-2</p>
+<p>因此这种构图的方式是不对的, 然而, 问题就出现在color-2上. 对于color-0 和 color-1 是没有这个问题的</p>
+<p>因此我们只要稍微改动一些构图的方案 </p>
+<p>首先, 所有的variable都有可能 color to 2.</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们先构建一个点, 将他color to 2, 对于所有的 variable 和variable 的 complement, 和这个点连接成一个三角形</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>这个顶点上的color我们可以定义成color-2, 什么意思?</p>
+<p>就是说对于这个图, 如果我们这个顶点的color是1, 我们可以rename colors, 将 2 和 1 进行交换, 使得它永远是 “2”</p>
+</blockquote>
+<p>此时这个图中 $x$ 和 $\overline x$ 就分别是 0, 1(opposite values). 因为顺序不重要(就像上面说的可以renaming), 所以 我们就假设 $x&#x3D;1$, $\overline x&#x3D;0$</p>
+<p>当我们color三角形时, 当我们color $x$, 有两种选择, 要么是 color-1, 和上面对应. 要么是 color-2. </p>
+<p>同理, 当color $\overline x$ 时, 要么是 color-0, 要么是 color-2</p>
+<p>如何确保这一点? 注意在这张图中 $x, \overline x$ 只能是 0, 1</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因此我们连接第一张图的 $x$ 和 第二张图 的 $\overline x$  , 第一张图, $x$只能是color-1, 因此第二张图 $\overline x$ 就只能是 color-0 或 color-2</p>
+<p>同理 对于 $\overline x$ 也是一样</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>backward证明完毕</p>
+<p>因此 3-COL 是 NP-complete</p>
+<br>
+
+<br>
+
+<p>我们依然不知道 $P&#x3D;NP$ , 假设 $P\ne NP$. 我们至今没有 det polytime algo for $SAT$ 或其他NP-complete 问题的解 that is <strong>correct on all inputs</strong></p>
+<p>然而我们可能会有一个 fast(polytime) algorithm 可以解决 SAT on all “real-life” instances</p>
+<p>因为现实生活中我们可能只会遇到一部分 SAT instance(称呼他们为 “natural” SAT instances). 如果可以快速解开这些问题, 那也是非常有用的</p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时怎么定义 “natural” 这个子集, 以及如何找到对应的polytime 算法就是有用的</p>
+<p>所以即使 $P\ne NP$ , It is not the end of the story!</p>
+<br>
+
+<br>
+
+<h1 id="Space-Complexity"><a href="#Space-Complexity" class="headerlink" title="Space Complexity"></a>Space Complexity</h1><p>Space-bounded TM model</p>
+<p>有 input tape (read only) 和 work tape (read &#x2F; write)</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>The space used by a TM on input x is the total number of cells touched on its <strong>worktape</strong></p>
+<blockquote>
+<p>counting only the work tape for space usage allows us to talk about sublinear-space TMs</p>
+<p>例如在input tape use $O(n)$ 然而在work tape 只使用 $O(\log(n))$, 这种情况下类似于finite automata, 能力较弱, 我们不感兴趣</p>
+</blockquote>
+<p>For $S: \N \to \N, (S(n) \ge \log n)$<br>$$<br>\text{SPACE(S(n))}&#x3D;{ L| \exists \text{TM M, L(M)&#x3D;L, M uses } \le O(S(n)) \text{ space} }<br>$$</p>
+<p>$$<br>\text{NSPACE(S(n))}&#x3D;{ L| \exists \text{NTM M, L(M)&#x3D;L, M uses } \le O(S(n)) \text{ space on every nondet branch} }<br>$$</p>
+<br>
+
+<p>此时在来讨论 $P\ vs \ NP$</p>
+<p>定义</p>
+<p>P-space<br>$$<br>\text{PSPACE} &#x3D; \bigcup_{k\ge 0} \text{SPACE}(n^k)<br>$$</p>
+<p>$$<br>L&#x3D;\text{SPACE}(\log n)\equiv \text{LOGSPACE}<br>$$</p>
+<p>$$<br>NL &#x3D; \text{NSPACE}(\log n)<br>$$</p>
+<p>$$<br>\text{NPSPACE}&#x3D;\bigcup_{k\ge 0} \text{NSPACE}(n^k)<br>$$</p>
+<p>$$<br>&#x3D;\text{PSPACE}<br>$$</p>
+<p>NPSPACE 等于 PSPACE. 因为当运行完一个branch 后 我们可以对那个space进行重复利用. 因为所有的 branch 不是同时运行.</p>
+<blockquote>
+<p>这里我觉得正好与 time complexity 相反</p>
+<p>因为 time complexity 如果每个branch重复对一段时间进行利用就相当于所有 branch run in parallel.</p>
+</blockquote>
+<blockquote>
+<p>easy facts:</p>
+<ol>
+<li>$P\in \text{PSPACE}$</li>
+<li>$NP\in \text{PSPACE}$ ($SAT\in \text{PSPACE}$)</li>
+</ol>
+</blockquote>
+<br>
+
+<h2 id="P-x3D-NP-for-space"><a href="#P-x3D-NP-for-space" class="headerlink" title="$P&#x3D;NP$ for space"></a>$P&#x3D;NP$ for space</h2><p>Thm (Savitch): $\text{NPSPACE &#x3D; PSPACE}$ ($P&#x3D;NP$ for space)</p>
+<p>more precisely:, $\text{NPSPACE}(S(n)) \subseteq \text{SPACE}(S^2(n))$ for a “nice” $S(n)\ge \log n$.</p>
+<p>证明:</p>
+<p>我们可以把 NTM 的执行看作是一个 Congifuration graph</p>
+<br>
+
+<p>对于 NTM $M$, space $S(n)$, input $x, |x|&#x3D;n$</p>
+<p>可以构建 graph on configuration of $M$ on $x$</p>
+<p>conf:</p>
+<ul>
+<li>state $q\in Q$ ( $O(1)$ space )</li>
+<li>position on the input tape $1 \le i \le n$ ( 最坏情况, 记录 $n$ 在二进制下的长度, $O(\log n)$ space )</li>
+<li>contents of the work tapes $T\in \Gamma ^{S(n)}$ (每个ceil 都有 $\Gamma$ 种可能, 总共有 $S(n)$ 个ceil, $S(n)$ space)</li>
+<li>positions on the work tape $1\le i \le S(n)$ ( 最坏情况, 记录 $S(n)$ 的长度, $O(\log S(n))$ space)</li>
+</ul>
+<p><strong>vertex:</strong></p>
+<p>因此一个 conf 的占用空间就是<br>$$<br>\text{| conf |} \le O(1)+O(\log n)+O(S(n))+O(\log S(n))<br>$$</p>
+<p>$$<br>\text{| conf |} \le O(S(n))<br>$$</p>
+<p>因此我们最多有 $2^{\text{|conf|}}$ 个 config, 即 number of config(vertex) $\le 2^{O(S(n))}$, 即 $|V| &#x3D;2^{O(S(n))}$</p>
+<p><strong>Edge:</strong><br>$$<br>\text{conf} \to \text{conf}’<br>$$<br>if $M$ on $x$ can get to $\text{conf}’$ from $\text{conf}$ in a single step</p>
+<br>
+
+<blockquote>
+<p>Observation:</p>
+<p>M accept x $\iff$ there exists a path from initial conf to accept conf, in the config graph</p>
+</blockquote>
+<p>我们希望有一个 space-efficient ST-connectivity algorithm for a given digraph</p>
+<blockquote>
+<p>ST-connectivity: 指的是这一类问题, 给出起始点 $S$, 终止点 $T$, 判断是否连通 (dicision problem)</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/St-connectivity">https://en.wikipedia.org/wiki/St-connectivity</a></p>
+</blockquote>
+<p>一般来说 ST-connectivity 会使用BFS 解决, 但是 classical BFS 使用 space $O(|V|)$ , time $O(|G|)$</p>
+<p>然而如果space 是 $O(|V|)$, $|V| &#x3D;2^{O(S(n))}$, $O(|V|) &#x3D;2^{S(n)}$  太大了, 是指数级别增长.</p>
+<p>我们希望是 sub-linear 级别的空间复杂度</p>
+<p>Savitch’s algo will use space $O((S(n))^2)&#x3D;O((\log|V|)^2)$ (but super-polynomial time)</p>
+<br>
+
+<blockquote>
+<p>Lemma: ST-Connectivity for digraphs $G&#x3D;(V,E)$ can be decided in det. space $O((\log |V|)^2)$</p>
+</blockquote>
+<p>证明: </p>
+<ol>
+<li>sufficient 意味着我们只考虑 simple paths (no loops)</li>
+<li>$|V|$ 个顶点的图的 simple path 的最大长度是 $|V|-1$</li>
+</ol>
+<p>最重要的一点是, 对于图中的两个点 $x,y$ 我们如何确定 二者之间有一个长度为 $L$ 的 path?</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>定义:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们可以计算 $\text{Path}()$ recursively</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>space used:<br>$$<br>\text{space}(0) &#x3D; O(\log|V|)<br>$$<br>因为只需要检测两个点是否是同一点, 或者是否能从一个点直接走到另一点, 注意一个vertex 的大小就是 $\log |V| &#x3D; \log (2^{S(n)})&#x3D;S(n)$<br>$$<br>\forall i &gt; 0, \text{space}(i)&#x3D;\text{space}(i-1)+O(\log |V|)<br>$$<br>space(i-1) 用于递归调用(第二个递归会使用第一个递归释放的内存)</p>
+<p>我们要存储中间那个点$z$, 因此 需要额外 $O(\log |V|)$ 的空间<br>$$<br>\text{space}(i) &#x3D; O((i+1)\cdot \log|V|)<br>$$<br><br></p>
+<p>而我们要计算的是 $\text{Path}(s,t, \log|V|)$, </p>
+<p>$\text{space}(\log |V|) &#x3D; O((\log |V|)^2)$</p>
+<p>lemma 证明完毕</p>
+<br>
+
+<p>这也证明了 $\text{NSPACE}(S(n))\subseteq \text{SPACE}(S^2(n))$, because conf graph for a space $S(n)$ NTM on an input $x, |x|&#x3D;n$, has $\le 2^{O(S(n))}$ vertices (Savitch’s Theorem)</p>
+<blockquote>
+<p>Open question:</p>
+<ol>
+<li>是否能将 Savitch’s algorithm 提升到 space $O(\log^{1.99}|V|)$</li>
+<li>ST-connectivity algorithm for digraphs that run in polytime and sublinear space?</li>
+</ol>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="PSPACE-complete"><a href="#PSPACE-complete" class="headerlink" title="PSPACE complete"></a>PSPACE complete</h2><p><img src="/Blog/Blog/intro/cmpt308/space_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>假设 $P\ne NP$, NPC 指的是 NP-complete</p>
+<p>我们知道 NP 问题都是 PSPACE, 因此我们假设 PSPACE-complete 和 NP 是 disjoint 的, 因为如果 PSPACE-complete 中有一个问题是 NP, 那么整个 PSPACE set 就会和 NP 重合 (我们不知道, 但是我们不相信这样, 就像我们不相信 NPC 会和 P 重合)</p>
+<br>
+
+<h3 id="TQBF"><a href="#TQBF" class="headerlink" title="TQBF"></a>TQBF</h3><p>NP-complete: $\exists x_1 \exists x_2…\exists x_n \varphi (x_1, x_2 ,…,x_n)$</p>
+<p>PSPACE-Complete: $\exists x_1 \forall x_2 \exists x_3…Qx_n \varphi(x_1,x_2…,x_n)$</p>
+<p>就是 $\exists, \forall$ 交替出现</p>
+<p>例如:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>思想就是 如果一个 varaible 的 quantifier 是 $\exists$, 那么就$\varphi&#x3D;\varphi(..,1,..) \vee \varphi(..,0,..)$ 尝试将那个位置填入0, 或1, 只要有一个是true即可</p>
+<p>如果一个 varaible 的 qualifier 是 $\forall$, 那么就$\varphi&#x3D;\varphi(..,1,..) \wedge \varphi(..,0,..)$ 尝试将那个位置填入0, 或1, 二者必须都是true</p>
+<br>
+
+<br>
+
+<p>lemma: TQBF $\in$ PSPACE</p>
+<p>Space: Only need to store the current branch:</p>
+<ul>
+<li>the depth of the tree $\le |\varphi|$</li>
+<li>the partial truth assignemnt is on $\le |\varphi|$ variables</li>
+</ul>
+<p>Total Space used is $\le O(|\varphi|^2)$, poly </p>
+<p>so TQBF $\in$ PSPACE</p>
+<br>
+
+<p>Theorem: TQBF is PSPACE-complete</p>
+<p>证明:</p>
+<ol>
+<li>TQBF $\in$ PSPACE (上面证明了)</li>
+<li>$\forall L\in \text{PSPACE}, L\le_p \text{TQBF}$</li>
+</ol>
+<p>let $L \in \text{SPACE}(n^c), c&gt;0$ for some NTM $M$</p>
+<p>我们想知道 $M$ 是否 accept input $x$</p>
+<p>和上面一样, 我们构建 conf graph $G_{M,x}$</p>
+<br>
+
+<p><img src="/Blog/Blog/intro/cmpt308/space_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>同样使用上面 $PATH$ 的定义</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>且 $0\le i\le \log N$ , 这样才能保证最后结果是 poly-space</p>
+<p>我们希望:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>Final formula: $\Psi _m(\langle \text{conf} _{init}\rangle, \langle \text{conf} _{accept} \rangle)$  where $m&#x3D;O(n^c)$</p>
+<p>we will construct $\Psi_m$ inductively ($m&#x3D;0,1,…$)</p>
+<br>
+
+<p>Base case:<br>$$<br>\Psi_0(v, w) \equiv (v&#x3D;w)\vee v\to w<br>$$<br>就是说 要么 v 等于 w, 要么 v 和 w 之间有一条边(这里这个箭头不代表imply)</p>
+<blockquote>
+<p>Can write a propositional formula for this using the ideas i the Cook-Levin Theorem that SAT is NP-Complete</p>
+</blockquote>
+<br>
+
+<p>Induction Step:</p>
+<p>假设: 已经有 $\Psi_i$ </p>
+<p>我们想构建 $\Psi_{i+1}$<br>$$<br>\Psi_{i+1}(v,w)\equiv v \text{ can go to w in steps } \le 2^{i+1}<br>$$</p>
+<p>$$<br>&#x3D;\exists z[\Psi_i(v,z)\wedge \Psi_i(z, w)]<br>$$</p>
+<p>此时 $|\Psi_{i+1}| \approx 2\cdot |\Psi_i|$</p>
+<p>这里有问题, 此时构建的 formula size 是 exponentially grows.</p>
+<blockquote>
+<p>注意: 这里不是在求解问题, 而是构建新的formula, 因此不能reuse space</p>
+</blockquote>
+<p>a better way to construct $\Psi_{i+1}$ from $\Psi_i$</p>
+<p>我们可以 reuse the formula, with the help of the $\forall$ quantifier</p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时 $|\Psi_{i+1}| &#x3D; C+|\Psi_i|$, $C$ 是 constant</p>
+<p>而这个式子等价于 $\exists z[\Psi_i(v,z)\wedge \Psi_i(z, w)]$</p>
+<blockquote>
+<p>对于formula 我们不在 syntacly write it twice, 而是改变 formula input</p>
+<p>changing the input is less than duplicating formula</p>
+</blockquote>
+<p>$|\Psi_{i+1}| \le |\Psi_i|+O(n^c)$, so<br>$$<br>|\Psi_{m}| &#x3D; O(n^c)\cdot O(n^c) \le O(n^{2c})<br>$$<br>$m&#x3D;O(n^c)$</p>
+<p>此时 size 是 polynomial</p>
+<br>
+
+<br>
+
+<blockquote>
+<p>许多 2-person game (chess) are know to be PSPACE complete</p>
+<p>$\exists x_1 \forall x_2 \exists x_3…Qx_n \varphi(x_1,x_2…,x_n)$</p>
+<p>可以想象有两个player, 一个existential player 和 universal player</p>
+<p>existential player 会操纵 existential quantifier $\exists$ 尝试将formula 的值设为 true</p>
+<p>universal player 会操纵 universal quantifier $\forall$ 尝试将formula 的值设为 false</p>
+<p>我们可以证明 winning this game is PSPACE complete problem</p>
+</blockquote>
+<blockquote>
+<p>NFA&#x2F;reg. expression Minimization Problem is PSPACE-complete</p>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="LOGSPACE"><a href="#LOGSPACE" class="headerlink" title="LOGSPACE"></a>LOGSPACE</h2><p><img src="/Blog/Blog/intro/cmpt308/log_sp.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>L&#x3D;\text{SPACE}(\log n)<br>$$</p>
+<p>$$<br>NL&#x3D;\text{NSPACE}(\log n)<br>$$</p>
+<br>
+
+<p>Thm: $L \subseteq NL \subseteq P$</p>
+<p>证明:</p>
+<ol>
+<li>$L\subseteq NL$ 可以根据定义, SPACE $\subseteq$ NSPACE</li>
+<li>$NL \subseteq P$</li>
+</ol>
+<p>对于一个$NL$ 我们可以在它的 config graph 上运行 BFS . (number of config &#x3D; $2^{O(\log n)}\le poly (n)$)</p>
+<br>
+
+<p>例子: Give a digraph $G&#x3D;(V,E)$ s.t. $\text{out-deg}(v)\le 1$ for each $v\in V$ </p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>and give two nodes $s,t \in V$. decide if $s\to t$ in $G$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>算法</p>
+<ol>
+<li><p>find $s$ on the input tape and copy $s$ onto the work tape</p>
+</li>
+<li><p>find $t$ on the input tape and copy $t$ onto the work tape</p>
+</li>
+<li><p>if $s&#x3D;t$ then accept, else go to 4</p>
+</li>
+<li><p>if $deg(s)&#x3D;0$ then reject, else go to 5</p>
+</li>
+<li><p>replace $s$ with $v$ s.t. $(s,v)\in E$, go to 3</p>
+</li>
+</ol>
+<p>然而这个算法中, 如果graph有环, 那么会一直运行下去. 因此可以添加一个counter, 因为如果有path, path 最长为n-1. 我们可以把counter设置为n</p>
+<p>这个算法中我们最多只存储最多3个值, 每个值占用 $\log |V|$ 的空间. $3\log | V| \le O(\log |G|)$ </p>
+<br>
+
+<br>
+
+<p>这种图太特殊, 我们更关心更一般的 ST-CONN (st-connected) problem:</p>
+<p>Give a digraph $G&#x3D;(V,E), s,t\in V$ decide if $s\to t$</p>
+<p>Nondeterministic algorithm:</p>
+<ol>
+<li>Copy $s,t$ on the work tape</li>
+<li>if $s&#x3D;t$ then accept, else goto 3</li>
+<li>if $deg(s)&#x3D;0$ then reject, else goto 4</li>
+<li><strong>Nondet guess</strong> $v\in V$ writing $v$ on the worktape</li>
+<li>if $(s, v)\notin E$ then reject, else goto 6</li>
+<li>Replace $s$ with $v$ on the work tape (此时work tape 保存的是 $v, t$) goto 2</li>
+</ol>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>space used(Non-deterministic): $3\cdot \log |V|$ for 3 nodes of $G$ $\le O(\log |G|)$</p>
+<blockquote>
+<p>Open Question: Is directed (directed graph) st-Conn $\in L$ deterministicly logspace?</p>
+</blockquote>
+<br>
+
+<p>Thm: Directed st-Conn $\in L \iff NL &#x3D; L$</p>
+<p><strong>proof</strong>: Directed st-CONN is $\text{NL-complete}$</p>
+<p>under logspace reductions.</p>
+<p>$f$ is a logspace reduction from $A$ to $B$ if $f:\Sigma^\star \to \Sigma^\star$ s.t. $\forall x$<br>$$<br>x \in A \iff f(x) \in B<br>$$<br>and f is computable by a logspace TM</p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Space &#x3D; number of work tape cells used(output tape is not counted toward SPACE usage)</p>
+<br>
+
+<p>for every $A\in NL$ decide by a NTM $M$, the reduction $f$</p>
+<p>from A to Directed st-Conn is:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>size of graph is poly, 因为$M$ 是 logspace, 因此 graph 的 size 就是$2^{O(\log n)}\le poly (n)$</p>
+<p>然而这个reduction $f$ can be computed by a logspace algorithm (output is bigger than $\log n$ but work space is $\log n$)</p>
+<blockquote>
+<p>思路就是计算一个conf, output 它, 再计算新的conf覆盖原本的那个, 这样workspace只需要存储一个conf</p>
+</blockquote>
+<br>
+
+<br>
+
+<p>Complete problem for $L$</p>
+<p><strong>undirected st-Conn:</strong> Given an undirected graph $G&#x3D;(V,E)$ and nodes $s,t\in V$, decide if $t$ is reachable from $s$</p>
+<p>Theorem: undirected st-CONN is L-complete under <strong>FO-reductions</strong></p>
+<blockquote>
+<p>这个Theorem的证明有点难(use pseudorandomness), 省略</p>
+</blockquote>
+<blockquote>
+<p>Completeness for a complexity class $C$ must be under reduction that are weaker than $C$</p>
+</blockquote>
+<blockquote>
+<p>Exercise: Every $A\in L$ s.t. $A\ne \emptyset, A\ne \Sigma^\star$ is complete for $L$ under logspace reduction</p>
+</blockquote>
+<br>
+
+<h3 id="NL-x3D-coNL"><a href="#NL-x3D-coNL" class="headerlink" title="$NL&#x3D;coNL$"></a>$NL&#x3D;coNL$</h3><p>NL 和 NL 的 complement 是一样的</p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>coNL-complete problem: <strong>directed st-UNREACH</strong></p>
+<p>Given an undirected graph $G&#x3D;(V,E)$ and nodes $s,t\in V$, decide if $t$ is <strong>NOT</strong> reachable from $s$</p>
+<br>
+
+<p><strong>directed st-UNREACH</strong> $\in NL$ , 并且是complete in NL, 因此coNL&#x3D;NL</p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们希望这个图中是否没有 $s$ 到 $t$ 的路径</p>
+<p>我们的non-det algorithm 必须 accept iff 没有 $s$ 到 $t$ 的 path</p>
+<br>
+
+<p>解决问题的思路就是使用counting</p>
+<p>N &#x3D; number of nodes reachable from $s$ in $G$ is known to us (later we show how to compute N in NL)</p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>算法思路: </p>
+<p>Nondet guess all nodes reachable from $s$ and check that $t$ is not among them</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs q"><span class="hljs-built_in">count</span> = <span class="hljs-number">0</span><br>for <span class="hljs-built_in">each</span> node v in V<br>	guess yes <span class="hljs-built_in">or</span> no <span class="hljs-comment">// 用来猜测我们猜测的路径是否正确</span><br>	if yes<br>		guess a path s-&gt;v<br>		<span class="hljs-built_in">count</span> ++<br><br>if <span class="hljs-built_in">count</span> == N then we&#x27;ve seen <span class="hljs-built_in">all</span> nodes reachable <span class="hljs-keyword">from</span> S<br>	if non of these node was t<br>	then t is <span class="hljs-built_in">not</span> reachable <span class="hljs-keyword">from</span> s<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>to nondet guess a path s to v, run the NL algo for Directed st-CONN given earlier</p>
+</blockquote>
+<p>Then number $N$ &#x3D; number nodes reachable form $s$ can be computed in $NL$, iteratively</p>
+<p>$N_i$ &#x3D; number of nodes reachable from $s$ in at most $i$ steps<br>$$<br>N_0&#x3D;1, N_n&#x3D;N<br>$$<br>From $N_i$, can compute $N_{i+1}$, using the approach of algo unreach above</p>
+<br>
+
+<br>
+
+<h1 id="Randomized-Complexity"><a href="#Randomized-Complexity" class="headerlink" title="Randomized Complexity"></a>Randomized Complexity</h1><h2 id="Randomized-TM"><a href="#Randomized-TM" class="headerlink" title="Randomized TM"></a>Randomized TM</h2><p><img src="/Blog/Blog/intro/cmpt308/rc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>random tape 只能向右移动, 因此想访问之前的值就需要将它存储在work tape中</p>
+<p>我们用 ${M^{$}(x)}$ 代表可以访问 random tape 的 TM</p>
+<p>而现在, 我们思考的是 accept 或 reject 一个 input $x$ 的可能性<br>$$<br>Pr[M^$(x) \text{ accept}]<br>$$</p>
+<p>$$<br>Pr[M^$(x) \text{ reject}]<br>$$</p>
+<p>我们可以把一个Det TM 看作是 accept 和 reject 的 probability 为 1 的$M^{$}$</p>
+<br>
+
+<p><img src="/Blog/Blog/intro/cmpt308/random_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>2-side error: may have false positive and true negative</p>
+</blockquote>
+<br>
+
+<p><img src="/Blog/Blog/intro/cmpt308/random_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>$\frac 12 , 1$ 这两个值只是place holder, 我们可以自定义这两个值</p>
+</blockquote>
+<br>
+
+<p>example: undirected st-conn</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Randomly walk for $n^3$ steps from $s$ will see $t$ with high probability if $t$ is reachable from $s$</p>
+<br>
+
+<h3 id="Randomized-LOGSPACE-RL-algorithm"><a href="#Randomized-LOGSPACE-RL-algorithm" class="headerlink" title="Randomized LOGSPACE(RL) algorithm"></a>Randomized LOGSPACE(RL) algorithm</h3><p>Given undirected graph $G&#x3D;(V,E), s,t\in V$</p>
+<p>Decide: is $t$ reachable from $s$?</p>
+<p>算法:</p>
+<ol>
+<li>write $s,t$ on the work tape</li>
+<li>Compute $\text{count}&#x3D;|V|^3$ on the work tape</li>
+<li>Pick a neighbor $v$ of $s$ <strong>uniformly at random</strong></li>
+<li>If $v&#x3D;t$, accept, else continue</li>
+<li>otherwise $s$ with $v$ on the work tape, and decrement $\text{count}$</li>
+<li>if $\text{count}&#x3D;0$ then reject, else goto 3</li>
+</ol>
+<p>如果s无法到达t, 那么这个算法就不可能accept</p>
+<blockquote>
+<p>correctness of algo</p>
+<p>thm: for every undirected graph $G$ on $n$ nodes</p>
+<ol>
+<li>if $s\to t$ in $G$ then $Pr[algo \text{ accept}]\ge \frac 12$</li>
+<li>if $t$ is not reachable from $s$ in $G$, then $Pr[algo \text{ rejects}]&#x3D;1$</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Open question: $RL &#x3D; L$</p>
+<p>我们能否 derandomize every RL algo?</p>
+</blockquote>
+<p>Fact: $L\subseteq RL\subseteq NL$</p>
+<p>我们可以non-det guess 一个string 作为random input, 来运行$RL$</p>
+<br>
+
+<br>
+
+<h3 id="Randomized-PolyTime-RP-algorithm"><a href="#Randomized-PolyTime-RP-algorithm" class="headerlink" title="Randomized PolyTime(RP) algorithm"></a>Randomized PolyTime(RP) algorithm</h3><p><strong>Polynomial identity testing (PIT) problem</strong></p>
+<p>Given: arithmetic formula (with $+, \times$) $A(x_1,…x_n)$</p>
+<p>decide: Is $A\not \equiv 0$ ?</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>例如: $A(x_1,x_2,x_3)&#x3D;x_1\cdot x_2+5x_3$ of size $L&#x3D;4$</p>
+<p>我们可以从 ${1,2,3,4,5,6,7,8}$ 中选择integer random, independently</p>
+<p>例如: $x_1&#x3D;3, x_2&#x3D;6,x_3&#x3D;1$</p>
+<p>$$<br>A(3,6,1)&#x3D;23\ne 0<br>$$<br>因此 answer yes</p>
+<br>
+
+<p>correctness:</p>
+<ol>
+<li>if $A(x_1, x_2,…,x_n)\equiv 0$ then algo reject with probability 1 (easy)</li>
+<li>if $A(x_1, x_2,…,x_n)\not \equiv 0$ then algo reject with probability $\ge \frac 12$ (我们要证明这个)</li>
+</ol>
+<p>定义 degree of a polynomial:</p>
+<p>monomial: $x_1^{e_1} x_2^{e_2}\cdots x_n^{e_n}, e_i \ge 0 $<br>$$<br>deg(x_1^{e_1} x_2^{e_2}\cdots x_n^{e_n})&#x3D;e_1+e_2+\cdots + e_n<br>$$<br>例如: $deg(x^3y^2z^0)&#x3D;3+2&#x3D;5$</p>
+<p>polynomial &#x3D; $\sum_\alpha c_\alpha \cdot \text{monomial}_\alpha$</p>
+<p>Ex: $p(x,y,z)&#x3D;10x^3y^2-5xyz^2+24$<br>$$<br>deg(\sum_\alpha c_\alpha \cdot \text{monomial}_\alpha) &#x3D; \max_\alpha { deg(\text{monomial}_\alpha) }<br>$$<br>Ex: $deg(p(x,y,z))&#x3D;\max{ 5,4,0}&#x3D;5$</p>
+<br>
+
+<p>let $p(x_1, x_2,\cdots,x_n)\not \equiv 0$ be any polynomial of degree $\le d$</p>
+<p>Let $S$ be any finite set of integers, then<br>$$<br>Pr[p(r_1,r_2,\cdots r_n)&#x3D;0]\le \frac d {|S|} \le \frac L {2L} &#x3D; \frac 12<br>$$<br>where $r_i\in S$</p>
+<p>proof (by induction on $n$) 放在 lemma 之后</p>
+<br>
+
+<p>Lemma: let $A(x_1…x_n)$ be any arithmetic formula of size $L$</p>
+<p>let $p(x_1,…x_n)$ &#x3D; the polynomial computed by $A$</p>
+<p>then $deg(A):&#x3D;deg(p)\le L$</p>
+<p>例如 $(x+xy)\cdot x^2$ 的 deg 小于 $L&#x3D;5$</p>
+<p>证明:</p>
+<p>base case: $L&#x3D;1$ then $deg(A)\le 1$, true</p>
+<p>inductive step: Assume $deg(B)\le |B|$ for all formulas $B$ with $|B| &lt; L$ will prove for $A$ with $|A|&#x3D;L$</p>
+<p>let $A(x_1,…x_n)&#x3D;A_0 \text{ Operstor } A_1$, operator 可能是 $+, \times$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因此 $deg(A) \le deg(A_0)+deg(A_1) \le |A_0|+|A_1|&#x3D;A$</p>
+<blockquote>
+<p>根据 inductive hypothesis (IH) $deg(A_0)+deg(A_1) \le |A_0|+|A_1|$</p>
+</blockquote>
+<hr>
+
+<p>Correctness analysis of $A\not \equiv 0$ algorithm</p>
+<p>假设 $A(x_1,…x_n)\not \equiv 0$</p>
+<p>let $L&#x3D;|A|$</p>
+<ul>
+<li>then $deg(A)\le L$ (by lemma)</li>
+<li>by schwartz-Zippel</li>
+</ul>
+<p>$$<br>Pr_{r_i\in S}[A(r_1,r_2,…r_n)&#x3D;0] \le \frac{deg(A) }{|S|}\le \frac {L} {2L} &#x3D;\frac 12<br>$$</p>
+<p>$S&#x3D;{ 1,2,…,2L}, |S|&#x3D;2L$</p>
+<br>
+
+<p>因此 $Pr[\text{algo accepts A}]&#x3D;1-Pr[A(r_1,…r_n)&#x3D;0]\ge 1-\frac 12&#x3D;\frac 12$</p>
+<br>
+
+<br>
+
+<br>
+
+<h3 id="RP-的定义"><a href="#RP-的定义" class="headerlink" title="RP 的定义"></a>RP 的定义</h3><p>a language $L\in RP$ if there is a cost $c\ge 0$ and a deterministic polytime algo $V(x,y)$</p>
+<ol>
+<li>$\forall x \in L, Pr_{y:|y|&#x3D;|x|^c} [V(x, y) \text{ accepts}] \ge \frac 12$</li>
+<li>$\forall x \notin L, Pr_{y:|y|&#x3D;|x|^c} [V(x, y) \text{ rejects}] &#x3D;1$</li>
+</ol>
+<p>Thm: $P\subseteq RP \subseteq NP$</p>
+<p>$RP \subseteq NP$ 可以使用 NP 的第二个定义(proof-verifier) 证明</p>
+<blockquote>
+<p>Open: P&#x3D;RP ?</p>
+</blockquote>
+<h2 id="x2F-x2F-TODO-Error-Reduction"><a href="#x2F-x2F-TODO-Error-Reduction" class="headerlink" title="&#x2F;&#x2F; TODO: Error Reduction"></a>&#x2F;&#x2F; TODO: Error Reduction</h2><h2 id="Interactive-Proofs"><a href="#Interactive-Proofs" class="headerlink" title="Interactive Proofs"></a>Interactive Proofs</h2><p><img src="/Blog/Blog/intro/cmpt308/rc_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>Generalize this set-up in two ways:</p>
+<ol>
+<li>Verifier is randomized polytime algorithm</li>
+<li>allow $\le$ poly rounds of communication</li>
+</ol>
+</blockquote>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<ul>
+<li>$\forall x \in L, \exists$ Prover (computationally unbounded), s.t. <strong>Prover</strong> get <strong>Verifier</strong> to accept $x$ after $\le O(|x|^c)$ rounds with probability &#x3D; 1</li>
+<li>$\forall x \notin L, \forall$ Prover, Verifier rejects $x$ after $\le O(|x|^c)$ rounds with probability $\ge \frac 34$</li>
+</ul>
+<br>
+
+<p>How is $IP$ different from $BPP&#x2F;RP$?</p>
+<p>a randomized polytime algo $V$</p>
+<p>get “help” from an all-powerful but not trustworthy <strong>Prover</strong></p>
+<p>Prover wants $V$ to accept every input $x$. <strong>Honest Prover</strong>, for $x \in L$ will get $V$ to accept with high probability</p>
+<p>For $x\notin L$, <strong>every Dishonest Prover</strong> will get $V$ to accept with only small probability</p>
+<br>
+
+<br>
+
+<p>example:</p>
+<p>Arthur cannot tell <strong>Blue color</strong> from <strong>Green color</strong></p>
+<p>Merlin claim that he can see these colors.</p>
+<blockquote>
+<p>Arthur has two seemingly identical balls that to Arthus</p>
+<p>Merlin claims the balls are blue and green</p>
+</blockquote>
+<p>Arthur doesn’t trust Merlin, but can use Merlin’s help to figure if the balls are of different color or catch Merlin lying</p>
+<p> <img src="/Blog/Blog/intro/cmpt308/rc_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>随着询问次数的增多, Prover 撒谎的可能性会越来越小</p>
+<br>
+
+<p>example: graph isomorphism problem</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Graph iso $\in $ NP</p>
+<p>IP Protocol for graph NonIsomorphism:</p>
+<p>input $(G_0, G_1)$ 给 Prover 和 Verifier</p>
+<p>Verifier 会从 $G_0,G_1$ 选择一个random graph (各有百分之五十的概率), 之后apply random permutation for nodes in that graph</p>
+<p>send to Prover, Prover需要告诉Verifier这个新的图是由 $G_0,G_1$ 中的哪一个得到的, Verifier进行check</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>Correctness analysis:</p>
+<ol>
+<li>if $G_0 \not \approx G_1$ 那么 prover 可以 determine which of $G_0$ or $G_1$ is isomorphic to $\pi (G_i)$ and so can send $j&#x3D;i$ so V accepts.</li>
+<li>$G_0 \approx G_1$ then $\pi (G_0)$ is distributed the same as $\pi (G_1)$</li>
+</ol>
+<p>So prover has no way to pick the correct $j&#x3D;i$, except by randomly guessing $j\in {0,1}$ Hence $Pr[j&#x3D;i]\le \frac 12$ so $V$ accepts with probability $\le \frac 12$</p>
+<br>
+
+<br>
+
+<br>
+
+
+
+<p>Example: # SAT (# P-complete)</p>
+<p>Given 3-cnf $\varphi(x_1, x_2…x_n)$</p>
+<p>Compute: # of satisfying assignments of $\varphi$</p>
+<p>例如: $\sum_{x_1&#x3D;0}^1 \sum_{x_2&#x3D;0}^1\cdots \sum_{x_n&#x3D;0}^1 \varphi(x_1, x_2,…x_n)$</p>
+<p>Note: # SAT is at least as hard as SAT, but probably much harder</p>
+<p>Thm: $# SAT \in IP$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果Prover 最开始说谎了, 那它就必须一直说谎, 至少variable为0时也会说谎(此时Verifier可以简单地check)</p>
+<p>Proof:</p>
+<p>Let $\varphi(x_1,…x_n)$ be a given 3-cnf</p>
+<ol>
+<li><p>(把 $\varphi$ 转换为 polynomial) arithmetize $\varphi$ getting a polynomial $p_\varphi(x_1, …x_n)$ such that</p>
+<ul>
+<li>$deg(p_\varphi)\le |\varphi|$ and</li>
+<li>$\forall x_1,…x_n \in {0,1}, p_\varphi(x_1,…x_n)&#x3D;\varphi(x_1,..,x_n)$</li>
+</ul>
+<p>这里我们用 0 代表 False, 1 代表 True, 对于 $p_\varphi$ 的input 可以是integer value, 而不仅仅是0或1</p>
+</li>
+<li><p>randomized interactive protocol (“sum check protocol”) for checking if<br>$$<br>k&#x3D;\sum_{x_1&#x3D;0}^1 \sum_{x_2&#x3D;0}^1\cdots \sum_{x_n&#x3D;0}^1 p_\varphi(x_1, x_2,…x_n)<br>$$</p>
+</li>
+</ol>
+<p>idea 就是用某种方法eliminate $\sum$, 一次移除一个, 就像quantifier elimination(如果我们把 $\sum$ 看作是 quantifier)</p>
+<p>我们 replace $x_1$ by a randomly chosen integer(from large interval of integers)</p>
+<p>之后我们得到 $k_2$ with input $x_2…x_n$. 持续这个过程</p>
+<br>
+
+<br>
+
+<p>我们可以把 $\overline x$ 替换为 $(1-x)$, 把 $x\wedge y$ 替换为 $x\cdot y$</p>
+<p>举个例子:<br>$$<br>\varphi&#x3D;(x\vee \overline y \vee z)\wedge(\overline x \vee y\vee z)\wedge (\overline x \vee \overline y)<br>$$<br>替换为<br>$$<br>(1-(1-x)\cdot y\cdot (1-z))\cdot(1-x(1-y)(1-z))\cdot (1-xy)<br>$$<br>这个polynomial 最大可能 有 degree &#x3D; 3+3+2&#x3D;8 (前两个clauses 各有 3 个变量, 最后一个有两个)</p>
+<blockquote>
+<p> Recursive def:</p>
+<ul>
+<li>$\varphi \to p_\varphi$</li>
+<li>$x\to x$</li>
+<li>$\overline x \to 1-x$</li>
+<li>$\neg \varphi\to 1- p_\varphi$</li>
+<li>$\varphi \wedge \phi \to p_\varphi \cdot p_\phi$</li>
+<li>$\varphi \vee \phi\equiv \neg (\neg \varphi \wedge \neg \phi)\to1-(1-p_\varphi)\cdot (1-p_\phi)$</li>
+</ul>
+</blockquote>
+<p>如果 $\varphi(x_1,..,x_n)$ is a 3-cnf with $m$ clauses, then $deg(p_\varphi)\le 3m\le|\varphi|$</p>
+<br>
+
+<p>polynomial 可以选择任何 integer value 作为输入 而不仅仅是 bool value. 这个 domain 的扩张会在接下来设计 randomized interactive protocol 时有用</p>
+<br>
+
+<p>randomized interactive protocol(“Sum check Protocol”) for checking if<br>$$<br>k&#x3D;\sum _{x _1&#x3D;0}^1\cdots\sum _{x _n&#x3D;0}^1p _\varphi(x_1,…x_n)<br>$$<br><img src="/Blog/Blog/intro/cmpt308/rc_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>check $k&#x3D;p_1(0)+p_1(1)$ 如果不等, reject, 不然 就选择一个random integer $1\le r_1\le 4\cdot d\cdot n$</p>
+<p>Verifier 会向 Proofer 发送 $r_1$, expects the proof “$p_1(r_1)&#x3D;\sum_{x_2&#x3D;0}^1…\sum_{x_n}^1p(r_1,x_2,…x_n)$”</p>
+<p>Prover is forced to claim “$k’&#x3D;\sum_{x_2&#x3D;0}^1\cdots \sum_{x_n&#x3D;0}^1p’(x_2,…x_n)$”</p>
+<p>continue for another $n-1$ rounds until either Verifier rejects in some round OR the Prover is forced to claim<br>$$<br>\tilde k &#x3D; p(r_1,r_2,…r_n)<br>$$<br>此时 Verifier 可以check $\tilde k$ 是 true (accept) 还是 false(reject).</p>
+<blockquote>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</blockquote>
+<p>Thm:</p>
+<ol>
+<li>$\text{PSPACE&#x3D;IP}$ </li>
+<li>$\text{NEXP&#x3D;MIP}$ (NEXP &#x3D; NTIME($2^{poly(n)}$), MIP&#x3D; 2-Prover IP)</li>
+<li>(2) 可以被”scaled down” to NP &#x3D; PCP</li>
+</ol>
+<br>
+
+<br>
+
+<br>
+
+<h2 id="PCP-Theorem"><a href="#PCP-Theorem" class="headerlink" title="PCP Theorem"></a>PCP Theorem</h2><blockquote>
+<p>这里的证明和网上的一些证明不太一样</p>
+</blockquote>
+<p>There exists a deterministic polytime reduction $R$ mapping 3-cnfs to 3-cnfs s.t. $\forall \text{3-cnf} ,\varphi(x_1,…x_n)$</p>
+<ol>
+<li>$\varphi\in \text{3-SAT}\implies R(\varphi) \in \text{3-SAT}$</li>
+<li>$\varphi \not \in \text{3-SAT}\iff R(\varphi) &#x3D; \Psi(y_1,y_2,…y_k)$ on m clauses s.t. $\forall a_1,…a_k \in {0,1}^k$ at least $\frac m 8$ clauses of $\Psi(a_1,…a_k)$ are falsified (not satisfy)</li>
+</ol>
+<br>
+
+<p>意思就是说有 Gap-producing reduction:</p>
+<ul>
+<li>$\text{sat } \varphi\to \text{sat }\Psi$</li>
+<li>$\text{unsat } \varphi\to \text{very(more) unsat }\Psi$</li>
+</ul>
+<p>Useful for proving that approximating an optimal solution for many optimization problems is also NP-hard</p>
+<br>
+
+<p>Example: MAX-3SAT</p>
+<p>Given: 3-cnf $\varphi(x_1,…x_n)$ on m clauses</p>
+<p>Find: assignment $a_1,…a_n\in {0,1}^n$ that satisfies the max possible number of clauses simultaneously</p>
+<br>
+
+<p>Solving MAX-3SAT exactly is NP-hard</p>
+<p>因为 MAX-3SAT 的难度比 3-SAT 难</p>
+<p>因为对于一个SAT 我们可以运行MAX-3-SAT看是否满足所有clauses</p>
+<br>
+
+<p>如果 solve MAX-3SAT approximately<br>$$<br>\varphi&#x3D;(x\vee y)\wedge (x\vee \overline y) \wedge (\overline x \vee y)\wedge (\overline x\vee \overline y)<br>$$<br>$\varphi$ is unsatisfiable, 但是 我们可以 satisfy 3 out of 4 clauses: $x&#x3D;1, y&#x3D;1$</p>
+<p>FACT: $\forall$ k-cnf $\varphi$ on m clauses $\exists$ truth assignment that satisfies $\ge (1-\frac 1 {2^k})\cdot m$ clauses</p>
+<p>例如, 如果是 2-cnf, 那么就能satisfy $1-\frac 1 {2^2}&#x3D;\frac 34$ 的 clauses</p>
+<br>
+
+<p>证明:</p>
+<p>假设有 K-cnf $c_1,c_2,..c_m$ 有 m 个 clauses, 每个 clauses 有 k variables</p>
+<p>有 random variables $X_1, X_2,…X_m\in{0,1}$</p>
+<p>For a random truth assignment:</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们要argue 的是 $E[X_1+X_2…X_m]$ is large ($1-\frac 1 {2^k}$)</p>
+<p>根据 linearity of expectation<br>$$<br>E[X_1+X_2…X_m]<br>$$</p>
+<p>$$<br>&#x3D;E[X_1]+E[X_2]…+E[X_m]<br>$$</p>
+<p>$E[X_i]&#x3D;1-\frac 1 {2^k}$</p>
+<blockquote>
+<p>对于一个clause ($x\vee \overline y\vee z$) 它被 satisfy 的概率是多少?</p>
+<p>这个clauses 不被 satisfy 的情况, 是只有当三个变量都为false时, 任何一个为true这个clause都是true</p>
+<p>即概率是 $1-\frac 1 {2^k}$ 如果一个clause中有 $k$ variables</p>
+</blockquote>
+<p>而我们有 m 个 clauses</p>
+<p>因此<br>$$<br>E[X_1+X_2…X_m]&#x3D;(1-\frac 1 {2^k})\cdot m<br>$$<br>即我们期望 $(1-\frac 1 {2^k})\cdot m$ 个 clause 被 satisfy</p>
+<p>至少有一种方法可以 satisfy $\ge (1-\frac 1 {2^k})\cdot m$ (因为如果所有方法都小于这个数, 那么Average 也会小于这个数)</p>
+<br>
+
+<p>对于 3-cnf, 我们总是可以找到一种方法 satisfy $\ge \frac 78$ fraction of clauses </p>
+<p>更进一步, 我们可以设计一个det polytime algo that will find such an assignment satisfying $\ge \frac 78$ of clauses in a given 3-cnf</p>
+<br>
+
+<br>
+
+<p>定义: algo $a$,  $\alpha$-approximates MAX-3SAT if</p>
+<p>$\forall$ 3-cnf $\varphi$  , $a(\varphi)$ finds an assignment that satisfies a clauses s.t.<br>$$<br>\alpha \cdot opt \le a \le opt<br>$$<br> where opt &#x3D; max number clauses satisfiable simultaneously</p>
+<br>
+
+<blockquote>
+<p>Fact:</p>
+<p>There is a det polytime algo that $\frac 78$-approximates MAX-3SAT</p>
+</blockquote>
+<p>证明 :</p>
+<p>Take $a$ to be a det polytime algo that finds an assignment satisfying $\ge$ $\frac 78$ of clauses. This $a$ is $\frac 78$-approx algo</p>
+<p>Let 3-cnf $\varphi$ on $m$ clauses has $opt\le m$ as an opt. MAX-3SAT solution algo $a(\varphi)$ will satisfy $a$ clauses<br>$$<br>\frac 78 \cdot opt \le \frac 78 \cdot m \le a \le opt<br>$$<br>By the PCP Theorem, we can’t have a better approx algo for MAX-3SAT unless $P&#x3D;NP$ </p>
+<p>Thm: $\forall \epsilon &gt;0$ if there is a det polytime algo $B$ that ($\frac 78+\epsilon$)-approximates MAX-3SAT, then P&#x3D;NP</p>
+<p>Proof:</p>
+<p>我们可以decide 3-cnf in polytime</p>
+<p>To decide if a given 3-cnf $\varphi(x_1,…x_n)$ is satisfiable, do the following:</p>
+<ol>
+<li><p>$\Psi&#x3D;R(\varphi)$ (R is the PCP reduction from the PCP theorem)</p>
+<p>where $\Psi$ is on $m$ clauses</p>
+</li>
+<li><p>Run $B(\Psi)$ and let $a$ &#x3D; number of clauses satisfied by the assignment output by $B$</p>
+</li>
+<li><p>If $a&gt;\frac 78 \cdot m$ then accept, else reject</p>
+</li>
+</ol>
+<blockquote>
+<p>correctness Analysis:</p>
+<p>case 1</p>
+<ul>
+<li>$\varphi \in \text{3SAT}\implies $</li>
+<li>$R(\varphi) &#x3D;\Psi \in \text{3SAT}\implies$(by PCP Thm)</li>
+<li>$opt&#x3D;m\implies$</li>
+<li>$(\frac 78 +\epsilon)\cdot m\le a\le m \implies a&gt;\frac 78m$ , accept</li>
+</ul>
+<br>
+
+<p>case 2</p>
+<ul>
+<li>$\varphi \not \in \text{3SAT}$</li>
+<li>$R(\varphi)&#x3D;\Psi$ has $\ge \frac m 8$ clauses falsified by every assignment (by PCP Thm)</li>
+<li>$opt\le m-\frac m 8&#x3D;\frac 78 \cdot m$</li>
+<li>$a\le opt \le \frac 78 m$ , reject</li>
+</ul>
+</blockquote>
+<br>
+
+<p>For many optimization versions of NP-complete problems (MAX-CLIQUE, MIN-VC,…) we get NP-hardness of approximation results</p>
+<p>approx parameters are different for different NP-complete problems</p>
+<blockquote>
+<p>我们说Np complete的问题的难度是一样的, 解决任何一个都可以用相同的方法解决其他的</p>
+<p>而对于approximation, 它们之间是有不同的</p>
+</blockquote>
+<br>
+
+<p>Thm: $\forall \epsilon &gt;0$ if there is a det polytime algo $C$ that $n^{1-\epsilon}$-approximates the size of a maximal Clique in every given input graph $G$ on n nodes, then P&#x3D;NP</p>
+<blockquote>
+<p>It’s known how to $\tilde O(n)$-approximate MAX-CLIQUE in polytime</p>
+</blockquote>
+<br>
+
+<br>
+
+<blockquote>
+<p>All of the NP-hardness of approximation result are proved using the PCP machinery.</p>
+<p>This gives us a more refined picture of hardness for NP-complete problems extending the classical NP-completeness to the real of approximation algorithms for optimization version of NP-complete problems.</p>
+</blockquote>
+<br>
+
+<br>
+
+<br>
+
+<h2 id="Time-and-Space-Hierarchies"><a href="#Time-and-Space-Hierarchies" class="headerlink" title="Time and Space Hierarchies"></a>Time and Space Hierarchies</h2><p>For all “nice” functions $t:\N\to \N, T:\N\to \N$ s.t.<br>$$<br>(t(n)\cdot \log t(n))\in o(T(n))<br>$$<br> we have<br>$$<br>TIME(t(n))\subset TIME(T(n))<br>$$<br>可以 proof by diagonalization</p>
+<p>通过定义 </p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而</p>
+<ol>
+<li><p>$D \notin TIME(t(n))$ by diagonalization</p>
+</li>
+<li><p>$D\in TIME(T(n))$ by using a time-efficient universal TM (which can simulate every t(n)-time TM M in time $O(t(n)\cdot \log t(n))$)</p>
+</li>
+</ol>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<p>类似的 for all “nice” function $s:\N\to\N, S:\N\to \N$ s.t.<br>$$<br>s(n)\in o(S(n))<br>$$<br>we have<br>$$<br>SPACE(s(n)) \subset SPACE(S(n))<br>$$<br>依然可以用 diagonalization 证明</p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+
+
+<p>$$<br>L\subseteq NL\subseteq P \subseteq NP \subseteq PSPACE<br>$$<br>这里至少有一个关系是true, 不然 LOGSPACE &#x3D; PSPACE 这是不可能的</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="如果一个proof-system是consistent-那么它就不是complete的"><a href="#如果一个proof-system是consistent-那么它就不是complete的" class="headerlink" title="如果一个proof system是consistent, 那么它就不是complete的"></a>如果一个proof system是consistent, 那么它就不是complete的</h2><blockquote>
+<p>这里讨论的proof system都足够强大, 满足Godel’s second incompleteness theorem</p>
+</blockquote>
+<p>证明方法1:</p>
+<p>如果一个 proof system 是 consistent and complete, 那么它一定是sound, 而我们知道一个proof system 不可能既是 sound 又是 complete 的, 矛盾.</p>
+<p>为什么一个proof system $P$ 是 consistent and complete, 那么它一定是sound?</p>
+<blockquote>
+<p>假设它不是sound</p>
+<p>那么就存在一个$A$, $P$ proofs $A$, where $A$ is false,</p>
+<p>然而$P$ 是complete的, complete 的定义是 $P$ 可以 proof everything that is True</p>
+<p>就是说 $P$ proofs $\neg A$ (因为A是false, 所以 $\neg A$ 是 true)</p>
+<p>因此 $P$ proofs $A \wedge \neg A$, 这说明 $P$ is not consistent (矛盾!)</p>
+<p>因此 如果$P$ 是 consistent and complete, 那么它一定是sound</p>
+</blockquote>
+<br>
+
+<p>证明方法2:</p>
+<p>思想, 如果proof system 是 consistent and complete, 那么我们就可以decide $A_{TM}$</p>
+<p>我们知道: 对于 $\langle M, w \rangle$ 我们有对应的 $\varphi_{M,w}$<br>$$<br>\text{M accept w} \iff \varphi_{M,w} \text{ is true}<br>$$<br>而由于 $P$ 是 complete, $P$ 要么proof $\varphi_{M,w}$ 要么 proof $\neg \varphi_{M,w}$ (因为二者之间必然有一个是true, complete 的定义是 $P$ 可以 proof everything that is True)</p>
+<p>且 $P$ 无法同时证明 $\varphi_{M,w}$ 和 $\neg \varphi_{M,w}$ (因为$P$是consistent)</p>
+<p>因此, 我们可以构建这样的$A_{TM}$</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">input M, w<br><br><span class="hljs-built_in">get</span> phi_Mw<br><br><span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> <span class="hljs-keyword">sentence</span> s, <span class="hljs-keyword">try</span> <span class="hljs-built_in">to</span> proof <span class="hljs-keyword">it</span>, <span class="hljs-keyword">until</span> find phi_Mw <span class="hljs-keyword">or</span> neg_phi_Mw<br>	<span class="hljs-keyword">if</span> P proof phi_Mw<br>		accept<br>	<span class="hljs-keyword">if</span> P proof neg_phi_Mw<br>		reject<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="P-无法-Proof-“-P-无法-Proof-A"><a href="#P-无法-Proof-“-P-无法-Proof-A" class="headerlink" title="$P$ 无法 Proof “ $P$ 无法 Proof $A$"></a>$P$ 无法 Proof “ $P$ 无法 Proof $A$</h2><p>如果一个 proof system $P$ 是 consistent, 那么就存在formula $A$, $P$ 无法proof $A$ (因为P是incomplete的), 证明: $P$ 无法 Proof “ $P$ 无法 Proof $A$”</p>
+<p>根据定义<br>$$<br>\text{P is consistent} \iff P \not \to c\wedge \neg c<br>$$<br>然而 $c\wedge \neg c\implies \text{anything}$</p>
+<p>因为 $\text{False} \implies \text{anything}$</p>
+<p>就是说 $c\wedge \neg c\implies A$</p>
+<br>
+
+<p>因为 $P$ 是 complete 的, 所以 $P$ proofs “$c\wedge \neg c \implies B$” for all $B$</p>
+<p>如果 $\exists B$ s.t. $P$ not proofs $B$ , 那么$P$ 无法proof $c\wedge \neg c$ </p>
+<p>因为如果 $P$ proof $c\wedge \neg c$ , 那么 $P$ 就可以proof everything, 自然就可以proof $B$</p>
+<br>
+
+<p>就是说 $P$ not proof $A\implies \text{Cons}_p$</p>
+<p>如果 $P$ proof “$P$ not proof A”</p>
+<p>那么 $P\implies \text{Cons}_p$</p>
+<p>这是不可能的, $P$ 无法proof itself’s consistency. </p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2022/03/27/algorithm-analysis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2021/09/09/Computability-and-Complexity/">
+                        <span class="hidden-mobile">Computability and Complexity</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

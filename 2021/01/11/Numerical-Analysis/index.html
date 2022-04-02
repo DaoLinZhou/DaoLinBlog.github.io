@@ -1,0 +1,2720 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Error如何表达一个数? 例如: 532.98 可以表达为: $5\cdot 10^2+3\cdot 10^1+2\cdot 10^0+9\cdot 10^{-1}+8\cdot 10^{-2}$   计算机是二进制的, 同理: $(1001.11)_2$ $1\cdot 2^3+1\cdot 2^0+1\cdot 2^{-1}+1\cdot 2^{-2}$   如果我们要在机器上表示一个十">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numerical Analysis">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/01/11/Numerical-Analysis/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Error如何表达一个数? 例如: 532.98 可以表达为: $5\cdot 10^2+3\cdot 10^1+2\cdot 10^0+9\cdot 10^{-1}+8\cdot 10^{-2}$   计算机是二进制的, 同理: $(1001.11)_2$ $1\cdot 2^3+1\cdot 2^0+1\cdot 2^{-1}+1\cdot 2^{-2}$   如果我们要在机器上表示一个十">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/macm316/func.PNG">
+<meta property="article:published_time" content="2021-01-12T02:06:50.000Z">
+<meta property="article:modified_time" content="2021-04-20T07:13:10.086Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/macm316/func.PNG">
+  
+  
+  <title>Numerical Analysis - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/internet.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Numerical Analysis">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-11 18:06" pubdate>
+        January 11, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      15k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      127 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Numerical Analysis</h1>
+            
+            <div class="markdown-body">
+              <span id="more"></span>
+
+<h1 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h1><p>如何表达一个数?</p>
+<p>例如:</p>
+<p>532.98 可以表达为:</p>
+<p>$5\cdot 10^2+3\cdot 10^1+2\cdot 10^0+9\cdot 10^{-1}+8\cdot 10^{-2}$</p>
+<br>
+
+<p>计算机是二进制的, 同理: $(1001.11)_2$</p>
+<p>$1\cdot 2^3+1\cdot 2^0+1\cdot 2^{-1}+1\cdot 2^{-2}$</p>
+<br>
+
+<p>如果我们要在机器上表示一个十进制的数, 我们可能会有误差.</p>
+<p>例如如果我们要在计算机中表达 0.1<br>$$<br>(\frac {1}{10})_{10}&#x3D;&gt;(?)_2<br>$$<br>那么怎么表示呢?</p>
+<p>假设 1&#x2F;10 可以表示为 $(0.a_1a_2a_3\cdots)_2$, 即<br>$$<br>\frac {1}{10} &#x3D; (0.a_1a_2a_3…)_2<br>$$<br>左右两边同时乘以2.</p>
+<p>二进制乘以2相当于左移一位<br>$$<br>\frac {2}{10} &#x3D; (a_1.a_2a_3…)_2<br>$$<br>而明显这个值小于1, 所以 $a_1&#x3D;0$, $\frac {2}{10} &#x3D; (0.a_2a_3…)_2$</p>
+<p>再乘以2<br>$$<br>\frac {4}{10} &#x3D; (a_2.a_3a_4a_5…)_2<br>$$<br>同理 $a_2&#x3D;0$</p>
+<br>
+
+<p>重复这个过程我们得到<br>$$<br>\frac {1}{10} &#x3D; (0.000110011001…)_2<br>$$<br>得到一个无限循环小数, 因此在计算机中表示1&#x2F;10 会有误差</p>
+<br>
+
+<p>$732.5051 &#x3D; 0.7325051*10^3$</p>
+<p>0.7325051 叫做 mantissa, 它有一个正负sign</p>
+<p>3 叫做 exponent, 它也有一个正负sign</p>
+<br>
+
+<br>
+
+<h2 id="三种衡量error的方法"><a href="#三种衡量error的方法" class="headerlink" title="三种衡量error的方法"></a>三种衡量error的方法</h2><p>Absolute error : $|p-p^*|$</p>
+<p>Relative error : $\frac {|p-p^*|}{|p|}$</p>
+<p>Significant Digits:</p>
+<blockquote>
+<p>$p^\star$ approximates $p$ to $t$ significant digits if the relative error is less than $5\cdot 10^{-t}$ </p>
+</blockquote>
+<p>举个例子</p>
+<p>Exact: 0.1</p>
+<p>Approx: 0.099</p>
+<p>求 Significant Digits</p>
+<p>首先 relative error &#x3D; 0.01</p>
+<p>当 t &#x3D; 0, relative error &#x3D; 0.01 &lt; $5 * 10^0$</p>
+<p>当 t &#x3D; 1, relative error &#x3D; 0.01 &lt; $5 * 10^{-1}$</p>
+<p>当 t &#x3D; 2, relative error &#x3D; 0.01 &lt; $5 * 10^{-2}$</p>
+<p>当 t &#x3D; 3, relative error &#x3D; 0.01 &gt; $5 * 10^{-3}$</p>
+<p>因此 t &#x3D; 2. significant Digits &#x3D; 2</p>
+<br>
+
+<br>
+
+<p>我们用 fl(x) 来表示 machine representation of <em>x</em></p>
+<p>如果计算机计算 x+y, 那么它实际计算的是:$fl(fl(x)+fl(y))$</p>
+<br>
+
+<p><strong>cancellation error</strong></p>
+<p>假设<br>$$<br>fl(x) &#x3D;0.d_1d_2…d_p\alpha_{p+1}\alpha_{p+2}…\alpha_k*10^n<br>$$</p>
+<p>$$<br>fl(y) &#x3D;0.d_1d_2…d_p\beta_{p+1}\beta_{p+2}…\beta_k*10^n<br>$$</p>
+<p>同时 $x &gt; y$. </p>
+<p>fl(x) 和 fl(y) 前 p 个 digits 是相同的</p>
+<p>当二者相减时:<br>$$<br>fl(fl(x)-fl(y)) &#x3D; 0.\sigma_{p+1}\sigma_{p+2}…\sigma_k*10^{n-p}<br>$$<br><br><br>$$<br>0.\sigma_{p+1}\sigma_{p+2}…\sigma_k&#x3D;0.\alpha_{p+1}\alpha_{p+2}…\alpha_k-0.\beta_{p+1}\beta_{p+2}…\beta_k<br>$$<br>关键点是 这里只有 $k-p$ digits significant </p>
+<p> 丢失了 p digits</p>
+<br>
+
+<blockquote>
+<p>例如:</p>
+<p>p &#x3D; 0.54617, q &#x3D; 0.54601</p>
+<p>exact value $r &#x3D; p-q&#x3D;0.00016$</p>
+<p>but now with 4 digit randing</p>
+<p>$p^*&#x3D;0.5462$</p>
+<p>$q^* &#x3D; 0.5460$</p>
+<p>$r^*&#x3D;fl(p^ * -q^ * ) &#x3D;0.0002$</p>
+<p>$$<br>\frac {|r-r^ * |}{|r|} &#x3D; 0.25<br>$$<br>1 significant digit $0.25 &lt; 5 * 10^{-1}$</p>
+<p>p和q都能正确在机器上表示, 但是他们的差却不能正确表示</p>
+</blockquote>
+<br>
+
+<br>
+
+<p><strong>cancellation error</strong>的另一个例子</p>
+<p>考虑 $f(x) &#x3D; \frac {1-\cos x}{x^2}$</p>
+<p>如果让 $\bar x &#x3D; 1.2 * 10^{-5}$</p>
+<p>那么 $c &#x3D; fl(cos(\bar x)) &#x3D; 0.9999999999$ (rounded to 10 digits)</p>
+<p>$\frac {1-c} {\bar x ^ 2}&#x3D;0.694…$</p>
+<p>然而真实的值应该是0.5</p>
+<p>函数图像:</p>
+<p><img src="/Blog/Blog/intro/macm316/func.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>明显答案是错误的.</p>
+<p>那么如何才能正确计算?</p>
+<p>明显问题的原因是在分子, 我们让两个近似与1的数进行相减, 因此才产生cancellation error</p>
+<p>当两个相近的数进行相减时会产生cancellation error</p>
+<p>因此我们为cos引入一个新的表达式.<br>$$<br>\cos x &#x3D; 1-2\sin^2(\frac x 2)<br>$$<br>重写表达式<br>$$<br>f(x) &#x3D; \frac 12 (\frac {\sin(\frac x 2)}{x&#x2F;2})^2<br>$$<br>此时 $f(\bar x) \approx 0.5$</p>
+<br>
+
+<p>因此 解决cancellation error的方法就是使用数学表达式进行抵消</p>
+<br>
+
+<p>另一种减少计算机计算error的方式是减少浮点数运算</p>
+<p>例如:</p>
+<p>$f(z) &#x3D; 1.01\cdot z^4-4.62\cdot z^3-3.11\cdot z^2+12.2z-1.99$</p>
+<br>
+
+<p>这个式子可以写成</p>
+<p>$f(z) &#x3D; 1.01\cdot z\cdot z\cdot z\cdot z-4.62\cdot z\cdot z\cdot z-3.11\cdot z\cdot z+12.2z-1.99$</p>
+<p>这个式子有14个运算符号, 然而我们可以这么写</p>
+<p>$f(z) &#x3D; (1.01\cdot z\cdot z\cdot z-4.62\cdot z\cdot z-3.11\cdot z+12.2)\cdot z-1.99$</p>
+<p>此时只有11个运算符号</p>
+<br>
+
+<p>同理可以继续这样简化</p>
+<p>$f(z) &#x3D; (((1.01\cdot z-4.62)\cdot z-3.11)\cdot z+12.2)\cdot z-1.99$</p>
+<p>到这一步就只有8个浮点operation了, 相比与14, 大大化简的浮点运算的数量, 自然精度也就上升了</p>
+<br>
+
+<br>
+
+<p>再来一个例子:</p>
+<p>对于二次函数的解 $ax^2+bx+c&#x3D;0$<br>$$<br>x_1 &#x3D; \frac {-b+\sqrt{b^2-4ac}}{2a}<br>$$</p>
+<p>$$<br>x_2 &#x3D; \frac {-b-\sqrt{b^2-4ac}}{2a}<br>$$</p>
+<p>如果b&#x3D;600, a&#x3D;c&#x3D;1.</p>
+<p>那么 $x_1$ 的分子就明显会产生 cancellation error, 相当于两个近似与600的数相减.</p>
+<p>而 $x_2$ 不会有任何问题.</p>
+<p>此时的方法就是<br>$$<br>x_1 &#x3D; \frac {-b+\sqrt{b^2-4ac}}{2a} * \frac {-b-\sqrt{b^2-4ac}}{-b-\sqrt{b^2-4ac}}&#x3D;\frac {4ac}{2a(-b-\sqrt{b^2-4ac})}<br>$$<br>这样就避免了 cancellation error.</p>
+<p>而如果b &#x3D; -600. 情况就正好相反</p>
+<p>$x_1$ 不会有任何问题, 相当于两个近似与600的数相加</p>
+<p>而$x_2$ 会有 cancellation error. 同理也要用类似的方法来减小误差.</p>
+<br>
+
+<br>
+
+<h1 id="Algorithms-and-Convergence"><a href="#Algorithms-and-Convergence" class="headerlink" title="Algorithms and Convergence"></a>Algorithms and Convergence</h1><p>假设 sequence ${\alpha_n}$ converges to $\alpha$, 可以写成:<br>$$<br>\lim_{n\to \inf} \alpha_n &#x3D; \alpha<br>$$<br>然而我们<strong>不仅仅</strong>关系$\alpha$, 我们更关心<strong>how rapidly the sequence converges to its limit</strong>. (converge 的速度)</p>
+<p>algorithms that converge rapidly to their limit are going to be more efficient and more desirable to us</p>
+<br>
+
+<blockquote>
+<p> 来个例子:<br>$$<br>\alpha_n &#x3D; \sin(\frac 1n)<br>$$<br>当 $n\to \inf$ , $\alpha_n$ converge to 0</p>
+<p>$\alpha &#x3D; \lim_{n \to \inf} \sin(\frac 1 n)&#x3D;0$</p>
+<br>
+
+<p>然而有时候使用 finite limit 比使用 infinite limit 要简单</p>
+<p>例如我们可以这样替换<br>$$<br>\lim_{n \to \inf} \sin(\frac 1n)<br>$$</p>
+<p>$$<br>\lim_{h\to 0}\sin(h)<br>$$</p>
+<p>使用h来代替 $\frac 1n$</p>
+<p>$\lim_{h\to 0}\sin(h) &#x3D; 0$</p>
+<br>
+
+<p>然而我们想知道 How rapidly sin(h) tends to 0.</p>
+<p>使用Taylor series 来进行展开.<br>$$<br>\sin(h) &#x3D; h - \frac {h^3} {6} + \cdots<br>$$<br>因此<br>$$<br>\sin(h) - \lim_{h\to 0}\sin(h)<br>$$</p>
+<p>$$<br>&#x3D;\sin(h)-\alpha&#x3D;\sin(h)-0<br>$$</p>
+<p>$$<br>&#x3D;h - \frac {h^3} {6} + \cdots<br>$$</p>
+<p>这个告诉我们什么?</p>
+<p>as $h$ tends to zero $\sin(h)$ tends to zero and it does so in a similiar way to $h$</p>
+<p>$\sin(h) \to 0$ like $h\to 0$<br>$$<br>h - \frac {h^3} {6} + \cdots<br>$$<br>为什么我们忽略了其余的高阶项?</p>
+<p>因为当h变小时 $h^3, h^7…$ vanish very rapidly as $h$ tends to zero</p>
+<p>当 $h\to 0$ 其他高阶项会比h小多了</p>
+<p>so the most important term here is the leading order term $h$, others are much much smaller.</p>
+</blockquote>
+<br>
+
+<br>
+$$
+\lim_{n\to \inf}\alpha_n = \alpha
+$$
+假设现在有另一个 sequence $\{\beta_n\}$
+$$
+\lim_{n\to \inf}\beta_n = 0
+$$
+我们要将二者建立关系. 为什么?
+
+<p>因为$\alpha_n$ is something we want to understand.</p>
+<p>而 $\beta_n$ is something we understand quit well</p>
+<br>
+
+<p>如果$|\alpha_n-\alpha| \le k|\beta_n|$,   $k$ 是一个大于零的常数</p>
+<p>我们说 ${\alpha_n}$ converges to $\alpha$ with <strong>rate of convergence</strong> $O(\beta_n)$  (big-oh of $\beta_n$)</p>
+<p>如果 $\alpha_n \to \alpha$ with r.o.c (rate of convergence) $O(\beta_n)$ then we sometimes write<br>$$<br>\alpha_n &#x3D; \alpha + O(\beta_n)<br>$$<br><br></p>
+<br>
+
+<p>而在上面的例子中<br>$$<br>\alpha_n &#x3D; \sin(\frac 1n)<br>$$</p>
+<p>$$<br>\alpha &#x3D; \lim_{n\to \inf}\sin(\frac 1 n) &#x3D; 0<br>$$</p>
+<p>$\alpha_n &#x3D; \sin(\frac 1n)$ was like $\frac 1n$ as $n\to \inf$</p>
+<p>所以我们可以 compare  with $\beta_n$ &#x3D; $\frac 1 n$ (让$\beta_n &#x3D; \frac 1 n$, 这样就可以进行比较)</p>
+<p>$\alpha_n &#x3D; \sin(\frac 1n)$ converges to $\alpha &#x3D; 0$ with r.o.c   $O(\beta_n) &#x3D; \frac 1n$</p>
+<br>
+
+<br>
+
+<p>通常我们compare how  fast $\alpha_n \to 0$ with how fast $\beta_n&#x3D;\frac 1{n^p} \to 0$</p>
+<p>我们想要最大的p, 使得${\alpha_n}\to\alpha$ with r.o.c $O(\frac 1 {n^p})$</p>
+ <br>
+
+<br>
+
+<p>另一个例子:<br>$$<br>\lim_{n\to \inf} n\sin(\frac 1n) &#x3D; 1<br>$$<br>我们想知道 how quickly it tends to 1.<br>$$<br>\alpha_n &#x3D; n\sin(\frac 1n)<br>$$</p>
+<p>$$<br>\alpha &#x3D; 1<br>$$</p>
+<p>让 $h&#x3D;\frac 1n$, 上面的问题等价于这个<br>$$<br>\lim_{h\to 0} \frac 1h \sin(h) &#x3D; 1<br>$$<br>so<br>$$<br>\frac 1h \sin(h) - 1 &#x3D; O(h^p)<br>$$<br>左边可以对sin(h)进行泰勒展开 <strong>(对点0进行泰勒展开, 因为lim趋近于0)</strong><br>$$<br>\frac 1h \sin(h) - 1 &#x3D; \frac 1h(h-\frac {h^3}{6}+\cdots)  - 1<br>$$</p>
+<p>$$<br>&#x3D;1 - \frac {h^2}{6}+\cdots-1<br>$$</p>
+<p>$$<br>&#x3D;-\frac {h^2}{6}+\cdots<br>$$</p>
+<p>所以 $\frac 1h \sin(h) - 1 \to 0$ like $-\frac {h^2}{6} \to 0$</p>
+<p>rate of converges is $O(h^2)$ 或者说 $O(\frac 1 {n^2})$</p>
+<br>
+
+<br>
+
+<h1 id="求解线性方程"><a href="#求解线性方程" class="headerlink" title="求解线性方程"></a>求解线性方程</h1><p>Gauss 法求解线性方程组是线性代数的内容. 这里不赘述</p>
+<p>回忆一下它是怎么求解的:</p>
+<p>假设我们要消去某一行的首元.</p>
+<p>要让第一行的每一项乘以一个倍数, 再加上另一行来消去它的首元</p>
+<br>
+
+<p><img src="/Blog/Blog/intro/macm316/matrix.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>例如要消去 $a_{21}$ 就要让 $E_1$(第一行) 乘以 $-\frac {a_{21}}{a_{11}}$ 在加上 $E_2$<br>$$<br>E_2+(-\frac {a_{21}}{a_{11}})E_1<br>$$<br>因此需要进行一次除法, n次乘法, 时间复杂度是 n+1</p>
+<p>因此对于一个 $(n, n+1)$的矩阵, 进行高斯消元形成上三角矩阵的话需要:<br>$$<br>(n-1)\cdot (n+1)+(n-2)(n)+(n-3)(n-1)\cdots<br>$$<br>最开始对一行进行消元的复杂度是(n+1), 对除了第一行以外的所有行进行消元就是$(n-1)\cdot (n+1)$</p>
+<p>而对第二次进行消元则是对第二行下面的所有行进行消元 也就是$n-2$ 行 此时每一行要进行乘法的元素是n, 因为第一个元素是0, 不用进行乘法.</p>
+<p>所以总体化简为上三角矩阵的时间是<br>$$<br>\sum_{i&#x3D;1}^{n-1}(n-i)(n-i+2)\approx \frac {2n^3} 3&#x3D;O(n^3)<br>$$<br>而从上三角矩阵的复杂度时 $O(n^2)$ .</p>
+<p>因此总体是$O(n^3)$的复杂度. 这个复杂度很高, 是我们不能接受的.</p>
+<br>
+
+<br>
+
+<p>而且在计算机中, 它有精度问题</p>
+<p>假如我们的线性系统是这样的:<br>$$<br>10^{-20}x_1+x_2+x_3&#x3D;1 \tag 1<br>$$</p>
+<p>$$<br>x_1+2x_2+3x_3&#x3D;4 \tag 2<br>$$</p>
+<p>$E_2-10^{20}E_1 \to E_2$</p>
+<p>所以新的 $E_2$ 是:<br>$$<br>(-10^{20}+2)x_2+(-10^{20}+3)x_3&#x3D;(-10^{20}+4)<br>$$<br>在计算机中基本就等价于<br>$$<br>x_2+x_3&#x3D;1<br>$$<br>$E_2$ 本来是一个非常漂亮的式子. 但是因为 $E_1$ 导致它被rounding了</p>
+<p>此时$E_2$ 就消失了</p>
+<p>另一个会出现 round off error 的地方就是反向求解的时候</p>
+<br>
+
+<br>
+
+<p>有 3 种方式解决这个问题:</p>
+<ol>
+<li>partial pivoting</li>
+<li>scaled pivoting</li>
+<li>complete pivoting</li>
+</ol>
+<br>
+
+<p><strong>partial pivoting:</strong></p>
+<p>如果说<br>$$<br>E_1: 0.003x_1+59.14x_2&#x3D;59.17<br>$$</p>
+<p>$$<br>E_2:5.291x_1-6.130x_2&#x3D; 46.78<br>$$</p>
+<p>对于这个问题, 有着唯一解: $x_1&#x3D;10, x_2&#x3D;1$</p>
+<p>然而如果我们直接求解: $\frac{5.291}{0.003} \approx 1764$<br>$$<br>E_2 - E_1\cdot \frac{5.291}{0.003} \to E_2<br>$$<br>于是得到<br>$$<br>E_1: 0.003x_1+59.14x_2&#x3D;59.17<br>$$</p>
+<p>$$<br>E_2: -1043002x_2 &#x3D; -104400<br>$$</p>
+<p>解得:</p>
+<p>$x_2&#x3D; 1.001, x_1\approx \frac {59.17-(59.14\cdot 1.001)}{0.003}\approx -10$</p>
+<p>$x_1$的值应该是10 而不是-10 </p>
+<br>
+
+<p>原因就是E1 近乎与x1轴平行, 当一条线的slop趋近与0时, $x_2$ 上的任何微小的误差都会导致在$x1$上巨大的偏差</p>
+<p><img src="/Blog/Blog/intro/macm316/err.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因此一个简单的方法就是交换 pivot.</p>
+<p>也就是说当我们发现 $E_2$ 的 pivot 比 $E_1$ 的大时, 就交换二者<br>$$<br>E_1:5.291x_1-6.130x_2&#x3D; 46.78<br>$$</p>
+<p>$$<br>E_2: 0.003x_1+59.14x_2&#x3D;59.17<br>$$</p>
+<p>此时求 $0.003&#x2F;5.291 &#x3D; 0.000567$<br>$$<br>E_1:5.291x_1-6.130x_2&#x3D; 46.78<br>$$</p>
+<p>$$<br>E_2:59.14x_2\approx 59.14<br>$$</p>
+<p>解得 $x_2&#x3D;1, x_1 &#x3D; 10$</p>
+<p>此时就是正确的结果.</p>
+<p>然而. 有些情况这样是行不通的.</p>
+<br>
+
+<br>
+
+<p><strong>scaled pivoting:</strong></p>
+<p>如果我们把$E_1$ 进行一下缩放<br>$$<br>E_1: 30x_1+591400x_2&#x3D;591700<br>$$<br>此时pivot 就比$E_2$ 要大, 按照前面的理论我们要选择$E_1$.</p>
+<p>然而实际$E_1$ 的slop 没有变</p>
+<p>此时我们应该计算一下每个function 的slop<br>$$<br>E_1: 30x_1+591400x_2&#x3D;591700<br>$$</p>
+<p>$$<br>E_2:5.291x_1-6.130x_2&#x3D; 46.78<br>$$</p>
+<p>$$<br>\frac {30}{591400} &lt; \frac {5.291}{6.13}<br>$$<br>因此应该选择$E_2$</p>
+<p>对于第j行, 我们找到这一行的最大值$S_j$, 这个值是不变的.<br>$$<br>\max_{j&#x3D;1.\cdots n} \frac {|a_{j1}|}{S_j}<br>$$<br>就是让这一行中第一个值除以这一行的最大值.</p>
+<p>当对所有行都计算完成后, 让所有行中这个值最大的行来当pivot</p>
+<br>
+
+<p>还有更为强大的第三种方法 completing pivots</p>
+<p>这是$O(n^3)$ 的算法</p>
+<p>这里不讲它, 了解有这么个东西即可</p>
+<br>
+
+<br>
+
+<h1 id="PLU-分解"><a href="#PLU-分解" class="headerlink" title="PLU 分解"></a>PLU 分解</h1><p>LU分解在线性代数中讲解的很清楚了.</p>
+<p>plu分解既可以看作是:<br>$$<br>A&#x3D;PLU<br>$$<br>也可以看作是:<br>$$<br>PA&#x3D;LU<br>$$<br>总之就是把A进行行交换后再进行LU分解</p>
+<p>P 是一个正交矩阵, $P^{-1}&#x3D;P^T$</p>
+<br>
+$$
+Ax = b
+$$
+
+<p>$$<br>PAx&#x3D;Pb<br>$$</p>
+<p>$$<br>\because PA&#x3D;LU<br>$$</p>
+<p>$$<br>\therefore LUx &#x3D; Pb<br>$$</p>
+<p>此时我们在解得x</p>
+<p>一种方法是找到P, 之后再求 PA, 在进行LU分解, 最后解x.</p>
+<br>
+
+<p>然而还有一种方法:</p>
+<p>假设一个问题是这样:</p>
+<p>Find the permutation matrix so that $PA$ can be factored into the product $LU$</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>首先我们看到第一行第一个元素是0, 所以将第一行和第二行进行交换</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>$E_3 - E_1 \to E_3,\ \ E_4-E_1\to E_4$</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>可以看到第一列中的后面3个元素都被消为0. 然而我们知道他们是0, 我们可以对这些空间加以利用, 我们将把后面两元素设为1</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>他们是 mulitipler, zero out the entry</p>
+<p>$E_3 - E_1 \to E_3$ 因此我们把第三行第一个元素设为1</p>
+<p>$E_4-E_1\to E_4$ 因此我们把第四行第一个元素设为1</p>
+<p>hopefully we can form $L$ as part of our procedure</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>虚线下方的元素属于$L$, 虚线上方的元素属于$U$</p>
+<p>此时要交换$E_2,E_4$</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>$E_4+E_3\to E_4$</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时的multiplier是 -1, 所以把-1放到对应的位置</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>那么矩阵P呢?</p>
+<p>我们之前交换 $E_1, E_2$, 又交换$E_2,E_4$</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>这个方法是真正coding时用到的, 因为它更高效</p>
+<br>
+
+<br>
+
+<h1 id="Special-Types-of-Maries"><a href="#Special-Types-of-Maries" class="headerlink" title="Special Types of Maries"></a>Special Types of Maries</h1><p>有时候有的矩阵有一些性质</p>
+<h2 id="Strictly-diagonally-dominant-matries"><a href="#Strictly-diagonally-dominant-matries" class="headerlink" title="Strictly diagonally dominant matries"></a>Strictly diagonally dominant matries</h2><p>$$<br>|a_{ii}| &gt; \sum_{j&#x3D;1, j\ne i}^n|a_{ij}|<br>$$</p>
+<p>如果一个矩阵的对角线上的元素的绝对值大于当前行的所有绝对值的和, 那么 它就叫做 Strictly diagonally dominant matries</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_11.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>|3h| &gt; |h|+|h|<br>$$</p>
+<p>$$<br>|10|&gt;|4|+|4|<br>$$</p>
+<p>$$<br>|-3| &gt; |1|+|1|<br>$$</p>
+<p>这个矩阵是Strictly diagonally dominant matries 当 $h\ne 0$</p>
+<p>这样的矩阵有什么好处?</p>
+<ol>
+<li>它肯定是可逆的, 是非奇异矩阵</li>
+<li>它可以进行LU分解, 而不需要行或列的交换操作</li>
+</ol>
+<br>
+
+<p>另一种特殊的矩阵是:</p>
+<h2 id="positive-definite-matrices"><a href="#positive-definite-matrices" class="headerlink" title="positive definite matrices"></a>positive definite matrices</h2><p>symmetric positive definite matrices</p>
+<p>矩阵A, 对于任何非零向量$x$满足<br>$$<br>\vec x^TA \vec x &gt; 0<br>$$<br>例如:</p>
+<p>Find all values of $\alpha$ for which $A$ is positive definite</p>
+<p><img src="/Blog/Blog/intro/macm316/PLU_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>答案是 $\alpha &gt; 2$</p>
+<br>
+
+<p>如果一个矩阵是positive definite matrix</p>
+<ol>
+<li>A 可逆, 不是非奇异矩阵, 不然 $Ax &#x3D; \vec 0,\ xAx&#x3D;0$</li>
+<li>对角线上所有元素大于0</li>
+<li>$\max_{1\le k_{1j}\le n} |a_{kj}| \le \max_{1\le i \le n} |a_{ii}|$</li>
+<li>$(a_{ij})^2 &lt; a_{ii}a_{jj}$</li>
+</ol>
+<br>
+
+<p>(2) 的证明: 假设A的一个对角线元素是负数$a_{ii}$, 如果x中只有第$i$个元素是1, 其他元素都是0</p>
+<p>此时 $x^tAx&#x3D;a_{ii}$ 而这个元素是负数, 假设矛盾.</p>
+<br>
+
+<br>
+
+<p>上面的四个性质对于大matrix很难进行check.</p>
+<p>因此有了下面的方法</p>
+<blockquote>
+<p>定义: Leading principal submatrix</p>
+<p>一个 leading principal submatrix of a matrix $A$ is a matrix of the from:</p>
+<p><img src="/Blog/Blog/intro/macm316/lpsm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>for some $1\le k \le n$</p>
+<p>简单来说就是取矩阵的左上角的 $(k, k)$ 方阵</p>
+</blockquote>
+<p><strong>Theorem:</strong> </p>
+<p>一个 symmetric matrix $A$ 是 Positive definite <strong>if and only if</strong> $A$ 的每一个leading principal submatrix 的 行列式的值是positive</p>
+<br>
+
+<br>
+
+<p>举个例子: 寻找 $\alpha$ 使得 $A$ 是 Positive definite</p>
+<p><img src="/Blog/Blog/intro/macm316/lpsm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因此我们有3个条件</p>
+<p><img src="/Blog/Blog/intro/macm316/lpsm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>解得 $-2&lt;\alpha &lt; 3&#x2F;2$</p>
+<br>
+
+<br>
+
+<p>为什么我们关注 symmetric positive definite matrices?</p>
+<p><strong>Theorem:</strong></p>
+<p>一个symmetric matrices $A$ 是 positive definite <strong>if and only if</strong> Gaussian Elimination can be performed on the linear system $Ax&#x3D;b$ <strong>with all the pivot elements positive</strong></p>
+<p>也就是说如果对symmetric positive definite matrices 进行高斯消元, 我们将不会得到 zero pivot</p>
+<p>此时 计算是更加stable 的, without the growth of round off error.</p>
+<br>
+
+<br>
+
+<p>如果$A$ 是 symmetric positive definite, 那么它一定可以进行LU 分解, 甚至由于它是symmetric, 那么 $LU$ 中的 $U$ 就可以是$L^T$</p>
+<p>因为:<br>$$<br>A&#x3D;LU,\ \ A^T&#x3D;A&#x3D;LU \<br>$$</p>
+<p>$$<br>A^T&#x3D;LU,(A^T)^T&#x3D;(LU)^T&#x3D;U^TL^T&#x3D;A<br>$$</p>
+<p>$U^T$ 是下三角矩阵 $L^T$ 是上三角矩阵</p>
+<p>因此另一个另一个<strong>theorem</strong>是这样的:</p>
+<p>如果$A$ 是 symmetric positive definite, <strong>if and only if</strong>  it can be factored in the form $LL^T$</p>
+<br>
+
+<h2 id="Choleski’s-Algorithm"><a href="#Choleski’s-Algorithm" class="headerlink" title="Choleski’s Algorithm"></a>Choleski’s Algorithm</h2><p>这个算法是对symmetric positive definite matrix 进行 $LL^T$分解的</p>
+<p>时间复杂度时 $n^3&#x2F;6+n^2&#x2F;2-2n&#x2F;3$</p>
+<p>step 1: select $l_{11}, u_{11}$ staisfying $l_{11}u_{11}&#x3D;a_{11}$, 而 $l_{11}$ 等于 $u_{11}$, 所以 $l_{11}&#x3D;\sqrt{a_{11}}$ </p>
+<p>step 2: $l_{j1} &#x3D; a_{j1}&#x2F;u_{11} &#x3D;a_{j1}&#x2F;l_{11}$</p>
+<p>step 3: (no change)</p>
+<p>step 4: select $l_{ii},u_{ii}$ staisfying $l_{ii}u_{ii}&#x3D;a_{ii}-\sum_{k&#x3D;1}^{i-1}l_{ik}u_{ki}&#x3D;a_{ii}-\sum_{k&#x3D;1}^{i-1}l_{ik}l_{ik}&#x3D;\sqrt{a_{ii}-\sum l_{ik}^2}$</p>
+<p>step 5:<br>$$<br>l_{ji} &#x3D; \frac 1 {u_{ii}} [a_{ji} - \sum_{k&#x3D;1}^{i-1} l_{jk} u_{ki}] &#x3D; \frac 1 {l_{ii}} [a_{ji} - \sum_{k&#x3D;1}^{i-1} l_{jk} u_{ki}]<br>$$<br>step 6:<br>$$<br>l_{nn} u_{nn} &#x3D; a_{nn} - \sum_{k&#x3D;1}^{n-1}l_{nk} u_{kn}<br>$$</p>
+<p>$$<br>l_{nn}l_{nn}&#x3D; a_{nn} - \sum_{k&#x3D;1}^{n-1}l_{nk} l_{nk}<br>$$</p>
+<p>$$<br>l_{nn}&#x3D; \sqrt {a_{nn} - \sum_{k&#x3D;1}^{n-1}l_{nk} l_{nk}}<br>$$</p>
+<br>
+
+<h2 id="banded-matrices"><a href="#banded-matrices" class="headerlink" title="banded matrices"></a>banded matrices</h2><p>concentrate their non-zero entries about the main diagonal</p>
+<blockquote>
+<p>定义:</p>
+<p>An $n\times n$ matrix is called a band matrix if integers $p, q$ with $1&lt;p, q&lt;n$ exist having the property that $a_{ij} &#x3D; 0$ if $p\le j$ or $j+q\le i$ </p>
+<p>the band width of a band matrix is defined as $w&#x3D;p+q-1$</p>
+</blockquote>
+<p>例如:</p>
+<p><img src="/Blog/Blog/intro/macm316/band.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/band_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/band_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="Crout-Factorization-for-Tridiagonal-Linear-Systems"><a href="#Crout-Factorization-for-Tridiagonal-Linear-Systems" class="headerlink" title="Crout Factorization for Tridiagonal Linear Systems"></a>Crout Factorization for Tridiagonal Linear Systems</h3><p><img src="/Blog/Blog/intro/macm316/band_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对这种矩阵进行$LU$分解</p>
+<p><img src="/Blog/Blog/intro/macm316/band_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>将二者相乘</p>
+<p><img src="/Blog/Blog/intro/macm316/band_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>这个算法只有 $O(n)$的复杂度</p>
+<p>这么看有点抽象, 我把书中的例子放进来</p>
+<p><img src="/Blog/Blog/intro/macm316/Crout_factorizatio.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/Crout_factorizatio_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/Crout_factorizatio_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/Crout_factorizatio_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/Crout_factorizatio_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<p>我们依然关注解决$Ax&#x3D;b$这样的问题, 假设$A$中有大量元素为0</p>
+<p>此时我们考虑iterative techniques</p>
+<p>每次iteration 我们得到一个值 $x^{(0)}, x^{(1)}\cdots$ 随着迭代次数的增加, 这个值越来越接近真实的结果.</p>
+<blockquote>
+<p>感觉和深度学习, 机器学习比较像</p>
+</blockquote>
+<p>而每次iteration的耗时都比较短</p>
+<p>我们想知道 how we are converging. 这就引导我们走向一个新的idea: matrix 的 norm</p>
+<blockquote>
+<p>定义:</p>
+<p>vector norm on $\R^n$ is a function $||\cdot ||$ with the following properties:</p>
+<ol>
+<li>$||x|| \ge 0$ for all $x\in \R^n$</li>
+<li>$||x||&#x3D;0$ iff $x&#x3D;\vec 0$</li>
+<li>$||\alpha x|| &#x3D; |\alpha| \cdot ||x||$</li>
+<li>$||x+y||\le ||x||+||y||$ for all $x, y \in \R^n$</li>
+</ol>
+<p>$l_2$ norm (L2 范数) or Euclidean norm of a vector x is given by :</p>
+<p><img src="/Blog/Blog/intro/macm316/f1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>定义: The infinity or max norm of a vector x is given by</p>
+<p><img src="/Blog/Blog/intro/macm316/f2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>L2 distance :</p>
+<p><img src="/Blog/Blog/intro/macm316/f3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>l infinity distance:</p>
+<p><img src="/Blog/Blog/intro/macm316/f4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h2><p>Scaler 的converge 是这样的:<br>$$<br>\lim_{k\to \inf} x^{(k)} &#x3D; x_0<br>$$<br>vector 的 converge也是一样的</p>
+<p>The sequence of vectors ${x^{(k)}}$ converges to x in $\R^n$ with $| \cdot |_\inf$ if and only if</p>
+<p>$$<br>\lim_{k\to \inf} x_i^{(k)} &#x3D; x_i<br>$$</p>
+<p>for each $x_i$</p>
+<br>
+
+<br>
+
+<p>例题:</p>
+<p>$x^{(k)}&#x3D;(1&#x2F;k, 1+e^{1-k}, -2&#x2F;k^2)$ is convergent  with $|\cdot|_\inf$ and find the limit of the sequence</p>
+<p>$$<br>\lim_{k\to \inf} 1&#x2F;k &#x3D; 0<br>$$</p>
+<p>$$<br>\lim_{k\to \inf} 1+e^{1-k} &#x3D; 1<br>$$</p>
+<p>$$<br>\lim_{k\to \inf} -2&#x2F;k^2 &#x3D; 0<br>$$</p>
+<p>所以sequence convegers to $(0, 1, 0)$ with respect to the infinity norm</p>
+<br>
+
+<p>那么在 L2 范数的convergence呢?<br>$$<br>||x||_\inf \le ||x||_2\le \sqrt{n} ||x||_\inf<br>$$<br>证明:<br>$$<br>||x||_\inf &#x3D; \max|x_i| &#x3D; |x_j|<br>$$</p>
+<p><img src="/Blog/Blog/intro/macm316/f5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>两边在开根就完成证明</p>
+<br>
+
+<p>例子:</p>
+<p>prove that $x^{(k)}&#x3D;(1&#x2F;k, 1+e^{1-k}, -2&#x2F;k^2)$ is convergent wrt $||\cdot||_2$<br>$$<br>0\le ||x^{(k)}-x||_2 \le \sqrt 3||x^{(k)}-x||_\inf<br>$$</p>
+<p>$$<br>\lim_{k\to \inf}||x^{(k)}-x||_\inf &#x3D; 0<br>$$</p>
+<p>通过夹逼定理, 得到:<br>$$<br>\lim_{k\to \inf}||x^{(k)}-x||_2 &#x3D; 0<br>$$<br><br></p>
+<br>
+
+<p>假设有两个norm, $||\cdot ||_a$ $||\cdot||_b$ , 如果 ${x^{(k)}}$ has the limit x wrt $||\cdot ||_a$, then it also has limit x wrt $||\cdot ||_b$</p>
+<p>他们可能有different convergent rate 但是他们要么一起converge, 要么一起不converge</p>
+<br>
+
+<br>
+
+<h2 id="Norm-of-Matrix"><a href="#Norm-of-Matrix" class="headerlink" title="Norm of Matrix"></a>Norm of Matrix</h2><ol>
+<li>$||A|| \ge 0$</li>
+<li>$||A||&#x3D;0$ iff $A&#x3D; 0$</li>
+<li>$||\alpha A|| &#x3D; |\alpha| \cdot ||A||$</li>
+<li>$||A+B||\le ||A||+||B||$</li>
+<li>$||A\cdot B||\le ||A||\cdot ||B||$</li>
+</ol>
+<p>定义: the distance between nxn matrices A and B wrt a matrix norm $||\cdot||$ is </p>
+<p>$$<br>||A-B||<br>$$<br><br></p>
+<p>定理:</p>
+<p>如果 $||\cdot||$ is a vector norm on $\R^n$ then $||A||&#x3D;\max_{||x||&#x3D;1} ||Ax||$ is a matrix norm</p>
+<p>This is called the natrual or induced matrix norm associated with the vector norm</p>
+<p><img src="/Blog/Blog/intro/macm316/norm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于Ax这个椭圆, 我们找距离原点最大的点, 这个向量的norm就是A的norm</p>
+<br>
+
+<p>其他的norm也一样:</p>
+<p><img src="/Blog/Blog/intro/macm316/norm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>定理:<br>$$<br>||Ax|| \le ||A||\cdot ||x||<br>$$<br><br></p>
+<p>定理:</p>
+<p>if $A(a_{ij})$ is an nxn matrix then </p>
+<p><img src="/Blog/Blog/intro/macm316/f6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/norm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果求 L1 norm 就是找每一列的norm的最大值, </p>
+<br>
+
+<br>
+
+<p>定义: The spectrol radius $p(A)$ of a matrix $A$ is defined by<br>$$<br>p(A) &#x3D; \max|\lambda|<br>$$<br>就是最大的特征值</p>
+<p>如果$A$ 是 nxn matrix</p>
+<ol>
+<li>$||A||_2 &#x3D; [p(A^TA)]^{1&#x2F;2}$</li>
+<li>$p(A)\le ||A||$ for any natural norm $||\cdot||$</li>
+</ol>
+<p><img src="/Blog/Blog/intro/macm316/norm_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/norm_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="Converge-of-matrix"><a href="#Converge-of-matrix" class="headerlink" title="Converge of matrix"></a>Converge of matrix</h2><p>我们说 一个nxn matrix convergent if<br>$$<br>\lim_{k\to \inf} (A^k)_{ij} &#x3D; 0<br>$$<br><img src="/Blog/Blog/intro/macm316/matrix_con.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p> $\lim_{k\to \inf} p_k&#x3D;0$ 证明方法就是 $A\cdot A^{k-1}$ 看 $p_k$ 位置的值, 我们会得到$p_k &#x3D; \frac {16}{2^{k-1}}+1&#x2F;2\cdot p_{k-1}$</p>
+<br>
+
+<p>下面的式子等价:</p>
+<ol>
+<li>$A$ is a convergent matrix</li>
+<li>$p(A) &lt; 1$ 最大的绝对值 特征值</li>
+<li>$\lim_{n\to \inf} A^nx&#x3D;0$ for every x</li>
+<li>$\lim_{n\to \inf} |A^n|&#x3D;0$</li>
+</ol>
+<br>
+
+<p>我们想求解的问题是 $Ax&#x3D;b$,  $A$中 的大部分元素都是0.</p>
+<p>Terative techniques convert the system $Ax&#x3D;b$ into an equivalent system<br>$$<br>x&#x3D;Tx+c<br>$$<br>$T$ 是一个 fixed matrix</p>
+<p>c 是一个vector<br>$$<br>x^{(k)}&#x3D;Tx^{(k-1)}+c<br>$$<br>$x^{(k)}$ 是 approximations to the solution</p>
+<p>当k逐渐变大, 就会趋近于真值</p>
+<p>同时我们希望converge reate够快</p>
+<p>我们要选择一个T, 一个c, 以及初始的x</p>
+<br>
+
+<p>首先我们尝试找$T$</p>
+<p>我们把矩阵A进行分解来得到$T$<br>$$<br>(M+(A-M))x&#x3D;b<br>$$</p>
+<p>$$<br>Mx&#x3D;b+(M-A)x<br>$$</p>
+<p>$$<br>x&#x3D;(I-M^{-1}A)x+M^{-1}b<br>$$</p>
+<p>$$<br>x&#x3D;Tx+c<br>$$</p>
+<p>$$<br>T&#x3D;(I-M^{-1}A)x, c&#x3D;M^{-1}b<br>$$</p>
+<p>因为需要M的逆, 所以我们希望M是容易求逆的</p>
+<p>我们不能让$M&#x3D;A$ 因为这样依然要求A的逆, 并没有简化问题. 所以我们让$M$ “close” to $A$,  用数学表示: 我们希望 $p(T)$ small</p>
+<h3 id="Jacobi-iterative-method"><a href="#Jacobi-iterative-method" class="headerlink" title="Jacobi iterative method"></a>Jacobi iterative method</h3><p>如果让$M$等于 一个对角矩阵, 对角线上的元素等于$A$对角线上的元素. </p>
+<p>对角矩阵的逆是很好求的, 而且如果$A$ 是strongly diagonally dominate, $T$ 会很接近 $A$</p>
+<p>$$<br>A &#x3D; D-L-U<br>$$<br><img src="/Blog/Blog/intro/macm316/matrix_con_1.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>Ax&#x3D;b<br>$$</p>
+<p>$$<br>(D-L-U)x&#x3D;b<br>$$</p>
+<p>$$<br>Dx&#x3D;(L+U)x+b<br>$$</p>
+<p>$$<br>x&#x3D;D^{-1}(L+U)x+D^{-1}b<br>$$</p>
+<p>$$<br>T&#x3D;D^{-1}(L+U), c&#x3D;D^{-1}b<br>$$</p>
+<p><img src="/Blog/Blog/intro/macm316/matrix_con_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/matrix_con_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/matrix_con_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/matrix_con_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而这个方法需要D的逆, 因此我们希望$A$对角线上的元素不为0</p>
+<p>因此我们要reording equation 使得对角线上元素不为0</p>
+<br>
+
+<p>Jacobi’s method 也可以这样写:<br>$$<br>x^{(k+1)}&#x3D;D^{-1}(L+U)x^{(k)}+D^{-1}b<br>$$<br>we find that:<br>$$<br>x_i^{(k+1)} &#x3D; \sum_{j&#x3D;1, j\ne i}^n \frac {(-a_{ij}x_j^{(k)})+b_i}{a_{ii}}<br>$$<br>when you have improved approximations of x as soon as they’re avilable</p>
+<h3 id="高斯-赛德尔迭代"><a href="#高斯-赛德尔迭代" class="headerlink" title="高斯-赛德尔迭代"></a>高斯-赛德尔迭代</h3><p>Gauss-Seidel<br>$$<br>x_i^{(k+1)} &#x3D;\frac{ - \sum_{j&#x3D;1}^{i-1} (a_{ij}x_j^{(k+1)})-\sum_{j&#x3D;i+1}^n(a_{ij}x_j^{(k)})+b_i}{a_{ii}}<br>$$<br>Matrix form<br>$$<br>M &#x3D; (D-L)<br>$$</p>
+<p>$$<br>(D-L-U)x&#x3D;b<br>$$</p>
+<p>$$<br>(D-L)x&#x3D;Ux+b<br>$$</p>
+<p>$$<br>x&#x3D;(D-L)^{-1}Ux+(D-L)^{-1}b<br>$$</p>
+<p>iteration becomes</p>
+<p>此时:<br>$$<br>x^{(k+1)}&#x3D;(D-L)^{-1}Ux^{(k)}+(D-L)^{-1}b<br>$$</p>
+<br>
+
+<br>
+$$
+x^{(k)}=Tx^{(k-1)}+c
+$$
+Lemma: If the spectral radius $p(T)$ satisfies $p(T)<1$ then $(I-T)^{-1}$ exists
+
+
+<p>$$<br>(I-T)^{-1}&#x3D;I+T+T^2+\cdots<br>$$<br><br></p>
+<h3 id="强力的定理"><a href="#强力的定理" class="headerlink" title="强力的定理"></a>强力的定理</h3><p>Therom:</p>
+<p>对于任意$x^{(0)}\in R^n$ , sequence ${ x^{(k)} }_{k&#x3D;0}$ defined by<br>$$<br>x^{(k)}&#x3D;Tx^{(k-1)}+c<br>$$<br>converges to the unique solution of<br>$$<br>x&#x3D;Tx+c<br>$$<br>if and only if<br>$$<br>p(T) &lt; 1<br>$$<br><br></p>
+<p>证明: &lt;&#x3D;</p>
+<p>假设 $p(T)&lt;1$<br>$$<br>x^{(k)} &#x3D; Tx^{(k-1)}+c<br>$$</p>
+<p>$$<br>&#x3D; T(Tx^{(k-2)}+c)+c &#x3D; T^2x^{(k-2)}+(T+I)c<br>$$</p>
+<p>$$<br>&#x3D;\cdots \cdots<br>$$</p>
+<p>$$<br>&#x3D;T^kx^{(0)}+(T^{k-1}+\cdots +T+I)c<br>$$</p>
+<p>由于$p(T)&lt;1$, matrix $T$ is convergent 所以 $\lim_{k\to \inf} T^kx^{(0)}&#x3D;0$</p>
+<p>因此<br>$$<br>\lim_{k\to \inf}x^{(k)} &#x3D; \lim_{k\to \inf} T^kx^{(0)}+\lim_{k\to \inf}(\sum_{j&#x3D;0}^{k-1}T^j)c<br>$$</p>
+<p>$$<br> &#x3D;O+(I-T)^{-1}c<br>$$</p>
+<br>
+
+<p>证明: &#x3D;&gt;</p>
+<p>${ x^{(k)}}$ converges to the unique solution of $x&#x3D;Tx+c$</p>
+<p>假设$x^{(0)} \in R^n$ be arbitrary, 我们知道 ${ x^{(k)}}_0^\inf$ converges to  solution of $x&#x3D;Tx+c$<br>$$<br>x-x^{(k)} &#x3D; (Tx+c)-(Tx^{(k-1)}+c) &#x3D; T(x-x^{(k-1)})<br>$$<br>因此<br>$$<br>x-x^{(k)}&#x3D;T(x-x^{(k-1)})&#x3D;T^2(x-x^{(k-2)})<br>$$</p>
+<p>$$<br>&#x3D;\cdots<br>$$</p>
+<p>$$<br>&#x3D;T^k(x-x^{(0)})<br>$$</p>
+<p>而当k趋近于无穷时 $x-x^{(k)}\to 0$</p>
+<p>由于 $x^{(0)}$ 是arbitrary, $x-x^{(0)}$ 是arbitrary</p>
+<p>因此 唯一能让$T^k(x-x^{(0)})$ 为0的方法就是 T is convergent, 也就是说 $p(T)&lt;1$</p>
+<br>
+
+<br>
+
+<p>any natural norm of matrix $T$,  $||T||&lt;1$ , 那么$x^{(k)}&#x3D;Tx^{(k-1)}+c$ converges, 并且following error bounds hold:</p>
+<ol>
+<li>$||x-x^{(k)}||\le ||T||^k||x^{(0)}-x||$</li>
+<li>$||x-x^{(k)}||\le \frac {||T||^k}{1-||T||}||x^{(1)}-x^{(0)}||$</li>
+</ol>
+<p>然而我们其实不知道x, 所以1其实我们用不了, 它只能告诉我们error是怎么decreasing的</p>
+<p>第二个明确给出了error的bound</p>
+<br>
+
+<p>$p(A)\le ||A||$ in practice:<br>$$<br>||x-x^{(k)}||\approx p(T)^k||x^{(0)}-x||<br>$$<br>so it is desirable to have $p(T)$ to be as small as possible</p>
+<p>然而这个没有严格的数学证明</p>
+<br>
+
+<br>
+
+<p>Theorem: 如果A是strictly diagonally dominant then for any choice of $x^{(0)}$ both Jacobi and gauss-seidel method gives sequences ${x^{(0)}}_{k&#x3D;0}^\inf$ that converge to the unique solution $Ax&#x3D;b$</p>
+<p>然而没有general result 说哪种方法converge 更快</p>
+<br>
+
+<p>有一些speciallize situation可以知道哪种方法converge更快</p>
+<h3 id="Stein-Sosenberg"><a href="#Stein-Sosenberg" class="headerlink" title="Stein Sosenberg"></a>Stein Sosenberg</h3><p>如果$a_{ij}\le 0$ for each $i\ne j$ and $a_{ii}&gt;0$ for each $i&#x3D;1,2,…n$ then exactly one of the following holds:</p>
+<ol>
+<li>$0\le p(T_g)\le p(T_j) &lt; 1$</li>
+<li>$1&lt;p(T_j)&lt;p(T_g)$</li>
+<li>$p(T_j)&#x3D;p(T_g)&#x3D;0$ or $p(T_j)&#x3D;p(T_g)&#x3D;1$</li>
+</ol>
+<p>(1) 说两种方法都converge, Gauss-Seidel method converge quickly</p>
+<p>(2) 说两种方法都diverge, Gauss-Seidel method diverge quickly</p>
+<br>
+
+<h3 id="Successive-Over-Relaxation-SOR"><a href="#Successive-Over-Relaxation-SOR" class="headerlink" title="Successive Over Relaxation (SOR)"></a>Successive Over Relaxation (SOR)</h3><p>Given $x^{(k)}$ , 对它使用一次Gauss-Seidel 得到$\tilde x^{(k+1)}$<br>$$<br>x^{(k+1)} &#x3D; w\tilde x^{(k+1)}+(1-w)x^{(k)}<br>$$<br>$1&lt;w&lt;2$当w&#x3D;1时就是取gauss-seidel的结果<br>$$<br>x^{(k+1)}&#x3D;T_{sor}x^{(k)}+c<br>$$<br>Theorm:</p>
+<p>如果所有 $a_{ii}\ne 0$ 那么: $p(T_{sor})\ge |w-1|$</p>
+<p>sor can converge only if $0&lt;w&lt;2$</p>
+<br>
+
+<p>Theorm:</p>
+<p>If A is a sysmetric positive definite matrix and $0&lt;w&lt;2$ then the SOR method converges for any choice of initial approximation vector $x^{(0)}$</p>
+<br>
+
+<p>Theorm:</p>
+<p>If A is a sysmetric positive definite matrix and tridiagonal, then<br>$$<br>p(T_g)&#x3D;[p(T_j)]^2&lt;1<br>$$<br>and the optional choice of $w$ for the SOR method is<br>$$<br>w&#x3D;\frac {2}{1+\sqrt{1-p(T_j)^2}}<br>$$<br>with this $w$, $p(T_{sor}) &#x3D; w-1$</p>
+<p>然而如果是三角矩阵我们就可以直接用其他方法求出来了</p>
+<br>
+
+<br>
+
+<h1 id="Solution-of-Nonlinear-Equations"><a href="#Solution-of-Nonlinear-Equations" class="headerlink" title="Solution of Nonlinear Equations"></a>Solution of Nonlinear Equations</h1><p>Find a root $x\in R$ of an equation of the form $f(x)&#x3D;0$ for a given continuous function $f$</p>
+<p>这个问题通常没有解析解( can’t solve analytically )</p>
+<p>但是可以考虑使用iterative methods 来逼近 true solution</p>
+<br>
+
+<h3 id="Bisection-method"><a href="#Bisection-method" class="headerlink" title="Bisection method"></a>Bisection method</h3><p>这个方法是先找到一个区间$[a,b]$, 使得 $f(a), f(b)$ 的sign不同: 一个为正数一个为负数</p>
+<p> 而由于$f$是连续的, 所以a,b之间一定有一个root</p>
+<p>之后就是不断用二分法, 来缩小$[a, b]$ 之间的距离</p>
+<br>
+
+<p>我们需要对比$f(a)$ 和$f(b)$ 的符号, 一种方法是看$f(a)\cdot f(b)&lt;0$</p>
+<p>然而当$f(a),f(b)$都很小时, $f(a)\cdot f(b)$ 有underflow的风险</p>
+<p>所以一种更好的方法是:<br>$$<br>sign(f(a))\cdot sign(f(b))&lt;0<br>$$<br>我们只关心他们的sign</p>
+<br>
+
+<p>我们需要在某些时刻停止iteration</p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><p>一种方法是:</p>
+<p>当区间的值小于某些 tolerance<br>$$<br>\frac {|b_n-a_n|}{2} &lt; TOL<br>$$<br>这么做的好处:</p>
+<ol>
+<li>确保root的值是在tolerance中的</li>
+<li>easy error analysis</li>
+</ol>
+<p>坏处:</p>
+<ol>
+<li>无法确保$f(p_n)$ small</li>
+<li>基于absolute error而不是relative error</li>
+</ol>
+<br>
+
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>另一种方法是<br>$$<br>\frac {|p_n-p_{n-1}|}{|p_n|} &lt; TOL<br>$$<br>$p_n \ne 0$, $p_n$ 是第n次迭代的root</p>
+<br>
+
+<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h4><p>第三种方法<br>$$<br>|f(p_n)| &lt;TOL<br>$$<br>有时候我们只关心$f(p_n)$ 是否够小</p>
+<br>
+
+<h4 id="方法4"><a href="#方法4" class="headerlink" title="方法4"></a>方法4</h4><p>我们可以固定迭代次数, 这个和方法1密切相关</p>
+<br>
+
+<p>bisection的精确度:</p>
+<p>通过 bisection 我们得到一组$p_i$ $p_n$ 是最后一次迭代的值, $p$ 是真正的root<br>$$<br>|p_n-p| \le \frac {b-a} {2^n}<br>$$<br>每次我们都把interval对半分</p>
+<br>
+
+<br>
+
+<p>例子$x^3+x-4&#x3D;0$ on the interval $[1,4]$ to an accuracy of $10^{-3}$</p>
+<p>也就就是说$\frac {b-a} {2^n} \le 10^{-3}$<br>$$<br>\frac {4-1}{2^n} \le 10^{-3}<br>$$<br>解得 $n\approx 11.5$</p>
+<p>所以 让 $n&#x3D;12$</p>
+<br>
+
+<br>
+
+<h3 id="Fixed-Point-Iteration"><a href="#Fixed-Point-Iteration" class="headerlink" title="Fixed Point Iteration"></a>Fixed Point Iteration</h3><p>我们希望找到$f(p)&#x3D;0$ 的root. 而这里我们将关注使用 iterate method 解决这个问题<br>$$<br>p^{n+1}&#x3D;g(p^n)<br>$$<br>fix point 定义:</p>
+<blockquote>
+<p>A fix point $p$ is the value $p$ s.t. $g(p)&#x3D;p$</p>
+</blockquote>
+<br>
+
+<p>我们可以把 root finding problem 转换为 fix point problem</p>
+<p>假设 $p$ 是$f(x)$ 的根. 我们可以让$g(x)&#x3D;f(x)+x$ </p>
+<p>$g(p)&#x3D;f(p)+p$, $f(p)&#x3D;0$ 所以 $p&#x3D;g(p)$</p>
+<p>当然 $g(x)$ 还有其他选择, 例如:$g(x)&#x3D;f^3(x)+x$</p>
+<br>
+
+<p>也可以反过来:</p>
+<p>把 fix point problem 转换为 root finding problem</p>
+<p>已知$g(p)&#x3D;p$ 可以让$f(x)&#x3D;g(x)-x$</p>
+<p>那么$f(p)&#x3D;g(p)-p&#x3D;0$</p>
+<br>
+
+<p>例题:</p>
+<p>$g(x)&#x3D;\sin\pi x$ 在 $[0,1]$之间的fix point</p>
+<p><img src="/Blog/Blog/intro/macm316/fix_point.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>有两个fix point</p>
+<br>
+
+<br>
+
+<h4 id="Mean-value-Theorem"><a href="#Mean-value-Theorem" class="headerlink" title="Mean value Theorem"></a>Mean value Theorem</h4><p>如果$f$ 在$(a,b)$连续可导, 那么有$c\in(a,b)$<br>$$<br>f’(c)&#x3D;\frac {f(b)-f(a)}{b-a}<br>$$<br>theorem:</p>
+<ol>
+<li><p>If $g\in C[a,b]$ and $g(x)\in [a, b]$ for all $x\in[a,b]$ then $g(x)$ has a fixed point in $[a,b]$</p>
+<ul>
+<li>就是说如果$g$在$(a,b)$ 处连续, 同时$g(x)$在$(a,b)$之间, 那么$g$ 在$(a,b)$中有fix point</li>
+</ul>
+</li>
+<li><p>suppose, in addition that $g’(x)$ exists on $(a,b)$ and that a positive constant $k\le 1$ exists with<br>$$<br>|g’(x)|\le k&lt;1<br>$$<br>for all $x\in (a,b)$. then the fixed point in $[a,b]$ is unique</p>
+</li>
+</ol>
+<p>2可以用反证法, 假设有两个fix point 根据 Mean value Theorem, 两点之间必然有一点的导等于1. 和假设不符. </p>
+<br>
+
+<p>例题:<br>$$<br>p^3+4p^2-10&#x3D;0<br>$$<br>首先尝试 $x&#x3D;g_1(x)&#x3D;x-x^3-4x+10$</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>$x_n$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-0.875</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6.732</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-469.7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$1.03\times 10^8$</td>
+</tr>
+</tbody></table>
+<p>明显diverge.</p>
+<br>
+
+<p>再尝试$x&#x3D;g_2(x)&#x3D;\sqrt {\frac {10}{x}-4x}$</p>
+<p>式子是哪来的?<br>$$<br>x^3+4x^2-10&#x3D;0<br>$$</p>
+<p>$$<br>x^3&#x3D;10-4^2<br>$$</p>
+<p>$$<br>x^2&#x3D;\frac {10}{x}-4x<br>$$</p>
+<p>$$<br>x&#x3D;\sqrt {\frac {10}{x}-4x}<br>$$</p>
+<br>
+
+<p>我们不仅希望converge, 还希望converge足够快</p>
+<p>然而有的iteration converge 有的 diverge, 并且速度不一样</p>
+<p>前面我们知道</p>
+<p>suppose, in addition that $g’(x)$ exists on $(a,b)$ and that a positive constant $k\le 1$ exists with<br>$$<br>|g’(x)|\le k&lt;1<br>$$<br>for all $x\in (a,b)$. then the fixed point in $[a,b]$ is unique</p>
+<p>还有一点就是convege</p>
+<p>证明:<br>$$<br>|p_n-p|&#x3D;|g(p_{n-1})-g(p)|<br>$$<br>根据Mean value theorem<br>$$<br>&#x3D;|g’(\delta)||p_{n-1}-p|<br>$$</p>
+<p>$$<br>\le k|p_{n-1}-p|<br>$$</p>
+<p>同理可以替换为<br>$$<br>\le k^2|p_{n-2}-p|<br>$$</p>
+<p>$$<br>\le k^n|p_{0}-p|<br>$$</p>
+<p>$k&lt;1$ 所以取limit 就是 0, 因此converge</p>
+<blockquote>
+<p>$$<br>|p_n-p|\le k^n|p_0-p|<br>$$</p>
+<p>$$<br>|p_n-p|\le \frac {k^n}{1-k} |p_0-p|<br>$$</p>
+</blockquote>
+<br>
+
+<br>
+
+<h3 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h3><p>这个方法比Bisection更快</p>
+<p>然而它的缺点是:</p>
+<ul>
+<li>需要我们知道$f’(x)$</li>
+<li>无法保证converge</li>
+<li>需要一个好的 initial guess</li>
+</ul>
+<p><img src="/Blog/Blog/intro/macm316/newton.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>$p_0$ 是 initial guess, 我们找到$f’(p)$ 它与x轴的交点就是$p_1$ 之后持续这么做</p>
+<h4 id="Taylor’s-Theorm-derivation"><a href="#Taylor’s-Theorm-derivation" class="headerlink" title="Taylor’s Theorm derivation"></a>Taylor’s Theorm derivation</h4><p>我们希望找到$x&#x3D;p$使得$f(x)&#x3D;0$</p>
+<p>假设$f\in C^2[a,b]$ (continuous second derivative), 让$\bar x \in [a,b]$ 作为一个approximation to $p$, 使得 $f’(\bar x)\ne 0$ 并且 $|\bar x - p|$ 足够小, 那么<br>$$<br>f(x)&#x3D;f(\bar x)+f’(\bar x)(x-\bar x)+\frac 12 f’’(c(x))(x-\bar x)^2<br>$$<br>$c(x)$ 是error, $c(x) \in [x, \bar x]$</p>
+<p>让$x&#x3D;p$<br>$$<br>0&#x3D;f(\bar x)+f’(\bar x)(p-\bar x)+\frac 12 f’’(c(p))(p-\bar x)^2<br>$$<br>由于$|p-\bar x|$ 足够小, $|p-\bar x|^2$ 也足够小, 因此<br>$$<br>0\approx f(\bar x)+f’(\bar x)(p-\bar x)<br>$$</p>
+<p>$$<br>(p-\bar x)\approx - \frac {f(\bar x)}{f’(\bar x)}<br>$$</p>
+<p>$$<br>p\approx \bar x - \frac {f(\bar x)}{f’(\bar x)}<br>$$</p>
+<p>所以newton’s method 说用这个approximate作为下一个solution</p>
+<p>newton’s mthod<br>$$<br>p_n \approx p_{n-1} - \frac {f(p_{n-1})}{f’(p_{n-1})}<br>$$<br>iterate until</p>
+<ol>
+<li>$|p_n-p_{n-1}| &lt; \epsilon$</li>
+<li>$\frac {|p_n-p_{n-1}|}{|p_n|} &lt; \epsilon, p_n\ne 0$</li>
+<li>$|f(p_n)|\le \epsilon$</li>
+</ol>
+<p>如果任何$f’(p_{n-1})&#x3D;0$, Newton’s method 会失败</p>
+<p>同时$|p-\bar x|$ 要小, 因此我们需要一个好从初始猜测</p>
+<br>
+
+<br>
+
+<p>然而在一些条件下, newton’s method 也会 converge</p>
+<ol>
+<li>f(x) 是 smoothness</li>
+<li>good initial guess</li>
+<li>$f’(p)\ne 0$</li>
+</ol>
+<p><strong>Theorem(converges)</strong></p>
+<p>让 $f\in C^2[a,b]$ 如果 $p\in[a,b], f(p)&#x3D;0, f’(p)\ne0$ 那么就存在$c&gt;0$ 使得通过newton’s method 得到的sequence${p_n}_{n&#x3D;1}^\inf$ converging to $p$ for any initial approximation $p_0\in[p-c,p+c]$</p>
+<br>
+
+<p>这背后的证明思路就是fix point theorem</p>
+<br>
+
+<h3 id="Secant-method"><a href="#Secant-method" class="headerlink" title="Secant method"></a>Secant method</h3><p>newton’s mehtod 需要$f’(x)$, 然而这个难以计算, 因此我们可以用另一种方法来逼近<br>$$<br>f’(p_{n-1}) \approx \frac {f(p_{n-2})-f(p_{n-1})}{p_{n-2}-p_{n-1}}<br>$$<br><img src="/Blog/Blog/intro/macm316/newton_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>Secant method 有着媲美 nweton’s method 的速度. (稍微比newton 慢点)</p>
+<br>
+
+<p>通常我们可以先用Bisection来逼近root, 只用转用newton’s method 或secant method来加快速度</p>
+<br>
+
+<br>
+
+<h3 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h3><p>example:</p>
+<p>假设我们用两种方法寻找 $x^3+4x^2-10&#x3D;0$ 的根, </p>
+<p><img src="/Blog/Blog/intro/macm316/errors_root.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>可以看到方法A每次error基本都是上一次的一半</p>
+<p>而方法B的errorerror基本是上一次error的平方</p>
+<p>明显方法B比方法A更快</p>
+<br>
+
+<p>定义:</p>
+<p>假设 ${p_n}_{n&#x3D;0}^{\inf}$ converge to $p$ 并且所有的 $p_n \ne 0$, 如果有positive constants $\lambda, \alpha$ 存在使得</p>
+<p>$\lim_{n\to \inf} \frac {|p_{n+1}-p|}{|p_n-p|^\alpha}&#x3D;\lambda$</p>
+<p>那么 ${p_n}_{n&#x3D;0}^\inf$ converges to $p$ of order $\alpha$</p>
+<p>就是说 absolute error at step $n+1 \approx \lambda \cdot$ absolute error at step $n$   的alpha 次方</p>
+<p>$\lambda \ne 0, \lambda \ne \inf$</p>
+<p>$\lambda$ 越小, $\alpha$ 越大, converge 越快, $\lambda$ 对converge速度的effect小于$\alpha$ 的effect</p>
+<p>$\alpha&#x3D;1$: linearly convergent, 这就是method A所表现出来的</p>
+<br>
+
+<blockquote>
+<p><strong>我们考虑 fix point iterations</strong> </p>
+<p>$p_{n+1} &#x3D; g(p_n)$</p>
+<p>Theorem: let $g \in C[a,b]$ be such that $g(x)\in [a,b]$ for all $x\in[a,b]$</p>
+<p>假设 $g’$ 在 (a,b) 连续, positive constant $k&lt;1$ 存在使得 $|g’(x)| \le k$ for all $x\in (a,b)$</p>
+<p>如果 $g’(p)\ne 0$, 那么对于任意$p_0\in [a,b]$ then the sequence<br>$$<br>p_n&#x3D;g(p_{n-1}), \ \forall n \ge 1<br>$$<br>converges only linearly to the unique fixed point $p$ in $[a,b]$</p>
+<br>
+
+<p>证明:</p>
+<p>我们直到 fixed point theroem that the sequence converge to $p$</p>
+<p>由于 $g’$ exists on $[a,b]$ 我们可以使用 mean value theorem to g<br>$$<br>g(p_n) - g(p) &#x3D; g’(c_n)(p_n-p)<br>$$<br>$c_n$ 在$p_n, p$ 之间<br>$$<br>\frac {p_{n+1}-p}{(p_n-p)} &#x3D; g’(c_n)<br>$$</p>
+<p>$$<br>\lim_{n \to \inf}\frac {p_{n+1}-p}{(p_n-p)} &#x3D; \lim_{n \to \inf}g’(c_n)<br>$$</p>
+<p>$$<br>&#x3D; g’(\lim_{n \to \inf} c_n)<br>$$</p>
+<p>$$<br>&#x3D;g’(p)<br>$$</p>
+<p>我们假设$g’$非零</p>
+<p>而这个式子中$\alpha &#x3D; 1$<br>$$<br>\lim_{n \to \inf}\frac {|p_{n+1}-p|}{|p_n-p|}<br>$$<br>也就是说 如果$g’(p) \ne 0$ p是root, 那么只会linear converge</p>
+</blockquote>
+<p>而方法A用的函数是 $g(x) &#x3D; \frac 12 (10-x^3)^{1&#x2F;2}$ </p>
+<p>$g’(p)\approx -0.51 \ne 0$ 也就是$lambda \approx -0.51$</p>
+<p>因此是linear converge</p>
+<br>
+
+<p>方法B使用 $g(x) &#x3D; x-\frac {x^3+4x^2-10}{3x^2+8x}$, $g’(p)&#x3D;0$ 无法使用上述定理</p>
+<br>
+
+<br>
+
+<h3 id="Error-Analysis-and-Accelerating-Convergence"><a href="#Error-Analysis-and-Accelerating-Convergence" class="headerlink" title="Error Analysis and Accelerating Convergence"></a>Error Analysis and Accelerating Convergence</h3><p>如果$g’(p) \ne 0$ p是root, 那么只会linear converge</p>
+<p>因此如果想要得到 quadratic converge 只能寻找 $g’(p)&#x3D;0$ 的方法</p>
+<blockquote>
+<p> Theorem:</p>
+<p>Let $p$ be a solution of the equation $x&#x3D;g(x)$</p>
+<p>假设 $g’(p)&#x3D;0$ 并且 $g’’$ continuous and strictly bounded by $M$ on an open interval, interval containing $p$</p>
+<p>then there exists a $\delta &gt; 0$ s.t. for $p_0\in [p-\delta, p+\delta]$ the sequence, defined by $p_n &#x3D; g(p_{n-1})$ when $n\ge 1$, <strong>sequence will converges at least quadratically</strong> to $p$</p>
+<p>Moreover for sufficiently large value of $n$<br>$$<br>|p_{n+1}-p| &lt; \frac M 2 |p_n-p|^2<br>$$</p>
+</blockquote>
+<p>Idea of proof(Main steps)</p>
+<ol>
+<li><p>we choose $k$ in (0, 1) $\delta &gt;0$ s.t. on inteval $[p-\delta, p+\delta]$, we have $|g’(x)| &lt; k &lt; 1$, 并且$g’’$ 是continuous的</p>
+</li>
+<li><p>we then show that $g$ maps $[p-\delta, p+\delta]$ into itself</p>
+</li>
+<li><p>The fanctior $g$ is expaned in a Taylor series for $x \in [p-\delta, p+\delta]$<br>$$<br>g(x)&#x3D;g(p)+g’(p)(x-p)+\frac {g’’ (\delta)} 2 (x-p)^2<br>$$<br>$\delta \in [x, p]$, 让$x&#x3D;p_n$<br>$$<br>g(p_n) &#x3D; g(p) +\frac {g’’ (\delta_n)} 2 (p_n-p)^2<br>$$</p>
+<p>$$<br>p_{n+1}-p &#x3D; \frac {g’’ (\delta_n)} 2(p_n-p)^2<br>$$</p>
+<p>$$<br>\lim_{n\to \inf} \frac {|p_{n+1}-p|}{|p_n-p|^2}&#x3D;\lim_{n\to \inf}\frac 12 |g’’ (\delta_n)|<br>$$</p>
+<p>$$<br>&#x3D;\frac 12 |g’’(\lim_{n\to \inf} \delta_n)|<br>$$</p>
+<p>$$<br>&#x3D;\frac 12 |g’’(p)|<br>$$</p>
+<p>因此sequence ${p_n}_{n&#x3D;0}^\inf$ is quadratically convergent if $g’’(p)\ne 0$ and higher order convergent if $g’’(p)&#x3D;0$</p>
+</li>
+</ol>
+<blockquote>
+<p>这个过程是可以重复的, $g’(p)&#x3D;0$ 就说明至少是2次方的收敛速度, $g’’(p)&#x3D;0$ 就说明至少是三次方的收敛速度.. 以此类推</p>
+</blockquote>
+<p>同时我们知道$|g’’|&lt;M$ 所以<br>$$<br>|p_{n+1}-p|&lt;\frac M2 |p_n-p|^2<br>$$<br><br></p>
+<br>
+
+<p>那么对于Newton’s method 这个定理怎么说<br>$$<br>g(x)&#x3D;x-\frac {f(x)}{f’(x)}<br>$$</p>
+<p>$$<br>g’(x) &#x3D; 1-\frac {[f’(x)]^2-f(x)f’’(x)}{(f’(x))^2}<br>$$</p>
+<p>让$x&#x3D;p,f(p)&#x3D;0$<br>$$<br>g’(p) &#x3D; 1- \frac{(f’(x))^2}{(f’(x))^2} &#x3D; 0<br>$$<br>也就是说 newton’s method 至少quadratically converging</p>
+<br>
+
+<p>有时候 newton’s method 也会 linearly converge, 当$f’(p) &#x3D; 0$的时候</p>
+<p>例如 $p^3-p^2-p+1&#x3D;0$, 使用 newton’s method得到<br>$$<br>p_{n+1}&#x3D;p_n-\frac {p^3-p^2-p+1}{3p^2-2p-1}<br>$$<br>只会linearly converge 因为$f’(p)&#x3D;0$</p>
+<p>我们对它进行一下因式分解<br>$$<br>f(x)&#x3D;(x-1)^2(x+1)<br>$$<br>$x&#x3D;1$ is a zero of multiplicity 2.</p>
+<p>multiplicity 2意味着当求derivative后, $x&#x3D;1$ 依然是root.</p>
+<br>
+
+<p>定义: A solution $p$ of $f(x)&#x3D;0$ is a zero of <strong>multiplicity</strong> $m$ of $f$ if for $x\ne p$ we can write $f(x)&#x3D;(x-p)^mq(x)$ where $\lim_{x\to p}q(x)\ne 0$</p>
+<p>We may identify the multiplicity of a zero by the two following theorems:</p>
+<p>THM: $f\in C’[a,b]$has a simple zero at $p$ in $(a,b)$ if and only if $f(p)&#x3D;0$ and $f’(p)\ne 0$</p>
+<p>THM: The function $f\in C^m(a,b)$has a zero of multiplicity $m$ at $p$ if and only if $0&#x3D;f(p)&#x3D;f’(p)&#x3D;\cdots &#x3D;f^{m-1}(p)$ but $f^{(m)}(p)\ne 0$</p>
+<br>
+
+<p>所以想要得到一个快速converge 的 newton’s method的方法是创造一个新函数, 使得它和原本函数有一样的root, 但是root点的derivative不为0</p>
+<p>want $p$ s.t. $f(p)&#x3D;0, f’(p)\ne 0$<br>$$<br>\mu (x) &#x3D; \frac {f(x)}{f’(x)}<br>$$<br>我们希望$\mu(p)&#x3D;0$ but has a simple root</p>
+<br>
+
+<p>假设$f$ 有root $p$, multiplicity $m$</p>
+<p>$$<br>f(x) &#x3D; (x-p)^mq(x)<br>$$</p>
+<p>$$<br>\mu(x)&#x3D;\frac {(x-p)^mq(x)}{m(x-p)^{m-1}q(x)+q’(x)(x-p)^m}<br>$$</p>
+<p>$$<br>&#x3D;\frac {(x-p)q(x)}{m\cdot q(x)+q’(x)(x-p)}<br>$$</p>
+<p>$\mu (p) &#x3D; 0$ with multiplicity 1, multiplicity 1 意味着求导后$\mu’(p)\ne 0$</p>
+<p>好处: give quadratically converging for any multiplicity</p>
+<p>坏处: </p>
+<ul>
+<li>需要$f’’$</li>
+<li>$\mu$ is more expensive toe evaluative than $f$</li>
+<li>可能有round off</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="Aitken’s-method"><a href="#Aitken’s-method" class="headerlink" title="Aitken’s method"></a>Aitken’s method</h3><p>假设我们有一个linearly converge sequence, 我们想为它加速, 怎么办?</p>
+<p>我们要理解error, 利用error </p>
+<p>liner converge是这样<br>$$<br>|p_{n+1}-p| \approx \lambda  |p_n-p|<br>$$</p>
+<p>$$<br>\frac {p_{n+1}-p} {p_n-p} \approx \frac {p_{n+2}-p} {p_{n+1}-p}<br>$$</p>
+<p>求$p$<br>$$<br>p \approx \hat p_{n+1} &#x3D; p_n - \frac {p_{n+1}^2 - p_np_{n+1}+p_n^2}{p_{n+2}-2p_{n+1}+p_n}<br>$$<br>这个就给我们一个new sequence</p>
+<blockquote>
+<p>Theorem:</p>
+<p>假设 ${p_n}$ 是一个sequence converge linearly to the limit $p$, and that for all sufficiently large values of n we have<br>$$<br>(p_n-p)(p_{n+1-p})&gt;0<br>$$<br>Then the sequence ${\hat p_n}_{n&#x3D;0}^\inf$ converges faster than ${p_n}$ to $p$ in the since that<br>$$<br>\frac {\hat p_n - p}{p_n-p} \to^n_\inf 0<br>$$</p>
+</blockquote>
+<br>
+
+<h3 id="多项式的root-deflation"><a href="#多项式的root-deflation" class="headerlink" title="多项式的root(deflation)"></a>多项式的root(deflation)</h3><p>一个n阶多项式, 一定有n个解(可能有重复解)</p>
+<p>可以写成这种模式<br>$$<br>p(x)&#x3D;a_n(x-x_1)^{m_1}(x-x_2)^{m_2}\cdots(x-x_k)^{m_k}<br>$$</p>
+<p>$$<br>\sum_{i&#x3D;1}^{k}m_i&#x3D;n<br>$$</p>
+<p>让多项式 $P, Q$ 为degree at most $n$ 的多项式</p>
+<p>如果 $x_1\cdots x_k$  $k&gt;n$ 是不同的number with $P(x_i) &#x3D; Q(x_i)$ for $i&#x3D;1,2,\cdots k$ then $P(x)&#x3D;Q(x)$ for all $x$</p>
+<blockquote>
+<p>如果两个$n$ 阶多项式有大于n个重合的点, 那么这两个多项式其实是一样的</p>
+</blockquote>
+<p>我们想用newton’s method 求多项式的近似解, 因此我们希望有高效的方法evaluating $p, p’$</p>
+<br>
+
+<p>一种方法是用nesting to evaluate<br>$$<br>P(x)&#x3D;a_4x^4+a_3x^3+a_2x^2+a_1x+a_0<br>$$</p>
+<p>$$<br>P(x)&#x3D;((((a_4x+a_3)x+a_2)x+a_1)x+a_0<br>$$</p>
+<p>这只需要$n$次加法$n$次乘法.</p>
+<p>我们可以这么整理</p>
+<blockquote>
+<p>$$<br>b_n&#x3D;a_n<br>$$</p>
+<p>$$<br>b_k&#x3D;a_k+b_{k+1}x<br>$$</p>
+<p>$$<br>b_0&#x3D;P(x)<br>$$</p>
+<p>$$<br>0\le k\le n-1<br>$$</p>
+</blockquote>
+<p>然而我们还要求$P’(x)$</p>
+<p>这个也可以有上面变化而来</p>
+<blockquote>
+<p>$$<br>b_n’ &#x3D; 0<br>$$</p>
+<p>$$<br>b_k’&#x3D;b_{k+1}’x+b_{k+1}<br>$$</p>
+<p>$$<br>b_0’ &#x3D; P’(x)<br>$$</p>
+<p>或者 relable 一下</p>
+<blockquote>
+<p>$$<br>c_{n+1} &#x3D; b_n’<br>$$</p>
+<p>$$<br>c_n&#x3D;a_n<br>$$</p>
+<p>$$<br>c_k&#x3D;c_{k+1}x+b_{k}<br>$$</p>
+<p>$$<br>c_1 &#x3D; P’(x)<br>$$</p>
+</blockquote>
+</blockquote>
+<br>
+
+<br>
+
+<p>假设我们已经通过Horner’s method 找到了$P$的一个解 $x_0$</p>
+<p>此时我们就可以把$a_n$ 替换成$b_n$, $b_k&#x3D;a_k+b_{k+1}x$<br>$$<br>P(x)&#x3D;a_nx^n + a_{n-1}x^{n-1}+\cdots +a_1x+a_0<br>$$</p>
+<p>$$<br>&#x3D;b_nx^n+(b_{n-1}-b_nx_0)x^{n-1}+\cdots +(b_1-b_2x_0)x+(b_0-b_1x_0)<br>$$</p>
+<p>式子可以整理为<br>$$<br>&#x3D;(b_nx^{n-1}+b_{n-1}x^{n-2}+\cdots+b_2x+b_1)x-(b_nx^{n-1}+b_{n-1}x^{n-2}+\cdots+b_2x+b_1)x_0+b_0<br>$$</p>
+<p>$$<br>&#x3D;(b_nx^{n-1}+b_{n-1}x^{n-2}+\cdots+b_2x+b_1)(x-x_0)+b_0<br>$$</p>
+<p>$$<br>&#x3D;Q(x)(x-x_0)+b_0<br>$$</p>
+<p>让$Q(x) &#x3D; (b_nx^{n-1}+b_{n-1}x^{n-2}+\cdots+b_2x+b_1)$</p>
+<p>如果$x_0$ 是root, 所以$P(x_0)&#x3D;b_0&#x3D;0$</p>
+<p>所以$Q(x)(x-x_0) &#x3D; P(x)$</p>
+<p>如果我们想要其他的root, 只要对$Q(x)$重复上诉步骤</p>
+<p>通过这种方法我们可以近乎没有代价的分解$P(x)$</p>
+<blockquote>
+<p>然而有一些细节, 由于machine error, $P(x)$ 的root和$Q(x)$ 的root 并不完全一样, 但是$Q(x)$的root可以当作initial guess</p>
+<p>如果多项式有conplex coefficient, 这个方法依然有用, 不过initial guess 的imaginary component应该非零</p>
+</blockquote>
+<br>
+
+<br>
+
+<h1 id="拉格朗日插值法"><a href="#拉格朗日插值法" class="headerlink" title="拉格朗日插值法"></a>拉格朗日插值法</h1><p>在很多应用中, function是复杂的. 我们希望something can be evaluate in a computationally inexpensive way</p>
+<br>
+$$
+P_n(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1x+a_0
+$$
+多项式可以approximate any function over a closed bounded interval
+
+<blockquote>
+<p> <strong>Weierstrass Arrpoximation Theorem</strong></p>
+<p>假设 $f$ is defined and contimuous on $[a,b]$</p>
+<p>for each $\epsilon &gt; 0$ there exists a polynomial $P(x)$ defined on $[a,b]$ with the proporty that<br>$$<br>|f(x)-P(x)|&lt;\epsilon<br>$$<br>for all x in $[a,b]$</p>
+</blockquote>
+<p>然而我们不知道这个多项式长什么样子</p>
+<p>我们首先当然要尝试 Taylor series</p>
+<p>然而, 如果我们对点0进行泰勒展开, 得到$P$, 用$P(3)$ 和$f(3)$相差甚远</p>
+<p>因为距离展开的点太远, 泰勒展开无法得到正确结果</p>
+<br>
+
+<br>
+
+<p>假设我们现在有n个点, 我们假设多项式$P$ agrees with a function at n+1 data points, $f_k$ 就是点在y轴的位置<br>$$<br>P(x_k)&#x3D;f_k, \ k&#x3D;0,…,n<br>$$<br>对于 $n+1$ distinct interpolation point $x_0,…x_n$ and n+1 values $f_0…f_n$</p>
+<p>要解决这个问题, 我们首先要解决一个简单的问题</p>
+<blockquote>
+<p>我们要先构建$L_m$ 在通过$L_1…L_n$来构建$P$</p>
+</blockquote>
+<p>我们假设多项式$L_m(x)$的degree $\le n$<br>$$<br>L_m(x_k)&#x3D;\delta_{mk}&#x3D;\begin{cases} 1, &amp; k&#x3D;m \ 0, &amp; k\ne m \end{cases}<br>$$<br>$\delta_{mk}$ 也被叫做kronecker delta</p>
+<p>我们知道$L_m(x)$ is 0 at $x_0, x_1…x_{m-1}, x_{m+1}, … x_n$ , 但是$L_m(x_m)&#x3D;1\ne0$</p>
+<p>so we know $L_m$ contains factor $(x-x_0), (x-x_1)\cdots$</p>
+<p>但是不包含$(x-x_m)$</p>
+<p>也就是说<br>$$<br>L_m(x)&#x3D;\text{const} \cdot \prod^n_{k&#x3D;0,k\ne m}(x-x_k)<br>$$<br>然而我们同时还要满足当$x&#x3D;x_m$的时候$L_m(x_m)&#x3D;1$</p>
+<p>因此我们可以这样构建$L_m$<br>$$<br>L_m &#x3D;\frac {\prod^n_{k&#x3D;0,k\ne m}(x-x_k)}{\prod^n_{k&#x3D;0,k\ne m}(x_m-x_k)}<br>$$<br>这样当$x&#x3D;x_m$的时候, $L_m&#x3D;1$</p>
+<br>
+
+<p>这样我们就得到了$L_m$, 通过$L_m$构建$P$<br>$$<br>P(x)&#x3D;\sum_{m&#x3D;0}^nf_mL_m(x)<br>$$<br>我们来验证一下, 当$x&#x3D;x_1$时<br>$$<br>P(x_1)&#x3D;\sum_{m&#x3D;0}^nf_mL_m(x_1)<br>$$<br>而我们知道只有$L_1(x_1)&#x3D;1$, 其余的情况下, 都是0, 所以<br>$$<br>P(x_1)&#x3D;f_1<br>$$<br>同理, 可以验证其余的x</p>
+<br>
+
+<p>然而还有一个问题:  我们希望$P$的degree最小. </p>
+<p>那么我们如何证明通过上面方法得到的$P$的degree最小?</p>
+<p>假设有两个不同的多项式$p,q$ 的$\text{degree}\le n$ 同时经过这些点<br>$$<br>d \equiv p-q<br>$$</p>
+<p>$$<br>d(x_k)&#x3D;0,\ k&#x3D;0…n<br>$$</p>
+<p>对于non-zero degree n 的多项式, 最多有n个zeros, 而$d(x_k)$ 有$n+1$个zeros, 说明$d&#x3D;0$, d是一个zero polynomal</p>
+<p>也就是说$p&#x3D;q$, 说明只有一个degree为n的polynomal经过这些点, 这个多项式就是我们找到的这个</p>
+<br>
+
+<br>
+
+<p>假设</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>$x_i$</th>
+<th>$f(x_i)$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>3.2</td>
+<td>22.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2.7</td>
+<td>17.8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.0</td>
+<td>14.2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4.8</td>
+<td>38.3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5.6</td>
+<td>51.7</td>
+</tr>
+</tbody></table>
+<p>我们想找到interpolated value for $x&#x3D;3.0$</p>
+<p>The $3^{rd}$ Lagrange interpolating polynomial is given by (只用前4个数)<br>$$<br>P(x)&#x3D;f_0L_0(x)+f_1L_1(x)+f_2L_2(x)+f_3L_3(x)<br>$$</p>
+<p>$$<br>&#x3D;\frac {(x-x_1)(x-x_2)(x-x_3)}{(x_0-x_1)(x_0-x_2)(x_0-x_3)}f_0<br>$$</p>
+<p>$$<br>+\frac {(x-x_0)(x-x_2)(x-x_3)}{(x_1-x_0)(x_1-x_2)(x_1-x_3)}f_1<br>$$</p>
+<p>$$<br>+\frac {(x-x_0)(x-x_1)(x-x_3)}{(x_2-x_0)(x_2-x_1)(x_2-x_3)}f_2<br>$$</p>
+<p>$$<br>+\frac {(x-x_0)(x-x_1)(x-x_2)}{(x_3-x_0)(x_3-x_1)(x_3-x_2)}f_3<br>$$</p>
+<p>再把$x&#x3D;3.0$ 以及所有$x_i, f_i$代入就得到我们想要的值了</p>
+<p>$P(3.0)\approx 20.21$</p>
+<p>然而对于这个结果, 我们不知道它有多准确</p>
+<blockquote>
+<p>Theorem:</p>
+<p>suppose $x_0, x_1,\cdots x_n$ are distinct number in$[a,b] $ and $f\in C^{n+1}[a,b]$. Then for each $x$ in $[a,b]$ a number $\delta(x)\in [a,b]$ exists with<br>$$<br>f(x)&#x3D;P(x)+\frac {f^{n+1}(\delta(x))}{(n+1)!}(x-x_0)(x-x_1)\cdots(x-x_n)<br>$$<br>$P(x)$ $n^{th}$ Lagrange interpolating polynomial</p>
+</blockquote>
+<p>Example:</p>
+<p>Suppose you need to constract six-decimal-place table for the common or base 10 logarithm function $\log_{10}(x)$ from $x&#x3D;1$ to $x&#x3D;10$ in such a way that linear interpolation is accurate to within $10^{-6}$</p>
+<p>我们知道$x_0…x_n$对应的$y$值 但是这些点之间的值我们要用linear interpolation(线性插值)</p>
+<p>由于我们假设x是均匀分布在$[1, 10]$之间, 所以我们让 $x_j&#x3D;1+jh$</p>
+<p>$h$ 是点分布的间距, $j&#x3D;0, 1,2\cdots$</p>
+<p>假设$x_j\le x \le x_{j+1}$</p>
+<p>我们想要让 absolute error 小于 $10^{-6}$<br>$$<br>|\text {error}| &#x3D; |\frac {f^{(2)}(\delta(x))}{2!}(x-x_j)(x-x_{j+1})|<br>$$</p>
+<p>$$<br>&#x3D;\frac 12|f’’(\delta)|\cdot |(x-x_j)(x-x_{j+1})|<br>$$</p>
+<p>而 $f(x) &#x3D; \log(x)$<br>$$<br>f’’(\delta)&#x3D;-\frac 1 {\delta^2 \ln(10)}<br>$$<br>因此 $1\le \delta \le 10$ 之间$|f’’(\delta)|$ 最大是在$\delta&#x3D;1$ 的时候</p>
+<p>也就是说 $|f’’(\delta)|$ 最大为 $\frac 1 {\ln (10)}$</p>
+<p>在看 $|(x-x_j)(x-x_{j+1})|$</p>
+<p>这是一个最基本的二次方程, 因此它的最大值在$\frac {x_j+x_{j+1}} 2$</p>
+<p>因此<br>$$<br>\max_{x_j\le x\le x_{j+1}}|(x-x_j)(x-x_{j+1})|<br>$$</p>
+<p>$$<br>&#x3D;\frac h2 \cdot \frac h 2 &#x3D; \frac {h^2} 4<br>$$</p>
+<p>因此<br>$$<br>|\text{error}|\le\frac 12 \cdot \frac 1 {\ln(10)} \cdot \frac {h^2}4 \le 10^{-6}<br>$$<br>解得$h&lt;0.0042919$</p>
+<p>在某些机器上 $\log$ 可能是比较难计算的, 我们可以用线性插值法</p>
+<br>
+
+<br>
+
+<p>然而现实中我们可能不知道$f(x)$, 所以我们就无法计算$f’(x)$</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>$x_i$</th>
+<th>$f(x_i)$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>3.2</td>
+<td>22.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2.7</td>
+<td>17.8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.0</td>
+<td>14.2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4.8</td>
+<td>38.3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5.6</td>
+<td>51.7</td>
+</tr>
+</tbody></table>
+<p>如果我们有只有一组table, 那么我们可以对不同的点来得到不同的interpolating polynomianl</p>
+<p>如果不同polynomianl得到的结果类似, 我们就可以hope结果是正确的</p>
+<br>
+
+<p>例如对于上述table 我们想找到$f(3)$</p>
+<p>我们进行两种不同的 lagrange interpolating polynomials</p>
+<p>分别是 second 和 thrid lagrange  interpolating polynomials</p>
+<p>如果我们要construct 2 degree 的polynomianl 那么我们需要3个点</p>
+<p>我们使用距离3最近的3个点 $x_0, x_1, x_3$<br>$$<br>P_2(3) &#x3D; L_0(x)f_0+L_1(x)f_1+L_3(x)f_3\ |_{x&#x3D;3}<br>$$</p>
+<p>$$<br>&#x3D;\frac {(x-x_1)(x-x_3)}{(x_0-x_1)(x_0-x_3)}f_0+\cdots<br>$$</p>
+<p>$$<br>\approx 20.27<br>$$</p>
+<p>接下来找degree 3 的 多项式, 需要4个点, 因此使用$x_0, x_1, x_2, x_3$</p>
+<p>进行同样的过程得到$20.21$</p>
+<p>这两种方法得到的值比较相近, 因此我们对结果比较有信心</p>
+<br>
+
+<p>由于我们不知道$f$ 所以我们无法使用error fomular</p>
+<p>然而我们可以通过不同的 data 和不同 order 的 polynomial 得到一个 idea about error (上面的方法)</p>
+<br>
+
+<p>然而second degree的计算和thrid degree的计算有一些地方是重复的, 例如 $\frac {(x-x_1)(x-x_3)}{(x_0-x_1)(x_0-x_3)}$</p>
+<p>因此我们可以计算thrid degree 时 reuse 这些计算结果</p>
+<br>
+
+<p>我们想基于不同的 nodes 来 examine polynomial</p>
+<p>上一个例子中, 我们使用$x_0, x_1, x_3$, 我们可以标记为$P_{013}$</p>
+<p>类似使用$x_0, x_1, x_2, x_3$可以标记为$P_{0123}$</p>
+<p>现在假设我们想得到 lagrange interpolating polynomial, base on data points $x_{m1}, x_{m2}\cdots x_{mk}$ 我们标记为$P_{m1, m2\cdots mk}$<br>$$<br>P_0(x) &#x3D; f(x_0)<br>$$</p>
+<p>$$<br>P_1(x) &#x3D; f(x_1)<br>$$</p>
+<p>$$<br>P_{01}(x) &#x3D; L_0(x) f(x_0)+L_1(x)f(x_1)<br>$$</p>
+<p>$$<br>&#x3D;\frac {(x-x_1)}{(x_0-x_1)}P_0+\frac {(x-x_0)}{(x_1-x_0)}P_1<br>$$</p>
+<p>可以看到$P_{01}$使用了$P_0(x)$ 和$P_1(x)$的结果</p>
+<p>我们想在更一般的情况进行这种操作</p>
+<blockquote>
+<p>Theorem: </p>
+<p>let $f$ be defined at $x_0,x_1\cdots x_k$ and $x_j, x_i$ be two distinct numbers in this set, then<br>$$<br>P_{0,1,\cdots k}(x) &#x3D; \frac {(x-x_j)P_{0,1,\cdots j-1, j+1,\cdots k}(x) - (x-x_i)P_{0,1,\cdots i-1, i+1,\cdots k}(x)}{x_i-x_j}<br>$$<br><br></p>
+<p>证明</p>
+<p>check LHS &#x3D; RHS for $x_0,\cdots x_k$</p>
+<p>case $x&#x3D;x_i$ ($x&#x3D;x_j$同理)</p>
+<p>$\text{LFS} &#x3D; f(x_i)$</p>
+<p>$\text{RHS}&#x3D;\frac {(x_i-x_j)P_{0,1,\cdots j-1, j+1,\cdots k}(x_i)}{(x_i-x_j)} &#x3D; P_{0,1,\cdots j-1, j+1,\cdots k}(x_i)&#x3D;f(x_i)$</p>
+<br>
+
+<p>case $x&#x3D;x_l, l\ne i, l\ne j$</p>
+<p> $\text{LFS} &#x3D; f(x_l)$</p>
+<p>$\text{RHS}&#x3D;\frac {(x_l-x_j)f(x_l) - (x_l-x_i)f(x_l)}{x_i-x_j}&#x3D;f(x_l)$</p>
+</blockquote>
+<br>
+
+<h2 id="neville’s-method"><a href="#neville’s-method" class="headerlink" title="neville’s method"></a>neville’s method</h2><p>这个Theroem让我们可以用低degree的$P$ 计算高degree的$P$</p>
+<p>这个过程叫做 neville’s method</p>
+<p>$P_{01}$ 用$P_0, P_1$计算得出</p>
+<p>$P_{12}$ 用$P_1,P_2$ 计算得出</p>
+<p><img src="/Blog/Blog/intro/macm316/neville.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>example: 假设$x_j&#x3D;j$ 同时我们知道<br>$$<br>P_{0,1}(x)&#x3D;2x+1<br>$$</p>
+<p>$$<br>P_{0,2}(x)&#x3D;x+1<br>$$</p>
+<p>$$<br>P_{1,2,3}(2.5)&#x3D;3<br>$$</p>
+<p>求 $P_{0,1,2,3}(2.5)$</p>
+<p>$P_{0,1,2}$ 可以通过 $P_{0,1}, P_{0,2}$ 求出来<br>$$<br>P_{0,1,2} &#x3D; \frac {(x-x_1)P_{0,2}(x) -(x-x_2)P_{0,1}(x)}{x_2-x_1}<br>$$</p>
+<p>$$<br>&#x3D;-x^2+3x+1<br>$$</p>
+<p>当$x&#x3D;2.5$, $P_{0,1,2}(2.5)&#x3D;2.25$</p>
+<p>$P_{0,1,2,3}$ 可以通过 $P_{1,2,3}$ 和$P_{0,1,2}$求出来<br>$$<br>P_{0,1,2} &#x3D; \frac {(x-x_0)P_{1,2,3}(x) -(x-x_3)P_{0,1,2}(x)}{x_3-x_0}<br>$$</p>
+<p>$$<br>P_{0,1,2} &#x3D; \frac {2.5\cdot 3-(-0.5)\cdot (2.25)}{3}&#x3D;2.875<br>$$</p>
+<blockquote>
+<p>一个例题:</p>
+<p>假设 $x_j&#x3D;j$ for $j&#x3D;0,1,2,3,4$ , 同时我们知道 $P_{0,1,2,3,4}(2)&#x3D;a, P_{01,2,3,4}(2)&#x3D;b, P(1,3,4)&#x3D;c$ 求 $P_{1,2}(2)$<br>$$<br>\frac{(x-x_2)P_{1,3}-(x-x_3)P_{1,2}}{x_3-x_2}&#x3D;P_{1,2,3}<br>$$<br>$x&#x3D;2, x_2&#x3D;2, x_3&#x3D;3$ 代入得到<br>$$<br>P_{1,2}(2) &#x3D; P_{1,2,3}(2)<br>$$<br><br><br>$$<br>\frac{(x-x_2)P_{1,3,4}-(x-x_4)P_{1,2,3}}{x_4-x_2}&#x3D;P_{1,2,3,4}<br>$$<br>$x&#x3D;2, x_2&#x3D;2, x_4&#x3D;4$<br>$$<br>P_{1,2,3}(2) &#x3D; P_{1,2,3,4}(2)<br>$$</p>
+<p>$$<br>\frac{(x-x_2)P_{0,1,3,4}-(x-x_0)P_{1,2,3,4}}{x_0-x_2}&#x3D;P_{0,1,2,3,4}<br>$$</p>
+<p>$x&#x3D;2, x_2&#x3D;2, x_0&#x3D;0$<br>$$<br>P_{1,2,3,4}(2)&#x3D;P_{0,1,2,3,4}(2)&#x3D;a<br>$$<br>所以 $P_{1,2}(2)&#x3D;a$</p>
+</blockquote>
+<br>
+
+<br>
+
+<h2 id="Divided-Differences"><a href="#Divided-Differences" class="headerlink" title="Divided Differences"></a>Divided Differences</h2><p>divided difference 给出了另一种写lagrange interpolating polynomial的方法</p>
+<p>假设我们有一组数据点</p>
+<table>
+<thead>
+<tr>
+<th>$f_0$</th>
+<th>$f_1$</th>
+<th>$f_2$</th>
+<th>$f_3$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x_0$</td>
+<td>$x_1$</td>
+<td>$x_2$</td>
+<td>$x_3$</td>
+</tr>
+</tbody></table>
+<p>这里我们不再假设$x$ 是均匀分布的, 我们假设他们arranged in any particular order</p>
+<p>consider the $n$th degree polynomial written in a special way<br>$$<br>P_n(x)&#x3D;a_0+(x-x_0)a_1 + (x-x_0)(x-x_1)a_2+\cdots+(x-x_0)(x-x_1)\cdots (x-x_{n-1})a_n<br>$$<br>我们想找到一种有效的方法计算$a$</p>
+<p>这就是Divided Difference</p>
+<blockquote>
+<p>有点泰勒展开的意思</p>
+</blockquote>
+<p>如果让$x&#x3D;x_0$<br>$$<br>P_n(x_0)&#x3D;a_0<br>$$<br>而同时我们又知道 $P_n(x_0)&#x3D;f_0$ 因为$P_n$ 必须穿过已知的数据点, 所以<br>$$<br>a_0&#x3D;f_0<br>$$</p>
+<blockquote>
+<p>我们定义一些符号</p>
+<p>define zero th divided differences<br>$$<br>f[x_i] \equiv f(x_i)<br>$$</p>
+</blockquote>
+<br>
+
+<p>接下来让$x&#x3D;x_1$<br>$$<br>P_n(x_1)&#x3D;a_0+(x_1-x_0)a_1&#x3D;f_0+(x_1-x_0)a_1&#x3D;f_1<br>$$<br>解得<br>$$<br>a_1 &#x3D; \frac {f_1-f_0} {x_1-x_0}<br>$$</p>
+<blockquote>
+<p>定义 first divided difference<br>$$<br>f[x_i, x_{i+1}] &#x3D; f[x_{i+1}, x_i]<br>$$</p>
+<p>$$<br>&#x3D;\frac {f[x_{i+1}]-f[x_i]}{x_{i+1}-x_i}<br>$$</p>
+<p>$a_1 &#x3D; f[x_0,x_1]$</p>
+</blockquote>
+<br>
+
+<p>同理 $a_2&#x3D;f[x_0,x_1,x_2]$<br>$$<br>f[x_i, x_{i+1} x_{i+2}] &#x3D; \frac {f[x_{i+1}, x_{i+2}]-f[x_i,x_{i+1}]}{x_{i+2}-x_i}<br>$$<br><br></p>
+<p>定义:<br>$$<br>f[x_i,x_{i+1}\cdots,x_{i+k}] &#x3D; \frac {f[x_{i+1}\cdots,x_{i+k}]-f[x_i,x_{i+1}\cdots,x_{i+k-1}]}{x_{i+k}-x_i}<br>$$<br>我们可以得到$a_k&#x3D;f[x_0,x_1\cdots,x_k]$</p>
+<p>This gives Newton’s interpolatory divided difference fomula<br>$$<br>P_n(x)&#x3D;f[x_0]+f[x_0,x_1] (x-x_0)<br>$$</p>
+<p>$$<br>+f[x_0,x_1,x_2] (x-x_0)(x-x_1)<br>$$</p>
+<p>$$<br>+\cdots+f[x_0,x_1\cdots x_n] (x-x_0)(x-x_1)\cdots(x-x_{k-1})<br>$$</p>
+<br>
+
+<br>
+
+<p>example:</p>
+<p>假设有5个点<br>$$<br>(x_0,x_1,x_2,x_3,x_4,x_5)&#x3D;(0.3,1.0,0.7,0.6,1.9)<br>$$<br>$f(x)&#x3D;2x^3-x^2+x-1$</p>
+<p><img src="/Blog/Blog/intro/macm316/devided_diff.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>由于function只有degree 3, 所以4th divided difference计算出来就是0</p>
+<p><img src="/Blog/Blog/intro/macm316/devided_diff_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/Blog/intro/macm316/devided_diff_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>disadvantage:</p>
+<ol>
+<li>如果有太多data point, $P_n(x)$可能会难以计算</li>
+<li>$P_n(x)$ 穿过data point 但是 can oscillate wildly between data when n is large (esp near boundaries and with sparse data)</li>
+</ol>
+<br>
+
+<p>Largrange Polynomial can oscillate wildly except where contained between data points that are in close proximity.</p>
+<p>我们希望interpolating polynomial 有和function一样的<strong>shape</strong> at the data points</p>
+<p>换句话说, interpolating polynomial 不仅在data point 处 agree with $f$, 同时 agree with $f’’$</p>
+<blockquote>
+<p>Theorem: </p>
+<p>If $f\in C’[a,b]$ and $x_0, \cdots x_n \in [a,b]$ are distinct</p>
+<p>the interpolating polynomial of least degree agreeing with f and f’ at $x_0, \cdots x_m$ is the Hermite polynomial of degree at most $2n+1$ given by<br>$$<br>H(x)&#x3D;\sum_{j&#x3D;0}^nf(x_j)H_j(x)+\sum_{j&#x3D;0}^nf’(x_j)\hat H_j(x)<br>$$<br>where<br>$$<br>H_j(x)&#x3D;[1-2(x-x_j)L’_j(x_j)]L_j^2(x)<br>$$</p>
+<p>$$<br>\hat H_j(x)&#x3D;(x-x_j)L_j^2(x)<br>$$</p>
+<p>where $L_j(x)$ 代表 $j$th Lagrange coefficient polynomial of degree n</p>
+<p>然而这个方法太复杂了</p>
+</blockquote>
+<p>有一个基于nweton-divided difference的简单的方法</p>
+<p>divided difference method 中 我们有 $x_0,x_1…$</p>
+<p>现在我们定义:</p>
+<p>$z_0&#x3D;x_0, z_1&#x3D;x_0, z_2&#x3D;x_1, z_3&#x3D;x_1…$</p>
+<p>让 $z_{2i}&#x3D;z_{2i+1}&#x3D;x_i$</p>
+<p>如果我们使用nweton-divided difference<br>$$<br>f[z_{2i}]&#x3D;f[z_{2i+1}]&#x3D;f(x_i)<br>$$</p>
+<p>$$<br>f[z_{2i}, z_{2i+1}]&#x3D;\frac {f[z_{2i+1}]-f[z_{2i}]}{z_{2i+1}-z_{2i}}&#x3D;0&#x2F;0<br>$$</p>
+<p>如果我们用limit<br>$$<br>\lim_{z_{2i}\to z_{2i+1}}\frac {f[z_{2i+1}]-f[z_{2i}]}{z_{2i+1}-z_{2i}}<br>$$</p>
+<p>$$<br>&#x3D;\lim_{z_{2i}\to z_{2i+1}}\frac {f(z_{2i+1})-f(z_{2i})}{z_{2i+1}-z_{2i}}<br>$$</p>
+<p>这是derivative的定义<br>$$<br>&#x3D;f’(z_{2i})<br>$$<br>derivative values are used in place of underfined first divided difference, otherwise newton’s divided difference formula is applied as usual</p>
+<br>
+
+<p>假设我们有$x_0, x_1$ 我们想使用newton’s divided difference求Hermite polynomial</p>
+<p><img src="/Blog/Blog/intro/macm316/devided_diff_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>给一个更具体的例子</p>
+<p>已知:</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>f(x)</th>
+<th>f’(x)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x_0&#x3D;1$</td>
+<td>1.10517</td>
+<td>0.22103</td>
+</tr>
+<tr>
+<td>$x_1&#x3D;1.5$</td>
+<td>1.25232</td>
+<td>0.37570</td>
+</tr>
+</tbody></table>
+<p>我们想要找到degree 3 的Hermite polynomial</p>
+<p><img src="/Blog/Blog/intro/macm316/devided_diff_4.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>H_3(x)&#x3D;f[z_0]+f[z_0, z_1] (x-z_0)+f[z_0,z_1,z_2] (x-z_0)(x-z_1)+f[z_0,z_1,z_2,z_3] (x-z_0)(x-z_1)(x-z_2)<br>$$</p>
+<br>
+
+<br>
+
+<h2 id="Splines"><a href="#Splines" class="headerlink" title="Splines"></a>Splines</h2><p>目前为止如果我们希望更加准确, 我们会增加 polynomial 的 degree</p>
+<p>还有一种方法是, 我们可以把一整个区间分成多个小区间, 每个小区间求一个low degree polynomial</p>
+<br>
+
+<p><strong>Piecewise linear interpolation</strong></p>
+<p>对于这些点, 每个点之间只使用直线连接</p>
+<p><img src="/Blog/Blog/intro/macm316/splines.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>缺点是不够平滑</p>
+<br>
+
+<p><strong>Piecewise Polynomials of Hermite Type</strong></p>
+<p>如果我们同时知道每个点的slop, 那么就可以用hermite</p>
+<p><img src="/Blog/Blog/intro/macm316/splines_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>好处是平滑, 然而多数情况我们其实不知道slop</p>
+<br>
+
+<p><strong>Piecewise Quadratic Polynomials</strong></p>
+<p><img src="/Blog/Blog/intro/macm316/splines_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>每个点都有一个condition确保polynomial经过这个点, 一个condition 确保 slop一致<br>$$<br>P_0(x)&#x3D;a_0+b_0x+c_0x^2<br>$$</p>
+<p>$$<br>P_i(x)&#x3D;a_i+b_ix+c_ix^2<br>$$</p>
+<p>3 degrees of freedom</p>
+<p>来看$P_1$, 它要经过两个点所以需要两个condition, 第一个点的slop要和$P_0$最后一个点的slop一致, 所以还需要一个condition, 总共需要3个condition</p>
+<p>同理, $P_2$ 有两个end point condition, 但此时我们需要2个 slop conditions. 在两个端点都要有slop condition</p>
+<p><img src="/Blog/Blog/intro/macm316/splines_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>所以$P_2$有3 unknowns, 但是有4 conditions, 这意味着Quaratic没有足够的degree of freedom</p>
+<p>因此我们需要使用cubic splines 来satisfy all conditions</p>
+<br>
+
+<h3 id="Cubic-Spline-Interpolation"><a href="#Cubic-Spline-Interpolation" class="headerlink" title="Cubic Spline Interpolation"></a>Cubic Spline Interpolation</h3><p>idea 就是使用cubic polynomial, 这样Polynomial就需要4个常数, 就是说有4 degrees of freedom. 我们有足够的freedom使得下述成立</p>
+<ul>
+<li>agree with function at all the nodes</li>
+<li>continuously differentiable</li>
+<li>continuoused second derivatives</li>
+</ul>
+<blockquote>
+<p>Given a function f defined on $[a,b]$ and a set of nodes $a&#x3D;x_0&lt;x_1&lt;\cdots &lt; x_n&#x3D;b$ a cubic spline interpolant $S$ for $f$ is a function that satisfies the following<br>$$<br>P_i(x)&#x3D;a_i+b_ix+c_ix^2+d_ix^3<br>$$</p>
+</blockquote>
+<p><img src="/Blog/Blog/intro/macm316/splines_3.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>S_j(x_{j+1})&#x3D;f(x_{j+1})&#x3D;S_{j+1}(x_{j+1})<br>$$</p>
+<p>$$<br>S_j’(x_{j+1})&#x3D;S_{j+1}’(x_{j+1})<br>$$</p>
+<p>$$<br>S_j’’(x_{j+1})&#x3D;S_{j+1}’’(x_{j+1})<br>$$</p>
+<p>如果我们有n cubics, 那么我们就有$4n-2$ conditions, 4n degrees of freedom</p>
+<p>我们还剩余2 degrees of freedom, 在两个端点$a,b$</p>
+<p>有两种boundary conditions</p>
+<ol>
+<li><p>clamped boundary conditons</p>
+<p>$S’(x_0)&#x3D;f’(x_0),S’(x_n)&#x3D;f’(x_n)$</p>
+</li>
+<li><p>Free&#x2F;natural boundary conditons</p>
+<p>$S’’(x_0)&#x3D;0&#x3D;S’’(x_n)$</p>
+<p>此时我们有4n degrees of freedom, 4n conditons</p>
+</li>
+</ol>
+<p>我们可以用matrix 来解<br>$$<br>S_i(x)&#x3D;a_i+b_i(x-x_i)+c_i(x-x_i)^2+d_i(x-x_i)^3<br>$$<br>$S_i(x_i)&#x3D;f(x_i)&#x3D;a_i$</p>
+<p>定义 $h_i&#x3D;x_{i+1}-x_i$</p>
+<p><img src="/Blog/Blog/intro/macm316/splines_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>A 是tridiagonal matrix , 而且是strictly  diagonally dominate</p>
+<p>也就是说我们可以快速解出这个矩阵 $O(n)$</p>
+<p><img src="/Blog/Blog/intro/macm316/splines_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>Theorem:</p>
+<p>let $f\in C^4[a.b]$ with $\max_{a\le x\le b}|f^{(4)}(x)|&#x3D;M$</p>
+<p>If S is the unique clamped cubic spline interpolant to $f$ with respect to the nodes </p>
+<p>$a&#x3D;x_0&lt;x_1&lt;\cdots &lt;x_n&#x3D;b$ then<br>$$<br>\max_{a\le x\le b}|f(x)-S(x)|\le \frac {5M}{584}max_j(x_{j+1}-x_j)^4<br>$$<br><br></p>
+<p>Example:</p>
+<p>A clamped cubic spline $S$ for a function $f$ is defined by<br>$$<br>S_0(x)&#x3D;1+Bx+2x^2-2x^3<br>$$<br> on $[0,1)$<br>$$<br>S_1(x)&#x3D;1+b(x-1)+c(x-1)^2+7(x-1)^3<br>$$<br>on $[1,2]$</p>
+<p>Find $B, b, c, f’(0), f’(2)$</p>
+<p>我们知道 $S_0(1)&#x3D;S_1(1)$<br>$$<br>1+B&#x3D;1<br>$$<br>所以 $B&#x3D;0$</p>
+<p>我们知道 $S_0’(1)&#x3D;S_1’(1)$<br>$$<br>4-6&#x3D;b<br>$$<br>所以 $b&#x3D;-2$</p>
+<p>因为$S_0’’(1)&#x3D;S_1’’(1)$<br>$$<br>4-12&#x3D;c<br>$$<br>所以$c&#x3D;-8$</p>
+<p>$f’(0)&#x3D;S’(0)&#x3D;B&#x3D;0$<br>$$<br>f’(2)&#x3D;S_1’(2)&#x3D;b+2c+3\cdot 7&#x3D;11<br>$$</p>
+<br>
+
+<br>
+
+<h1 id="Parametric-Curves"><a href="#Parametric-Curves" class="headerlink" title="Parametric Curves"></a>Parametric Curves</h1><p>interpolating polynomials 和 spline 只能用于interpolate functions</p>
+<p>我们想要拓展这些技术来表示更 general curves in space (不是所有curve都是function, 有的curve还会自我交叉)</p>
+<p>假设我们要找到一个polynomial 或者 piecewise polynomial 来连接一些点<br>$$<br>(x_0,y_0),(x_1, y_1),\cdots (x_n, y_n)<br>$$<br>in the order given</p>
+<p>我们可以定义一个parameter $t$ on the interval $[t_0, t_n]$ with  $t_0&lt;t_1&lt;\cdots&lt;t_n$</p>
+<p>我们可以分别为 x,y 构建approximation functions<br>$$<br>x_i&#x3D;x(t_i), y_i&#x3D;y(t_i)<br>$$<br><img src="/Blog/Blog/intro/macm316/param_cur.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>正好写到这里我就顺便说两句. 这种将x,y表达为t, 我们可以把它看作是新拉出一个坐标轴t, 这样就把一个非function转化为function. 本质上是升维, 可以把t想象成是z轴, 这就是三维空间的一个function curve, 而我们只关注,x, y 因此投影到x,y平面就是一个 非function curve. 和机器学习中非线性回归进行升维转化为线性回归有异曲同工之妙</p>
+</blockquote>
+<p>我们假设t均匀分布在$[0,1]$ 之间, 实际上t怎么选都可以, 我们只是借用t构建3维function, 最后正还会把 t 消灭掉</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$t_i$</td>
+<td>0</td>
+<td>0.25</td>
+<td>0.5</td>
+<td>0.75</td>
+<td>1</td>
+</tr>
+<tr>
+<td>$x_i$</td>
+<td>-1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>$y_i$</td>
+<td>0</td>
+<td>1</td>
+<td>0.5</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+</tbody></table>
+<p>此时我们可以对x用Lagrange interpolation, 对y用Lagrange interpolation</p>
+<p><img src="/Blog/Blog/intro/macm316/param_cur_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>然而 如果我们改变一个data point(with Lagrange interpolation)会导致整个interpolation changes</p>
+<p>假设我们使用Hermit interpolation</p>
+<p><img src="/Blog/Blog/intro/macm316/param_cur_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时如果我们修改第2个点, 那么只会影响$P_0,P_1$ 而不影响其他的cubic polynomial</p>
+<br>
+
+<p>我们需要function values and slop at control points. function value 就是 x,y. 同时我们还有slop $dy&#x2F;dx$, 但是要定义cubic hermit polynomial over each segment 我们需要$x’, y’$ 也就是说, for x 我们需要4个condition:</p>
+<ol>
+<li>function values at each end points (2 conditons)</li>
+<li>derivative vlaues at each end points (2 conditions)</li>
+</ol>
+<p>同理y也是, 然而total number of conditions is 6</p>
+<ol>
+<li>x, y at each end point (4 conditions)</li>
+<li>slop value $dy, dx$ (2 conditions)</li>
+</ol>
+<p>我们有6个conditions 但有8 unknows</p>
+<p>假设两个端点是在$t&#x3D;0, t&#x3D;1$ 我们只需要确认conditions on the quotients<br>$$<br>\frac {dy}{dx}(t&#x3D;0)&#x3D;\frac {y’(0)}{x’(0)},\frac {dy}{dx}(t&#x3D;1)&#x3D;\frac {y’(1)}{x’(1)}<br>$$<br>我们可以scale $x’, y’$ by same constant to get same $dy, dx$</p>
+<p>scale $x’, y’$ 会改变 interpolating polynomial for x and y. 但不会改变$dy, dx$, 另一种看法就是我们有了两个2 free parameter, somehow we want to set</p>
+<br>
+
+<p>假设end points are $(x_0, y_0), (x_1, y_1)$ </p>
+<p>(由用户指定) let guid points be $(x_0+\alpha _0, y_0+\beta _0)$ and $(x_1-\alpha_1, y_1-\beta_1)$</p>
+<p>we will insist that $x$ satisfies<br>$$<br>x(0)&#x3D;x_0,\ x(1)&#x3D;x_1<br>$$</p>
+<p>$$<br>x’(0)&#x3D;\alpha_0, x’(1)&#x3D;\alpha_1<br>$$</p>
+<p>y satisfies:</p>
+<p>$$<br>y(0)&#x3D;y_0,\ y(1)&#x3D;y_1<br>$$</p>
+<p>$$<br>y’(0)&#x3D;\beta_0, y’(1)&#x3D;\beta_1<br>$$</p>
+<blockquote>
+<p> 假设 曲线是 $(x(t),y(t))$</p>
+<p>$x(t)&#x3D;a+bt+ct^2+dt^3$</p>
+<p>$x(0) &#x3D; a(1)+b(0)+c(0)+d(0)$</p>
+<p>$x(1)&#x3D; a(1)+b(1)+c(1)+d(1)$</p>
+<p>$x’(0)&#x3D;a(0)+b(1)+c(0)+d(0)$</p>
+<p>$x’(1)&#x3D;a(0)+b(1)+c(1)+d(1)$</p>
+<p>因此我们可以用矩阵求解$a,b,c,d$, 这就是图像学中的 <a href="https://daolinzhou.github.io/Blog/2020/09/12/computer-graphic/#Hermite-curves">Hermite curves</a></p>
+<p><img src="/Blog/Blog/intro/com_graphic/curve_surf_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</blockquote>
+<br>
+$$
+dy/dx(t=0)=\frac {(y_0+\beta_0)-y_0}{(x_0+\alpha_0)-x_0}=\beta_0/\alpha_0
+$$
+我们有8 conditions satisfy 8 unknows
+
+<p>下面四个曲线的端点都在 $(0, 0), (0,1)$, 端点的slop都是1, -1</p>
+<p>由于guid point 的选择不同, 曲线的样子也不同</p>
+<p><img src="/Blog/Blog/intro/macm316/param_cur_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/param_cur_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/param_cur_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/param_cur_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h1 id="Numerical-Differentiation"><a href="#Numerical-Differentiation" class="headerlink" title="Numerical Differentiation"></a>Numerical Differentiation</h1><p>approximate the derivatives</p>
+<p>一种方法是differentiate Lagrange polynomials</p>
+<p>假设 $x_0, x_1 \in (a,b)$ and $f\in C^2[a,b]$<br>$$<br>f(x)&#x3D;P_{0,1}(x) + \frac {f’’(\delta (x))}{2!}(x-x_0)(x-x_1)<br>$$</p>
+<p>$$<br>&#x3D;\frac {f(x_0)(x-x_1)}{x_0-x_1}+\frac {f(x_1)(x-x_0)}{x_1-x_0}+\frac {f’’(\delta (x))}{2!}(x-x_0)(x-x_1)<br>$$</p>
+<p>$\delta(x)\in [a,b]$</p>
+<p>两边同时求导<br>$$<br>f’(x)&#x3D;\frac {f(x_1)-f(x_0)}{x_1-x_0}+\frac {2(x-x_0)-(x_1-x_0)}{2}f’’(\delta (x))+\frac {(x-x_0)(x_1-x_0)}{2}D_x[f’’(\delta (x))]<br>$$<br>最后一个term比较难以estimate, 它需要derivative of the second derivative at point $\delta$ </p>
+<p>但是我们通常只会evaluate the derivative at one of the data points. 所以当$x&#x3D;x_0, x&#x3D;x_1$ 时, 我们不用计算最后一项<br>$$<br>f’(x_0)&#x3D;\frac {f(x_1)-f(x_0)}{x_1-x_0}-\frac {(x_1-x_0)}{2}f’’(\delta (x))<br>$$<br>通常让$h&#x3D;x_1-x_0$<br>$$<br>f’(x_0)&#x3D;\frac {f(x_0+h)-f(x_0)}{h}-\frac {h}{2}f’’(\delta (x))<br>$$<br><br></p>
+<p>现在我们可以找到更 general 的 fomula</p>
+<p>假设 $x_0,x_1\cdots x_n \in (a,b)$ and $f\in C^{n+1}[a,b]$<br>$$<br>f(x) &#x3D;\sum_{k&#x3D;0}^nf(x_k)L_k(x)+\frac {(x-x_0)\cdots(x-x_n)}{(n+1)!}f^{(n+1)}(\delta(x))<br>$$</p>
+<p>$$<br>f’(x_j)&#x3D;\sum_{k&#x3D;0}^nf(x_k)L_k’(x_j)+\frac {f^{(n+1)}(\delta(x_j))}{(n+1)!}\prod_{k&#x3D;0, k\ne j}^n(x_j-x_k)<br>$$</p>
+<p>$$<br>L_0(x)&#x3D;\frac {(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}<br>$$</p>
+<p>$$<br>L_0’(x)&#x3D;\frac {2x-x_1-x_2}{(x_0-x_1)(x_0-x_2)}<br>$$</p>
+<p>同理:<br>$$<br>L_1’(x)&#x3D;\frac {2x-x_0-x_2}{(x_1-x_0)(x_1-x_2)}<br>$$</p>
+<p>$$<br>L_2’(x)&#x3D;\frac {2x-x_0-x_1}{(x_2-x_0)(x_2-x_1)}<br>$$</p>
+<p>组合起来<br>$$<br>f’(x_j)&#x3D;f(x_0)\frac {2x_j-x_1-x_2}{(x_0-x_1)(x_0-x_2)}<br>$$</p>
+<p>$$<br>+f(x_1)\frac {2x_j-x_0-x_2}{(x_1-x_0)(x_1-x_2)}<br>$$</p>
+<p>$$<br>+f(x_2)\frac {2x_j-x_0-x_1}{(x_2-x_0)(x_2-x_1)}<br>$$</p>
+<p>$$<br>+\frac 16 f^{(3)}(\delta_j)\prod_{k&#x3D;0, k\ne j}^2(x_j-x_k)<br>$$</p>
+<p>一种特殊情况是当数据是均匀分布时, $x_1&#x3D;x_0+h, x_2&#x3D;x_0+2h$ </p>
+<p><img src="/Blog/Blog/intro/macm316/app_der_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/app_der.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>第二个fomula的error有一个更小的常数, 所以通常选第二个fomula</p>
+<br>
+
+<p>finding the second derivative of $f$:<br>$$<br>f(x_0+h)&#x3D;f(x_0)+f’(x_0)h+\frac 12f’’(x_0)h^2+\frac 16f’’’(x_0)h^3+\frac1{24}f^{(4)}(\delta_1)h^4<br>$$</p>
+<p>$$<br>f(x_0-h)&#x3D;f(x_0)-f’(x_0)h+\frac 12f’’(x_0)h^2-\frac 16f’’’(x_0)h^3+\frac1{24}f^{(4)}(\delta_1)h^4<br>$$<br>将二者相加就可以消去$f’, f’’’$<br>$$<br>f(x_0+h)+f(x_0-h)&#x3D;2f(x_0)+f’’(x_0)h^2+\frac {h^4}{24}[f^{(4)}(\delta_1)+f^{(4)}(\delta_2)]<br>$$<br>假设$f^{(4)}$ is continuous on $[x_0-h,x_0+h]$</p>
+<p>$\frac 1 2 [f^{(4)}(\delta_1)+f^{(4)}(\delta_2)]$ 在 $f^{(4)}(\delta_1),f^{(4)}(\delta_2)$之间, there is a value $\delta$ between $\delta_1, \delta_2$使得<br>$$<br>f^{(4)}(\delta)&#x3D;\frac 1 2 [f^{(4)}(\delta_1)+f^{(4)}(\delta_2)]<br>$$</p>
+<p>$$<br>f’’(x_0)&#x3D;\frac 1 {h^2}[f(x_0-h)-2f(x_0)+f(x_0+h)]-\frac {h^2}{12}f^{(4)}(\delta)<br>$$</p>
+<p>在这个fomula中, 以及所有numerical differentiation fomulas, error is $h^p$, This is truncating error from the truncating the taylor series</p>
+<p>当h变小, error变小</p>
+<p>但是 $f(x_0-h)-2f(x_0)+f(x_0+h)$ 有cancelation error, 并且会因为除以$h^2$而放大</p>
+<p>如果$h$大, 那么error会大, 如果$h$太小, cancelation error 会极速增长</p>
+<br>
+
+<br>
+
+<h1 id="Richardson’s-Extrapolation"><a href="#Richardson’s-Extrapolation" class="headerlink" title="Richardson’s Extrapolation"></a>Richardson’s Extrapolation</h1><p>假设error depends on some parameter, 例如 step size $h$, 同时 dependency is predictable. we can often derive higher order accuracy from low order formulas</p>
+<p>To illustrate the procedure assume we have an approximation $N(h)$ to some quantity $M$</p>
+<p>假设这个approximation has an order $O(h)$<br>$$<br>M&#x3D;N(h)+k_1h+k_2h^2\cdots \tag 1<br>$$<br>$k$ 是常数</p>
+<p>we can repeat the calculation with a parameter $h&#x2F;2$<br>$$<br>M&#x3D;N(h&#x2F;2)+k_1\frac h2+k_2 \frac {h^2}{2^2}\cdots \tag 2<br>$$<br>$M&#x3D;(2M-M)&#x3D;(1) - 2\cdot (2)$<br>$$<br>M&#x3D;(2N(h&#x2F;2)-N(h))+k_2(\frac {h^2} 2 - h^2)\cdots<br>$$<br>让 $N_2(h)&#x3D;(2N(h&#x2F;2)-N(h))$<br>$$<br>M&#x3D;N_2(h)-\frac 12 k_2 h^2 -\frac 34 k_3 h^3+\cdots \tag 3<br>$$<br>$N_2(h)$ 有 $h^2$ error, 重复这个步骤, 使用其他的参数计算$N_2$<br>$$<br>M&#x3D;N_2(h&#x2F;2)-\frac 18 k_2h^2-\cdots \tag 4<br>$$<br>$4\cdot (4)-(3)$<br>$$<br>3M&#x3D;4N_2(h&#x2F;2)-N_2(h)+\frac 3 8 k_3 h^3\cdots<br>$$<br>$O(h^3)$ formula<br>$$<br>M&#x3D;N_3(h)+\frac {k_3} 8h^3+\cdots<br>$$</p>
+<p>$$<br>N_3&#x3D;\frac 4 3 N_2(h&#x2F;2)-\frac 13 N_2(h)<br>$$</p>
+<br>
+
+<br>
+
+<p><img src="/Blog/Blog/intro/macm316/app_der_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Extrapolation can be used whenever the trancation error for a formula has the form<br>$$<br>\sum_{j&#x3D;1}^{m-1}k_jh^{\alpha_j} +O(h^{\alpha_m})<br>$$<br>for constants $k_j$ and $\alpha_1&lt;\alpha_2&lt;\cdots&lt;\alpha_m$</p>
+<br>
+
+<br>
+
+<p>Example:</p>
+<p>The following data gives approximations to the integral<br>$$<br>M&#x3D;\int_{0}^{\pi} \sin ( x )dx<br>$$<br>$N_1(h)&#x3D;1.576769, N_1(h&#x2F;2)&#x3D;1.896119$</p>
+<p>$N_1(h&#x2F;2)&#x3D;1.974232, N_1(h&#x2F;8)&#x3D;1.993570$</p>
+<p>Assume $M&#x3D;N_1(h)+k_1h^2+k_2h^4+k_3h^6+k_4h^8+O(h^{10})$</p>
+<p>construct an extrapolation table to determine $N_4(h)$</p>
+<p><img src="/Blog/Blog/intro/macm316/ex_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>假设$N_j(h)$ is an $O(h^2)$ approximate of $M$</p>
+<p>then<br>$$<br>M&#x3D;N_j(h)+k_jh^{2j}+O(h^{2j+2})\tag 1<br>$$</p>
+<p>$$<br>M&#x3D;N_j(h&#x2F;2)+k_j(h&#x2F;2)^{2j}+O(h^{2j+2})\tag 2<br>$$</p>
+<p>$2^{2j}(2)-(1)$ gives<br>$$<br>M&#x3D;N_j(h&#x2F;2)+\frac {N_j(h&#x2F;2)-N_j(h)}{2^{2j}-1}+O(h^{2j+2})<br>$$</p>
+<p>$$<br>N_{j+1}(h)&#x3D;N_j(h&#x2F;2)+\frac {N_j(h&#x2F;2)-N_j(h)}{4^j-1}<br>$$</p>
+<p><img src="/Blog/Blog/intro/macm316/ex_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<blockquote>
+<p>例题: </p>
+<p><img src="/Blog/Blog/intro/macm316/examp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>其实我们可以把它简写为:<br>$$<br>M(h) &#x3D; N_1(h)+c_1h+c_2h^2+O(h^3) \tag 1<br>$$<br>$N_1(h) &#x3D; \frac 1h [f(x_0+h)-f(x_0)]$<br>$$<br>M(h&#x2F;2) &#x3D; N_1(h&#x2F;2)+c_1 \frac h2+c_2 \frac {h^2} 4+O(h^3)\tag 2<br>$$</p>
+<p>$$<br>M(h&#x2F;4) &#x3D; N_1(h&#x2F;4)+c_1 \frac h4+c_2 \frac {h^2} {16}+O(h^3)\tag 3<br>$$</p>
+<p>$2\cdot(2)-(1)$<br>$$<br>M&#x3D;2N_1(h&#x2F;2)-N_1(h)-\frac {c_2}{2}h^2+O(h^3)\tag 4<br>$$<br>我们定义 $N_2(h)&#x3D;2N_1(h&#x2F;2)-N_1(h)$<br>$$<br>M&#x3D;N_2(h)-\frac {c_2}{2}h^2+O(h^3)\tag 4<br>$$<br>$2\cdot(3)-(2)$<br>$$<br>M&#x3D;N_2(h&#x2F;2)-\frac {c_2}{8}h^2+O(h^3)\tag 5<br>$$<br>$\frac {4\cdot(5)-(4)} 3$<br>$$<br>M&#x3D;\frac {4N_2(h&#x2F;2)-N_2(h)}{3}+O(h^3)<br>$$<br>因此 $f’(x_0) &#x3D; \frac {4N_2(h&#x2F;2)-N_2(h)}{3}$, 我们知道$N_2$ 怎么求</p>
+</blockquote>
+<br>
+
+<h1 id="Numerical-Integration"><a href="#Numerical-Integration" class="headerlink" title="Numerical Integration"></a>Numerical Integration</h1><p>通常我们无法明显的找到 anti-derivative of functions</p>
+<p>我们想找到一个方法来approximating integrals<br>$$<br>\int_a^bf(x)dx\approx c_0f(x_0)+c_1f(x_1)+\cdots<br>$$<br>The usual strategy for developing numerical integration formulas is similar to numerical differentiation, 穿过原本function穿过的一些点</p>
+<p>之后integrate the polynomial</p>
+<blockquote>
+<p>This way can find approximation of the integral using only  known tabulate values of the function.</p>
+</blockquote>
+<p>Similar to the case of differentiation we get an expression for the error by integrating the error term in the interpolating polynomial</p>
+<p>假设我们使用2 point integration fomula</p>
+<p><img src="/Blog/Blog/intro/macm316/ex_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/macm316/ex_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>通过阴影部分的面积来approximate integral.</p>
+<p>let $x_0&#x3D;a, x_1&#x3D;b, h&#x3D;b-a$</p>
+<p>Linear Lagrange polynomial passing through $(x_0, f(x_0))$ and $(x_1, f(x_1))$ is<br>$$<br>P_1(x)&#x3D;\frac {x-x_1}{x_0-x_1}f(x_0)+\frac {x-x_0}{x_1-x_0}f(x_1)<br>$$</p>
+<p>$$<br>\int_a^bf(x)dx&#x3D;\int_{x_0}^{x_1}P_1(x)dx+\frac 12 \int_{x_0}^{x_1}f’’(\delta(x))(x-x_0)(x-x_1)dx<br>$$</p>
+<p>$$<br>&#x3D;\frac {(x-x_1)^2}{2(x_0-x_1)}f(x_0)+\frac {(x-x_0)^2}{2(x_1-x_0)}f(x_1) |_{x_0}^{x_1} + error<br>$$</p>
+<p>$$<br>&#x3D;\frac h 2 (f(x_0)+f(x_1))+error<br>$$</p>
+<br>
+
+<p>Weighted Mean Value Theorem for Integrals</p>
+<p>if $f\in C[a,b]$, the Riemann integral of $g$ exists on $[a,b]$ and $g(x)$ does not change sign on $[a,b]$ then there exists a number c in $(a,b)$ with $\int_a^bf(x)g(x)dx&#x3D;f(c)\int_a^b g(x)dx$<br>$$<br>error &#x3D; \frac 12 \int_{x_0}^{x_1}f’’(\delta(x))(x-x_0)(x-x_1)dx<br>$$</p>
+<p>$$<br>&#x3D;\frac 12 f’’(\delta)\int_{x_0}^{x_1}(x-x_0)(x-x_1)dx<br>$$</p>
+<p>$$<br>&#x3D;\frac 12 f’’(\delta) [\frac {x^3}{3}-\frac {(x_1+x_0)}{2}x^2+x_0x_1x]_{x_0}^{x_1}<br>$$</p>
+<p>$$<br>&#x3D;-\frac {h^3}{12}f’’(\delta)<br>$$</p>
+<p>因此<br>$$<br>\int_a^bf(x)dx&#x3D;\frac h 2 (f(x_0)+f(x_1))-\frac {h^3}{12}f’’(\delta)<br>$$<br>The <strong>trapezoid rule</strong></p>
+<p>我们可以考虑3 point intergration</p>
+<p><img src="/Blog/Blog/intro/macm316/ex_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果我们使用 usual strategy of integrating the error term for the lagrange polynomial then we get an $O(h^4)$ error.</p>
+<p>A sharper estimate can be obtained using an alternative approach<br>$$<br>f(x)&#x3D;f(x_1)+f’(x_1)(x-x_1)+\frac {f’’(x_1)}{2}(x-x_1)^2+\frac {f’’’(x_1)}{6}(x-x_1)^3+\frac {f^{(4)}(\delta(x))^2}{24}(x-x_1)^4<br>$$</p>
+<p>$$<br>\int_{x_0}^{x_2}f(x)dx &#x3D; [f(x_1)(x-x_1)+\frac {f’(x_1)} {2} (x-x_1)^2+\frac {f’’(x_1)}{6}(x-x_1)^3+\frac {f^{(3)}(x_1)}{24}(x-x_1)^4]_{x_0}^{x_2}<br>$$</p>
+<p>$$<br>+\frac 1 {24}\int_{x_0}^{x_2}f^{(4)}(\delta(x))(x-x_1)^4dx<br>$$</p>
+<br>
+
+<p>consider $\frac 1 {24}\int_{x_0}^{x_2}f^{(4)}(\delta(x))(x-x_1)^4dx$</p>
+<p>使用weighted mean value THM 把 $f^{(4)}(\delta(x))$ 提取出阿里<br>$$<br>&#x3D;\frac {f^{(4)}(\delta_1)} {24}\int_{x_0}^{x_2}(x-x_1)^4dx<br>$$</p>
+<p>$$<br>&#x3D;\frac {f^{(4)}(\delta_1)} {120}(x-x_1)^5|_{x_0}^{x_2}<br>$$</p>
+<p>$$<br>&#x3D;\frac {f^{(4)}(\delta_1)} {60}h^5<br>$$</p>
+<br>
+$$
+\int_{x_0}^{x_2}f(x)dx=2hf(x_1)+\frac {h^3}{3}f''(x_1)+\frac {f^{(4)}}{60}(\delta_1)h^5
+$$
+由于$x_1$是mid point 所以 $f'$ 没了
+
+<p>我们不希望最后结果有$f’’$<br>$$<br>f’’(x_1)&#x3D;\frac 1 {h^2}[f(x_0)-2f(x_1)+f(x_2)]+\frac {h^2}{12}f^{(4)}(\delta_2)<br>$$<br>代入得到<br>$$<br>\int_{x_0}^{x_2}f(x)dx&#x3D;\frac h 3 [f(x_0)+4f(x_1)+f(x_2)]+O(h^5)<br>$$<br>这个方法叫做 <strong>Simpson’s rule</strong></p>
+<br>
+
+<br>
+
+<p>有一点我们比较关心: error</p>
+<p>如果让$f(x)&#x3D;x$ (或者其他linear funciton) 此时 <strong>trapezoid rule</strong> 和 <strong>Simpson’s rule</strong> 的 error 为 0, 因为$f’’&#x3D;0, f^{(4)}&#x3D;0$</p>
+<p>如果 $f(x)&#x3D;x^3$  <strong>trapezoid rule</strong> 有非零error,  <strong>Simpson’s rule</strong> 的 error 为 0 </p>
+<blockquote>
+<p>定义:</p>
+<p>The degree of accuracy&#x2F;precision of a numerical integration formula is the largest positive integer $n$ such that the formula is exact for $x^k$ when $k&#x3D;0,1\cdots n$</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Degree of accuracy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Trapezoid rule</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">Simpson’s rule</td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>Trapezoid and Simpson’s rules are examples of Newton’s cote fomulas</p>
+<p>The $(n+1)$ point closed Nowton-Cotes fomula uses nodes</p>
+<p>$x_i&#x3D;x_0+ih, i&#x3D;0,1,\cdots,n$</p>
+<p>where $x_0&#x3D;a, x_n&#x3D;b, h&#x3D;\frac {(b-a)}n$</p>
+<p>Then<br>$$<br>\int_a^b f(x)dx\approx \int_a^bP_n(x)dx&#x3D; \int_a^b \sum_{i&#x3D;0}^nL_i(x)f(x_i)<br>$$</p>
+<p>$$<br>&#x3D;\sum_{i&#x3D;0}^n \int_a^b L_i(x)f(x_i)<br>$$</p>
+<p>$$<br>&#x3D;\sum_{i&#x3D;0}^n a_if(x_i)<br>$$</p>
+<p>where $a_i&#x3D;\int_a^b L_i(x)dx$</p>
+<p>The fomula is closed because the endpoints of the interval are included as nodes.</p>
+<br>
+
+<p>An error analysis gives</p>
+<blockquote>
+<p>Thm:</p>
+<p>假设 $\sum_{i&#x3D;0}^n a_if(x_i)$ 表示 $(n+1)$ point closed formula with $x_0&#x3D;a, x_n&#x3D;b, h&#x3D;(b-a)&#x2F;n$  If n is even and $f\in C^{n+2}[a,b]$ then there exists $\delta \in (a,b)$ with<br>$$<br>\int_a^b f(x)dx&#x3D;\sum_{i&#x3D;0}^n a_if(x_i)+\frac {h^{n+3}f^{(n+2)}(\delta)}{(n+2)!}\int_0^n t^2(t-1)(t-2)\cdots(t-n)dt<br>$$<br>If n is odd and $f \in C^{n+1}[a,b]$then there exists $\delta \in (a,b)$ with<br>$$<br>\int_a^b f(x)dx&#x3D;\sum_{i&#x3D;0}^n a_if(x_i)+\frac {h^{n+2}f^{(n+1)}(\delta)}{(n+1)!}\int_0^nt(t-1)(t-2)\cdots(t-n)dt<br>$$<br>如果n是even, 我们得到error with order $n+3$</p>
+<p>如果n是odd, 我们得到error with order $n+2$</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">n</th>
+<th align="center">name</th>
+<th align="center">error term</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">Trapezoid rule</td>
+<td align="center">$-\frac {h^3}{12}f’’(\delta)$</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">Simpson’s rule</td>
+<td align="center">$-\frac {h^5}{90}f^{(4)}(\delta)$</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">Simpson’s 3&#x2F;8 rule</td>
+<td align="center">$-\frac {3h^5}{80}f^{(4)}(\delta)$</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"></td>
+<td align="center">$-\frac {8h^7}{945}f^{(6)}(\delta)$</td>
+</tr>
+</tbody></table>
+<p>通常我们使用even n, 因为error更小, 有时候使用trapezoid rule, 因为它简单</p>
+<br>
+
+<p>Newton-Cotes 也有 open fomula</p>
+<p>$x_i&#x3D;x_0+ih$</p>
+<p>$x_0&#x3D;a+h$</p>
+<p>$h&#x3D;(b-a)&#x2F;(n+2)$</p>
+<p>Then the open Newton’s cotes formulas are given by<br>$$<br>\int_a^bf(x)dx\approx \sum_{i&#x3D;0}^na_if(x_i)<br>$$<br>where $a_i&#x3D;\int_a^b L_i(x)dx$</p>
+<p>此时 $x_0&#x3D;a+h, x_n&#x3D;b-h$ The formulas are open because the nodes are all sontained in the open interval $(a,b)$</p>
+<p>Once again, if n is even the degree of precision is $(n+1)$ and the error is $O(h^{n+3})$</p>
+<p>if n is odd then it is $O(h^{n+2})$</p>
+<p><img src="/Blog/Blog/intro/macm316/mid_point.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>n&#x3D;1<br>$$<br>\int_a^bf(x)dx&#x3D;\frac {3h} {2}[f(x_0)-f(x_1)]+\frac {3h^3}{4}f’’(\delta)<br>$$<br>n&#x3D;2<br>$$<br>\int_a^bf(x)dx&#x3D;\frac {3h} {4}[2f(x_0)-f(x_1)+2f(x_2)]+\frac {14h^5}{45}f^{(4)}(\delta)<br>$$<br>n&#x3D;3<br>$$<br>\int_a^bf(x)dx&#x3D;\frac {5h} {24}[11f(x_0)+f(x_1)+f(x_2)+11f(x_3)]+\frac {95h^5}{144}f^{(4)}(\delta)<br>$$<br><br></p>
+<p>typically, we do not apply newton-cotes formula to the interval $[a,b]$ directly</p>
+<p>If we did then high degree formulas would be required to obtain accurate solutions.</p>
+<p>However we have already seen that even these high degree polynomials often gives a oscillatory</p>
+<p>为了解决这个问题, 和之前一样, 我们breake interval$[a,b]$ into serval intervals, and apply low order formulas to sub-intervals</p>
+<p>假设我们要对一个function使用 Simpson’s rule </p>
+<p><img src="/Blog/Blog/intro/macm316/mid_point_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Take $h&#x3D;(b-a)&#x2F;n$, $x_j&#x3D;a+jh$ ,Then<br>$$<br>\int_a^bf(x)dx &#x3D; \sum_{j&#x3D;1}^{n&#x2F;2}\int_{x_{2j-2}}^{x_{2j}}f(x)dx<br>$$</p>
+<p>$$<br>&#x3D;\sum_{j&#x3D;1}^{n&#x2F;2}[\frac h 3[f(x_{2j-2})+4f(x_{2j+1})+f(x_{2j})]-\frac {h^5}{90}f^{(4)}(\delta_j)]<br>$$</p>
+<p>$x_{2j-2}&lt;\delta_j&lt;x_{2j}$</p>
+<p>Taking into account that $f(x_{2j})$ $0&lt;j&lt;n&#x2F;2$ appears in 2 terms, this summation can be simplified somewhat<br>$$<br>\int_a^bf(x)dx &#x3D;\frac h3 [f(x_0)+2\sum_{j&#x3D;1}^{\frac n2-1}f(x_{2j})+4\sum_{j&#x3D;1}^{\frac n2}f(x_{2j-1})+f(x_n)]+error<br>$$<br>$error &#x3D; \frac {-(b-a)}{180}h^4f^{(4)}(\delta)$</p>
+<p>如果我们take sub interval larger and larger?</p>
+<p>round off error 是否会变大?</p>
+<p>假设我们用 $\tilde f(x_i)$ 来 approximate $f(x_i)$<br>$$<br>f(x_i) &#x3D; \tilde f(x_i)+e_i<br>$$<br>$0\le i \le n$</p>
+<p>Then the accumulated round off error in the composite simpson’s Rule is:<br>$$<br>|e(h)|&#x3D;|\frac h3 [e_0+2\sum_{j&#x3D;1}^{\frac n2-1}e_{2j}+4\sum_{j&#x3D;1}^{\frac n2}e_{2j-1}+e_n]|<br>$$</p>
+<p>$$<br>\le \frac h3 [|e_0|+2\sum_{j&#x3D;1}^{\frac n2-1}|e_{2j}|+4\sum_{j&#x3D;1}^{\frac n2}|e_{2j-1}|+|e_n|]<br>$$</p>
+<p>假设round off error bound by $\epsilon$<br>$$<br>|e(h)| \le \frac h3 [\epsilon + 2(\frac n2-1)\epsilon+4\frac n2 \epsilon+\epsilon] &#x3D; nh\epsilon<br>$$</p>
+<p>$$<br>&#x3D;(b-a)\epsilon<br>$$</p>
+<p>也就是说round off error 不受sub interval 数量的影响, 这点和numerical differentiation 不同</p>
+<br>
+
+<h1 id="Romberg-integration"><a href="#Romberg-integration" class="headerlink" title="Romberg integration"></a>Romberg integration</h1><p>combination of trapezoid rule:</p>
+<p>If $f\in C^2[a,b]$ then there exists a $\mu \in [a, b]$ s.t.<br>$$<br>\int_a^bf(x)dx&#x3D;\frac h2[f(a)+2\sum_{j&#x3D;1}^{n-1}f(x_j)+f(b)]-\frac {b-a}{12}h^2f’’(\mu)<br>$$<br>where $h&#x3D;\frac {b-a} n, x_j&#x3D;a+jh$</p>
+<p>然而实际上我们可以让error更precise</p>
+<p>An application of euler maclaurin summation shows that if f is sufficiently smooth, the error depends on even powers of $h$<br>$$<br>error &#x3D; c_1h^2+c_2h^4+\cdots+c_mh^{2m}+O(h^{2m+2})<br>$$<br>where $c_k&#x3D;const \cdot (f^{(2k-1)}(b)-f^{(2k-1)}(a))$</p>
+<p>这给出了一个有意思的结论, 如果derivatives of $f$ are equal at the endpoints. 那么我们就会有一个非常accurate formula (exact formula)</p>
+<br>
+
+<p>Example:</p>
+<p>The numerical approximation to $\int_0^1\sin^2(8\pi x) dx$ , by the composite Trapezoid rule for serveral values of $h$ is given below:</p>
+<table>
+<thead>
+<tr>
+<th align="center">h</th>
+<th>1</th>
+<th>1&#x2F;2</th>
+<th>1&#x2F;4</th>
+<th>1&#x2F;8</th>
+<th>1&#x2F;16</th>
+<th>1&#x2F;32</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">composite Trapezoid rule</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1&#x2F;2</td>
+<td>1&#x2F;2</td>
+</tr>
+</tbody></table>
+<p>If we want a numerical quadrature to actually see the function, we need to take an interval less than $1&#x2F;8$</p>
+<p><strong>如果$f$ 是一个periodic function,  并且充分sample the function, 那么使用 composite trapezoid rule will gives excat answer</strong></p>
+<br>
+
+<br>
+
+<p>Romberg integration 就是 composite trapezoid rule 和 richardson extrapolation 的结合</p>
+<p>The method makes efficient use of computations wherever possible. It reuses computations wherever possible</p>
+<p>Let $R_{k,1}$ be the approximation(composite trapezoid rule) to the integral using $m_k&#x3D;2^{k-1}$ intervals. $h&#x3D;\frac {(b-a)}{m_k}$<br>$$<br>R_{1,1}&#x3D;\frac {h_1}{2}[f(a)+f(b)] &#x3D; \frac {(b-a)}{2}[f(a)+f(b)]<br>$$</p>
+<p>$$<br>R_{2,1}&#x3D;\frac {h_2} 2[f(a)+f(b)+2f(a+h_2)]<br>$$</p>
+<p>$$<br>&#x3D;\frac 12 [R_{1,1}+h_1f(a+h_2)]<br>$$</p>
+<p>$$<br>R_{3,1}&#x3D;\frac 12 [R_{2,1}+h_2[f(a+h_2)+f(a+3h_3)]]<br>$$</p>
+<p>$$<br>R_{k,1}&#x3D;\frac 12[R_{k-1, 1}+h_{k-1}\sum_{i&#x3D;1}^{2^{k-2}}f(a+(2i-1)h_k)]<br>$$</p>
+<p><img src="/Blog/Blog/intro/macm316/trap_r.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Next apply Richardson’s Extrapolation to obtain fauter convergence.<br>$$<br>\int_a^bf(x)dx-R_{k,1}&#x3D;c_1h_k^2+\sum_{i&#x3D;2}^mc_ih_k^{2i}+O(h^{2m+2})<br>$$</p>
+<p>$$<br>\int_a^bf(x)dx-R_{k+1,1}&#x3D;\frac {c_1} 4 h_k^2+\sum_{i&#x3D;2}^m\frac {c_ih_k^{2i}}{4^i}+O(h^{2m+2})<br>$$</p>
+<p>4 times second  minus the first gives an $O(h_k^4)$ error</p>
+<br>
+
+<p>we repeat the procedure to eliminate the $O(h_k^4)$ error term continuing we have an $O(h_k^{2j})$ approximation formula defined by<br>$$<br>R_{k,j}&#x3D;R_{k,j-1}+\frac {R_{k,j-1}-R_{k-1, j-1}}{4^{j-1}-1}<br>$$<br>example:</p>
+<p>还是approximate $\int_0^1 e^{-x}dx$ to 5 significant digits</p>
+<p><img src="/Blog/Blog/intro/macm316/trap_r_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>$R_{k,i}$ 的error的order是$O(2i)$, 例如$R_{k,2}$的error是$O(h^4)$</p>
+<br>
+
+<p>什么时候停止?</p>
+<p>通常 $|R_{n-1, n-1}-R_{n,n}|&lt;TOL$ 就可以stop</p>
+<p>but it will be little bit safer to do two level of this, 因为有可能有lucky cancellation</p>
+<p>在使用上面的停止条件的基础上, 在使用这个条件$|R_{n-2,n-2}-R_{n-1, n-1}|&lt;TOL$ </p>
+<p>当Richardson’s Extrapolation太多时, 会由cancellation error主导</p>
+<br>
+
+<br>
+
+<h1 id="Adaptive-Quadratare"><a href="#Adaptive-Quadratare" class="headerlink" title="Adaptive Quadratare"></a>Adaptive Quadratare</h1><p>adaptive numerical integration</p>
+<p><img src="/Blog/Blog/intro/macm316/trap_r_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>假设一个函数是这样, 我们可能不想使用equally spaced points in your quadrature.</p>
+<p>我们可能对平滑的地方使用simpson’s rule with wide intervals.</p>
+<p>而对oscillatory region使用small intervals.</p>
+<p>也就是说我们希望adapt $h$ to the behavior of the function.</p>
+<br>
+
+<p>为了调整h的step size, 我们需要estimate the error.</p>
+<p>假设我们要approximate $\int_a^bf(x)dx$ with tolerance $\epsilon &gt; 0$</p>
+<p>Start by applying Simpson’s Rule with a step size $h&#x3D;(b-a)&#x2F;2$<br>$$<br>\int_a^bf(x)dx&#x3D;S(a,b)-\frac {h^5}{90}f^{(4)}(\mu)<br>$$<br>where $S(a,b)&#x3D;\frac h 3[f(a)+4f(a+h)+f(b)], a&lt;\mu&lt;b$</p>
+<p>然而我们不知道error: 因为我们没有$f^{(4)}$ 和 $\mu$</p>
+<p>因此我们对不同step size使用Simpson’s Rule</p>
+<p>我们的思路就是使用Simpson’s Rule两次, 使用正确的 combination 来 approximate the error.<br>$$<br>\int_a^bf(x)dx&#x3D;S(a, \frac {a+b} 2)+S(\frac {a+b} 2,b)-\frac {1}{16}\frac{h^5}{90}f^{(4)}(\tilde \mu)<br>$$<br>我们假设 sub interval 足够小, 使得 $f^{(4)}(\mu)\approx f^{(4)}(\tilde \mu)$</p>
+<p>之后让两个式子相减<br>$$<br>0&#x3D;S(a,b)-S(a, \frac {a+b} 2)-S(\frac {a+b} 2,b)-\frac {15}{16}\frac{h^5}{90}f^{(4)}(\mu)<br>$$<br>由此我们可以解得$f^{(4)}(\mu)$</p>
+<br>
+
+<p>Error estimate for Simpson’s Rule<br>$$<br>\text{error estimate} &#x3D; \frac 1{15} |S(a,b)-S(a, \frac {a+b} 2)-S(\frac {a+b} 2,b)|<br>$$<br><br></p>
+<p>例如: 用Simpson’s rule 计算 $S(a,b),S(a, \frac {a+b} 2),S(\frac {a+b} 2,b)$<br>$$<br>\int_1^{1.5}x^2\ln (x)dx<br>$$<br>并且计算 error estimate 以及actual error<br>$$<br>S(1,1.5)&#x3D;\frac{0.25} 3 [f(1)+4f(1.25)+f(1.5)]&#x3D;0.1922453<br>$$</p>
+<p>$$<br>S(1,1.25)&#x3D;0.039372434<br>$$</p>
+<p>$$<br>S(1.25,1.5)&#x3D;0.15288602<br>$$</p>
+<p>$$<br>\text{error estimate}&#x3D;1&#x2F;15 |S(1,1.5)-S(1,1.25)-S(1.25,1.5)|<br>$$</p>
+<p>$$<br>\approx8.77\times 10^{-7}<br>$$</p>
+<p>$$<br>\text{actual error} &#x3D; |S(1,1.25)+S(1.25, 1.5)-exact|<br>$$</p>
+<p>$$<br>\approx 8.96\times 10^{-7}<br>$$</p>
+<p>error estimate 的使用:</p>
+<p>我们如果希望$error &lt; \epsilon$</p>
+<p>而我们让 $\text{error estimate} &lt; \tilde \epsilon$<br>$$<br>\tilde \epsilon &#x3D; \epsilon \times \text{safe factor}<br>$$<br>safe factor &lt; 1.</p>
+<p>例如我们想让 $\frac 23$ 作为safety factor</p>
+<p>我们想approximate $\int_a^bf(x)dx$</p>
+<p>我们计算error estimate over $[a,b]$ if $\text{estimate}&lt;\tilde \epsilon$ stop</p>
+<p>otherwise, repeat on $\int_a^{\frac {a+b} 2}f(x)dx$ 和 $\int_{\frac {a+b} 2}^bf(x)dx$, using $\tilde \epsilon&#x2F;2$</p>
+<br>
+
+<br>
+
+<h1 id="Gaussian-Quadrature"><a href="#Gaussian-Quadrature" class="headerlink" title="Gaussian Quadrature"></a>Gaussian Quadrature</h1><p>此前我们处理的是$x_i$是均匀分布的 quadrature formulas </p>
+<p>equally spaced node 有着很好的性质, 使得我们进行composite integration时减少了很多工作</p>
+<p>然而我们思考如果有unequally spaced point 时, 我们能否做的更好</p>
+<br>
+
+<p>现在我们允许有 n 个 nodes, 以及 n weights, 这样就是 $2n$ free parameters, 我们将寻找 quadrature formulas 的 degree 最多为 $2n-1$, 这是因为 degree 为 $2n-1$ 的 polynomial 有 $2n$ degree of freedom</p>
+<p>start with an integral $\int_a^bf(x)dx$</p>
+<p>由于node会改变, 所以我们想用same limits of integration for every integral</p>
+<p>we are going to tabulate the $x_i$, 我们不希望它们取决于 $a,b$, 所以第一步我们要change variables to change the limit of integration</p>
+<p>我们把它限制在 $-1, 1$<br>$$<br>t &#x3D; \frac {2x-a-b}{b-a}<br>$$</p>
+<p>$$<br>x&#x3D;\frac 12 [(b-a)t+a+b]<br>$$</p>
+<p>$$<br>dx&#x3D;\frac 12 (b-a)dt<br>$$</p>
+<p>代入得到<br>$$<br>\int_{-1}^1 f(\frac 12[(b-a)t+a+b])\frac 12 (b-a)dt<br>$$<br>当 $n&#x3D;1$时, best approach就是使用mid point</p>
+<p><img src="/Blog/Blog/intro/macm316/gaussian_quadr.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>当 $n&#x3D;2$ 时, $\int_{-1}^1f(x)dx&#x3D;c_1f(x_1)+c_2f(x_2)$</p>
+<p>此时我们有4 degree of freedom $c_1,f(x_1),c_2,f(x_2)$</p>
+<p>而 degree 3 的多项式有4个degree of freedom $f(x)&#x3D;a_0+a_1x+a_2x^2+a_3x^3$</p>
+<p>因此我们希望能找到一个integration formula that is exact for degree 3 polynomials</p>
+<p>由于: $\int_{-1}^1 a_0+a_1x+a_2x^2+a_3x^3 dx$<br>$$<br>&#x3D;a_0\int_{-1}^1dx+a_1\int_{-1}^1xdx+a_2\int_{-1}^1x^2dx+a_3\int_{-1}^1x^3dx<br>$$<br>我们的formula is exact if it’s exact for $f(x)&#x3D;1,x,x^2,x^3$</p>
+<p>$\int_{-1}^1f(x)dx&#x3D;c_1f(x_1)+c_2f(x_2)$</p>
+<p>$f(x)&#x3D;1,\ \ \ 2&#x3D;\int_{-1}^11dx&#x3D;c_1+c_2$</p>
+<p>$f(x)&#x3D;x, \ \ \ \int_{-1}^1xdx&#x3D;c_1x_1+c_2x_2$</p>
+<p>$f(x)&#x3D;x^2, \ \ \ \int_{-1}^1x^2dx&#x3D;c_1x_1^2+c_2x_2^2$</p>
+<p>$f(x)&#x3D;x^3, \ \ \ \int_{-1}^1x^3dx&#x3D;c_1x_1^3+c_2x_2^3$</p>
+<p>求解可以得到:</p>
+<p>$c_1&#x3D;1, c_2&#x3D;1, x_1&#x3D;-\sqrt{3}&#x2F;3, x_2&#x3D;\sqrt{3}&#x2F;3$</p>
+<p>因此</p>
+<p>$\int_{-1}^1f(x)dx\approx f(-\sqrt{3}&#x2F;3)+f(\sqrt{3}&#x2F;3)$</p>
+<p>这个方法has degree of precision three, 对于degree 4的function 不管用</p>
+<br>
+
+<h2 id="Legender-polynomials"><a href="#Legender-polynomials" class="headerlink" title="Legender polynomials"></a>Legender polynomials</h2><p>这种方式对small $n$ 有效, 然而我们更希望一些对large $n$ 也有效的东西, comething useful for theoretical development.</p>
+<br>
+
+<p>定义: Legender polynomial $P_0(x), P_1(x)\cdots$ are defined with 2 properties:</p>
+<ol>
+<li>$P_n(x)$ is a monic polynomial of degree n. ($x^n$的系数都是1)</li>
+<li>$\int_{-1}^1P(x)P_n(x)dx&#x3D;0$ whenever $P(x)$ is a polynomial of degree less than $n$</li>
+</ol>
+<p>因此我们可以计算出前几个Legender polynomial</p>
+<ul>
+<li>$P_0(x)&#x3D;1$</li>
+<li>$P_1(x)&#x3D;x$</li>
+<li>$P_2(x)&#x3D;x^2-1&#x2F;3$</li>
+<li>$P_3(x)&#x3D;x^3-(3&#x2F;5)x$</li>
+<li>$P_4(x)&#x3D;x^4-\frac 67x^2+\frac 3{35}$</li>
+</ul>
+<p>为什么我们对这种多项式感兴趣? 因为它们有一些性质;</p>
+<ul>
+<li>The roots of these polynomials are distinct</li>
+<li>The roots of these polynomials lie in $(-1,1)$</li>
+<li>这些多项式都是基于y轴对称的. root也是基于y轴对称的</li>
+<li><strong>The roots of Legender polynomial are the exact roots we need for gaussian Quadrature</strong></li>
+</ul>
+<p>也就是说我们将用 Lengender polynomial 的 root 作为 $x_i$</p>
+<br>
+
+<br>
+
+<p>例如 approximate $\int_1^{3&#x2F;2}x^2\ln (x^2)dx$</p>
+<p>using Gaussian quadrature with $n&#x3D;2$</p>
+<p>首先change variables<br>$$<br>\int_1^{3&#x2F;2}x^2\ln (x^2)dx&#x3D;\int_{-1}^{1}{(\frac {\frac 12 t+\frac 52}2)}^2\ln (\frac {\frac 12 t+\frac 52}2)(\frac {1&#x2F;2} 2)dt<br>$$</p>
+<p>$$<br>\approx f(x_1)+f(x_2) &#x3D; f(-\frac 1 {\sqrt 3})+f(\frac 1 {\sqrt 3})<br>$$</p>
+<p>$$<br>&#x3D;0.1922687<br>$$</p>
+<p>而exact approach 是 $0.19225935$</p>
+<p>而simpson’s rule 会得到 $0.19224530$</p>
+<p>Gaussian quadrature 比 Simpson’s rule 的结果更准确</p>
+<br>
+
+<p>Example:</p>
+<p>Find the constants $c_0, c_1, x_1$ so that the quadratare formula<br>$$<br>\int_{-1}^0f(x)dx&#x3D;c_0f(-1)+c_1f(x_1)<br>$$<br>has the highest degree of precision possible.<br>$$<br>f&#x3D;1, \int_{-1}^11dx&#x3D;1&#x3D;c_0+c_1 \tag 1<br>$$</p>
+<p>$$<br>f&#x3D;x, \int_{-1}^0xdx &#x3D; -\frac 12 &#x3D; -c_0+c_1x_1 \tag2<br>$$</p>
+<p>$$<br>f&#x3D;x^2, \int_{-1}^0 x^2dx&#x3D;\frac 13 &#x3D; c_0+c_1x_1^2 \tag3<br>$$</p>
+<p>现在我们有3个equaltion, 3 unknown, 我们希望能求解它们</p>
+<p>$(1)+(2)$<br>$$<br>\frac 12 &#x3D; c_1+c_1x_1&#x3D;c_1(1+x_1)<br>$$<br>$(3)-(1)$<br>$$<br>-2&#x2F;3&#x3D;c_1x_1^2-c_1&#x3D;c_1(x_1-1)(x_1+1)&#x3D;1&#x2F;2(x_1-1)<br>$$<br>解得</p>
+<p>$x_1 &#x3D; -1&#x2F;3, c_1&#x3D;3&#x2F;4, c_0&#x3D;1&#x2F;4$</p>
+<p>把这些值放入cubic中<br>$$<br>f&#x3D;x^3, \int_{-1}^0 x^3dx&#x3D;-\frac 14 \ne -c_0+c_1x_1^3<br>$$<br>所以 not exact for cubics, 这意味着 degree of precision is 2</p>
+<br>
+
+<br>
+
+<h1 id="Numerical-method-for-initial-value-problems-for-ordinary-differential-equations"><a href="#Numerical-method-for-initial-value-problems-for-ordinary-differential-equations" class="headerlink" title="Numerical method for initial value problems for ordinary differential equations"></a>Numerical method for initial value problems for ordinary differential equations</h1><p>many problems in science and engineering can be described in terms of differential equations</p>
+<p>differential equations give us a way to mathematically express and study quantities with rates of change</p>
+<p>例子:</p>
+<p>让$y(t)$ 代表某一段时间的人口, 如果他有constant growth rate $\alpha$ (The difference between a constant birth rate and death rate) then the differential equation<br>$$<br>y’(t)&#x3D;\alpha y(t)<br>$$<br>with initial condition $y(0)&#x3D;y_0$ describes the population growth</p>
+<p>$$<br>\frac {y’} y &#x3D; \alpha<br>$$</p>
+<p>$$<br>D_t(\ln(y(t)))&#x3D;\alpha<br>$$</p>
+<p>$$<br>\ln(y(t))&#x3D;\alpha t +\text {const}<br>$$</p>
+<p>$$<br>y(t)&#x3D;ce^{\alpha t}, c &#x3D; e^{\text {const}}<br>$$</p>
+<p>由于<br>$$<br>y(0)&#x3D;c&#x3D;y_0<br>$$<br>所以<br>$$<br>y(t)&#x3D;y_0e^{\alpha t}<br>$$<br>这个结果short times 可能有用, 但是large times 这个结论并不realistic</p>
+<p>因为当 $t\to \inf, y \to \inf$</p>
+<p>更relistically, 应该有另一个term<br>$$<br>y’(t)&#x3D;\alpha y(t)-\beta y(t)^2<br>$$<br>$\beta y(t)^2$ 可能表示competition with another species or some sort of limit to growth.</p>
+<p>然而仅仅添加这一个term, 我们就无法向上面一样进行计算. 我们需要用numerics 来解决这个问题</p>
+<p>通常 realistic initial value problem 需要用 numerical method 来approxmiate solution</p>
+<br>
+
+<br>
+$$
+\frac {dy}{dt}=f(t, y),\ \ \ for \ a\le t \le b
+$$
+initial $y(a) = \alpha $
+
+<blockquote>
+<p>定义: A function $f(t, y)$ satisfies a Lipschitz condition in the variable $y$ on a set $D \in R^2$ if a constant $L &gt; 0$ exists such that<br>$$<br>|f(t, y_1)-f(t, y_2)|\le L|y_1-y_2|<br>$$<br>whenever $(t, y_1), (t, y_2)\in D$</p>
+<p>The constant $L$ is called a Lipschitz constant</p>
+<p>就是说如果我们有small change in $y$, 那么就会得到 small changes in $f$</p>
+</blockquote>
+<p>Exmaple:</p>
+<p>Does $f(t,y)&#x3D;ty$ satisfy a Lipschitz condition on $D&#x3D;(t, y):0\le t \le 1, -\inf &lt; y &lt; \inf$. If so what is $L$?</p>
+<p>$$<br>|f(t, y_1)-f(t, y_2)|&#x3D;|ty_1-ty_2| &#x3D; |t||y_1-y_2|<br>$$</p>
+<p>$$<br>\le |y_1-y_2|<br>$$</p>
+<p>所以 $L &#x3D; 1$</p>
+<br>
+
+<p>再看另一个例子:</p>
+<p>Does $f(t,y)&#x3D;-ty+4t&#x2F;y$ satisfy a Lipschitz condition on $D&#x3D;(t, y):0\le t \le 1, -\inf &lt; y &lt; \inf$. If so what is $L$?<br>$$<br>|f(t, y_1)-f(t, y_2)|&#x3D;|-ty_1+4t&#x2F;y_1 + ty_2-4t&#x2F;y_2|<br>$$<br>如果让 $y_1&#x3D;-1, t&#x3D;1, y_2\to 0^+$ </p>
+<p>那么 这个式子就会趋近与正无穷, 所以不满足条件</p>
+<br>
+
+<blockquote>
+<p>定义: A set $D \in R^2$ is said to be convex if whenever $(t,y_1), (t, y_2)$ belong to $D$ the point $((1-\lambda)t_1+\lambda t_2,\ (1-\lambda)y_1+\lambda y_2)$ also belongs to $D$ for each $\lambda \in [0, 1]$</p>
+<p><img src="/Blog/Blog/intro/macm316/convex.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>就是说任意$D$中两点练成的线也在$D$中, 那么D就是convex</p>
+</blockquote>
+<p><img src="/Blog/Blog/intro/macm316/convex_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>所以这个D是convex</p>
+<blockquote>
+<p>Theorem:</p>
+<p>假设 $f(t,y)$ is defined on a convex set $D \in R^2$ If a constant $L&gt;0$ exists with<br>$$<br>|\frac {\partial f (t, y)} {\partial y}| \le L<br>$$<br>for all $(t, y)\in D$ then $f$ satisfies a Lipschitz condition on $D$ in the variable $y$ with Lipschitz constant $L$</p>
+<p>证明:</p>
+<p>Let $(t,y_1), (t,y_2)$ be in $D$, 让$t$保持不变, 定义 $g(y)&#x3D;f(t,y)$, 假设 $y_1&lt;y_2$ 由于 line joining $(t,y_1), (t,y_2)$ 在 $D$ 中 且 $f$ is continuous on $D$, 我们有 $g\in C[y_1, y_2]$<br>$$<br>g’(y) &#x3D;\frac {\partial f (t, y)} {\partial y}<br>$$<br>通过 Mean Value Theorem<br>$$<br>g(y_2) - g(y_1)&#x3D;g’(\delta)(y_2 - y_1)<br>$$<br>就是说<br>$$<br>f(t,y_2)-f(t,y_1)&#x3D;\frac {\partial f}{\partial y}(y_2-y_1)<br>$$</p>
+<p>$$<br>|f(t,y_2)-f(t,y_1)|&#x3D;|\frac {\partial f}{\partial y}||(y_2-y_1)| \le L |y_2-y_1|<br>$$</p>
+</blockquote>
+<p>通过上面的定理, 我们在做一下这道题</p>
+<p>Does $f(t,y)&#x3D;ty$ satisfy a Lipschitz condition on $D&#x3D;(t, y):0\le t \le 1, -\inf &lt; y &lt; \inf$. If so what is $L$?</p>
+<p>首先 $D$ 是 convex</p>
+<p>$|\frac {\partial f}{\partial y}| &#x3D; |t| \le 1$</p>
+<p>所以 $f$  satisfy a Lipschitz condition, $L&#x3D;1$</p>
+<br>
+
+<blockquote>
+<p>定理: </p>
+<p>假设 <code>D=&#123;(t,y): a&lt;=t&lt;=b, -inf &lt; y &lt; inf&#125;</code>, $f(t, y)$ is continuous on $D$.</p>
+<p>如果$f$ satisfies a Lipschitz condition on $D$ in the variable $y$, then the IVP (initial value problem)<br>$$<br>y’(t)&#x3D;f(t, y), \ a\le t \le b, y(a)&#x3D;\alpha<br>$$<br>has a unique solution $y(t)$ for $a\le t \le b$</p>
+</blockquote>
+<br>
+
+<p>例如:</p>
+<p>show that the IVP $y’&#x3D;y\cdot \cos (t), 0\le t \le 1, y(0)&#x3D;1$ has a unqiue solution<br>$$<br>|\frac {\partial f}{\partial y}|&#x3D;|\cos (t)| \le 1<br>$$<br>所以$L&#x3D;1$ and f satisfies a Lipschitz condition. 所以有unique solution</p>
+<br>
+
+<br>
+
+<blockquote>
+<p> 定理:</p>
+<p>The initial value problem<br>$$<br>y’(t)&#x3D;f(t, y), \ a\le t \le b, y(a)&#x3D;\alpha<br>$$<br>is said to be well-posed if:</p>
+<ul>
+<li><p>A unique solution $y(t)$ to the problem exists</p>
+</li>
+<li><p>There exists constants $\epsilon_0&gt;0, k&gt;0$ s.t. for any $\epsilon$ with $\epsilon_0 &gt; \epsilon &gt; 0$ whenever $\delta(t)$ is CTS with $|\delta(t)|&lt;\epsilon$ for all $t\in [a,b]$ and when $|\delta_0| &lt; \epsilon$ the IVP<br> $$<br>\frac {dz}{dt}&#x3D;f(t,z)+\delta(t), a\le t\le b<br> $$</p>
+</li>
+</ul>
+<p> $$<br>  z(a)&#x3D;\alpha + \delta_0<br> $$</p>
+<p>  has a unique solution $z(t)$ that satisfies<br> $$<br>  |z(t)-y(t)|\le k\epsilon<br> $$<br>  for all $t\in [a,b]$</p>
+<p>第二个就是说 change differential equation by $\delta (t)$</p>
+<p>同时change initial condition by $\delta_0$</p>
+<p>If those perturbation are both small, then the change in the solution is also small $|z(t)-y(t)|\le k\epsilon$</p>
+</blockquote>
+<p>尽管这个定理一般不用, 但它说明了一下问题</p>
+<p>The perturbed problem assumes the possiblity of an error<br>$$<br>|\delta(t)| &lt; \epsilon<br>$$<br>being introduced in the statement of the differential equation as well as an error<br>$$<br>|\delta_0|&lt;\epsilon<br>$$<br>being present in the initial condition</p>
+<blockquote>
+<p>Numerical methods always solve perturbed problems since round off errors perturb the original problem</p>
+<p>因此我们只关注solve well-posed problem</p>
+</blockquote>
+<br>
+
+<blockquote>
+<p>Theorem : check well posedness</p>
+<p>假设 <code>D=&#123;(t,y): a&lt;=t&lt;=b, -inf &lt; y &lt; inf&#125;</code></p>
+<p>如果 $f$ is CTS(continuous) and satisfies a Lipschite condition in the variable $y$ on the set $D$ then the IVP<br>$$<br>\frac {dy}{dt}&#x3D;f(t,y), a\le t \le b<br>$$</p>
+<p>$$<br>y(a)&#x3D;\alpha<br>$$</p>
+<p>is well posed</p>
+</blockquote>
+<p>例题:</p>
+<p>show that the IVP $y’&#x3D;t^2y+1, 0\le t\le 1, y(0)&#x3D;1$ is well-posed<br>$$<br>|\frac {\partial (t^2y+1)}{\partial y}| &#x3D; t^2 \le 1<br>$$<br>satisfies Lipschite condition, 同时 $t^2y+1$ 是 continuous, 所以 这个问题是 well-posed</p>
+<br>
+
+<h2 id="Euler’s-Method"><a href="#Euler’s-Method" class="headerlink" title="Euler’s Method"></a>Euler’s Method</h2><p>consider the IVP:<br>$$<br>y’&#x3D;f(t,y), a\le t\le b<br>$$</p>
+<p>$$<br>y(a)&#x3D;y_0<br>$$</p>
+<p>we will compute an approximation to the solution at the mesh points<br>$$<br>t_k&#x3D;a+kh,\ \ \ k&#x3D;0,1,\cdots N<br>$$<br>where $h&#x3D;(b-a)&#x2F;N$ is called the <strong>step size</strong></p>
+<p>使用taylor expansion<br>$$<br>y(t_{k+1}) &#x3D; y(t_k+h) &#x3D; y(t_k)+hy’(t_k)+\frac {h^2}2y’’(\delta_k)<br>$$</p>
+<p>$$<br>&#x3D;y(t_k)+hf(t_k,y(t_k))+\frac {h^2}2y’’(\delta_k)<br>$$</p>
+<p>也就是说<br>$$<br>w_{k+1}&#x3D;w_k+hf(t_k,w_k)<br>$$<br>Euler’s Method constructs an approximation<br>$$<br>w_k\approx y(t_k)<br>$$<br>by dropping the remainder term<br>$$<br>w_0&#x3D;y_0<br>$$</p>
+<p>$$<br>w_{k+1}&#x3D;w_k+hf(t_k,w_k), \ \ \ k&#x3D;0,1,\cdots N-1<br>$$</p>
+<br>
+
+<p>Euler’s Method 的 error anaysis 很简单</p>
+<blockquote>
+<p>Lamma:</p>
+<p>If $s, t$ are positive real numbers and ${a_i}_{i&#x3D;0}^{k}$ is a sequence satisfying<br>$$<br>a_0 \ge -\frac {t}{s}<br>$$</p>
+<p>$$<br>a_{i+1}\le (1+s)a_i+t, i&#x3D;0, 1, \cdots k<br>$$</p>
+<p>then $a_{i+1}\le e^{(i+1)s}(a_0+t&#x2F;s)-t&#x2F;s$</p>
+<p><img src="/Blog/Blog/intro/macm316/lamma_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</blockquote>
+<blockquote>
+<p>Thm:</p>
+<p>Suppose $f$ is CTS and satisfies a Lipschitz condition with constant $L$ on <code>D=&#123;(t,y):a&lt;=t&lt;=b, -inf&lt;y&lt;inf&#125;</code></p>
+<p>and a constant $M$ exists with the property that $|y’’(t)|\le M$</p>
+<p>Let $y(t)$ denote the unqiue solution to the IVP<br>$$<br>y’&#x3D;f(t, y), a\le t\le b<br>$$</p>
+<p>$$<br>y(a)&#x3D;y_0<br>$$</p>
+<p>and $w_0, w_1\cdots w_N$ be the approxiamteions generated by Euler’s Method.</p>
+<p>Then for each $i&#x3D;0,1,…N$<br>$$<br>|y(t_i)-w_i|\le \frac {hM}{2L}[e^{L(t_i-a)}-1]<br>$$<br><br></p>
+<p>Proof:</p>
+<p>First, it is clearly true for $i&#x3D;0$</p>
+<p>Consider $i&#x3D;1,2\cdots$<br>$$<br>|y(t_{i+1})-w_{i+1}|&#x3D;|y(t_i)-w_i+h[f(t_i, y_i)-f(t_i, w_i)+\frac {h^2} 2 y’’(\delta_i)|<br>$$</p>
+<p>$$<br>\le |y(t_i)-w_i|+h|f(t_i, y_i)-f(t_i, w_i)|+\frac {h^2}2|y’’(\delta_i)|<br>$$</p>
+<p>$$<br>\le |y(t_i)-w_i|+h|y(t_i)-w_i|+\frac {h^2}2M<br>$$</p>
+<p>rearrange and apply Lemma obtain result.</p>
+<br>
+
+<p>注意这个Theorem 需要 $|y’’(t)|\le M$</p>
+<p>然而我们可能得不到$y’’$, 但是如果$\frac {\partial f}{\partial t}, \frac {\partial f}{\partial y}$存在<br>$$<br>y’’(t)&#x3D;\frac d {dt} y’(t) &#x3D; \frac d{dt}f(t, y(t))<br>$$</p>
+<p>$$<br>&#x3D;\frac {\partial  f}{\partial t}(t, y(t))+\frac {\partial  f}{\partial  y}(t,y(t))\cdot f(t, y(t))<br>$$</p>
+</blockquote>
+<p>Example:</p>
+<p>What value of $h$ is needed to ensure that<br>$$<br>|y(t_i)-w_i|\le 0.1<br>$$<br>for the IVP<br>$$<br>y’&#x3D;\frac 2 t y+t^2e^t, \ \ 1\le t\le 2<br>$$</p>
+<p>$$<br>y(1)&#x3D;0<br>$$</p>
+<p>you are given $y’’(t)&#x3D;(2+4t+t^2)e^t-2e$</p>
+<br>
+
+<p>解:</p>
+<p>$y’’(t)$ is increasing, so $|y’’(t)|\le |y’’(2)|\approx 98.0102$</p>
+<p>Need $L$: $|\frac {\partial }{\partial y}(\frac 2{ty}+t^2e^t)|&#x3D;|2&#x2F;t|\le 2$<br>$$<br>\text {absolute error} \le \frac {hM}{2L}[e^{L(t_i-a)}-1]\le0.1<br>$$<br>$t\in [a,b]&#x3D;[1,2]$</p>
+<p>Largest error bound when $t_i&#x3D;2$<br>$$<br>h\le 0.00064<br>$$<br><br></p>
+<br>
+
+<p>Euler’s Method 简单, 但error较大, 我们需要small $h$ 来得到 small error.</p>
+<p>因此当我们需要small error时,这个方法并不efficient.</p>
+<p>因此我们要develop 其他 方法, 同时我们要compare the error of various method</p>
+<br>
+
+<p>我们有一个numerical method:<br>$$<br>w_i&#x3D;w_i+h\phi(t_i, w_i)<br>$$</p>
+<p>$$<br>\frac {w_{i+1}-w_i}{h} -\phi(t_i, w_i)&#x3D;0<br>$$</p>
+<p>由于: $w_i \approx y(t_i)$<br>$$<br>\frac {y(t_i+1)-y(t_i)}{h}-\phi(t_i, y(t_i))\approx 0<br>$$<br>The closer this formula tends to 0, the better the numerical method</p>
+<br>
+
+<blockquote>
+<p>定义:</p>
+<p>The difference method<br>$$<br>w_0&#x3D;\alpha<br>$$</p>
+<p>$$<br>w_{i+1}&#x3D;w_i+h\phi(t_i,w_i)<br>$$</p>
+<p>has local truncation error<br>$$<br>\tilde l_{i+1}(h) &#x3D; \frac {y(t_{i+1})-(y(t_i)+h\phi(t_i, y(t_i)))}{h}<br>$$</p>
+<p>$$<br>&#x3D;\frac {y(t_{i+1})-y(t_i)}{h} -\phi(t_i, y(t_i))<br>$$</p>
+<p>$i&#x3D;0,1,…N-1$</p>
+</blockquote>
+<br>
+
+<p>Ex: Euler’s Method:</p>
+<p>The difference method<br>$$<br>w_0&#x3D;\alpha<br>$$</p>
+<p>$$<br>w_{i+1}&#x3D;w_i+hf(t_i, w_i)<br>$$</p>
+<p>has local truncation error<br>$$<br>\tilde l_{i+1}(h) &#x3D;\frac {y(t_{i+1})-y(t_i)}{h} -f(t_i, y(t_i))<br>$$<br>Taylor 展开<br>$$<br>&#x3D;\frac {y(t_i)+hy’(t_i)+\frac {h^2}2y’’(\delta) - y(t_i)} h - f(t_i, y(t_i))<br>$$<br>由于 $y’(t_i)&#x3D;f(t_i, y(t_i))$, cancel 后<br>$$<br>&#x3D;\frac h 2 y’’(\delta)<br>$$<br>$\delta \in (t_i ,t_{i+1})$<br>$$<br>|y’’(t)|\le M<br>$$</p>
+<p>$$<br>|\tilde l_{i+1}|\le \frac h2M<br>$$</p>
+<br>
+
+<br>
+
+<p>Local truncation error are called local because they measure the accuracy of the method at a specific step, assuming the method was exact at the previous steps</p>
+<p>We want the local truncation error to be small and typically what we found local truncation error take the form $O(h^p)$ </p>
+<p>With Euler’s Method $p&#x3D;1$, $O(h)$</p>
+<p>我们希望build method with large $p$</p>
+<br>
+
+<br>
+
+<h2 id="Taylor-Methods-and-Runge-Kutta"><a href="#Taylor-Methods-and-Runge-Kutta" class="headerlink" title="Taylor Methods and Runge-Kutta"></a>Taylor Methods and Runge-Kutta</h2><p>已知:<br>$$<br>y’&#x3D;f(t,y),\ \ \ a\le t\le b<br>$$</p>
+<p>$$<br>y(0)&#x3D;\alpha<br>$$</p>
+<p>where $y(t)&#x3D;C^{(n+1)}[a,b]$</p>
+<p>one approach is to expand the solution in terms of $n$th Taylor polynomial about $t_i$<br>$$<br>y(t_{i+1})&#x3D;y(t_i)+hy’(t_i)+\frac {h^2}2y’’(t_i)+\cdots +\frac {h^n}{n!}y^{(n)(t_i)}+R<br>$$</p>
+<p>$R&#x3D;\frac {h^{n+1}}{(n+1)!}y^{n+1}(\delta)$<br>$$<br>w_{i+1}&#x3D;w_i+hf(t_i,w_i)+\frac {h^2}2f’(t_i, w_i)+\frac {h^3}{3!}f’’(t_i, w_i)+\cdots<br>$$<br>这就是Taylor Method of Order $n$<br>$$<br>w_0&#x3D;\alpha<br>$$</p>
+<p>$$<br>w_{i+1}&#x3D;w_i+hT^{(n)}(t_i,w_i), i&#x3D;0,1,…N-1<br>$$</p>
+<p>Where $T^{(n)}(t_i, w_i) &#x3D; f(t_i,w_i)+\frac h 2 f’(t_i, w_i)+\cdots+ \frac {h^{n-1}}{n!}f^{n-1}(t_i,w_i)$</p>
+<p>如果我们取消后边的term 只保留 $f(t_i,w_i)$, 那他就变成Euler’s Method. 也就是说 Euler’s Method 是 Order 1 的 Taylor Method</p>
+<br>
+
+<br>
+
+<p>Example: 使用 order 2 Taylor method approximate the solution for IVP<br>$$<br>y’&#x3D;te^{3t}-2y,\ \ 0\le t\le 1<br>$$</p>
+<p>$$<br>y(0)&#x3D;0,\ \ \ h&#x3D;0.5<br>$$</p>
+<p>ans:<br>$$<br>f(t_i, w_i)&#x3D;t_ie^{3t_i}-2w_i<br>$$</p>
+<p>$$<br>f’(t_i, w_i) &#x3D; \frac {\partial f}{\partial t}+\frac {\partial f}{\partial w}\frac {dy}{dt}|_{t_i, w_i}<br>$$</p>
+<p>$$<br>&#x3D;e^{3t}+3te^{3t}+(-2)(te^{3t}-2y)|_{t_i, w_i}<br>$$</p>
+<p>$$<br>&#x3D;t_ie^{3t_i}+e^{3t_i}+4w_i<br>$$</p>
+<p>we have<br>$$<br>w_0&#x3D;0<br>$$</p>
+<p>$$<br>w_1&#x3D;w_0+h(t_0e^{3t_0}-2w_0)+\frac {h^2}2(t_0e^{3t_0}+e^{3t_0}+4w_0)&#x3D;0.125<br>$$</p>
+<p>$$<br>w_2&#x3D;w_1+h(t_1e^{3t_1}-2w_1)+\frac {h^2}2(t_1e^{3t_1}+e^{3t_1}+4w_1)\approx 2.02323897<br>$$</p>
+<p>以此类推, 如果我们希望 $t\in (t_{i-1}, t_i)$</p>
+<p>一种方法是使用 interpolation of sufficient accuracy</p>
+<p>假设 time stepping method had local truncation error order $O(h^p)$ then want interpolation error $O(h^p)$</p>
+<p>Cubic Hermit interpolation is particularly attractive.</p>
+<p>we have $w_i\approx y(t_i), f(t_i,w_i)\approx y’(t_i)$, Gives error $O(h^4)$</p>
+<p>如果使用 very high order time stepping method, 那么就需要用 high order interpolation</p>
+<br>
+
+<br>
+
+<h3 id="Local-trunction-error-for-Taylor’s-Method"><a href="#Local-trunction-error-for-Taylor’s-Method" class="headerlink" title="Local trunction error for Taylor’s Method"></a>Local trunction error for Taylor’s Method</h3><p>$$<br>y_{i+1}&#x3D;y_i+hf(t_i, y_i)+\frac {h^2} 2f’(t_i, y_i)+\cdots+\frac {h^n}{n!}f^{n-1}(t_i, y_i)+\frac {h^{n+1}}{(n+1)!}f^{n}(\delta_i, y(\delta_i))<br>$$</p>
+<p>$y_i&#x3D;y(t_i)$</p>
+<br>
+
+<p>根据local trunction error 写出formula<br>$$<br>\tilde l_{i+1}(h)&#x3D;\frac {y_{i+1}-y_i}h - f(t_i, y_i)-\frac h2 f’(t_i, y_i)-\cdots -\frac {h^{n-1}} {n!}f^{(n-1)}(t_i, y_i)<br>$$</p>
+<p>$$<br>&#x3D;\frac {h^n}{(n+1)!}f^{(n)}(\delta_i, y(\delta_i))<br>$$</p>
+<p>因此这个方法是$O(h^n)$</p>
+<br>
+
+<h2 id="Runge-Kutta-Method"><a href="#Runge-Kutta-Method" class="headerlink" title="Runge-Kutta Method"></a>Runge-Kutta Method</h2><p>Taylor method are seldom used in practice.</p>
+<p>因为它需要 computation and evaluation of derivatives of $f$</p>
+<p>Runge-Kutta Method 同样是高精度, 而且它不需要求导<br>$$<br>w_{n+1} &#x3D; w_n+aK_1+bK_2<br>$$<br>$K_1, K_2$ 是function evaluation</p>
+<p>$K_1&#x3D;hf(t_n,w_n)$</p>
+<p>$K_2&#x3D;hf(t_n+\alpha h,w_n+\beta K_1)$</p>
+<p>rewrite:<br>$$<br>w_{n+1} &#x3D; w_n+ahf(t_n,w_n)+bhf(t_n+\alpha h,w_n+\beta hf(t_n,w_n))<br>$$<br>local truncation error is:<br>$$<br>\tilde l_{n+1}(h)&#x3D;\frac {y_{n+1}-y_n}{h}-af(t_n, y_n)-bf(t_n+\alpha h,w_n+\beta hf(t_n,w_n))<br>$$<br>Apply Taylor series:<br>$$<br>y_{n+1}&#x3D;y_n+hf(t_n, y_n)+\frac {h^2}2f’(t_n, y_n)+O(h^3)<br>$$<br><br></p>
+<p>使用Taylor series with 2 variable<br>$$<br>f(t_n+\alpha h,w_n+\beta hf(t_n,w_n))<br>$$</p>
+<p>$$<br>&#x3D;f(t_n,y_n)+f_t(t_n, y_n)\alpha h + f_y(t_n, y_n)f(t_n,y_n)\beta h +O(h^2)<br>$$</p>
+<p>化简<br>$$<br>\tilde l_{n+1}(h) &#x3D; (1-a-b)f(t_n, y_n)+h(\frac 12 - \alpha b)f_t(t_n, y_n)+h(\frac 12 -\beta b)f_y(t_n, y_n)f(t_n, y_n)+O(h^2)<br>$$<br>如果我们希望local truncation error 是 $O(h^2)$</p>
+<p>那么就需要<br>$$<br>1-a-b&#x3D;0<br>$$</p>
+<p>$$<br>1&#x2F;2 -\alpha b&#x3D;0<br>$$</p>
+<p>$$<br>1&#x2F;2 -\beta b&#x3D;0<br>$$</p>
+<p>4 unknow, 3 function, 所以 有 1 parameter family of solution.</p>
+<p>gives $O(h^2)$</p>
+<p>$a&#x3D;0, b&#x3D;1, \alpha&#x3D;1&#x2F;2, \beta&#x3D;1&#x2F;2$ Midpoint method</p>
+<p>$a&#x3D;1&#x2F;2, b&#x3D;1&#x2F;2, \alpha&#x3D;1, \beta&#x3D;1$ Modified Euler</p>
+<p>$a&#x3D;1&#x2F;4, b&#x3D;3&#x2F;4, \alpha &#x3D; 2&#x2F;3, \beta&#x3D;2&#x2F;3$ Hean’s method</p>
+<p>更高order的Runge-Kutta method的function更难解</p>
+<br>
+
+<p>常用的Forth order</p>
+<p><img src="/Blog/Blog/intro/macm316/forth_order.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th>evaluation per step</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>$5\le n\le 7$</th>
+<th>$8\le n\le 9$</th>
+<th>$n&gt;10$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Best LTE</td>
+<td>$O(h^2)$</td>
+<td>$O(h^3)$</td>
+<td>$O(h^4)$</td>
+<td>$O(h^{n-1})$</td>
+<td>$O(h^{n-2})$</td>
+<td>$O(h^{n-3})$</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2021/04/29/FFT/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">FFT</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2021/01/06/design-pattern/">
+                        <span class="hidden-mobile">23种基本设计模式</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

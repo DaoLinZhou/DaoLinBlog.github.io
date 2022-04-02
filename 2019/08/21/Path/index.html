@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="为什么寻路算法要单独封装成一个类, 而不是在图内部实现?  因为效率, 通过创建类, 路的数据可以保存在对象中, 不用每一次寻路都执行一遍逻辑. 节省空间, 我们并不是要所有路径, 我们所关注的只有少量的路径, 所以需要哪些路径就创建哪些. 代码复用, 由于稀疏图和稠密图的接口一致, 所以外部实现可以同时对两种图起作用.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图论(三)-寻路">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/08/21/Path/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="为什么寻路算法要单独封装成一个类, 而不是在图内部实现?  因为效率, 通过创建类, 路的数据可以保存在对象中, 不用每一次寻路都执行一遍逻辑. 节省空间, 我们并不是要所有路径, 我们所关注的只有少量的路径, 所以需要哪些路径就创建哪些. 代码复用, 由于稀疏图和稠密图的接口一致, 所以外部实现可以同时对两种图起作用.">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-21T07:21:43.000Z">
+<meta property="article:modified_time" content="2020-08-26T21:12:53.212Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="图论算法">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>图论(三)-寻路 - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/L.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="图论(三)-寻路">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-08-21 00:21" pubdate>
+        August 21, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">图论(三)-寻路</h1>
+            
+            <div class="markdown-body">
+              <p>为什么寻路算法要单独封装成一个类, 而不是在图内部实现?</p>
+<ol>
+<li>因为效率, 通过创建类, 路的数据可以保存在对象中, 不用每一次寻路都执行一遍逻辑.</li>
+<li>节省空间, 我们并不是要所有路径, 我们所关注的只有少量的路径, 所以需要哪些路径就创建哪些.</li>
+<li>代码复用, 由于稀疏图和稠密图的接口一致, 所以外部实现可以同时对两种图起作用.</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="实现-深度优先遍历"><a href="#实现-深度优先遍历" class="headerlink" title="实现-深度优先遍历"></a>实现-深度优先遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_PATH_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_PATH_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Graph&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Path</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    Graph &amp;G;<br>    <span class="hljs-type">bool</span>* visited;<br>    <span class="hljs-type">int</span> s;      <span class="hljs-comment">// 起始点</span><br>    <span class="hljs-type">int</span>* from;  <span class="hljs-comment">// 保存每个点的前一个点</span><br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span></span>&#123;<br>        visited[v] = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">typename</span> Graph::adjIterator <span class="hljs-title">adj</span><span class="hljs-params">(G, v)</span></span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = adj.<span class="hljs-built_in">begin</span>(); !adj.<span class="hljs-built_in">isEnd</span>(); i = adj.<span class="hljs-built_in">next</span>())&#123;<br>            <span class="hljs-keyword">if</span>(!visited[i]) &#123;<br>            <span class="hljs-comment">// 这里对from进行填充, i是和v有相邻边的节点, v是本节点, 所以可以从v走到i</span><br>                from[i] = v;    <br>                <span class="hljs-built_in">dfs</span>(i);<br>            &#125;<br>        &#125;<br>    &#125;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Path</span>(Graph &amp;graph, <span class="hljs-type">int</span> s):<span class="hljs-built_in">G</span>(graph)&#123;<br>        <span class="hljs-built_in">assert</span>(s &gt;= <span class="hljs-number">0</span> &amp;&amp; s &lt; G.<span class="hljs-built_in">V</span>());<br><br>        visited = <span class="hljs-keyword">new</span> <span class="hljs-type">bool</span>[G.<span class="hljs-built_in">V</span>()];<br>        from = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[G.<span class="hljs-built_in">V</span>()];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; G.<span class="hljs-built_in">V</span>(); i++)&#123;<br>            visited[i] = <span class="hljs-literal">false</span>;<br>            from[i] = <span class="hljs-number">-1</span>;<br>        &#125;<br>        <span class="hljs-keyword">this</span>-&gt;s = s;<br><br>        <span class="hljs-comment">// 初始化路径相关信息</span><br>        <span class="hljs-built_in">dfs</span>(s);<br>    &#125;<br><br>    ~<span class="hljs-built_in">Path</span>()&#123;<br>        <span class="hljs-keyword">delete</span>[] visited;<br>        <span class="hljs-keyword">delete</span>[] from;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasPath</span><span class="hljs-params">(<span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; G.<span class="hljs-built_in">V</span>());<br>        <span class="hljs-comment">// 从w到起始点,如果有路径, 那么遍历时一定会访问到, visited就会为true</span><br>        <span class="hljs-keyword">return</span> visited[w];  <br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-type">int</span> w, vector&lt;<span class="hljs-type">int</span>&gt; &amp;vec)</span></span>&#123;     <span class="hljs-comment">// 传递的是vector的饮用</span><br>        stack&lt;<span class="hljs-type">int</span>&gt; s;<br>        <span class="hljs-type">int</span> p = w;<br>        <span class="hljs-keyword">while</span>(p != <span class="hljs-number">-1</span>)&#123;     <span class="hljs-comment">// 从w倒推到起始点的路径, 起始点的 from 为 -1</span><br>            s.<span class="hljs-built_in">push</span>(p);<br>            p = from[p];<br>        &#125;<br>        vec.<span class="hljs-built_in">clear</span>();        <span class="hljs-comment">// 以防万一, 先清空</span><br>        <span class="hljs-keyword">while</span> (!s.<span class="hljs-built_in">empty</span>())&#123;<br>            vec.<span class="hljs-built_in">push_back</span>(s.<span class="hljs-built_in">top</span>());<br>            s.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showPath</span><span class="hljs-params">(<span class="hljs-type">int</span> w)</span></span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; vec;<br>        <span class="hljs-built_in">path</span>(w, vec);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            cout &lt;&lt; vec[i];<br>            <span class="hljs-keyword">if</span>(i == vec.<span class="hljs-built_in">size</span>() <span class="hljs-number">-1</span>)<br>                cout &lt;&lt; endl;<br>            <span class="hljs-keyword">else</span><br>                cout &lt;&lt; <span class="hljs-string">&quot;-&gt;&quot;</span>;<br>        &#125;<br>    &#125;<br><br>&#125;;<br><br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_PATH_H</span></span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="实现-广度优先遍历"><a href="#实现-广度优先遍历" class="headerlink" title="实现-广度优先遍历"></a>实现-广度优先遍历</h2><p>之前也说过, 栈和递归适合深度优先遍历, 队列适合广度优先遍历</p>
+<p>广度优先寻路在图中还有一个特殊的意义—最短路径</p>
+<p>从起始点开始, 每次向周围节点走一步, 第一个到达目标节点的, 就是最短路径</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_SHORTESTPATH_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_SHORTESTPATH_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Graph&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ShortestPath</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    Graph &amp;G;<br>    <span class="hljs-type">bool</span>* visited;<br>    <span class="hljs-type">int</span>* from;<br>    <span class="hljs-type">int</span> s;  <span class="hljs-comment">// 起始点</span><br>    <span class="hljs-type">int</span>* ord;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">ShortestPath</span>(Graph &amp;graph, <span class="hljs-type">int</span> s):<span class="hljs-built_in">G</span>(graph)&#123;<br><br>        <span class="hljs-built_in">assert</span>(s &gt;= <span class="hljs-number">0</span> &amp;&amp; s &lt; graph.<span class="hljs-built_in">V</span>());<br><br>        <span class="hljs-keyword">this</span>-&gt;s = s;<br>        visited = <span class="hljs-keyword">new</span> <span class="hljs-type">bool</span>[graph.<span class="hljs-built_in">V</span>()];<br>        from = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[graph.<span class="hljs-built_in">V</span>()];<br>        ord = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[graph.<span class="hljs-built_in">V</span>()];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i &lt; graph.<span class="hljs-built_in">V</span>(); i++)&#123;<br>            visited[i] = <span class="hljs-literal">false</span>;<br>            from[i] = <span class="hljs-number">-1</span>;<br>            ord[i] = <span class="hljs-number">-1</span>;<br>        &#125;<br><br>		<span class="hljs-comment">// 初始化路径相关信息</span><br>        queue&lt;<span class="hljs-type">int</span>&gt; q;<br>        q.<span class="hljs-built_in">push</span>(s);<br>        visited[s] = <span class="hljs-literal">true</span>;<br>        ord[s] = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-type">int</span> count = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())&#123;<br>            <span class="hljs-type">int</span> p = q.<span class="hljs-built_in">front</span>();<br>            q.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-function"><span class="hljs-keyword">typename</span> Graph::adjIterator <span class="hljs-title">adj</span><span class="hljs-params">(G, p)</span></span>;<br><br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=adj.<span class="hljs-built_in">begin</span>(); !adj.<span class="hljs-built_in">isEnd</span>(); i = adj.<span class="hljs-built_in">next</span>())&#123;<br>                <span class="hljs-keyword">if</span>(!visited[i])&#123;<br>                    visited[i] = <span class="hljs-literal">true</span>;<br>                    from[i] = p;<br>                    ord[i] = count;<br>                    q.<span class="hljs-built_in">push</span>(i);<br>                &#125;<br>            &#125;<br>            count ++;<br>        &#125;<br>    &#125;<br><br>    ~<span class="hljs-built_in">ShortestPath</span>() &#123;<br>        <span class="hljs-keyword">delete</span>[] visited;<br>        <span class="hljs-keyword">delete</span>[] from;<br>    &#125;<br>	<br>	<span class="hljs-comment">//下面的代码和深度优先遍历时一样的</span><br>	<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasPath</span><span class="hljs-params">(<span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; G.<span class="hljs-built_in">V</span>());<br>        <span class="hljs-keyword">return</span> visited[w];<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">path</span><span class="hljs-params">(<span class="hljs-type">int</span> w, vector&lt;<span class="hljs-type">int</span>&gt; &amp;vec)</span></span>&#123;<br>        stack&lt;<span class="hljs-type">int</span>&gt; s;<br>        <span class="hljs-type">int</span> p = w;<br>        <span class="hljs-keyword">while</span>(p != <span class="hljs-number">-1</span>)&#123;<br>            s.<span class="hljs-built_in">push</span>(p);<br>            p = from[p];<br>        &#125;<br>        vec.<span class="hljs-built_in">clear</span>();<br>        <span class="hljs-keyword">while</span> (!s.<span class="hljs-built_in">empty</span>())&#123;<br>            vec.<span class="hljs-built_in">push_back</span>(s.<span class="hljs-built_in">top</span>());<br>            s.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showPath</span><span class="hljs-params">(<span class="hljs-type">int</span> w)</span></span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; vec;<br>        <span class="hljs-built_in">path</span>(w, vec);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            cout &lt;&lt; vec[i];<br>            <span class="hljs-keyword">if</span>(i == vec.<span class="hljs-built_in">size</span>() <span class="hljs-number">-1</span>)<br>                cout &lt;&lt; endl;<br>            <span class="hljs-keyword">else</span><br>                cout &lt;&lt; <span class="hljs-string">&quot;-&gt;&quot;</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">length</span><span class="hljs-params">(<span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; G.<span class="hljs-built_in">V</span>());<br>        <span class="hljs-keyword">return</span> ord[w];<br>    &#125;<br><br>&#125;;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_SHORTESTPATH_H</span></span><br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2019/08/25/weight-graph/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">图论(四)-有权图</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2019/08/20/Connected-component/">
+                        <span class="hidden-mobile">图论(二)-连通分量</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

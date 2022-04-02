@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="最小生成树( Minimum Span Trees )是关于有权图的一个重要的算法  什么是生成树 : 对于一个有v个节点的图, 有v-1条边, 连接v个节点 一个图可以有多个生成树, 而 最小生成树 , 则是边的权重之和最小的生成树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图论(五)-最小生成树">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/08/25/Minimum-Span-Trees/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="最小生成树( Minimum Span Trees )是关于有权图的一个重要的算法  什么是生成树 : 对于一个有v个节点的图, 有v-1条边, 连接v个节点 一个图可以有多个生成树, 而 最小生成树 , 则是边的权重之和最小的生成树">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/mst.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/cut.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/proof-cut-pro.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/using-cut-pro.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/kruakal.PNG">
+<meta property="article:published_time" content="2019-08-26T02:51:28.000Z">
+<meta property="article:modified_time" content="2020-09-06T21:31:11.495Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="图论算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/mst.PNG">
+  
+  
+  <title>图论(五)-最小生成树 - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="图论(五)-最小生成树">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-08-25 19:51" pubdate>
+        August 25, 2019 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      59 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">图论(五)-最小生成树</h1>
+            
+            <div class="markdown-body">
+              <p>最小生成树( Minimum Span Trees )是关于有权图的一个重要的算法</p>
+<p><img src="/Blog/Blog/intro/mst.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>什么是<strong>生成树</strong> : 对于一个有v个节点的图, 有v-1条边, 连接v个节点</p>
+<p>一个图可以有多个生成树, 而 <strong>最小生成树</strong> , 则是边的权重之和最小的生成树</p>
+<span id="more"></span>
+
+<p>最小生成树的应用:</p>
+<ol>
+<li>电缆的布线设计 (保证所有节点都有供电, 而电缆的布置费用最低)</li>
+<li>网络设计</li>
+<li>电路设计</li>
+<li>… …</li>
+</ol>
+<br>
+
+<p>通常最小生成树是针对<strong>带权无向图</strong>, 并且是<strong>连通图</strong>.</p>
+<p>如果不是连通图, 我们可以分别从图的每个连通分量上求得所有最小生成树, 而这个结果通常也被成为最小连通森林</p>
+<p>一下算法默认图是连通图, 就像二分搜索算法默认数组有序一样.</p>
+<p><strong>目标</strong> : 找 v-1 条边,  连接 v 个节点,  总权值最小</p>
+<br>
+
+<h1 id="切分定理-Cut-Property"><a href="#切分定理-Cut-Property" class="headerlink" title="切分定理 Cut Property"></a>切分定理 Cut Property</h1><p><em><strong>切分定理</strong></em>   :  给定<strong>任意</strong>切分, 横切边中权值最小的边必然属于最小生成树</p>
+<h2 id="什么是切分"><a href="#什么是切分" class="headerlink" title="什么是切分?"></a>什么是切分?</h2><p>定义 : 把图中节点分成两部分, 就是一个切分 (Cut)</p>
+<p><img src="/Blog/Blog/intro/cut.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="什么是横切边"><a href="#什么是横切边" class="headerlink" title="什么是横切边?"></a>什么是横切边?</h2><p>定义 : 如果一个边的两个端点, 属于 <strong>切分</strong>(Cut) 不同的两边, 这个边称为 <strong>横切边</strong>(Crossing Edge)</p>
+<p>例如上图中, 7-2 之间的边 0.34 就是一个横切边, 它连接蓝色节点和红色节点 </p>
+<br>
+
+<h2 id="简易证明"><a href="#简易证明" class="headerlink" title="简易证明:"></a>简易证明:</h2><p><strong>切分</strong>把一个图分成了两个部分,  这两个部分一定有<strong>横切边</strong> (如果没有横切边图就不连通了).</p>
+<p>我们要证明: 权值最小的横切边一定属于最小生成树</p>
+<p><img src="/Blog/Blog/intro/proof-cut-pro.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>假设:</p>
+<p>​        有一个横切边a, 它不是最小的横切边, 但它属于最小生成树. 同时, 蓝色部分和红色部分都已经求出了它们的最小生成树</p>
+<p>​        由于a不是最小横斜边, 那么就有横切边b小于a, </p>
+<p>​        因为b&lt;a, 所以, b+蓝色部分最小生成树权值+红色部分最小生成树权值 &lt; a+蓝色部分最小生成树权值+红色部分最小生成树权值 &#x3D; 图的最小生成树</p>
+<p>​        因此有一个生成树的权值比图的最小生成树权值更小, 矛盾.</p>
+<br>
+
+<h2 id="切分定理的应用"><a href="#切分定理的应用" class="headerlink" title="切分定理的应用"></a>切分定理的应用</h2><p>注意: 对于给定<strong>任意</strong>切分, 切分定理都生效. </p>
+<p>如果我们对一个图进行切分, 让它分成这样两个部分:</p>
+<ol>
+<li>只有一个节点</li>
+<li>其余所有节点</li>
+</ol>
+<p>那么这个节点的相邻边中最小的边就属于最小生成树</p>
+<p><img src="/Blog/Blog/intro/using-cut-pro.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>其实切分定理可以这样理解:</p>
+<p>对于给定的连通图, 一定有一个最小生成树连接所有的点.</p>
+<p>现在这个最小生成树的大部分都已经完成了. 切分把图分成了两个部分. 这两个部分现在已经有各自的”最小生成树”. 还差一条边把这两部分连接起来形成最后的最小生成树.</p>
+<p>自然要选择最短的横切边使得权值最小.</p>
+</blockquote>
+<br>
+
+<h1 id="Lazy-Prim-算法"><a href="#Lazy-Prim-算法" class="headerlink" title="Lazy Prim 算法"></a>Lazy Prim 算法</h1><p>选取一个节点, 通过切分定理不断扩散. </p>
+<p>当前切分的最小横切边 (从<strong>优先队列</strong>中拿出, 并判断是否满足横切边的要求) 连接的节点划分到以访问的切分, 并且把这个节点的相邻边加入到所有横切边的优先队列中. </p>
+<br>
+
+<p>分析: 使用优先队列, 而且是求最小横切边, 那么一定要用最小堆. MinHeap 和 MaxHeap 相似, 所以就不放代码了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_LAZYPRIMMST_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_LAZYPRIMMST_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Edge.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;../heap/MinHeap.h&quot;</span></span><br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Graph, <span class="hljs-keyword">typename</span> Weight&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">LazyPrimMST</span>&#123;<br><br><span class="hljs-keyword">private</span>:<br>    Graph &amp;G;<br>    MinHeap&lt;Edge&lt;Weight&gt;&gt; pq;   <span class="hljs-comment">// 优先队列 Priority queue</span><br>    <span class="hljs-type">bool</span>* marked;               <span class="hljs-comment">// 记录每个节点是否被访问过</span><br>    vector&lt;Edge&lt;Weight&gt;&gt; mst;   <span class="hljs-comment">// 存储最小生成树的所有边</span><br>    Weight mstWeight;           <span class="hljs-comment">// 记录最小生成树的总权值</span><br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">visit</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(!marked[v]);<br>        marked[v] = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-comment">// 遍历相邻边</span><br>        <span class="hljs-function"><span class="hljs-keyword">typename</span> Graph::adjIterator <span class="hljs-title">adj</span><span class="hljs-params">(G, v)</span></span>;<br>        <span class="hljs-keyword">for</span>(Edge&lt;Weight&gt;* e = adj.<span class="hljs-built_in">begin</span>(); !adj.<span class="hljs-built_in">isEnd</span>(); e = adj.<span class="hljs-built_in">next</span>())&#123;<br>            <span class="hljs-comment">/* 首先当前节点已经访问过了, 如果这个边的另一个节点也被访问过了,</span><br><span class="hljs-comment">             * 这就不是横切边, 只有当没被访问过时才把这条边加入优先队列   */</span><br>            <span class="hljs-keyword">if</span>( !marked[e-&gt;<span class="hljs-built_in">other</span>(v)] )<br>                pq.<span class="hljs-built_in">insert</span>(*e);<br>        &#125;<br>    &#125;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">LazyPrimMST</span>(Graph &amp;graph):<span class="hljs-built_in">G</span>(graph), <span class="hljs-built_in">pq</span>(MinHeap&lt;Edge&lt;Weight&gt;&gt;(graph.<span class="hljs-built_in">E</span>()))&#123;<br>        <span class="hljs-comment">// 初始化</span><br>        marked = <span class="hljs-keyword">new</span> <span class="hljs-type">bool</span>[G.<span class="hljs-built_in">V</span>()];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; G.<span class="hljs-built_in">V</span>(); i++)<br>            marked[i] = <span class="hljs-literal">false</span>;<br>        mst.<span class="hljs-built_in">clear</span>();<br><br>        <span class="hljs-comment">// Lazy Prim</span><br>        <span class="hljs-built_in">visit</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">while</span>(!pq.<span class="hljs-built_in">isEmpty</span>())&#123;<br>            Edge&lt;Weight&gt; e = pq.<span class="hljs-built_in">extractMin</span>();<br>            <span class="hljs-comment">/* 当边加入时两边的节点是不同的, 但有可能通过其他边访问过另一个节点</span><br><span class="hljs-comment">             * 导致两边节点都被访问过了, 所以在取出时要检查一下, 这里体现出Lazy */</span><br>            <span class="hljs-keyword">if</span>(marked[e.<span class="hljs-built_in">v</span>()] == marked[e.<span class="hljs-built_in">w</span>()])<br>                <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-comment">// 通过检查就说明属于最小生成树, 保存进向量</span><br>            mst.<span class="hljs-built_in">push_back</span>(e);<br>            <span class="hljs-comment">/* 这条边的两头一边被访问过, 另一边没有,</span><br><span class="hljs-comment">             * 继续要访问没有被访问过的那个点*/</span><br>            <span class="hljs-keyword">if</span>(!marked[e.<span class="hljs-built_in">v</span>()])  <span class="hljs-comment">// 如果v点没被访问, 就访问v</span><br>                <span class="hljs-built_in">visit</span>(e.<span class="hljs-built_in">v</span>());<br>            <span class="hljs-keyword">else</span>                <span class="hljs-comment">// 反之访问w, 因为必定有一点没被访问</span><br>                <span class="hljs-built_in">visit</span>(e.<span class="hljs-built_in">w</span>());<br>        &#125;<br><br>        <span class="hljs-comment">// 计算mstWeight</span><br>        mstWeight = mst[<span class="hljs-number">0</span>].<span class="hljs-built_in">wt</span>();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;mst.<span class="hljs-built_in">size</span>(); i++)<br>            mstWeight += mst[i].<span class="hljs-built_in">wt</span>();<br>    &#125;<br><br>    ~<span class="hljs-built_in">LazyPrimMST</span>()&#123;<br>        <span class="hljs-keyword">delete</span> [] marked;<br>    &#125;<br><br>    vector&lt;Edge&lt;Weight&gt;&gt; <span class="hljs-built_in">mstEdges</span>()&#123;<br>        <span class="hljs-keyword">return</span> mst;<br>    &#125;<br><br>    <span class="hljs-function">Weight <span class="hljs-title">result</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> mstWeight;<br>    &#125;<br><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_LAZYPRIMMST_H</span></span><br></code></pre></td></tr></table></figure>
+
+<p><strong>时间复杂度分析</strong>:    V(节点数) E(边数)</p>
+<p>所有边都会进入最小堆, while循环执行 E(边数) 次, 每次执行有两个主要操作</p>
+<ol>
+<li>pq.extractMin     log(E) 级别</li>
+<li>visit   遍历节点的所有邻边, 对于邻接表就是E级别, 对于邻接矩阵就是V^2级别. 但由于一般用邻接矩阵表示稠密图, 此时 V^2 约等于 E<ol>
+<li>而在每次遍历中要进行 insert 操作, 也是 log(E) 级别</li>
+</ol>
+</li>
+</ol>
+<p>综合来看 时间复杂度为 <strong>O(ElogE)</strong></p>
+<br>
+
+<h1 id="Prim-算法"><a href="#Prim-算法" class="headerlink" title="Prim 算法"></a>Prim 算法</h1><p>Lazy Prim有两个缺点</p>
+<ol>
+<li><p>就是所有的边都要进入最小堆, 但是随着切分的改变, 被访问过的节点越来越多, 很多在堆中的边已经不再是横切边了</p>
+</li>
+<li><p>虽然有很多横切边, 但我们只关注最短的横切边. 尤其是对于一个点, 我们只考虑它相邻边中最短的横切边就够了</p>
+</li>
+</ol>
+<p>所以我们需要一个数据结构, 满足以下条件</p>
+<ul>
+<li>存储和每个节点相连的最短的横切边</li>
+<li>在我们改变切分时, <strong>更新</strong>和每个节点相连的最短的横切边</li>
+</ul>
+<p>所以应该使用 IndexMinHeap </p>
+<p>而这个 IndexMinHeap 只需要开<strong>节点个数</strong>的空间就足够了, 每个空间保存的就是和这个节点相连的最短的横切边</p>
+<p>有V个节点, 而最小生成树只有V-1条边, 所以在 IndexMinHeap 中初始节点就不存东西了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_PRIMMST_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_PRIMMST_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Edge.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;../heap/IndexMinHeap.h&quot;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Graph, <span class="hljs-keyword">typename</span> Weight&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">PrimMST</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    Graph &amp;G;<br>    IndexMinHeap&lt;Weight&gt; ipq;       <span class="hljs-comment">// 只保存权值</span><br>    vector&lt;Edge&lt;Weight&gt;*&gt; edgeTo;   <span class="hljs-comment">// 存储和每个节点相邻的最短的横切边</span><br>    <span class="hljs-type">bool</span>* marked;<br>    vector&lt;Edge&lt;Weight&gt;&gt; mst;<br>    Weight mstWeight;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">visit</span><span class="hljs-params">(<span class="hljs-type">int</span> v)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(!marked[v]);<br>        marked[v] = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-comment">// 遍历点v的相邻边</span><br>        <span class="hljs-function"><span class="hljs-keyword">typename</span> Graph::adjIterator <span class="hljs-title">adj</span><span class="hljs-params">(G, v)</span></span>;<br>        <span class="hljs-keyword">for</span>(Edge&lt;Weight&gt;* e = adj.<span class="hljs-built_in">begin</span>(); !adj.<span class="hljs-built_in">isEnd</span>(); e = adj.<span class="hljs-built_in">next</span>())&#123;<br>            <span class="hljs-comment">// 从相邻边中取出相邻节点</span><br>            <span class="hljs-type">int</span> w = e-&gt;<span class="hljs-built_in">other</span>(v);<br>            <span class="hljs-comment">// 如果没访问过</span><br>            <span class="hljs-keyword">if</span>( !marked[w] )&#123;<br>                <span class="hljs-keyword">if</span>( !edgeTo[w] )&#123;   <span class="hljs-comment">// 当没有边和w连接时</span><br>                    ipq.<span class="hljs-built_in">insert</span>(w, e-&gt;<span class="hljs-built_in">wt</span>());     <span class="hljs-comment">// 插入这条边</span><br>                    edgeTo[w] = e;  <span class="hljs-comment">// 连接w的边是e</span><br>                &#125;	<span class="hljs-comment">// 当有边和w连接, 并且旧的边比这条边大时</span><br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( e-&gt;<span class="hljs-built_in">wt</span>() &lt; edgeTo[w]-&gt;<span class="hljs-built_in">wt</span>() )&#123;  <br>                    edgeTo[w] = e;  <span class="hljs-comment">// 连接w的边是e</span><br>                    <span class="hljs-comment">// 更新index w在索引堆中的值</span><br>                    ipq.<span class="hljs-built_in">change</span>(w, e-&gt;<span class="hljs-built_in">wt</span>());<br>                &#125;<br>                <span class="hljs-comment">// 当有边和w连接, 并且旧的边比这条边小时, 什么都不做</span><br>            &#125;<br>        &#125;<br>    &#125;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">PrimMST</span>(Graph &amp;graph):<span class="hljs-built_in">G</span>(graph), <span class="hljs-built_in">ipq</span>(<span class="hljs-built_in">IndexMinHeap</span>&lt;<span class="hljs-type">double</span>&gt;(graph.<span class="hljs-built_in">V</span>()))&#123;<br>        marked = <span class="hljs-keyword">new</span> <span class="hljs-type">bool</span>[G.<span class="hljs-built_in">V</span>()];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i &lt; G.<span class="hljs-built_in">V</span>(); i++)&#123;<br>            marked[i] = <span class="hljs-literal">false</span>;<br>            edgeTo.<span class="hljs-built_in">push_back</span>(<span class="hljs-literal">NULL</span>);<br>        &#125;<br>        mst.<span class="hljs-built_in">clear</span>();<br><br>        <span class="hljs-comment">// Prim</span><br>        <span class="hljs-built_in">visit</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">while</span>( !ipq.<span class="hljs-built_in">isEmpty</span>() )&#123;<br>            <span class="hljs-type">int</span> v = ipq.<span class="hljs-built_in">extractMinIndex</span>();  <span class="hljs-comment">// 获取的是最小边的Index</span><br>            <span class="hljs-built_in">assert</span>( edgeTo[v] );            <span class="hljs-comment">// 确保有边连接v节点</span><br>            mst.<span class="hljs-built_in">push_back</span>( *edgeTo[v] );    <span class="hljs-comment">// 存入边</span><br>            <span class="hljs-built_in">visit</span>(v);<br>        &#125;<br><br>        <span class="hljs-comment">// 计算mstWeight</span><br>        mstWeight = mst[<span class="hljs-number">0</span>].<span class="hljs-built_in">wt</span>();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; mst.<span class="hljs-built_in">size</span>(); i++)<br>            mstWeight += mst[i].<span class="hljs-built_in">wt</span>();<br>    &#125;<br><br>    ~<span class="hljs-built_in">PrimMST</span>()&#123;<br>        <span class="hljs-keyword">delete</span>[] marked;<br>    &#125;<br><br>    vector&lt;Edge&lt;Weight&gt;&gt; <span class="hljs-built_in">mstEdges</span>()&#123;<br>        <span class="hljs-keyword">return</span> mst;<br>    &#125;<br><br>    <span class="hljs-function">Weight <span class="hljs-title">result</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> mstWeight;<br>    &#125;<br><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_PRIMMST_H</span></span><br></code></pre></td></tr></table></figure>
+
+<p>时间复杂度分析: 堆只有v个元素, 而其余的时间复杂度和 Lazy Prim 一样, 所以是 <strong>Elog(V)</strong> 级别</p>
+<br>
+
+<h1 id="Kruskal-算法"><a href="#Kruskal-算法" class="headerlink" title="Kruskal 算法"></a>Kruskal 算法</h1><p>思想 : 如果每次都选择所有边中最小的一条边, 这条边是否就属于最小生成树呢? </p>
+<p>答案是yes, **因为我们总能找到一个切分, 使得这条边是横切边中最小的边 **, 相当于不断反着使用切分定理</p>
+<p>我们可以不断的找这些最短边, 只要这些最短边不构成环</p>
+<p><img src="/Blog/Blog/intro/kruakal.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>难点就是变成如何判断新加一条边会产生环?</p>
+<p>解决方案就是使用并查集, 如果两个节点是连接的, 在添加一条边就会构成环</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_KRUSKALMST_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_KRUSKALMST_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;../heap/MinHeap.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;../unionfind/UnionFind5.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Edge.h&quot;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Graph, <span class="hljs-keyword">typename</span> Weight&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">KruskalMST</span>&#123;<br><br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-comment">// 因为不需要辅助函数, 所以也不需要存一份graph的引用</span><br>    vector&lt;Edge&lt;Weight&gt;&gt; mst;<br>    Weight mstWeight;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">KruskalMST</span>(Graph &amp;graph)&#123;<br>        MinHeap&lt;Edge&lt;Weight&gt;&gt; <span class="hljs-built_in">pq</span>( graph.<span class="hljs-built_in">E</span>() );<br>        <span class="hljs-comment">// 遍历所有节点</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; graph.<span class="hljs-built_in">V</span>(); i++)&#123;<br>            <span class="hljs-comment">// 把所有节点的相邻边都添加到优先队列中</span><br>            <span class="hljs-function"><span class="hljs-keyword">typename</span> Graph::adjIterator <span class="hljs-title">adj</span><span class="hljs-params">(graph, i)</span></span>;<br>            <span class="hljs-keyword">for</span>(Edge&lt;Weight&gt;* e = adj.<span class="hljs-built_in">begin</span>(); !adj.<span class="hljs-built_in">isEnd</span>(); e = adj.<span class="hljs-built_in">next</span>())&#123;<br>                <span class="hljs-comment">/* 由于图是无向的, 所以要防止边的重复添加</span><br><span class="hljs-comment">                 * 例如 1&lt;-&gt;2 这条边, 只添加1-&gt;2, 不添加2-&gt;1 */</span><br>                <span class="hljs-keyword">if</span>( e-&gt;<span class="hljs-built_in">v</span>() &lt; e-&gt;<span class="hljs-built_in">w</span>() )   <br>                    pq.<span class="hljs-built_in">insert</span>(*e);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">// 自己实现的并查集</span><br>        <span class="hljs-function">UF5::UnionFind <span class="hljs-title">uf</span><span class="hljs-params">(graph.V())</span></span>;<br>        <span class="hljs-comment">// 我们只需要v-1条边</span><br>        <span class="hljs-keyword">while</span>( !pq.<span class="hljs-built_in">isEmpty</span>() &amp;&amp; mst.<span class="hljs-built_in">size</span>() &lt; graph.<span class="hljs-built_in">V</span>() - <span class="hljs-number">1</span> )&#123;<br>            Edge&lt;Weight&gt; e = pq.<span class="hljs-built_in">extractMin</span>();<br>            <span class="hljs-comment">// 如果两点已经连接, 再连接就会成为环</span><br>            <span class="hljs-keyword">if</span>(uf.<span class="hljs-built_in">isConnected</span>(e.<span class="hljs-built_in">v</span>(), e.<span class="hljs-built_in">w</span>())) <br>                <span class="hljs-keyword">continue</span>;<br>            mst.<span class="hljs-built_in">push_back</span>(e);<br>            uf.<span class="hljs-built_in">unionElements</span>(e.<span class="hljs-built_in">v</span>(), e.<span class="hljs-built_in">w</span>());<br>        &#125;<br><br>        mstWeight = mst[<span class="hljs-number">0</span>].<span class="hljs-built_in">wt</span>();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; mst.<span class="hljs-built_in">size</span>(); i++)<br>            mstWeight += mst[i].<span class="hljs-built_in">wt</span>();<br>    &#125;<br><br>    ~<span class="hljs-built_in">KruskalMST</span>()&#123;&#125;<br><br>    vector&lt;Edge&lt;Weight&gt;&gt; <span class="hljs-built_in">mstEdges</span>()&#123;<br>        <span class="hljs-keyword">return</span> mst;<br>    &#125;<br><br>    <span class="hljs-function">Weight <span class="hljs-title">result</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> mstWeight;<br>    &#125;<br><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_KRUSKALMST_H</span></span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="三种算法对比"><a href="#三种算法对比" class="headerlink" title="三种算法对比"></a>三种算法对比</h1><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>时间复杂度</th>
+<th>算法实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lazy Prim</td>
+<td>O(ElogE)</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>Prim</td>
+<td>O(ElogV)</td>
+<td>复杂</td>
+</tr>
+<tr>
+<td>Kruskal</td>
+<td>O(ElogE)</td>
+<td>简单</td>
+</tr>
+</tbody></table>
+<p>如果横切边有相等的边会导致什么情况?</p>
+<p>算法依然正确, 但会有多个最小生成树</p>
+<p>而如果所有边都各不相同的话, 只有可能有一个最小生成树</p>
+<p>同时也衍生出一个问题: 给定一个图, 它有多少个最小生成树</p>
+<br>
+
+<h2 id="另一种算法思路"><a href="#另一种算法思路" class="headerlink" title="另一种算法思路"></a>另一种算法思路</h2><p>Vyssotsky’s Algorithm</p>
+<p>按照任意的顺序, 将边都添加到生成树中</p>
+<p>一旦形成环, 删除环中权值最大的边</p>
+<br>
+
+<p>这个算法在许多教材中都没有, 因为这个算法要删除边, 还要保证删除的是环上最大的边, 我们不仅要探测环的存在, 还要找到环上最大的边. 暂时没有数据结构可以有效地实现这个功能</p>
+<br>
+
+<p>而在Kruskal中使用了并查集, Prim和Lazy Prim中用了最小索引堆和最小堆这些高级数据结构. 而在很长时间里, Kruskal 和 Prim算法都没有很好的实现方法, 直到这些数据结构被发现,</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2019/08/28/shortest-path/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">图论(六)-最短路径</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2019/08/25/weight-graph/">
+                        <span class="hidden-mobile">图论(四)-有权图</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

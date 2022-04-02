@@ -1,0 +1,1673 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="“专为程序员设计的统计课” 课程的学习笔记 统计学入门课">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;专为程序员设计的统计课&gt;学习笔记(1)">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/12/19/stat-for-programmer/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="“专为程序员设计的统计课” 课程的学习笔记 统计学入门课">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/intro_to_stat.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_var_data.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_important_sclar.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_see_variable.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_knowledge_tree.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_reliability_validity.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_bar_plot.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_mode.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_bar_plot_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_bar_plot_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_median_num_ex.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_median_num_ex_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_cat_var_a.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_8.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_9.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/box_plot_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/box_plot_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_10.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/num_var_visual_flower_7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_skewness.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_skewness_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_skewness_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_taitannike.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_contingency_table.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_part_line.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_relative_part_line.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_scatter_plot.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_side_by_side_box_plot.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/fix_box_plot.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_conclusion.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probality.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probality_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probality_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probality_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_probility_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_variable.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_random_variable.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_random_variable_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_type_var.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/probability_mass_func_7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribute_function.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribution_function_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribution_function_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribution_density.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribution_density_function.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribution_density_function_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/distribution_density_function_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Normal_distribution.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_u_dependence_what.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_u_dependence_what_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Normal_distribution_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Normal_distribution_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Normal_distribution_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Normal_distribution_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/Normal_distribution_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_population.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_sample.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_population.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_sample_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_sample_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_sample_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_stat_num.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_stat_num_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_stat_num_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_stat_num_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_stat_num_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_stat_num_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/normal_distribution_stat_num.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/chi-square-distribution_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/chi-square-distribution_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/chi-square-distribution_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/chi-square-distribution_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/chi-square-property.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/t_distribution.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/t_distribution_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/t_distribution_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/f_distribution.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/f_distribution_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/f_distribution_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/f_distribution_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/normal_pop_sample_mean.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/normal_pop_sample_mean.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/proof_u.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/proof_u_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/proof_u_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/sample_noraml_d.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/stat_sample.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/experiment.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/experiment_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/experiment_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/point_estimation.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/point_estimation_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/point_estimation_2.PNG">
+<meta property="article:published_time" content="2019-12-19T09:23:22.000Z">
+<meta property="article:modified_time" content="2020-03-19T02:15:44.353Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="统计学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/intro_to_stat.PNG">
+  
+  
+  <title>&lt;专为程序员设计的统计课&gt;学习笔记(1) - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="&lt;专为程序员设计的统计课&gt;学习笔记(1)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-12-19 01:23" pubdate>
+        December 19, 2019 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      17k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      140 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">&lt;专为程序员设计的统计课&gt;学习笔记(1)</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p> “专为程序员设计的统计课” 课程的学习笔记</p>
+<p>统计学入门课</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="什么是统计"><a href="#什么是统计" class="headerlink" title="什么是统计"></a>什么是统计</h1><p><img src="/Blog/Blog/intro/intro_to_stat.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>统计学就是基于数据, 去了解客观现象内在的数量规律性, 从而帮助我们作决策和做预测</p>
+<br>
+
+<h2 id="为什么要学统计"><a href="#为什么要学统计" class="headerlink" title="为什么要学统计"></a>为什么要学统计</h2><ul>
+<li>统计学是高等教育中理工科学生必学的数学</li>
+<li>统计学是在几乎所有的领域都发挥这重要作用</li>
+</ul>
+<p>例如: 经济学 医学 商业 心理学 <strong>计算机</strong></p>
+<br>
+
+<p>更重要的是培养统计思维:</p>
+<p>用相对简单的<strong>特征</strong>来尽量<strong>准确</strong>地刻画复杂的真实情况</p>
+<p>并且允许对<strong>不确定性</strong>进行<strong>量化</strong></p>
+<p>使用统计学的知识和框架了解<strong>客观事实的本质和内在规律</strong>, 从而帮我们作<strong>决策&amp;预测</strong></p>
+<br>
+
+<br>
+
+<h1 id="认识数据"><a href="#认识数据" class="headerlink" title="认识数据"></a>认识数据</h1><br>
+
+<h2 id="数据和变量"><a href="#数据和变量" class="headerlink" title="数据和变量"></a>数据和变量</h2><h3 id="定性数据"><a href="#定性数据" class="headerlink" title="定性数据"></a>定性数据</h3><p>性别: 男, 女</p>
+<p>颜色: 赤橙黄绿青蓝紫…</p>
+<br>
+
+<p>教育程度: 小学, 初中, 高中, 本科, 硕士, 博士…</p>
+<p>评价: 好评, 中评, 差评</p>
+<br>
+
+<p>这四组数据都有一个共性: 它们对事物的性质进行了描述, 所以它们都属于<strong>定性数据</strong></p>
+<br>
+
+<h3 id="定量数据"><a href="#定量数据" class="headerlink" title="定量数据"></a>定量数据</h3><p>年份: 2019, 2018, 2017…</p>
+<p>温度: 10, 15, 20 …</p>
+<br>
+
+<p>身高: 1.60, 1.65 …</p>
+<p>体重: 40, 55, 60, 70 … </p>
+<br>
+
+<h3 id="数据和变量的关系"><a href="#数据和变量的关系" class="headerlink" title="数据和变量的关系"></a>数据和变量的关系</h3><p>数据 (data) 是由变量 (variable) 组成的</p>
+<p> 下面都是变量, 而他们的取值都是数据</p>
+<table>
+<thead>
+<tr>
+<th align="center">性别 颜色</th>
+<th align="center">教育程度 评价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>年份 温度</strong></td>
+<td align="center"><strong>身高 体重</strong></td>
+</tr>
+</tbody></table>
+<p>比如说: 在同一个人的身上, 我们可以测量多个变量的数据, 这个人是男是女, 喜欢什么样的颜色, 教育程度如何… …</p>
+<p>注意: <strong>一个变量(variable)应该包含至少2个不同的取值</strong>, 如果只有一个取值的话则被称为<strong>常数</strong></p>
+<br>
+
+<h3 id="定性-x2F-分类变量"><a href="#定性-x2F-分类变量" class="headerlink" title="定性 &#x2F; 分类变量"></a>定性 &#x2F; 分类变量</h3><p>性别: 男(1), 女(2)</p>
+<p>颜色: 赤 (1), 橙 (2), 黄 (3), 绿 (4), 青 (5), 蓝 (6), 紫(7)</p>
+<p>我们可以给这些变量标记值</p>
+<br>
+
+<p>性别和颜色描述的是<strong>类别</strong>: <strong>是性质上的差异, 而非数量上的差异</strong> </p>
+<p>虽然我们可以把数字和某一个类别进行对应, 但是男和女的差异<strong>不等于</strong>一和二的差异</p>
+<p>这就是这类变量最本质的特征</p>
+<p>由于是对<strong>性质类别的描述</strong>, 所以只能进行<strong>是否相等</strong>的比较</p>
+<p><strong>无顺序(不能比较大小)或等级(不能比较优劣)</strong></p>
+<p>1, 2只是帮我们区分他们是两个类别, 因此我们把这种变量成为<strong>分类变量</strong>, 更为准确地说是: <strong>无序分类变量</strong></p>
+<br>
+
+<br>
+
+<p>教育程度: 小学(1), 初中(2), 高中(3), 本科(4)…</p>
+<p>评价: 好(5), 良好(4), 中(3), 中下(2), 差评(1)</p>
+<br>
+
+<p>同样, 这两个变量依然是对<strong>类别的描述</strong>, 是<strong>性质</strong>上的差异, 而非<strong>数量</strong>上的差异</p>
+<p>但是可以进行<strong>是否相等</strong>的比较</p>
+<p><strong>有顺序(可以比较大小)或等级(可以比较优劣)</strong></p>
+<p><strong>但是 好评(5) 不等于5倍的 差评(1)</strong></p>
+<br>
+
+<br>
+
+<h3 id="定量-x2F-数值变量"><a href="#定量-x2F-数值变量" class="headerlink" title="定量 &#x2F; 数值变量"></a>定量 &#x2F; 数值变量</h3><p>年份: 2019, 2018…</p>
+<p>温度: 10, 15, 20, 25…</p>
+<br>
+
+<p>这两变量的取值都是<strong>数值</strong></p>
+<p>可以进行<strong>是否相等</strong>的比较, 且是<strong>有顺序的(可以比较大小)</strong></p>
+<p><strong>等间距, 可以进行加减运算</strong></p>
+<p>10度和15度相差的5度等价于30度和35度相差的5度</p>
+<p>这是定性变量所不具备的</p>
+<br>
+
+<br>
+
+<p>身高: 1.60, 1.65…</p>
+<p>体重: 40, 45, 50 …</p>
+<br>
+
+<p>这两个变量同样都是数值</p>
+<p>可以进行<strong>是否相等</strong>的比较, 且是<strong>有顺序的(可以比较大小)</strong></p>
+<p><strong>等间距, 可以进行加减运算</strong></p>
+<p>可以进行<strong>乘除运算</strong></p>
+<p>90 公斤重的人是45公斤重的人的二倍, 以后会讲明是什么决定变量能否进行乘除运算(乘除运算是否是有意义的)</p>
+<br>
+
+<h3 id="观测-变量-与数据矩阵"><a href="#观测-变量-与数据矩阵" class="headerlink" title="观测, 变量, 与数据矩阵"></a>观测, 变量, 与数据矩阵</h3><p>通常会把数据整理成表格</p>
+<p><img src="/Blog/Blog/intro/stat_var_data.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>每一行是一次<strong>观测</strong>, 一列是一个<strong>变量</strong></p>
+<p>这样的一个表格我们就称为<strong>数据矩阵(data matrix)</strong></p>
+<br>
+
+<h2 id="测量尺度"><a href="#测量尺度" class="headerlink" title="测量尺度"></a>测量尺度</h2><p>为什么要把变量划分地如此细致</p>
+<p>测量尺度就好像”尺子”, 不同的尺子可以用来测量不同的事物</p>
+<p>直尺可以测量物体的高度, 却不能测量这个物体的重量</p>
+<p>体重秤可以测量物体的重量, 却不能测量物体的长宽高</p>
+<p>… …</p>
+<h3 id="抽象数字系统的属性"><a href="#抽象数字系统的属性" class="headerlink" title="抽象数字系统的属性"></a>抽象数字系统的属性</h3><p>不同的”尺子”具有不同的<strong>属性</strong>, 这些属性使得这些尺子具有去<strong>测量某种特定数据的能力</strong></p>
+<p>在数学中, 使用抽象数字系统, 这个系统有一些重要的属性, 不同的属性集合就对于了不同的尺子 </p>
+<p>或者反过来说, 不同的尺子具有不同的<strong>属性集合</strong>, 因此具有不同的能力</p>
+<br>
+
+<p>抽象数字系统有4个重要的属性</p>
+<ol>
+<li><p>每一个数字有其独特的含义 (<strong>identity</strong>)     例如: 性别 颜色, 我们把1 赋值给男性, 2赋值给女性, 如此, 1 和 2 都有其独特的含义</p>
+</li>
+<li><p>数字具有从小到大的固有顺序 (<strong>magnitude</strong>)         例如: 教育程度 评价</p>
+</li>
+<li><p>任意位置的单位间距是相同的 (<strong>equal intervals</strong>)    例如: 年份 温度</p>
+</li>
+<li><p>零(0)表示被测量的属性不存在 (<strong>absolute&#x2F;true zero</strong>)    例如: 身高, 体重, 人的身高和体重不可能是0, 如果重量为0就说明重量不存在</p>
+</li>
+</ol>
+<br>
+
+<h3 id="测量"><a href="#测量" class="headerlink" title="测量"></a>测量</h3><ul>
+<li>测量是指根据一定的规则, 把数字(numbers) 分配给观测 (observations)</li>
+</ul>
+<p>比如: 根据一定的规则, 把160这个数字分配给了某一个人的身高</p>
+<ul>
+<li><p>把数字分配给观测的方式, 决定了<strong>测量尺度(scale of measurement)</strong></p>
+</li>
+<li><p>每个测量尺度代表了抽象数字系统的特点属性或属性集合</p>
+</li>
+</ul>
+<br>
+
+<h3 id="名目尺度-nominal-scale"><a href="#名目尺度-nominal-scale" class="headerlink" title="名目尺度(nominal scale)"></a>名目尺度(nominal scale)</h3><br>
+
+<p><strong>名目尺度是根据事物的特征对其进行分类的一种尺度</strong></p>
+<p>它只具备抽象数字系统中的第一个属性, 即每一个数字有其独特的含义</p>
+<p>如果一个变量能用<strong>名目尺度</strong>进行测量, 那么这个变量就被称作<strong>名目变量 (nominal variable)</strong></p>
+<p>例如: 性别, 颜色</p>
+<p>之前说这两个变量<strong>无序分类变量</strong>, 现在又说他们是<strong>名目变量</strong>, 二者有什么关系呢?</p>
+<p>无序分类变量可以理解为这类变量的俗名</p>
+<p>名目变量可以理解为学名</p>
+<p>俗名告诉我们这个变量可以观察到的一些特性, 而学名告诉我们更加本质的一些东西(每一个数字有其独特的含义)</p>
+<br>
+
+<h3 id="次序尺度-ordinal-scale"><a href="#次序尺度-ordinal-scale" class="headerlink" title="次序尺度(ordinal scale)"></a>次序尺度(ordinal scale)</h3><p><strong>次序尺度是根据事物的特征对其进行等级排序的一种尺度</strong></p>
+<p>具备抽象数字系统的前两个属性:</p>
+<ul>
+<li>每个数字尤其独特的含义</li>
+<li>数字具有从小到大的固有顺序</li>
+</ul>
+<p>同理, 如果一个变量是使用<strong>次序尺度</strong>进行测量, 我们便将其称之为<strong>次序变量(ordinal variable)</strong></p>
+<p>例如: 教育程度, 评价, 等</p>
+<br>
+
+<h3 id="等距尺度-interval-scale"><a href="#等距尺度-interval-scale" class="headerlink" title="等距尺度 (interval scale)"></a>等距尺度 (interval scale)</h3><p><strong>等距尺度是指数值之间的单位间隔是等距的一种尺度</strong></p>
+<p>具备抽象数字系统的前三个属性:</p>
+<ul>
+<li>每个数字尤其独特的含义</li>
+<li>数字具有从小到大的固有顺序</li>
+<li>任意位置的单位间距是相同的</li>
+</ul>
+<p>如果一个变量可以使用<strong>等距尺度</strong>测量, 我们则将其称为<strong>等距变量(interval variable)</strong> </p>
+<p>例如: 年份 温度 时间</p>
+<br>
+
+<h3 id="等比尺度-ratio-scale"><a href="#等比尺度-ratio-scale" class="headerlink" title="等比尺度(ratio scale)"></a>等比尺度(ratio scale)</h3><p><strong>等比尺度是具有等距尺度的所有特性, 并且零点有意义的尺度</strong></p>
+<p>具备抽象数字系统的所有4个属性:</p>
+<ul>
+<li>每个数字有其独特的含义</li>
+<li>数字具有从小到大的固有顺序</li>
+<li>任意位置的单位间距是相同的</li>
+<li>零(0)表示被测量的属性不存在</li>
+</ul>
+<p>如果一个变量可以使用<strong>等比尺度</strong>测量, 我们可以将其称为<strong>等比变量(ratio variable)</strong></p>
+<p>例如: 身高 体重</p>
+<p><strong>有真零点, 因此可以进行乘除运算</strong></p>
+<br>
+
+<p>如果没有真零点, 则乘除运算结果不唯一(无意义)</p>
+<p>例如: 温度(摄氏度) 10, 25 vs 温度(华氏度): 50, 77</p>
+<p>对于温度而言, 0是相对的, 在摄氏度下的0和在华氏度下的0并不相等</p>
+<p><strong>对同一客观事物从测量会得到不同的值</strong>, 而这些值的变化是因为<strong>零点的选定</strong>不一样而导致的</p>
+<p>因此做出的乘除运算不唯一, 也就没有意义去做乘除运算</p>
+<br>
+
+<h3 id="测量尺度的重要性"><a href="#测量尺度的重要性" class="headerlink" title="测量尺度的重要性"></a>测量尺度的重要性</h3><p>测量尺度决定了可以进行哪些<strong>逻辑与数学运算</strong>和使用哪种<strong>统计方法</strong></p>
+<p><img src="/Blog/Blog/intro/stat_important_sclar.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>数值变量还可以进行<strong>离散型</strong>和<strong>连续型</strong>的划分</p>
+<p>如果一个数值变量的取值是间断的, 两个取值之间在没有其他的值(不可以无限的细分, 就可以将其称为<strong>离散型数值变量</strong>)</p>
+<p>例如: 抛100次硬币, 计算有多少次正面朝上取值只可能是正整数, 不可能是小数. 这就是离散型数值变量</p>
+<br>
+
+<p>而连续型数值变量的任意两个取值之间都可以进行无限地细分. 比如说身高1.60m 和1.61m</p>
+<p>这两个取值之间可以进行无限细分1.601, 1.602…</p>
+<p>变量实在哪种尺度上测量得到的, 决定了这些变量能使用哪些<strong>逻辑与数学运算</strong>, 并且决定了能用哪些<strong>统计方法</strong>进行分析</p>
+<br>
+
+<h3 id="更加系统地看待变量"><a href="#更加系统地看待变量" class="headerlink" title="更加系统地看待变量"></a>更加系统地看待变量</h3><p>当拿到一个变量时可以进行如下判断</p>
+<p><img src="/Blog/Blog/intro/stat_see_variable.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p> 老师，真零值那里没太理解。比如考试的分数从1-100分，这个只能是算等距尺度吧？ </p>
+<br>
+
+<p>如果零点是唯一的，就代表有真零值。比如说身高, 体重, 我们都认同这两个变量的零点是唯一的; 当身高或体重为0的时候, 意味着身高或体重这个客体不存在。零点不唯一的例子是温度, 比如有摄氏0度, 有华氏0度; 当温度为0的时候, 温度这个客体还是存在的。</p>
+<p>你问了一个非常好的问题，对于考试分数这个变量来说, 把它当成等比或者等距都可以, 取决于考试打分的规则。如果分数等于回答正确的问题数目占总问题数目的百分比的话(即 正确数目&#x2F;总数目),  则0值是唯一的, 可以把分数当成等比变量。其实不用过于纠结一个变量到底是等比还是等距,  有一些变量很难界定到底是等比还是等距。我们在分析数据的时候通常把两者都视为数值变量，不加以区分。但是, 当你拿到了数据分析的结果,  要对结果进行解释的时候, 需要考虑一下儿等距&#x2F;等比这个问题</p>
+</blockquote>
+<br>
+
+<h1 id="描述统计"><a href="#描述统计" class="headerlink" title="描述统计"></a>描述统计</h1><br>
+
+<p>描述统计 (descriptive statistics)</p>
+<p><img src="/Blog/Blog/intro/stat_knowledge_tree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们可以把统计学分为<strong>描述统计</strong>和<strong>统计推断</strong>两个部分</p>
+<p>这两个部分正好反应了<strong>统计方法</strong>发展的前后两个阶段, 也是用<strong>统计方法探索客观事物数量规律性</strong>的两个不同过程</p>
+<br>
+
+<p>更进一步, 我们可以把统计推断分为两个问题: <strong>参数估计</strong>, <strong>假设检验</strong>, </p>
+<p>其实统计推断还有一个非常重要的分支: <strong>贝叶斯统计</strong>, 贝叶斯统计提供了一种新颖的视角来看待问题和解决问题.</p>
+<br>
+
+<p>此外<strong>概率论</strong>也是统计学习中必不可分的一个部分, 它是统计学习的基础</p>
+<br>
+
+<h2 id="什么是描述统计"><a href="#什么是描述统计" class="headerlink" title="什么是描述统计"></a>什么是描述统计</h2><p>描述统计是研究</p>
+<ol>
+<li><p>如何取得反应客观现象的数据 (数据的收集)</p>
+</li>
+<li><p>通过<strong>图表</strong>形式对数据进行<strong>加工处理</strong>和<strong>可视化</strong></p>
+</li>
+<li><p>通过<strong>概况与分析</strong>得出反应客观现象的<strong>规律性数量特征</strong></p>
+</li>
+</ol>
+<br>
+
+<h2 id="数据的可靠性和有效性"><a href="#数据的可靠性和有效性" class="headerlink" title="数据的可靠性和有效性"></a>数据的可靠性和有效性</h2><p>在分析数据之前, 一定要闻这样的一个问题, 我手中的数据是否可靠(<strong>reliable</strong>) 和有效(<strong>valid</strong>)?</p>
+<ul>
+<li>可靠性(reliability) : <strong>多次测量得到的数据是否一致</strong>, 如果多次测量得到的数据不一致, 那么可靠性是存疑的. 同时<strong>可靠的数据不应随着观察者的变化而变化</strong>, 所以当多个观察者给出不同回答时, 可靠性也是存疑的</li>
+<li>有效性(validity) : 实际测量的对象 &#x3D; 认为 &#x2F; 希望测量的对象</li>
+</ul>
+<p><img src="/Blog/Blog/intro/stat_reliability_validity.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>点代表我们得到的数据, 靶心代表我们希望测量的客观事物</p>
+<ul>
+<li>当数据是可靠并且有效时, 数据会<strong>集中</strong>在<strong>靶心</strong>, 可靠说明他们<strong>一致性</strong>很好(集中), 有效说明测量的是希望测量的客观事物(靶心)</li>
+<li>当数据是可靠但无效时, 数据会<strong>集中</strong>在一起(可靠), 但<strong>远离</strong>靶心(无效), 它们反应的不是我们希望测量的对象</li>
+<li>当数据是有效但不可靠时, 数据会非常<strong>分散</strong>, 数据的<strong>波动性</strong>非常大(不可靠) , 但它们又<strong>相对集中</strong>在靶心周围(相对有效)</li>
+<li>当数据既不可靠也不有效时, 数据分散且远离靶心</li>
+</ul>
+<br>
+
+<h2 id="一个分类变量的特征和可视化"><a href="#一个分类变量的特征和可视化" class="headerlink" title="一个分类变量的特征和可视化"></a>一个分类变量的特征和可视化</h2><h3 id="无序分类变量"><a href="#无序分类变量" class="headerlink" title="无序分类变量"></a>无序分类变量</h3><p>假设调查数据如下:</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">性别(名目; 支持操作 =, !=)</span><span class="hljs-punctuation">:</span> <span class="hljs-string">男, 女</span><br>	<span class="hljs-attribute">观测12个新生儿的性别</span><br><span class="hljs-attribute">	我们得到的值为</span><span class="hljs-punctuation">: </span><br>	女, 男, 女, 女, 男, 男, 男, 男, 女, 男, 男, 女<br></code></pre></td></tr></table></figure>
+
+<h4 id="频率表"><a href="#频率表" class="headerlink" title="频率表"></a>频率表</h4><p>如果要对这组数据进行可视化处理, 最简单的就是计算男, 女的比例</p>
+<p>针对这个问题我们可以构建一个<strong>频率表(frequency table)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">性别</th>
+<th align="center">频数(Count)</th>
+<th align="center">频率(Frequency)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">女</td>
+<td align="center">5</td>
+<td align="center">5&#x2F;12 &#x3D; 41.7%</td>
+</tr>
+<tr>
+<td align="center">男</td>
+<td align="center">7</td>
+<td align="center">7&#x2F;12 &#x3D; 58.3%</td>
+</tr>
+</tbody></table>
+<p>既然已经可以用频数总结特征了, 为什么还要用频率呢?</p>
+<p>人们对数字的感知是很差的(有很大的偏差)</p>
+<br>
+
+<h4 id="条形图-bar-plot"><a href="#条形图-bar-plot" class="headerlink" title="条形图(bar plot)"></a>条形图(bar plot)</h4><p><img src="/Blog/Blog/intro/stat_bar_plot.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="集中趋势-central-tendency"><a href="#集中趋势-central-tendency" class="headerlink" title="集中趋势(central tendency)"></a>集中趋势(central tendency)</h4><p>它描述了一组观测值向其中心集中的倾向和程度</p>
+<p>虽然测量集中趋势的方法有很多种, 但是对于<strong>无序分类变量</strong>来说只有一种:</p>
+<ul>
+<li><strong>众数(mode)</strong>: 一组观测值中出现次数最多的数</li>
+<li>一组观测值可能<strong>存在多个众数</strong>, 也可能<strong>不存在众数</strong></li>
+</ul>
+<p><img src="/Blog/Blog/intro/stat_mode.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="有序分类变量"><a href="#有序分类变量" class="headerlink" title="有序分类变量"></a>有序分类变量</h3><p>假设调查数据如下:</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gcode">教育程度 <span class="hljs-comment">(次序; 支持操作 =, !=, &gt;, &lt;)</span><br>	小学<span class="hljs-comment">(1)</span>, 初中<span class="hljs-comment">(2)</span>, 高中<span class="hljs-comment">(3)</span>, 本科<span class="hljs-comment">(4)</span>, 研究生<span class="hljs-comment">(5)</span><br>	观测<span class="hljs-number">19</span>个人的教育程度<span class="hljs-comment">(n = 19)</span><br>	<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="频率表-1"><a href="#频率表-1" class="headerlink" title="频率表"></a>频率表</h4><p><img src="/Blog/Blog/intro/stat_bar_plot_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="条形图-bar-plot-1"><a href="#条形图-bar-plot-1" class="headerlink" title="条形图(bar plot)"></a>条形图(bar plot)</h4><p><img src="/Blog/Blog/intro/stat_bar_plot_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="集中趋势"><a href="#集中趋势" class="headerlink" title="集中趋势"></a>集中趋势</h4><p>众数 &#x3D;&gt; 本科(4)</p>
+<p><strong>中位数(median)</strong></p>
+<ul>
+<li>对于有限的数集, 把所有观测值按照大小排序后, 位于正中间的观测值即为中位数(中值)</li>
+</ul>
+<p><img src="/Blog/Blog/intro/stat_median_num_ex.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_median_num_ex_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img src="/Blog/Blog/intro/stat_cat_var_a.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>由于有序分类变量可以进行大小的比较, 因此可以<strong>排序</strong>, 而中位数要求数值是可以排序的, 因此只有满足这个条件才可以进行中位数的度量</p>
+<br>
+
+<br>
+
+<h2 id="一个数值变量的特征和可视化"><a href="#一个数值变量的特征和可视化" class="headerlink" title="一个数值变量的特征和可视化"></a>一个数值变量的特征和可视化</h2><p>数值变量可以分为: 等距变量和等比变量, 区分二者最重要的性质是: 是否有<strong>真零点</strong></p>
+<br>
+
+<h3 id="等距变量"><a href="#等距变量" class="headerlink" title="等距变量"></a>等距变量</h3><p>假设调查数据如下</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gcode">温度 <span class="hljs-comment">(等距; 支持操作 =, !=, &gt;, &lt;, +, -)</span><br>	我们收集<span class="hljs-number">5</span>月份前两周的温度<br>	<span class="hljs-number">19</span>, <span class="hljs-number">22</span>, <span class="hljs-number">21</span>, <span class="hljs-number">17</span>, <span class="hljs-number">13</span>, <span class="hljs-number">19</span>, <span class="hljs-number">18</span>, <span class="hljs-number">17</span>, <span class="hljs-number">17</span>, <span class="hljs-number">21</span>, <span class="hljs-number">21</span>, <span class="hljs-number">21</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span> <span class="hljs-comment">(n = 14)</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="频率表-2"><a href="#频率表-2" class="headerlink" title="频率表"></a>频率表</h4><p>首先我们可以像分类变量一样, 为数值变量建立一个<strong>频率表</strong></p>
+<p><img src="/Blog/Blog/intro/num_var_visual_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p><strong>数值变量的频率表和分类变量的频率表有什么本质的区别?</strong></p>
+<p>数值变量具有<strong>等距</strong>的性质, 因此可以进行分割形成若干个<strong>长度相等的小区间</strong></p>
+<p>比如说我们定义: 小区间的长度为1, 那么对于这一组观测值, 我们可以得到下面的频率表</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>区别就是: 我们可以对数值变量进行这样小区间的分割, 这一切都是建立在它是具有等距的性质上的, 而分类变量我们不能这么做</p>
+<br>
+
+<h4 id="频率直方图-histogram"><a href="#频率直方图-histogram" class="headerlink" title="频率直方图(histogram)"></a>频率直方图(histogram)</h4><p>而得到这样的频率表之后, 我们就可以做出数值变量的频率直方图</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>它看起来和<strong>条形图</strong>非常的相似, 但二者有着本质的区别</p>
+<p>频率直方图横轴代表的是变量的取值, 它的范围<strong>可以小于</strong>观测值的最小值, 也可以大于观测值的最大值, 它的范围是主观的, 但要包括观测的最大值和最小值</p>
+<p>它的纵轴不是频率, 而是用频率除以小区间的长度, 这样做的目的是为了保证: <strong>蓝色覆盖的区域面积为1</strong></p>
+<p>以(16, 17]这个小区间为例, 它的宽是16到17的长度, 它的高就是频率处以这个区间的长度, 因此宽和高相乘的结果, 即蓝色矩形的面积就等于<strong>频率</strong></p>
+<p>如果把所有观测值的频率相加, 和为1, 因此把所有蓝色区域的面积进行相加, 它的和也一定为1</p>
+<br>
+
+<p>我们可以自由的对区间的长度进行定义, 如果区间长度为5</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而它的频率直方图就是这样:</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="集中趋势-众数-中位数以及均值-mean"><a href="#集中趋势-众数-中位数以及均值-mean" class="headerlink" title="集中趋势: 众数, 中位数以及均值(mean)"></a>集中趋势: 众数, 中位数以及均值(mean)</h4><p>排序后:</p>
+<p>13, 17, 17, 17, 18, 19, 19, 19, 20, 21, 21, 21, 21, 22 (n &#x3D; 14)</p>
+<p>众数 &#x3D; 21</p>
+<p>中位数 &#x3D; (19 + 19) &#x2F; 2 &#x3D; 19</p>
+<br>
+
+<h5 id="均值-mean-算数平均值"><a href="#均值-mean-算数平均值" class="headerlink" title="均值(mean) (算数平均值)"></a>均值(mean) (算数平均值)</h5><p>几何平均数, 调和平均数… 不在讲解范围内, 本文一旦提到均值指的都是算数平均值</p>
+<p>在一组数据中, 所有数据之和在再处以这组数据的个数, 所得即为这组数据的均值</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/num_var_visual_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="离散趋势-tendency-of-dispersion"><a href="#离散趋势-tendency-of-dispersion" class="headerlink" title="离散趋势(tendency of dispersion)"></a>离散趋势(tendency of dispersion)</h4><p>即: <strong>观测值偏离其中心的趋势</strong></p>
+<p>假设一个班级考试均分80, 但我们不清楚是大部分学生都考80, 还是有一部分考的特别高, 而另一部分学生考的特别低</p>
+<br>
+
+<p>还是由这组数据说明</p>
+<p>13, 17, 17, 17, 18, 19, 19, 19, 20, 21, 21, 21, 21, 22</p>
+<p>度量:</p>
+<ul>
+<li><p><strong>极差&#x2F;全距 (Range)</strong>: 最大值减去最小值, 用于简单描述数据的范围大小, 比如上面那组数据的极差就是: 22 - 13 &#x3D; 9</p>
+<p>极差的缺点是: 它非常容易受到<strong>极端值</strong>的影响, 例如上面的数据中的13只出现了一次</p>
+</li>
+<li><p>**分位数 &#x2F; 分位点(quantile): ** 把数据n等分的分割点</p>
+<p>中位数 &#x3D; (19 + 19) &#x2F; 2 &#x3D; 19</p>
+<p>例如中位数把数据分成了数目相等的两部分, 因此可以称之为二分位数 &#x2F; 点</p>
+<p><strong>四分位数(quartile)</strong></p>
+<p><img src="/Blog/Blog/intro/num_var_visual_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>Q1 和 Q3的距离我们称为<strong>四分位距(interquartile range, IQR)</strong></p>
+<p><strong>IQR</strong> &#x3D; Q3 - Q1 &#x3D; 21 - 17 &#x3D; 4</p>
+<br>
+
+<p>如果在之前的那组数据上添加两个数12和23, 那么怎么求四分位距?</p>
+<p>和求中位数一样</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h4 id="箱线图-box-plot"><a href="#箱线图-box-plot" class="headerlink" title="箱线图(box plot)"></a>箱线图(box plot)</h4><p>还是同一组数</p>
+<p>13, 17, 17, 17, 18, 19, 19, 19, 20, 21, 21, 21, 21, 22</p>
+<p><img src="/Blog/Blog/intro/box_plot_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>我们将它放到进行分析</p>
+<p><img src="/Blog/Blog/intro/box_plot_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>箱线图并不完全对称, 最小值距离中位数的距离, 比最大值到中位数的距离要长, 说明在中位数之下的这些数分布的范围相对更加<strong>离散</strong>, 而中位数之上的数的分布范围相对<strong>集中</strong></p>
+<br>
+
+<h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><p><img src="/Blog/Blog/intro/num_var_visual_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>离散趋势这个概念是<strong>数值变量</strong>才有的, <strong>分类变量</strong>没有离散趋势的度量</p>
+<br>
+
+<h3 id="等比变量"><a href="#等比变量" class="headerlink" title="等比变量"></a>等比变量</h3><p>假设调查数据如下:</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">某一种花的花瓣长度(等比; 支持操作 =, !=, &gt;, &lt;, +, -, *, /)<br>花瓣的长度是具有真零值的, 当一个花瓣的长度为<span class="hljs-number">0</span>, 就说明花瓣不存在<br></code></pre></td></tr></table></figure>
+
+<p><img src="/Blog/Blog/intro/num_var_visual_flower_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="频数直方图"><a href="#频数直方图" class="headerlink" title="频数直方图"></a>频数直方图</h4><p><img src="/Blog/Blog/intro/num_var_visual_flower_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>众数 &#x3D; 5.0 和 5.1</p>
+<p>极差 &#x3D; 5.8 - 4.3 &#x3D; 1.5</p>
+<p>均值 &#x3D; 5.0</p>
+<p>中位数 &#x3D; 5.0</p>
+<br>
+
+<h4 id="箱线图"><a href="#箱线图" class="headerlink" title="箱线图"></a>箱线图</h4><p><img src="/Blog/Blog/intro/num_var_visual_flower_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="方差-variance-和标准差-standard-deviation"><a href="#方差-variance-和标准差-standard-deviation" class="headerlink" title="方差(variance)和标准差(standard deviation)"></a>方差(variance)和标准差(standard deviation)</h4><p>这是两个度量离散趋势的新指标</p>
+<p><strong>方差</strong>: 每一个观测值与均值之间的差异的平方和的平均数</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_flower_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而我们通常用 σ 表示标准差, 因此这个式子也表示了方差和标准差之间的关系</p>
+<p><strong>方差 &#x3D; 标准差的平方</strong></p>
+<p>因为xi可能小于平均数, 所以减法可能得到负数, 因此我们要对他们进行平方</p>
+<br>
+
+<p>补充一点:</p>
+<p>当我们计算方差时, 分母到底是n 还是n-1</p>
+<p>当我们手头的数据是总体, 假如说全世界只有50朵花, 此时50朵花便是总体, 计算它的方差就是除以n(50)</p>
+<p>假设有10000朵, 而这50朵是我们随机抽取的, 那么求方差时就应该除以n-1</p>
+<p>我们还没有降到概率论中总体和样本的概念, 因此目前我们统一除以n, 在讲述标准差也是除以n</p>
+<p><strong>计算方差</strong></p>
+<p><img src="/Blog/Blog/intro/num_var_visual_flower_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>计算标准差</strong></p>
+<p>有了方差就可以计算出标准差</p>
+<p><img src="/Blog/Blog/intro/num_var_visual_flower_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>标准差 &#x3D; sqrt(方差) &#x3D; 0.352</p>
+<p><strong>标准差与原观测值具有相同的单位</strong></p>
+<p>标准差 &#x3D; 0.352cm</p>
+<p>因此花瓣长度偏离均值的程度是0.352cm</p>
+<br>
+
+<h4 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h4><p><img src="/Blog/Blog/intro/num_var_visual_flower_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于<strong>等距变量</strong>, 我们也可以计算它的方差和标准差, 在数学计算上是没有问题的, 但为题在于对<strong>结果的解释</strong>上</p>
+<p>由于等距数值变量没有真零值, 而计算方差和标准差时, 里面有一步是<strong>平方</strong></p>
+<p>平方这一步会因为我们<strong>选择的零点的不同而变化</strong></p>
+<br>
+
+<br>
+
+<h2 id="分布的形状"><a href="#分布的形状" class="headerlink" title="分布的形状"></a>分布的形状</h2><h3 id="偏度-skewness"><a href="#偏度-skewness" class="headerlink" title="偏度(skewness)"></a>偏度(skewness)</h3><p><img src="/Blog/Blog/intro/stat_skewness.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>绿色线代表中位数</p>
+<p>红色线代表均值</p>
+<p>在左侧有长尾巴的图中(第一幅图), 均值会被往左拉, 均值会小于中位数, 因为均值收到特别小的数值的影响, 我们称之为<strong>左偏</strong></p>
+<p>反之称之为右偏(右侧有尾巴), 既不左偏也不右偏则称为对称</p>
+<p>第二幅图中也有红绿两条线, 但由于太近, 重合了起来</p>
+<br>
+
+<h3 id="形态-modality"><a href="#形态-modality" class="headerlink" title="形态(modality)"></a>形态(modality)</h3><p>主要来描述有多少个<strong>峰</strong></p>
+<p>当大于等于三个峰时, 称为多峰</p>
+<p>当出现双峰或多峰时, 要思考这是反应了真实的客观现象规律, 还是由于某些采样的偏差导致的</p>
+<p><img src="/Blog/Blog/intro/stat_skewness_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="峰度-kurtosis"><a href="#峰度-kurtosis" class="headerlink" title="峰度(kurtosis)"></a>峰度(kurtosis)</h3><p><img src="/Blog/Blog/intro/stat_skewness_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而峰既不非常尖锐, 也不非常扁平(红色曲线), 数据向中心聚拢的程度比较高, 这种分布是我们会经常打交道的一种分布(正态分布 &#x2F; 高斯分布 &#x2F;  Normal distribution )</p>
+<br>
+
+<br>
+
+<h2 id="变量间的关系"><a href="#变量间的关系" class="headerlink" title="变量间的关系"></a>变量间的关系</h2><p>客观现象之间往往是相互联系的, 因此对于他们关系的刻画也同样是重要的</p>
+<p>我们将从以下三个角度进行讲解:</p>
+<ol>
+<li>两个分量变量的关系</li>
+<li>两个数值变量的关系</li>
+<li>一个分类变量和一个数值变量的关系</li>
+</ol>
+<br>
+
+<h3 id="两个分类变量的关系"><a href="#两个分类变量的关系" class="headerlink" title="两个分类变量的关系"></a>两个分类变量的关系</h3><p>假设收集的数据为:</p>
+<p>泰坦尼克号上的325名乘客: 幸存(是 &#x2F; 否); 年龄(儿童 &#x2F; 成人)</p>
+<p><img src="/Blog/Blog/intro/stat_taitannike.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>当我们拿到这样一组数据后, 自然就有这样一个问题: 年龄与幸存是否有关系?</p>
+<p>我们可以使用关联表解答这个问题</p>
+<h4 id="关联表-contingency-table"><a href="#关联表-contingency-table" class="headerlink" title="关联表(contingency table)"></a>关联表(contingency table)</h4><p><img src="/Blog/Blog/intro/stat_contingency_table.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>且针对每一列我们还可以计算频率, 即有百分之几的儿童或成人幸存了</p>
+<p>而且如果用百分比替换数字则被称之为相对频率表</p>
+<p><strong>注意</strong>: 互依不等于因果, 说两个变量有关系不等于说这两个变量有因果关系</p>
+<br>
+
+<h4 id="分段条形图"><a href="#分段条形图" class="headerlink" title="分段条形图"></a>分段条形图</h4><p><img src="/Blog/Blog/intro/stat_part_line.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>可以直观地看出来儿童和成人在总数上的差异</p>
+<br>
+
+<h4 id="相对频率分段条形图"><a href="#相对频率分段条形图" class="headerlink" title="相对频率分段条形图"></a>相对频率分段条形图</h4><p><img src="/Blog/Blog/intro/stat_relative_part_line.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>这个是以百分比(小数)的形式对数据进行展示</p>
+<p>更清晰的表现了幸存与否在儿童和成人中的占比</p>
+<br>
+
+<h3 id="两个数值变量的关系"><a href="#两个数值变量的关系" class="headerlink" title="两个数值变量的关系"></a>两个数值变量的关系</h3><p>工资与入职时间是否有关? 什么关系? 关系强弱?</p>
+<p>房价与到学校的距离是否有关? 什么关系? 关系强弱?</p>
+<p>抽烟年数与寿命是否有关? 什么关系? 关系强弱?</p>
+<br>
+
+<h4 id="散点图-scatter-plot"><a href="#散点图-scatter-plot" class="headerlink" title="散点图(scatter plot)"></a>散点图(scatter plot)</h4><p>通过散点图可以判断: <strong>方向, 形状, 强度, 极端值</strong></p>
+<p><img src="/Blog/Blog/intro/stat_scatter_plot.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>横轴代表第一个数值变量, 纵轴代表第二个数值变量</p>
+<p>其中的每一个点, 代表的就是一次观测</p>
+<p>第一个图中两个变量很有可能没有关系</p>
+<p>第二个图中的两个变量有完美的线性关系, 随着一个变量的增加, 另一个变量也会增加, “增加”就是方向, 它是一根线, 说明是线性关系(形状), 点完美地分布在一条直线上, 说明两个变量的关系非常强</p>
+<p>第三张图的点的分布也相对分散, 但相比于第一幅图还是有相对明显的趋势的, 整体是线性关系, 但强度明显没有第二张图的关系强, 但这种情况才是我们在现实中经常看到的情况</p>
+<p>第四个图, 随着一个变量的增加, 另一个变量是减小的, 说明两者是”负相关”</p>
+<p>第五张图, 点是成曲线分布, 而不是简单的单调递增或者单调递减(线性关系), 而是有一个拐点, 在某一点之前是递减, 在某一地啊之后是递增, 并且不是线性的递增</p>
+<p>第六张图中, 有两个点远离了点的聚集处, 这两个点就被称为极端值, 极端值的存在会影响我们结论的真实性</p>
+<br>
+
+<h3 id="一个数值变量和一个分类变量的关系"><a href="#一个数值变量和一个分类变量的关系" class="headerlink" title="一个数值变量和一个分类变量的关系"></a>一个数值变量和一个分类变量的关系</h3><p>工资和性别是否有关?</p>
+<p>房价和学区房是否有关?</p>
+<p>抽烟的年数与肺癌是否有关?</p>
+<br>
+
+<h4 id="并排箱图-side-by-side-box-plot"><a href="#并排箱图-side-by-side-box-plot" class="headerlink" title="并排箱图(side-by-side box plot)"></a>并排箱图(side-by-side box plot)</h4><p><img src="/Blog/Blog/intro/stat_side_by_side_box_plot.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因为两个箱线图是并排放在一起的, 方便比较, 所以被称为并排箱线图</p>
+<br>
+
+<br>
+
+<h2 id="极端值与缺失值"><a href="#极端值与缺失值" class="headerlink" title="极端值与缺失值"></a>极端值与缺失值</h2><h3 id="极端值-x2F-异常值-outliers"><a href="#极端值-x2F-异常值-outliers" class="headerlink" title="极端值&#x2F;异常值 (outliers)"></a>极端值&#x2F;异常值 (outliers)</h3><ul>
+<li>在一组数据中, <strong>小于Q1-1.5IQR</strong> 或者 <strong>大于Q3 + 1.5IQR</strong>的数据是<strong>疑似极端值</strong></li>
+<li>在一组数据中, <strong>小于Q1-3IQR</strong> 或者 <strong>大于Q3 + 3IQR</strong>的数据是<strong>极端值</strong></li>
+</ul>
+<p>Q1是25%分位点, Q3是75%分位点</p>
+<br>
+
+<h4 id="修正箱线图"><a href="#修正箱线图" class="headerlink" title="修正箱线图"></a>修正箱线图</h4><p><img src="/Blog/Blog/intro/fix_box_plot.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="极端值产生的原因"><a href="#极端值产生的原因" class="headerlink" title="极端值产生的原因"></a>极端值产生的原因</h4><p>疑似极端值和极端值都需要引起我们注意, 那要如何处理他们呢</p>
+<p>这取决于他们产生的原因</p>
+<ul>
+<li>数据的测量, 记录或输入时的错误</li>
+<li>数据来自不同的总体 (例如 : 病人 vs 健康人)</li>
+<li>数据是正确的, 但它只体现小概率事件</li>
+</ul>
+<br>
+
+<h4 id="极端值可能产生的影响"><a href="#极端值可能产生的影响" class="headerlink" title="极端值可能产生的影响"></a>极端值可能产生的影响</h4><p>某公司员工的收入水平</p>
+<p>1.2, 1.3, 1.4, 1.5, 1.6, 1.6, 1.8, 2.0, 2.2, <strong>15</strong></p>
+<p>集中趋势:</p>
+<p>均值: 包含极端值(2.96) vs 不包含极端值(1.62)</p>
+<p>中位数: 1.6</p>
+<p>众数: 1.6</p>
+<br>
+
+<p>离散趋势:</p>
+<p>极差: 包含极端值(13.8) vs 不包含极端值(1)</p>
+<p>标准差: 包含极端值(4.24) vs 不包含极端值(0.33)</p>
+<p>IQR: 包含极端值(2.0 - 1.4 &#x3D; 0.6) vs 不包含极端值(1.9 - 1.35 &#x3D; 0.55)</p>
+<p>IQR较为稳定, 受极端值影响较小</p>
+<br>
+
+<p>均值, 极差, 标准差受异常值的影响非常大, 对于这种受异常值影响大的变量, 在计算之前要正确处理极端值</p>
+<p>我们称中位数, 众数这些不太受极端值影响的指标为<strong>稳健统计量</strong></p>
+<br>
+
+<h4 id="如何处理极端值"><a href="#如何处理极端值" class="headerlink" title="如何处理极端值"></a>如何处理极端值</h4><ul>
+<li>如果是由于测量或记录的错误, 或其他明显的原因造成的, 直接丢弃即可</li>
+<li>如果极端值出现无法解释, 那么, 丢弃或保留极端值则需要具体问题具体具体分析; 尽量选用受极端值影响较小的指标</li>
+<li>可以通过对比保留极端值和丢弃极端值对结果的影响, 来判断结果是否受到极端值的影响</li>
+</ul>
+<br>
+
+<h3 id="如何处理缺失值"><a href="#如何处理缺失值" class="headerlink" title="如何处理缺失值"></a>如何处理缺失值</h3><ul>
+<li>如果含有缺失值的观测记录很少, 而数据量很大, 可以把含有缺失值的观测记录丢弃</li>
+<li>如果含有缺失值的观测记录很多, 需要分析原因, 看是否能够把缺失的记录补全</li>
+<li>如果含有缺失值的观测记录较少, 可以使用均值&#x2F;中位数&#x2F;众数&#x2F;最大值等进行代替</li>
+</ul>
+<br>
+
+<h2 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h2><p><img src="/Blog/Blog/intro/stat_conclusion.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h1 id="概率和概率分布"><a href="#概率和概率分布" class="headerlink" title="概率和概率分布"></a>概率和概率分布</h1><p>我们已经介绍了描述统计, 之前说过概率论贯穿整个统计学</p>
+<p><img src="/Blog/Blog/intro/stat_probality.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因此这一章的目的是把一些非常基础但又和统计学密切相关的概率论知识进行介绍</p>
+<br>
+
+<h2 id="什么是概率论"><a href="#什么是概率论" class="headerlink" title="什么是概率论"></a>什么是概率论</h2><ul>
+<li>确定性现象<ul>
+<li>定义: 在一定条件下<strong>必然</strong>会发生的现象 </li>
+<li>抛起的硬币必然下落</li>
+<li>在标准大气压下, 水加热到100度必然沸腾</li>
+</ul>
+</li>
+<li>随机现象<ul>
+<li>抛一次硬币的结果 { 正面, 反面 }</li>
+<li>抛一次骰子的结果 { 1, 2, 3, 4, 5, 6 }</li>
+</ul>
+</li>
+</ul>
+<p>随机现象:</p>
+<ul>
+<li><p>在<strong>个别实验</strong>中结果具有<strong>不确定性</strong></p>
+</li>
+<li><p>在<strong>大量重复</strong>实验中结果呈现出<strong>固有规律性</strong></p>
+</li>
+</ul>
+<p>满足这两个条件的现象就是随机现象</p>
+<p>抛硬币 正面 : 反面 ≈ 1 : 1</p>
+<p>抛骰子 1 : 2 : 3 : 4 : 5 : 6 ≈ 1 : 1 : 1 : 1 : 1 : 1</p>
+<br>
+
+<p><img src="/Blog/Blog/intro/stat_probality_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>概率论和统计就是用来研究随机现象的<strong>统计规律性</strong>的一门科学</p>
+<p>概率论为刻画这种不确定性提供了规律</p>
+<p>确定性现象不是概率论研究的对象, 概率论研究的是随机现象</p>
+<br>
+
+<h3 id="相关术语和概念"><a href="#相关术语和概念" class="headerlink" title="相关术语和概念"></a>相关术语和概念</h3><ul>
+<li>样本空间 (Space) (用S来表示)<ul>
+<li>定义: 随机实验E的所有可能结果组成的集合</li>
+<li>例如: 试验: 扔一次硬币进行观察 &#x3D;&gt; S : {Head, Tail}</li>
+<li>例如: 实验: 扔两次硬币进行观察 &#x3D;&gt; S : {HH, HT, TH, TT}</li>
+</ul>
+</li>
+<li>随机事件<ul>
+<li>定义: 样本空间S的子集称为随机试验E的随机事件, 简称事件</li>
+<li><img src="/Blog/Blog/intro/stat_probality_2.PNG" srcset="/Blog/img/loading.gif" lazyload></li>
+</ul>
+</li>
+</ul>
+<p>例如:</p>
+<p>S : {HH, HT, TH, TT} &#x3D;&gt; {HH, HT, TH} &#x3D; {至少一次正面}</p>
+<p><strong>事件发生</strong> : 在本次实验中, 当且仅当这一子集的一个样本点出现</p>
+<p>就是说, 扔两次硬币, 看结果是不是上面三个结果之一, 如果是, 则事件发生</p>
+<p>样本空间是<strong>必然事件</strong></p>
+<br>
+
+<h3 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h3><p><img src="/Blog/Blog/intro/stat_probality_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h2><p>基于个人的经验知识对某件事发生的可能大小进行赋值</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stylus">明天的天气<br><br>S:&#123;晴, 雨&#125;<br><br>事件 : &#123;雨&#125;<br><br><span class="hljs-function"><span class="hljs-title">P</span><span class="hljs-params">(雨)</span></span> = <span class="hljs-number">0.2</span>	<span class="hljs-number">20%</span>的可能明天下雨<br><br><span class="hljs-function"><span class="hljs-title">P</span><span class="hljs-params">(雨)</span></span> = <span class="hljs-number">0.7</span>	<span class="hljs-number">70%</span>的可能明天下雨<br><br>...<br></code></pre></td></tr></table></figure>
+
+<p>首先它可以是纯粹的猜测, 没有任何依据, 仅仅依赖个人的经验&#x2F;知识, 因此主观色彩非常强, 可信度低</p>
+<p>在贝叶斯统计中, 经常使用这种方法, 但在传统的参数估计和假设检验这两个问题下不太会用到这种方法</p>
+<br>
+
+<h3 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h3><p><img src="/Blog/Blog/intro/stat_probility.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>例如</p>
+<p><img src="/Blog/Blog/intro/stat_probility_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>性质:</strong></p>
+<ul>
+<li><p>0 &lt;&#x3D; fn(A) &lt;&#x3D; 1</p>
+</li>
+<li><p>fn(S) &#x3D; 1     (样本空间是必然事件)</p>
+</li>
+<li><p><img src="/Blog/Blog/intro/stat_probility_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<br>
+
+<h3 id="概率-1"><a href="#概率-1" class="headerlink" title="概率"></a>概率</h3><p>对于随机试验E的每一个事件A赋予一个实数, 记作P(A), 称为事件A的概率, 如果<strong>集合函数</strong>P(.)满足下列条件</p>
+<ul>
+<li>非负性: 对于每一个事件A, 有P(A) &gt;&#x3D; 0</li>
+<li>规范性: 对于必然事件S, 有P(S) &#x3D; 1</li>
+<li>可列可加性: 设A1, A2… 是两两不相容事件, 有P(A1 U A2 U …) &#x3D; P(A1) + P(A2) + …</li>
+</ul>
+<br>
+
+<h3 id="频率-vs-概率"><a href="#频率-vs-概率" class="headerlink" title="频率 vs 概率"></a>频率 vs 概率</h3><p>为什么频率近似概率</p>
+<p><img src="/Blog/Blog/intro/stat_probility_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_probility_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>随着n的增加, 频率逐渐稳定于某个常数, 这就是统计规律性, 这个常数就是概率</p>
+<p>当实验次数非常小时, 频率波动非常大</p>
+<p>当实验次数非常大时, 频率波动非常小, 趋近于常数</p>
+<p><img src="/Blog/Blog/intro/stat_probility_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>小数定律: 当重复实验的次数非常小时, 频率不能非常好地代表事件发生的可能性大小, 我们不能使用它很好地近似概率</p>
+<p>大数定律: 当实验次数n趋于无穷时, 事件A发生的频率趋于事件A发生的概率</p>
+<p><img src="/Blog/Blog/intro/stat_probility_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="再谈变量"><a href="#再谈变量" class="headerlink" title="再谈变量"></a>再谈变量</h2><p>数据是变量组成的; 一个变量至少包含两个不同的取值</p>
+<p><strong>如果把数据&#x2F;变量与概率论中的概念联系起来?</strong></p>
+<p>&#x3D;&gt; 引入一个法则, 将样本空间S的每一个元素(随机试验E的每一个结果) 与实数对应起来</p>
+<p><img src="/Blog/Blog/intro/stat_variable.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>为什么这么做? 因为如果样本空间中的元素不是数的话我们难以描述和研究</p>
+<br>
+
+<h3 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h3><p>通常简称为: 变量</p>
+<p>设随机试验E的样本空间为S &#x3D; {e}, X &#x3D; X(e)是定义在样本空间S上的实值单值函数, 称X &#x3D; X(e)为随机变量</p>
+<p>实值: 每对应一个e, 例如e1, X(e1)得到的是实数</p>
+<p>单值: 对于e, 例如e1, X(e1)有且只有一个函数值</p>
+<p>例如: </p>
+<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tp">实验E: 抛硬币<br>样本空间S:&#123;H, T&#125;<br>变量<span class="hljs-keyword">X</span>: <span class="hljs-keyword">X</span>(H) = <span class="hljs-number">1</span><br>	  <span class="hljs-keyword">X</span>(T) = <span class="hljs-number">0</span><br>对于元素H我们映射到数轴让它等于<span class="hljs-number">1</span><br>对于元素T我们映射到数轴让它等于<span class="hljs-number">0</span><br>此时<span class="hljs-keyword">X</span>就是变量, <span class="hljs-number">0</span>和<span class="hljs-number">1</span>就是变量可能的取值<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>如果随机试验的结果本身就是一个数, 即e本身是一个数, 令X &#x3D; X(e) &#x3D; e, X就是一个随机变量</p>
+<p><img src="/Blog/Blog/intro/stat_random_variable.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_random_variable_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="随机变量的性质"><a href="#随机变量的性质" class="headerlink" title="随机变量的性质"></a>随机变量的性质</h3><ul>
+<li>随机变量的取值随实验结果而定</li>
+<li>试验的各个结果的出现有一定概率, 因而<strong>随机变量的取值有一定概率</strong></li>
+<li>在实验之前<strong>不能预知</strong>它取什么值</li>
+</ul>
+<br>
+
+<h3 id="随机变量的分类"><a href="#随机变量的分类" class="headerlink" title="随机变量的分类"></a>随机变量的分类</h3><p>除了按照尺度划分(名目尺度, 次序尺度, 等距尺度, 等比尺度)</p>
+<p>我们还可以把变量分为离散型和连续型</p>
+<p><img src="/Blog/Blog/intro/stat_type_var.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>在概率论中, 通常把离散型和连续型分开讨论</p>
+<br>
+
+<br>
+
+<h2 id="离散型随机变量及其分布"><a href="#离散型随机变量及其分布" class="headerlink" title="离散型随机变量及其分布"></a>离散型随机变量及其分布</h2><p><strong>离散型随机变量</strong>: 可能取到的值是有限个或可列无限多个</p>
+<p><img src="/Blog/Blog/intro/probability_mass_func.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>例如:</p>
+<p><img src="/Blog/Blog/intro/probability_mass_func_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>x1 + … + xk &#x3D; 1, 且xi处于0到1之间</p>
+<br>
+
+<h3 id="0-1-分布-x2F-两点分布-Bernoulli-distribution"><a href="#0-1-分布-x2F-两点分布-Bernoulli-distribution" class="headerlink" title="(0-1)分布&#x2F;两点分布 (Bernoulli distribution)"></a>(0-1)分布&#x2F;两点分布 (Bernoulli distribution)</h3><p><img src="/Blog/Blog/intro/probability_mass_func_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于随机试验E, 如果其样本空间S只包含两个元素, 总能够在S上定义一个服从(0-1)分布的随机变量来描述这个随机试验结果</p>
+<p>例如:</p>
+<p>性别: X&#x3D;0 当性别为女; P{女} &#x3D; 1 - p</p>
+<div class="code-wrapper"><pre><code class="hljs">      X=1 当性别为男; P&#123;男&#125; = p
+</code></pre></div>
+<br>
+
+<h3 id="伯努利实验-二项分布-Binomial-distribution"><a href="#伯努利实验-二项分布-Binomial-distribution" class="headerlink" title="伯努利实验, 二项分布 (Binomial distribution)"></a>伯努利实验, 二项分布 (Binomial distribution)</h3><h4 id="什么是伯努利实验"><a href="#什么是伯努利实验" class="headerlink" title="什么是伯努利实验?"></a>什么是伯努利实验?</h4><p><img src="/Blog/Blog/intro/probability_mass_func_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="n重伯努利实验"><a href="#n重伯努利实验" class="headerlink" title="n重伯努利实验"></a>n重伯努利实验</h4><p><img src="/Blog/Blog/intro/probability_mass_func_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h4 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h4><p>以X表示n重伯努利实验中事件发生的次数, X是一个随机变量, X的所有可能的取值为0, 1, 2 … n其分布规律为</p>
+<p><img src="/Blog/Blog/intro/probability_mass_func_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>则称X服从参数n, p的二项分布, 记为X~b(n, p)</p>
+<p>例如:</p>
+<p><img src="/Blog/Blog/intro/probability_mass_func_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>可以看到当实验有20次时, 如果p&#x3D;0.1, 那么20次实验出现两次或三次p的概率较高, 如果p&#x3D;0.9, 那么20次实验中, 出现18, 19次p的可能性较高.</p>
+<p><img src="/Blog/Blog/intro/probability_mass_func_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>当我们固定p&#x3D;0.5, 10 次实验中, 5次出现p的可能性最高, 50次实验时, p出现25次的概率最高……</p>
+<br>
+
+<br>
+
+<h2 id="连续型随机变量及其分布"><a href="#连续型随机变量及其分布" class="headerlink" title="连续型随机变量及其分布"></a>连续型随机变量及其分布</h2><h3 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h3><p>设X是一个随机变量, X是任意实数, 函数</p>
+<p><img src="/Blog/Blog/intro/distribute_function.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>称为X的<strong>分布函数</strong>(Cumulative Distribution Function)</p>
+<p><strong>分布函数实用于离散型随机变量和连续型随机变量</strong></p>
+<br>
+
+<p><strong>分布率和分布函数</strong></p>
+<p><img src="/Blog/Blog/intro/distribution_function_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>这两张图是怎么对应的呢, 当x&#x3D;20时</p>
+<p>分布律对应的值大概为0.05, 分布函数对应的值为0.9</p>
+<p>把分布律小于等于20对应的概率相加后得到的就是分布函数对应的F(x)的值</p>
+<p><img src="/Blog/Blog/intro/distribution_function_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>同理当x &#x3D; 10时也是一样</p>
+<p>注意分布函数的图中每一个点后面都跟着一个小尾巴(横线)</p>
+<p>这是因为分布函数的x的取值是任意实数, 而分布率中, x的取值只可能是整数. 所以当 x &#x3D; 17.5 的 F(x) 的取值就是 x &#x3D; 17 时 F(x) 的取值, 因此画为水平的横线</p>
+<p>而当左图所有值加起来, 等于1, 和右边 F(x) 的最大取值一样</p>
+<br>
+
+<h3 id="分布函数为什么重要"><a href="#分布函数为什么重要" class="headerlink" title="分布函数为什么重要"></a>分布函数为什么重要</h3><p>若已知 X 的分布函数, 就可知 X 落在任一区间 (x1, x2] 的概率</p>
+<p><font color="red"><strong>分布函数完整地描述了随机变量的统计规律性</strong></font></p>
+<p>为什么左开右闭? </p>
+<p>因为 F(x2) 表示 x &lt;&#x3D; x2 的概率, F(x1) 表示 x &lt;&#x3D; x1的概率.</p>
+<p>两者相减后x2被包含在其中, 而x1则被减掉了</p>
+<br>
+
+<h3 id="概率密度"><a href="#概率密度" class="headerlink" title="概率密度"></a>概率密度</h3><p>概率密度是<strong>连续性随机变量</strong>才有的概念</p>
+<p>定义:</p>
+<p><img src="/Blog/Blog/intro/distribution_density.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>函数f(x)称为X的<strong>概率密度函数</strong>(Probability Density Function)</p>
+<p><img src="/Blog/Blog/intro/distribution_density_function.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>和前面离散型随机变量的例子非常相似, F(x) 就是求从负无穷到某一个值(x) 曲线所包围的面积.</p>
+<br>
+
+<p>例如: 当x &#x3D; 1</p>
+<p><img src="/Blog/Blog/intro/distribution_density_function_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>左边蓝色区域面积的和就对应右侧的y值</p>
+<br>
+
+<p>对于连续型随机变量来说虽然公式更复杂了, 但是原理是一样的</p>
+<br>
+
+<p>对于连续型随机变量 X 而言, 它取任一指定实数值 a 的概率均为 0</p>
+<p><strong>P{X &#x3D; a} &#x3D; 0</strong></p>
+<p>之前说过, 若A是不可能事件, 则有P(A) &#x3D; 0</p>
+<p><font color="red">但若P(A) &#x3D; 0, 并不一定意味着A是不可能事件</font></p>
+<br>
+
+<p>频率对应小柱形的面积</p>
+<p>当离散型随机变量的区间越小, 柱形的宽度就越来越细</p>
+<p><img src="/Blog/Blog/intro/distribution_density_function_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>当变成一条线时(变成连续型随机变量分布), (柱形)就没有面积了. 这就意味着频率为0了</p>
+<p>因此对于连续型随机变量来说, 当取某个特定的取值就意味着对应的小柱形没有宽, 只有高, 它的面积为0, 因此频率就是0, 因此概率也为0</p>
+<p>因此不同于离散型随机变量, 连续型随机变量只能求某一个区间内的概率</p>
+<br>
+
+<h3 id="正态分布-Normal-Distribution"><a href="#正态分布-Normal-Distribution" class="headerlink" title="正态分布 (Normal Distribution)"></a>正态分布 (Normal Distribution)</h3><p>正态分布也叫高斯分布</p>
+<p><img src="/Blog/Blog/intro/Normal_distribution.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>N 代表 normal distribution</p>
+<p>虽然看起来非常复杂, 但自信观察, 只有x是变量, 所以本质上是一个<strong>指数函数</strong></p>
+<br>
+
+<h4 id="可视化地理解u和σ到底决定了什么"><a href="#可视化地理解u和σ到底决定了什么" class="headerlink" title="可视化地理解u和σ到底决定了什么"></a>可视化地理解u和σ到底决定了什么</h4><h5 id="u决定了什么"><a href="#u决定了什么" class="headerlink" title="u决定了什么"></a>u决定了什么</h5><p>固定σ &#x3D; 1, 而变化u的正态分布函数</p>
+<p><img src="/Blog/Blog/intro/stat_u_dependence_what.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>红色图形的对称轴在 x&#x3D;-2</p>
+<p>绿色图形的对称轴在 x&#x3D;0</p>
+<p>蓝色图形的对称轴在 x&#x3D;2</p>
+<p>可以看出, u决定了这个图形的对称轴在哪里</p>
+<br>
+
+<h5 id="σ决定了什么"><a href="#σ决定了什么" class="headerlink" title="σ决定了什么"></a>σ决定了什么</h5><p>固定u &#x3D; 0, 即对称轴在0, 变化 σ 的正态分布函数</p>
+<p><img src="/Blog/Blog/intro/stat_u_dependence_what_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>σ &#x3D; 0.5 的图形是最窄的, 也是最高的</p>
+<p>σ &#x3D; 1 时位于中间</p>
+<p>σ &#x3D; 2 的图形是最宽的, 也是最矮的</p>
+<p>σ决定的是这个曲线的高低和胖瘦</p>
+<br>
+
+<p>日后会学习到, u就是这个分布的均值, σ就是分布的标准差</p>
+<br>
+
+<h4 id="正态分布的特征"><a href="#正态分布的特征" class="headerlink" title="正态分布的特征"></a>正态分布的特征</h4><p>并不是所有这样的曲线都叫正态分布, 正态分布有着独有的特征</p>
+<p><img src="/Blog/Blog/intro/Normal_distribution_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/Normal_distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<ul>
+<li><p>u - σ, u + σ 之间的面积为 68.26%, 也就是说, 在正态分布中, 数值落在(u - σ, u + σ) 的概率为 68.26%</p>
+</li>
+<li><p>u - 2σ, u + 2σ 之间的面积为 95.44%, 也就是说, 在正态分布中, 数值落在(u - 2σ, u + 2σ) 的概率为 95.44%</p>
+</li>
+<li><p>u - 3σ, u + 3σ 之间的面积为 99.74%, 也就是说, 在正态分布中, 数值落在(u - 3σ, u + 3σ) 的概率为 99.74%</p>
+</li>
+</ul>
+<p>因此正态分布有3σ法则</p>
+<p><strong>3σ法则</strong>: 正态变量的取值范围是正负无穷, 但它的值几乎肯定落在(u-3σ, u+3σ)</p>
+<p>满足这些性质的, 同时长成这个样子的曲线, 才叫正态分布</p>
+<br>
+
+<h3 id="标准正态分布"><a href="#标准正态分布" class="headerlink" title="标准正态分布"></a>标准正态分布</h3><p>当u&#x3D;0, σ&#x3D;1时的分布我们称为<strong>标准正态分布</strong></p>
+<p><img src="/Blog/Blog/intro/Normal_distribution_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>右上角是当X服从正态分布时, 如何求得Z服从标准正态分布</p>
+<br>
+
+<h4 id="上-x2F-下-α分位点"><a href="#上-x2F-下-α分位点" class="headerlink" title="(上&#x2F;下)α分位点"></a>(上&#x2F;下)α分位点</h4><p><img src="/Blog/Blog/intro/Normal_distribution_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>让Zα之上的面积等于α, 若α大于0小于1, 则称Zα为标准正态分布的上α分位点</p>
+<p>同理, 让Zα之下的面积等于α, 若α大于0小于1, 则称Zα为标准正态分布的下α分位点</p>
+<br>
+
+<br>
+
+<h2 id="小节"><a href="#小节" class="headerlink" title="小节"></a>小节</h2><p><img src="/Blog/Blog/intro/Normal_distribution_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h1 id="样本和抽样分布"><a href="#样本和抽样分布" class="headerlink" title="样本和抽样分布"></a>样本和抽样分布</h1><p><img src="/Blog/Blog/intro/stat.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>统计推断</strong>问题可以化为<strong>参数估计</strong>问题和<strong>假设检验</strong>问题</p>
+<p>为什么要做参数估计和假设检验?</p>
+<br>
+
+<h2 id="总体与样本"><a href="#总体与样本" class="headerlink" title="总体与样本"></a>总体与样本</h2><p><strong>总体(Population)</strong> : 我们所感兴趣的所有对象的集合</p>
+<p><img src="/Blog/Blog/intro/stat_population.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>在有限的时间内, 有限的预算下我们通常无法获得所有对象的信息</p>
+<p>因此一个自然的想法就是: 拿到其中的某些数据, 基于这些数据对总体进行推测 <strong>(样本 sample)</strong></p>
+<p><img src="/Blog/Blog/intro/stat_sample.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>基于同一个总体我们可以获得很多样本, 每一个样本都能提供一些关于总体的信息</p>
+<blockquote>
+<p>参数估计, 估计的就是总体的一些参数, 例如总体的平均收入</p>
+</blockquote>
+<p>不同的样本提供的信息是有一定差别的</p>
+<p>如何使用样本的信息去得到总体的参数的信息?</p>
+<p>解决这个问题的过程就叫做<strong>参数估计</strong></p>
+<p>而当得到参数估计以后, 验证这个估计对不对, 或者有多大的可能性是正确的, 就是<strong>假设检验</strong></p>
+<br>
+
+<h3 id="总体-Population"><a href="#总体-Population" class="headerlink" title="总体(Population)"></a>总体(Population)</h3><p><img src="/Blog/Blog/intro/stat_population.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>总体: 试验的全部可能的观察值</strong></p>
+<p><strong>个体: 每一个观察值</strong></p>
+<p><strong>总体的容量: 总体中所包含的个体的个数</strong></p>
+<p>由于总体中每一个个体都对应一个随机试验的观察值, 那么<strong>一个总体就对应于一个随机变量X</strong>, 每一个个体的取值就是随机变量X的取值</p>
+<p>因此我们可以不用刻意区分总体和随机变量, 而是统称为总体X</p>
+<p>对总体的研究就是对一个随机变量X的研究, X的分布函数和数字特征就成为<strong>总体的分布函数和数字特征</strong></p>
+<br>
+
+<h3 id="样本-Sample"><a href="#样本-Sample" class="headerlink" title="样本(Sample)"></a>样本(Sample)</h3><p>在实际中, <strong>总体的分布一般是未知的</strong>, 或只知道它具有某种形式而其中包含<strong>未知参数</strong></p>
+<p>从总体中抽取一部分个体, 根据获得的数据来对总体分布做出推断. 被抽出的部分个体叫做总体的一个<strong>样本</strong></p>
+<p><strong>样本是进行统计推断的依据</strong></p>
+<br>
+
+<p><img src="/Blog/Blog/intro/stat_sample_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>以其中的一个样本为例讲解:</p>
+<p>从总体抽取一个个体, 就是<strong>对总体X进行一次观察</strong>并记录其结果 (因为总体是由个体组成的, 如果我们直到所有个体的情况, 那么我们自然也就了解了总体)</p>
+<p>在<strong>相同的条件</strong>下对总体X进行n次<strong>重复的, 独立的观察</strong>, 将n次观察结果按试验的次序记为 X1, X2 … Xn</p>
+<p><img src="/Blog/Blog/intro/stat_sample_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>因为X1…Xn是对随机变量X的观察结果, 并且各次观察实在相同的条件下独立地进行的, 因此我们可以认为X1, X2…Xn是互相独立的</p>
+<p>互相独立: X1 的取值并不能告诉我们任何 X2 的取值的信息</p>
+<p>X1…Xn是与总体X具有相同分布的随机变量</p>
+<p>就是说Xi本身就是一个随机变量, 它可能的取值和取值出现的概率都和总体X是一致的</p>
+<p>Xi代表总体中某一个个体, 在我们真正在这个个体上得到观察值之前, 它可能的取值就和总体可能的取值是一致的, 并且它所对应的观察值可能出现的概率也和总体是一致的</p>
+<p>因此我们任务X1…Xn每一个都是随机变量, 并且与总体具有相同的分布</p>
+<p>当n次观察完成我们就得到了一组实数x1, x2…他们是X1, X2…Xn的观察值, 称为<strong>样本值</strong></p>
+<p><img src="/Blog/Blog/intro/stat_sample_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<h2 id="抽样分布"><a href="#抽样分布" class="headerlink" title="抽样分布"></a>抽样分布</h2><p>我们需要使用样本对总体的参数进行估测, 但其实<strong>我们往往不是直接使用样本本身, 而是针对不同的问题构造样本的适当函数, 利用这些样本的函数进行统计推断</strong></p>
+<p>而这个<strong>样本的函数</strong>有个专有的名词<strong>统计量</strong></p>
+<br>
+
+<h3 id="统计量"><a href="#统计量" class="headerlink" title="统计量"></a>统计量</h3><p>定义:</p>
+<p><img src="/Blog/Blog/intro/stat_stat_num.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_stat_num_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>左边就是一个<strong>样本</strong>, 右边是一个<strong>统计量</strong>, 从样本到统计量我们需要一个<strong>函数</strong>(g)</p>
+<p>这里g的参数是一组变量</p>
+<p><img src="/Blog/Blog/intro/stat_stat_num_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>一旦我们对X1, X2…进行观测并记录观测值, 我们便会得到一组实数x1, x2…(<strong>样本值</strong>)</p>
+<p>如果我们把x1, x2…作用到g, 由于此时g没有未知参数, 我们便可以得到一个函数值(统计量的<strong>观察值</strong>)</p>
+<br>
+
+<h4 id="常用统计量"><a href="#常用统计量" class="headerlink" title="常用统计量"></a>常用统计量</h4><p><img src="/Blog/Blog/intro/stat_stat_num_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_stat_num_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<blockquote>
+<p>由于是对样本进行操作, 所以分母为n-1, 而不是n</p>
+<p>具体在参数估计章节讲解</p>
+</blockquote>
+<br>
+
+<h3 id="小结-5"><a href="#小结-5" class="headerlink" title="小结"></a>小结</h3><p><img src="/Blog/Blog/intro/stat_stat_num_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>基于<strong>总体</strong>, 我们可以得到许多<strong>样本</strong>, 对每一个样本我们都可以得到一个<strong>统计量</strong>, 以样本均值为例, 我们可以有很多样本均值的观察值</p>
+<p>这些统计量的观察值也会形成一个分布, 称为<strong>统计量的分布</strong>, 即<strong>抽样分布</strong></p>
+<br>
+
+<br>
+
+<h2 id="常用统计量的分布"><a href="#常用统计量的分布" class="headerlink" title="常用统计量的分布"></a>常用统计量的分布</h2><h3 id="来自正态总体的几个常用统计量的分布"><a href="#来自正态总体的几个常用统计量的分布" class="headerlink" title="来自正态总体的几个常用统计量的分布"></a>来自正态总体的几个常用统计量的分布</h3><p><img src="/Blog/Blog/intro/normal_distribution_stat_num.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>总体服从正态分布, 基于总体我们可以得到样本, 基于样本我们可以构造样本的函数(统计量), 基于统计量我们又可以得到统计量的分布</p>
+<p>这里我们将要讲解三个常用的统计量的分布</p>
+<ul>
+<li>卡方分布</li>
+<li>t分布</li>
+<li>F分布</li>
+</ul>
+<br>
+
+<h4 id="卡方分布-chi-square-distribution"><a href="#卡方分布-chi-square-distribution" class="headerlink" title="卡方分布(chi-square distribution)"></a>卡方分布(chi-square distribution)</h4><p><img src="/Blog/Blog/intro/chi-square-distribution_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>首先我们有一个总体, 它是标准正态分布. 基于这个总体我们可以抽取一部分个体X1, X2…Xn, 基于这个样本我们就可以构造统计量</p>
+<p>这个统计量的计算方法就是对每一个个体进行平方再加和</p>
+<p><img src="/Blog/Blog/intro/chi-square-distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>这样构造出来的统计量就服从自由度为n的卡方分布</p>
+<p><img src="/Blog/Blog/intro/chi-square-distribution_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>自由度(df: degree of freedom) &#x3D; 独立变量的个数</strong></p>
+<br>
+
+<h5 id="卡方分布的概率密度函数图"><a href="#卡方分布的概率密度函数图" class="headerlink" title="卡方分布的概率密度函数图"></a>卡方分布的概率密度函数图</h5><p><img src="/Blog/Blog/intro/chi-square-distribution_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>可以看出来, 随着自由度的增加, 卡方分布的概率密度函数图变得越来越矮, 也越来越胖</p>
+<p>那么我们也就看出来了, 同样是基于样本构造出来的卡方统计量, 它的分布到底长什么样子也取决于样本容量</p>
+<p>所以样本容量, 也就是自由度, 是一个非常重要的指标</p>
+<br>
+
+<h5 id="卡方分布的性质"><a href="#卡方分布的性质" class="headerlink" title="卡方分布的性质"></a>卡方分布的性质</h5><p><img src="/Blog/Blog/intro/chi-square-property.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于卡方分布, 它的均值就等于n, 方差等于2n (不是重点, 记住即可)</p>
+<br>
+
+<h4 id="t分布-t-distribution"><a href="#t分布-t-distribution" class="headerlink" title="t分布(t distribution)"></a>t分布(t distribution)</h4><p><img src="/Blog/Blog/intro/t_distribution.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>同样是一个服从标准正态分布的总体, 从这个总体中可以得到两个变量 X 服从标准正态分布,Y服从自由度为n的卡方分布</p>
+<br>
+
+<p>在此基础上基于X,Y就可以构造一个新的统计量 t</p>
+<p><img src="/Blog/Blog/intro/t_distribution_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h5 id="t分布的概率密度函数图"><a href="#t分布的概率密度函数图" class="headerlink" title="t分布的概率密度函数图"></a>t分布的概率密度函数图</h5><p>黑线是标准正态分布的图, 有颜色的线对应的是t分布的图, 把二者画在同一图中是为了方便比较</p>
+<p><img src="/Blog/Blog/intro/t_distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>随着自由度的增大, t分布越来越接近标准正态分布, 对称轴为x&#x3D;0</p>
+<br>
+
+<h4 id="F分布-F-distribution"><a href="#F分布-F-distribution" class="headerlink" title="F分布(F distribution)"></a>F分布(F distribution)</h4><p>同样是一个服从标准正态分布的总体, 通过这个总体可以得到一些统计量, U服从自由度为n1的卡方分布, V服从自由度为n2的卡方分布</p>
+<p><img src="/Blog/Blog/intro/f_distribution.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>基于U和V构造新的统计量F</p>
+<p><img src="/Blog/Blog/intro/f_distribution_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h5 id="F分布的概率密度函数图"><a href="#F分布的概率密度函数图" class="headerlink" title="F分布的概率密度函数图"></a>F分布的概率密度函数图</h5><p>首先固定n2为40, 去变换n1</p>
+<p><img src="/Blog/Blog/intro/f_distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>随着n1的不断变小, 图形变得越来越矮, 越来越胖, 并且其概率最大值所对应的F值也越来越向左偏移</p>
+<br>
+
+<p>固定n1为20, 变化n2, 一次递减10</p>
+<p><img src="/Blog/Blog/intro/f_distribution_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>随着n2递减, 图形变得越来越矮, 相对的也胖了一些, 但变换程度没有左侧的明显</p>
+<br>
+
+<br>
+
+<h2 id="正态总体的样本均值和样本方差的分布"><a href="#正态总体的样本均值和样本方差的分布" class="headerlink" title="正态总体的样本均值和样本方差的分布"></a>正态总体的样本均值和样本方差的分布</h2><p><img src="/Blog/Blog/intro/normal_pop_sample_mean.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>样本均值的期望, 或者说样本均值这个统计量的均值 等于u,</p>
+<p>而样本均值这个统计量的方差就等于 σ^2 &#x2F; n, n为样本容量</p>
+<p>样本方差S^2, 这个统计量的均值等于σ^2</p>
+<br>
+
+<p>这几个等式告诉了我们什么?</p>
+<p>X bar和S^2都是基于样本计算出来的统计量 </p>
+<p>而 u 和 σ^2 却是总体的参数, 分别为总体的均值和总体的方差</p>
+<p>我们之前说过几乎不可能拿到总体所包含的所有个体数据, 所以我们也基本上去真实地计算出来总体的均值和总体的方差</p>
+<p>如果我们想要了解这个总体的均值和方差的话, 我们使用的办法就是对总体进行观测, 具体的步骤就是从总体中抽取一些个体, 对这些个体进行观测, 并从所得到的数据中提取一些信息. 基于这些信息我们来对总体的参数(例如: 均值, 方差)进行估计  </p>
+<p><img src="/Blog/Blog/intro/normal_pop_sample_mean.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而这个几个等式, 其实就已经把总体的参数和样本的均值, 以及样本的方差之间建立了联系, 使我们能够基于样本的信息推测出总体的参数</p>
+<p>注意: 我们没有限定总体X的分布, 没有说必须是正态总体</p>
+<p>也就是说, 不管总体服从什么样的分布只要样本均值为u, 它的方差为σ^2, 那么我们都可以用样本的均值和样本的方差对总体的均值和总体的方差进行估计</p>
+<p>如何证明这些等式是正确的?</p>
+<p>这里简单证明一下样本均值的期望等于u, 以及样本均值的方差等于σ^2&#x2F;n</p>
+<p><img src="/Blog/Blog/intro/proof_u.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/proof_u_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><p><img src="/Blog/Blog/intro/proof_u_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>样本均值这个统计量的分布为什么服从正态分布</p>
+<p>中心极限定理(Central Limit Theory) 告诉我们样本均值的分布一定服从正态分布</p>
+<h3 id="中心极限定理-CLT"><a href="#中心极限定理-CLT" class="headerlink" title="中心极限定理(CLT)"></a>中心极限定理(CLT)</h3><p>中心极限定理是概率论中的一组定理</p>
+<p>中心极限定理说明, 在适当的条件下, 相互独立的随机变量之和经适当标准化后, 其分布近似于正态分布; 注意: <strong>不要求变量本事服从正态分布</strong></p>
+<br>
+
+<h3 id="样本均值的分布"><a href="#样本均值的分布" class="headerlink" title="样本均值的分布"></a>样本均值的分布</h3><h4 id="样本来自正态总体"><a href="#样本来自正态总体" class="headerlink" title="样本来自正态总体"></a>样本来自正态总体</h4><p><img src="/Blog/Blog/intro/sample_noraml_d.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>红色的线x&#x3D;0是理论上的总体均值, 因为我们的总体服从标准正态分布, 所以它</p>
+<br>
+
+<h2 id="随机抽样-误差源-随机分配"><a href="#随机抽样-误差源-随机分配" class="headerlink" title="随机抽样, 误差源, 随机分配"></a>随机抽样, 误差源, 随机分配</h2><p><img src="/Blog/Blog/intro/stat_sample.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>样本是由从总体中随机抽取的个体组成的, 随着随机抽取的个体的不一样, 我们就可以得到不同的样本</p>
+<p>虽然样本可能是有变化的, 但是好的样本的标准却是一致的: 我们希望样本是<strong>具有代表性</strong>的</p>
+<p>我们希望基于样本得到的结果是可以很好地代表总体上的结果的</p>
+<br>
+
+<h3 id="误差源"><a href="#误差源" class="headerlink" title="误差源"></a>误差源</h3><p>在这个过程中有一些误差源, 这些误差源会影响样本的质量</p>
+<ul>
+<li>方便性: 容易联系到的人更可能包含进来</li>
+<li>不回复: 随机抽取的样本中只有一部分回答了问卷</li>
+<li>自愿性: 样本由自愿参与的人组成</li>
+</ul>
+<br>
+
+<h3 id="区分观察研究-Observational-Study-和实验-Experiment"><a href="#区分观察研究-Observational-Study-和实验-Experiment" class="headerlink" title="区分观察研究(Observational Study)和实验(Experiment)"></a>区分观察研究(Observational Study)和实验(Experiment)</h3><p><img src="/Blog/Blog/intro/experiment.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/experiment_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/Blog/intro/experiment_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h2 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h2><h2 id="点估计"><a href="#点估计" class="headerlink" title="点估计"></a>点估计</h2><p>设<strong>总体</strong>X的分布函数的<strong>形式已知</strong>, 但它的<strong>一个或多个参数未知</strong>, 借助于总体X的<strong>一个样本</strong>来<strong>估计总体未知参数的值</strong>的问题称为参数的点估计问题</p>
+<p><img src="/Blog/Blog/intro/point_estimation.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>从总体中获取样本, 基于这个样本构造一个统计量, 基于这个统计量得到的观察值就认为近似于总体的未知参数</p>
+<br>
+
+<p>估计量, 估计值</p>
+<p><img src="/Blog/Blog/intro/point_estimation_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p><img src="/Blog/Blog/intro/point_estimation_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于同一参数, 使用不同的估计方法求出的估计量可能不相同. 采用哪一个估计量好?</p>
+<ul>
+<li><strong>无偏性</strong>: 若估计量的数学期望存在, 并且该期望等于总体参数, 则称为无偏估计</li>
+<li><strong>均值vs期望</strong>: 均值是一个统计量(基于样本构造的函数); 期望完全由随机变量的概率分布所确定(“上帝视角”); 两者常混用</li>
+<li>对于某些样本值, 由这一估计量得到的估计值相对于真值来说偏大或偏小, 但是反复将这一估计量使用多次, 就”平均”来说其偏差为0</li>
+<li><strong>E(估计值) - 真值</strong>  称为系统误差; 无偏估计的实际意义就是<strong>无系统误差</strong></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2019/12/20/play-with-linear-algebra-2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"><专为程序员设计的线性代数>学习笔记(2)</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2019/12/01/play-with-linear-algebra/">
+                        <span class="hidden-mobile"><专为程序员设计的线性代数>学习笔记(1)</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

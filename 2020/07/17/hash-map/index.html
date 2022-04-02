@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Hash Map哈希表, 又称 hash map 或 hash table map这类数据结构存放的是key-value这样的键值对 java 中 treemap 就是用红黑树实现的map. 用于存放键值对. 而hash map则是用空间换时间. 通过哈希函数 计算hash值, 将键转换为索引.  treemap可以看作是一个特殊的hash map. 也就是哈希函数转化key后的hash值都是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="哈希表 hash map">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/17/hash-map/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Hash Map哈希表, 又称 hash map 或 hash table map这类数据结构存放的是key-value这样的键值对 java 中 treemap 就是用红黑树实现的map. 用于存放键值对. 而hash map则是用空间换时间. 通过哈希函数 计算hash值, 将键转换为索引.  treemap可以看作是一个特殊的hash map. 也就是哈希函数转化key后的hash值都是">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_code.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_prime.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_prime_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_prime_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_prime_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_prime_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/seperatechaining.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/seperatechaining_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/open_adress.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/open_adress_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/open_adress_2.PNG">
+<meta property="article:published_time" content="2020-07-17T20:02:03.000Z">
+<meta property="article:modified_time" content="2020-08-10T04:49:50.943Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/hash_code.PNG">
+  
+  
+  <title>哈希表 hash map - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="哈希表 hash map">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-07-17 13:02" pubdate>
+        July 17, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      61 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">哈希表 hash map</h1>
+            
+            <div class="markdown-body">
+              <span id="more"></span>
+
+<h1 id="Hash-Map"><a href="#Hash-Map" class="headerlink" title="Hash Map"></a>Hash Map</h1><p>哈希表, 又称 hash map 或 hash table</p>
+<p>map这类数据结构存放的是key-value这样的键值对</p>
+<p>java 中 treemap 就是用红黑树实现的map. 用于存放键值对.</p>
+<p>而hash map则是用空间换时间.</p>
+<p>通过<strong>哈希函数</strong> 计算hash值, 将键转换为索引.</p>
+<blockquote>
+<p>treemap可以看作是一个特殊的hash map. 也就是哈希函数转化key后的hash值都是一样的. 所有的key-value存在一个红黑树中.</p>
+<p>而更一般的hash map则是把相同hash值的key-value存入一个红黑树中.</p>
+<p>这样均摊下来每个树的高度就变小了, 我们拥有更多的树.</p>
+</blockquote>
+<br>
+
+<p>然而很难保证每一个键通过哈希函数转换后的索引都是唯一的.</p>
+<p>这就是哈希冲突, 解决hash冲突就是哈希表中一个重要的操作.</p>
+<br>
+
+<br>
+
+<h2 id="哈希函数的设计"><a href="#哈希函数的设计" class="headerlink" title="哈希函数的设计"></a>哈希函数的设计</h2><p>“键”通过哈希函数得到的”索引”分布越均匀越好.</p>
+<blockquote>
+<p>由于存储的数据五花八门, 实际上实现起来是很难的. </p>
+<p>对于一些特殊领域. 有特殊领域的哈希函数设计方式. 甚至有专门的论文.</p>
+</blockquote>
+<br>
+
+<h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><p>后续会看到, 可以把所有类型的哈希函数都转化成整型的哈希函数.</p>
+<ol>
+<li>小范围的正整数可以直接使用. 直接用这个数值作为索引即可</li>
+<li>小范围负整数进行偏移, 成为正整数</li>
+<li>对于大整数, 例如身份证号. 最常用的做法就是取模.</li>
+</ol>
+<br>
+
+<p>然而对几进行取模非常重要, 如果这个数选择不好就极有可能发生分布不均匀的情况</p>
+<p>一个简单的解决方法就是: 模一个素数. 尤其是在数据具有一定规律的时候</p>
+<p><img src="/Blog/Blog/intro/hash_code.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>那么模的这个素数到底怎么取?</p>
+<p><a target="_blank" rel="noopener" href="https://planetmath.org/goodhashtableprimes">https://planetmath.org/goodhashtableprimes</a></p>
+<p><img src="/Blog/Blog/intro/hash_prime.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>可以把浮点型的哈希函数转化成整型进行处理</p>
+<p><img src="/Blog/Blog/intro/hash_prime_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串可以看作时B进制的整型</p>
+<p><img src="/Blog/Blog/intro/hash_prime_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>而计算B的k次方的过程是比较慢的, 所以可以把式子转换成下面几个样子</p>
+<p><img src="/Blog/Blog/intro/hash_prime_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时写程序就会非常容易</p>
+<figure class="highlight java"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">hash</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; s.length(); i++)<br>    hash = (hash * B + s.charAt(i)) % M;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h3><p>和字符串一样. 其实字符串可以理解为由多个字符组成的复合类型</p>
+<p>假设复合类型包含年, 月, 日</p>
+<p><img src="/Blog/Blog/intro/hash_prime_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<blockquote>
+<p>转成整型处理并不是唯一的方法:</p>
+<p>原则:</p>
+<ol>
+<li>一致性: 如果a&#x3D;&#x3D;b, 则hash(a) &#x3D;&#x3D; hash(b)</li>
+<li>高效性: 计算高效简便</li>
+<li>均匀性: 哈希值均匀分布</li>
+</ol>
+</blockquote>
+<br>
+
+<br>
+
+<p>在java中, 所有类的父类Object有一个hashCode方法, 用来获取当前类的hash值. </p>
+<p>这个值是一个整数(可能为负数). 具体这个整型如何和数组中的索引再取对应, 这一点由hash表内部进行完成.</p>
+<blockquote>
+<p>Object默认是根据对象的存储地址计算hashCode. 也就是说即使属性相同, 不同的对象的hashCode也可能不同. </p>
+<p>因此如果在java中使用HashSet, HashMap. 对象如果不重载hashCode, 那么可能相同的key会插入多次. 因为即使key相同, 它们存储地址不同, hashcode就不同. 所以一定要重载hashCode方法</p>
+</blockquote>
+<p>而hashCode只是用于帮助计算hash值, 当产生hash冲突时, 需要通过equals来判断key是否相等</p>
+<br>
+
+<br>
+
+<h2 id="哈希冲突的处理-链地址法Seperate-Chaining"><a href="#哈希冲突的处理-链地址法Seperate-Chaining" class="headerlink" title="哈希冲突的处理: 链地址法Seperate Chaining"></a>哈希冲突的处理: 链地址法Seperate Chaining</h2><p>哈希表的本质就是数组.</p>
+<p>不过hashCode的结果有可能为负数所以我们需要把负号去掉</p>
+<p>通常是取绝对值. 不过有的时候会有这样的写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">hashCode(k1) % M;    <span class="hljs-comment">// 结果可能为负数</span><br>(hashCode(k1) &amp; <span class="hljs-number">0x7fffffff</span>) % M;    <span class="hljs-comment">// 0x7fffffff 的二进制是0后面跟31个1. 就是舍去符号位</span><br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p><img src="/Blog/Blog/intro/seperatechaining.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>如果产生哈希冲突, 则以链表的方式继续存储</p>
+<p>其实也不一定是链表, 只要是查找表即可. 红黑树是比较常用的结构</p>
+<p><img src="/Blog/Blog/intro/seperatechaining_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>java中最开始就是用链表. 但当hash冲突到一定程度时(同时key是可比较的时候), 就会转为红黑树.</p>
+<br>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashTable</span>&lt;K <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Comparable</span>&lt;K&gt;, V&gt; &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span>[] capacity<br>            = &#123;<span class="hljs-number">53</span>, <span class="hljs-number">97</span>, <span class="hljs-number">193</span>, <span class="hljs-number">389</span>, <span class="hljs-number">769</span>, <span class="hljs-number">1543</span>, <span class="hljs-number">3079</span>, <span class="hljs-number">6151</span>, <span class="hljs-number">12289</span>, <span class="hljs-number">24593</span>,<br>            <span class="hljs-number">49157</span>, <span class="hljs-number">98317</span>, <span class="hljs-number">196613</span>, <span class="hljs-number">393241</span>, <span class="hljs-number">786433</span>, <span class="hljs-number">1572869</span>, <span class="hljs-number">3145739</span>, <span class="hljs-number">6291469</span>,<br>            <span class="hljs-number">12582917</span>, <span class="hljs-number">25165843</span>, <span class="hljs-number">50331653</span>, <span class="hljs-number">100663319</span>, <span class="hljs-number">201326611</span>, <span class="hljs-number">402653189</span>, <span class="hljs-number">805306457</span>, <span class="hljs-number">1610612741</span>&#125;;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">UPPER_TOL</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">LOWER_TOL</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">capacityIndex</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">private</span> TreeMap&lt;K,V&gt;[] hashtable;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> M;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> size;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">HashTable</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-built_in">this</span>.M = capacity[capacityIndex];<br>        size = <span class="hljs-number">0</span>;<br>        hashtable = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>[M];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; M; i++)&#123;<br>            hashtable[i] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;&gt;();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hash</span><span class="hljs-params">(K key)</span>&#123;<br>        <span class="hljs-keyword">return</span> (key.hashCode() &amp; <span class="hljs-number">0x7fffffff</span>) % M;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getSize</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> size;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(K key, V value)</span>&#123;<br>        TreeMap&lt;K, V&gt; map = hashtable[hash(key)];<br>        <span class="hljs-keyword">if</span>(map.containsKey(key))<br>            map.put(key, value);<br>        <span class="hljs-keyword">else</span> &#123;<br>            map.put(key, value);<br>            size++;<br><br>            <span class="hljs-keyword">if</span>(size &gt;= UPPER_TOL * M &amp;&amp; capacityIndex + <span class="hljs-number">1</span> &lt; capacity.length)<br>                resize(capacity[++ capacityIndex]);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> V <span class="hljs-title function_">remove</span><span class="hljs-params">(K key)</span>&#123;<br>        TreeMap&lt;K, V&gt; map = hashtable[hash(key)];<br>        <span class="hljs-type">V</span> <span class="hljs-variable">ret</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">if</span>(map.containsKey(key)) &#123;<br>            ret = map.remove(key);<br>            size --;<br>            <span class="hljs-keyword">if</span>(size &lt; LOWER_TOL * M &amp;&amp; capacityIndex - <span class="hljs-number">1</span> &gt;=<span class="hljs-number">0</span>)<br>                resize(capacity[-- capacityIndex]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">set</span><span class="hljs-params">(K key, V value)</span>&#123;<br>        TreeMap&lt;K, V&gt; map = hashtable[hash(key)];<br>        <span class="hljs-keyword">if</span>(!map.containsKey(key))<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(key + <span class="hljs-string">&quot; doesn&#x27;t exist&quot;</span>);<br>        map.put(key, value);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">contains</span><span class="hljs-params">(K key)</span>&#123;<br>        <span class="hljs-keyword">return</span> hashtable[hash(key)].containsKey(key);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> V <span class="hljs-title function_">get</span><span class="hljs-params">(K key)</span>&#123;<br>        <span class="hljs-keyword">return</span> hashtable[hash(key)].get(key);<br>    &#125;<br><br>    <span class="hljs-comment">// 当 size 不在 [LOWER_TOL*M, UPPER_TOL*M) 这个区间时进行 resize</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">resize</span><span class="hljs-params">(<span class="hljs-type">int</span> newM)</span>&#123;<br>        TreeMap&lt;K, V&gt;[] newHashTable = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>[newM];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; newM; i++)<br>            newHashTable[i] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;&gt;();<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">oldM</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.M;<br>        <span class="hljs-built_in">this</span>.M = newM;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; oldM; i++)&#123;<br>            TreeMap&lt;K, V&gt; map = hashtable[i];<br>            <span class="hljs-keyword">for</span> (K key: map.keySet())&#123;<br>                newHashTable[hash(key)].put(key, map.get(key));<br>            &#125;<br>        &#125;<br>        <span class="hljs-built_in">this</span>.hashtable = newHashTable;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="开发地址法"><a href="#开发地址法" class="headerlink" title="开发地址法"></a>开发地址法</h2><p>和链地址法齐名的另外一个哈希冲突的处理方式就是开发地址法.</p>
+<p>它的思想就是当产生哈希冲突时, 继续向后查找时候有空余位置.</p>
+<p><img src="/Blog/Blog/intro/open_adress.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>例如此时插入31. 而我们假设31的hash值为1. 而1这个位置有元素了. 那么31就继续向后看有没有空位置.</p>
+<p>因此31插入到位置2</p>
+<p><img src="/Blog/Blog/intro/open_adress_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>再插入81, 假设81的hash值也为1. 此时位置1, 2都被占用了. 那么81就插入到位置3</p>
+<p><img src="/Blog/Blog/intro/open_adress_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>也就是遇到哈希冲突就+1.</p>
+<p>然而这会导致一大片区域连续占用, 效率会下降.(Primary Clustering)</p>
+<br>
+
+<br>
+
+<p>基于此也有各种各样的改进方法.</p>
+<p>例如<strong>平方探测</strong></p>
+<p>遇到哈希冲突 +1, +4, +9, +16</p>
+<p>平方探测也有一定规律性.</p>
+<p>因为平方探测的索引在一定范围内是重复的. (Secondary Clustering)</p>
+<p>假设hash函数是简单地对数组长度取模<br>$$<br>index &#x3D; (key+i*i)%n<br>$$</p>
+<p>$$<br>index &#x3D; key% n+(i*i)%n<br>$$</p>
+<p>i从1开始进行探测, 每次自增1<br>$$<br>index &#x3D; key% n+(i*(i-n) + i*n)%n<br>$$</p>
+<p>$$<br>index &#x3D; key% n+(i*(i-n))%n+(i*n)%n<br>$$</p>
+<p>由于<br>$$<br>(i<em>n) %n &#x3D;&#x3D;0<br>$$<br>所以<br>$$<br>index &#x3D; key% n+(i</em>(i-n))%n<br>$$<br>同理:<br>$$<br>index &#x3D; key% n+(i-n)*(i-n)%n<br>$$<br>也就是说, 如果对长度为23的数组进行平方探测, 那么</p>
+<p>当 i&#x3D;&#x3D;1 时和 i&#x3D;&#x3D;24 时探测的索引是一样的</p>
+<p>当 i&#x3D;&#x3D;2 时和 i&#x3D;&#x3D;25 时探测的索引是一样的</p>
+<p>1-23是一个循环.</p>
+<p>然而再仔细思考如果i&#x3D;&#x3D;22. $i-n &#x3D; -1$. $(-1)^2&#x3D;1$</p>
+<p>所以当 i &#x3D;&#x3D; 1 和 i &#x3D;&#x3D; 22 时探测的索引是一样的.</p>
+<p> i &#x3D;&#x3D; 2 和 i &#x3D;&#x3D; 21 时探测的索引是一样的.</p>
+<p>什么时候重合?<br>$$<br>i^2&#x3D;(i-n)^2<br>$$</p>
+<p>$$<br>i &#x3D; \frac n2<br>$$</p>
+<p>也就是说 1-n&#x2F;2才是一个循环, n&#x2F;2+1 到 n 是反过来的一个循环.</p>
+<p>所以在进行平方探测时避免无限循环, 遍历的范围应该从1-n&#x2F;2. 考虑到不进行平方探测就找到的情况, i应该从0到n&#x2F;2</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HashTable::insert</span><span class="hljs-params">(<span class="hljs-type">int</span> key)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> index = <span class="hljs-built_in">hash</span>(key);<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i*<span class="hljs-number">2</span> &lt;= maxn; i++)&#123;<br>        <span class="hljs-type">int</span> newIndex = <span class="hljs-built_in">hash</span>(index + i*i);<br>        <span class="hljs-keyword">if</span> (arr[newIndex] == key)&#123;    <span class="hljs-comment">// 防止重复插入</span><br>            <span class="hljs-keyword">return</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(arr[newIndex] == <span class="hljs-number">-1</span>)&#123;<br>            arr[newIndex] = key;<br>            n++;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>二次哈希法</p>
+<p>遇到哈希冲突时, 使用另外一个hash函数 +hash2(key)</p>
+<p>使用开放地址法, 这个数组空间是有可能被占满的</p>
+<br>
+
+<br>
+
+<h2 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h2><h3 id="负载因数-Load-factor"><a href="#负载因数-Load-factor" class="headerlink" title="负载因数 Load factor"></a>负载因数 Load factor</h3><p>$\alpha$ load factor 是用于分析hash表的效率的</p>
+<p>$\alpha$ &#x3D; number of items &#x2F; table size</p>
+<p>随着表被逐渐填满, $\alpha$ 逐渐增加. 哈希碰撞的概率也逐渐增加.</p>
+<blockquote>
+<p>即: 随着 $\alpha$ 增加 表的效率降低</p>
+<p>不成功的搜索需要花费更多比较次数</p>
+<p>选择表的大小时应该使得 $\alpha$ 不超过2&#x2F;3</p>
+</blockquote>
+<p>线性查找: $\alpha&#x3D;2&#x2F;3$ 不成功的搜索需要比较 5 次, 成功的搜索需要比较2次</p>
+<p>平方探测:  $\alpha&#x3D;2&#x2F;3$ 不成功的搜索需要比较 3 次, 成功的搜索需要比较2次</p>
+<p>链地址法: 不成功的搜索需要 $\alpha$ 次比较, 成功的搜索需要$1+\alpha&#x2F;2$ 次比较(<strong>这里的alpha是值linked list的平均长度</strong>) 很好理解, 因为链表的不成功搜索就是比较$\alpha$次 成功的比较平均是$\alpha&#x2F;2$次.</p>
+<p>如果是使用红黑树实现连地址法的话比较次数还有不同.</p>
+<br>
+
+<p>如果$\alpha &lt; 1&#x2F;2$ 开放地址法和链地址法的效率差不多.</p>
+<p>当alpha增加. 链地址法的效率会比开放地址法好. 但链地址法需要额外的空间存放next指针</p>
+<br>
+
+<br>
+
+<h2 id="C-中unordered-map使用自定义key"><a href="#C-中unordered-map使用自定义key" class="headerlink" title="C++中unordered_map使用自定义key"></a>C++中unordered_map使用自定义key</h2><p>c++的unordered_map就是hashMap.</p>
+<p>然而对于我们自定义的结构来说, c++不知道如何计算hash值. 因此和java一样. 我们要重载两个方法, 一个用于比较相等, 一个用于得到hash值</p>
+<br>
+
+<p>重载比较函数比较简单, <strong>函数必须是const的</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Employee</span>&#123;<br>    string name;<br>    <span class="hljs-type">int</span> age;<br>    <span class="hljs-type">bool</span> male;<br>    <br>    <span class="hljs-built_in">Employee</span>(string name, <span class="hljs-type">int</span> age, <span class="hljs-type">bool</span> male):<span class="hljs-built_in">name</span>(name),<span class="hljs-built_in">age</span>(age), <span class="hljs-built_in">male</span>(male)&#123;&#125;;<br>    <br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> Employee&amp; e) <span class="hljs-type">const</span> &#123;<br>        <span class="hljs-keyword">return</span> name == e.name &amp;&amp; age == e.age &amp;&amp; male == e.male;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>而重载计算hash的函数则需要另写一个类. 这个类重载()运算符, 也需要是<strong>const函数</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">MyHashFunc</span> &#123;<br>    <span class="hljs-function">std::<span class="hljs-type">size_t</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> Employee&amp; e)</span> <span class="hljs-type">const</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> e.age*<span class="hljs-number">10</span> + e.male;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>使用的时候, unordered map的template中传3个类</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    unordered_map&lt;Employee, <span class="hljs-type">int</span>, MyHashFunc&gt; map;<br>    map[<span class="hljs-built_in">Employee</span>(<span class="hljs-string">&quot;aaa&quot;</span>, <span class="hljs-number">11</span>, <span class="hljs-literal">true</span>)] = <span class="hljs-number">11</span>;<br>    cout &lt;&lt; map[<span class="hljs-built_in">Employee</span>(<span class="hljs-string">&quot;aaa&quot;</span>, <span class="hljs-number">11</span>, <span class="hljs-literal">true</span>)] &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<p>更规范一些的写法是:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Employee</span>&#123;<br>    string name;<br>    <span class="hljs-type">int</span> age;<br>    <span class="hljs-type">bool</span> male;<br>    <span class="hljs-built_in">Employee</span>(string name, <span class="hljs-type">int</span> age, <span class="hljs-type">bool</span> male):<span class="hljs-built_in">name</span>(name),<span class="hljs-built_in">age</span>(age), <span class="hljs-built_in">male</span>(male)&#123;&#125;;<br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> Employee&amp; e) <span class="hljs-type">const</span> &#123;<br>        <span class="hljs-keyword">return</span> name == e.name &amp;&amp; age == e.age &amp;&amp; male == e.male;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">namespace</span> std &#123;<br>    <span class="hljs-keyword">template</span>&lt;&gt;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">hash</span>&lt;Employee&gt; &#123;<br>        <span class="hljs-function">std::<span class="hljs-type">size_t</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> Employee &amp;e)</span> <span class="hljs-type">const</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">hash</span>&lt;<span class="hljs-type">int</span>&gt;()(e.age) + <span class="hljs-built_in">hash</span>&lt;<span class="hljs-type">int</span>&gt;()(e.male);<br>        &#125;<br>    &#125;;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    unordered_map&lt;Employee, <span class="hljs-type">int</span>, std::hash&lt;Employee&gt;&gt; map;<br>    map[<span class="hljs-built_in">Employee</span>(<span class="hljs-string">&quot;aaa&quot;</span>, <span class="hljs-number">11</span>, <span class="hljs-literal">true</span>)] = <span class="hljs-number">11</span>;<br>    cout &lt;&lt; map[<span class="hljs-built_in">Employee</span>(<span class="hljs-string">&quot;aaa&quot;</span>, <span class="hljs-number">11</span>, <span class="hljs-literal">true</span>)] &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<p>思考:</p>
+<p>都说hash table牺牲了顺序性.</p>
+<p>然而仔细想一想, hash table相当于把一个树结构拆分成多个树结构. 每个树中的key的hash都是一样的(hash冲突). 每个树都是有序的. 当我们要顺序输出时. 完全可以使用堆&#x2F;优先队列来merge多个树.</p>
+<p>那么时间复杂度就是O(nlogm), n是hash table中数据的个数. 有m个tree.这个时间复杂度并不比O(n)高太多. 因为通常m是远远小于n的.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2020/07/18/segment-Tree/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">线段树 segment Tree</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2020/06/27/red-black-tree/">
+                        <span class="hidden-mobile">2-3树与红黑树</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

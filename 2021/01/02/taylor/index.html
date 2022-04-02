@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<html lang="" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="泰勒展开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="泰勒 Taylor">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/01/02/taylor/index.html">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="泰勒展开">
+<meta property="og:locale">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/imprinting2.jpg">
+<meta property="article:published_time" content="2021-01-02T22:14:33.000Z">
+<meta property="article:modified_time" content="2021-01-15T02:48:09.466Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/imprinting2.jpg">
+  
+  
+  <title>泰勒 Taylor - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="泰勒 Taylor">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-02 14:14" pubdate>
+        January 2, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      33 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">泰勒 Taylor</h1>
+            
+            <div class="markdown-body">
+              <p>泰勒展开</p>
+<span id="more"></span>
+
+<h1 id="Power-Series"><a href="#Power-Series" class="headerlink" title="Power Series"></a>Power Series</h1><p>$$<br>\sum_{n&#x3D;0}^\inf c_n(x-a)^n&#x3D;c_0+c_1(x-a)+c_2(x-a)^2+\cdots<br>$$</p>
+<p>例如<br>$$<br>\frac 1{1-x} &#x3D; 1+x+x^2+\cdots &#x3D; \sum_{n&#x3D;0}^\inf x^n, |x|&lt;1<br>$$<br><br></p>
+<h1 id="Taylor-Series"><a href="#Taylor-Series" class="headerlink" title="Taylor Series"></a>Taylor Series</h1><p>然而不是所有的 function 都能表达为 power series. </p>
+<p>我们假设一个 function <em>f</em> 可以表达为 power series.<br>$$<br>f(x) &#x3D; \sum_{n&#x3D;0}^\inf c_n(x-a)^n&#x3D;c_0+c_1(x-a)+c_2(x-a)^2+\cdots,\ \ \ |x-a|&lt;R<br>$$<br><br></p>
+<p>那么, 当 x&#x3D;a:<br>$$<br>f(a) &#x3D; c_0<br>$$</p>
+<p>$$<br>c_0 &#x3D; \frac {f(a)}{0!}<br>$$</p>
+<br>
+$$
+f'(x)=c_1+2c_2(x-a)+3c_3(x-a)^2+4c_4(x-a)^3\cdots
+$$
+
+<p>$$<br>f’(a) &#x3D; c_1<br>$$</p>
+<p>$$<br>c_1 &#x3D; \frac {f’(a)} {1!}<br>$$</p>
+<br>
+$$
+f''(x)=1\cdot 2 \cdot c_2+2\cdot3\cdot c_3(x-a)+3\cdot 4\cdot c_4(x-a)^2 +4\cdot 5 \cdot (x-a)^3 \cdots
+$$
+
+<p>$$<br>f’’(a)&#x3D;1\cdot 2 \cdot c_2<br>$$</p>
+<p>$$<br>c_2 &#x3D; \frac {f’’(a)} {2!}<br>$$</p>
+<br>
+$$
+f'''(x)=1\cdot 2\cdot3\cdot c_3+2\cdot 3\cdot 4\cdot c_4(x-a) +3\cdot 4\cdot 5 \cdot (x-a)^2 \cdots
+$$
+
+<p>$$<br>f’’’(a) &#x3D; 1\cdot 2 \cdot 3 \cdot c_3<br>$$</p>
+<p>$$<br>c_3 &#x3D; \frac {f’’’(a)} {3!}<br>$$</p>
+<br>
+
+<p>以此类推, 可以得到<br>$$<br>c_n &#x3D; \frac {f^{(n)}(a)} {n!}<br>$$<br>所以:<br>$$<br>f(x) &#x3D; \sum_{n&#x3D;0}^\inf \frac {f^{(n)}}{n!}(x-a)^n &#x3D; f(a) + f’(a)(x-a)+\frac {f’’(a)}{2!}(x-a)^2 + \frac {f’’’(a)}{3!}(x-a)^3 \cdots<br>$$</p>
+<p>$$<br>c_n &#x3D; \frac {f^{(n)}}{n!},\ \ \ \ f^{(0)}(a) &#x3D; f(a)<br>$$</p>
+<p>这个series 就叫做 Taylor series of <em>f</em> centred at a</p>
+<br>
+
+<br>
+
+<blockquote>
+<p>如果function 在 x&#x3D;a 处有 power series representation, 那么 它总是有 Taylor series 在 x&#x3D;a.</p>
+</blockquote>
+ <br>
+
+<p>举个例子:</p>
+<p>求 $f(x)&#x3D;\frac 1{1-x}$ 在 a&#x3D;0 处的 Taylor series<br>$$<br>f(x)&#x3D;\frac 1 {1-x},\ f(0) &#x3D; 1 &#x3D; 0!<br>$$</p>
+<p>$$<br>f’(x)&#x3D;\frac 1 {(1-x)^2},\ f’(0) &#x3D; 1 &#x3D; 1!<br>$$</p>
+<p>$$<br>f’’(x)&#x3D;\frac 2 {(1-x)^3},\ f’’(0) &#x3D; 2 &#x3D; 2!<br>$$</p>
+<p>$$<br>f’’’(x)&#x3D;\frac {2\cdot 3} {(1-x)^4},\ f’’’(0) &#x3D; 2\cdot 3 &#x3D; 3!<br>$$</p>
+<p>以此类推 $f^{(n)}(0)&#x3D;n!$</p>
+<p>因此 Taylor series at a &#x3D; 0:<br>$$<br>\sum_{n&#x3D;0}^\inf \frac {f^{(n)}(0)}{n!}x^n &#x3D; \sum_{n&#x3D;0}^\inf \frac {n!}{n!}x^n &#x3D; \sum_{n&#x3D;0}^\inf x^n<br>$$<br><br></p>
+<p>另一个例子:</p>
+<p>求 $f(x)&#x3D;e^x$ 在 a&#x3D;1 时的 Taylor series<br>$$<br>f(x)&#x3D;e^x,\ f(1)&#x3D;e<br>$$</p>
+<p>$$<br>f’(x)&#x3D;e^x,\ f’(1) &#x3D; e<br>$$</p>
+<p>$$<br>f’’(x)&#x3D;e^x,\ f’’(1) &#x3D; e<br>$$</p>
+<p>以此类推, $f^{(n)}(1)&#x3D;e$</p>
+<p>因此 Taylor series at a&#x3D;1 是<br>$$<br>\sum_{n&#x3D;0}^\inf \frac {e}{n!}(x-1)^n<br>$$<br>但是我们不知道 $f(x)&#x3D;e^x$ 是否等于这个 Taylor series. 我们只是知道 <strong>如果</strong> $f(x)&#x3D;e^x$ 在 a&#x3D;1 处有power series representation, 那么就<strong>一定</strong>是上面这个 Taylor series</p>
+<p><img src="/Blog/Blog/intro/taylor.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<blockquote>
+<p>Maclaurin series of <em>f</em> </p>
+<p>Taylor series 有一种特殊情况, 就是 当 a &#x3D; 0 时<br>$$<br>\sum_{n&#x3D;0}^\inf \frac {f^{(n)}(0)}{n!}x^n &#x3D; f(0) + f’(0)x+\frac {f’’(0)}{2!}x^2 + \frac {f’’’(0)}{3!}x^3 \cdots<br>$$</p>
+</blockquote>
+<br>
+
+<h1 id="Taylor-Polynomials-的应用"><a href="#Taylor-Polynomials-的应用" class="headerlink" title="Taylor Polynomials 的应用"></a>Taylor Polynomials 的应用</h1><p>如果一个 function 可以在 x&#x3D;a 处, 被 differentiated n 次, 那么我们就定义 $T_n(x)$, the $n^{th}$ degree Taylor polynomial of <em>f</em> at a:<br>$$<br>T_n(x)&#x3D;\sum_{i&#x3D;0}^n\frac {f^{(i)}(a)}{i!}(x-a)^i<br>$$</p>
+<p>$$<br>&#x3D;f(a)+f’(a)(x-a)+\frac {f’’(a)}{2!}(x-a)^2+\frac {f’’’(a)}{3!}(x-a)^3+\cdots+\frac {f^{(n)}(a)}{n!}(x-a)^n<br>$$</p>
+<p>$T_n(x)$ 就是 taylor series of <em>f</em> at a 的前 n 个元素的和</p>
+<br>
+
+<p>通过 Taylor Polynomials 可以用来求 function(有Taylor series expansions) 的近似值</p>
+<br>
+
+<p>例如:</p>
+<p>2nd degree Taylor polynomial of $e^x$ at a&#x3D;0<br>$$<br>T_2(x)&#x3D;1+1(x)+\frac {1}{2!}x^2<br>$$</p>
+<p>$$<br>e^{0.2} &#x3D; 1.221403… \approx T_2(0.2) &#x3D; 1+0.2+ \frac {0.2^2}{2!}&#x3D;1.22<br>$$</p>
+<p><img src="/Blog/Blog/intro/taylor_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<p>然而这么做是有误差的.</p>
+<p>$|R_n(x)|&#x3D;|f(x)-T_n(x)|$</p>
+<p>我们可以使用下面的方法 Taylor’s Inequality 来确定误差范围<br>$$<br>|R_n(x)| \le \frac {M}{(n+1)!}|x-a|^{(n+1)}<br>$$</p>
+<ul>
+<li><strong>a</strong> is the center of the Taylor polynomial, $T_n(x)$</li>
+<li><strong>n</strong> is the degree of the Taylor polynomial, $T_n(x)$</li>
+<li>$M$ is a number such that $|f^{n+1}(x)| \le M$</li>
+</ul>
+<p><img src="/Blog/Blog/intro/taylor_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<br>
+
+<br>
+
+<p>还有一种说法是:<br>$$<br>R_n(x) &#x3D; \frac {f^{n+1}(c)}{(n+1)!}(x-a)^{n+1}<br>$$<br>c is between $a$ and $x$</p>
+<p>approximation will be best when $x$ is close to $a$</p>
+<br>
+
+<br>
+
+<p>例如: 求f(x) &#x3D; sin(x) 在$x_0&#x3D;0$的三解泰勒多项式<br>$$<br>P_3(x)&#x3D;f(0)+f’(0)(x-x_0)+\frac {f’’(0)}{2!}(x-x_0)^2+\frac {f’’’(0)}{3!}(x-x_0)^3<br>$$<br>由于$x_0&#x3D;0$, 所以<br>$$<br>P_3(x)&#x3D;f(0)+f’(0)x+\frac {f’’(0)}{2!}x^2+\frac {f’’’(0)}{3!}x^3<br>$$</p>
+<p>$$<br>f’(x) &#x3D; \cos(x),\ f’(0)&#x3D;1<br>$$</p>
+<p>$$<br>f’’(x)&#x3D;-\sin(x), f’’(0)&#x3D;0<br>$$</p>
+<p>$$<br>f’’’(x)&#x3D;-\cos(x), f’’’(0)&#x3D;-1<br>$$</p>
+<p>$$<br>P_3(x)&#x3D;x-x^3&#x2F;6<br>$$</p>
+<p>那么 error 是什么?<br>$$<br>R_3(x) &#x3D; \frac {f’’’’(c)}{4!}x^4&#x3D;\frac {\sin(c)}{24}x^4<br>$$<br>然而这里我们不知道c的值</p>
+<p>如果我们evaluating $R_3(\frac \pi 2)$<br>$$<br>R_3(\frac \pi 2) &#x3D; \frac {\sin(c)} {24}(\frac \pi 2)^4,\ \ \  c\in (0, \pi&#x2F;2)<br>$$<br>我们知道 $|\sin(c) \le 1|$<br>$$<br>R_3(\frac \pi 2) &#x3D; \frac {1} {24}(\frac \pi 2)^4 &#x3D;\approx 0.25<br>$$<br>实际误差是<br>$$<br>|f(\pi&#x2F;2) - P_3(\pi&#x2F;2)|\approx 0.075<br>$$<br><br></p>
+<br>
+
+<p>再来一个例子: 求 $\sqrt{16.1}$<br>$$<br>f(x) &#x3D; \sqrt x<br>$$</p>
+<p>$$<br>f(x_0+h)\approx f(x_0)+hf’(x_0)<br>$$</p>
+<p>$$<br>f(16.1) \approx f(16)+0.1\cdot f’(16) &#x3D; \sqrt {16} + (0.1)*(\frac 1 2)(\frac 1 {\sqrt {16}})<br>$$</p>
+<p>$$<br>&#x3D;4+\frac {0.05} 4 &#x3D; 4.0125<br>$$</p>
+<p>$f(16.1)&#x3D;4.0124805…$</p>
+<p>可以看到结果很相近</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Blog/2021/01/06/design-pattern/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">23种基本设计模式</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2020/12/21/play-tensorflow/">
+                        <span class="hidden-mobile">TensorFlow 学习笔记</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>
