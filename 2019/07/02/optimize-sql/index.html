@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="如何定位并优化慢查询SQL 联合索引的最左匹配原则的成因 索引是建立得越多越好吗?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="调优sql">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/02/optimize-sql/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2019/07/02/optimize-sql/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="如何定位并优化慢查询SQL 联合索引的最左匹配原则的成因 索引是建立得越多越好吗?">
 <meta property="og:locale">
@@ -66,25 +66,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -103,9 +105,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -115,9 +117,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -127,9 +129,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -139,9 +141,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -151,9 +153,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -177,7 +179,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -261,7 +263,7 @@
 
 <h2 id="查看变量"><a href="#查看变量" class="headerlink" title="查看变量"></a>查看变量</h2><figure class="highlight sql"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> variables <span class="hljs-keyword">like</span> &quot;%quer%&quot;;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/sql.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/sql.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>slow_query_log : 是否开启慢日志</p>
 <p>slow_query_log_file : 慢日志记录位置</p>
 <p>long_query_time : 时限, 上图: 一次如果超过10秒就会被记录(通常超过1秒就是慢sql)</p>
@@ -275,18 +277,18 @@
  <br>
 
 <h3 id="关键字段"><a href="#关键字段" class="headerlink" title="关键字段:"></a>关键字段:</h3><p><strong>type:</strong></p>
-<p><img src="/Blog/Blog/intro/explain_type.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/explain_type.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果type是最后两个,代表本次走的是全表扫描, 是需要优化的语句</p>
 <br>
 
 <p><strong>extra:</strong></p>
-<p><img src="/Blog/Blog/intro/explain_extra.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/explain_extra.PNG" srcset="/img/loading.gif" lazyload></p>
  <br>
 
 <h2 id="修改sql-让它走索引"><a href="#修改sql-让它走索引" class="headerlink" title="修改sql, 让它走索引"></a>修改sql, 让它走索引</h2><p>例:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> name frm person_info_large <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> name <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/table.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/table.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到, name没有索引, 而account有索引. 如果用account 替代name就可以让sql走索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> account frm person_info_large <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> account <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
 
@@ -300,7 +302,7 @@
 <p>还可以通过force index() 测试哪个索引是比较好的</p>
 <br>
 
-<h1 id="联合索引的最左匹配原则的成因"><a href="#联合索引的最左匹配原则的成因" class="headerlink" title="联合索引的最左匹配原则的成因"></a>联合索引的最左匹配原则的成因</h1><p><img src="/Blog/Blog/intro/complex_index.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h1 id="联合索引的最左匹配原则的成因"><a href="#联合索引的最左匹配原则的成因" class="headerlink" title="联合索引的最左匹配原则的成因"></a>联合索引的最左匹配原则的成因</h1><p><img src="/Blog/Blog/intro/complex_index.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><strong>联合索引</strong>: 由多列组成的索引, 上图中这句话就是联合索引</p>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">KEY `index_are<span class="hljs-built_in">a_title</span>` (`area`, `title`)<br></code></pre></td></tr></table></figure>
 
@@ -344,7 +346,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E9%9D%A2%E8%AF%95%E5%BF%85%E4%BC%9A/">面试必会</a>
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95%E5%BF%85%E4%BC%9A/">面试必会</a>
                     
                   </div>
                 
@@ -352,7 +354,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
                   </div>
                 
@@ -369,19 +371,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2019/07/04/Binary-Search/">
+                      <a href="/2019/07/04/Binary-Search/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">二分搜索法</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2019/06/30/cpp%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
+                      <a href="/2019/06/30/cpp%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
                         <span class="hidden-mobile">C++入门学习</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -424,7 +426,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -433,7 +435,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -473,18 +475,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -537,7 +539,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

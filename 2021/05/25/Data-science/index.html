@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="Noise123456789101112if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    n &#x3D; 200    x &#x3D; np.linspace(-15, 15, n)    truth &#x3D; x**2 + 20*np.sin(x)    sigma &#x3D; 10    noise &#x3D; np.random.normal(0, sigma, n)    measurem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data science">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/05/25/Data-science/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2021/05/25/Data-science/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Noise123456789101112if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    n &#x3D; 200    x &#x3D; np.linspace(-15, 15, n)    truth &#x3D; x**2 + 20*np.sin(x)    sigma &#x3D; 10    noise &#x3D; np.random.normal(0, sigma, n)    measurem">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt353/observations_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/cmpt353/observations_1.PNG">
 <meta property="article:published_time" content="2021-05-25T20:06:55.000Z">
 <meta property="article:modified_time" content="2021-07-28T00:32:22.350Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt353/observations_1.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/cmpt353/observations_1.PNG">
   
   
   <title>Data science - Daolin&#39;s Repository</title>
@@ -63,25 +63,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -100,9 +102,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -112,9 +114,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -124,9 +126,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -136,9 +138,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -148,9 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -174,7 +176,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/lulutiya3.jpg') no-repeat center center;
+         style="background: url('/intro/lulutiya3.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -247,9 +249,9 @@
 
 <h1 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h1><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">200</span><br>    x = np.linspace(-<span class="hljs-number">15</span>, <span class="hljs-number">15</span>, n)<br><br>    truth = x**<span class="hljs-number">2</span> + <span class="hljs-number">20</span>*np.sin(x)<br><br>    sigma = <span class="hljs-number">10</span><br>    noise = np.random.normal(<span class="hljs-number">0</span>, sigma, n)<br>    measurements = truth + noise<br><br>    plt.plot(x, measurements, <span class="hljs-string">&#x27;b.&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt353/noise.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>而真实的值可能是这样</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>我们怎么降噪?</p>
 <br>
 
@@ -261,13 +263,13 @@
 <li>Declare that line to be the part of the curve for the middle of the neighbourhood</li>
 <li>Slide the window along, generating a curve as you go</li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt353/loess.gif" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/loess.gif" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到fraction越大, curve越平滑</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果我们有很多数据, LOESS 会有很好的效果, 反之如果数据量小, 那么他的效果会较差</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> statsmodels.nonparametric.smoothers_lowess <span class="hljs-keyword">import</span> lowess<br>filtered = lowess(measurements, input_range, frac=<span class="hljs-number">0.05</span>)<br>plt.plot(filtered[:, <span class="hljs-number">0</span>], filtered[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>, linewidth=<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
 
 <br>
@@ -275,9 +277,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><br><span class="hljs-keyword">from</span> statsmodels.nonparametric.smoothers_lowess <span class="hljs-keyword">import</span> lowess<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">200</span><br>    x = np.linspace(-<span class="hljs-number">15</span>, <span class="hljs-number">15</span>, n)<br>    truth = x**<span class="hljs-number">2</span> + <span class="hljs-number">20</span>*np.sin(x)<br><br>    sigma = <span class="hljs-number">10</span><br>    noise = np.random.normal(<span class="hljs-number">0</span>, sigma, n)<br>    measurements = truth + noise<br><br>    filtered = lowess(measurements, x, frac=<span class="hljs-number">0.5</span>)<br><br>    plt.plot(filtered[:, <span class="hljs-number">0</span>], filtered[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>, linewidth=<span class="hljs-number">3</span>)<br>    plt.plot(x, measurements, <span class="hljs-string">&#x27;b.&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
 <p>当 <code>frac=0.5</code> 时</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>当 <code>frac=0.15</code>时</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>LOESS smoothing is easy to work with: only one parameter to get right. It’s better when it has lots of data to work with.</p>
 <p>But it’s about smoothing the curve, not exactly finding the true signal. Those are often similar, but not always perfectly identical.</p>
@@ -370,8 +372,8 @@
 <p>$$<br>&#x3D;(1-0.2)2^2+0.2^2\cdot 4^2 &#x3D; 3.2<br>$$</p>
 <p>标准差就是方差开根号, $\sigma_{\hat z}&#x3D;1.79$</p>
 <p>就像这样</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h3><p>协方差的意义和协方差的算法可以参考统计学的资料</p>
@@ -405,7 +407,7 @@
 </tr>
 </tbody></table>
 <p>过渡矩阵 </p>
-<p><img src="/Blog/Blog/intro/cmpt353/matrix.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/matrix.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>就是相当于原本矩阵减去平均值</p>
 <p>协方差矩阵就是<br>$$<br>p&#x3D;\frac 1 3 a^T\cdot a<br>$$<br>上面两个式子中$\frac 1 3$ 是因为矩阵有3行</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    m = np.array([[<span class="hljs-number">179</span>, <span class="hljs-number">74</span>, <span class="hljs-number">33</span>],<br>                  [<span class="hljs-number">187</span>, <span class="hljs-number">80</span>, <span class="hljs-number">31</span>],<br>                  [<span class="hljs-number">175</span>, <span class="hljs-number">71</span>, <span class="hljs-number">28</span>]])<br>    a = m - (<span class="hljs-number">1</span>/<span class="hljs-number">3</span>)*np.ones((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)).dot(m)<br>    p = a.T.dot(a)/<span class="hljs-number">3</span><br>    <span class="hljs-built_in">print</span>(p)<br></code></pre></td></tr></table></figure>
@@ -433,61 +435,61 @@
 <br>
 
 <h3 id="Kalman-Operation"><a href="#Kalman-Operation" class="headerlink" title="Kalman Operation"></a>Kalman Operation</h3><p>Kalman filter works with two things : <strong>our observations(data)</strong> and <strong>our prediction of what we expect to happen (the prior)</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>假设在time step $k$, true state $\vec x_k$</p>
 <p>Kalman filtering asks us to predict the next state. We will call our estimate of the state $\hat x_k$</p>
 <p>问题就是: given (the filter’s best guess for) $\hat x_{k-1}$ what do you think $\hat x_k$ will be?</p>
 <p>假设我们有两个value: position 和 velocity. </p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>因为我们知道velocity 是什么, 所以我们可以预测新的position.</p>
 <p>我们猜测<br>$$<br>p_k &#x3D; p_{k-1} + \Delta t\cdot v_{k-1}<br>$$</p>
 <p>$$<br>v_k&#x3D;v_{k-1}<br>$$</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Kalman-Variances"><a href="#Kalman-Variances" class="headerlink" title="Kalman Variances"></a>Kalman Variances</h3><p>我们还关心 how much do I trust the measurements(prediction)</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>对角线上的值是variance, 对角线之外的值是covariance</p>
 <p>我们设定covariance为0, 因为我们不认为两个error related to each other.</p>
 <p>这些值是我们自己设定的, 我们思考 how wrong do i expect this to be most of the times. 平方后就是variance</p>
 <p>我们需要这些矩阵, for both ovservations(measurements) often called $R$, and our predictions, often call $Q$</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_15.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>假设这是我们的数据点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">n_samples = <span class="hljs-number">25</span><br><br>input_range = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>*np.pi, n_samples, dtype=np.<span class="hljs-built_in">float</span>)<br>observations = pd.DataFrame()<br>observations[<span class="hljs-string">&#x27;sin&#x27;</span>] = (np.sin(input_range)<br>        + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, n_samples))<br>observations[<span class="hljs-string">&#x27;cos&#x27;</span>] = (np.cos(input_range)<br>        + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.25</span>, n_samples))<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt353/noise_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_16.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>使用LOESS的结果</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_17.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>使用Kalman Filtering</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pykalman <span class="hljs-keyword">import</span> KalmanFilter<br>initial_value_guess = observations.iloc[<span class="hljs-number">0</span>]<br>observation_covariance = np.diag([<span class="hljs-number">0.5</span>, <span class="hljs-number">0.25</span>]) ** <span class="hljs-number">2</span><br><br>kf = KalmanFilter(<br>    initial_state_mean=initial_value_guess,<br>    initial_state_covariance=observation_covariance,<br>    observation_covariance=observation_covariance<br>)<br>pred_state, state_cov = kf.smooth(observations)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt353/noise_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_18.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到结果并不好</p>
 <blockquote>
 <p>But, we haven’t made any attempt to predict. We’re accepting the defaults (everything stays the same; variance of 1; covariance 0), which aren’t good for our problem</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_23.PNG" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">delta_t = np.pi * <span class="hljs-number">2</span> / n_samples<br>transition_matrix = [[<span class="hljs-number">1</span>, delta_t], [-delta_t, <span class="hljs-number">1</span>]]<br><br>transition_covariance = np.diag([<span class="hljs-number">0.2</span>, <span class="hljs-number">0.2</span>]) ** <span class="hljs-number">2</span><br>kf = KalmanFilter(<br>    initial_state_mean=initial_value_guess,<br>    initial_state_covariance=observation_covariance,<br>    observation_covariance=observation_covariance,<br>    transition_covariance=transition_covariance,<br>    transition_matrices=transition_matrix<br>)<br>pred_state, state_cov = kf.smooth(observations)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt353/noise_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>方差接近0并不真实</p>
 <p>在真实世界中, 配置好的Kalman惊人的好</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/noise_22.PNG" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n_samples = <span class="hljs-number">25</span><br><br>    input_range = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span> * np.pi, n_samples, dtype=np.<span class="hljs-built_in">float</span>)<br>    observations = pd.DataFrame()<br>    observations[<span class="hljs-string">&#x27;sin&#x27;</span>] = (np.sin(input_range)<br>                           + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, n_samples))<br>    observations[<span class="hljs-string">&#x27;cos&#x27;</span>] = (np.cos(input_range)<br>                           + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.25</span>, n_samples))<br><br>    initial_value_guess = observations.iloc[<span class="hljs-number">0</span>]<br>    observation_covariance = np.diag([<span class="hljs-number">0.5</span>, <span class="hljs-number">0.25</span>]) ** <span class="hljs-number">2</span><br><br>    kf = KalmanFilter(<br>        initial_state_mean=initial_value_guess,<br>        initial_state_covariance=observation_covariance,<br>        observation_covariance=observation_covariance<br>    )<br>    pred_state, state_cov = kf.smooth(observations)<br><br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;sin&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">0</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;cos&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br><br><br>    delta_t = np.pi * <span class="hljs-number">2</span> / n_samples<br>    transition_matrix = [[<span class="hljs-number">1</span>, delta_t], [-delta_t, <span class="hljs-number">1</span>]]<br><br>    transition_covariance = np.diag([<span class="hljs-number">0.2</span>, <span class="hljs-number">0.2</span>]) ** <span class="hljs-number">2</span><br>    kf = KalmanFilter(<br>        initial_state_mean=initial_value_guess,<br>        initial_state_covariance=observation_covariance,<br>        observation_covariance=observation_covariance,<br>        transition_covariance=transition_covariance,<br>        transition_matrices=transition_matrix<br>    )<br>    pred_state, state_cov = kf.smooth(observations)<br><br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;sin&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">0</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;cos&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
 <br>
@@ -518,7 +520,7 @@
 <li>Observations are independent.</li>
 <li>Values are <strong>ordinal</strong>: can be sorted.</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt353/utest.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/utest.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -539,34 +541,34 @@
 <br>
 
 <p>假设我们有这样的数据</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>我们看each axis&#x2F;feature and ask about the distribution of each category (we take these as samples and look at the sample distribution)</p>
 <p>我们假设 normal distributions 并且计算 $\bar x$ and $s$ to estimate $\mu$ and $\sigma$. 这样就得到 $P(x_i|C_k)$ for each category.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这里有一个问题, 我们怎么知道 $P(C_k)$ </p>
 <p>一种方法是看training data, 假设training data 有 95% 的数据在 $C_1$, 那么$P(C_1)&#x3D;0.95$ , 这也是默认情况下GaussianNB的方法</p>
 <p>但是如果我们事先知道这个概率, 我们可以指定这个 <em>prior</em> :what is our belief in the likelihood of each category before we start looking at predictions</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Bayesian-Failures"><a href="#Bayesian-Failures" class="headerlink" title="Bayesian Failures"></a>Bayesian Failures</h3><p>我们的假设: input independent, 并且我们可以将它们看作normal distributed</p>
 <p>如果不符合这些情况, 那么我们的预测会得到bad prediction</p>
 <p>例如这种情况</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时就只能使用其他的classifier了</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/observations_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <ol>
 <li>You can’t just blindly throw an ML tool at data and expect magic.</li>
@@ -591,22 +593,22 @@
 
 <p>和 pandas 很相似</p>
 <p>读取csv</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>过滤行或列</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>写文件</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>展示dataframe 前 20 行</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>展示统计信息</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>其他细节</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>spark 由于是分布式的, 所以最好不要写loop, 因为loop只能访问本地的内容, 无法访问其他机器的文件</p>
 <br>
 
@@ -622,7 +624,7 @@
 <p>If operations can truly be done in parallel without much coordination, $n$ processes can do the work almost n times faster</p>
 <p>因此, 当处理input&#x2F;output时, 每个 thread&#x2F;process&#x2F;core&#x2F;executor 都会reading individual input files, 当writing是, 它们也会write in paralled</p>
 <p>所以 each partition was written as a separate file in the output directory</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>查看output</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> output/part-*.csv | less<br><span class="hljs-built_in">cat</span> output/part-*.csv.gz | zless<br></code></pre></td></tr></table></figure>
 
@@ -632,7 +634,7 @@
 <li>HDFS: Hadoop Distributed File System, for storing data on the cluster’s nodes.</li>
 </ul>
 <p>We’ll be using YARN to run Spark jobs on the cluster, and HDFS for input and output.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="HDFS-Command"><a href="#HDFS-Command" class="headerlink" title="HDFS Command"></a>HDFS Command</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">hdfs dfs -<span class="hljs-built_in">ls</span> <span class="hljs-comment"># list files in your HDFS home</span><br>hdfs dfs -<span class="hljs-built_in">ls</span> /folder  <span class="hljs-comment"># list files in folder</span><br>hdfs dfs -copyFromLocal data <span class="hljs-comment"># copy file/directory to HDFS</span><br>hdfs dfs -copyToLocal output <span class="hljs-comment"># copy file/directory to gateway</span><br>hdfs dfs -<span class="hljs-built_in">cat</span> output/part* | less  <span class="hljs-comment"># show output files</span><br>hdfs dfs -<span class="hljs-built_in">cat</span> output/part* | zless  <span class="hljs-comment"># show compressed output</span><br></code></pre></td></tr></table></figure>
@@ -644,7 +646,7 @@
 <li>… with each block replicated in a couple of places(by default 3)</li>
 <li>Making them avilable to our computer jobs when needed</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="YARN"><a href="#YARN" class="headerlink" title="YARN"></a>YARN</h2><p>YARN 的 责任就是是的compute work 结束: manage the CPU and memory resources</p>
@@ -654,8 +656,8 @@
 <p>It’s easier to move the compute work to the data than to move the data.</p>
 </blockquote>
 <p>YARN试图从HDFS上可以找到数据的节点访问数据。</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/spark_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="How-Spark-Calculates"><a href="#How-Spark-Calculates" class="headerlink" title="How Spark Calculates"></a>How Spark Calculates</h2><p>一些术语(terminology)</p>
@@ -674,25 +676,25 @@
 <h2 id="Controlling-Partitions"><a href="#Controlling-Partitions" class="headerlink" title="Controlling Partitions"></a>Controlling Partitions</h2><p>我们需要对Dataframe中的分区控制。</p>
 <p>然而通常更简单的做法是把input file <a target="_blank" rel="noopener" href="https://linux.die.net/man/1/split">split</a> 成合理的小文件之后放入HDFS</p>
 <p>There are a few operations where you can explicitly ask for a number of partitions:</p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/partitions_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/partitions_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果partitions太多, 可以用 <code>.coalesce(n)</code> 来 concatenate 其中一部分</p>
 <p>这个function可能不会像你期望那样工作, 但是它确实减少partitions</p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/partitions_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>groupBy</p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/partitions_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果需要 partition rearranged 那么可以用 <code>repartition(n)</code></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-built_in">print</span>(partition_sizes(lumpy_df.coalesce(<span class="hljs-number">4</span>)))<br><span class="hljs-built_in">print</span>(partition_sizes(lumpy_df.repartition(<span class="hljs-number">4</span>)))<br><span class="hljs-comment"># output</span><br><span class="hljs-comment"># [0, 220, 450, 0]</span><br><span class="hljs-comment"># [168, 167, 167, 168]</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/partitions_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h2 id="Shuffle-Operations"><a href="#Shuffle-Operations" class="headerlink" title="Shuffle Operations"></a>Shuffle Operations</h2><p><img src="/Blog/Blog/intro/cmpt353/partitions_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Shuffle-Operations"><a href="#Shuffle-Operations" class="headerlink" title="Shuffle Operations"></a>Shuffle Operations</h2><p><img src="/Blog/Blog/intro/cmpt353/partitions_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/partitions_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>分区存在不同的物理机器上, 由网络连接他们</p>
 <p>如果欧美要repartition Dataframe, 就需要exchange over the network, 如果Dataframe 较大的话会很慢</p>
 <p>Any Spark operation that rearranges data among partitions is a shuffle operation. Obviously <code>.repartition()</code> is one.</p>
@@ -772,22 +774,22 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs out">== Physical Plan ==<br>*(1) HashAggregate(keys=[id#13L], functions=[count(1)])<br>+- *(1) HashAggregate(keys=[id#13L], functions=[partial_count(1)])<br>   +- *(1) Range (0, 10000000, step=1, splits=6)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt353/cache.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h2 id="Spark-Join"><a href="#Spark-Join" class="headerlink" title="Spark Join"></a>Spark Join</h2><p><img src="/Blog/Blog/intro/cmpt353/cache_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Spark-Join"><a href="#Spark-Join" class="headerlink" title="Spark Join"></a>Spark Join</h2><p><img src="/Blog/Blog/intro/cmpt353/cache_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Joining two 1 TB DataFrames will about double that, to get equal keys together.</p>
 <p>At some scale, shuffling the data is something you either can’t do, or can only do <em>very</em> carefully.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="Column-Functions"><a href="#Column-Functions" class="headerlink" title="Column Functions"></a>Column Functions</h2><p><img src="/Blog/Blog/intro/cmpt353/cache_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/cache_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Column-Functions"><a href="#Column-Functions" class="headerlink" title="Column Functions"></a>Column Functions</h2><p><img src="/Blog/Blog/intro/cmpt353/cache_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Who-Calculates"><a href="#Who-Calculates" class="headerlink" title="Who Calculates?"></a>Who Calculates?</h2><p>记得我们说过, spark是lazy evaluation, 我们实际是在告诉spark怎么计算</p>
@@ -843,13 +845,13 @@
 <br>
 
 <p>DataFrames are implemented as a specific type of RDDs: they are an RDD of <code>Row</code> objects.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pyspark.sql <span class="hljs-keyword">import</span> Row<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_from_lines</span>(<span class="hljs-params">line</span>):<br>    city, tail = line.split(<span class="hljs-string">&#x27;:&#x27;</span>)<br>    i, n = tail.split(<span class="hljs-string">&#x27;, &#x27;</span>)<br>    <span class="hljs-keyword">return</span> Row(city=city, count=<span class="hljs-built_in">int</span>(i), measure=<span class="hljs-built_in">float</span>(n))<br><br>lines = spark.sparkContext.textFile(<span class="hljs-string">&#x27;odd_data.txt&#x27;</span>)<br>rows = lines.<span class="hljs-built_in">map</span>(extract_from_lines)<br>data = spark.createDataFrame(rows, schema=<span class="hljs-string">&#x27;city:string, count:int, measure:double&#x27;</span>)<br>data.show()<br><br><br>+--------+-----+-------+<br>|    city|count|measure|<br>+--------+-----+-------+<br>|  Canada|    <span class="hljs-number">5</span>|  <span class="hljs-number">6.324</span>|<br>|     USA|    <span class="hljs-number">9</span>|  <span class="hljs-number">12.31</span>|<br>|  France|   <span class="hljs-number">10</span>| <span class="hljs-number">8.9003</span>|<br>|Thailand|    <span class="hljs-number">2</span>| <span class="hljs-number">14.291</span>|<br>+--------+-----+-------+<br></code></pre></td></tr></table></figure>
 
 <p>It was possible to do that with DataFrames functions, but it would have been a pain (but possibly faster).</p>
@@ -862,20 +864,20 @@
 <p>With Spark, it makes more sense to do all of the operations on a row at once, so we tend to be specifying a “whole DataFrame” operation (like <code>.select()</code> that can use any of the columns).</p>
 <p>Except row-oriented storage is worse: memory layout isn’t right for using a processor’s SIMD (vector&#x2F;SSE) instructions. Memory locality is worse for individual-column operations.</p>
 <p>Those need values where you want to do the same operations (usually a whole column) adjacent in memory.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Spark-↔-Python"><a href="#Spark-↔-Python" class="headerlink" title="Spark ↔ Python"></a>Spark ↔ Python</h2><p>Example where small data becomes big: maybe we have a large data set and want to (broadcast) join a small table we just generated in Python. We would need to turn it into a DataFrame.</p>
 <p>Example of big → small: we just did a <code>.groupBy()</code> and only have a few thousand rows left. The next analysis we’re doing would be easier in Pandas than Spark.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt353/rdd_16.PNG" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -885,7 +887,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a>
                     
                   </div>
                 
@@ -893,9 +895,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -912,19 +914,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2021/08/26/Networking/">
+                      <a href="/2021/08/26/Networking/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">计算机网络</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2021/05/14/Principles-of-Compiler-Design/">
+                      <a href="/2021/05/14/Principles-of-Compiler-Design/">
                         <span class="hidden-mobile">Principles of Compiler Design</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -967,7 +969,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -976,7 +978,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1016,18 +1018,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1080,7 +1082,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

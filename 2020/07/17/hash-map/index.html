@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="Hash Map哈希表, 又称 hash map 或 hash table map这类数据结构存放的是key-value这样的键值对 java 中 treemap 就是用红黑树实现的map. 用于存放键值对. 而hash map则是用空间换时间. 通过哈希函数 计算hash值, 将键转换为索引.  treemap可以看作是一个特殊的hash map. 也就是哈希函数转化key后的hash值都是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="哈希表 hash map">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/17/hash-map/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2020/07/17/hash-map/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Hash Map哈希表, 又称 hash map 或 hash table map这类数据结构存放的是key-value这样的键值对 java 中 treemap 就是用红黑树实现的map. 用于存放键值对. 而hash map则是用空间换时间. 通过哈希函数 计算hash值, 将键转换为索引.  treemap可以看作是一个特殊的hash map. 也就是哈希函数转化key后的hash值都是">
 <meta property="og:locale">
@@ -72,25 +72,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -109,9 +111,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -121,9 +123,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -133,9 +135,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -145,9 +147,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -157,9 +159,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -183,7 +185,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -287,22 +289,22 @@
 
 <p>然而对几进行取模非常重要, 如果这个数选择不好就极有可能发生分布不均匀的情况</p>
 <p>一个简单的解决方法就是: 模一个素数. 尤其是在数据具有一定规律的时候</p>
-<p><img src="/Blog/Blog/intro/hash_code.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/hash_code.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>那么模的这个素数到底怎么取?</p>
 <p><a target="_blank" rel="noopener" href="https://planetmath.org/goodhashtableprimes">https://planetmath.org/goodhashtableprimes</a></p>
-<p><img src="/Blog/Blog/intro/hash_prime.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/hash_prime.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>可以把浮点型的哈希函数转化成整型进行处理</p>
-<p><img src="/Blog/Blog/intro/hash_prime_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/hash_prime_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串可以看作时B进制的整型</p>
-<p><img src="/Blog/Blog/intro/hash_prime_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/hash_prime_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>而计算B的k次方的过程是比较慢的, 所以可以把式子转换成下面几个样子</p>
-<p><img src="/Blog/Blog/intro/hash_prime_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/hash_prime_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时写程序就会非常容易</p>
 <figure class="highlight java"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">hash</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; s.length(); i++)<br>    hash = (hash * B + s.charAt(i)) % M;<br></code></pre></td></tr></table></figure>
 
@@ -310,7 +312,7 @@
 
 <h3 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h3><p>和字符串一样. 其实字符串可以理解为由多个字符组成的复合类型</p>
 <p>假设复合类型包含年, 月, 日</p>
-<p><img src="/Blog/Blog/intro/hash_prime_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/hash_prime_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <blockquote>
@@ -344,10 +346,10 @@
 
 <br>
 
-<p><img src="/Blog/Blog/intro/seperatechaining.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/seperatechaining.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果产生哈希冲突, 则以链表的方式继续存储</p>
 <p>其实也不一定是链表, 只要是查找表即可. 红黑树是比较常用的结构</p>
-<p><img src="/Blog/Blog/intro/seperatechaining_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/seperatechaining_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>java中最开始就是用链表. 但当hash冲突到一定程度时(同时key是可比较的时候), 就会转为红黑树.</p>
 <br>
 
@@ -359,12 +361,12 @@
 
 <h2 id="开发地址法"><a href="#开发地址法" class="headerlink" title="开发地址法"></a>开发地址法</h2><p>和链地址法齐名的另外一个哈希冲突的处理方式就是开发地址法.</p>
 <p>它的思想就是当产生哈希冲突时, 继续向后查找时候有空余位置.</p>
-<p><img src="/Blog/Blog/intro/open_adress.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/open_adress.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>例如此时插入31. 而我们假设31的hash值为1. 而1这个位置有元素了. 那么31就继续向后看有没有空位置.</p>
 <p>因此31插入到位置2</p>
-<p><img src="/Blog/Blog/intro/open_adress_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/open_adress_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>再插入81, 假设81的hash值也为1. 此时位置1, 2都被占用了. 那么81就插入到位置3</p>
-<p><img src="/Blog/Blog/intro/open_adress_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/open_adress_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>也就是遇到哈希冲突就+1.</p>
 <p>然而这会导致一大片区域连续占用, 效率会下降.(Primary Clustering)</p>
 <br>
@@ -459,7 +461,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -467,7 +469,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -484,19 +486,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2020/07/18/segment-Tree/">
+                      <a href="/2020/07/18/segment-Tree/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">线段树 segment Tree</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/06/27/red-black-tree/">
+                      <a href="/2020/06/27/red-black-tree/">
                         <span class="hidden-mobile">2-3树与红黑树</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -539,7 +541,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -548,7 +550,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -588,18 +590,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -652,7 +654,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

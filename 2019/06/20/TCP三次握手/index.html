@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="我将通过Wireshark 这款软件对B站进行抓包, 来分析TCP的三次握手">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP三次握手">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/20/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2019/06/20/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="我将通过Wireshark 这款软件对B站进行抓包, 来分析TCP的三次握手">
 <meta property="og:locale">
@@ -67,25 +67,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -104,9 +106,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -116,9 +118,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -128,9 +130,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -140,9 +142,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -152,9 +154,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -178,7 +180,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -246,7 +248,7 @@
             
             <div class="markdown-body">
               <p>我将通过Wireshark 这款软件对B站进行抓包, 来分析TCP的三次握手</p>
-<p><img src="/Blog/Blog/intro/ping.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/ping.PNG" srcset="/img/loading.gif" lazyload></p>
 <span id="more"></span>
 
 <h2 id="TCP-的三次握手"><a href="#TCP-的三次握手" class="headerlink" title="TCP 的三次握手"></a>TCP 的三次握手</h2><p>当应用程序希望通过TCP与另一个应该程序通信时, 则会发送一个通信请求, 这个请求必须被送到一个确切的地址. </p>
@@ -256,13 +258,13 @@
 <h3 id="什么是全双工-Full-Duplex"><a href="#什么是全双工-Full-Duplex" class="headerlink" title="什么是全双工 (Full Duplex)"></a>什么是全双工 (Full Duplex)</h3><p>计算机 A 给 B 发送信息, 在发送信息的同时, B 也能给 A 回发信息</p>
 <br/>
 
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/Blog/Blog/intro/Three-way-handshake.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/Blog/Blog/intro/Three-way-handshake.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到 服务器向客户端发送ack 就是 SYN 和 SEQ 的和 (x+1), 同时自己也要初始化一个序列号</p>
 <p>而 客户端 向服务器发送的第二次请求中, seq就等于上次收到的ack的值, 并且携带的ack为y+1, 即期望下一次服务器发送的seq</p>
 <br/>
 
 <h3 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h3><h4 id="准备工作-获取B站的ip地址"><a href="#准备工作-获取B站的ip地址" class="headerlink" title="准备工作: 获取B站的ip地址"></a>准备工作: 获取B站的ip地址</h4><p>既然要抓包, 首先要知道要抓 “谁” 的包, 通过 ping 命令获取 B站 ip</p>
-<p><img src="/Blog/Blog/intro/ping.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/ping.PNG" srcset="/img/loading.gif" lazyload></p>
 <h4 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h4><p>启动 Wireshark 选择WALN, 并且开启捕获 刷新b站页面</p>
 <p>设置过滤规则:</p>
 <p>​    我们只关注 ip 为 148.153.38.118 的相应和请求</p>
@@ -270,7 +272,7 @@
 
 
 
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/Blog/Blog/intro/handshake.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/Blog/Blog/intro/handshake.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>148.153.38.118 是b站的 ip, 那么本机的ip便为 172.29.154.49</p>
 <h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>下面的解析过程最好配合流程图观看</p>
 <p>首先本机向B站发送一个SYN包, seq (从本机往B站的seq) &#x3D;0,</p>
@@ -287,7 +289,7 @@
 <h3 id="从一个故事说起"><a href="#从一个故事说起" class="headerlink" title="从一个故事说起"></a>从一个故事说起</h3><p>我记得自己以前看过一个故事, 描述的就是TCP为什么要握手3次, 但是如今已经找不到原文了, 所以只能把我记忆中的故事大概讲述一遍.</p>
 <h4 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h4><p>现在有三个国家, A B C.</p>
 <p>A要联合B一起攻打C, 于是送信给B国, 告诉他XXX时间, 你我两国一起攻打C国. </p>
-<p><img src="/Blog/Blog/intro/countryfight.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/countryfight.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>但问题是, 信使送信可能会被C国截获, 导致B不知道要攻打C国, 而A国却在约定的时间傻fufu地冲上去了. </p>
 <p>所以B国要给A国回个信, 告诉他, “我知道了, 在XXX时间, 咱俩一起进攻C国”</p>
 <p>问题又来了, 信使送信可能会被C国截获, B国知道要在XXX时间攻打C国, 但A不知道B知道(有点绕口),</p>
@@ -321,7 +323,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E9%9D%A2%E8%AF%95%E5%BF%85%E4%BC%9A/">面试必会</a>
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95%E5%BF%85%E4%BC%9A/">面试必会</a>
                     
                   </div>
                 
@@ -329,9 +331,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/tcp/">tcp</a>
+                      <a class="hover-with-bg" href="/tags/tcp/">tcp</a>
                     
                   </div>
                 
@@ -348,19 +350,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2019/06/22/Selection-Sort/">
+                      <a href="/2019/06/22/Selection-Sort/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">选择排序 Selection Sort</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2019/06/20/TCP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F/">
+                      <a href="/2019/06/20/TCP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F/">
                         <span class="hidden-mobile">TCP报文格式</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -403,7 +405,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -412,7 +414,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -452,18 +454,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -516,7 +518,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

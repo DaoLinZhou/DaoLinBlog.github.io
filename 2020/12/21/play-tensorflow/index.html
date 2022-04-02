@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,11 +19,11 @@
     <meta name="description" content="&lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow 学习笔记">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/12/21/play-tensorflow/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2020/12/21/play-tensorflow/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="&lt;">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/tf/ccnm.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/tf/ccnm.PNG">
 <meta property="article:published_time" content="2020-12-21T23:01:36.000Z">
 <meta property="article:modified_time" content="2021-01-02T06:45:19.093Z">
 <meta property="article:author" content="Daolin">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/tf/ccnm.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/tf/ccnm.PNG">
   
   
   <title>TensorFlow 学习笔记 - Daolin&#39;s Repository</title>
@@ -64,25 +64,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -101,9 +103,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -113,9 +115,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -125,9 +127,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -137,9 +139,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -149,9 +151,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -175,7 +177,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -266,7 +268,7 @@
 <p>批归一化可以缓解梯度消失</p>
 <br>
 
-<h2 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h2><p><img src="/Blog/Blog/intro/tf/dropout.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h2><p><img src="/Blog/Blog/intro/tf/dropout.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>随机的让某些单元失效(每一次训练弃用的单元都是随机的). 这样节点就无法<strong>组合</strong>地去学习, 每个节点必须独立学习数据的规律. 这样就可以防止过拟合</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">model.add(keras.layers.AlphaDropout(rate=<span class="hljs-number">0.5</span>))<br>model.add(keras.layers.Dropout(rate=<span class="hljs-number">0.5</span>))<br></code></pre></td></tr></table></figure>
 
@@ -296,9 +298,9 @@
 </ul>
 </li>
 </ul>
-<p><img src="/Blog/Blog/intro/tf/wide_and_deep.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/tf/wide_and_deep_1.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/tf/wide_and_deep_2.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/wide_and_deep.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/wide_and_deep_1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/wide_and_deep_2.png" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>此时就不能使用 Sequential 了, 因为此时一层有两种模式</p>
@@ -335,13 +337,13 @@
 </ul>
 <br>
 
-<h3 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h3><p><img src="/Blog/Blog/intro/tf/param_search.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h3><p><img src="/Blog/Blog/intro/tf/param_search.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个在机器学习的笔记中讲过</p>
 <p>可以用并行化的方式进行计算. 例如一台机器计算第一行的参数, 另一台机器计算第二行的参数</p>
 <br>
 
 <h3 id="随机搜索"><a href="#随机搜索" class="headerlink" title="随机搜索"></a>随机搜索</h3><p>如果数据是连续的, 那么有可能网格搜索会跳过某个最优参数. 而使用随机搜索就可以使得最优解有概率被访问到.</p>
-<p><img src="/Blog/Blog/intro/tf/param_search_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/param_search_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h3><p>遗传算法是模拟自然界的遗传.</p>
@@ -522,7 +524,7 @@
 <p>假设下一层神经元的个数是$10^6$</p>
 <p>那么全连接参数就是输入乘输出$1000<em>1000</em>10^6&#x3D;10^{12}$</p>
 <p>这么大的数据量可能会导致计算资源不足, 且容易过拟合</p>
-<p><img src="/Blog/Blog/intro/tf/lc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/lc.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>解决方法之一就是使用<strong>局部卷积</strong>. 一个单元只和图像中的一部分进行连接.</p>
 <br>
 
@@ -533,7 +535,7 @@
 
 <p>另一个方法就是<strong>参数共享</strong></p>
 <p>不同的局部连接的参数是一样的</p>
-<p><img src="/Blog/Blog/intro/tf/lc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/lc.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>例如图中红色单元与(10, 10)的区域作连接, 有100个参数.</p>
 <p>蓝色单元同样与(10, 10) 的区域作连接, 有100个参数. 但是我们让它与红色单元是同一组100个参数</p>
 <p>此时全连接参数为$10*10 &#x3D; 100$</p>
@@ -549,8 +551,8 @@
 <br>
 
 <h2 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h2><p>无论原图有多少channel, 在使用同样channel数量的卷积核卷积后channel都变为1. 因此我们多设置几个卷积核, filter&#x3D;32就说明有32个卷积核, 卷积后的结果就有32个channel.</p>
-<p><img src="/Blog/Blog/intro/tf/lc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/tf/lc_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/lc_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/lc_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 准备数据</span><br>    fashion_mnist = keras.datasets.fashion_mnist<br>    (x_train_all, y_train_all), (x_test, y_test) = fashion_mnist.load_data()<br>    x_valid, x_train = x_train_all[:<span class="hljs-number">5000</span>], x_train_all[<span class="hljs-number">5000</span>:]<br>    y_valid, y_train = y_train_all[:<span class="hljs-number">5000</span>], y_train_all[<span class="hljs-number">5000</span>:]<br>    scaler = StandardScaler()<br>    x_train_scaled = scaler.fit_transform(<br>        x_train.astype(np.float32).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>)<br>    x_valid_scaled = scaler.transform(<br>        x_valid.astype(np.float32).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>)<br>    x_test_scaled = scaler.transform(<br>        x_test.astype(np.float32).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>)<br><br>    <span class="hljs-comment"># 模型, 卷积神经网络</span><br>    <span class="hljs-comment"># 两层卷积, 一层池化</span><br>    model = keras.models.Sequential()<br>    model.add(keras.layers.Conv2D(filters=<span class="hljs-number">32</span>, kernel_size=<span class="hljs-number">3</span>,<br>                                  padding=<span class="hljs-string">&quot;same&quot;</span>,<br>                                  activation=<span class="hljs-string">&quot;relu&quot;</span>,<br>                                  input_shape=(<span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>)))<br>    model.add(keras.layers.Conv2D(filters=<span class="hljs-number">32</span>, kernel_size=<span class="hljs-number">3</span>,<br>                                  padding=<span class="hljs-string">&quot;same&quot;</span>,<br>                                  activation=<span class="hljs-string">&quot;relu&quot;</span>))<br><br>    model.add(keras.layers.MaxPool2D(pool_size=<span class="hljs-number">2</span>))<br>    model.add(keras.layers.Conv2D(filters=<span class="hljs-number">64</span>, kernel_size=<span class="hljs-number">3</span>,<br>                                  padding=<span class="hljs-string">&quot;same&quot;</span>,<br>                                  activation=<span class="hljs-string">&quot;relu&quot;</span>))<br>    model.add(keras.layers.Conv2D(filters=<span class="hljs-number">64</span>, kernel_size=<span class="hljs-number">3</span>,<br>                                  padding=<span class="hljs-string">&quot;same&quot;</span>,<br>                                  activation=<span class="hljs-string">&quot;relu&quot;</span>))<br>    model.add(keras.layers.MaxPool2D(pool_size=<span class="hljs-number">2</span>))<br>    model.add(keras.layers.Conv2D(filters=<span class="hljs-number">128</span>, kernel_size=<span class="hljs-number">3</span>,<br>                                  padding=<span class="hljs-string">&quot;same&quot;</span>,<br>                                  activation=<span class="hljs-string">&quot;relu&quot;</span>))<br>    model.add(keras.layers.Conv2D(filters=<span class="hljs-number">128</span>, kernel_size=<span class="hljs-number">3</span>,<br>                                  padding=<span class="hljs-string">&quot;same&quot;</span>,<br>                                  activation=<span class="hljs-string">&quot;relu&quot;</span>))<br>    model.add(keras.layers.MaxPool2D(pool_size=<span class="hljs-number">2</span>))<br>    model.add(keras.layers.Flatten())<br>    model.add(keras.layers.Dense(<span class="hljs-number">128</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>))<br>    model.add(keras.layers.Dense(<span class="hljs-number">10</span>, activation=<span class="hljs-string">&quot;softmax&quot;</span>))<br><br>    model.<span class="hljs-built_in">compile</span>(loss=<span class="hljs-string">&quot;sparse_categorical_crossentropy&quot;</span>,<br>                  optimizer=<span class="hljs-string">&quot;sgd&quot;</span>,<br>                  metrics=[<span class="hljs-string">&quot;accuracy&quot;</span>])<br>    callbacks = [keras.callbacks.EarlyStopping(patience=<span class="hljs-number">5</span>, min_delta=<span class="hljs-number">1e-3</span>)]<br>    history = model.fit(x_train_scaled, y_train, epochs=<span class="hljs-number">10</span>,<br>                        validation_data=(x_valid_scaled, y_valid),<br>                        callbacks=callbacks)<br></code></pre></td></tr></table></figure>
 
 <p>通常在池化后要把卷积层的filter翻倍.</p>
@@ -562,11 +564,11 @@
 
 <h2 id="深度可分离卷积"><a href="#深度可分离卷积" class="headerlink" title="深度可分离卷积"></a>深度可分离卷积</h2><p>是普通卷积的变种, 可以替代普通卷积构成卷积神经网络</p>
 <p><code>BN</code> 是批归一化</p>
-<p><img src="/Blog/Blog/intro/tf/dc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>左边是普通的卷积操作, 右边(Depthwise)就是深度可分离卷积操作</p>
 <br>
 
-<h3 id="Inception-V3"><a href="#Inception-V3" class="headerlink" title="Inception V3"></a>Inception V3</h3><p><img src="/Blog/Blog/intro/tf/dc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Inception-V3"><a href="#Inception-V3" class="headerlink" title="Inception V3"></a>Inception V3</h3><p><img src="/Blog/Blog/intro/tf/dc_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>为什么要这样作分支?</p>
 <p>这样可以有不同尺寸<strong>视野域</strong></p>
 <blockquote>
@@ -574,13 +576,13 @@
 <ul>
 <li>不同的视野域提取的图像特征尺度不同</li>
 </ul>
-<p><img src="/Blog/Blog/intro/tf/dc_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>例如最顶上的那个方块的视野域是(5, 5)的方阵, 而中间层的每一个方块的视野域是(3, 3)的区域</p>
 <p>视野域可以叠加, 两层3x3的视野域就是5x5</p>
 </blockquote>
 <br>
 
-<p><img src="/Blog/Blog/intro/tf/dc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>而在这个结构中, 每个分支视野域是不一样的.</p>
 <p>从左到右视野域分别是(1, 1), (3, 3), (5, 5)(average pool会是图像宽高变为原来的1&#x2F;2), (5, 5)</p>
 <br>
@@ -588,11 +590,11 @@
 <br>
 
 <p>深度可分离卷积也是一种<strong>分支</strong>的网络结构, 只不过它的分支是建立在不同的网络通道之上.</p>
-<p><img src="/Blog/Blog/intro/tf/dc_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>对于输入, 可以经过一个1x1的卷积得到一个多通道的输出. 我们把这个输出分为3份分别输入给3个不同的分支, 再把不同结果进行合并</p>
 <p>如果分到极值: 把每个通道都分成一份</p>
-<p><img src="/Blog/Blog/intro/tf/dc_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/tf/dc_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>而且深度可分离卷积的计算速度相对普通卷积快</p>
@@ -607,7 +609,7 @@
 <p>如果有N个filter, 那么就是 $D_K<em>D_K</em>M<em>N</em>D_F*D_F$</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/tf/dc_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/dc_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>深度可分离卷积的计算量 $D_K<em>D_K</em>M<em>D_F</em>D_F$</p>
 <br>
 
@@ -630,26 +632,26 @@
 
 <br>
 
-<h3 id="经典卷积网络模型"><a href="#经典卷积网络模型" class="headerlink" title="经典卷积网络模型"></a>经典卷积网络模型</h3><h4 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h4><p><img src="/Blog/Blog/intro/tf/ccnm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="经典卷积网络模型"><a href="#经典卷积网络模型" class="headerlink" title="经典卷积网络模型"></a>经典卷积网络模型</h3><h4 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h4><p><img src="/Blog/Blog/intro/tf/ccnm.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>论文: <a target="_blank" rel="noopener" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf">http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf</a></p>
 <br>
 
 <h4 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h4><p>适用于识别较为复杂的彩色图, 可识别1000种类别</p>
 <p>结构复杂, 使用relu作为激活函数.</p>
-<p><img src="/Blog/Blog/intro/tf/ccnm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/ccnm_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h4 id="VGG-16"><a href="#VGG-16" class="headerlink" title="VGG-16"></a>VGG-16</h4><p><img src="/Blog/Blog/intro/tf/ccnm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="VGG-16"><a href="#VGG-16" class="headerlink" title="VGG-16"></a>VGG-16</h4><p><img src="/Blog/Blog/intro/tf/ccnm_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<h1 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h1><p><img src="/Blog/Blog/intro/tf/embedding_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h1 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h1><p><img src="/Blog/Blog/intro/tf/embedding_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>先使用不同的神经网络对文本进行二分类</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_learning_curve</span>(<span class="hljs-params">history, label, epochs, min_values, max_values</span>):<br>    data = &#123;&#125;<br>    data[label] = history.history[label]<br>    data[<span class="hljs-string">&#x27;val_&#x27;</span>+label] = history.history[<span class="hljs-string">&#x27;val_&#x27;</span>+label]<br>    pd.DataFrame(data).plot(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">5</span>))<br>    plt.grid(<span class="hljs-literal">True</span>)<br>    plt.axis([<span class="hljs-number">0</span>, epochs, min_values, max_values])<br>    plt.show()<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">decode_review</span>(<span class="hljs-params">reverse_word_index, text_ids</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27; &#x27;</span>.join([reverse_word_index.get(word_id, <span class="hljs-string">&quot;&lt;UNK&gt;&quot;</span>) <span class="hljs-keyword">for</span> word_id <span class="hljs-keyword">in</span> text_ids])<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    imdb = keras.datasets.imdb<br>    vocab_size = <span class="hljs-number">10000</span>  <span class="hljs-comment"># 只处理10000个不同的字符, 其余的字符会变为 unk</span><br>    index_from = <span class="hljs-number">3</span><br>    (train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=vocab_size, index_from=index_from)<br>    <span class="hljs-built_in">print</span>(train_data.shape, train_labels.shape)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(train_data[<span class="hljs-number">0</span>]), <span class="hljs-built_in">len</span>(train_data[<span class="hljs-number">1</span>]))  <span class="hljs-comment"># 样本是变长的</span><br><br>    word_index = imdb.get_word_index()<br>    <span class="hljs-comment"># index 改为从4开始, 这样流出4个位置放置特殊字符</span><br>    word_index = &#123;k: (v + <span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> word_index.items()&#125;<br><br>    <span class="hljs-comment"># 特殊字符</span><br>    word_index[<span class="hljs-string">&#x27;&lt;PAD&gt;&#x27;</span>] = <span class="hljs-number">0</span><br>    word_index[<span class="hljs-string">&#x27;&lt;START&gt;&#x27;</span>] = <span class="hljs-number">1</span><br>    word_index[<span class="hljs-string">&#x27;&lt;UNK&gt;&#x27;</span>] = <span class="hljs-number">2</span><br>    word_index[<span class="hljs-string">&#x27;&lt;END&gt;&#x27;</span>] = <span class="hljs-number">3</span><br><br>    reverse_word_index = &#123;v: k <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> word_index.items()&#125;<br>    <span class="hljs-comment"># print(decode_review(reverse_word_index, train_data[0]))</span><br><br>    <span class="hljs-comment"># 长度小于500的句子被补全, 大于500的句子被截断</span><br>    max_length = <span class="hljs-number">500</span><br>    train_data = keras.preprocessing.sequence.pad_sequences(<br>        train_data,        <span class="hljs-comment"># list of list</span><br>        value=word_index[<span class="hljs-string">&#x27;&lt;PAD&gt;&#x27;</span>],<br>        padding=<span class="hljs-string">&#x27;post&#x27;</span>,    <span class="hljs-comment"># padding 放在句子后面</span><br>        maxlen=max_length<br>    )<br><br>    test_data = keras.preprocessing.sequence.pad_sequences(<br>        test_data,<br>        value=word_index[<span class="hljs-string">&#x27;&lt;PAD&gt;&#x27;</span>],<br>        padding=<span class="hljs-string">&#x27;post&#x27;</span>,<br>        maxlen=max_length<br>    )<br><br>    embedding_dim = <span class="hljs-number">16</span>  <span class="hljs-comment"># 每个 word 都 embedding 为16维向量</span><br>    batch_size = <span class="hljs-number">128</span><br><br>    model = keras.models.Sequential([<br>        <span class="hljs-comment"># 把每个word转为16维向量, 此时一个句子就是一个 max_length * embedding_dim 的矩阵</span><br>        <span class="hljs-comment"># 有 batch_size 个矩阵, 所以输出是三维矩阵(batch_size, max_length, embedding_dim)</span><br>        keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),<br><br>        <span class="hljs-comment"># 通过pooling, 把三维矩阵(batch_size, max_length, embedding_dim)转为</span><br>        <span class="hljs-comment"># 二维矩阵(batch_size, embedding_dim)</span><br>        keras.layers.GlobalAveragePooling1D(),<br>        keras.layers.Dense(<span class="hljs-number">64</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>),<br>        keras.layers.Dense(<span class="hljs-number">1</span>, activation=<span class="hljs-string">&quot;sigmoid&quot;</span>)     <span class="hljs-comment"># 二分类</span><br>    ])<br><br>    model.summary()<br>    model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&quot;adam&quot;</span>, loss=<span class="hljs-string">&quot;binary_crossentropy&quot;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])<br><br>    history = model.fit(train_data, train_labels,<br>                        epochs=<span class="hljs-number">30</span>,<br>                        batch_size=batch_size,<br>                        validation_split=<span class="hljs-number">0.2</span>)<br><br>    plot_learning_curve(history, <span class="hljs-string">&quot;accuracy&quot;</span>, <span class="hljs-number">30</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br>    plot_learning_curve(history, <span class="hljs-string">&quot;loss&quot;</span>, <span class="hljs-number">30</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/tf/acc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/tf/loss.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/acc.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/loss.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这种合并 + padding有一些缺点:</p>
@@ -667,23 +669,23 @@
 <br>
 
 <h2 id="序列式问题"><a href="#序列式问题" class="headerlink" title="序列式问题"></a>序列式问题</h2><p>普通的神经网络是一对一. </p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>而有时候我们需要一对多的输出, 例如通过图片生成描述</p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>多对一的输出: 文本分类, 或文本感情分析</p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>多对多: encoding-decoding, 机器翻译</p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>实时多对多</p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>什么是循环神经网络?</p>
@@ -694,11 +696,11 @@
 <p>字符语言模型, 预测下一个字符</p>
 <p>词典 [j, e, p]</p>
 <p>样本 jeep</p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>第二次的输入就是第一次的状态和e, 第三次的输入是第二次的状态和e</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/tf/rnn_s_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>序列式预测时, 我们不知道ground truth, 因此要把前一层的输出作为下一层的输入</p>
 <p>而这种情况下, 如果开头预测错误, 那么后面整体就全错了. 这也是序列式问题的一个难点.</p>
 <br>
@@ -708,8 +710,8 @@
 <h2 id="使用循环神经网络完成二分类"><a href="#使用循环神经网络完成二分类" class="headerlink" title="使用循环神经网络完成二分类"></a>使用循环神经网络完成二分类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_learning_curve</span>(<span class="hljs-params">history, label, epochs, min_values, max_values</span>):<br>    data = &#123;&#125;<br>    data[label] = history.history[label]<br>    data[<span class="hljs-string">&#x27;val_&#x27;</span>+label] = history.history[<span class="hljs-string">&#x27;val_&#x27;</span>+label]<br>    pd.DataFrame(data).plot(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">5</span>))<br>    plt.grid(<span class="hljs-literal">True</span>)<br>    plt.axis([<span class="hljs-number">0</span>, epochs, min_values, max_values])<br>    plt.show()<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">decode_review</span>(<span class="hljs-params">reverse_word_index, text_ids</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27; &#x27;</span>.join([reverse_word_index.get(word_id, <span class="hljs-string">&quot;&lt;UNK&gt;&quot;</span>) <span class="hljs-keyword">for</span> word_id <span class="hljs-keyword">in</span> text_ids])<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    imdb = keras.datasets.imdb<br>    vocab_size = <span class="hljs-number">10000</span>  <span class="hljs-comment"># 只处理10000个不同的字符, 其余的字符会变为 unk</span><br>    index_from = <span class="hljs-number">3</span><br>    (train_data, train_labels), (test_data, test_labels) = imdb.load_data(num_words=vocab_size, index_from=index_from)<br>    <span class="hljs-built_in">print</span>(train_data.shape, train_labels.shape)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(train_data[<span class="hljs-number">0</span>]), <span class="hljs-built_in">len</span>(train_data[<span class="hljs-number">1</span>]))  <span class="hljs-comment"># 样本是变长的</span><br>    <span class="hljs-built_in">print</span>(train_data[<span class="hljs-number">0</span>])<br><br>    word_index = imdb.get_word_index()<br>    <span class="hljs-comment"># index 改为从4开始, 这样流出4个位置放置特殊字符</span><br>    word_index = &#123;k: (v + <span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> word_index.items()&#125;<br><br>    <span class="hljs-comment"># 特殊字符</span><br>    word_index[<span class="hljs-string">&#x27;&lt;PAD&gt;&#x27;</span>] = <span class="hljs-number">0</span><br>    word_index[<span class="hljs-string">&#x27;&lt;START&gt;&#x27;</span>] = <span class="hljs-number">1</span><br>    word_index[<span class="hljs-string">&#x27;&lt;UNK&gt;&#x27;</span>] = <span class="hljs-number">2</span><br>    word_index[<span class="hljs-string">&#x27;&lt;END&gt;&#x27;</span>] = <span class="hljs-number">3</span><br><br>    reverse_word_index = &#123;v: k <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> word_index.items()&#125;<br>    <span class="hljs-comment"># print(decode_review(reverse_word_index, train_data[0]))</span><br><br>    <span class="hljs-comment"># 长度小于500的句子被补全, 大于500的句子被截断</span><br>    max_length = <span class="hljs-number">500</span><br>    train_data = keras.preprocessing.sequence.pad_sequences(<br>        train_data,        <span class="hljs-comment"># list of list</span><br>        value=word_index[<span class="hljs-string">&#x27;&lt;PAD&gt;&#x27;</span>],<br>        padding=<span class="hljs-string">&#x27;post&#x27;</span>,    <span class="hljs-comment"># padding 放在句子后面</span><br>        maxlen=max_length<br>    )<br><br>    test_data = keras.preprocessing.sequence.pad_sequences(<br>        test_data,<br>        value=word_index[<span class="hljs-string">&#x27;&lt;PAD&gt;&#x27;</span>],<br>        padding=<span class="hljs-string">&#x27;post&#x27;</span>,<br>        maxlen=max_length<br>    )<br><br>    embedding_dim = <span class="hljs-number">16</span>  <span class="hljs-comment"># 每个 word 都 embedding 为16维向量</span><br>    batch_size = <span class="hljs-number">128</span><br><br>    <span class="hljs-comment"># 模型依然需要 embedding</span><br>    model = keras.models.Sequential([<br>        keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),<br>        <span class="hljs-comment"># 双向RNN结构, 只使用最后的输出</span><br>        keras.layers.Bidirectional(keras.layers.SimpleRNN(units=<span class="hljs-number">32</span>, return_sequences=<span class="hljs-literal">False</span>)),   <br>        keras.layers.Dense(<span class="hljs-number">64</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>),<br>        keras.layers.Dense(<span class="hljs-number">1</span>, activation=<span class="hljs-string">&quot;sigmoid&quot;</span>)<br>    ])<br><br>    model.summary()<br>    model.<span class="hljs-built_in">compile</span>(optimizer=<span class="hljs-string">&quot;adam&quot;</span>, loss=<span class="hljs-string">&quot;binary_crossentropy&quot;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>])<br><br>    history = model.fit(train_data, train_labels,<br>                        epochs=<span class="hljs-number">30</span>,<br>                        batch_size=batch_size,<br>                        validation_split=<span class="hljs-number">0.2</span>)<br><br>    plot_learning_curve(history, <span class="hljs-string">&quot;accuracy&quot;</span>, <span class="hljs-number">30</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br>    plot_learning_curve(history, <span class="hljs-string">&quot;loss&quot;</span>, <span class="hljs-number">30</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
 
 <p>和上一个例子相比, 只对模型部分进行更改</p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/tf/rnn_s_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/tf/rnn_s_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>可以看出有明显的过拟合</p>
 <p>然而如果使用多层RNN, 多层双向RNN, 则过拟合倾向更为严重.</p>
 
@@ -721,7 +723,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                     
                   </div>
                 
@@ -729,11 +731,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                     
                   </div>
                 
@@ -750,19 +752,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2021/01/02/taylor/">
+                      <a href="/2021/01/02/taylor/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">泰勒 Taylor</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/12/20/fast-and-sift/">
+                      <a href="/2020/12/20/fast-and-sift/">
                         <span class="hidden-mobile">FAST and SIFT</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -805,7 +807,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -814,7 +816,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -854,18 +856,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -918,7 +920,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

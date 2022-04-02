@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,11 +19,11 @@
     <meta name="description" content="特征检测算法 FAST 和 SIFT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FAST and SIFT">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/12/20/fast-and-sift/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2020/12/20/fast-and-sift/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="特征检测算法 FAST 和 SIFT">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/fast/S2-fastRMatch.png">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/fast/S2-fastRMatch.png">
 <meta property="article:published_time" content="2020-12-20T19:33:08.000Z">
 <meta property="article:modified_time" content="2020-12-21T00:40:19.552Z">
 <meta property="article:author" content="Daolin">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="计算机视觉">
 <meta property="article:tag" content="opencv">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/fast/S2-fastRMatch.png">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/fast/S2-fastRMatch.png">
   
   
   <title>FAST and SIFT - Daolin&#39;s Repository</title>
@@ -64,25 +64,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -101,9 +103,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -113,9 +115,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -125,9 +127,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -137,9 +139,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -149,9 +151,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -175,7 +177,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/lulutiya.jpg') no-repeat center center;
+         style="background: url('/intro/lulutiya.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -250,8 +252,8 @@
 <p>就是对一个像素与它周围16个点进行对比, 如果周围有<strong>连续</strong>12(有时候也可以选择9)个像素<strong>一定程度</strong>大于或小于这个像素, 就说明这个点是一个特征点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> scipy.signal <span class="hljs-keyword">import</span> convolve2d<br><br><span class="hljs-comment"># neighbors&#x27; offset from p</span><br><span class="hljs-comment"># fellow this order: https://opencv-python-tutroals.readthedocs.io/en/latest/_images/fast_speedtest.jpg</span><br>d = [[-<span class="hljs-number">3</span>, <span class="hljs-number">0</span>], [-<span class="hljs-number">3</span>, <span class="hljs-number">1</span>],  <span class="hljs-comment"># 1, 2</span><br>     [-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>],  <span class="hljs-comment"># 3</span><br>     [-<span class="hljs-number">1</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>],  <span class="hljs-comment"># 4, 5, 6</span><br>     [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>],  <span class="hljs-comment"># 7</span><br>     [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">3</span>, -<span class="hljs-number">1</span>],  <span class="hljs-comment"># 8, 9, 10</span><br>     [<span class="hljs-number">2</span>, -<span class="hljs-number">2</span>],  <span class="hljs-comment"># 11</span><br>     [<span class="hljs-number">1</span>, -<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>, -<span class="hljs-number">3</span>], [-<span class="hljs-number">1</span>, -<span class="hljs-number">3</span>],  <span class="hljs-comment"># 12, 13, 14</span><br>     [-<span class="hljs-number">2</span>, -<span class="hljs-number">2</span>],  <span class="hljs-comment"># 15</span><br>     [-<span class="hljs-number">3</span>, -<span class="hljs-number">1</span>]]  <span class="hljs-comment"># 16</span><br><br>sobel = np.array([[-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>],<br>                  [-<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],<br>                  [-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]])<br><br><br><span class="hljs-comment"># 获取一个点的周围16个neighbors</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_neighbors</span>(<span class="hljs-params">img: np.ndarray, x: <span class="hljs-built_in">int</span>, y: <span class="hljs-built_in">int</span></span>) -&gt; np.ndarray:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    :param img: image</span><br><span class="hljs-string">    :param x: row number</span><br><span class="hljs-string">    :param y: column number</span><br><span class="hljs-string">    :return: the 16 neighbors ordered from 1-16</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> np.array([img[x + offset[<span class="hljs-number">0</span>], y + offset[<span class="hljs-number">1</span>]] <span class="hljs-keyword">for</span> offset <span class="hljs-keyword">in</span> d], dtype=<span class="hljs-built_in">int</span>)<br><br><br><span class="hljs-comment"># 快速判断一个点不是 feature point</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">high_speed_test</span>(<span class="hljs-params">img: np.ndarray, x: <span class="hljs-built_in">int</span>, y: <span class="hljs-built_in">int</span>, t</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    :param img:</span><br><span class="hljs-string">    :param x: row number</span><br><span class="hljs-string">    :param y: column number</span><br><span class="hljs-string">    :param t: threshold</span><br><span class="hljs-string">    :return:  0 if test fail</span><br><span class="hljs-string">              1 if 3 of them are too bright</span><br><span class="hljs-string">             -1 if 3 of them are too dark</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    intensity = img[x, y]<br>    <span class="hljs-comment"># points contains neighbors[1, 5, 9, 13]</span><br>    points = np.array([img[x + d[i &lt;&lt; <span class="hljs-number">2</span>][<span class="hljs-number">0</span>], y + d[i &lt;&lt; <span class="hljs-number">2</span>][<span class="hljs-number">1</span>]] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)])<br>    <span class="hljs-keyword">if</span> np.<span class="hljs-built_in">sum</span>(points &gt;= (intensity + t)) &gt;= <span class="hljs-number">3</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>    <span class="hljs-keyword">elif</span> np.<span class="hljs-built_in">sum</span>(points &lt;= (intensity - t)) &gt;= <span class="hljs-number">3</span>:<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br><br><span class="hljs-comment"># 通过 neighbors 和 当前 pixel 的 intensity 以及给定的 threshold 判断一个点是否是特征点</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">FAST</span>(<span class="hljs-params">neighbors: np.ndarray, intensity, t, darker: <span class="hljs-built_in">bool</span></span>):<br>    <span class="hljs-keyword">if</span> darker:<br>        tmp = neighbors &lt;= (intensity - t)<br>    <span class="hljs-keyword">else</span>:<br>        tmp = neighbors &gt;= (intensity + t)<br>    <span class="hljs-keyword">if</span> np.<span class="hljs-built_in">sum</span>(tmp) &lt; <span class="hljs-number">12</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    tmp2 = np.concatenate([tmp, tmp]).tostring()<br>    <span class="hljs-keyword">return</span> tmp2.find(np.ones(<span class="hljs-number">12</span>, dtype=<span class="hljs-built_in">bool</span>).tostring()) != -<span class="hljs-number">1</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_fast_detector</span>(<span class="hljs-params">img: np.ndarray, t=<span class="hljs-number">10</span></span>):<br>    r, c = img.shape<br>    indexes = np.zeros((r, c), dtype=<span class="hljs-built_in">int</span>)<br>    kps = []<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(r):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(c):<br><br>            <span class="hljs-keyword">if</span> i &lt; <span class="hljs-number">3</span> <span class="hljs-keyword">or</span> i + <span class="hljs-number">3</span> &gt;= r <span class="hljs-keyword">or</span> j &lt; <span class="hljs-number">3</span> <span class="hljs-keyword">or</span> j + <span class="hljs-number">3</span> &gt;= c:<br>                <span class="hljs-comment"># if (i, j) doesn&#x27;t have all neighbors</span><br>                <span class="hljs-keyword">continue</span><br><br>            test_res = high_speed_test(img, i, j, t)<br>            <span class="hljs-keyword">if</span> test_res == <span class="hljs-number">0</span>:<br>                <span class="hljs-comment"># high speed test fails</span><br>                <span class="hljs-keyword">continue</span><br><br>            neighbors = get_neighbors(img, i, j)<br>            <span class="hljs-keyword">if</span> FAST(neighbors, img[i, j], t, test_res == -<span class="hljs-number">1</span>):<br>                indexes[i, j] = <span class="hljs-number">1</span><br>                kps.append([j, i])<br>    <span class="hljs-keyword">return</span> indexes, kps<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">robust_by_harris_cornerness_metric</span>(<span class="hljs-params">img: np.ndarray, indexes: np.ndarray</span>):<br>    gauss = cv2.getGaussianKernel(<span class="hljs-number">5</span>, <span class="hljs-number">1</span>)<br>    gauss = gauss.dot(gauss.T)<br>    dog = convolve2d(gauss, sobel)<br><br>    ix = cv2.filter2D(img, -<span class="hljs-number">1</span>, dog)<br>    iy = cv2.filter2D(img, -<span class="hljs-number">1</span>, dog.T)<br><br>    ix2g = cv2.filter2D(ix**<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>, gauss)<br>    iy2g = cv2.filter2D(iy**<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>, gauss)<br>    ixiyg = cv2.filter2D(ix*iy, -<span class="hljs-number">1</span>, gauss)<br><br>    harcor = ix2g * iy2g - ixiyg**<span class="hljs-number">2</span> - <span class="hljs-number">0.05</span> * ((ix2g + iy2g) ** <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">return</span> np.bitwise_and(harcor &gt; <span class="hljs-number">0.001</span>, indexes)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    img = cv2.imread(<span class="hljs-string">&quot;./S2-im1.png&quot;</span>)<br>    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br><br>    indices, kps = my_fast_detector(img_gray)<br>    robust_indexes = robust_by_harris_cornerness_metric(img_gray, indices)<br>    <br>    cv2.imwrite(<span class="hljs-string">&quot;kps.png&quot;</span>, robust_indexes*<span class="hljs-number">255</span>)<br>    cv2.waitKey(<span class="hljs-number">0</span>)<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/fast/S2-im1.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/fast/kps.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-im1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/kps.png" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -259,7 +261,7 @@
 <h1 id="SIFT"><a href="#SIFT" class="headerlink" title="SIFT"></a>SIFT</h1><p>SIFT(Scale Invariant Feature Transform)</p>
 <p>这个算法为了实现Scale Invariant, 使用高斯金字塔模拟摄像头的远近来scale image. 在scale后的image中寻找特征点.</p>
 <p>因为原图中的一个特征点可能会因为缩放变为一条边</p>
-<p><img src="/Blog/Blog/intro/fast/sift.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/sift.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>每个 octave 是一组. </p>
 <p>octave 1 是对原图进行不同高斯过滤(使用不同$\sigma$ 的高斯核)后的结果</p>
 <p>octave 2 的第一张图是对 octave 1 进行 subsampleing 后的结果. 之后重复使用高斯核来得到octave中其他的图片.</p>
@@ -268,11 +270,11 @@
 <p>那么一共要几个octave? David 的论文中使用 $O&#x3D;[\log_2(min(M,N))]-3$</p>
 <p>为什么?</p>
 <p>因为我们进行subsampling就是把图片长和宽都缩小2倍, 因此O从原图的长和宽的最小值中取$\log_2$是合理的结果, 然而考虑到如果图片太小就得不到有意义的信息. 因此舍去最小的三个octave.</p>
-<p><img src="/Blog/Blog/intro/com_graphic/feature_des_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/com_graphic/feature_des_28.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>对高斯金字塔中同一个octave中所有层求差值, 得到高斯差分金字塔.</p>
 <p>高斯差分金字塔比原本高斯金字塔每个octave少一层. 而我们要对高斯差分金字塔的中间层求极值. 因此要对比一个像素的周围26个像素.(如图所示)</p>
 <p>因此最上层和最下层无法求极值, 又有2层无法使用. 因此如果说高斯金字塔每个octave的层数是S, 我们希望每个octave中有n层用于计算极值, 那么 $S&#x3D;n+3$</p>
-<p><img src="/Blog/Blog/intro/fast/sift_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/sift_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>sigma的取值:</p>
@@ -293,12 +295,12 @@
 
 <h1 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h1><p>通过 FAST 和 SIFT都求得了特征点</p>
 <p>之后就可以通过这些特征点和原图求他们的特征描述符, 在通过匹配特征描述符来匹配两张图片</p>
-<p><img src="/Blog/Blog/intro/fast/S2-im1.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/fast/S2-im2.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/fast/S2-im3.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/fast/S2-fastR.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/fast/S2-fastRMatch.png" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/fast/S2-panorama.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-im1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-im2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-im3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-fastR.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-fastRMatch.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/fast/S2-panorama.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -308,7 +310,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a>
                     
                   </div>
                 
@@ -316,11 +318,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/opencv/">opencv</a>
+                      <a class="hover-with-bg" href="/tags/opencv/">opencv</a>
                     
                   </div>
                 
@@ -337,19 +339,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2020/12/21/play-tensorflow/">
+                      <a href="/2020/12/21/play-tensorflow/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">TensorFlow 学习笔记</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/09/20/opencv-trap/">
+                      <a href="/2020/09/20/opencv-trap/">
                         <span class="hidden-mobile">opencv</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -392,7 +394,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -401,7 +403,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -441,18 +443,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -505,7 +507,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

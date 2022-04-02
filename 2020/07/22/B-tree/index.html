@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="B-tree, B-树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B树">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/22/B-tree/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2020/07/22/B-tree/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="B-tree, B-树">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/5-l-btree.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/5-l-btree.PNG">
 <meta property="article:published_time" content="2020-07-23T04:58:09.000Z">
 <meta property="article:modified_time" content="2020-07-24T00:09:56.145Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/5-l-btree.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/5-l-btree.PNG">
   
   
   <title>B树 - Daolin&#39;s Repository</title>
@@ -62,25 +62,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -99,9 +101,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -111,9 +113,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -123,9 +125,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -135,9 +137,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -147,9 +149,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -173,7 +175,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/psychopass.jpg') no-repeat center center;
+         style="background: url('/intro/psychopass.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -245,11 +247,11 @@
 
 <h1 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h1><p>B树是一种<strong>平衡的多路搜索树</strong></p>
 <p>3阶B树 (一个节点最多有3个子节点)</p>
-<p><img src="/Blog/Blog/intro/3-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/3-l-btree.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>4阶B树 (一个节点最多有4个子节点)</p>
-<p><img src="/Blog/Blog/intro/4-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/4-l-btree.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>5阶B树 (一个节点最多有5个子节点)</p>
-<p><img src="/Blog/Blog/intro/5-l-btree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/5-l-btree.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -278,25 +280,25 @@
 <br>
 
 <h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><p>新添加的元素必定是添加到叶子节点. (和最后一层的某个节点融合)</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>因为在二叉搜索树添加元素时, 我们就是添加到叶子节点, 而B树在某种程度上和二叉搜索树等价</p>
 <br>
 
 <p>然而和节点融合后, 可能节点的元素会超过限制. 这种现象称为上溢</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="上溢的解决-假设5阶"><a href="#上溢的解决-假设5阶" class="headerlink" title="上溢的解决(假设5阶)"></a>上溢的解决(假设5阶)</h3><p>5阶B树中, 每个节点最多存储4个元素, 当存储5个元素时就会上溢</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><strong>上溢节点的元素个数必然等于 m (m阶B树)</strong></p>
 <p>先求出上溢节点最中间元素的位置. 假设为k. 例如上图中k&#x3D;2.</p>
 <p>之后将k位置的元素向上与父节点合并. 再将**[0, k-1] 和 [k+1, m-1]**位置的元素分裂成两个子节点</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>此时父节点可能再次上溢</p>
 <p>如果父节点上溢, 则重复这个过程. 例如上图中就要把40和它的父亲节点融合, 再进行分裂</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>极端的情况可能会一直分裂到根节点.</p>
 <blockquote>
 <p><strong>只有上溢到根节点, B树才会长高</strong></p>
@@ -304,7 +306,7 @@
 <br>
 
 <p>然而当m为偶数时, m阶B树上溢时如何选取中间元素? 中间位置有两个元素, 这两个元素选哪个作为中间元素都可以. 让它和父节点融合.</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -314,26 +316,26 @@
 <br>
 
 <p>5阶B树有一个陷阱</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这就是下溢(underflow)</p>
 <p>下溢节点的元素数量必然等于 $ceil(m&#x2F;2) - 2$</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果下溢节点的临近兄弟节点至少有 $ceil(m&#x2F;2)$个元素, 可以向其借一个元素.</p>
 <p>将父节点的元素b插入下溢节点的0位置</p>
 <p>而再把 a 放到 b 原本的位置</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个操作实质就是<strong>旋转</strong>, 对b进行右旋操作</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>注意a的右孩子会变成b的左孩子</p>
 <br>
 
 <p>然而如果临近的兄弟节点无法借元素怎么办? ( 只有$ceil(m&#x2F;2)-1$个元素)</p>
 <p>此时应该将父节点的元素 b 挪下来和左右子节点进行合并</p>
-<p><img src="/Blog/Blog/intro/insert_b_tree_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/insert_b_tree_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时合并后的节点元素个数等于 $2*ceil(m&#x2F;2)-2 \le m-1$</p>
 <p>此时父节点又少了一个元素, 可以又会下溢, 依然要向上传播.</p>
 <blockquote>
@@ -357,7 +359,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -365,7 +367,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -382,19 +384,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2020/07/23/Huffman-Tree/">
+                      <a href="/2020/07/23/Huffman-Tree/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">哈夫曼树 Haffman Tree</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/07/20/trie/">
+                      <a href="/2020/07/20/trie/">
                         <span class="hidden-mobile">Trie 字典树</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -437,7 +439,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -446,7 +448,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -486,18 +488,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -550,7 +552,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

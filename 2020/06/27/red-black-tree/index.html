@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="红黑树 与 2-3树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2-3树与红黑树">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/06/27/red-black-tree/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2020/06/27/red-black-tree/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="红黑树 与 2-3树">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/red-balck_tree_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/red-balck_tree_3.PNG">
 <meta property="article:published_time" content="2020-06-28T06:49:09.000Z">
 <meta property="article:modified_time" content="2020-07-07T21:08:40.082Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/red-balck_tree_3.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/red-balck_tree_3.PNG">
   
   
   <title>2-3树与红黑树 - Daolin&#39;s Repository</title>
@@ -62,25 +62,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -99,9 +101,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -111,9 +113,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -123,9 +125,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -135,9 +137,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -147,9 +149,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -173,7 +175,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/lulutiya.jpg') no-repeat center center;
+         style="background: url('/intro/lulutiya.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -244,11 +246,11 @@
 <span id="more"></span>
 
 <p>什么是红黑树? </p>
-<p><img src="/Blog/Blog/intro/red-balck_tree.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>红黑树中每一个接待你都有一个颜色, 或者是红色, 或者是黑色</p>
 <blockquote>
 <p>很多教材的讲述太过形式化</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>红黑树要满足这5个条件</p>
 <ol>
 <li>每个节点或者是红色, 或者是黑色</li>
@@ -267,11 +269,11 @@
 <h1 id="2-3-树"><a href="#2-3-树" class="headerlink" title="2-3 树"></a>2-3 树</h1><p>学习2-3树, 不仅对于理解红黑树有帮助, 对理解B类树也有帮助</p>
 <p>2-3 树依然满足二分搜索树的基本性质. 但它不是一个二叉树</p>
 <p>有两种节点: 可以存放一个元素的节点, 和存放两个元素的节点</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>对于a来说, 左孩子 &lt; a, 右孩子 &gt; a</p>
 <p>对于bc来说, 则分为: 左孩子 &lt; b,  b &lt; 中间孩子 &lt; c, c &lt; 右孩子</p>
 <p>每一个节点有2个或3个孩子 – 2-3树</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>2-3树有个非常重要的性质, 这个性质是和2-3树本身插入元素的方法相关的</p>
@@ -281,71 +283,71 @@
 <br>
 
 <h2 id="2-3树如何维持绝对平衡"><a href="#2-3树如何维持绝对平衡" class="headerlink" title="2-3树如何维持绝对平衡"></a>2-3树如何维持绝对平衡</h2><p>首先树为空, 插入42</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>插入37, 如果是二分搜索树, 37会添加到42的左子树, 但是对于2-3树来说, 添加节点<strong>永远不会</strong>添加到一个<strong>空的位置</strong></p>
 <p>如果不添加到空的位置, 新的节点添加到哪里? 新节点将融合到添加过程中所找到的最后一个叶子节点</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>2节点融合为3节点</p>
 <br>
 
 <p>如果再添加一个节点, 12. 12尝试添加进2-3树, 12 小于 37, 所以尝试添加到37的左子树中, 但由于左子树为空. 所以和37-42融合, 暂时形成一个四节点</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>但是对于2-3树来说, 最多只有3节点, 所以对于4节点就可以分裂成这样</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>4节点变成了由3个二节点组成的平衡的树</p>
 <br>
 
 <p>再添加18, 18 小于37, 所以添加到37的左子树, 18 大于 12, 所以添加到12的右子树去. 由于12的右子树为空, 对于2-3树, 18要和12融合成为一个三节点</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>添加节点6, 6要添加到37的左子树, 12的左子树上去. 由于12的左子树为空, 所以融合为4节点</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果我们将它拆分为这个样子, 会破坏2-3树的绝对平衡</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这颗子树有一个新的根节点 12, 它要向上和它的父亲节点融合</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个2-3树依然是一个绝对平衡的2-3树  </p>
 <br>
 
 <p>在添加一个11</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_12.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>再添加节点5</p>
 <p>首先树会变成</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>再变成</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>子树的顶点6和它的父亲节点融合</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_15.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>又形成一个四节点, 再进行拆分</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_16.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>由于拆分完后的顶点12是根节点, 也就不用再向上融合了</p>
 <br>
 
 <p>整理一下:</p>
 <p>添加节点会与最后的叶子节点融合</p>
 <p>如果融合为4节点则对4节点(3个元素, 4个孩子)进行拆分, 拆分为3个2节点, 并且让顶点与它的父亲节点融合.</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_19.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
 <h2 id="左倾红黑树和2-3树的等价性"><a href="#左倾红黑树和2-3树的等价性" class="headerlink" title="左倾红黑树和2-3树的等价性"></a>左倾红黑树和2-3树的等价性</h2><p>(<strong>左倾</strong>)红黑树本质和2-3树等价.</p>
 <p>对于2-3树来说, 它就是包含这两种节点的树结构</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_20.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>2节点有两个孩子, 3节点有三个孩子</p>
 <br>
 
 <p>然而通常一个节点中存储1个元素可以方便对节点, 对树的操作</p>
 <p>红黑树就是这样</p>
 <p>我们依然让每一个节点只存储一个元素, 基于这样的方式也可以实现出和2-3树一样的逻辑, 这样的结构其实就是红黑树.</p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>红黑树中, 黑色节点就相当于一个2节点.</p>
 <p>而一黑一红两个节点合起来, 就相当于一个3节点. b和c应该是并列关系, 所以他们之间用红色边连接, 但是我们没有对象来表示边, 所以把边的信息存到节点中, b是一个红色的节点</p>
 <br>
@@ -357,15 +359,15 @@
 <p><strong>红色的节点和它的父亲节点合在一起表示2-3树的3节点</strong></p>
 <br>
 
-<p><img src="/Blog/Blog/intro/red-balck_tree_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>通过这个定义也可以看出, 所有的红色节点都是左倾斜的 </p>
 <p>这个结论是我们定义出来的, 而不是推导出来的</p>
 <br>
 
 <br>
 
-<p><img src="/Blog/Blog/intro/red-balck_tree_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/red-balck_tree_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/red-balck_tree_23.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这就是2-3树转换为红黑树的样子</p>
 <p>有3个红色节点, 这是因为原本有3个3节点.</p>
 <blockquote>
@@ -398,29 +400,29 @@
 
 <p>初始情况, 红黑树为空, 添加节点42</p>
 <p>让根节点等于42, 之后让它变为黑色</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>更一般的情况下, 如果根节点是由一个4节点分裂开的, (4节点分裂的顶点应该为红色因为它要向上融合) 它也应该转为黑色. 因此我们要在insert之后, 把root设置为黑色</p>
 <br>
 
 <p>再插入节点37, 插入到42的左子树</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时就对应了2-3树中的三节点.</p>
 <p>如果添加节点是在黑色节点的左侧, 非常简单, 只要添加完就好了, 但是问题在于根据二分搜索树的策略, 新节点可能添加在黑节点的右侧</p>
 <br>
 
 <p>假设根节点元素是37, 此时插入42</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>新添加的元素在37的右侧, 此时是不满足红黑树的基本性质.</p>
 <p>此时的处理方法和AVL树中是一样的, 进行一次左旋转变成这个样子</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>下面就看一下这个左旋转的过程, 整体思路和AVL一样</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时二分搜索树的旋转已经完成了, 但由于我们考虑的是红黑树, 因此还要对颜色进行一下维护:</p>
 <p>x的颜色应该等于node的颜色, 因为原本的树中node是根节点, 现在x是根节点, 所以根节点的颜色应该保持一致. 而node应该是红色, 因为新加入的节点42是和37形成一个三节点.</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这里有一个问题, 如果node原本为红色, x.color&#x3D;node.color 此时不就有2个红色节点了吗?</p>
@@ -430,72 +432,72 @@
 <br>
 
 <h2 id="颜色翻转和右旋转"><a href="#颜色翻转和右旋转" class="headerlink" title="颜色翻转和右旋转"></a>颜色翻转和右旋转</h2><h3 id="颜色翻转"><a href="#颜色翻转" class="headerlink" title="颜色翻转"></a>颜色翻转</h3><p>当向红黑树中3节点添加元素会有怎样的情况?</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果此时添加一个节点: 66</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个形状对应在2-3树中是什么样的?</p>
 <p>就是说原来有一个3节点现在添加了一个元素形成了临时的4节点</p>
 <p>临时的4节点的处理方式是将他拆分成3个2节点. 而分裂的3个2节点的根节点要向上进行融合, 这个融合意味着顶点要变成红色去融合</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时节点不需要旋转, 只需要改变颜色即可. 因此要翻转这3个节点的颜色. </p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h3><p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h3><p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果此时添加节点12的话</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个形状也等同于一个4节点, 不过和之前不太一样. 但我们依然要把它拆分成3个2节点的子树</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时就需要右旋转. 和左旋转一样, 不失一般性, 添加两个子树, 12的左右子树不会动所以就不添加了.</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_12.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>旋转操作</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>还要维护一下元素的颜色,  旋转之后42是和37融合在一起的. 所以node.color&#x3D;RED</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时又变成了左右节点都是红色的情况, 此时就需要再运行一下颜色翻转</p>
 <br>
 
 <br>
 
-<h2 id="向左倾红黑树中添加新节点"><a href="#向左倾红黑树中添加新节点" class="headerlink" title="向左倾红黑树中添加新节点"></a>向左倾红黑树中添加新节点</h2><p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="向左倾红黑树中添加新节点"><a href="#向左倾红黑树中添加新节点" class="headerlink" title="向左倾红黑树中添加新节点"></a>向左倾红黑树中添加新节点</h2><p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果此时添加节点66 (比3节点最大的元素要大的情况)</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>而如果添加节点12的话 (比3节点最小的元素要小的情况)</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>还有一种情况, 就是插入元素在3节点两个元素之间的情况</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果插入节点40</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_15.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>而我们的目标是拆分成这样</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_16.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>首先应该基于节点37进行一次<strong>左旋转</strong></p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_17.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>已经变成了之前处理过的一种情况, 相当于把37插入40-42这个三节点后的样子</p>
 <p>再针对节点42进行一下<strong>右旋转</strong>, 右旋转的过程中会调整颜色</p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_18.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>最后为了维持红黑树原有的性质, 进行一次<strong>颜色翻转</strong></p>
-<p><img src="/Blog/Blog/intro/rb_tree_i_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_16.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这就是对一个3节点融入新的元素的可能的3个方式.</p>
 <ol>
 <li>如果元素在3节点的两个元素之间</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_i_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_19.PNG" srcset="/img/loading.gif" lazyload></p>
 <ol start="2">
 <li>而如果添加的元素小于比两个元素都小.则直接跳到右旋转的步骤</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_i_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_20.PNG" srcset="/img/loading.gif" lazyload></p>
 <ol start="3">
 <li>如果添加的元素比两个元素都大, 则直接跳到颜色反转的步骤即可</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_i_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这个逻辑链条同样适用与在2节点中添加元素.</p>
@@ -504,7 +506,7 @@
 <li>添加到左侧, 改变颜色</li>
 <li>添加到右侧, 进行左旋转</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_i_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_i_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果融入2节点的元素本身是左倾的, 那就一般步骤都不用走, 它不满足任何一种情况</p>
 <p>而如果是右倾的, 判断一下是否需要左旋转, 也就是说判断节点的右孩子是否是红节点即可.如果右节点是红色, 则进行左旋转</p>
 <br>
@@ -513,12 +515,12 @@
 
 <h2 id="删除最大值与最小值"><a href="#删除最大值与最小值" class="headerlink" title="删除最大值与最小值"></a>删除最大值与最小值</h2><p>以下是我个人理解</p>
 <h3 id="删除最小值"><a href="#删除最小值" class="headerlink" title="删除最小值"></a>删除最小值</h3><p>如果最小值是红色节点, 直接删除就行了. 没有影响黑色节点, 自然就没有影响黑平衡性质(case 1)</p>
-<p><img src="/Blog/Blog/intro/rb_remove.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_remove.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>但问题是如果要删除的节点是黑色节点怎么办? 换句话说要删除的是2-3树中的2节点. 这破坏了平衡.</p>
 <p>如果是这种情况(case 2), 兄弟节点也是2节点</p>
-<p><img src="/Blog/Blog/intro/rb_remove_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_remove_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果兄弟节点是3节点(case 3), 则经过一系列操作变为case1</p>
-<p><img src="/Blog/Blog/intro/rb_remove_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_remove_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这3种情况其实可以总结为一种情况:</p>
@@ -530,9 +532,9 @@
 
 <p>那么怎么确保 node.left 和 node.left.left 不全为黑色? 换句话说, 当 node.left 和 node.left.left 为黑色时, 怎么变换才能使得他们不全为黑色?</p>
 <p>当node的右孩子是2节点时(左孩子一定是2节点, 因为我们假设 node.left 和 node.left.left 全为黑色) 和Case2一样</p>
-<p><img src="/Blog/Blog/intro/rb_remove_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_remove_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>当node的右孩子是3节点时 (node.right.left 为红色), 和Case3 是一样的</p>
-<p><img src="/Blog/Blog/intro/rb_remove_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_remove_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">removeMin</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">if</span> (root) root-&gt;color = RED;<br>    root = <span class="hljs-built_in">removeMin</span>(root);<br>    <span class="hljs-keyword">if</span> (root) root-&gt;color = BLACK;<br>&#125;<br><br><span class="hljs-function">Node* <span class="hljs-title">balance</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>    <span class="hljs-comment">// 是否需要左旋转</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(node-&gt;right))<br>        node = <span class="hljs-built_in">leftRotate</span>(node);<br>    <span class="hljs-comment">// 是否需要右旋转</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(node-&gt;left) &amp;&amp; <span class="hljs-built_in">isRed</span>(node-&gt;left-&gt;left))<br>        node = <span class="hljs-built_in">rightRotate</span>(node);<br>    <span class="hljs-comment">// 是否需要颜色翻转</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(node-&gt;left) &amp;&amp; <span class="hljs-built_in">isRed</span>(node-&gt;right))<br>        <span class="hljs-built_in">flipColors</span>(node);<br>    <span class="hljs-keyword">return</span> node;<br>&#125;<br><br><span class="hljs-function">Node* <span class="hljs-title">moveRedLeft</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>    <span class="hljs-built_in">flipColors</span>(node);   <span class="hljs-comment">// 无论node.right是什么节点都要先flipColors一下</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(node-&gt;right-&gt;left))&#123;  <span class="hljs-comment">// 当 node.right 是3节点时, 会有双红冲突</span><br>        node-&gt;right = <span class="hljs-built_in">rightRotate</span>(node-&gt;right);<br>        node = <span class="hljs-built_in">leftRotate</span>(node);<br>        <span class="hljs-built_in">flipColors</span>(node);<br>    &#125;<br>    <span class="hljs-keyword">return</span> node;<br>&#125;<br><br><span class="hljs-function">Node* <span class="hljs-title">removeMin</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>    <span class="hljs-comment">// 删除节点</span><br>    <span class="hljs-keyword">if</span>(node-&gt;left == <span class="hljs-literal">NULL</span>)&#123;<br>        <span class="hljs-keyword">delete</span> node;<br>        count --;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">nullptr</span>;<br>    &#125;<br>    <span class="hljs-comment">// 重点(和 BST 的 remove 不同的地方): 保持 node.left 和 node.left.left 中有一个为红色</span><br>    <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">isRed</span>(node-&gt;left) &amp;&amp; !<span class="hljs-built_in">isRed</span>(node-&gt;left-&gt;left))<br>        node = <span class="hljs-built_in">moveRedLeft</span>(node);<br><br>    <span class="hljs-comment">// 递归调用</span><br>    node-&gt;left = <span class="hljs-built_in">removeMin</span>(node-&gt;left);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">balance</span>(node);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <br>
@@ -581,7 +583,7 @@
 <br>
 
 <h2 id="左倾红黑树整体实现"><a href="#左倾红黑树整体实现" class="headerlink" title="左倾红黑树整体实现"></a>左倾红黑树整体实现</h2><p><a target="_blank" rel="noopener" href="https://github.com/DaoLinZhou/CppCommonLibrary/blob/master/redbalcktree/LLRB.h">代码实现</a></p>
-<h2 id="左倾红黑树总结"><a href="#左倾红黑树总结" class="headerlink" title="左倾红黑树总结"></a>左倾红黑树总结</h2><p><img src="/Blog/Blog/intro/red-balck_tree_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="左倾红黑树总结"><a href="#左倾红黑树总结" class="headerlink" title="左倾红黑树总结"></a>左倾红黑树总结</h2><p><img src="/Blog/Blog/intro/red-balck_tree_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>以这种方式表示的红黑树叫做左倾红黑树, 因为3节点是向左倾斜的</p>
 <p>不过这不是唯一的实现方式. 也可以有右倾的方式</p>
 <p>而红黑树的实现不唯一</p>
@@ -610,7 +612,7 @@
 <p>同时因为节点有parent这个属性, 旋转不用返回新的根节点了</p>
 </blockquote>
 <h3 id="如果插入节点的父亲节点是一个左孩子"><a href="#如果插入节点的父亲节点是一个左孩子" class="headerlink" title="如果插入节点的父亲节点是一个左孩子"></a>如果插入节点的父亲节点是一个左孩子</h3><p><strong>情况1: 插入节点的叔叔节点(父亲的兄弟节点)是红色.</strong></p>
-<p><img src="/Blog/Blog/intro/rb_insert.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_insert.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时只要反转一下颜色, 即可继续向上修复</p>
 <p>x是当前节点, 要反转 父亲节点, 叔叔节点, 以及父亲节点的父亲节点 的颜色.</p>
 <blockquote>
@@ -621,9 +623,9 @@
 
 <p><strong>情况2: 叔叔节点不为红色.</strong></p>
 <p>如果x是右孩子, 则把它变为左孩子进行处理</p>
-<p><img src="/Blog/Blog/intro/rb_insert_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_insert_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果是左孩子, 则</p>
-<p><img src="/Blog/Blog/intro/rb_insert_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_insert_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到这么操作之后x的父亲节点就已经是黑色了, 说明修复完成, 直接可以退出循环.</p>
 <br>
 
@@ -645,7 +647,7 @@
 <p><strong>如果有1个孩子</strong></p>
 <p>如果有1个孩子, 那么这个孩子一定为红色, 不然当前子树不满足黑平衡.</p>
 <p>此时只要一次旋转, 把当前节点旋转为叶子节点即可.</p>
-<p><img src="/Blog/Blog/intro/rb_tree_remove.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_remove.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p><strong>如果一个孩子都没有</strong></p>
@@ -666,14 +668,14 @@
 <ol>
 <li>如果 y 是红色:</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_remove_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_remove_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个操作没有修复x的层数. 但是它使得 new y 变成了黑色节点.</p>
 <br>
 
 <ol start="2">
 <li>如果y是黑色, 且左右节点为黑:</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_remove_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_remove_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>node的颜色我们不清楚, 可能为红也可能为黑.</p>
 <br>
 
@@ -687,7 +689,7 @@
 <ol start="3">
 <li>如果y的左节点为红色(右节点的颜色无所谓)</li>
 </ol>
-<p><img src="/Blog/Blog/intro/rb_tree_remove_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_remove_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>fix完毕, 之间退出循环</p>
 <ol start="4">
 <li>如果y的右节点为红色</li>
@@ -703,7 +705,7 @@
 <p>这就是fix的作用.</p>
 </blockquote>
 <p>然而什么时候调用fix?</p>
-<p><img src="/Blog/Blog/intro/rb_tree_remove_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rb_tree_remove_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果delete之后调用fixup. 的确x的黑高度为0, y的黑高度为1. 然而我们此时却不能fixup(x). 因为x为null, 无法通过x找到x的父亲节点.</p>
 <p>此时应该是我们假设已经delete x了(依然保留x来寻找x的父亲节点), fixup(x), 再delete x</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Key, <span class="hljs-keyword">typename</span> Value&gt;<br><span class="hljs-type">bool</span> RedBlackTree&lt;Key, Value&gt;::<span class="hljs-built_in">remove</span>(Key key) &#123;<br>    Node* z = <span class="hljs-built_in">find</span>(root, key);<br>    <span class="hljs-keyword">if</span>(z == <span class="hljs-literal">nullptr</span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    count --;<br><br>    <span class="hljs-comment">// find the real node to remove</span><br>    Node* toRemove;<br>    <span class="hljs-keyword">if</span>(z-&gt;left == <span class="hljs-literal">nullptr</span> || z-&gt;right == <span class="hljs-literal">nullptr</span>)&#123;<br>        toRemove = z;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        toRemove = <span class="hljs-built_in">maximum</span>(z-&gt;left);<br>    &#125;<br><br>    <span class="hljs-keyword">if</span>(toRemove-&gt;left == <span class="hljs-literal">nullptr</span> &amp;&amp; toRemove-&gt;right == <span class="hljs-literal">nullptr</span>) &#123;<br>        <span class="hljs-keyword">if</span>(toRemove == root)&#123;	<span class="hljs-comment">// 左右为空且要删除节点为根节点</span><br>            <span class="hljs-keyword">delete</span> toRemove;<br>            root = <span class="hljs-literal">nullptr</span>;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>        <span class="hljs-comment">// assume it is deleted</span><br>        <span class="hljs-keyword">if</span>(toRemove-&gt;isBlack)&#123;	<span class="hljs-comment">// 如果为红就直接删除, 不用fixup</span><br>            <span class="hljs-built_in">fixup</span>(toRemove);<br>        &#125;<br><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// since toRemove has only one child, that child must be red, color it black</span><br>        <span class="hljs-comment">// rotate toRemove node to the leaf, now toRemove is a red node</span><br>        <span class="hljs-keyword">if</span> (toRemove-&gt;left != <span class="hljs-literal">nullptr</span>) &#123;<br>            <span class="hljs-built_in">rightRotate</span>(toRemove);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-built_in">leftRotate</span>(toRemove);<br>        &#125;<br>        toRemove-&gt;parent-&gt;isBlack = <span class="hljs-literal">true</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// copy value</span><br>    <span class="hljs-keyword">if</span> (toRemove != z) &#123;<br>        z-&gt;key = toRemove-&gt;key;<br>        z-&gt;value = toRemove-&gt;value;<br>    &#125;<br><br>    <span class="hljs-comment">// detach and remove</span><br>    Node* leaf = toRemove-&gt;parent;<br>    <span class="hljs-keyword">if</span>(leaf-&gt;left == toRemove)&#123;<br>        leaf-&gt;left = <span class="hljs-literal">nullptr</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        leaf-&gt;right = <span class="hljs-literal">nullptr</span>;<br>    &#125;<br>    <span class="hljs-keyword">delete</span> toRemove;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">// balance the black height of node and sibling(node)</span><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> Key, <span class="hljs-keyword">typename</span> Value&gt;<br><span class="hljs-type">void</span> RedBlackTree&lt;Key, Value&gt;::<span class="hljs-built_in">fixup</span>(Node* node) &#123;<br>    <span class="hljs-keyword">while</span>(node != root &amp;&amp; !<span class="hljs-built_in">isRed</span>(node))&#123;<br>        <span class="hljs-keyword">if</span>(node-&gt;parent-&gt;left == node)&#123;<br>            Node* y = <span class="hljs-built_in">sibling</span>(node);<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(y))&#123;	<span class="hljs-comment">// y为红, 则把y转黑</span><br>                y-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                y-&gt;parent-&gt;isBlack = <span class="hljs-literal">false</span>;<br>                <span class="hljs-built_in">leftRotate</span>(y-&gt;parent);<br>                y = node-&gt;parent-&gt;right;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">isRed</span>(y-&gt;left) &amp;&amp; !<span class="hljs-built_in">isRed</span>(y-&gt;right))&#123;	<span class="hljs-comment">// y的左右都为黑</span><br>                y-&gt;isBlack = <span class="hljs-literal">false</span>;<br>                node = node-&gt;parent;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(y-&gt;left))&#123;	<span class="hljs-comment">// 如果y的左节点为红色</span><br>                    y-&gt;left-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                    y-&gt;isBlack = <span class="hljs-literal">false</span>;<br>                    <span class="hljs-built_in">rightRotate</span>(y);<br>                    y = y-&gt;parent;<br>                &#125;<br>                <span class="hljs-comment">// y的右节点为红色</span><br>                y-&gt;isBlack = node-&gt;parent-&gt;isBlack;<br>                node-&gt;parent-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                y-&gt;right-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                <span class="hljs-built_in">leftRotate</span>(node-&gt;parent);<br>                node = root;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            Node* y = <span class="hljs-built_in">sibling</span>(node);<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(y))&#123;<br>                y-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                y-&gt;parent-&gt;isBlack = <span class="hljs-literal">false</span>;<br>                <span class="hljs-built_in">rightRotate</span>(y-&gt;parent);<br>                y = node-&gt;parent-&gt;left;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">isRed</span>(y-&gt;left) &amp;&amp; !<span class="hljs-built_in">isRed</span>(y-&gt;right))&#123;<br>                y-&gt;isBlack = <span class="hljs-literal">false</span>;<br>                node = node-&gt;parent;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">isRed</span>(y-&gt;right))&#123;<br>                    y-&gt;right-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                    y-&gt;isBlack = <span class="hljs-literal">false</span>;<br>                    <span class="hljs-built_in">leftRotate</span>(y);<br>                    y = y-&gt;parent;<br>                &#125;<br>                y-&gt;isBlack = node-&gt;parent-&gt;isBlack;<br>                node-&gt;parent-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                y-&gt;left-&gt;isBlack = <span class="hljs-literal">true</span>;<br>                <span class="hljs-built_in">rightRotate</span>(node-&gt;parent);<br>                node = root;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(node)&#123;<br>        node-&gt;isBlack = <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -738,7 +740,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -746,7 +748,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -763,19 +765,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2020/07/17/hash-map/">
+                      <a href="/2020/07/17/hash-map/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">哈希表 hash map</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/06/23/AVL/">
+                      <a href="/2020/06/23/AVL/">
                         <span class="hidden-mobile">平衡二叉树与AVL树</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -818,7 +820,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -827,7 +829,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -867,18 +869,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -931,7 +933,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

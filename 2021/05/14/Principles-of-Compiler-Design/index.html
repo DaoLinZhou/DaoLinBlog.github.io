@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Principles of Compiler Design">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/05/14/Principles-of-Compiler-Design/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2021/05/14/Principles-of-Compiler-Design/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="笔记">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt379/compiler.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/cmpt379/compiler.PNG">
 <meta property="article:published_time" content="2021-05-15T05:28:53.000Z">
 <meta property="article:modified_time" content="2021-08-05T03:39:30.368Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt379/compiler.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/cmpt379/compiler.PNG">
   
   
   <title>Principles of Compiler Design - Daolin&#39;s Repository</title>
@@ -62,25 +62,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -99,9 +101,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -111,9 +113,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -123,9 +125,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -135,9 +137,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -147,9 +149,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -173,7 +175,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -250,8 +252,8 @@
 <br>
 
 <p>一个典型的编译器体系结构</p>
-<p><img src="/Blog/Blog/intro/cmpt379/compiler.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/compiler.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/compiler_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Token are the minimum units of meaning in the program</p>
 <br>
@@ -261,9 +263,9 @@
 <p>通常创建的是Abstract Syntax Tree, 然而由于为Abstract Syntax Tree 添加规则比较难, 有的编译器会创建 Parse Tree</p>
 <p>之后解析语义</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt379/compiler_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/compiler_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/compiler_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/compiler_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/compiler_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/compiler_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Symbol Table 处理 program 中所有的 name</p>
 <br>
 
@@ -318,7 +320,7 @@
 <br>
 
 <h3 id="Language-Formation"><a href="#Language-Formation" class="headerlink" title="Language Formation"></a>Language Formation</h3><p>只要给我们一种或两种language，我们就可以从它们形成其他language。</p>
-<p><img src="/Blog/Blog/intro/cmpt379/language.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/language.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h4 id="Union"><a href="#Union" class="headerlink" title="Union"></a>Union</h4><p>如果 $L_1, L_2$ 是 language 我们让 $L_1 \cup L_2$ 作为 set theory 中 union of $L_1, L_2$ (和集合论中的union一样)</p>
@@ -333,8 +335,8 @@
 <ul>
 <li>$L_1L_2\ne L_2L_1$</li>
 </ul>
-<h4 id="Exponentiation"><a href="#Exponentiation" class="headerlink" title="Exponentiation"></a>Exponentiation</h4><p><img src="/Blog/Blog/intro/cmpt379/language_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h4 id="Kleene-Closure"><a href="#Kleene-Closure" class="headerlink" title="Kleene Closure"></a>Kleene Closure</h4><p><img src="/Blog/Blog/intro/cmpt379/language_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="Exponentiation"><a href="#Exponentiation" class="headerlink" title="Exponentiation"></a>Exponentiation</h4><p><img src="/Blog/Blog/intro/cmpt379/language_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Kleene-Closure"><a href="#Kleene-Closure" class="headerlink" title="Kleene Closure"></a>Kleene Closure</h4><p><img src="/Blog/Blog/intro/cmpt379/language_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Regular-language-正则语言"><a href="#Regular-language-正则语言" class="headerlink" title="Regular language (正则语言)"></a>Regular language (正则语言)</h3><p>任何可以通过上述操作(Union concatenation, Kleene closure)得到的 language 叫做 regular language</p>
@@ -349,7 +351,7 @@
 <li>$a^ * &#x3D; L_a^ * $</li>
 </ul>
 <p>$a+bc^ * &#x3D; a+(b(c^ * ))$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/language_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/language_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>regular expression 通常使用 patterns 来匹配 例如</p>
 <ul>
 <li><code>abab</code> matches <code>a(b+c)ab</code></li>
@@ -365,7 +367,7 @@
 <li><code>[a..z] = (a+b+c+..z)</code>, 类似还有 <code>[a..z], [a..zA..Z], [0..9A..F]</code></li>
 <li><code>~ 和 ^</code> 表示 “all the characters of $\sum$ are not in”, 例如 <code>[^a..z]</code> 代表匹配<code>[a..z]</code> 以外的字符</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt379/language_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/language_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -387,7 +389,7 @@
 <br>
 
 <p>举个例子: 我们有这样的grammar</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>nonterminal 是左手边的 $E,T,F$</p>
 <p>terminals 是 <code>&#123;+, *, (, ), c,i&#125;</code></p>
 <p>start symbol 是 $E$, 左手边第一个元素</p>
@@ -396,9 +398,9 @@
 <br>
 
 <p>也可以写成这样</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>也可以写成这样</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>where the vertical bar is read as “or” (as in regular expressions).</p>
 <br>
 
@@ -406,43 +408,43 @@
 
 <h2 id="Derivations-and-Parse-Trees"><a href="#Derivations-and-Parse-Trees" class="headerlink" title="Derivations and Parse Trees"></a>Derivations and Parse Trees</h2><p>production $A \to \alpha$ is called <strong>a production for A</strong></p>
 <p><strong>derivation</strong> 在 grammar 中 starts with $\alpha_0$ being the start symbol, and in each step $k$, it derives $\alpha_k$ from $\alpha_{k-1}$ by finding a nonterminal in $\alpha_{k-1}$ and replacing it with RHS of a production for that noterminal. The derivation halts if at some step k there are no nonterminals remaining in $\alpha_{k-1}$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>The last string in a terminating derivation is called a <strong>sentence</strong> or a <strong>word</strong> in the language of the grammar</p>
 <p>在上面例子中, $i+c\cdot i+c\cdot c$ is a word in the language of our grammar. it is a valid arthmetic expression</p>
 <br>
 
 <p>The <strong>language of a grammar</strong> is all possible sentences that you can derive from the grammar. In most grammars we will be interested in, there are an infinite number of different derivations and therefore the language of the grammar has an infinite number of members.</p>
 <p>A <strong>parse tree</strong> of a derivation is the tree one gets by placing the RHS of the production used as a step in the derivation below the LHS and as children of it. The parse tree corresponding to the previous derivation is:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Different derivations can lead to the same parse tree, but different parse trees must lead to different derivations.</p>
 <br>
 
 <h2 id="Parsing"><a href="#Parsing" class="headerlink" title="Parsing"></a>Parsing</h2><p>parser 的工作就是把 input stream(of tokens) 转换为 Parse tree</p>
 <p>Language 需要被设计成可以快速实现这个任务</p>
 <p>例如: 在许多啊language中, 每种 statement 都有各自的起始keyword</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这允许parser 通过 检查当前 token 来决定 which alternative to use </p>
 <p>Parsing becomes more difficult if two alternatives for a nonterminal start with the same token.</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>在上面的例子中, 有2 different alternatives for $E$ that starts with same symbol</p>
 <p>(we also have 2 alternatives for $F$ that has same symbol)</p>
 <p>我们可以用一种叫 <strong>left-factoring</strong>的方法解决这个问题</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>此时这个grammar 就是 <strong>predictive</strong>, 当我们parse 一个sentence, 我们总是可以知道 which production to take</p>
 <br>
 
 <p>另一个例子: terminals 是加粗字</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个不是 left-factored</p>
 <p>因为当我们解析到do时, 我们不知道这是一个doStatement 还是一个doStatementVariant</p>
 <p>因此我们可以对它进行left factor</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h2 id="Predictive-Parsing-Example"><a href="#Predictive-Parsing-Example" class="headerlink" title="Predictive Parsing Example"></a>Predictive Parsing Example</h2><p><img src="/Blog/Blog/intro/cmpt379/grammar_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Predictive-Parsing-Example"><a href="#Predictive-Parsing-Example" class="headerlink" title="Predictive Parsing Example"></a>Predictive Parsing Example</h2><p><img src="/Blog/Blog/intro/cmpt379/grammar_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>假设我们有sentence $3+4*p$</p>
 <p>parser starts with start symbol $E$</p>
 <p>current Token 是 3, 是 instance of <strong>c</strong>, 只有一种 production 符合</p>
@@ -486,7 +488,7 @@
 <p>$E\to T * * E$ </p>
 <p>$T\to E+E$</p>
 <p>因为:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -499,41 +501,41 @@
 <p>$A\to \beta A’$</p>
 <p>$A’\to \alpha A’$</p>
 <p>$A’\to \epsilon$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>first iteration eliminates direct left-recursion from $A_1$</p>
 <p>second iteration first replace any $A_2 \to A_1$,  $\gamma$ productions and then eliminates direct left-recursion from $A_2$</p>
 <p>此时 $A_1, A_2$就没有direct left recursion, and $A_2$ has no production starting with $A_1$</p>
 <p>Thrid iteration of the i loop replace $A_3\to A_1 \gamma$ productions(could introduct $A_3\to A_2 \gamma$ productions) then replaces $A_3\to A_2$ (can’t introduce any $A_3\to A_1\gamma$) and then eliminate left recursion from $A_3$ Now $A_3$ has no direct left recursion and no production starting with $A_1$ or $A_2$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_18.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>最重要的就是这个式子</p>
-<p><img src="/Blog/Blog/intro/cmpt379/grammar_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/grammar_19.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
 <br>
 
-<h2 id="Deterministic-Finite-Automaton-DFA"><a href="#Deterministic-Finite-Automaton-DFA" class="headerlink" title="Deterministic Finite Automaton (DFA)"></a>Deterministic Finite Automaton (DFA)</h2><p><img src="/Blog/Blog/intro/cmpt379/dfa.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Deterministic-Finite-Automaton-DFA"><a href="#Deterministic-Finite-Automaton-DFA" class="headerlink" title="Deterministic Finite Automaton (DFA)"></a>Deterministic Finite Automaton (DFA)</h2><p><img src="/Blog/Blog/intro/cmpt379/dfa.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>DFAs are specified by a transition diagrams</p>
 <p>每个transition 由 $\delta(q, a)&#x3D;q’$ 表示</p>
 <p>例如下图中 $\delta(q_1, b)&#x3D;q_2$</p>
 <p>final state 是 double circle</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="dead-state"><a href="#dead-state" class="headerlink" title="dead state"></a>dead state</h3><p>当 $\delta(q_d, a)&#x3D;q_d$ for all elements $a$ of the alphabet, $q_d$就是一个dead state</p>
 <p>通常dead state 不会画在transition  diagram中, 因此上面的例子也可以画成这样</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Accept-a-String"><a href="#Accept-a-String" class="headerlink" title="Accept a String"></a>Accept a String</h3><p>可以给 DFA 一个 String 作为 input, 然后 accept 或 reject it.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>machine 从 $q_0$ 开始</p>
 <p>在 step k, machine 读取第 k 个 input char c, 并且进行transition $\delta(q,c)$</p>
 <p>当没有输入时, machine停止</p>
@@ -544,21 +546,21 @@
 <br>
 
 <p>如果用正则表达这个DFA, 可以写成 <code>ab+</code></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>如果用正则表达这个DFA, 可以写成 <code>(+|-)?[0..9]+(.[0..9]+)?</code></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<h2 id="Nondeterministic-Finite-Automaton-NFA"><a href="#Nondeterministic-Finite-Automaton-NFA" class="headerlink" title="Nondeterministic Finite Automaton(NFA)"></a>Nondeterministic Finite Automaton(NFA)</h2><p><img src="/Blog/Blog/intro/cmpt379/dfa_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Nondeterministic-Finite-Automaton-NFA"><a href="#Nondeterministic-Finite-Automaton-NFA" class="headerlink" title="Nondeterministic Finite Automaton(NFA)"></a>Nondeterministic Finite Automaton(NFA)</h2><p><img src="/Blog/Blog/intro/cmpt379/dfa_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>NFA 和 DFA 类似, 但是</p>
 <ul>
 <li>同一个input 字符可以有多个output arrow</li>
 <li>$\epsilon$ 也看作是输入, 且可以在任何时候进行</li>
 <li>machine accepts if there exists a path labelled with the input(and epsilons)</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Converting-an-NFA-to-a-DFA-Subset-Construction"><a href="#Converting-an-NFA-to-a-DFA-Subset-Construction" class="headerlink" title="Converting an NFA to a DFA (Subset Construction)"></a>Converting an NFA to a DFA (Subset Construction)</h3><p>我们可以把一个 NFA 转为 DFA</p>
@@ -569,27 +571,27 @@
 <li>The final states $F_D$ are those subsets of N that contain at least one final state of $F_N$</li>
 <li>The transition function is the tricky part</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>我们可以construct a state for every subset of N, 并计算transition for every character from every state, 但这是 $O(|N|2^{|N|}|\sum|)$ information, 太过巨大</p>
 <p>在实践中, 较少的subsets correspond to states that the DFA can reach from the start state, 所以 我们可以take the approach of starting with the DFA start state and only <strong>expanding</strong> states corresponding to subsets that we reach.</p>
 <p>Expanding is computing the transition function for that state on each input symbol.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>Example:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Constructing-an-NFA-from-a-regular-expression"><a href="#Constructing-an-NFA-from-a-regular-expression" class="headerlink" title="Constructing an NFA from a regular expression"></a>Constructing an NFA from a regular expression</h3><p>Thompson’s Construction</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_17.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>此时我们就会把正则转为 NFA, 也会把 NFA 转为 DFA</p>
@@ -607,8 +609,8 @@
 <br>
 
 <h3 id="Kleene’s-Construction"><a href="#Kleene’s-Construction" class="headerlink" title="Kleene’s Construction"></a>Kleene’s Construction</h3><p>证明: 所有 NFA 都可以表示为正则表达式</p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/dfa_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/dfa_19.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Multiple final states are handled by “or”ing together the regular expressions for the individual final states.</p>
 <br>
 
@@ -618,26 +620,26 @@
 <br>
 
 <h3 id="Token-Types"><a href="#Token-Types" class="headerlink" title="Token Types"></a>Token Types</h3><p>一种方法是使用compiler language</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>另一种方法是使用 int 或者 enum</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>install 会 把 lexeme install 到 symbol table</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>x轴是character, y轴是state</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>然而让每个character都有一个state, 那么table就会太大了, 例如: 对于我们来说, 读取一个0, 或读取一个9都是读取一个数字. 所以我们可以设计一个Character Categories.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这样可以大幅度缩小table的大小</p>
 <br>
 
 <h3 id="Direct-Coded-Scanner"><a href="#Direct-Coded-Scanner" class="headerlink" title="Direct-Coded Scanner"></a>Direct-Coded Scanner</h3><p>另一种自动扫描的方法是 <strong>direct-coded scanner</strong></p>
 <p>Direct-coded scanners can do away with the table lookup costs by having separate sections of code for each state and if statements to control transitions (jumps between these separate sections of code)</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Hand-Code-Scanner"><a href="#Hand-Code-Scanner" class="headerlink" title="Hand-Code Scanner"></a>Hand-Code Scanner</h3><blockquote>
@@ -659,13 +661,13 @@
 <p>minimizing a DFA 意味着我们找到等价DFA that has a minimum number of states</p>
 <p>有两个主流算法: Hopcroft 和 Brzozowski</p>
 <p>我们主要讨论Hopcroft </p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>为了minimizeDFA, partitions 应该尽可能大</p>
 <p>To construct such partitions, the algorithm starts with a rough partition that does not have behavioural equivalence.  This initial partition has two sets, the final states and the nonfinal states.</p>
 <p>It then iteratively refines the partition until behavioural equivalence is satisfied</p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/token_types_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/token_types_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A1%AE%E5%AE%9A%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E8%87%AA%E5%8A%A8%E6%9C%BA%E6%9C%80%E5%B0%8F%E5%8C%96">确定有限状态自动机最小化</a></p>
 <br>
 
@@ -673,69 +675,69 @@
 
 <h2 id="Top-Down-Parsing"><a href="#Top-Down-Parsing" class="headerlink" title="Top-Down Parsing"></a>Top-Down Parsing</h2><h3 id="Analyzing-a-Grammar"><a href="#Analyzing-a-Grammar" class="headerlink" title="Analyzing a Grammar"></a>Analyzing a Grammar</h3><p>假设我们有Gramma $G$ with productions $P$, 我们希望知道是否有一种方法能自动parse $G$</p>
 <p>假设我们使用gramma:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>对于任何gramma symbol $B$(terminal, nonterminal, $\epsilon$, or <code>&lt;eof&gt;</code>) 我们可以定义 $\text{FIRST(B)}$ 作为 set of terminals, that can appear as the first word in a string derived from $B$</p>
 <p>如果 B是 terminal, $\epsilon$, or <code>&lt;eof&gt;</code>, 那么 $\text{FIRST(B)&#x3D;B}$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到: E 必须以T开头, T必须以F开头, F必须以$i,c,($ 开头, 所以 $\text{FIRST(E)}&#x3D;i, c, ($</p>
 <p>其他同理</p>
 <br>
 
 <p>对于任意grammar symbol string $S&#x3D;B_1B_2B_3…B_k$ 我们定义 $\text{FIRST(s)}$ 作为set of terminals that can appear as the first word in a string derived from $s$. 它是 FIRST sets $B_1B_2..B_n$ 的union, where $B_n$ 是first symbol whose FIRST set does not contain $\epsilon$</p>
 <p>$\epsilon$ in $FIRST(s)$ iff it is in $FIRST(B_i)$ for all $i&#x3D;1$ to $k$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>对于任何nonterminal $N$, 我们可以定义 $\text{FOLLOW(N)}$ 作为set of terminals that can appear to the immediate right of a string derived from $N$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p><strong>predictive grammar</strong> 中, 如果有两个 productions $A\to \beta_1, A\to \beta_2$, 那么 $\text{FIRST}^+(A\to \beta_1),\text{FIRST}^+(A\to \beta_2)$ 应该是disjoint</p>
 <p>这种情况 $FIRST^+$ sets completely encode the decisions needed for parsing. 我们能express them in a table called a <strong>LL(1) parsing table</strong> (1)代表看1 token ahead</p>
 <p>First we must number our (BNF) productions</p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/a_gramma_12.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<h2 id="Bottom-Up-Parsing"><a href="#Bottom-Up-Parsing" class="headerlink" title="Bottom-Up Parsing"></a>Bottom-Up Parsing</h2><p><img src="/Blog/Blog/intro/cmpt379/a_gramma_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Bottom-Up-Parsing"><a href="#Bottom-Up-Parsing" class="headerlink" title="Bottom-Up Parsing"></a>Bottom-Up Parsing</h2><p><img src="/Blog/Blog/intro/cmpt379/a_gramma_12.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="Shifting-in-Bottom-Up"><a href="#Shifting-in-Bottom-Up" class="headerlink" title="Shifting in Bottom-Up"></a>Shifting in Bottom-Up</h3><p><img src="/Blog/Blog/intro/cmpt379/shift_bu.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Shifting-in-Bottom-Up"><a href="#Shifting-in-Bottom-Up" class="headerlink" title="Shifting in Bottom-Up"></a>Shifting in Bottom-Up</h3><p><img src="/Blog/Blog/intro/cmpt379/shift_bu.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>向右横向扩展, 将input放入stack中就是shift</p>
 <br>
 
 <h3 id="Reducing-in-Bottom-Up"><a href="#Reducing-in-Bottom-Up" class="headerlink" title="Reducing in Bottom-Up"></a>Reducing in Bottom-Up</h3><p>此时我们可以把stack中上三个作为child node, 将它们组合成一个parent node, 再放入stack 中</p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
 <p>Bottom-Up parsing starts  with the input and works towards a parse tree that is rooted at the start symbol. The derivation:<br>$$<br>S\to \gamma_1 \to \gamma_2 \to \cdots\to \gamma_n<br>$$<br>does the opposite. It starts at the start symbol and derives the input. 因此 bottom-up parsing discovers the derivation <strong>backward</strong></p>
 <p>A <strong>handle</strong> is a pair of a production and a stack location, 例如 $&lt;A\to \beta, k&gt;$. 如果 bottom-up parsing finds a handle, then it will <strong>reduce</strong> by removing $\beta$ from the stack at $k$ and replacing it with $A$. Finding handles efficiently is the key to bottom-up parsing</p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="Parentheses-Grammar"><a href="#Parentheses-Grammar" class="headerlink" title="Parentheses Grammar"></a>Parentheses Grammar</h3><p><img src="/Blog/Blog/intro/cmpt379/shift_bu_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h3 id="Parsing-Conflicts"><a href="#Parsing-Conflicts" class="headerlink" title="Parsing Conflicts"></a>Parsing Conflicts</h3><p><img src="/Blog/Blog/intro/cmpt379/shift_bu_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Parentheses-Grammar"><a href="#Parentheses-Grammar" class="headerlink" title="Parentheses Grammar"></a>Parentheses Grammar</h3><p><img src="/Blog/Blog/intro/cmpt379/shift_bu_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Parsing-Conflicts"><a href="#Parsing-Conflicts" class="headerlink" title="Parsing Conflicts"></a>Parsing Conflicts</h3><p><img src="/Blog/Blog/intro/cmpt379/shift_bu_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/shift_bu_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44225182/article/details/105554383">https://blog.csdn.net/weixin_44225182/article/details/105554383</a></p>
 </blockquote>
@@ -743,22 +745,22 @@
 
 <h2 id="Attibuted-Grammars"><a href="#Attibuted-Grammars" class="headerlink" title="Attibuted Grammars"></a>Attibuted Grammars</h2><p>attributed grammar (or <strong>attribute grammar</strong>) 遵循一些 <strong>rules</strong> for each production</p>
 <p>每个 rule 都 defines an attribute of a grammar symbol in the production, often in terms of other attributes of grammar symbols in the production.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>If a rule gives a grammar symbol an attribute, then each instance of that grammar symbol in the parse tree gets its own instance of that attribute.  In the above grammar, all E’s would get anattribute  <strong>type</strong> and an attribute <strong>isConstant</strong>.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>v: variable</p>
 <p>ic: integer constant</p>
 <p>fc: floating constant</p>
 </blockquote>
 <p>$ic+(v+fc)$ 可以表达为</p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>An attributed grammar is called <strong>L-attributed</strong> if every attribute at a node is computable if one knows the value of all the attributes of the node’s children and all the attributes of the node’s <strong>left</strong> siblings.  The class of L-attributed grammars contains the class of S-attributed grammars.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>With an L-attributed grammar, one can evaluate the attributes in a straightforward left-to-right depth first search.</p>
 <p>If a grammar is not L-attributed, then the compiler must determine the evaluation ordering in another way; at worst it needs to do a topological sort on the attribute digraph</p>
 <br>
@@ -773,17 +775,17 @@
 <p><strong>Dynamic Methods</strong>: Use the structure of a particular attributed parse tree to determine the evaluation order.  One can, for instance, keep a worklist of attributes (or more properly, attributes at a particular parse tree node) to be evaluated, placing a particular attribute into the worklist as soon as all of its predecessors are evaluated.   This entails checking all successors of a just-evaluated attribute to see if they are ready to enter the worklist.  A related scheme is to build the entire attribute dependence graph and topologically sort it, using the topological order to evaluate attributes.</p>
 <p><strong>Oblivious Methods</strong>:   Here the order of evaluation is independent of the attribute grammar and the parse tree. Examples include repeated left-to-right passes, repeated right-to-left passes, and alternating passes.  In each pass, the evaluator evaluates any attributes that are ready.  These are typically simple and easy to implement, but are not the most efficient.</p>
 <p><strong>Rule-based Methods</strong>:These do a static analysis of the attribute grammar to construct rules about an evaluation order, then use the parse tree to guide application of the rules.  An example rule might be “visit the second child of a declaration node to compute its type before visiting the first child to set its type.”  The rule tells you an order for computing attributes, and the parse tree having a declaration node guides you to use that rule at that place</p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/rule_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/rule_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<h2 id="Intermediate-Representations"><a href="#Intermediate-Representations" class="headerlink" title="Intermediate Representations"></a>Intermediate Representations</h2><p><img src="/Blog/Blog/intro/cmpt379/ir.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Intermediate-Representations"><a href="#Intermediate-Representations" class="headerlink" title="Intermediate Representations"></a>Intermediate Representations</h2><p><img src="/Blog/Blog/intro/cmpt379/ir.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Compilers use  the intermediate  representation  (IR) as the reference  form of the input program for the later phases.  (The original source  is never consulted.)   </p>
 <p>The properties  of the IR have a direct effect on what the compiler  can do with the code.</p>
 <p>compilation 大部分阶段都使用IR, 有些还使用不止一次</p>
@@ -803,16 +805,16 @@
 <p><strong>low-level IR</strong> represents  operations  concretely, generally close to the machine  level</p>
 <p>例如, 如果我们有一个array $B[][]$ 4 byte elements and subelements, 并且both subscripts running from 1 to 10, 我们想表示 $B[i][j]$</p>
 <p>high-level IR</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>low-level IR</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>这里是简化版的code, 没有 array 的 header 以及 bound check</p>
 </blockquote>
 <p>high-level linear representation:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>low-level tree IR</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>有些任务适合在high-level IR中完成, 有些适合在low-level IR中完成.</p>
@@ -826,20 +828,20 @@
 <br>
 
 <h3 id="角度3"><a href="#角度3" class="headerlink" title="角度3"></a>角度3</h3><p>另一个看待不同IR的角度: naming of values, 有些 IR 会 reuse names, 有些不会</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>右边的code使用更少的临时变量, 但是如果右边的code要再次访问 $2\times b$ 那么他就要重新计算一次</p>
 <br>
 
 <h3 id="Graphical-IRs"><a href="#Graphical-IRs" class="headerlink" title="Graphical IRs"></a>Graphical IRs</h3><p>ASTs: 可以是high-level, 也可以是low-level. revealing addressing  and other calculations</p>
 <p>Expression DAGs. 例如expression $2a+2ab$ 可以是</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p><strong>Control-flow graphs</strong>, graphical representation of possible paths of control flow at run time.  A graph of which statements  can follow each statement</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Call graphs</strong>, A graph of which subroutines call which other subroutines</p>
 <p><strong>Dependence graphs</strong>, A graph of which statements depend on values created by each statement</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Linear-IRs"><a href="#Linear-IRs" class="headerlink" title="Linear IRs"></a>Linear IRs</h3><p>compiler 中 resemble  the assembly code  for an abstract machine 就是用 Linear IRs</p>
@@ -862,12 +864,12 @@
 
 <h3 id="Basic-Blocks"><a href="#Basic-Blocks" class="headerlink" title="Basic Blocks"></a>Basic Blocks</h3><p>Basic Block 是一个 maximal set of consecutive linear(say, 3AC) instructions that must be executed together.</p>
 <p>A basic block starts with a <strong>leader</strong> that is either the first instruction in a subroutine, a labelled instruction(which can be the target of a jump or branch), or the statement after a branch. A basic block ends at the first branch, jump, or subroutine call, return or other leader after its leader</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>CFG 是一种常见的 <strong>hybrid IR</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Optimizations"><a href="#Optimizations" class="headerlink" title="Optimizations"></a>Optimizations</h3><p>Optimizations done on a single basic block is called <strong>local</strong> optimizations</p>
@@ -883,16 +885,16 @@
 <li>create node for operation on arguments if a node with the same operation and arguments does not already exist.  Connect this new node to its arguments</li>
 <li>If a new node was created in (2), then call it by the result name. If not, add the result name to the existing node.If another node with the same name exists, deprecate that node so that the new one is henceforth used</li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_17.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Static-Single-Assignment-form"><a href="#Static-Single-Assignment-form" class="headerlink" title="Static Single-Assignment form"></a>Static Single-Assignment form</h3><p>Static Single-Assignment (SSA) is a naming and encoding discipline that encodes information about the flow of control and flow of data</p>
 <p>In SSA, a name is only assigned to at one point in the code; each name is defined by one operation</p>
 <p>Each use of a vaiable therefore, through the name, encodes some information about where the variable was defined. To reconcile this discipline with the effects of control flow, SSA form contains special operations, called $\phi$ functions, at points where control-flow paths meet.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_18.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>$x_1 &#x3D; \phi (x_0, x_2)$ 代表: 把$x_0, x_2$ 中, 后赋值的一个的值赋值给$x_1$, 例如最开始是$x_0$ 被赋值, 所以第一次执行时 $x_1&#x3D;x_0$, 然而第二次执行时, 是$x_2$ 后被赋值, 所以$x_1&#x3D;x_2$  </p>
 <p>A φ-function selects  whichever  of its arguments  was last assigned to.  In the code  above,  the first φ-function selects  $x0$ the first time it is executed,  and it selects $x2$ each time after that</p>
 <p>The convention  is that all φ-functions  at the beginning of a basic block execute concurrently. First they evaluate their arguments,  then they define their result names.   This convention  allows compilers  to ignore the ordering of φ-functions, which is helpful in converting  SSA back to executable  code.</p>
@@ -904,7 +906,7 @@
 <li>insert $\phi$ functions. At the start of each basic block with multiple predecessors, insert a $\phi$ function such as $y&#x3D;\phi(y, y)$ for each name y that the code either defines or uses in the current procedure. This rule inserts a $\phi$ function in every case where one is needed, but aslo inserts many extraneous $\phi$ functions</li>
 <li>rename: 当function 插入完毕, each definition of a variable can be given its own subscript. $\phi$ functions are definitions. Then at each line of code, we determine which definition of each of its arguments reaches that line, and rename the arguments</li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt379/ir_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/ir_19.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -930,10 +932,10 @@
 <h3 id="Lexical-Static-Scoping"><a href="#Lexical-Static-Scoping" class="headerlink" title="Lexical (Static) Scoping"></a>Lexical (Static) Scoping</h3><p>Lexical scoping 是最常见的 scoping discipline(规定), 也叫做 static scoping 因为我们可以在 compile time 就确定what name that variable refers to.</p>
 <p>General Idea 是 given scope, each name refers to its <strong>lexically closest</strong> declaration</p>
 <p>如果 $s$ 在当前scope 被使用, it refers to the $s$ declared in the current scope, if one exists. If not, it refers to the declaration of s that occurs in the closest enclosing scope.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/scope.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>scope 3 寻找 type 这个变量, 没找到, 所以向上去scope 2 找, 再去scope 1 找</p>
-<p><img src="/Blog/Blog/intro/cmpt379/scope_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/scope_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>为什么使用 symbol table</p>
@@ -965,10 +967,10 @@
 <li>Operator nodes overwhelmingly occur near the node that causes a symbol-table loopup, so they must be navigated in either scheme</li>
 <li>Non-operator nodes tend to have their parent symbol table in their parent or grandparent node, so the link seems redundant</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt379/scope_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/scope_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/scope_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/scope_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/scope_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h2><p>procedures 是现代编程语言的核心抽象( central abstraction )</p>
@@ -1007,7 +1009,7 @@
 <p>Linkage conventions allow the development and use of libraries</p>
 <p>Without them, programmers and compilers would both need more detailed knowledge about the callee of each procedure call.</p>
 <p>(当调用一个函数时, 我们只需要知道文件头即可)</p>
-<h3 id="Procedure-Calls"><a href="#Procedure-Calls" class="headerlink" title="Procedure Calls"></a>Procedure Calls</h3><p><img src="/Blog/Blog/intro/cmpt379/procedure.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Procedure-Calls"><a href="#Procedure-Calls" class="headerlink" title="Procedure Calls"></a>Procedure Calls</h3><p><img src="/Blog/Blog/intro/cmpt379/procedure.PNG" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>In procedural languages, a procedure call transfers control from the call site in the caller to the start of the callee</li>
 <li>当从callee退出时, control returns to the point that immediately follows the call site.</li>
@@ -1025,10 +1027,10 @@
 <p>For procedures and their simple subscopes, this location is provided by an <strong>activation record</strong> or <strong>frame</strong>.</p>
 <p>每个正在执行的 instance of a procedure 可以获得一个 activation record, 所以递归的 procedures 可能有 several activation records at any one time.</p>
 <p>Also included in an activation record are the <strong>procedure’s parameters</strong> and <strong>bookkeeping information</strong> associated with the procedure call.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>fp 上面的内容是caller 知道的, fp下面的内容是callee知道的</p>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Object-oriented-Languages"><a href="#Object-oriented-Languages" class="headerlink" title="Object-oriented Languages"></a>Object-oriented Languages</h2><p>A scope in a Object-oriented language (OOL) can inherit names from multiple hierarchies</p>
@@ -1037,7 +1039,7 @@
 <li>They also inherit from their <strong>class’s scope</strong>, and its <strong>superclass’s scope</strong>, its <strong>superclass’s superclass’s scope</strong>, etc</li>
 <li>In languages with <strong>multiple inheritance</strong>, like C++, they can inherit from multiple superclass hierarchies</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>compiler 必须 keep <strong>symbol tables</strong> for any class-level scopes that may be used in the code being compiled</p>
 <p>This includes symbol tables for qualified references –any code that uses for instance</p>
 <p><code>r = color.getRed();</code></p>
@@ -1058,7 +1060,7 @@
 
 <p>简单来说就是把mamber function 当作普通的function, 只不过在传参的时候, 第一个参数会默认传this&#x2F;self</p>
 <p>Generically, this object is know as the <strong>receiver</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>调用时传入的叫 actuals parameter</p>
 <p>function内部接收的叫 formal parameter</p>
 <br>
@@ -1072,8 +1074,8 @@
 <p>如果callee 更改parameter, caller会看到</p>
 <p>如果actual parameter是expression, caller会evaluates the expression, 存储结果 in its own frame, and passes a pointer to that result</p>
 <p>Inside the callee, each reference to a call-by-reference formal parameter needs an extra level of indirection.  Any redefinition of a reference formal is reflected in the actual.  Also, any reference formal might end up bound to a variable that is accessible by another name inside the callee.  When this happens, the names are called aliases.  Aliasing can create counterintuitive behaviour</p>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/procedure_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/procedure_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -1081,7 +1083,7 @@
 <h2 id="Run-Time-Environments"><a href="#Run-Time-Environments" class="headerlink" title="Run-Time Environments"></a>Run-Time Environments</h2><h3 id="Language-Feature-Support"><a href="#Language-Feature-Support" class="headerlink" title="Language Feature Support"></a>Language Feature Support</h3><p>大部分 language 有一些 features , which require some sort of support at run-time</p>
 <p>这种 support 一般是对 language 以及 compiler implementation, 但一般不是对 compiled 过的 program</p>
 <p>一些Example features: <strong>objects</strong>, <strong>interoperability</strong> with other languages, <strong>closures</strong>, dynamic <strong>name spaces</strong>, <strong>co-routines</strong> and other parallelism, an interface with the operating system, and <strong>memory management</strong></p>
-<h3 id="Support-for-Objects"><a href="#Support-for-Objects" class="headerlink" title="Support for Objects"></a>Support for Objects</h3><p><img src="/Blog/Blog/intro/cmpt379/support_obj.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Support-for-Objects"><a href="#Support-for-Objects" class="headerlink" title="Support for Objects"></a>Support for Objects</h3><p><img src="/Blog/Blog/intro/cmpt379/support_obj.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>我们有两个class: Point, Color Point</p>
 <p>每个structure有: class, methods, super class, instance methods</p>
 <p>method 和 instance methods are vectors of methods</p>
@@ -1101,18 +1103,18 @@
 <p>如果定义virtual, 一个instance of Point 可以是 Point 或 Color Point, 当调用 move 时, 会 follow the object that you looking at. 此时会走到 ColorPoint 的instance methods table(如果object时 ColorPoint的实例的话)</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt379/support_obj.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/support_obj.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>有些语言(例如: java) 可以在初始化时定制(customize) 类, 例如往instance中添加一些新的method. 举个例子 在我初始化ColorPoint时, 我同时添加一个<code>doSomething()</code> 方法, 这个method在原本的定义中是没有的</p>
 <p>一种方法是为这个instance新建一个 instance method table, 把这个方法添加上去</p>
 <p>还有一种方法是创建一个临时class(class table), 相当于匿名类</p>
 <br>
 
-<h3 id="Static-Members-for-Objects"><a href="#Static-Members-for-Objects" class="headerlink" title="Static Members for Objects"></a>Static Members for Objects</h3><p><img src="/Blog/Blog/intro/cmpt379/support_obj_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Static-Members-for-Objects"><a href="#Static-Members-for-Objects" class="headerlink" title="Static Members for Objects"></a>Static Members for Objects</h3><p><img src="/Blog/Blog/intro/cmpt379/support_obj_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Static members (fields and methods) can be added to the class object.  This includes constructors</p>
 <br>
 
 <h3 id="Class-level-methods"><a href="#Class-level-methods" class="headerlink" title="Class-level methods"></a>Class-level methods</h3><p>Some languages have methods that apply to any class. java 中的反射(Reflection) 就是一个例子( java 中 hashCode, toString, clone…)</p>
-<p><img src="/Blog/Blog/intro/cmpt379/support_obj_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/support_obj_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Interoperability"><a href="#Interoperability" class="headerlink" title="Interoperability"></a>Interoperability</h3><p>Many languages allow for <strong>interoperability</strong> between that language and other languages</p>
@@ -1150,9 +1152,9 @@
 <p>Many languages support <strong>explicit memory allocation</strong></p>
 <p>Many languages have <strong>implicit memory allocation</strong> that happens when an object is created.</p>
 <p>Those that do must maintain a <strong>list</strong> of <strong>free blocks</strong> - blocks of memory that the program isn’t currently using</p>
-<h3 id="Allocation-x2F-Deallocation"><a href="#Allocation-x2F-Deallocation" class="headerlink" title="Allocation&#x2F;Deallocation"></a>Allocation&#x2F;Deallocation</h3><p><img src="/Blog/Blog/intro/cmpt379/support_obj_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/support_obj_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/support_obj_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Allocation-x2F-Deallocation"><a href="#Allocation-x2F-Deallocation" class="headerlink" title="Allocation&#x2F;Deallocation"></a>Allocation&#x2F;Deallocation</h3><p><img src="/Blog/Blog/intro/cmpt379/support_obj_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/support_obj_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/support_obj_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>什么使用Deallocated 一个bolck?</p>
@@ -1224,14 +1226,14 @@
 <br>
 
 <h3 id="Local-Optimization"><a href="#Local-Optimization" class="headerlink" title="Local Optimization"></a>Local Optimization</h3><p>这是一个 compiler 可以使用的最简单的 transformations, The simple execution model of a basic block leads to reasonably precise analysis support of optimization</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>basic block 中的一个 expression 是 redundant(多余的) iff it has been previously computed in $B$ and no intervening operation redefines one of its constituent arguments.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>我们把第二个 $a-d$ 转换为 $b$</p>
 <p>一种等价的策略是, 将后续的 $ d$ 转为 $b$ , 但这需要计算$b$是否被 redefined before some use of $d$</p>
 <p>It is <strong>simpler</strong> to have the optimizer insert the copy and let a <strong>later pass</strong> determine which copy operations are necessary and which can be eliminated</p>
 <p>把多于的evaluations 用 copies 来 replace 通常是 profitable, but encounters some <strong>risk</strong> by increasing the lifetimes of some variables, which increases <strong>register pressure</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Local-Value-Numbering"><a href="#Local-Value-Numbering" class="headerlink" title="Local Value Numbering"></a>Local Value Numbering</h3><p>LVN associates a number with each distinct value computed.</p>
@@ -1241,7 +1243,7 @@
 <p>维护一个 HashTable $H$ , which has keys $L_i$ or $(Op_i, H(L_i), H(R_i))$ and entries that are value numbers.</p>
 <p>维护一个 array $Name$ in which $Name[i]$ is the name of variable with value number $i$</p>
 <p>To get the value number of a variable $V$, first look in the hash table to see if the variable is there. If so, the value number is $H(V)$. If not, assign a new value nuber to $V$ and put it in $H()$ and $Name[]$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>$d^4&#x3D;a^2-d^3&#x3D;b^4$</p>
 <br>
 
@@ -1250,18 +1252,18 @@
 <li><strong>Constant folding</strong>. If all operands have know constant values, perform the operation and fold the answer directly into the code, rather than doing the hashtable lookup. Must keep infomation about which values are constant(and what their values are)</li>
 <li><strong>Algebraic identities</strong>. LVN Can apply algebraic identities to simplify the code. For example, $x+0$ and $x$ should get the same value number. Unfortunately, special-case code is required for each identity. Too many identities can cause a slowdown, so organize them into operator-specific decision trees. Some identities that can be handled this way:</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Indirect-Assignments"><a href="#Indirect-Assignments" class="headerlink" title="Indirect Assignments"></a>Indirect Assignments</h3><p><strong>indirect assignments</strong> cause problems for analysis. Indirect assignments include assignment through a pointer, such as <code>*p=0</code> and assignment to an unknow array element, such as <code>a(i, j)=0</code></p>
 <p>Without specific knowledge of the memory locations to which $p$ can refer, the compiler must treat <code>*p=0</code> as if it modifies every variable. Similarly, an unknown $i$ and $j$ in <code>a(i, j)= 0 </code> means the compiler must treat every value in the entire array as changed.</p>
 <p>Compilers invest a lot of energy in narrowing the scope of indirect references so that other optimizations such as LVM are effective.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h3 id="Superlocal-Value-Numbering-SVN"><a href="#Superlocal-Value-Numbering-SVN" class="headerlink" title="Superlocal Value Numbering (SVN)"></a>Superlocal Value Numbering (SVN)</h3><p><img src="/Blog/Blog/intro/cmpt379/optimization_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Superlocal-Value-Numbering-SVN"><a href="#Superlocal-Value-Numbering-SVN" class="headerlink" title="Superlocal Value Numbering (SVN)"></a>Superlocal Value Numbering (SVN)</h3><p><img src="/Blog/Blog/intro/cmpt379/optimization_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>为了让SVN 更高效, compiler must reuse the results of blocks that occur as prefixes on multiple paths through the EBB, There are several ways to do this, some more efficient than others</p>
 <p><strong>Lexically scoped hash tables</strong> are a natural fit. These hash table have extra operations of <code>enterScope()</code> and <code>leaveScope()</code> when a <code>leaveScope()</code> is executed, all entries that entered the table since the last <code>enterScope()</code> are removed</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Loop-Unrolling"><a href="#Loop-Unrolling" class="headerlink" title="Loop Unrolling"></a>Loop Unrolling</h3><p>Loop Unrolling has <strong>dirct</strong> and <strong>indirct</strong> benefits</p>
@@ -1281,24 +1283,24 @@
 <p><strong>Live variable analysis</strong>.  A variable $v$ is <strong>live</strong> at point $p$ if and only if there exists a path in the CFG from $p$ to a <strong>use</strong> of $v$ along which $v$ is not redefined</p>
 <p>We will compute, for each basic block $b$ in the procedurem a set <code>LiveOut(b)</code> that contains all the variables that are live on exit from b.</p>
 <p>Computing <strong>LiveOut</strong> is an example of <strong>global dataflow analysis</strong>, a family of techniques for static reasoning about the flow of dynamic values.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_13.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h4 id="Fix-point-algorithm"><a href="#Fix-point-algorithm" class="headerlink" title="Fix point algorithm"></a>Fix point algorithm</h4><p><img src="/Blog/Blog/intro/cmpt379/optimization_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="Fix-point-algorithm"><a href="#Fix-point-algorithm" class="headerlink" title="Fix point algorithm"></a>Fix point algorithm</h4><p><img src="/Blog/Blog/intro/cmpt379/optimization_14.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>第一个statement, 右侧有变量c, 我们没见过c, 所以将他放入UEVar中, 左侧$t_6$ 也是第一次看见, 所以放到 VarKill 中</p>
 <p>第二个statement, 右侧 i 第一次见, 放入UEVar 中, $t_7$ 放入 VarKill 中</p>
 <p>第三个statement, $t_7$ 见过了, 因此不把它放入 UEVAR 中, 但 $t_8$ 要放入VarKill 中</p>
 <p>其余同理</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_16.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>最开始所有 liveout 为 null</p>
 <p>B1的 successor 是B2, 根据公式<br>$$<br>UEVar(m) &#x3D; i, n<br>$$</p>
 <p>$$<br>LiveOut(m)&#x3D; \empty<br>$$</p>
@@ -1326,18 +1328,18 @@
 <br>
 
 <p>第二轮</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_17.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>第三轮</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_18.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>算法</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_19.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h4 id="Finding-Possibly-Uninitialized-Variable-Uses"><a href="#Finding-Possibly-Uninitialized-Variable-Uses" class="headerlink" title="Finding Possibly Uninitialized Variable Uses"></a>Finding Possibly Uninitialized Variable Uses</h4><p>一些编程语言需要compiler to report when a variable is used before it is assigned a value. With LiveOut computation, this is straightforward</p>
 <p>首先我们添加一个特殊的”entry” node to the procedure CFG that contains “definitions” of the parameters only</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_20.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>之后我们进行LiveOut analysis on the CFG. Any variable that is LiveOut of the entry node but not in its VarKills is potentially uninitiallized</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_21.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>例如: entry block, n 在 LiveOut 中, 但不在 VarKill 中, 所以 n 可能是未初始化的</p>
 <blockquote>
 <p>蓝色是 UEVar</p>
@@ -1373,20 +1375,20 @@
 <br>
 
 <h4 id="Global-Code-Placement"><a href="#Global-Code-Placement" class="headerlink" title="Global Code Placement"></a>Global Code Placement</h4><p>Most processors have asymmetric branch costs; the cost of a fall-though branch is less than the cost of a taken branch.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_22.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>因为processor 会预处理指令, 如果进行跳转的话, 预处理结果就会放弃</p>
 <p>Let’s say that a fall-through has cost 0, an absolute jump has cost $c_1$ and a branch has cost $c_2$​</p>
 <p>Furthermore, suppose we know something about the frequencies of $T$ and $F$ in the decision of Block $B_1$​.   Let $f(T)$ be the frequency of $T$, and $f(F)$ be the frequency of false.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_24.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这是4种放置code的方式, 每个都有不同的cost</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_25.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>compiler决定使用那种</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_26.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <p>这种情况是经常出现的</p>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_27.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Compilers can sometimes get frequency estimates along CFG edges by loop analysis.  Other times, it is not so clear</p>
 <p>另一种方法是compile the program 并运行一遍, 通过这一次运行的frequencies 决定怎么actually generate (这种信息叫做 <strong>profile</strong>). 这就需要second compilation using profile to guide code placement.</p>
 <p>有3种主要的方法来获取running program的profile</p>
@@ -1395,7 +1397,7 @@
 <li><strong>Timer interrupts</strong>, A tool interrupts the program execution at frequent, regular intervals.  The tool constructs a histogram of Program Counter values wherethe interrupts occurred.  Post-processing constructs the profile information</li>
 <li><strong>Performance counters</strong>, Many processors have counters to record hardware events, such as total cycles, cache misses, or taken branches.  If these are available, they can be used to construct highly-accurate profiles</li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_28.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这个CFG中, 最长使用的path 是 B0-B1-B3-B5. 使用 edge data, compiler 可以place B3 as the fall-through option for B1. 但是 使用vertex data, when trying to decide the fall-through option for B1, both B3 and B4 look equally good, and it could end up choosing B4 as the fall-through.</p>
 <p>Collecting and using edge frequencies is superior.</p>
 <br>
@@ -1404,12 +1406,12 @@
 <p>Hot paths can be constructed in a greedy fashion by considering the edges in order of decreasing frequency</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-keyword">for</span> each block <span class="hljs-selector-tag">b</span><br>	make <span class="hljs-selector-tag">a</span> degenerate chain d <span class="hljs-keyword">for</span> <span class="hljs-selector-tag">b</span><br>	d<span class="hljs-selector-class">.priority</span> = inf<br>	<br>P=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> each CFG <span class="hljs-built_in">edge</span>(x,y) x!=y <span class="hljs-keyword">in</span> decreasing freq. <span class="hljs-attribute">order</span><br>	<span class="hljs-keyword">if</span> x is the tail of <span class="hljs-selector-tag">a</span> chain <span class="hljs-selector-tag">a</span> and<br>	   y is the head of <span class="hljs-selector-tag">a</span> chain <span class="hljs-selector-tag">b</span><br>	   	t = <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.priority</span><br>	   	u = <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.priority</span><br>	   	c = <span class="hljs-selector-tag">a</span> followed by (x,y) followed by <span class="hljs-selector-tag">b</span><br>	   	c<span class="hljs-selector-class">.priority</span> = <span class="hljs-built_in">min</span>(t, u, P++)<br>	  <br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_29.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">t = chain headed <span class="hljs-keyword">by</span> CFG entry node<br>Worklist = <span class="hljs-comment">&#123;t&#125;</span><br><span class="hljs-keyword">while</span> !Worklist.isEmpty()<br>	<span class="hljs-keyword">remove</span> a chain c <span class="hljs-keyword">of</span> lowest priority <span class="hljs-keyword">from</span> WorkList<br>	<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> <span class="hljs-keyword">block</span> x <span class="hljs-keyword">in</span> c <span class="hljs-keyword">in</span> chain <span class="hljs-keyword">order</span><br>		place x at the <span class="hljs-keyword">end</span> <span class="hljs-keyword">of</span> the executable code<br>	<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> <span class="hljs-keyword">block</span> x <span class="hljs-keyword">in</span> c<br>		<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> edge (x,y) <span class="hljs-keyword">where</span> y <span class="hljs-keyword">is</span> unplaced<br>			t = chain containing y<br>			Worklist = Worklist.union(<span class="hljs-comment">&#123;t&#125;</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/cmpt379/optimization_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/optimization_30.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -1421,32 +1423,32 @@
 
 <p>and <strong>src</strong> and <strong>dst</strong> are both pointers to arrays of 2-byte characters.</p>
 <p>This code would translate as</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>We’ll make passes through this code to search for induction variables. On each pass, we examine(检查) each instruction to see if it computes what we know to be an induction variable.</p>
 <p>In the first pass, $t_0$ is not flagged as an induction variable, as we don’t know that $i$​ is an induction variable. Similarly, $t_1, c,t_2$ and $t_3$ are not flagged. The variable i, however, is seen to be an induction variable, as it has an assignment of the form $i&#x3D;i+k$. Analysis of its starting value gives i a value of $1\times \text{ iterationNum}+0$ before the loop assignment to $i$, and $1 \times \text{iterationNum} +1$ after that assignment.</p>
 <p>In the second pass, we see that $t_0&#x3D;2\times i$ so it is an induction variable. Since $i$ was $1 \times \text{iterationNum}+0$ at this point in the loop, $t_0$ takes the value $2\times \text{iterationNum}+2\times 0$ Next we see that $t_1&#x3D;\text {src} +t_0$ so $t_1$ is an induction variable with value $2\times \text{iterationNum}+src$ Likewise we find that $t_2$ and $t_3$ are induction variables, and we can summarize this as follows using $\lambda$ for the iteration number:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>The third pass through yields no more induction variables, so we stop</p>
 <p>Now, for each induction variable that is $k\lambda + m$, we initialize that variable before the loop to $m-k$ and then increment it by $k$​ where it was previously assigned.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Next we can eliminate any variables whose values are not used except perhaps to compute themselves.</p>
 <p>有 3 个这样的variables $i, t_0$ and $t_2$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>和原本的代码相比, 这个代码更快, 里面没有使用乘法</p>
 <p>如果 src 和 dst 没有在 loop 外使用过, compiler 可以 discover that the temporaries are not needed and reduce this code further to:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Bit-Sets"><a href="#Bit-Sets" class="headerlink" title="Bit Sets"></a>Bit Sets</h2><p>Bit sets are a fast way to encode and operate on relatively small sets. “relative small” 意味着 the universe for the sets 小于 32, 64, or 128 elements. 我们将使用32 elements 为例</p>
 <p>each element of the universe is assigned a bit from a 32-bit word. Then an integer word represents a set that consists of exactly those elements whose bit is 1 in the word.</p>
 <p>Suppose our universe is <code>&#123;a,b,c,d,e&#125;</code>. We could assign $a$ to bit 0, $b$ to bit 1, $c$ to bit 2, $d$ to bit 3, and $e$ to bit 4, The higher bits are unused.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Then, for instance, the integer 9 would represent the set <code>&#123;a,d&#125;</code> because $9_{10} &#x3D; 01001_2$ so there are 1’s in the bits for $a$ and $d$</p>
 <p>Then, set-theoretic operations become bitwise operations on the integers representing the sets.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Reverse-Postorder-Traversals"><a href="#Reverse-Postorder-Traversals" class="headerlink" title="Reverse Postorder Traversals"></a>Reverse Postorder Traversals</h2><p>a <strong>post order traversal</strong> of a graph or diagraph can be done with the following algorithm. All vertices start unmarked.</p>
@@ -1456,42 +1458,42 @@
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">v.num</span> = count ++<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
 
 <p>where count is a global variable that starts at 1. Then the number assigned to v is called its <strong>postorder number</strong>. If that number is subtracted from $n+1$, it is called the <strong>reverse postorder number</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>A <strong>forward</strong> dataflow problem (where the data flows from the predecessors of a node to that node) should visit the nodes in <strong>Reverse Postorder (RPO)</strong>.  This allows as many nodes as possible to use the just-computed dataflow values rather than the dataflow values from the last round</p>
 <p>A <strong>backward</strong> dataflow problem (where the data flows from the successors of a node to that node) should visit the nodes in <strong>Reverse Postorder (RPO) on the transpose</strong>(reverse)of the graph.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_11.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h2 id="Dominance"><a href="#Dominance" class="headerlink" title="Dominance"></a>Dominance</h2><p><img src="/Blog/Blog/intro/cmpt379/loop_induction_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Dominance"><a href="#Dominance" class="headerlink" title="Dominance"></a>Dominance</h2><p><img src="/Blog/Blog/intro/cmpt379/loop_induction_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_15.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Other-Dataflow-Problems"><a href="#Other-Dataflow-Problems" class="headerlink" title="Other Dataflow Problems"></a>Other Dataflow Problems</h2><p>Dataflow analyses are used to prove the safety of applying code transformations in particular situations.  Thus, many dataflow problems have been proposed, each to drive a particular optimization</p>
 <h3 id="Available-Expressions"><a href="#Available-Expressions" class="headerlink" title="Available Expressions"></a>Available Expressions</h3><p>In a compiler using 3AC, an expression is the right-hand side of an instruction.  To identify redundant expressions, we can compute information about the <strong>availability</strong> of expressions.</p>
 <p>An expression e is <strong>available</strong> at point p in a procedure iff on every pathfrom the procedure’s entry to p, e is evaluated and none of its constituent sub expressions has been redefined inbetween that evaluation and p.</p>
 <p>This analysis computes <code>AvailIn(n)</code> for each node $n$ in a CFG, which contains all expressions in the procedure which are available on entry to the block $n$.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/loop_induction_23.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Domainance-revisited"><a href="#Domainance-revisited" class="headerlink" title="Domainance revisited"></a>Domainance revisited</h2><p>A key tool that compilers use to reason about the CFG is the notion of <strong>dominators</strong></p>
 <p>A CFG node $B_i$ dominates $B_j$ iff $B_i$ lies on every path from the entry node of the CFG to $B_j$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Dominators play a key role in the construction of SSA form</p>
 <br>
 
 <h3 id="Dominator-Trees"><a href="#Dominator-Trees" class="headerlink" title="Dominator Trees"></a>Dominator Trees</h3><p>The nodes that strictly dominate $n$ are <strong>DOM(n)</strong>-n</p>
 <p>The closest strict dominator to $n$​ is called its <strong>immediate dominator</strong>, and denoted <strong>IDOM(n)</strong>. The entry node has no immediate dominator.</p>
 <p>The <strong>dominator tree</strong> compactly encodes <strong>IDOM</strong> and <strong>DOM</strong> information. It consists of edges (<strong>IDOM(n)</strong>, n) for each node n.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Dominance-Frontiers"><a href="#Dominance-Frontiers" class="headerlink" title="Dominance Frontiers"></a>Dominance Frontiers</h3><p>The <strong>dominance frontier</strong> $DF(n)$ of a node $n$ is all nodes $m$ where</p>
@@ -1500,47 +1502,47 @@
 <li>$n$ does not strictly dominate $m$</li>
 </ol>
 <p>These are the nodes “just outside” the dominance of $n$</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>To compute dominance forntiers, we can do a dataflow analysis or use the following algorithm</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="SSA-Revisited"><a href="#SSA-Revisited" class="headerlink" title="SSA Revisited"></a>SSA Revisited</h3><p>It is desirable to use a a single analysis to perform multiple transformations. Transforming code to good SSA encodes both data flow and control flow, and supports and simplifies many optimizations.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="Constructing-Maximal-SSA"><a href="#Constructing-Maximal-SSA" class="headerlink" title="Constructing Maximal SSA"></a>Constructing Maximal SSA</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Constructing-Maximal-SSA"><a href="#Constructing-Maximal-SSA" class="headerlink" title="Constructing Maximal SSA"></a>Constructing Maximal SSA</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_5.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Maximal SSA potentially (and often) has unnecessary $\phi$ functions, which waste space and computation time. We now look at a better SSA construction, which makes <strong>semipruned SSA</strong>, which has fewer $\phi$ functions</p>
-<h3 id="Semipruned-SSA-Placing-phi-functions"><a href="#Semipruned-SSA-Placing-phi-functions" class="headerlink" title="Semipruned SSA: Placing $\phi$ functions"></a>Semipruned SSA: Placing $\phi$ functions</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Semipruned-SSA-Placing-phi-functions"><a href="#Semipruned-SSA-Placing-phi-functions" class="headerlink" title="Semipruned SSA: Placing $\phi$ functions"></a>Semipruned SSA: Placing $\phi$ functions</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Global names are simply those names that have an upwards-exposed use in some block (i.e. are in the UEVar set).  The algorithm to compute globals is:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>While computing Globals, the algorithm also constructs, for each name, a list of all blocks that contain a defintion of that name. These blocks serve as a starting point for the $\phi$ function insertion algorithm. That algorithm is shown below</p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_10.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="Semipruned-SSA-Renaming"><a href="#Semipruned-SSA-Renaming" class="headerlink" title="Semipruned SSA: Renaming"></a>Semipruned SSA: Renaming</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h3 id="Translation-out-of-SSA-form"><a href="#Translation-out-of-SSA-form" class="headerlink" title="Translation out of SSA form"></a>Translation out of SSA form</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/domaince_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Semipruned-SSA-Renaming"><a href="#Semipruned-SSA-Renaming" class="headerlink" title="Semipruned SSA: Renaming"></a>Semipruned SSA: Renaming</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_24.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Translation-out-of-SSA-form"><a href="#Translation-out-of-SSA-form" class="headerlink" title="Translation out of SSA form"></a>Translation out of SSA form</h3><p><img src="/Blog/Blog/intro/cmpt379/domaince_25.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_26.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_27.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_28.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_29.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_30.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/domaince_31.PNG" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9D%99%E6%80%81%E5%8D%95%E8%B5%8B%E5%80%BC%E5%BD%A2%E5%BC%8F">静态单赋值形式</a></p>
 </blockquote>
@@ -1560,9 +1562,9 @@
 <br>
 
 <p>然而一些language features 可能会使 call-graph construction much more difficult. 例如下面的 C program</p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>就是说让function 也作为variable</p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Procedure-valued-variables"><a href="#Procedure-valued-variables" class="headerlink" title="Procedure-valued variables"></a>Procedure-valued variables</h3><p>The difficulty with the above example comes from having variables with procedures as their values. The compiler must estimate the set of potential callees at each call site that invokes a procedure-valued variable.</p>
@@ -1603,38 +1605,38 @@
 <p>An operation can be useless, meaning that its result has no externally visible effect.  Alternatively, the operation can be unreachable, meaning that it cannot execute.  If an operation falls into either category, it can be eliminated.  We use the term  dead code to refer to such code. </p>
 <p>Removing dead code shrinks the IR form of the code, which leads to a smaller executable, faster compilation, and often faster execution.  It may also increase the opportunities for other optimizations</p>
 <h4 id="Eliminating-useless-code-by-mark-and-sweep"><a href="#Eliminating-useless-code-by-mark-and-sweep" class="headerlink" title="Eliminating useless code by mark-and-sweep"></a>Eliminating useless code by mark-and-sweep</h4><p>The algorithm maintains a “mark” (binary value) for each instruction, indicating whether an instruction is useful or not. </p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Mark</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_3.PNG" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Sweep</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>The treatment of control-flow operations deserves some explanation.  Every jump is considered useful. Branches are considered useful only if the execution of a useful operation depends on their presence.<br>This type of dependence is called <strong>control dependence.</strong>  An instruction j is control dependent on a branch i if one or more edges from i leads to j, and one or more edges from i does not lead to j.  In the algorithm, if operation j is useful, then any branch it is control-dependent on is useful as well. </p>
 <p>This notion of control dependence is captured precisely by the reverse dominance frontier of j, denoted RDF(j).  Reverse dominance frontiers are simply dominance frontiers computed on the reverse CFG.</p>
 <p><strong>Sweep</strong> replaces any unmarked branch with a jump to its first postdominator that contains a marked operation.  If the branch is unmarked, then nothing depends on which outgoing edge control goes along.  Only when one reaches a postdominator is there a chance to find a useful instruction.<br>After the algorithm runs, the code contains no useless computations.  It may contain empty and unreachable blocks, however.  Empty blocks can be eliminated along with useless control flow</p>
 <br>
 
 <h4 id="Eliminating-useless-control-flow"><a href="#Eliminating-useless-control-flow" class="headerlink" title="Eliminating useless control flow"></a>Eliminating useless control flow</h4><p>Optimizations can change the IR so that it has useless control flow.  If a compiler includes such optimizations, then it should include a pass that simplifies the CFG by eliminating useless control flow</p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_7.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="Fun-with-Dead-and-Clean"><a href="#Fun-with-Dead-and-Clean" class="headerlink" title="Fun with Dead and Clean"></a>Fun with Dead and Clean</h3><p><strong>Clean</strong> cannot eliminate empty loops by itself.  However, a combination of <strong>Dead</strong> and <strong>Clean</strong> can.<br>Consider the following CFG, with B2 being an empty block.</p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/call_graph_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/call_graph_12.PNG" srcset="/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="Code-Motion"><a href="#Code-Motion" class="headerlink" title="Code Motion"></a>Code Motion</h2><p>Compilers perform code motion for two primary reasons. Moving an operation to a point where it executes fewer times than it would in its original position should reduce execution time. Moving an operation to a point where one instance can cover multiple paths in the CFG should reduce code size.</p>
 <p>We take a brief look at a type of code motion called <strong>partial redundancy elimination</strong></p>
 <p>A computation is partially redundant at point $p$ if it occurs on some, but not all, paths that reach p and non of its constituent operands changes between those evaluations and $p$</p>
 <p>A typical partial redundancy is shown below</p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Another form that PRE can take is a loop:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>The text goes into detail on <strong>lazy code motion</strong>, which is a more substantial optimization that includes everything that can be done by partial <strong>redundancy elemination</strong>. That detail is unimportant for our purposes.</p>
 <h2 id="Specialization"><a href="#Specialization" class="headerlink" title="Specialization"></a>Specialization</h2><p>Compiler front-ends produce general code that works in any context the running code might encounter. With analysis, it can learn enough to narrow the contexts in which the code must operate. This create the opportunity for the compiler to <strong>specialize</strong> the sequence of operations in ways which capitalize on this knowledge of context</p>
 <p>Some examples of specialization that we have seen include constant propagation, the algebraic identities and constant folding of value numbering, and operator strength reduction.  We will see a few more examples, <strong>tail-call optimization</strong>,  <strong>leaf-call optimization</strong>, and <strong>parameter promotion</strong>.</p>
@@ -1654,8 +1656,8 @@
 
 <p>**Parameter promotion **Unknown or ambiguous memory references prevent the compiler from keeping values in registers.  If a compiler can prove that an ambiguous value has just one corresponding memory location, it can rewrite the code to move that value into a scalar local variable, and keep the variable in a register.  This is sometimes referred to as <strong>promotion</strong>.  The analysis for this is difficult and beyond our scope.</p>
 <p>Consider a variable that is passed to a procedure by pass-by-reference.   With no analysis, we must keep the value for this variable in secondary memory at the location referred to by the reference.  This is because there may be other ways of accessing this value: </p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_4.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Unless the compiler can rule out these possibilities, it must use loads and stores for every update of the parameter in question, rather than storing the parameter in a register. </p>
 <p>If these possibilities are ruled out, then if the compiler can determine that the actual parameter is not modified by the callee, it can even change the parameter to a call-by-value parameter (and keep it in a register).</p>
 <p>To apply parameter promotion to a procedure, the compiler must identify all of the call sites that can invoke the procedure.  It can either prove that the transformation applies at all of those call sites or it can clone the procedure to create a copy that handles the promoted values. </p>
@@ -1669,10 +1671,10 @@
 
 <br>
 
-<h2 id="Enabling-other-transformations"><a href="#Enabling-other-transformations" class="headerlink" title="Enabling other transformations"></a>Enabling other transformations</h2><p><img src="/Blog/Blog/intro/cmpt379/motion_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="Enabling-other-transformations"><a href="#Enabling-other-transformations" class="headerlink" title="Enabling other transformations"></a>Enabling other transformations</h2><p><img src="/Blog/Blog/intro/cmpt379/motion_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_8.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Superblock cloning can improve the results of optimization in three principal ways</p>
 <ol>
 <li><strong>It creates longer blocks</strong>. Longer blocks are better for providing context and opportuinties for local optimization and instruction scheduling</li>
@@ -1681,7 +1683,7 @@
 </ol>
 <p>Of course, these advantages come at a cost of increasing the code size. It may run more quickly or it may run more slowly.</p>
 <p>Loop Unswitching.   Loop unswitching hoists loop-invariant control-flow operations out of a loop.  If the predicate in an if-then-else construct is loop invariant, then the compiler can rewrite the loop by pulling the if-then-else outside the loop and generating a tailored copy of the loop inside each half of the new if-then-else</p>
-<p><img src="/Blog/Blog/intro/cmpt379/motion_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/motion_9.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Unswitching is an enabling transformation; it allows the compiler to tailor the loop bodies in ways that are otherwise hard to achieve.  There end up being fewer branches in the executing program, which can lead to better instruction scheduling, better register allocation, and in general faster execution.</p>
 <p> If the original if-then-else contained loop-invariant code, other optimizations would have a hard time finding and hoisting such code above the loop.  But in the transformed state, these optimizations are easier to make.</p>
 <br>
@@ -1706,8 +1708,8 @@
 <p>A retargetable instruction selector consists of a pattern-matching engine coupled to a set of tables that encode the needed knowledge about mapping from the IR to the target ISA.  Oftentimes the tables are automatically produced from the description of the target machine, by a program known as a <strong>back- end generator</strong>, which is much like a parser generator.</p>
 <br>
 
-<h3 id="Multiple-translations-possible"><a href="#Multiple-translations-possible" class="headerlink" title="Multiple translations possible"></a>Multiple translations possible</h3><p><img src="/Blog/Blog/intro/cmpt379/is.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="Multiple-translations-possible"><a href="#Multiple-translations-possible" class="headerlink" title="Multiple translations possible"></a>Multiple translations possible</h3><p><img src="/Blog/Blog/intro/cmpt379/is.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_1.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>A human programmer would rapidly discount most, if not all, of these alternate implementations.  Using <strong>i2i</strong> is simple, fast, and obvious.  An automated process, however, may need to consider all the possibilities and make the appropriate choices</p>
 <p>Real processors are more complex than ILOC.  They may include higher-level operations and addressing modes that the code generator should consider. These features can improve performance but they also present myriad choices to the instruction selector.</p>
 <p>Each alternate implementation has its own costs. Different instructions have different execution times and use different parts of the processor.  In some cases, efficiency means using a variety of different parts of the processor at once.</p>
@@ -1722,7 +1724,7 @@
 <p>These alternatives show differing gaps in the abstractions between IR and ISA; these gaps require extra complexities in instruction selection   </p>
 <p>These effects all contribute to the enormous search space that instruction selection might explore, and to the complexities one must take into account in these explorations.</p>
 <h3 id="A-simple-treewalk-scheme"><a href="#A-simple-treewalk-scheme" class="headerlink" title="A simple treewalk scheme"></a>A simple treewalk scheme</h3><p>To keep the discussion concrete, we consider the issues that can arise in generating code for an assignment statement such as $a &#x3D; b – 2\times c$.  Let us say that this is represented by the AST</p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_2.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>Consider translating this AST using code like our ASMCodeGenerator would.  This would produce the same code for every instance of a particular AST node type.  This code would be correct, but it would never capitalize on the opportunity to tailor the code to specific circumstances and context</p>
 <p>The code for variables might look something like:</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">t1 = base(<span class="hljs-keyword">node</span><span class="hljs-title">)</span><br><span class="hljs-title">t2</span> = offset(<span class="hljs-keyword">node</span><span class="hljs-title">)</span><br><span class="hljs-title">result</span> = nextRegister();<br>emit(loadA0, t1, t2, result);<br></code></pre></td></tr></table></figure>
@@ -1733,16 +1735,16 @@
 
 <p>where <strong>constantOffset(node)</strong> simply returns the constant offset.  It’s the opportunity for this kind of specialization that the general code misses out on. In a realistic setting, variables have different sizes and use different size registers, there are call-by- value and call-by-reference parameters, and some variables reside in registers for their entire lifetimes.  Each of these different situations would add complexity and execution cost to the simple general code above.  The simple scheme quickly loses its appeal.</p>
 <p>Consider translating $e\times 2$, with AST</p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_6.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>but the code we would want is:</p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt379/is_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt379/is_11.PNG" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -1752,7 +1754,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82/">计算机底层</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82/">计算机底层</a>
                     
                   </div>
                 
@@ -1760,7 +1762,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
                     
                   </div>
                 
@@ -1777,19 +1779,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2021/05/25/Data-science/">
+                      <a href="/2021/05/25/Data-science/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Data science</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2021/05/13/Database/">
+                      <a href="/2021/05/13/Database/">
                         <span class="hidden-mobile">数据库</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -1832,7 +1834,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1841,7 +1843,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1881,18 +1883,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1945,7 +1947,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

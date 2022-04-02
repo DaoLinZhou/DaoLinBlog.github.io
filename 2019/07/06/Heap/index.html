@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
-  <link rel="icon" href="/Blog/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="堆 heap (优先队列)特点: 堆 非常适合作为 优先队列 的实现, 新添加的元素可以通过shiftup快速找到自己对应的位置 优先队列:    出队顺序和入队顺序无关, 和优先级相关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆 Heap">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/06/Heap/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/2019/07/06/Heap/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="堆 heap (优先队列)特点: 堆 非常适合作为 优先队列 的实现, 新添加的元素可以通过shiftup快速找到自己对应的位置 优先队列:    出队顺序和入队顺序无关, 和优先级相关">
 <meta property="og:locale">
@@ -67,25 +67,27 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.1.0"></head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Fluid</strong>
     </a>
 
@@ -104,9 +106,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                Startseite
               </a>
             </li>
           
@@ -116,9 +118,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                Archiv
               </a>
             </li>
           
@@ -128,9 +130,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                Kategorie
               </a>
             </li>
           
@@ -140,9 +142,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                Etiketten
               </a>
             </li>
           
@@ -152,9 +154,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                Über mich
               </a>
             </li>
           
@@ -178,7 +180,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -247,11 +249,11 @@
             <div class="markdown-body">
               <h2 id="堆-heap-优先队列"><a href="#堆-heap-优先队列" class="headerlink" title="堆 heap (优先队列)"></a>堆 heap (优先队列)</h2><p>特点: 堆 非常适合作为 <strong>优先队列</strong> 的实现, 新添加的元素可以通过shiftup快速找到自己对应的位置</p>
 <p>优先队列:    出队顺序和入队顺序无关, 和优先级相关</p>
-<p><img src="/Blog/Blog/intro/1560667786319.png" srcset="/Blog/img/loading.gif" lazyload alt="1560667786319"></p>
-<p><img src="/Blog/Blog/intro/1560667827332.png" srcset="/Blog/img/loading.gif" lazyload alt="1560667827332"></p>
+<p><img src="/Blog/Blog/intro/1560667786319.png" srcset="/img/loading.gif" lazyload alt="1560667786319"></p>
+<p><img src="/Blog/Blog/intro/1560667827332.png" srcset="/img/loading.gif" lazyload alt="1560667827332"></p>
 <span id="more"></span>
 
-<h3 id="二叉堆-Binary-Heap"><a href="#二叉堆-Binary-Heap" class="headerlink" title="二叉堆 Binary Heap"></a>二叉堆 Binary Heap</h3><p><img src="/Blog/Blog/intro/1560716531414.png" srcset="/Blog/img/loading.gif" lazyload alt="1560716531414"></p>
+<h3 id="二叉堆-Binary-Heap"><a href="#二叉堆-Binary-Heap" class="headerlink" title="二叉堆 Binary Heap"></a>二叉堆 Binary Heap</h3><p><img src="/Blog/Blog/intro/1560716531414.png" srcset="/img/loading.gif" lazyload alt="1560716531414"></p>
 <p>特点:</p>
 <ol>
 <li>任何一个节点都不大于它的父亲节点 (最大堆, 树顶的元素总是最大的元素)</li>
@@ -291,7 +293,7 @@
 </ol>
 <p><strong>索引堆的例子</strong></p>
 <p>把索引和数据分开存储, 而真正表征堆的数组, 是由索引构建成的</p>
-<p><img src="/Blog/Blog/intro/1560996921482.png" srcset="/Blog/img/loading.gif" lazyload alt="1560996921482"></p>
+<p><img src="/Blog/Blog/intro/1560996921482.png" srcset="/img/loading.gif" lazyload alt="1560996921482"></p>
 <p>实现的时候只要清楚每个变量所代表的意义, 就能自然的写出代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ctime&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">IndexMaxHeap</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> count;<br>    T* data;<br>    <span class="hljs-type">int</span>* indexes;<br>    <span class="hljs-type">int</span> capacity;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 由于是从1开始存储元素</span><br>    <span class="hljs-built_in">IndexMaxHeap</span>(<span class="hljs-type">int</span> capacity) : <span class="hljs-built_in">capacity</span>(capacity) &#123;<br>        data = <span class="hljs-keyword">new</span> T[capacity+<span class="hljs-number">1</span>];<br>        indexes = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[capacity+<span class="hljs-number">1</span>];<br>        count = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">IndexMaxHeap</span>() &#123;<br>        <span class="hljs-keyword">delete</span>[] data;<br>        <span class="hljs-keyword">delete</span>[] indexes;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> count == <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-comment">//对于用户来说, 是从0开始</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> i, T item)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count+<span class="hljs-number">1</span> &lt;= capacity);<br>        <span class="hljs-built_in">assert</span>(i+<span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span> &amp;&amp; i+<span class="hljs-number">1</span> &lt;= capacity);<br>        i += <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">/* 数据是添加在 index的位置, 如果extractMaxIndex后data[i]的元素依然留着,</span><br><span class="hljs-comment">           再次为它添加不会造成空间浪费, 而是覆盖原有的值 */</span><br>        data[i] = item;<br>        <span class="hljs-comment">// index 是添加在最末尾</span><br>        indexes[++count] = i;<br>        <span class="hljs-built_in">shiftUp</span>(count);<br>    &#125;<br><br>    <span class="hljs-function">T <span class="hljs-title">extractMax</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count &gt; <span class="hljs-number">0</span>);<br>        T ret = data[indexes[<span class="hljs-number">1</span>]];<br>        <span class="hljs-built_in">swap</span>(indexes[<span class="hljs-number">1</span>], indexes[count--]);<br>        <span class="hljs-built_in">shiftDown</span>(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-comment">// 索引堆支持的特殊操作, 返回索引</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">extractMaxIndex</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count &gt; <span class="hljs-number">0</span>);<br>        <span class="hljs-type">int</span> ret = indexes[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>;<br>        <span class="hljs-built_in">swap</span>(indexes[<span class="hljs-number">1</span>], indexes[count--]);<br>        <span class="hljs-comment">// 不用考虑data中的元素, 因为indexes中没有的话就无法被访问到</span><br>        <span class="hljs-built_in">shiftDown</span>(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-function">T <span class="hljs-title">getMax</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count &gt; <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span> data[indexes[<span class="hljs-number">1</span>]];<br>    &#125;<br><br>    <span class="hljs-comment">// 索引堆支持的特殊操作, 通过索引获取元素</span><br>    <span class="hljs-function">T <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-type">int</span> index)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(index+<span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span> &amp;&amp; index+<span class="hljs-number">1</span> &lt;= capacity);<br>        <span class="hljs-keyword">return</span> data[index+<span class="hljs-number">1</span>];<br>    &#125;<br><br>    <span class="hljs-comment">// 索引堆支持的特殊操作, 通过索引改变元素</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-type">int</span> i, T newItem)</span></span>&#123;<br>        i+=<span class="hljs-number">1</span>;<br>        data[i] = newItem;<br><br>        <span class="hljs-comment">// 由于改变了值, 可能会导致堆的规则被破坏, 所以要尝试向上移,向下移</span><br>        <span class="hljs-comment">// 找到indexes[j] = i, j表示data[i]在堆中的位置</span><br>        <span class="hljs-comment">// 之后shiftUp(j), 再shiftDown(j)</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; i &lt;= count; j++)&#123;<br>            <span class="hljs-keyword">if</span>(indexes[j] == i)&#123;<br>                <span class="hljs-built_in">shiftUp</span>(j);<br>                <span class="hljs-built_in">shiftDown</span>(j);<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">shiftUp</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span></span>&#123;<br>        <span class="hljs-keyword">while</span>(i &gt; <span class="hljs-number">1</span> &amp;&amp; data[indexes[i]] &gt; data[indexes[i/<span class="hljs-number">2</span>]])&#123;<br>            <span class="hljs-built_in">swap</span>(indexes[i], indexes[i/<span class="hljs-number">2</span>]);<br>            i /= <span class="hljs-number">2</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">shiftDown</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span></span>&#123;<br>        <span class="hljs-keyword">while</span>((i*<span class="hljs-number">2</span>) &lt;= count)&#123;<br>            <span class="hljs-type">int</span> j = i*<span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span>(j+<span class="hljs-number">1</span> &lt;= count &amp;&amp; data[indexes[j+<span class="hljs-number">1</span>]] &gt; data[indexes[j]])<br>                j += <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span>(data[indexes[i]] &gt;= data[indexes[j]])<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-built_in">swap</span>(indexes[j], indexes[i]);<br>            i = j;<br>        &#125;<br>    &#125;<br>&#125;;<br><br><br><span class="hljs-comment">// 索引堆的用途并不是排序, 但是这里要用排序来证明代码的正确性</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">IndexMaxHeapSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    IndexMaxHeap&lt;T&gt; *indexMaxHeap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">IndexMaxHeap</span>&lt;T&gt;(n);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)<br>        indexMaxHeap-&gt;<span class="hljs-built_in">insert</span>(i, arr[i]);<br>    <span class="hljs-built_in">assert</span>(indexMaxHeap-&gt;<span class="hljs-built_in">testIndexes</span>());<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=n<span class="hljs-number">-1</span>; i&gt;=<span class="hljs-number">0</span>; i--)<br>        arr[i] = indexMaxHeap-&gt;<span class="hljs-built_in">extractMax</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -303,7 +305,7 @@
 
 <h4 id="优化索引堆"><a href="#优化索引堆" class="headerlink" title="优化索引堆"></a>优化索引堆</h4><p>为普通的索引堆添加反向查找表</p>
 <p>将数据和索引分离开来 or 加入反向查找表 都是算法设计中经常使用的方法</p>
-<p><img src="/Blog/Blog/intro/1561497716617.png" srcset="/Blog/img/loading.gif" lazyload alt="1561497716617"></p>
+<p><img src="/Blog/Blog/intro/1561497716617.png" srcset="/img/loading.gif" lazyload alt="1561497716617"></p>
 <p>具体实现: </p>
 <p>实现没什么难度, 就是注意从用户角度是从0开始. 以及时刻维护 index 表和 rev 表</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">IndexMaxHeap</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> count;<br>    T* data;<br>    <span class="hljs-type">int</span>* reverse;   <span class="hljs-comment">//反向查找</span><br>    <span class="hljs-type">int</span>* indexes;<br>    <span class="hljs-type">int</span> capacity;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 由于是从1开始存储元素</span><br>    <span class="hljs-built_in">IndexMaxHeap</span>(<span class="hljs-type">int</span> capacity) : <span class="hljs-built_in">capacity</span>(capacity) &#123;<br>        data = <span class="hljs-keyword">new</span> T[capacity+<span class="hljs-number">1</span>];<br>        indexes = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[capacity+<span class="hljs-number">1</span>];<br>        reverse = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[capacity+<span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;=capacity; i++)<br>            reverse[i] = <span class="hljs-number">0</span>;<br>        count = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">IndexMaxHeap</span>() &#123;<br>        <span class="hljs-keyword">delete</span>[] data;<br>        <span class="hljs-keyword">delete</span>[] indexes;<br>        <span class="hljs-keyword">delete</span>[] reverse;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> count == <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-comment">//对于用户来说, 是从0开始</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> i, T item)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count+<span class="hljs-number">1</span> &lt;= capacity);<br>        <span class="hljs-built_in">assert</span>(i+<span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span> &amp;&amp; i+<span class="hljs-number">1</span> &lt;= capacity);<br>        i += <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">/* 数据是添加在 index的位置, 如果extractMaxIndex后data[i]的元素依然留着,</span><br><span class="hljs-comment">           再次为它添加不会造成空间浪费, 而是覆盖原有的值 */</span><br>        data[i] = item;<br>        <span class="hljs-comment">// index 是添加在最末尾</span><br>        indexes[count+<span class="hljs-number">1</span>] = i;<br>        reverse[i] = count+<span class="hljs-number">1</span>;<br>        count ++;<br>        <span class="hljs-built_in">shiftUp</span>(count);<br>    &#125;<br><br>    <span class="hljs-function">T <span class="hljs-title">extractMax</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count &gt; <span class="hljs-number">0</span>);<br>        T ret = data[indexes[<span class="hljs-number">1</span>]];<br>        <span class="hljs-built_in">swap</span>(indexes[<span class="hljs-number">1</span>], indexes[count]);<br>        reverse[indexes[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span>;<br>        reverse[indexes[count]] = <span class="hljs-number">0</span>;    <span class="hljs-comment">//不存在的指向0</span><br>        count --;<br>        <span class="hljs-built_in">shiftDown</span>(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-comment">// 索引堆支持的特殊操作, 返回索引</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">extractMaxIndex</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count &gt; <span class="hljs-number">0</span>);<br>        <span class="hljs-type">int</span> ret = indexes[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>;<br>        <span class="hljs-built_in">swap</span>(indexes[<span class="hljs-number">1</span>], indexes[count]);<br>        reverse[indexes[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span>;<br>        reverse[indexes[count]] = <span class="hljs-number">0</span>;    <span class="hljs-comment">//不存在的指向0</span><br>        count--;<br>        <span class="hljs-comment">// 不用考虑data中的元素, 因为indexes中没有的话就无法被访问到</span><br>        <span class="hljs-built_in">shiftDown</span>(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-function">T <span class="hljs-title">getMax</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count &gt; <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span> data[indexes[<span class="hljs-number">1</span>]];<br>    &#125;<br><br>    <span class="hljs-comment">// 新增函数, O(1)复杂度内判断是否包含索引i</span><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">contain</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(i+<span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span> &amp;&amp; i+<span class="hljs-number">1</span> &lt;= capacity);<br>        <span class="hljs-keyword">return</span> reverse[i+<span class="hljs-number">1</span>] != <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 索引堆支持的特殊操作, 通过索引获取元素</span><br>    <span class="hljs-function">T <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-type">int</span> index)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>( <span class="hljs-built_in">contain</span>(index) );<br>        <span class="hljs-keyword">return</span> data[index+<span class="hljs-number">1</span>];<br>    &#125;<br><br>    <span class="hljs-comment">// 索引堆支持的特殊操作, 通过索引改变元素</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-type">int</span> i, T newItem)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>( <span class="hljs-built_in">contain</span>(i) );<br>        i+=<span class="hljs-number">1</span>;<br>        data[i] = newItem;<br><br>        <span class="hljs-comment">// 由于改变了值, 可能会导致堆的规则被破坏, 所以要尝试向上移,向下移</span><br>        <span class="hljs-comment">// 找到indexes[j] = i, j表示data[i]在堆中的位置</span><br>        <span class="hljs-comment">// 之后shiftUp(j), 再shiftDown(j)</span><br><span class="hljs-comment">//        for(int j = 1; i &lt;= count; j++)&#123;</span><br><span class="hljs-comment">//            if(indexes[j] == i)&#123;</span><br><span class="hljs-comment">//                shiftUp(j);</span><br><span class="hljs-comment">//                shiftDown(j);</span><br><span class="hljs-comment">//                return;</span><br><span class="hljs-comment">//            &#125;</span><br><span class="hljs-comment">//        &#125;</span><br>        <span class="hljs-type">int</span> j = reverse[i];<br>        <span class="hljs-built_in">shiftUp</span>(j);<br>        <span class="hljs-built_in">shiftDown</span>(j);<br>    &#125;<br><br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">shiftUp</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span></span>&#123;<br>        <span class="hljs-keyword">while</span>(i &gt; <span class="hljs-number">1</span> &amp;&amp; data[indexes[i]] &gt; data[indexes[i/<span class="hljs-number">2</span>]])&#123;<br>            <span class="hljs-built_in">swap</span>(indexes[i], indexes[i/<span class="hljs-number">2</span>]);<br>            reverse[indexes[i/<span class="hljs-number">2</span>]] = i/<span class="hljs-number">2</span>;<br>            reverse[indexes[i]] = i;<br>            i /= <span class="hljs-number">2</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">shiftDown</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span></span>&#123;<br>        <span class="hljs-keyword">while</span>((i*<span class="hljs-number">2</span>) &lt;= count)&#123;<br>            <span class="hljs-type">int</span> j = i*<span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span>(j+<span class="hljs-number">1</span> &lt;= count &amp;&amp; data[indexes[j+<span class="hljs-number">1</span>]] &gt; data[indexes[j]])<br>                j += <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span>(data[indexes[i]] &gt;= data[indexes[j]])<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-built_in">swap</span>(indexes[j], indexes[i]);<br>            reverse[indexes[i]] = i;<br>            reverse[indexes[j]] = j;<br>            i = j;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
@@ -317,7 +319,7 @@
 
 <h3 id="ex-多路归并排序"><a href="#ex-多路归并排序" class="headerlink" title="ex) 多路归并排序"></a>ex) 多路归并排序</h3><p>原本的归并排序是把数组分成两个有序部分(两路),  但我们可以用堆来进行多路归并排序</p>
 <p>假设我们要归并4个有序的数组, 把所有数组最小元素放入最小堆, 每次从堆中退出一个最小元素. 被推出的元素属于哪个子数组就从哪个子数组中再添加一个新元素进堆</p>
-<p><img src="/Blog/Blog/intro/Nweaymerge.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/Nweaymerge.PNG" srcset="/img/loading.gif" lazyload></p>
 <p>这样我们就可以进行k路归并排序, k为变量. k越大, 归并的层数就越小. 而归并时需要比较的元素就越多.</p>
 <p>如果数组中有n个元素, 而我们要做n路归并排序, 只需要递归一层, 而堆中要存储n个元素. </p>
 <p><strong>此时归并排序退化成了堆排序</strong></p>
@@ -345,7 +347,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -353,7 +355,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -370,19 +372,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2019/07/13/what-is-printf-scanf/">
+                      <a href="/2019/07/13/what-is-printf-scanf/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">printf 和 scanf 的本质及流的重定向</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">Vorheriger</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2019/07/05/Counting-Sort/">
+                      <a href="/2019/07/05/Counting-Sort/">
                         <span class="hidden-mobile">计数排序 Counting Sort 基数排序 Redix sort</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -425,7 +427,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -434,7 +436,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+                 for="local-search-input">Stichwort</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -474,18 +476,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -538,7 +540,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>
