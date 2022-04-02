@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="预先了解: 什么是汇编语言和寄存器: http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;01&#x2F;assembly-language-primer.html windows与linux汇编差异: https:&#x2F;&#x2F;blog.csdn.net&#x2F;chuchus&#x2F;article&#x2F;details&#x2F;38469403 如何使用gdb查看汇编代码: https:&#x2F;&#x2F;blog.csdn.net&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编语言学习">
-<meta property="og:url" content="https://daolinzhou.github.io/2019/11/28/learn-assembly-language/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/11/28/learn-assembly-language/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="预先了解: 什么是汇编语言和寄存器: http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;01&#x2F;assembly-language-primer.html windows与linux汇编差异: https:&#x2F;&#x2F;blog.csdn.net&#x2F;chuchus&#x2F;article&#x2F;details&#x2F;38469403 如何使用gdb查看汇编代码: https:&#x2F;&#x2F;blog.csdn.net&#x2F;">
 <meta property="og:locale">
@@ -67,17 +67,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -87,7 +87,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -106,9 +106,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -118,9 +118,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -130,9 +130,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -142,9 +142,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -154,9 +154,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -180,7 +180,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/eye.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -255,7 +255,7 @@
 </blockquote>
 <span id="more"></span>
 
-<h1 id="x64-intel-汇编"><a href="#x64-intel-汇编" class="headerlink" title="x64 intel 汇编"></a>x64 intel 汇编</h1><p><img src="/Blog/Blog/intro/difference_assembly_language.PNG" srcset="/img/loading.gif" lazyload></p>
+<h1 id="x64-intel-汇编"><a href="#x64-intel-汇编" class="headerlink" title="x64 intel 汇编"></a>x64 intel 汇编</h1><p><img src="/Blog/Blog/intro/difference_assembly_language.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此图初学不用掌握, 后面会讲解每个指令</p>
 <br>
 
@@ -278,7 +278,7 @@
 <br>
 
 <h3 id="x64-汇编-寄存器"><a href="#x64-汇编-寄存器" class="headerlink" title="x64 汇编 - 寄存器"></a>x64 汇编 - 寄存器</h3><p>不同汇编(AT&amp;T)的寄存器也可能不一样</p>
-<p><img src="/Blog/Blog/intro/x86_intel_register.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/x86_intel_register.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>主要关注最左边的那一列</p>
 <p>RAX \ RBX \ RCX \ RDX 一般被称为通用寄存器</p>
 <p>而剩余的那部分一般习惯用于特殊用途, 严格来说这些也是通用寄存器</p>
@@ -290,7 +290,7 @@
 <br>
 
 <h3 id="RAX-和-EAX"><a href="#RAX-和-EAX" class="headerlink" title="RAX 和 EAX"></a>RAX 和 EAX</h3><p>然而在通过VS对c++进行反编译时, 我们却可以看到还有eax, 那么什么是eax? rax和eax之间有什么关系?</p>
-<p><img src="/Blog/Blog/intro/rax_and_eax_cpp.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rax_and_eax_cpp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>64bit (64位环境下), RAX \ RBX \ RCX \ RDX 是通用寄存器</p>
@@ -306,7 +306,7 @@
 <br>
 
 <p>但是为了<strong>向后兼容</strong>, 它被设计成这样</p>
-<p><img src="/Blog/Blog/intro/rax_and_eax_relationship.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/rax_and_eax_relationship.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>它把64位寄存器的<strong>一半</strong>拿出来, 当作32位的寄存器用, 正如最开始那张图上所表示, 这些寄存器是分为2半的, 左边和右边各4个字节, 其中最低的4个字节就是eax寄存器.</p>
 <p><strong>rax 里面包含 eax</strong></p>
 <p>同理, 32位为了兼容16位, 也分出一半 (最低的两个字节) 给ax来用</p>
@@ -318,14 +318,14 @@
 
 <p>一般R开头的寄存器是64bit, 占8字节</p>
 <p>一般E开头的寄存器是32bit, 占4字节</p>
-<p><img src="/Blog/Blog/intro/eax_detail.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/eax_detail.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>ABCD这四个通用寄存器在汇编的发展过程中是一直存在的</p>
 <br>
 
 <h2 id="在c-中嵌入汇编-内联汇编"><a href="#在c-中嵌入汇编-内联汇编" class="headerlink" title="在c++中嵌入汇编 (内联汇编)"></a>在c++中嵌入汇编 (内联汇编)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-comment">// 内联汇编</span><br>	__asm &#123;<br>		mov eax, a<br>		add eax, <span class="hljs-number">1</span><br>		mov a, eax<br>	&#125;<br>	cout &lt;&lt; a &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>通过 __asm包裹的代码就是汇编代码, 但它只是表面上的汇编, 真实的汇编不可能有a这个东西</p>
-<p><img src="/Blog/Blog/intro/use_asm_in_cpp.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_asm_in_cpp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">__asm &#123;<br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ax</span>, <span class="hljs-number">10</span><br>	<span class="hljs-keyword">mov</span> <span class="hljs-built_in">eax</span>, <span class="hljs-number">11223344H</span><br>&#125;<br></code></pre></td></tr></table></figure>
@@ -383,7 +383,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
                     
                   </div>
                 
@@ -391,7 +391,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%B1%87%E7%BC%96/">汇编</a>
                     
                   </div>
                 
@@ -408,19 +408,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/12/01/play-with-linear-algebra/">
+                      <a href="/Blog/2019/12/01/play-with-linear-algebra/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"><专为程序员设计的线性代数>学习笔记(1)</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/11/18/IDEA-shortcut-KEY/">
+                      <a href="/Blog/2019/11/18/IDEA-shortcut-KEY/">
                         <span class="hidden-mobile">IDEA 快捷键</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -437,7 +437,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -463,7 +463,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -472,7 +472,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -512,18 +512,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -576,7 +576,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

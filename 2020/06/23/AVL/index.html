@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="AVL树 对于二分搜索树来说, 有一个很严重的问题, 如果数据是顺序添加进搜索树的话, 二分搜索树就会退化成链表 解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持平衡二叉树的性质 AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构     平衡二叉树 满二叉树一定是平衡二叉树 通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树  对于一颗完全二叉树, 整">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平衡二叉树与AVL树">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/06/23/AVL/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/06/23/AVL/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="AVL树 对于二分搜索树来说, 有一个很严重的问题, 如果数据是顺序添加进搜索树的话, 二分搜索树就会退化成链表 解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持平衡二叉树的性质 AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构     平衡二叉树 满二叉树一定是平衡二叉树 通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树  对于一颗完全二叉树, 整">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/avl_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/avl_1.PNG">
 <meta property="article:published_time" content="2020-06-24T00:19:57.000Z">
 <meta property="article:modified_time" content="2020-06-28T00:22:15.213Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/avl_1.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/avl_1.PNG">
   
   
   <title>平衡二叉树与AVL树 - Daolin&#39;s Repository</title>
@@ -62,17 +62,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -82,7 +82,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -101,9 +101,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -113,9 +113,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -125,9 +125,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -137,9 +137,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -149,9 +149,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -175,7 +175,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -242,7 +242,7 @@
             <h1 style="display: none">平衡二叉树与AVL树</h1>
             
             <div class="markdown-body">
-              <h1 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h1><p><img src="/Blog/Blog/intro/avl.PNG" srcset="/img/loading.gif" lazyload></p>
+              <h1 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h1><p><img src="/Blog/Blog/intro/avl.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于二分搜索树来说, 有一个很严重的问题, 如果数据是<strong>顺序</strong>添加进搜索树的话, 二分搜索树就会退化成链表</p>
 <p>解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持<strong>平衡二叉树</strong>的性质</p>
 <p>AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构</p>
@@ -250,28 +250,28 @@
 
 <br>
 
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p><img src="/Blog/Blog/intro/avl_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p><img src="/Blog/Blog/intro/avl_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>满二叉树一定是平衡二叉树</p>
 <p>通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树</p>
-<p><img src="/Blog/Blog/intro/avl_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于一颗完全二叉树, 整棵树的叶子节点最大的深度值和最小的深度值相差不会超过1, (也就是说叶子节点要么在最后一层要么在倒数第二层)</p>
 <br>
 
 <p>线段树也是平衡二叉树但不是完全二叉树, 虽然叶子节点不都在树的左侧, 但同样最大的深度值和最小的深度值相差不会超过1</p>
-<p><img src="/Blog/Blog/intro/avl_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="AVL"><a href="#AVL" class="headerlink" title="AVL"></a>AVL</h2><p>这些平衡二叉树都是比较理想的情况, 这样的二叉树的平衡度非常高. 在AVL树中维护的平衡二叉树的条件更加宽松:</p>
 <p>AVL是这样定义平衡二叉树的:</p>
 <p><strong>对于任意一个节点, 左子树和右子树的高度差不能超过1</strong></p>
-<p><img src="/Blog/Blog/intro/avl_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于这样的平衡二叉树, 它的高度和节点数量之间的关系也是O(logn)的</p>
 <br>
 
 <p>由于要跟踪每一个节点的高度来判断二叉树是否平衡, 所以要标注每一个节点的高度</p>
-<p><img src="/Blog/Blog/intro/avl_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>标记完高度后要计算<strong>平衡因子</strong>, 它就是左右子树的高度差</p>
-<p><img src="/Blog/Blog/intro/avl_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>当前的树中有两个节点破坏了平衡二叉树的性质</p>
  <br>
 
@@ -279,19 +279,19 @@
 
 <h2 id="左旋和右旋"><a href="#左旋和右旋" class="headerlink" title="左旋和右旋"></a>左旋和右旋</h2><p>在什么时候维护平衡?</p>
 <p>插入节点时, 由于新添加了一个节点使得整个二分搜索树不再满足平衡性. 那么这个不平衡的节点只有可能在插入节点到根节点的路径中.</p>
-<p><img src="/Blog/Blog/intro/avl_rote.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>因为插入节点后, 它的祖先节点的高度值就要进行更新</p>
 <p>所以<strong>加入节点之后, 沿着节点向上维护平衡性</strong></p>
 <br>
 
  <br>
 
-<h3 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h3><p><img src="/Blog/Blog/intro/avl_rote_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h3><p><img src="/Blog/Blog/intro/avl_rote_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时在y这个节点上, 左子树的高度减去右子树的高度是大于1的, 于此同时对于x节点它的平衡因子是大于等于0的. 也就是说左子树的高度是大于等于右子树的高度的</p>
 <p>对于二分搜索数来说, 就存在这样一个关系:<br>$$<br>T1&lt;z&lt;T2&lt;x&lt;T3&lt;y&lt;T4<br>$$<br>此时对于y来说, 左子树过于高了, 所以我希望经过一系列操作使得y保持平衡性, 于此同时整颗子树不能失去二分搜索树的性质</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/avl_rote_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>首先让x的右子树指向y, 在让y的左子树指向T3</p>
 <p>之后让x变成新的二叉树的根节点, 这样的过程就叫右旋转</p>
 <p>这个过程就像y这个节点顺时针转到x的右子树的位置, 这个顺时针的旋转在x的角度就是右旋转</p>
@@ -299,14 +299,14 @@
 <br>
 
 <p>为什么保持平衡二叉树的性质?</p>
-<p><img src="/Blog/Blog/intro/avl_rote_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于左侧二叉树中, y是不平衡的节点, 所以在这种情况下z这个节点为根的二叉树和x节点为根的二叉树是平衡的二叉树</p>
 <p>不然的话我们从加入的节点向上回溯找到第一个不平衡的节点就不是y</p>
 <p>所以右侧以z为根的二叉树依然是平衡二叉树(T1, T2的高度差不超过1)</p>
 <p>假设T1, T2中最大的高度值为h的话, z这个节点的高度值就是h+1</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/avl_rote_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于x也是保持平衡的, 且x的平衡因子大于等于0, 小于等于1的, 所以T3的高度要么是h, 要么是 h+1, 这样x这个节点的高度就是h+2</p>
 <br>
 
@@ -314,7 +314,7 @@
 <p>所以此时y的左子树比右子树大2, 所以T4的高度为h</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/avl_rote_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>所以旋转之后y的高度要么是h+2, 要么是h+1, 而从x的角度去看, 左右子树依然是平衡的, y 和 z的高度差不会超过1</p>
 <br>
 
@@ -325,8 +325,8 @@
 
 <h3 id="左旋转"><a href="#左旋转" class="headerlink" title="左旋转"></a>左旋转</h3><p>右旋转是插入的元素在不平衡节点<strong>左侧的左侧</strong>时触发</p>
 <p>而左旋转是插入元素在不平衡节点<strong>右侧的右侧</strong>时触发</p>
-<p><img src="/Blog/Blog/intro/avl_rote_5.PNG" srcset="/img/loading.gif" lazyload></p>
-<p>此时节点之间的关系就是<br>$$<br>T4&lt;y&lt;T3&lt;x&lt;T1&lt;z&lt;T2<br>$$<br><img src="/Blog/Blog/intro/avl_rote_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>此时节点之间的关系就是<br>$$<br>T4&lt;y&lt;T3&lt;x&lt;T1&lt;z&lt;T2<br>$$<br><img src="/Blog/Blog/intro/avl_rote_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>左旋转和右旋转是完全对称的</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 对节点y进行向右旋转操作，返回旋转后新的根节点x</span><br><span class="hljs-comment">//        y                              x</span><br><span class="hljs-comment">//       / \                           /   \</span><br><span class="hljs-comment">//      x   T4     向右旋转 (y)        z     y</span><br><span class="hljs-comment">//     / \       - - - - - - - -&gt;    / \   / \</span><br><span class="hljs-comment">//    z   T3                       T1  T2 T3 T4</span><br><span class="hljs-comment">//   / \</span><br><span class="hljs-comment">// T1   T2</span><br><span class="hljs-function">Node* <span class="hljs-title">rightRotate</span><span class="hljs-params">(Node* y)</span></span>&#123;<br>    Node* x = y-&gt;left;<br>    Node* t3 = x-&gt;right;<br>    x-&gt;right = y;<br>    y-&gt;left = t3;<br><br>    <span class="hljs-comment">// 更新height</span><br>    y-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(y-&gt;left), <span class="hljs-built_in">getHeight</span>(y-&gt;right));<br>    x-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(x-&gt;left), <span class="hljs-built_in">getHeight</span>(x-&gt;right));<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-comment">// 对节点y进行向左旋转操作，返回旋转后新的根节点x</span><br><span class="hljs-comment">//    y                             x</span><br><span class="hljs-comment">//  /  \                          /   \</span><br><span class="hljs-comment">// T1   x      向左旋转 (y)       y     z</span><br><span class="hljs-comment">//     / \   - - - - - - - -&gt;   / \   / \</span><br><span class="hljs-comment">//   T2  z                     T1 T2 T3 T4</span><br><span class="hljs-comment">//      / \</span><br><span class="hljs-comment">//     T3 T4</span><br><span class="hljs-function">Node* <span class="hljs-title">leftRotate</span><span class="hljs-params">(Node* y)</span></span>&#123;<br>    Node* x = y-&gt;right;<br>    Node* t2 = x-&gt;left;<br><br>    x-&gt;left = y;<br>    y-&gt;right = t2;<br><br>    <span class="hljs-comment">// 更新height</span><br>    y-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(y-&gt;left), <span class="hljs-built_in">getHeight</span>(y-&gt;right));<br>    x-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(x-&gt;left), <span class="hljs-built_in">getHeight</span>(x-&gt;right));<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -335,28 +335,28 @@
 <br>
 
 <h2 id="LR和RL"><a href="#LR和RL" class="headerlink" title="LR和RL"></a>LR和RL</h2><p>之前处理的两种情况分别时<strong>LL</strong>(左侧的左侧插入元素)和<strong>RR</strong>(右侧的右侧插入元素)</p>
-<p><img src="/Blog/Blog/intro/avl_rote_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>但如果插入的节点是在不平衡节点左孩子的右侧(<strong>LR</strong>)时就不能简单使用一次旋转解决了</p>
-<p><img src="/Blog/Blog/intro/avl_rote_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>LR的情况其实处理也很简单</p>
 <p>首先要对x这个节点进行一次左旋转, 使得整棵树变成这个样子</p>
-<p><img src="/Blog/Blog/intro/avl_rote_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时就转化成了LL的情况, 此时再基于y进行一次右旋转就好了</p>
 <br>
 
 <p>和LR对称的就是另外一种情况, RL</p>
-<p><img src="/Blog/Blog/intro/avl_rote_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>先对x节点进行右旋转, 转化成RR的情况</p>
-<p><img src="/Blog/Blog/intro/avl_rote_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>再基于y这个节点进行一次左旋转就好了</p>
 <br>
 
 <br>
 
 <h2 id="删除元素时维护自平衡"><a href="#删除元素时维护自平衡" class="headerlink" title="删除元素时维护自平衡"></a>删除元素时维护自平衡</h2><p>插入节点时, 这个节点到根节点的路径上的节点的高度可能发生改变, 也就是说这个路径上的节点可能破坏平衡.</p>
-<p><img src="/Blog/Blog/intro/avl_rote.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/avl_rote.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>然而删除节点时, 同样是删除节点到根节点的路径上节点的高度会发生改变, 依然是这个路径上的节点可能破坏平衡</p>
 <p>而这个维护平衡的方式和添加元素是一模一样的</p>
 <p>只不过删除后子树可能为空, 所以要对判空进行一下处理, 而且removeMax和removeMin废弃了, 使用remove来代替</p>
@@ -376,7 +376,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -384,7 +384,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -401,19 +401,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/27/red-black-tree/">
+                      <a href="/Blog/2020/06/27/red-black-tree/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2-3树与红黑树</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/05/31/calculus/">
+                      <a href="/Blog/2020/05/31/calculus/">
                         <span class="hidden-mobile">微积分</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -430,7 +430,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -456,7 +456,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -465,7 +465,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -505,18 +505,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -569,7 +569,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

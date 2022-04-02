@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="逻辑回归 Logistic Regression OvR 与 OvO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(7)-逻辑回归">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/05/05/machine-learning-7/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/05/machine-learning-7/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="逻辑回归 Logistic Regression OvR 与 OvO">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/logic_reg_ju_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/logic_reg_ju_6.PNG">
 <meta property="article:published_time" content="2020-05-05T22:08:14.000Z">
 <meta property="article:modified_time" content="2020-05-20T18:30:47.725Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/logic_reg_ju_6.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/logic_reg_ju_6.PNG">
   
   
   <title>python3入门机器学习(7)-逻辑回归 - Daolin&#39;s Repository</title>
@@ -63,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -83,7 +83,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -102,9 +102,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -114,9 +114,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -126,9 +126,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -138,9 +138,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -150,9 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -176,7 +176,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/about-bg.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/about-bg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -262,7 +262,7 @@
 
 <p>机器学习算法的本质就是求出一个函数f, 如果有一个x进入就会得到预测值<br>$$<br>\hat y&#x3D;f(x)<br>$$<br>这个y其实是我们关心的指标, 如果我们要预测房价, y的值就是房价, 如果要预测成绩, y的值就是成绩</p>
 <p>但是在逻辑回归中, 得到的值本质是<strong>概率值</strong><br>$$<br>\hat p&#x3D;f(x)<br>$$<br>也就是说对于逻辑回归来说, 要得到一个函数f, 来了一个样本放入模型中, f(x) 会计算出一个概率值p, 之后根据概率值p进行分类</p>
-<p><img src="/Blog/Blog/intro/logic_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果有50%以上的概率发生的话, 就让y&#x3D;1, 否则y&#x3D;0, 当然1和0在具体的问题中可能代表不同的意思</p>
 <p>因此, 逻辑回归既可以看作时<strong>回归算法</strong>, 也可以看作是<strong>分类算法</strong>. 通常作为分类算法用, 只可以解决<strong>二分类</strong>问题</p>
 <br>
@@ -276,19 +276,19 @@
 </blockquote>
 <p>而解决的方案也非常简单</p>
 <p>依然是使用线性回归的方式, 依然寻找θ和X进行点乘, 只不过<strong>将结果再作为一个特征值, 送给一个σ函数</strong></p>
-<p><img src="/Blog/Blog/intro/logic_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>经过这个σ函数的转换, 转换成一个值域在[0, 1]之间的值</p>
 <p>这样就得到了某一个事件的概率</p>
 <br>
 
 <h2 id="Sigmoid-函数"><a href="#Sigmoid-函数" class="headerlink" title="Sigmoid 函数"></a>Sigmoid 函数</h2><p>下面的关键就是Sigma 函数是什么</p>
 <p>通常使用一个叫 Sigmoid 的函数</p>
-<p><img src="/Blog/Blog/intro/logic_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>首先尝试绘制一下这个函数, 进而再解释为什么这个函数可以非常好的将一个θX的值转换成概率值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sigmoid</span>(<span class="hljs-params">t</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> / (<span class="hljs-number">1</span> + np.exp(-t))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    x = np.linspace(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">500</span>)<br>    y = sigmoid(x)<br><br>    plt.plot(x, y)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
 <p>可以看到绘制结果就是这样, 这就是sigmoid函数</p>
-<p><img src="/Blog/Blog/intro/logic_reg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>分析一下sigmoid函数</p>
@@ -299,9 +299,9 @@
 <br>
 
 <p>而我们是要把线性回归的结果代入式子中, 因此</p>
-<p><img src="/Blog/Blog/intro/logic_reg_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>之后再来看预估的概率</p>
-<p><img src="/Blog/Blog/intro/logic_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>这样的函数的特点就是把任何数转换到一定范围内 ([0, 1]之间)</p>
 <p>而这样的函数还有 tanh, arctan…</p>
@@ -316,45 +316,45 @@
 <p>逻辑回归和线性回归最大的区别, 由于逻辑回归解决的是分类问题, 所以给出来的数据y或者是1, 或者是0.</p>
 <p>而我们是根据估计出的 p(代表一个概率), 来决定估计的y是1还是0, 它分成了这两类</p>
 <p>相应的损失函数也可以分成这两类</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>注意y是真值, 也就是说如果<strong>真实的y</strong>的分类为1的话, 那么估计出来的p越小, y<sub>hat</sub>就越倾向把值估计成是0, 也就是估计错误, 这种情况下损失就越大</p>
 <p>反方向也同理, 如果y&#x3D;0, 如果给定的样本真实值分类为0的话, p越大, y<sub>hat</sub>越倾向于分类为1, 损失就越高</p>
 <br>
 
 <p>那么什么样的函数可以表示这样的一种趋势?</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>log(x)的曲线是这样的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而-log(x)</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而由于传给这个函数是一个估计值p, 它只有可能在[0, 1]之间取值, 因此下面的部分是没有用的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p> 当p取0的时候, 此时**-log(p)**趋近于正无穷</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>注意: 假设y&#x3D;1, 使用的函数是-log(p), 当p&#x3D;0的时候, 我们会把样本分类成0那一类, 而实际y&#x3D;1, 所以此时对它进行惩罚, 这个惩罚是正无穷的</p>
 <p>随着p逐渐增高, 损失越来越小, 当到达1的时候, 也就是根据分类标准会将样本分类成1, 此时和样本真实等于1是一致的. 此时-log(p) 取0, 也就是说没有任何损失</p>
 <p>这样一根曲线就描述了, 当样本真实的标记输出为1的时候, 估计出p以后, 将p代入式子得到的损失函数</p>
 <br>
 
 <p>再看另外一半式子, 其实这个式子和上面是一样的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于此时y&#x3D;0, 所以整个方向就要反着来, 分析过程都是一样的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>这个函数是一个分类函数, 根据y&#x3D;0还是1选择不同的函数, 这是非常不方便的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>然而其实我们可以把它合成一个函数</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于y只能是0或1, 所以代入式子中就只剩下一个</p>
 <p>对于每一个样本, 就都可以计算出一个损失, 而对于m个样本, 只要求所有损失的平均就可以了</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个就是逻辑回归整体的损失函数</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>把p代入函数中就是:</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>下面就是找到一组θ, 使得这个式子达到一个最小值</p>
 <p>然而一个不好的消息是: 对于这个函数来说, 无法像线性回归的式子一样非常容易地推导出一个正规方程解. 实际上对于这个式子来说是没有<strong>数学的解析解</strong>的</p>
 <p>只能使用梯度下降法求解, 而一个好消息就是: 这个函数是一个<strong>凸函数</strong>(没有局部最优解, 只有全局最优解)</p>
@@ -362,7 +362,7 @@
 <br>
 
 <h2 id="梯度推导"><a href="#梯度推导" class="headerlink" title="梯度推导"></a>梯度推导</h2><p>已知损失函数是这样的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>求梯度就是对J(θ)每一个θ求导</p>
 <br>
 
@@ -371,83 +371,83 @@
 <p>$$<br>&#x3D;(1+e^{-t})^{-2}e^{-t} \ \ \ \ \ \ <br>$$</p>
 <p>此时就可以往外扩展一层</p>
 <p>看看对 log(Sigmoid) 求导是怎样的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>再整理一下</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>也就是说log(σ(t))的导数是<br>$$<br>(log\ \sigma (t))^{\prime}&#x3D;1-\sigma (t)<br>$$<br><br></p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个损失函数, 有两部分, 前半部分的导数是针对某一个θ<sub>j</sub>求导</p>
 <p>得到的结果是</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于是对θ<sub>j</sub>求导, θ<sub>j</sub>的前面是有一个系数的, 系数就是X矩阵的第 i 行第 j 列</p>
 <br>
 
 <p>下面再看后半部分对应的导数</p>
 <p>已知 σ(t) 的导数, 看看log(1-σ(t))的导数</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>再看看怎么化简</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>把这个结果代入式子中去</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而<br>$$<br>\sigma(t) &#x3D; \frac 1 {1+e^{-t}}&#x3D;(1+e^{-t})^{-1}<br>$$<br>所以结果就是 -σ(t)<br>$$<br>(log(1-\sigma(t)))^{\prime}&#x3D;-\sigma(t)<br>$$<br>此时就可以对损失函数中后半截的式子求导</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
  <br>
 
 <p>所以前半部分和后半部分的导数分别是</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>把括号打开就是</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>那么 J(θ) 对于θ<sub>j</sub>的导数就是</p>
-<p> <img src="/Blog/Blog/intro/logic_reg_cost_20.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/logic_reg_cost_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>注意这里<br>$$<br>\hat y^{(i)} &#x3D;\hat p^{(i)}&#x3D;  \sigma(X_b^{(i)}\theta)<br>$$<br>也就是预测样本第i行的概率是多少</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_21.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>这个形式和线性回归也有着密切的联系</p>
 </blockquote>
 <p>求出 J(θ) 对于θ<sub>j</sub>的导数后, 求梯度就很容易了</p>
-<p> <img src="/Blog/Blog/intro/logic_reg_cost_22.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/logic_reg_cost_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>线性回归中, 梯度是这样一个式子:</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_23.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而X<sub>b</sub><sup>i</sup>θ是线性回归的预测值, 也就是说向量中是由共通的部分的</p>
 <p>每一个元素都是y<sup>i</sup>的预测值减去y<sup>i</sup>的真值再乘以X<sup>i</sup>的对应维度再进行求和</p>
 <p>只不过对于线性回归来说预测值的求法是X<sub>b</sub><sup>i</sup>θ</p>
 <p>而对于逻辑回归来说是 σ(X<sub>b</sub><sup>i</sup>θ)</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_24.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 </blockquote>
 <p>而我们发现的这个规律可以非常快速地进行向量化操作</p>
-<p> <img src="/Blog/Blog/intro/logic_reg_cost_25.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/logic_reg_cost_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而对与逻辑回归, 由于整体结构和线性回归相同, 只不过是对y<sub>hat</sub>求法不同, 所以</p>
-<p><img src="/Blog/Blog/intro/logic_reg_cost_26.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> metrics <span class="hljs-keyword">import</span> accuracy_score<br><span class="hljs-keyword">from</span> model_selection <span class="hljs-keyword">import</span> train_test_split<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">LogisticRegression</span>:<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化Linear Regression模型&quot;&quot;&quot;</span><br>        self.coef_ = <span class="hljs-literal">None</span><br>        self.intercept_ = <span class="hljs-literal">None</span><br>        self._theta = <span class="hljs-literal">None</span><br><br>    <span class="hljs-comment"># 用于对接scikit-learn的接口</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit</span>(<span class="hljs-params">self, X_train, y_train</span>):<br>        <span class="hljs-keyword">return</span> self.fit_gd(X_train, y_train)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">_sigmoid</span>(<span class="hljs-params">self, t</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1.</span> / (<span class="hljs-number">1.</span> + np.exp(-t))<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit_gd</span>(<span class="hljs-params">self, X_train, y_train, eta=<span class="hljs-number">0.01</span>, n_iters=<span class="hljs-number">10000</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;根据训练数据集X_train, y_train, 使用梯度下降法训练Logistic Regression模型&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">assert</span> X_train.shape[<span class="hljs-number">0</span>] == y_train.shape[<span class="hljs-number">0</span>], \<br>            <span class="hljs-string">&quot;the size of X_train must be equal to the size of y_train&quot;</span><br><br>        <span class="hljs-comment"># 计算损失函数的值</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">J</span>(<span class="hljs-params">theta, X_b, y</span>):<br>            y_hat = self._sigmoid(X_b.dot(theta))<br>            <span class="hljs-keyword">try</span>:<br>                <span class="hljs-keyword">return</span> - np.<span class="hljs-built_in">sum</span>(y*np.log(y_hat) + (<span class="hljs-number">1</span>-y)*np.log(<span class="hljs-number">1</span>-y_hat)) / <span class="hljs-built_in">len</span>(X_b)<br>            <span class="hljs-keyword">except</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br><br>        <span class="hljs-comment"># 计算梯度(导数)</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ</span>(<span class="hljs-params">theta, X_b, y</span>):<br>            <span class="hljs-keyword">return</span> X_b.T.dot(self._sigmoid(X_b.dot(theta)) - y) / <span class="hljs-built_in">len</span>(X_b)<br><br>        <span class="hljs-comment"># 梯度下降</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">gradient_descent</span>(<span class="hljs-params">X_b, y, initial_theta, eta, n_iters=<span class="hljs-number">10000</span>, epsilon=<span class="hljs-number">1e-8</span></span>):<br>            theta = initial_theta<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_iters):<br>                gradient = dJ(theta, X_b, y)<br>                last_theta = theta<br>                theta = theta - eta * gradient<br>                <span class="hljs-comment"># 如果误差可以忽略不计</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(J(theta, X_b, y) - J(last_theta, X_b, y)) &lt; epsilon:<br>                    <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">return</span> theta<br><br>        X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X_train), <span class="hljs-number">1</span>)), X_train])<br><br>        initial_theta = np.zeros(X_b.shape[<span class="hljs-number">1</span>])<br>        self._theta = gradient_descent(X_b, y_train, initial_theta, eta, n_iters)<br><br>        self.intercept_ = self._theta[<span class="hljs-number">0</span>]<br>        self.coef_ = self._theta[<span class="hljs-number">1</span>:]<br><br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict_proba</span>(<span class="hljs-params">self, X_predict</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;给定待预测数据集X_predict, 返回X_predict的结果向量&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">assert</span> self.intercept_ <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> self.coef_ <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>, \<br>            <span class="hljs-string">&quot;must fit before predict&quot;</span><br>        <span class="hljs-keyword">assert</span> X_predict.shape[<span class="hljs-number">1</span>] == <span class="hljs-built_in">len</span>(self.coef_), \<br>            <span class="hljs-string">&quot;the feature number of X_predict must be equal to X_train&quot;</span><br>        X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X_predict), <span class="hljs-number">1</span>)), X_predict])<br>        <span class="hljs-keyword">return</span> self._sigmoid(X_b.dot(self._theta))<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict</span>(<span class="hljs-params">self, X_predict</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;给定待预测数据集X_predict, 返回X_predict的结果向量&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">assert</span> self.intercept_ <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> self.coef_ <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>, \<br>            <span class="hljs-string">&quot;must fit before predict&quot;</span><br>        <span class="hljs-keyword">assert</span> X_predict.shape[<span class="hljs-number">1</span>] == <span class="hljs-built_in">len</span>(self.coef_), \<br>            <span class="hljs-string">&quot;the feature number of X_predict must be equal to X_train&quot;</span><br>        proba = self.predict_proba(X_predict)<br>        <span class="hljs-keyword">return</span> np.array(proba &gt;= <span class="hljs-number">0.5</span>, dtype=<span class="hljs-string">&#x27;int&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">score</span>(<span class="hljs-params">self, x_test, y_test</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;根据测试数据集 x_test 和 y_test 确定当前模型的准确度&quot;&quot;&quot;</span><br>        y_predict = self.predict(x_test)<br>        <span class="hljs-keyword">return</span> accuracy_score(y_test, y_predict)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;LogicRegression()&quot;</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    iris = datasets.load_iris()<br>    X = iris.data<br>    y = iris.target<br>	<br>    <span class="hljs-comment"># 逻辑回归只能解决二分类问题, 为了可视化只取两个特征</span><br>    X = X[y &lt; <span class="hljs-number">2</span>, :<span class="hljs-number">2</span>]<br>    y = y[y &lt; <span class="hljs-number">2</span>]<br><br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;blue&quot;</span>)<br>    plt.show()<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="hljs-number">666</span>)<br>    log_reg = LogisticRegression()<br>    log_reg.fit_gd(X_train, y_train)<br>    <span class="hljs-comment"># 准确率1.0</span><br>    <span class="hljs-built_in">print</span>(log_reg.score(X_test, y_test))<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_cost_27.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_cost_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h2 id="决策边界"><a href="#决策边界" class="headerlink" title="决策边界"></a>决策边界</h2><p>上面的逻辑回归就是根据线性回归实现的, 它也能求出一组θ. 那么这组θ有什么几何意义?</p>
 <br>
 
 <p>再回忆一下逻辑回归的原理</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们很容易就得到这样一个结论</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>当 θ<sup>T</sup>X<sub>b</sub> &gt;&#x3D; 0 的时候, 也就是p<sub>hat</sub> &gt;&#x3D; 0.5 的时候, 此时把样本分类为y&#x3D;1, 反之分类为y&#x3D;0</p>
 <p>换句话说, 分类的边界点在θ<sup>T</sup>X<sub>b</sub> &#x3D; 0这个位置, 这个位置就称为<strong>决策边界</strong></p>
 <p>而θ<sup>T</sup>X<sub>b</sub> &#x3D; 0 同时代表一条直线, </p>
-<p> <img src="/Blog/Blog/intro/logic_reg_ju_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/logic_reg_ju_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>不过通常在表达直线时是通过y&#x3D;ax+b的形式, 此时y&#x3D;x<sub>2</sub></p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">x2</span>(<span class="hljs-params">x1</span>):<br>    <span class="hljs-keyword">return</span> (-log_reg.coef_[<span class="hljs-number">0</span>] * x1 - log_reg.intercept_) / log_reg.coef_[<span class="hljs-number">1</span>]<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    iris = datasets.load_iris()<br>    X = iris.data<br>    y = iris.target<br><br>    X = X[y &lt; <span class="hljs-number">2</span>, :<span class="hljs-number">2</span>]<br>    y = y[y &lt; <span class="hljs-number">2</span>]<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="hljs-number">666</span>)<br>    log_reg = LogisticRegression()<br>    log_reg.fit_gd(X_train, y_train)<br>    <span class="hljs-comment"># 1.0</span><br>    <span class="hljs-built_in">print</span>(log_reg.score(X_test, y_test))<br><br>    x1_plot = np.linspace(<span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1000</span>)<br>    x2_plot = x2(x1_plot)<br><br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;blue&quot;</span>)<br>    plt.plot(x1_plot, x2_plot)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这就是决策边界, 这个边界大体上将数据分为了两部分</p>
 <p>如果在这条直线的下面, 则分类为1, 相反, 如果得到的结果小于0, 也就是说在直线上方就分类为0</p>
 <p>如果等于0就正好落在决策边界上, 此时无论分类成0还是分类成1都是正确的</p>
@@ -464,23 +464,23 @@
 
 <h3 id="不规则的决策边界的绘制方法"><a href="#不规则的决策边界的绘制方法" class="headerlink" title="不规则的决策边界的绘制方法"></a>不规则的决策边界的绘制方法</h3><p>在特征平面中, 分布着无数的点, 对于每一个点, 都可以使用模型来判断它分为哪一类.</p>
 <p>对平面中足够密地所有的点都判断一下它应该分为那一类</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>得到的就是决策边界</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_decision_boundary</span>(<span class="hljs-params">model, axis</span>):<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br>    <br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>])<br>    <br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    iris = datasets.load_iris()<br>    X = iris.data<br>    y = iris.target<br><br>    X = X[y &lt; <span class="hljs-number">2</span>, :<span class="hljs-number">2</span>]<br>    y = y[y &lt; <span class="hljs-number">2</span>]<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="hljs-number">666</span>)<br>    log_reg = LogisticRegression()<br>    log_reg.fit_gd(X_train, y_train)<br>    <span class="hljs-comment"># 1.0</span><br>    <span class="hljs-built_in">print</span>(log_reg.score(X_test, y_test))<br><br>    x1_plot = np.linspace(<span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1000</span>)<br>    x2_plot = x2(x1_plot)<br><br>    plot_decision_boundary(log_reg, axis=[<span class="hljs-number">4</span>, <span class="hljs-number">7.5</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">4.5</span>])<br><br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;blue&quot;</span>)<br>    plt.plot(x1_plot, x2_plot)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="kNN算法的决策边界"><a href="#kNN算法的决策边界" class="headerlink" title="kNN算法的决策边界"></a>kNN算法的决策边界</h3><p>kNN算法也有决策边界, 虽然不是用数学的方式计算出表达式</p>
 <p>但依然可以使用这种方式进行绘制</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">knn_clf = KNeighborsClassifier()<br>knn_clf.fit(X_train, y_train)<br><br>plot_decision_boundary(knn_clf, axis=[<span class="hljs-number">4</span>, <span class="hljs-number">7.5</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">4.5</span>])<br>plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;blue&quot;</span>)<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个边界是一个曲线</p>
 <p>而对于kNN算法来说支持多分类, 如果作用在三个类别上</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">knn_clf_all = KNeighborsClassifier()<br>knn_clf_all.fit(iris.data[:, :<span class="hljs-number">2</span>], iris.target)<br>plot_decision_boundary(knn_clf_all, axis=[<span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">4.5</span>])<br>plt.scatter(iris.data[iris.target == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], iris.data[iris.target == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>plt.scatter(iris.data[iris.target == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], iris.data[iris.target == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>plt.scatter(iris.data[iris.target == <span class="hljs-number">2</span>, <span class="hljs-number">0</span>], iris.data[iris.target == <span class="hljs-number">2</span>, <span class="hljs-number">1</span>])<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>可以看出决策边界是非常不规则的, 这样弯弯曲曲的样子就是<strong>过拟合</strong>的一种表现</p>
 <p>kNN的k越小, 模型就越复杂, 这里就可视化地看到了模型有多复杂, 决策边界非常不规则</p>
 <br>
@@ -488,7 +488,7 @@
 <p>如果n&#x3D;50, 决策边界就规整了很多</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">knn_clf_all = KNeighborsClassifier(n_neighbors=<span class="hljs-number">50</span>)<br>knn_clf_all.fit(iris.data[:, :<span class="hljs-number">2</span>], iris.target)<br>plot_decision_boundary(knn_clf_all, axis=[<span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">4.5</span>])<br>plt.scatter(iris.data[iris.target == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], iris.data[iris.target == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>plt.scatter(iris.data[iris.target == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], iris.data[iris.target == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>plt.scatter(iris.data[iris.target == <span class="hljs-number">2</span>, <span class="hljs-number">0</span>], iris.data[iris.target == <span class="hljs-number">2</span>, <span class="hljs-number">1</span>])<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>整体分成三大块, 非常清晰</p>
 <blockquote>
 <p>又一次验证了, 对于kNN算法来说, k的值越大, 模型越简单, 决策边界整体越规整</p>
@@ -499,11 +499,11 @@
 <br>
 
 <h2 id="在逻辑回归使用多项式特征"><a href="#在逻辑回归使用多项式特征" class="headerlink" title="在逻辑回归使用多项式特征"></a>在逻辑回归使用多项式特征</h2><p>直线这种分类方式太简单了, 显然有很多其他情况</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于这些样本点来说, 是不可能使用一根直线来很好地分割成两部分</p>
 <p>这是因为这些样本点的分布是非线性的</p>
 <p>实际上这些样本点可以用圆形开分割决策边界</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>显然现在的决策回归算法是无法得到这样一个圆形的决策边界的</p>
 <p>而对于一个圆形, 它的方程是这个样子<br>$$<br>x_1^2+x_2^2-r^2&#x3D;0<br>$$<br>能否让逻辑回归学习到这样的决策边界?</p>
 <p>和线性回归一样, 只要引入多项式项就好了</p>
@@ -518,17 +518,17 @@
 <p>使用普通逻辑回归的决策边界</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> matplotlib.colors <span class="hljs-keyword">import</span> ListedColormap<br><br><span class="hljs-keyword">from</span> LogisticRegression <span class="hljs-keyword">import</span> LogisticRegression<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_decision_boundary</span>(<span class="hljs-params">model, axis</span>):<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br><br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>])<br><br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    np.random.seed(<span class="hljs-number">666</span>)<br>    X = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, size=(<span class="hljs-number">200</span>, <span class="hljs-number">2</span>))<br>    y = np.array(X[:, <span class="hljs-number">0</span>]**<span class="hljs-number">2</span> + X[:, <span class="hljs-number">1</span>]**<span class="hljs-number">2</span> &lt; <span class="hljs-number">1.5</span>, dtype=<span class="hljs-string">&#x27;int&#x27;</span>)<br><br>    log_reg = LogisticRegression()<br>    log_reg.fit(X, y)<br>    plot_decision_boundary(log_reg, [-<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>显然有非常多的错误分类</p>
 <br>
 
 <p>添加多项式项后的逻辑回归</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">PolynomialLogisticRegression</span>(<span class="hljs-params">degree</span>):<br>    <span class="hljs-keyword">return</span> Pipeline([<br>        (<span class="hljs-string">&quot;poly&quot;</span>, PolynomialFeatures(degree)),<br>        (<span class="hljs-string">&quot;std&quot;</span>, StandardScaler()),<br>        (<span class="hljs-string">&quot;log_reg&quot;</span>, LogisticRegression())<br>    ])<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    np.random.seed(<span class="hljs-number">666</span>)<br>    X = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, size=(<span class="hljs-number">200</span>, <span class="hljs-number">2</span>))<br>    y = np.array(X[:, <span class="hljs-number">0</span>]**<span class="hljs-number">2</span> + X[:, <span class="hljs-number">1</span>]**<span class="hljs-number">2</span> &lt; <span class="hljs-number">1.5</span>, dtype=<span class="hljs-string">&#x27;int&#x27;</span>)<br><br>    poly_log_reg = PolynomialLogisticRegression(<span class="hljs-number">2</span>)<br>    poly_log_reg.fit(X, y)<br>    <span class="hljs-comment"># 准确率高达95%</span><br>    <span class="hljs-built_in">print</span>(poly_log_reg.score(X, y))<br><br>    plot_decision_boundary(poly_log_reg, [-<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/logic_reg_ju_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>决策边界是这样一个圆形</p>
 <p>而如果degree&#x3D;20, 决策边界就是这样, 毫无疑问, 发生了过拟合</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
  <br>
 
 <p>解决过拟合的方式除了降低degree, 就是进行模型的正则化</p>
@@ -539,7 +539,7 @@
 <br>
 
 <p>除了在L1, L2前面添加超参数, 还有一种方式就是在 J(θ) 前添加超参数</p>
-<p><img src="/Blog/Blog/intro/logic_reg_ju_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/logic_reg_ju_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>使用这种方式就相当于如果C越大, 就越会集中火力将 J(θ) 减小到最小. 如果C越小, L1或L2正则项就更加重要, 因此就会尽力将L1L2正则项变得更加小</p>
 <p>所以在 J(θ) 前面添加 C 某种程度上可以理解为在正则项前面加α的倒数. 依然有这两项, 只不过为了平衡这两项之间的关系, 在 J(θ) 前增加了系数</p>
 <p><strong>在对模型进行正则化的时候我们更偏向于在 J(θ) 前面添加 C</strong></p>
@@ -553,23 +553,23 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">PolynomialLogisticRegression</span>(<span class="hljs-params">degree, C=<span class="hljs-number">1.</span>, penalty=<span class="hljs-string">&#x27;l2&#x27;</span></span>):<br>    <span class="hljs-keyword">return</span> Pipeline([<br>        (<span class="hljs-string">&quot;poly&quot;</span>, PolynomialFeatures(degree)),<br>        (<span class="hljs-string">&quot;std&quot;</span>, StandardScaler()),<br>        <span class="hljs-comment"># 如果想使用l1范数, 就必须设置solver=&#x27;liblinear&#x27;</span><br>        (<span class="hljs-string">&quot;log_reg&quot;</span>, LogisticRegression(C=C, penalty=penalty, solver=<span class="hljs-string">&#x27;liblinear&#x27;</span>))<br>    ])<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    np.random.seed(<span class="hljs-number">666</span>)<br>    X = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, size=(<span class="hljs-number">200</span>, <span class="hljs-number">2</span>))<br>    y = np.array(X[:, <span class="hljs-number">0</span>] ** <span class="hljs-number">2</span> + X[:, <span class="hljs-number">1</span>] &lt; <span class="hljs-number">1.5</span>, dtype=<span class="hljs-string">&#x27;int&#x27;</span>)<br>    <span class="hljs-comment"># 因为要测试正则化, 挑选20个点, 强制它们为1</span><br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>):<br>        y[np.random.randint(<span class="hljs-number">200</span>)] = <span class="hljs-number">1</span><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">666</span>)<br><br>    <span class="hljs-comment"># 单项式的逻辑回归</span><br>    log_reg = LogisticRegression()<br>    log_reg.fit(X_train, y_train)<br>    <span class="hljs-built_in">print</span>(log_reg.score(X_train, y_train))  <span class="hljs-comment"># 0.793</span><br>    <span class="hljs-built_in">print</span>(log_reg.score(X_test, y_test))    <span class="hljs-comment"># 0.86</span><br>    plot_decision_boundary(log_reg, [-<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br><br>    poly_log_reg = PolynomialLogisticRegression(<span class="hljs-number">2</span>)<br>    poly_log_reg.fit(X_train, y_train)<br>    <span class="hljs-built_in">print</span>(poly_log_reg.score(X_train, y_train)) <span class="hljs-comment"># 0.906</span><br>    <span class="hljs-built_in">print</span>(poly_log_reg.score(X_test, y_test))   <span class="hljs-comment"># 0.94</span><br>    plot_decision_boundary(poly_log_reg, [-<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
 <p>单项式的逻辑回归</p>
-<p><img src="/Blog/Blog/intro/sk_log_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/sk_log_reg.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>多项式的逻辑回归, degree&#x3D;2</p>
-<p><img src="/Blog/Blog/intro/sk_log_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/sk_log_reg_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>degree&#x3D;20, score&#x3D;0.92, 是比上面的score小的, 有过拟合产生</p>
-<p><img src="/Blog/Blog/intro/sk_log_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/sk_log_reg_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>当C&#x3D;0.1时, 同时使用默认的l2范数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">poly_log_reg = PolynomialLogisticRegression(<span class="hljs-number">20</span>, C=<span class="hljs-number">0.1</span>)<br>poly_log_reg.fit(X_train, y_train)<br>plot_decision_boundary(poly_log_reg, [-<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br>plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/sk_log_reg_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/sk_log_reg_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>当使用l1范数时</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">poly_log_reg = PolynomialLogisticRegression(<span class="hljs-number">20</span>, C=<span class="hljs-number">0.1</span>, penalty=<span class="hljs-string">&#x27;l1&#x27;</span>)<br>poly_log_reg.fit(X_train, y_train)<br>plot_decision_boundary(poly_log_reg, [-<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br>plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/sk_log_reg_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/sk_log_reg_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>l1会使大部分的多项式项的系数为0, 使得整个决策边界不再弯弯曲曲</p>
 <br>
 
@@ -591,25 +591,25 @@
 </blockquote>
 <br>
 
-<h3 id="OvR-One-vs-Rest"><a href="#OvR-One-vs-Rest" class="headerlink" title="OvR (One vs Rest)"></a>OvR (One vs Rest)</h3><p><img src="/Blog/Blog/intro/ovr.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="OvR-One-vs-Rest"><a href="#OvR-One-vs-Rest" class="headerlink" title="OvR (One vs Rest)"></a>OvR (One vs Rest)</h3><p><img src="/Blog/Blog/intro/ovr.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>假设有4个类别, 用4个点表示.</p>
 <p>显然这样无法直接使用逻辑回归来解决.</p>
 <p>我们可以选取某一个类别, 例如选取红色类别, 而其余3个点融合成一个类别”其他类别”(rest)</p>
-<p><img src="/Blog/Blog/intro/ovr_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/ovr_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个过程同样可以在其他的类别上进行</p>
-<p><img src="/Blog/Blog/intro/ovr_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/ovr_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果有4个类别, 相应就有4个不同的分类问题. 每次都选择一个类别和剩余类别进行二分类任务</p>
 <p>对于每一个二分类任务, 都能得到一个概率.</p>
 <p><strong>n个类别就进行n次分类, 选择分类得分最高的(概率最高的)</strong></p>
 <p>如果处理一个二分类问题的用时是t的话, 处理n个问题就是nt这么多的事件</p>
 <br>
 
-<h3 id="OvO-One-vs-One"><a href="#OvO-One-vs-One" class="headerlink" title="OvO (One vs One)"></a>OvO (One vs One)</h3><p><img src="/Blog/Blog/intro/ovr.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="OvO-One-vs-One"><a href="#OvO-One-vs-One" class="headerlink" title="OvO (One vs One)"></a>OvO (One vs One)</h3><p><img src="/Blog/Blog/intro/ovr.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>其实就是一对一地进行比较</p>
 <p>每次只挑出两个类别, 然后进行二分类任务</p>
-<p><img src="/Blog/Blog/intro/OVO.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/OVO.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个过程可以重复进行, 如果有4个类别, 就能形成六个两两的对</p>
-<p><img src="/Blog/Blog/intro/OVO_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/OVO_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于每一个二分类问题, 都可以估计一下, 它处于这个二分类问题中的那个类别, 然后对于这些分类结果就可以进行投票</p>
 <p>看对于这个样本, 对于这6票中, 那个分类的票数最多, 就可以判定在那个类别中</p>
 <p><strong>n个类别就进行C(n, 2)次分类, 选择赢数最高的分类</strong></p>
@@ -623,13 +623,13 @@
 <p>scikit-learn中的逻辑回归内部实现了ovr和ovo</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> matplotlib.colors <span class="hljs-keyword">import</span> ListedColormap<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LogisticRegression<br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_decision_boundary</span>(<span class="hljs-params">model, axis</span>):<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br><br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>])<br><br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    iris = datasets.load_iris()<br>    X = iris.data[:, :<span class="hljs-number">2</span>]<br>    y = iris.target<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">666</span>)<br>    <span class="hljs-comment"># scikit-learn的逻辑回归默认使用OvR, solver=newton-cg</span><br>	log_reg = LogisticRegression(multi_class=<span class="hljs-string">&quot;ovr&quot;</span>, solver=<span class="hljs-string">&quot;liblinear&quot;</span>)<br>    log_reg.fit(X_train, y_train)<br>    <span class="hljs-comment"># print(log_reg.score(X_test, y_test))</span><br><br>    plot_decision_boundary(log_reg, axis=[<span class="hljs-number">4</span>, <span class="hljs-number">8.5</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">4.5</span>])<br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">2</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">2</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/OVO_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/OVO_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果使用ovo</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">log_reg = LogisticRegression(multi_class=<span class="hljs-string">&quot;multinomial&quot;</span>, solver=<span class="hljs-string">&quot;newton-cg&quot;</span>)<br>log_reg.fit(X_train, y_train)<br><br>plot_decision_boundary(log_reg, axis=[<span class="hljs-number">4</span>, <span class="hljs-number">8.5</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">4.5</span>])<br>plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>plt.scatter(X[y==<span class="hljs-number">2</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">2</span>, <span class="hljs-number">1</span>])<br>plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/OVO_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/OVO_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>scikit-learn还封装了两个类, 这两个类可以用来支持OvO和OvR两种方式, 因此可以使用任意二分类算法通过这两个类完成多分类任务</p>
@@ -644,7 +644,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -652,9 +652,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -671,19 +671,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/08/machine-learning-8/">
+                      <a href="/Blog/2020/05/08/machine-learning-8/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">python3入门机器学习(8)-评价分类结果</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/05/01/machine-learning-6/">
+                      <a href="/Blog/2020/05/01/machine-learning-6/">
                         <span class="hidden-mobile">python3入门机器学习(6)-多项式回归与模型泛化</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -700,7 +700,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -726,7 +726,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -735,7 +735,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -775,18 +775,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -839,7 +839,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

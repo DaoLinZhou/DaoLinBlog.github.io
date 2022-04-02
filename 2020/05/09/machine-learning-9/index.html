@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="支撑向量机 SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(9)-SVM支撑向量机">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/05/09/machine-learning-9/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/09/machine-learning-9/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="支撑向量机 SVM">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/svm_5.jpg">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/svm_5.jpg">
 <meta property="article:published_time" content="2020-05-09T22:42:50.000Z">
 <meta property="article:modified_time" content="2020-06-02T22:07:19.949Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/svm_5.jpg">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/svm_5.jpg">
   
   
   <title>python3入门机器学习(9)-SVM支撑向量机 - Daolin&#39;s Repository</title>
@@ -63,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -83,7 +83,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -102,9 +102,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -114,9 +114,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -126,9 +126,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -138,9 +138,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -150,9 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -176,7 +176,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/science_gate_time.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/science_gate_time.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -254,10 +254,10 @@
 <br>
 
 <p>逻辑回归的算法就是在特征空间中找到一个决策边界</p>
-<p><img src="/Blog/Blog/intro/svm.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果在决策边界的一侧, 算法就认为属于某一类, 在另一侧就是另外一类</p>
 <p>不过对于一些数据存在这样的问题: <strong>决策边界不唯一</strong></p>
-<p><img src="/Blog/Blog/intro/svm_1.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_1.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于这种决策边界不唯一的问题有一个术语: <strong>不适定问题</strong></p>
 <br>
 
@@ -268,10 +268,10 @@
 
 <p>支撑向量机解决的思路稍微有一些不同.</p>
 <p>假设得到的决策边界是这样一根线</p>
-<p><img src="/Blog/Blog/intro/svm.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>显然在训练数据集上, 非常好的将数据分成了两部分. 但是现在对于机器学习算法有一个非常重要的问题: <strong>算法的泛化能力</strong></p>
 <p>换句话说, 对未知的数据进行判断是机器学习算法真正的目的</p>
-<p><img src="/Blog/Blog/intro/svm_2.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_2.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>左上角有一个样本, 根据这个决策边界, 这个点会被归为蓝色样本. 但是直观地看就会觉得将这个数据点分成红色类别是更加合理的</p>
 <p>换句话说: 求出的决策边界的泛化效果不够好</p>
 <p>这是为什么? 这是因为<strong>决策边界离红色的点太近了</strong></p>
@@ -279,9 +279,9 @@
 <br>
 
 <p>那么什么样的泛化边界效果可能比较好?</p>
-<p><img src="/Blog/Blog/intro/svm_3.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_3.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个直线的特点: 离这个直线最近的那些点, 尽可能的远</p>
-<p><img src="/Blog/Blog/intro/svm_4.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_4.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>换句话说我期望: <strong>决策边界距离红色的点尽可能远, 离蓝色点也尽可能远, 同时它还能很好地分布红色和蓝色两个类别</strong></p>
 <p>相当于是要找到一个决策边界, 这个决策边界不仅要很好的将训练数据集中的样本进行划分, 同时考虑到未来, 期望泛化能力尽可能好</p>
 <p class="note note-info"> SVM这种思想, 对未来的泛化能力尽可能的好的考量, 没有寄望在数据的预处理阶段, 或者是找到模型之后在对模型正则化的方式.而是将对泛化能力的考量直接放在算法内部</p>
@@ -295,15 +295,15 @@
 </blockquote>
 <br>
 
-<p><img src="/Blog/Blog/intro/svm_4.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_4.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>再看SVM要找的决策边界有什么特点?</p>
 <p>这个决策边界要离这两个类别的数据点都尽可能远</p>
 <p>这个意思就是这两个类别中, 离决策边界最近的那些点到决策边界的距离尽可能远</p>
 <p>红色类别中有两个点, 蓝色类别中有一个点, 这三个点到决策边界的距离是一样的. 同时它们是离决策边界最近的点. (这三个点称为<strong>支撑向量</strong>)</p>
 <p>这些特殊的数据点又定义出了两根直线, 这两根直线和决策边界的直线是平行的</p>
-<p><img src="/Blog/Blog/intro/svm_5.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_5.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这两个直线相当于定义了一个区域. 在这两根直线中, 将不再有任何数据点. SVM最终得到的决策边界, 就相当于这个<strong>区域中间的线</strong></p>
-<p><img src="/Blog/Blog/intro/svm_6.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_6.jpg" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>支撑向量定义了一个区域, 而决策边界就是被这个区域所定义的</p>
 <p>换句话说, 找到的最优的决策边界是由<strong>支撑向量</strong>定义的</p>
 <p>这三根直线之间的距离是一样的(称为d), 而最外面两个直线的距离称为 margin, margin &#x3D; d + d</p>
@@ -325,7 +325,7 @@
 
 <br>
 
-<h2 id="SVM背后的最优化问题"><a href="#SVM背后的最优化问题" class="headerlink" title="SVM背后的最优化问题"></a>SVM背后的最优化问题</h2><p><img src="/Blog/Blog/intro/svm_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="SVM背后的最优化问题"><a href="#SVM背后的最优化问题" class="headerlink" title="SVM背后的最优化问题"></a>SVM背后的最优化问题</h2><p><img src="/Blog/Blog/intro/svm_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>margin &#x3D; 2d</p>
 <p>换句话说, SVM 要最大化margin的话, 也就是说要最大化d.</p>
 <p>也就是说, 找到d的表达式也可以求解这个问题</p>
@@ -342,11 +342,11 @@
 <p>因此也就是寻找这个平面上任意一点到(x<sub>0</sub>, y<sub>0</sub>, z<sub>0</sub>)的向量对norm向量做scaler projection的结果(正交投影的长度)</p>
 <p>假设平面上一点为(x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>), 则Ax<sub>1</sub>+By<sub>1</sub>+Cz<sub>1</sub>+d&#x3D;0</p>
 <p>这一点到(x<sub>0</sub>, y<sub>0</sub>, z<sub>0</sub>) 的向量就是 b &#x3D; (x<sub>1</sub>-x<sub>0</sub>, y<sub>1</sub>- y<sub>0</sub>, z<sub>1</sub>-z<sub>0</sub>)</p>
-<p><img src="/Blog/Blog/intro/proof_dis.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/proof_dis.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>之后分子加上d再减去d, 因此结果就是<br>$$<br>\frac {|ax_0+by_0+cz_0+d|} {\sqrt{a^2+b^2+c^2}}<br>$$</p>
 </blockquote>
 <p>如果拓展到n维</p>
-<p><img src="/Blog/Blog/intro/svm_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>向量x<sub>b</sub> 其实是在x的第0个元素的位置添加一个1, 这是因为θ向量中, 有一个θ<sub>0</sub></p>
 <p>将它转化为 w<sup>T</sup>x+b&#x3D;0 的形式, 相当于将θ<sub>0</sub>x<sub>0</sub>这一项拿出来当作截距. 这个截距就用b来表示</p>
 <p>而将样本中真是的特征用一个向量w 表示. w是weight(权值)的简写</p>
@@ -356,13 +356,13 @@
 
 <p>为什么用 w<sup>T</sup>x+b&#x3D;0 这种形式来表示方程?<br>$$<br>\frac {|Ax_0+By_0+C|} {\sqrt{A^2+B^2}}<br>$$<br>二维屏幕中这个公式, 分母的位置是和截距C没有关系的. 这一点可以同样扩展到n维空间</p>
 <p>n维空间中任意一个点 x<sub>0</sub> 到 w<sup>T</sup>x+b&#x3D;0 这个直线的距离是:<br>$$<br>\frac {|w^Tx_0+b|} {||w||}<br>$$<br>下面就可以把这个知识带到SVM算法的思路中了 </p>
-<p><img src="/Blog/Blog/intro/svm_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于SVM算法来说我们期望的是这两类: <span style="color:red;">红色样本的数据点</span>和<span style="color:blue;">蓝色样本的数据点</span>. 离最终求得的决策边界 (假设决策边界为w<sup>T</sup>x+b&#x3D;0)最近的点到决策边界的距离为b.</p>
 <p>换句话说: <strong>所有点到决策边界的距离都应该是大于等于b的</strong></p>
 <br>
 
 <p>把这样一个想法分别用这两类来讨论的话, 相应的就可以得到这样一个式子</p>
-<p><img src="/Blog/Blog/intro/svm_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于这两类, 一类叫做1, 一类叫做 -1 (之前一直管一类叫做1, 一类叫做0, 然而为了后续的一些计算才叫做1和-1) </p>
 <p>不过这两类在数学上起什么值是<strong>不影响</strong>的, 只要是两个不同的值, 能把这两类区分开即可</p>
 <p>对于属于1的这一类, 相当于任取一个 y<sup>(i)</sup>&#x3D;1 的样本, 都应该有<strong>点到直线的距离</strong>大于等于d</p>
@@ -370,36 +370,36 @@
 <br>
 
 <p>对这个式子在进行一下变形:</p>
-<p><img src="/Blog/Blog/intro/svm_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>d肯定是一个正数, 因为它代表距离, 所以不等号的符号是不变的</p>
 <p>对于这个式子来说可以仔细观察一下分母, w是一个n维的向量, 但是w的模是一个数, 于此同时d也是一个数, 换句话说: <strong>分母是一个数</strong></p>
 <p>对于分子来说, 可以想象成将<strong>w这个向量中的每一个元素</strong>都除以分母这个数, 再加上b这个截距也除以分母这个数</p>
 <p>对于这个新的w向量叫做w<sub>d</sub>, 新的截距b叫做b<sub>d</sub></p>
-<p><img src="/Blog/Blog/intro/svm_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>换句话说, 我们就知道了上下两根直线的直线方程应该是:</p>
-<p><img src="/Blog/Blog/intro/svm_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>不过在这里, 我们最初假设SVM最初的决策平面中间的直线是w<sup>T</sup>x+b&#x3D;0, 中间直线的参数是w和b, 上下两根直线的参数是w<sub>d</sub>和b<sub>d</sub></p>
 <p>他们之间就差 <strong>w的模乘以d</strong> 这个常数这么多倍.</p>
 <p>所以对于 w<sup>T</sup>x+b&#x3D;0 这个方程, 左右两边同时除以 w的模乘以d 这个常数</p>
-<p><img src="/Blog/Blog/intro/svm_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>让中间的直线的方程转化为w<sub>d</sub><sup>T</sup>x+b<sub>d</sub>&#x3D;0</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/svm_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样整理完, 相当于在式子中, 所有的未知数都使用了w<sub>d</sub>和b<sub>d</sub>.</p>
 <p>w<sub>d</sub>是一个含有n个元素的向量, b<sub>d</sub>是一个数</p>
 <p>既然所有的未知量都是w<sub>d</sub>和b<sub>d</sub>, 为了方便书写就把下角标d给去掉</p>
-<p><img src="/Blog/Blog/intro/svm_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p><strong>此时的w和b, 和最开始使用的w和b是不同的</strong>, 它们之间相差一个系数关系</p>
 <blockquote>
 <p>现在的w, d只是一个符号而已, 来代替之前公式里出现的w<sub>d</sub>和b<sub>d</sub></p>
 </blockquote>
 <p>对支撑向量机SVM来说就是求解这两个式子代表的条件下, w和b应该是多少</p>
 <p>依然, 两个式子非常不方便, 可以使用一个技巧融合成一个式子</p>
-<p><img src="/Blog/Blog/intro/svm_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
-<p><img src="/Blog/Blog/intro/svm_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们的目标是最大化d, 怎么表达d呢?</p>
 <p>d代表的是支撑向量到决策边界的距离</p>
 <p>换句话说, 最大化d就是最大化这个式子<br>$$<br>max\frac{|w^Tx+b|}{||w||}<br>$$<br>此时x应该是某一个支撑向量, 对于这某一个支撑向量, 代入w<sup>T</sup>x+b这个式子中要么等于1, 要么等于-1</p>
@@ -409,7 +409,7 @@
 <br>
 
 <p>因此整个支持向量机的算法就变成了这样一个最优化问题</p>
-<p><img src="/Blog/Blog/intro/svm_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>最优化的目标函数是<br>$$<br>min \frac 12||w||^2<br>$$<br>不过有一个限定条件是:<br>$$<br>y^{(i)}(w^Tx^{(i)}+b)&gt;&#x3D;1<br>$$<br>对于这样一个最优化问题, 它和之前讲的线性回归, 逻辑回归的最优化问题是不一样的</p>
 <p>之前讲的所有最优化问题是<strong>全局最优化问题</strong>, 换句话说是没有限定条件的</p>
 <p>而这个最优化问题是一个 <strong>有条件的最优化问题</strong></p>
@@ -421,7 +421,7 @@
 <p>对于有条件的最优化问题具体怎么求解, 超纲了(我不会)</p>
 <p>所以略去对于有条件的最优化问题求解的数学推导</p>
 <p>不过一定要了解支撑向量机这样一个思想用数学表达出来就是在最优化这样一个有条件的目标函数</p>
-<p><img src="/Blog/Blog/intro/svm_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 </blockquote>
 <p>解决这个问题是hard margin SVM问题, 它假设数据是线性可分的</p>
 <p>不过大多数时候数据不会那么好, 不会是线性可分的, 此时就必须用Soft Margin SVM</p>
@@ -433,30 +433,30 @@
 <p>对于有一些模型来说, 要改变正则化策略. 但是我们对它进行实现的效果是一样的.</p>
 <br>
 
-<h3 id="什么是Soft-Margin-SVM"><a href="#什么是Soft-Margin-SVM" class="headerlink" title="什么是Soft Margin SVM ?"></a>什么是Soft Margin SVM ?</h3><p><img src="/Blog/Blog/intro/soft_margin_svm.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="什么是Soft-Margin-SVM"><a href="#什么是Soft-Margin-SVM" class="headerlink" title="什么是Soft Margin SVM ?"></a>什么是Soft Margin SVM ?</h3><p><img src="/Blog/Blog/intro/soft_margin_svm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Hard Margin SVM 就是求解这样一个有条件下的最优化问题.</p>
 <p>当求出对应的w和b以后就求出了支撑向量基决策边界的方程</p>
 <br>
 
 <p>然而这里有一个问题: 如果有一个蓝色点的位置在这里</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时对于Hard Margin SVM来说, 它首先要保证能正确分出这两类</p>
 <p>这种情况下求出的决策边界很有可能是这样的一个直线</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于这样一根直线, 它的确非常正确的将训练数据集的两类数据分开了</p>
 <p>但是单独看这个图我们很可能会对它的泛化能力产生怀疑</p>
 <p>显然大多数蓝色的点都集中在左下角区域, 只有一个蓝色点靠近右上角. 很显然这个<strong>决策边界非常强地受到这个蓝色点的影响</strong></p>
 <p>但是很有可能这样的一个蓝色的点是一个outlier, 或者它根本就是一个错误的点. 或者它是一个极度特殊的点, 并不能代表一般情况</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/soft_margin_svm_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>很有可能这样的决策边界会是更好的一个决策边界</p>
 <p>这个决策边界虽然将一个蓝色的点进行了错误的分类. 但很有可能当我们将这个结果放到真实的生产环境中进行实际的预测的时候效果更好: 也就是<strong>泛化能力更加高</strong></p>
 <br>
 
 <p>所以必须思考一个机制: 对于这个机制来说, SVM算法要有一定的容错能力, 在一些情况下, 应该考虑到可以把一些点进行错误地分类, 达到的结果还是希望泛化能力尽可能高</p>
 <p>更一般的例子: 蓝色数据点在这个位置</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时数据是线性不可分的. 没有任何一条直线能把这组数据分成两类</p>
 <blockquote>
 <p>这种情况下Hard Margin SVM 算法就不是泛化能力强不强的问题了, 而是根本无法应用, 无法得到结果</p>
@@ -464,10 +464,10 @@
 <p>这种SVM就叫做Soft Margin SVM</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/soft_margin_svm.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Hard Margin SVM的条件是这个式子必须大于等于1<br>$$<br>y^{(i)}(w^Tx^{(i)}+b)&gt;&#x3D;1<br>$$<br>大于等于1的意思就是: 对于找到的 Margin 区域里必须是任何数据点都没有的. 所有的数据点都必须在 w<sup>T</sup>x+b&#x3D;1 和 w<sup>T</sup>x+b&#x3D;-1 这两条直线之外. </p>
 <p>现在对于这个条件加以宽松, 让所有数据点<strong>不一定</strong>都在 Margin 区域的外面, 因此给它一个宽松量 ζ(zeta)<br>$$<br>y^{(i)}(w^Tx^{(i)}+b)&gt;&#x3D;1 - \zeta_i<br>$$<br>换句话说将有条件最优化中的条件宽松成这个样子</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_5.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>\zeta_i\ge 0<br>$$<br>ζ也是有条件的, 就是大于等于0. 换句话说, 虚线要在上面那根直线的下面, 或者下面那根直线的上面. 才叫做可以让它犯错误</p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_5.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>\zeta_i\ge 0<br>$$<br>ζ也是有条件的, 就是大于等于0. 换句话说, 虚线要在上面那根直线的下面, 或者下面那根直线的上面. 才叫做可以让它犯错误</p>
 <p>如果ζ是负值的话, 虚线会在直线的外头, 条件就更加严格了</p>
 <br>
 
@@ -483,7 +483,7 @@
 
 <p>然而此时这两部分的比重占比是1:1</p>
 <p>就像正则化那样, 可以在后半部分添加一个参数C, 来平衡两部分所占的比例</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果 C 在01之间, 整个式子将以优化前半部分为主</p>
 <p>如果 C 特别大, 则整个式子将以优化后半部分为主</p>
 <blockquote>
@@ -492,7 +492,7 @@
 </blockquote>
 <br>
 
-<p><img src="/Blog/Blog/intro/soft_margin_svm_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这么写又叫在Soft Margin SVM中添加<strong>L1正则</strong>, 换句话说我们可以把ζ理解为是一个正则化项, 它在避免模型向极端方向发展</p>
 <blockquote>
 <p>对于线性 回归, 逻辑回归…加入正则化项的本质也依然是让模型针对训练数据集有更高的容错能力.</p>
@@ -501,7 +501,7 @@
 <br>
 
 <p>有L1正则相应就有L2正则</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>后半部分的表达式就变成 ζ 的平方和</p>
 <blockquote>
 <p>线性回归时L1正则是对 θ 的绝对值 求和, L2正则是对 θ 的平方求和</p>
@@ -529,10 +529,10 @@
 <p>这是因为: SVM算法寻找的是使得margin最大的区间的中间的线</p>
 <p>而衡量margin的方式是数据点之间的距离, 涉及距离!</p>
 <p>如果数据点在不同的维度上的量纲不同, 就会使得对距离的估计产生问题</p>
-<p><img src="/Blog/Blog/intro/use_svm.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_svm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如如果横轴的范围是0-1, 纵轴的范围是0-10000, 使用SVM得到的决策边界大概就是这样</p>
 <p>而如果纵轴的范围也在0-1之间, 此时的决策边界就是这样的决策边界:</p>
-<p><img src="/Blog/Blog/intro/use_svm_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_svm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <blockquote>
@@ -547,11 +547,11 @@
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> matplotlib.colors <span class="hljs-keyword">import</span> ListedColormap<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br><span class="hljs-keyword">from</span> sklearn.svm <span class="hljs-keyword">import</span> LinearSVC<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_decision_boundary</span>(<span class="hljs-params">model, axis</span>):<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br><br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>])<br><br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    iris = datasets.load_iris()<br><br>    X = iris.data<br>    y = iris.target<br><br>    <span class="hljs-comment"># 解决二分类问题, 所以y&lt;2, 为了可视化所以只取两个特征</span><br>    X = X[y &lt; <span class="hljs-number">2</span>, :<span class="hljs-number">2</span>]<br>    y = y[y &lt; <span class="hljs-number">2</span>]<br><br>    standardScaler = StandardScaler()<br>    standardScaler.fit(X)<br>    X_standard = standardScaler.transform(X)<br><br>    <span class="hljs-comment"># SVC: Support Vector Classifier</span><br>    <span class="hljs-comment"># 使用支撑向量机的思想进行分类操作</span><br>    svc = LinearSVC(C=<span class="hljs-number">1e9</span>)<br>    svc.fit(X_standard, y)<br>    <br>    plot_decision_boundary(svc, axis=[-<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">3</span>, <span class="hljs-number">3</span>])<br>    plt.scatter(X_standard[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X_standard[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&#x27;red&#x27;</span>)<br>    plt.scatter(X_standard[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X_standard[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], color=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
 <p>C&#x3D;1e9时, 基本相当于Hard Margin SVM了</p>
-<p><img src="/Blog/Blog/intro/use_svm_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_svm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>C&#x3D;0.01时</p>
-<p><img src="/Blog/Blog/intro/use_svm_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_svm_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>有一个蓝色的点被错误地分类了, 这就是将C这个值放小之后的结果 </p>
 <blockquote>
 <p>C越大, 容错越小; C越小, 容错越大</p>
@@ -569,13 +569,13 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_svc_decision_boundary</span>(<span class="hljs-params">model, axis</span>):<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br><br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>])<br><br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br>    <span class="hljs-comment"># 绘制边界</span><br>    w = model.coef_[<span class="hljs-number">0</span>]<br>    b = model.intercept_[<span class="hljs-number">0</span>]<br>    <br>    <span class="hljs-comment"># 边界公式 w0 * x0 + w1 * x1 + b=0</span><br>    <span class="hljs-comment"># =&gt; x1 = - w0/w1 * x0 - b/w1</span><br>    plot_x = np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-number">200</span>)<br>    up_y = -w[<span class="hljs-number">0</span>]/w[<span class="hljs-number">1</span>] * plot_x + (<span class="hljs-number">1</span>-b)/w[<span class="hljs-number">1</span>]<br>    down_y = -w[<span class="hljs-number">0</span>]/w[<span class="hljs-number">1</span>] * plot_x + (-<span class="hljs-number">1</span>-b)/w[<span class="hljs-number">1</span>]<br><br>    <span class="hljs-comment"># 防止超过设定的axis的边界, 所以进行一次过滤</span><br>    up_index = ((up_y &gt;= axis[<span class="hljs-number">2</span>]) &amp; (up_y &lt;= axis[<span class="hljs-number">3</span>]))<br>    down_index = ((down_y &gt;= axis[<span class="hljs-number">2</span>]) &amp; (down_y &lt;= axis[<span class="hljs-number">3</span>]))<br><br>    plt.plot(plot_x[up_index], up_y[up_index], color=<span class="hljs-string">&quot;black&quot;</span>)<br>    plt.plot(plot_x[down_index], down_y[down_index], color=<span class="hljs-string">&quot;black&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>C&#x3D;1e9时, 边界为</p>
-<p><img src="/Blog/Blog/intro/use_svm_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_svm_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>可以很清晰地看到上面有三个点落在线上, 下面有两个点落在线上</p>
 <p>此时SVC模型相当于Hard Margin SVM算法, margin中间是没有任何点的. 这个模型就既保证了把训练数据集分成两类, 又保证了SVM的思想: 这两类中离决策边界最近的点离决策边界最远</p>
 <br>
 
 <p>C &#x3D; 0.01时, 边界为</p>
-<p><img src="/Blog/Blog/intro/use_svm_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/use_svm_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时margin中存在很多点, 这就是将C设置小的结果, 相当于给Hard Margin SVM算法添加了相当多的容错空间</p>
 <br>
 
@@ -585,18 +585,18 @@
 <p>处理非线性数据, 最典型的思路就是使用多项式的方式, <strong>扩充原本的数据, 制造新的多项式的特征</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># datasets 生成数据集</span><br>    X, y = datasets.make_moons()<br>    <span class="hljs-built_in">print</span>(X.shape)  <span class="hljs-comment"># (100, 2) 100个样本两个特征, 是make_moons的默认参数</span><br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/svm_poly.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_poly.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>两个半月形, 这也是make moons名字的由来</p>
 <p>这些数据太规则了, 添加一些噪音</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># datasets 生成数据集</span><br>    <span class="hljs-comment"># 添加一点噪音, 可以理解为增大0.15标准差</span><br>    X, y = datasets.make_moons(noise=<span class="hljs-number">0.15</span>, random_state=<span class="hljs-number">666</span>)<br>    <span class="hljs-built_in">print</span>(X.shape)  <span class="hljs-comment"># (100, 2) 100个样本两个特征, 是make_moons的默认参数</span><br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/svm_poly_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_poly_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于添加了噪音, 数据点变得更加凌乱</p>
 <br>
 
 <h3 id="使用多项式特征的SVM"><a href="#使用多项式特征的SVM" class="headerlink" title="使用多项式特征的SVM"></a>使用多项式特征的SVM</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">PolynomialSVC</span>(<span class="hljs-params">degree, C=<span class="hljs-number">1.0</span></span>):<br>    <span class="hljs-keyword">return</span> Pipeline([<br>        (<span class="hljs-string">&#x27;poly&#x27;</span>, PolynomialFeatures(degree)),<br>        (<span class="hljs-string">&#x27;std_scaler&#x27;</span>, StandardScaler()),<br>        (<span class="hljs-string">&#x27;linearSVC&#x27;</span>, LinearSVC(C=C))<br>    ])<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># datasets 生成数据集</span><br>    <span class="hljs-comment"># 添加一点噪音, 可以理解为增大0.15标准差</span><br>    X, y = datasets.make_moons(noise=<span class="hljs-number">0.15</span>, random_state=<span class="hljs-number">666</span>)<br><br>    poly_svc = PolynomialSVC(degree=<span class="hljs-number">3</span>)<br>    poly_svc.fit(X, y)<br><br>    plot_decision_boundary(poly_svc, [-<span class="hljs-number">1.5</span>, <span class="hljs-number">2.5</span>, -<span class="hljs-number">1.0</span>, <span class="hljs-number">1.5</span>])<br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/svm_poly_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_poly_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>依然是使用多项式特征的方式, 让决策边界不再是一条直线, 而是曲线</p>
 <br>
 
@@ -613,7 +613,7 @@
 <br>
 
 <p>此时的决策边界是这样的</p>
-<p><img src="/Blog/Blog/intro/svm_poly_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_poly_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时的决策边界虽然和上面的决策边界不一样, 不过依然可以看出来是一个非线性的决策边界</p>
 <br>
 
@@ -626,15 +626,15 @@
 <br>
 
 <h2 id="什么是核函数"><a href="#什么是核函数" class="headerlink" title="什么是核函数"></a>什么是核函数</h2><p>再看一下SVM算法的本质是什么</p>
-<p><img src="/Blog/Blog/intro/soft_margin_svm_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/soft_margin_svm_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>SVM算法本质就是求解这样一个最优化问题, 由于是有条件的最优化问题, 对于求解它没有进行数学推导.  不过在这里, 只是介绍性地说一下:</p>
 <p>在求解这个最优化问题的过程中, 我们还是要讲这个问题变形, 变成一个在数学上更好解的问题</p>
-<p><img src="/Blog/Blog/intro/kernel_function.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/kernel_function.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>不对推导过程进行详细介绍, 可以查些资料</p>
 </blockquote>
 <p>这里我们要关注的是, 当我们把左边的最优化问题转变成右边的最优化问题之后, 这个式子中有非常重要的一项.</p>
-<p><img src="/Blog/Blog/intro/kernel_function_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/kernel_function_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这项式子的后边部分套了两层 Σ, 且都是从1到m进行遍历</p>
 <p>相应的在后面的式子中有 x<sub>i</sub>x<sub>j</sub> , 换句话说, 我们转变的这个式子, 对于我们样本数据集任意的两个向量都要做一下向量间的点乘</p>
 <p>如果我们想使用多项式特征</p>
@@ -644,8 +644,8 @@
 </blockquote>
 <p>核函数是这样一个思想: 有没有可能不将 x<sub>i</sub> 和 x<sub>j</sub> 先分别转换成 x’<sub>i</sub> 和 x’<sub>j</sub>. 有没有可能找到一个函数K<br>$$<br>K(x^{(i)}, x^{(j)})&#x3D;x’^{(i)}\cdot x’^{(j)}<br>$$<br>直接对原来的两个样本进行数学运算, 直接计算出 x’<sub>i</sub> 和 x’<sub>j</sub></p>
 <p>如果能设计出这样的一个函数K的话, 原来红色方块的内容就可以用K( x<sub>i</sub>, x<sub>j</sub> ) 表示</p>
-<p><img src="/Blog/Blog/intro/kernel_function_1.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/kernel_function_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/kernel_function_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/kernel_function_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>K 函数 取不同的函数, 就相当于在原始的样本上进行了一个变化, 把 x<sub>i</sub> 和 x<sub>j</sub> 变成 x’<sub>i</sub> 和 x’<sub>j</sub>, 在进行乘法</p>
 <p>K函数就是我们不进行这种变形了, 直接拿样本代入函数中, 用这个函数直接算出x’<sub>i</sub> 和 x’<sub>j</sub>点乘的结果.</p>
 <p>这个K函数就叫做<strong>核函数</strong></p>
@@ -668,7 +668,7 @@
 <blockquote>
 <p>为了计算方便, 展示2次多项式, 后面会再把它拓展成任意次项</p>
 </blockquote>
-<p> <img src="/Blog/Blog/intro/kernel_function_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/kernel_function_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>3次项和的平方<br>$$<br>(a+b+c)^2&#x3D;a^2+b^2+c^2+2ab+2bc+2ca<br>$$<br>任意项的和的平方的表达式:<br>$$<br>(\sum_{i&#x3D;1}^na_i)^2&#x3D;\sum_{i&#x3D;1}^na_i^2+2\sum_{i&#x3D;2}^n\sum_{j&#x3D;1}^{i-1}a_ia_j<br>$$<br>从算法的角度简单解释一些后半部分的原理<br>$$<br>2\sum_{i&#x3D;2}^n\sum_{j&#x3D;1}^{i-1}a_ia_j<br>$$<br>简单来说就是2乘以<strong>所有不相同两个a</strong>的组合, 这里有两层循环, 外循环是i从2到n, 那么内循环j首先不能和i重合, 其次i和j的组合不能重复, 因此 j只能在i的一侧, 要么j &lt; i, 要么j &gt; i.</p>
 <p>例如: i&#x3D;4, j&#x3D;1, 2, 3. 当i&#x3D;5时, j&#x3D;1, 2, 3, 4.</p>
@@ -684,7 +684,7 @@
 <br>
 
 <p>而计算时完全不用计算这个复杂的式子, 直接点乘加一再平方就好了. 这个结果和变化成x’ y’ 的结果是一致的. 这就是核函数的优势. 大大降低了计算的复杂度</p>
-<p><img src="/Blog/Blog/intro/kernel_function_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/kernel_function_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>拓展一下, 由于核函数不仅仅能制造二次项多项式特征, 可以任意degree的特征<br>$$<br>K(x,y)&#x3D;(x\cdot y+c)^d<br>$$<br>这就是传过来的degree, 另外常数项也可以传c, c和d就是另外两个超参数(分别对应 scikit-learn 的 SVC 中的 degree 参数和 coef0 参数)</p>
@@ -694,7 +694,7 @@
 
 <p>理解核函数的基本概念: 其实就是<strong>替换原来的样本的x点乘y的操作</strong></p>
 <p>我们其实也可以用核函数的思路表示<strong>线性SVM</strong></p>
-<p><img src="/Blog/Blog/intro/kernel_function_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/kernel_function_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>当理解核函数的概念之后, 就可以介绍很多核函数, 它们对应不同的对原始样本点的转换</p>
 <p>最为著名的核函数就是: 高斯核函数</p>
 <br>
@@ -707,7 +707,7 @@
 <p>γ如何影响核函数进而影响机器学习算法, 在下一章会介绍</p>
 <p>首先仔细看一下这个核函数. 为什么被称为高斯核函数</p>
 <p>在概率论中有一个重要的函数: 高斯函数(正态分布)</p>
-<p><img src="/Blog/Blog/intro/gaosi_func.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gaosi_func.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个函数和高斯核函数是拥有一样的形态的</p>
 <ul>
 <li>高斯函数前面有一个非常大的系数, 而高斯核函数没有这个系数了</li>
@@ -734,41 +734,41 @@
 
 <p>另一个例子:</p>
 <p>原本是一维的数据有两个类, 跟显然现在数据是线性不可分的</p>
-<p><img src="/Blog/Blog/intro/gaosi_func_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gaosi_func_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>无法用一根直线把两个类别分开, 但是如果我们添加多项式特征的话, 相当于是让数据升维, 让每一个数据点不但有横轴x值, 还有纵轴, 让纵轴是x<sup>2</sup>. 所有数据点一下子就变成这个样子</p>
-<p><img src="/Blog/Blog/intro/poly_lin.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这些数据点在x轴上的位置是没有变的, 不过在y轴上也有一个取值, 这个取值就是x<sup>2</sup></p>
 <p>一旦这样做了,  此时就是线性可分</p>
-<p><img src="/Blog/Blog/intro/poly_lin_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>通过升维让原本线性不可分的数据线性可分</p>
 <br>
 
 <h3 id="高斯核所做的事情"><a href="#高斯核所做的事情" class="headerlink" title="高斯核所做的事情"></a>高斯核所做的事情</h3><p>其实高斯核所做的事情也是一样的事情<br>$$<br>K(x,y)&#x3D;e^{-\gamma||x-y||^2}<br>$$<br>为了方便可视化, 首先对核函数进行一个改变, 将y的值固定, 换句话说, y的值不取样本点, 而是取固定点, 取两个固定点当y, 分别为l1, l2</p>
-<p><img src="/Blog/Blog/intro/poly_lin_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个图依然是原本是1维的样本数据点, 依然是线性不可分的</p>
 <p>在这个一维的样本空间中, 有两个特殊的点l1, l2 (landmark) 地标.</p>
 <p>高斯核函数做的升维的过程是在作一件什么事?</p>
 <p>如果有两个地标, 就将x升维成二维的样本点, 每个维度的取值为</p>
-<p><img src="/Blog/Blog/intro/poly_lin_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样就将原本是一维的样本点映射到二维的空间</p>
 <br>
 
 <p>用程序模拟一下, 这样的映射是怎样将原来线性不可分的数据变得线性可分的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># x就是样本数据, 只有一个特征</span><br>    x = np.arange(-<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>)<br>    y = np.array((x &gt;= -<span class="hljs-number">2</span>) &amp; (x &lt;= <span class="hljs-number">2</span>), dtype=<span class="hljs-string">&quot;int&quot;</span>)<br><br>    plt.scatter(x[y==<span class="hljs-number">0</span>], [<span class="hljs-number">0</span>]*<span class="hljs-built_in">len</span>(x[y==<span class="hljs-number">0</span>]))<br>    plt.scatter(x[y==<span class="hljs-number">1</span>], [<span class="hljs-number">0</span>]*<span class="hljs-built_in">len</span>(x[y==<span class="hljs-number">1</span>]))<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/poly_lin_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这显然是线性不可分的数据, 下面使用高斯核函数将一维数据映射到二维空间</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># x为数据点, l为地标</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gaussian</span>(<span class="hljs-params">x, l</span>):<br>    gamma = <span class="hljs-number">1.0</span><br>    <span class="hljs-comment"># x和l是一维数据, 所以不用计算模</span><br>    <span class="hljs-keyword">return</span> np.exp(-gamma * (x-l)**<span class="hljs-number">2</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># x就是样本数据, 只有一个特征</span><br>    x = np.arange(-<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>)<br>    y = np.array((x &gt;= -<span class="hljs-number">2</span>) &amp; (x &lt;= <span class="hljs-number">2</span>), dtype=<span class="hljs-string">&quot;int&quot;</span>)<br><br>    l1, l2 = -<span class="hljs-number">1</span>, <span class="hljs-number">1</span><br><br>    X_new = np.empty((<span class="hljs-built_in">len</span>(x), <span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">for</span> i, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(x):<br>        X_new[i, <span class="hljs-number">0</span>] = gaussian(data, l1)<br>        X_new[i, <span class="hljs-number">1</span>] = gaussian(data, l2)<br><br>    plt.scatter(X_new[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X_new[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X_new[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X_new[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/poly_lin_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>换句话说, 用高斯核函数将原本的一维数据映射成这样的二维数据</p>
 <p>对于这样一个二维数据显然是线性可分的</p>
-<p><img src="/Blog/Blog/intro/poly_lin_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>用一种不同于多项式核的形式, 将一维数据映射为二维数据</p>
 <br>
 
 <p>之前的方式是将一维数据点使用这样的方式映射成二维数据</p>
-<p><img src="/Blog/Blog/intro/poly_lin_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/poly_lin_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>只不过对于这个高斯核的y的部分固定为两个地标点l1和l2</p>
 <p>但实际上核函数是这样的<br>$$<br>K(x,y)&#x3D;e^{-\gamma||x-y||^2}<br>$$<br>所以可以看出y是每一个数据点</p>
 <p>换句话说高斯核函数干的事情和我们之前干的事情一样, 只不过地标点取得比我们之前取得要多得多.</p>
@@ -792,7 +792,7 @@
 <p>高斯核函数γ这个参数是什么意思?</p>
 <p>高斯核函数和高斯函数(正太分布)的形式是一致的, 而在概率论中正态分布的表达式有两个参数</p>
 <p>μ和σ, μ代表均值决定了高斯函数中心轴的位置, σ代表标准差, 描述样本数据分布的情况</p>
-<p><img src="/Blog/Blog/intro/gamma.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gamma.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <ul>
 <li>σ越小, 钟形图案就越窄越集中. </li>
 <li>σ越大, 钟形图案就越平缓</li>
@@ -809,12 +809,12 @@
 
 <h2 id="在scikit-learn中使用高斯核函数"><a href="#在scikit-learn中使用高斯核函数" class="headerlink" title="在scikit-learn中使用高斯核函数"></a>在scikit-learn中使用高斯核函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">RBFKernelSVC</span>(<span class="hljs-params">gamma=<span class="hljs-number">1.0</span></span>):<br>    <span class="hljs-keyword">return</span> Pipeline([<br>        (<span class="hljs-string">&quot;std_scaler&quot;</span>, StandardScaler()),<br>        (<span class="hljs-string">&quot;SVC&quot;</span>, SVC(kernel=<span class="hljs-string">&quot;rbf&quot;</span>, gamma=gamma))<br>    ])<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># datasets 生成数据集</span><br>    <span class="hljs-comment"># 添加一点噪音, 可以理解为增大0.15标准差</span><br>    X, y = datasets.make_moons(noise=<span class="hljs-number">0.15</span>, random_state=<span class="hljs-number">666</span>)<br><br>    rbf_svc = RBFKernelSVC(gamma=<span class="hljs-number">1</span>)<br>    rbf_svc.fit(X, y)<br>    plot_decision_boundary(rbf_svc, [-<span class="hljs-number">1.5</span>, <span class="hljs-number">2.5</span>, -<span class="hljs-number">1.0</span>, <span class="hljs-number">1.5</span>])<br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/gamma_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gamma_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这就是使用RBF Kernel在gamma&#x3D;1的时候的决策边界</p>
 <br>
 
 <p>当gamma&#x3D;100时, 决策边界:</p>
-<p><img src="/Blog/Blog/intro/gamma_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gamma_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>之前讲过gamma取值越大, 意思就是正态分布钟形图案越窄, 而决策边界的变化就是: 针对其中的某一类, 针对这一类每一个样本点周围都形成一种钟形图案 (<strong>可以想象成我们实在俯视钟形图案, 蓝色点就是每一个钟形图案的顶点</strong>)</p>
 <p>由于gamma值比较大, 钟形图案就比较窄, 所以每一个蓝色点周围, 围绕了一定的区域, 我们的决策算法判定在这个区域中才是蓝色的点, 否则就是红色的点</p>
 <p>这也是RBF Kernel的几何意义</p>
@@ -822,18 +822,18 @@
 <br>
 
 <p>稍微减少一下gamma, gamma&#x3D;10时:</p>
-<p><img src="/Blog/Blog/intro/gamma_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gamma_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于每一个蓝色的点, 它的钟形图案变得宽了一些, 所以蓝色的点, 点和点离得比较近, 钟形图案就融合在一起, 最终形成这样的决策边界</p>
 <p>回头看gamma&#x3D;1时, 就相当于钟形图案更宽了, 所以整体红色的范围就更大了</p>
 <br>
 
 <p>再减小gamma, gamma&#x3D;0.5</p>
-<p><img src="/Blog/Blog/intro/gamma_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gamma_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>结果是这样, 红色范围更大了</p>
 <br>
 
 <p>gamma&#x3D;0.1</p>
-<p><img src="/Blog/Blog/intro/gamma_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/gamma_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时决策边界已经和线性的决策边界差不多了, 此时显然是under fitting<strong>欠拟合</strong>了</p>
 <br>
 
@@ -848,18 +848,18 @@
 
 <br>
 
-<h2 id="SVM思想解决回归问题"><a href="#SVM思想解决回归问题" class="headerlink" title="SVM思想解决回归问题"></a>SVM思想解决回归问题</h2><p><img src="/Blog/Blog/intro/svm_reg.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="SVM思想解决回归问题"><a href="#SVM思想解决回归问题" class="headerlink" title="SVM思想解决回归问题"></a>SVM思想解决回归问题</h2><p><img src="/Blog/Blog/intro/svm_reg.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>回归问题本质就是找到这样的拟合线拟合所有数据点. <strong>怎么定义拟合, 就是各个回归算法的关键</strong></p>
 <p>例如: 线性回归算法定义拟合的方式就是数据点到预测直线的MSE最小</p>
 <br>
 
 <p>而对于SVM算法来说, 拟合的定义时另外一个定义:</p>
 <p>我们要指定一个margin值, 期望margin范围里包含的样本数据点越多越好</p>
-<p><img src="/Blog/Blog/intro/svm_reg_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_reg_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果margin范围里, 样本数据点越多, 就代表这个范围能够比较好地表达样本数据点. 这种情况下取中间的直线作为真正的回归的结果.</p>
 <p>用SVM解决回归问题和用SVM解决分类问题是相反的思路:</p>
 <p>解决分类问题是期望margin里面的点越少越好, Hard Margin 更是要求一个点不能有</p>
-<p><img src="/Blog/Blog/intro/svm_reg_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/svm_reg_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而解决回归问题期望在margin范围里点越多越好, 在具体训练SVM回归问题结果时, 是对margin进行指定, 此时就引入了一个超参数ε</p>
 <p>指定上下两根直线到中间直线的距离</p>
 <blockquote>
@@ -881,7 +881,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -889,9 +889,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -908,19 +908,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/16/machine-learning-10/">
+                      <a href="/Blog/2020/05/16/machine-learning-10/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">python3入门机器学习(10)-决策树</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/05/08/machine-learning-8/">
+                      <a href="/Blog/2020/05/08/machine-learning-8/">
                         <span class="hidden-mobile">python3入门机器学习(8)-评价分类结果</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -937,7 +937,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -963,7 +963,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -972,7 +972,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1012,18 +1012,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1076,7 +1076,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="Mean shift算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="均值漂移法 Mean Shift">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/05/21/mean-shift/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/21/mean-shift/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Mean shift算法">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/mean_shift_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/mean_shift_2.PNG">
 <meta property="article:published_time" content="2020-05-21T22:14:09.000Z">
 <meta property="article:modified_time" content="2020-05-23T22:54:51.296Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/mean_shift_2.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/mean_shift_2.PNG">
   
   
   <title>均值漂移法 Mean Shift - Daolin&#39;s Repository</title>
@@ -63,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -83,7 +83,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -102,9 +102,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -114,9 +114,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -126,9 +126,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -138,9 +138,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -150,9 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -176,7 +176,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/sola.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/sola.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -246,13 +246,13 @@
               <p>Mean shift算法</p>
 <span id="more"></span>
 
-<h1 id="Mean-Shift算法"><a href="#Mean-Shift算法" class="headerlink" title="Mean Shift算法"></a>Mean Shift算法</h1><p><img src="/Blog/Blog/intro/mean-shift.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Mean-Shift算法"><a href="#Mean-Shift算法" class="headerlink" title="Mean Shift算法"></a>Mean Shift算法</h1><p><img src="/Blog/Blog/intro/mean-shift.gif" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>均值漂移算法.</p>
 <p>优点: 不需要告诉它有几个类别</p>
 <br>
 
 <p>简单来说就是让中心点向<strong>更加密集</strong>的方向前进</p>
-<p><img src="/Blog/Blog/intro/mean_shift_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mean_shift_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如此图中, 右下方的数据点更密集, 因此向这个方向移动</p>
 <blockquote>
 <p>也可以理解为每个数据点都在用力拉扯圆心, 最后向合力的方向前进</p>
@@ -260,7 +260,7 @@
 <p>因此很显然的一个超参数就是<strong>圆的半径</strong></p>
 <br>
 
-<p><img src="/Blog/Blog/intro/mean_shift_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mean_shift_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>对于某一个中心点x, 它的漂移的方向就是:<br>$$<br>M_h &#x3D; \frac 1 n \sum_{x_i \in S_n} (x_i-x)<br>$$<br>也就是圆中所有点减去x后的均值, S<sub>n</sub>代表到x的距离小于h, 也就是说<br>$$<br>S_h(x)&#x3D; {\ y:(y-x_i)^T(y-x_i) &lt; h^2 }<br>$$<br>每次新的点就被更新为:<br>$$<br>x:&#x3D;x+M_h<br>$$</p>
 <p>思想:</p>
 <ol>
@@ -272,15 +272,15 @@
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MeanShift</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, bandwidth</span>):<br>        self.bandwidth = bandwidth<br>        self.centers_ = []<br>        self.centers = <span class="hljs-literal">None</span><br>        self.epsilon = bandwidth/<span class="hljs-number">10</span><br><br>    <span class="hljs-comment"># 在X中寻找point为中心, 半径为bandwidth内的数据点</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">neighbors_indexes</span>(<span class="hljs-params">self, point, X</span>):    <br>        <span class="hljs-keyword">return</span> np.<span class="hljs-built_in">sum</span>((X - point)**<span class="hljs-number">2</span>, axis=<span class="hljs-number">1</span>).reshape(-<span class="hljs-number">1</span>) &lt;= (self.bandwidth**<span class="hljs-number">2</span>)<br>	<br>    <span class="hljs-comment"># 计算移动的方向</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">shift_vector</span>(<span class="hljs-params">self, center, points</span>):<br>        <span class="hljs-keyword">return</span> np.<span class="hljs-built_in">sum</span>(points - center, axis=<span class="hljs-number">0</span>) / points.shape[<span class="hljs-number">0</span>]<br><br>    <span class="hljs-comment"># 查看邻近是否有中心点</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">find_same_center</span>(<span class="hljs-params">self, center</span>):<br>        <span class="hljs-keyword">for</span> i, point <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(self.centers_):<br>            <span class="hljs-keyword">if</span> np.linalg.norm(center-point) &lt;= self.epsilon:<br>                <span class="hljs-keyword">return</span> i<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>	<br>    <span class="hljs-comment"># 对一个点进行均值漂移</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">_mean_shift_single</span>(<span class="hljs-params">self, point, X</span>):<br>        y = np.zeros(X.shape[<span class="hljs-number">0</span>])<br>        shift_dis = <span class="hljs-number">1</span>	<span class="hljs-comment"># 初始值随便, 只要比收敛值大即可</span><br>        <span class="hljs-keyword">while</span> shift_dis &gt; <span class="hljs-number">1e-8</span>:<br>            <span class="hljs-comment"># 找临近的所有点的坐标</span><br>            indexes = self.neighbors_indexes(point, X)<br>            y[indexes] = <span class="hljs-number">1</span>  <span class="hljs-comment"># 更新类别</span><br>            neighbors = X[indexes]  <span class="hljs-comment"># 获取邻近节点</span><br>            <span class="hljs-comment"># 接着移动</span><br>            shift = self.shift_vector(point, neighbors)<br>            shift_dis = shift.dot(shift)<br>            point = point + shift<br>        <span class="hljs-keyword">return</span> point, y<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit</span>(<span class="hljs-params">self, X</span>):<br>        n_samples, n_features = X.shape<br>        visited = np.zeros(X.shape[<span class="hljs-number">0</span>])<br><br>        <span class="hljs-keyword">while</span> np.<span class="hljs-built_in">sum</span>(visited == <span class="hljs-number">0</span>):     <span class="hljs-comment"># 当还有没被访问过的节点时</span><br>            freq = visited == <span class="hljs-number">0</span><br>            <span class="hljs-comment"># 随机选一个没被访问过的点</span><br>            index = np.random.choice(n_samples, p=freq/np.<span class="hljs-built_in">sum</span>(freq))<br>            <span class="hljs-comment"># 对随机选取的没访问过的点进行均值漂移, 飘了飘了[滑稽]</span><br>            center, labels = self._mean_shift_single(X[index], X)<br>            <span class="hljs-comment"># 把途经的点标记为已访问</span><br>            visited += labels<br>            <span class="hljs-comment"># 检查中心点是否已存在</span><br>            center_ind = self.find_same_center(center)<br>            <span class="hljs-keyword">if</span> center_ind == -<span class="hljs-number">1</span>:<br>                self.centers_.append(center)<br>        <span class="hljs-comment"># 对中心点进行一次封装</span><br>        self.centers = np.array(self.centers_)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict</span>(<span class="hljs-params">self, X</span>):<br>        n_centers = self.centers.shape[<span class="hljs-number">0</span>]<br>        dist = np.zeros((X.shape[<span class="hljs-number">0</span>], n_centers))<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, n_centers):<br>            dist[:, i] = np.<span class="hljs-built_in">sum</span>((X - self.centers[i])**<span class="hljs-number">2</span>, axis=<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> np.argmin(dist, axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/mean_shift_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mean_shift_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>但是如果有outlier, 同时epsilon和bandwidth没选好的话, 效果就会较差</p>
-<p><img src="/Blog/Blog/intro/mean_shift_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mean_shift_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.cluster <span class="hljs-keyword">import</span> estimate_bandwidth, MeanShift<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-comment"># 准备数据</span><br>    centers = [[<span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [-<span class="hljs-number">4</span>, -<span class="hljs-number">5</span>], [-<span class="hljs-number">1</span>, <span class="hljs-number">2.5</span>], [<span class="hljs-number">2</span>, -<span class="hljs-number">2</span>]]<br>    X, _ = datasets.make_blobs(n_samples=<span class="hljs-number">1000</span>, centers=centers, cluster_std=<span class="hljs-number">0.8</span>)<br>    outlier = np.array([[<span class="hljs-number">6</span>, -<span class="hljs-number">6</span>], [<span class="hljs-number">6</span>, -<span class="hljs-number">5</span>], [<span class="hljs-number">2</span>, -<span class="hljs-number">6</span>], [-<span class="hljs-number">4</span>, -<span class="hljs-number">6</span>], [<span class="hljs-number">4</span>, -<span class="hljs-number">2</span>],<br>                        [-<span class="hljs-number">7</span>, <span class="hljs-number">4</span>], [-<span class="hljs-number">6.5</span>, <span class="hljs-number">6</span>]])<br>    X = np.vstack([X, outlier])<br><br>    <span class="hljs-comment"># 通过数据计算bandwidth</span><br>    bandwidth = estimate_bandwidth(X, n_samples=<span class="hljs-number">100</span>)<br><br>    <span class="hljs-comment"># scikit-learn的mean-shift</span><br>    mean_shift_clf = MeanShift(bandwidth=bandwidth)<br>    mean_shift_clf.fit(X)<br>    <span class="hljs-comment"># 画图</span><br>    plot_decision_boundary(mean_shift_clf, axis=[-<span class="hljs-number">8</span>, <span class="hljs-number">6.5</span>, -<span class="hljs-number">8</span>, <span class="hljs-number">6.5</span>])<br>    plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>])<br>    plt.scatter(mean_shift_clf.cluster_centers_[:, <span class="hljs-number">0</span>], mean_shift_clf.cluster_centers_[:, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.show()<br>	<br>    <span class="hljs-comment"># 我自己写的mean-shift, 防止重名, 改名为MyMeanShift</span><br>    mean_shift_clf = MyMeanShift(bandwidth=bandwidth)<br>    mean_shift_clf.fit(X)<br>    <span class="hljs-comment"># 画图</span><br>    plot_decision_boundary(mean_shift_clf, axis=[-<span class="hljs-number">8</span>, <span class="hljs-number">6.5</span>, -<span class="hljs-number">8</span>, <span class="hljs-number">6.5</span>])<br>    plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>])<br>    plt.scatter(mean_shift_clf.centers[:, <span class="hljs-number">0</span>], mean_shift_clf.centers[:, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/Blog/Blog/intro/mean_shift_c_1.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/mean_shift_c_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mean_shift_c_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/mean_shift_c_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>自己实现的和scikit实现的效果是一样的. 只不过没有使用一些加速的方法</p>
 <p>MeanShifit算法远不止于此, 还可以<strong>动态计算bandwidth</strong>, 或者加入<strong>核函数计算漂移向量</strong>, 以后有兴趣仔细探究. </p>
 <br>
@@ -300,7 +300,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -308,9 +308,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -327,19 +327,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/23/anomaly-detection/">
+                      <a href="/Blog/2020/05/23/anomaly-detection/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">异常检测 Anomaly Detection</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/05/20/k-means/">
+                      <a href="/Blog/2020/05/20/k-means/">
                         <span class="hidden-mobile">非监督机器学习算法KMeans</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -356,7 +356,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -382,7 +382,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -391,7 +391,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -431,18 +431,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -495,7 +495,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

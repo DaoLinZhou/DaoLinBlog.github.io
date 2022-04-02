@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="MIPS 汇编  构成计算机需要哪些要素?  状态 输入 状态转换函数F (将输入和当前状态转换为下一个状态) 输出    什么是状态转换函数? 其实一个表格就可以, 将接收到的输入 I 变成新的状态 S   或者    然而如果状态转换表太大了怎么办? 例如鼠标在1024 * 768的屏幕上有786432种位置, 因此对应了786432种状态. 如果用表格描述需要很大一片空间. 如何进行优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MIPS 汇编">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/08/06/Compilation-principle/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/08/06/Compilation-principle/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="MIPS 汇编  构成计算机需要哪些要素?  状态 输入 状态转换函数F (将输入和当前状态转换为下一个状态) 输出    什么是状态转换函数? 其实一个表格就可以, 将接收到的输入 I 变成新的状态 S   或者    然而如果状态转换表太大了怎么办? 例如鼠标在1024 * 768的屏幕上有786432种位置, 因此对应了786432种状态. 如果用表格描述需要很大一片空间. 如何进行优化">
 <meta property="og:locale">
@@ -88,17 +88,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -108,7 +108,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -127,9 +127,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -139,9 +139,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -151,9 +151,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -163,9 +163,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -175,9 +175,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -201,7 +201,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/Fate-Zero-Kiritsugu-Einzbern.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/Fate-Zero-Kiritsugu-Einzbern.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -283,9 +283,9 @@
 
 <p><strong>什么是状态转换函数?</strong></p>
 <p>其实一个表格就可以, 将接收到的输入 I 变成新的状态 S </p>
-<p><img src="/Blog/Blog/intro/stat_change_func_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_change_func_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>或者</p>
-<p><img src="/Blog/Blog/intro/stat_change_func_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/stat_change_func_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>然而如果状态转换表太大了怎么办?</p>
@@ -298,15 +298,15 @@
 <h2 id="汇编指令入门-MIPS"><a href="#汇编指令入门-MIPS" class="headerlink" title="汇编指令入门(MIPS)"></a>汇编指令入门(MIPS)</h2><p>计算机通过指令指挥计算机工作.</p>
 <p>CPU被时钟驱动, 不断地读取PC指针指向的指令, 并增加PC指针, 从内存中读取指令并执行 (如此周而复始)</p>
 <p>不同的CPU架构使用不同指令. 目前使用最广泛的是RISC (Reduced instruction set computer, 精简指令集)</p>
-<p><img src="/Blog/Blog/intro/risc_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/risc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <h3 id="MIPS-32指令示例"><a href="#MIPS-32指令示例" class="headerlink" title="MIPS-32指令示例"></a>MIPS-32指令示例</h3><p>跳转指令</p>
-<p><img src="/Blog/Blog/intro/risc_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/risc_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <hr >
 
 <p>add操作</p>
-<p><img src="/Blog/Blog/intro/risc_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/risc_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>r 就代表寄存器 register</p>
 <p>s 代表 source</p>
@@ -319,11 +319,11 @@
 </blockquote>
 <hr>
 
-<p><img src="/Blog/Blog/intro/risc_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/risc_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>然而32位risc指令集中, opcode是6位数字, 太过于抽象, 不好记忆, 因此通常采用助记符.</p>
-<p><img src="/Blog/Blog/intro/risc_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/risc_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -332,7 +332,7 @@
 <p>寻址模式不同指令集不同, 注意是通过寻址模式看到如何利用好二进制指令</p>
 <br>
 
-<h3 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h3><p><img src="/Blog/Blog/intro/addressing_model.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h3><p><img src="/Blog/Blog/intro/addressing_model.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>把1号寄存器和2号寄存器相加存到10号寄存器中</p>
 <blockquote>
 <p>r1 或 r2 都是占5位的数字, 就是用n个位取寻址$2^n$个寄存器</p>
@@ -342,18 +342,18 @@
 
 <h3 id="立即寻址"><a href="#立即寻址" class="headerlink" title="立即寻址"></a>立即寻址</h3><p>zero是一个特殊的寄存器, 它里面存的是0. 将zero和1000相加.</p>
 <p>直接把1000这个数字放进来, 叫做立即寻址.</p>
-<p><img src="/Blog/Blog/intro/addressing_model_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/addressing_model_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>寻址方式其实和指令有关, 当opcode代表add是一种解析方式. opcode代表addi是另一种解析方式</p>
 </blockquote>
 <br>
 
-<h3 id="偏移量寻址"><a href="#偏移量寻址" class="headerlink" title="偏移量寻址"></a>偏移量寻址</h3><p><img src="/Blog/Blog/intro/addressing_model_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="偏移量寻址"><a href="#偏移量寻址" class="headerlink" title="偏移量寻址"></a>偏移量寻址</h3><p><img src="/Blog/Blog/intro/addressing_model_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>sp是一个寄存器(代表栈), 这个地址作为基地址偏移8 (+8) 存到目标寄存器r0中</p>
 <p>l 代表 load, w 代表 word, 就是说load一个4字节的东西</p>
 <br>
 
-<h3 id="PC相对寻址"><a href="#PC相对寻址" class="headerlink" title="PC相对寻址"></a>PC相对寻址</h3><p><img src="/Blog/Blog/intro/addressing_model_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="PC相对寻址"><a href="#PC相对寻址" class="headerlink" title="PC相对寻址"></a>PC相对寻址</h3><p><img src="/Blog/Blog/intro/addressing_model_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>当r3寄存器中和值和r9寄存器中的值相同时就跳到LABEL</p>
 <br>
 
@@ -364,7 +364,7 @@
 </ul>
 <br>
 
-<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><p><img src="/Blog/Blog/intro/addressing_model_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><p><img src="/Blog/Blog/intro/addressing_model_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -375,11 +375,11 @@
 
 <p>浮点数在计算机中也是以整数的形式存在. 就是读取方式不一样而已</p>
 <p>双精度64位浮点数在计算机中的表示</p>
-<p><img src="/Blog/Blog/intro/addressing_model_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/addressing_model_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>sign 就代表了正负</p>
 <p>exponent 就是式子中的e, 也就是说2的指数位可以在 $2^{11}-1023$ 和 $0-1023$ 浮动</p>
 <p>再来一个示例</p>
-<p><img src="/Blog/Blog/intro/addressing_model_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/addressing_model_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -392,7 +392,7 @@
 
 <br>
 
-<h2 id="条件跳转"><a href="#条件跳转" class="headerlink" title="条件跳转"></a>条件跳转</h2><p><img src="/Blog/Blog/intro/addressing_model_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="条件跳转"><a href="#条件跳转" class="headerlink" title="条件跳转"></a>条件跳转</h2><p><img src="/Blog/Blog/intro/addressing_model_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>jal 有点像函数跳转, 把下一个指令存入ra寄存器中, 之后把PC指针指向LABEL去执行代码. 当函数执行完后可以再从寄存器中读取位置跳回来</p>
 <p>注意jal跳转必然会把下一个指令的位置存入ra寄存器, 而不是其他寄存器 </p>
 <br>
@@ -401,13 +401,13 @@
 
 <br>
 
-<h2 id="汇编实现-求阶乘的递归函数"><a href="#汇编实现-求阶乘的递归函数" class="headerlink" title="汇编实现: 求阶乘的递归函数"></a>汇编实现: 求阶乘的递归函数</h2><h3 id="if-else-的汇编实现"><a href="#if-else-的汇编实现" class="headerlink" title="if-else 的汇编实现"></a>if-else 的汇编实现</h3><p><img src="/Blog/Blog/intro/ifelse_asm.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="汇编实现-求阶乘的递归函数"><a href="#汇编实现-求阶乘的递归函数" class="headerlink" title="汇编实现: 求阶乘的递归函数"></a>汇编实现: 求阶乘的递归函数</h2><h3 id="if-else-的汇编实现"><a href="#if-else-的汇编实现" class="headerlink" title="if-else 的汇编实现"></a>if-else 的汇编实现</h3><p><img src="/Blog/Blog/intro/ifelse_asm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="for-Loop-的汇编实现"><a href="#for-Loop-的汇编实现" class="headerlink" title="for Loop 的汇编实现"></a>for Loop 的汇编实现</h3><p><img src="/Blog/Blog/intro/for_asm.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="for-Loop-的汇编实现"><a href="#for-Loop-的汇编实现" class="headerlink" title="for Loop 的汇编实现"></a>for Loop 的汇编实现</h3><p><img src="/Blog/Blog/intro/for_asm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="实现函数传参"><a href="#实现函数传参" class="headerlink" title="实现函数传参"></a>实现函数传参</h3><p><img src="/Blog/Blog/intro/func_asm.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="实现函数传参"><a href="#实现函数传参" class="headerlink" title="实现函数传参"></a>实现函数传参</h3><p><img src="/Blog/Blog/intro/func_asm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>sp寄存中存的应该是指向栈的指针, sp存的是一个地址</p>
 <p>sw应该是把s0中的值存到sp寄存器的值(地址)指向的位置</p>
 <blockquote>
@@ -418,10 +418,10 @@
 
 <p><strong>压栈的过程:</strong></p>
 <p>sp存储栈指针</p>
-<p><img src="/Blog/Blog/intro/func_asm_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/func_asm_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
-<h3 id="函数的返回"><a href="#函数的返回" class="headerlink" title="函数的返回"></a>函数的返回</h3><p><img src="/Blog/Blog/intro/func_asm_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="函数的返回"><a href="#函数的返回" class="headerlink" title="函数的返回"></a>函数的返回</h3><p><img src="/Blog/Blog/intro/func_asm_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>jal跳转会把函数返回之后继续执行的位置写入ra寄存器</p>
 <p>但是ra只有一个, 不能复用, 所以进入函数时要把ra内的值也写入栈中. 同时栈指针指向下一位.</p>
 <p>也就是说当调用一个函数时, 进行两次压栈操作</p>
@@ -429,12 +429,12 @@
 <li>把参数压栈, 栈指针自增</li>
 <li>把函数返回后继续执行的位置压栈, 栈指针自增.</li>
 </ol>
-<p><img src="/Blog/Blog/intro/func_asm_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/func_asm_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这样返回时, 跳到t1就可以了</p>
 <p>因此一进入函数就要跑这段程序</p>
 <br>
 
-<h3 id="如何实现返回值"><a href="#如何实现返回值" class="headerlink" title="如何实现返回值"></a>如何实现返回值</h3><p><img src="/Blog/Blog/intro/func_asm_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="如何实现返回值"><a href="#如何实现返回值" class="headerlink" title="如何实现返回值"></a>如何实现返回值</h3><p><img src="/Blog/Blog/intro/func_asm_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>也可以通过栈实现. 进入函数体的时候创建一个返回值, 将他压栈(调用位置的下方)</p>
 <p>在函数体中计算是通过偏移量设置返回值(覆盖)</p>
 <p>当函数调用结束时程序取当前栈指针+4的位置把返回值读出来, 顺便把其他的都清掉.</p>
@@ -442,11 +442,11 @@
 
 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>每次调用函数都压栈了3个参数</p>
 <p>数据的归属关系: 一个函数要有参数, 调用位置, 返回值</p>
-<p><img src="/Blog/Blog/intro/func_asm_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/func_asm_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>然而控制关系却不是这样</p>
-<p><img src="/Blog/Blog/intro/func_asm_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/func_asm_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>参数是由前一层函数控制的 </p>
 <br>
 
@@ -461,7 +461,7 @@
 <h2 id="中断和中断向量"><a href="#中断和中断向量" class="headerlink" title="中断和中断向量"></a>中断和中断向量</h2><h3 id="中断-Interrupt"><a href="#中断-Interrupt" class="headerlink" title="中断 Interrupt"></a>中断 Interrupt</h3><p>当外界发生变化时, 通过<strong>中断</strong>通知CPU应该去注意某个信号(事件). 这个时候, CPU当前执行的程序会被<strong>中断</strong>, 当前的执行状态会被保存, 中断相应程序会被执行</p>
 <br>
 
-<h3 id="中断相应过程"><a href="#中断相应过程" class="headerlink" title="中断相应过程"></a>中断相应过程</h3><p><img src="/Blog/Blog/intro/interrupt.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="中断相应过程"><a href="#中断相应过程" class="headerlink" title="中断相应过程"></a>中断相应过程</h3><p><img src="/Blog/Blog/intro/interrupt.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>中断向量表其实就是内存中的一块区域</p>
 <p>每一个中断向量就是一个数字, 是一个指向要执行程序的地址</p>
 <blockquote>
@@ -482,11 +482,11 @@
 <br>
 
 <h3 id="中断向量表-Interrupt-Vector-Tables"><a href="#中断向量表-Interrupt-Vector-Tables" class="headerlink" title="中断向量表(Interrupt Vector Tables)"></a>中断向量表(Interrupt Vector Tables)</h3><p>(一般在内存中) 一块区域, 存储了中断类型和中断相应程序的对应关系. 每一行叫做一个中断向量</p>
-<p><img src="/Blog/Blog/intro/interrupt_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/interrupt_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>如果没有中断: (polling)</p>
-<p><img src="/Blog/Blog/intro/interrupt_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/interrupt_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>中断是为了提高效率 (异步IO)</p>
 <br>
 
@@ -507,7 +507,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%B1%87%E7%BC%96/">汇编</a>
                     
                   </div>
                 
@@ -524,19 +524,19 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/27/graph-theory/">
+                      <a href="/Blog/2020/08/27/graph-theory/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">图论</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/08/02/skip-list/">
+                      <a href="/Blog/2020/08/02/skip-list/">
                         <span class="hidden-mobile">跳跃表</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -553,7 +553,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -579,7 +579,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -588,7 +588,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -628,18 +628,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -692,7 +692,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

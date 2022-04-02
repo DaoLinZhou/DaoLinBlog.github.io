@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.png">
+  <link rel="icon" href="/Blog/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="Godel’s Incompleteness TheoremAnother proof“I am not provable”  For every proof system $P$ containing $PA$ we construct an explicit true but not provable arithmetic sentence.$$G \equiv \text{“G is n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Computability and Complexity (2)">
-<meta property="og:url" content="https://daolinzhou.github.io/2021/09/09/Computability-and-Complexity2/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/09/09/Computability-and-Complexity2/index.html">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Godel’s Incompleteness TheoremAnother proof“I am not provable”  For every proof system $P$ containing $PA$ we construct an explicit true but not provable arithmetic sentence.$$G \equiv \text{“G is n">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/cmpt308/turing-machine.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt308/turing-machine.PNG">
 <meta property="article:published_time" content="2021-09-10T03:40:38.000Z">
 <meta property="article:modified_time" content="2021-12-12T06:43:12.348Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/cmpt308/turing-machine.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt308/turing-machine.PNG">
   
   
   <title>Computability and Complexity (2) - Daolin&#39;s Repository</title>
@@ -63,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
@@ -83,7 +83,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Fluid</strong>
     </a>
 
@@ -102,9 +102,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                ホーム
               </a>
             </li>
           
@@ -114,9 +114,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                アーカイブ
               </a>
             </li>
           
@@ -126,9 +126,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                カテゴリー
               </a>
             </li>
           
@@ -138,9 +138,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                タグ
               </a>
             </li>
           
@@ -150,9 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                本ブログ情報　
               </a>
             </li>
           
@@ -176,7 +176,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -246,7 +246,7 @@
               <span id="more"></span>
 
 <h1 id="Godel’s-Incompleteness-Theorem"><a href="#Godel’s-Incompleteness-Theorem" class="headerlink" title="Godel’s Incompleteness Theorem"></a>Godel’s Incompleteness Theorem</h1><h2 id="Another-proof"><a href="#Another-proof" class="headerlink" title="Another proof"></a>Another proof</h2><p>“I am not provable”</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>For every proof system $P$ containing $PA$ we construct an <strong>explicit</strong> true but not provable arithmetic sentence.<br>$$<br>G \equiv \text{“G is not provable in P”}<br>$$</p>
 <p>$$<br>\text{“I am not provable”}<br>$$</p>
 <p>假设我们有 sentence $G$</p>
@@ -274,7 +274,7 @@
 <br>
 
 <p>定义:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>根据 proof system 的定义, function $\text{proof}(n,m)$ is computable</p>
 <blockquote>
 <p>can check if something is a valid proof, and $\varphi, \varphi^{-1}$ are computable</p>
@@ -289,17 +289,17 @@
 <blockquote>
 <p>这里 $y$ 是一个 free variable, $\varphi^{-1}(y)$ is provable in $P$</p>
 </blockquote>
-<p>我们希望<img src="/Blog/Blog/intro/cmpt308/incomplete_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>我们希望<img src="/Blog/Blog/intro/cmpt308/incomplete_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>where $n&#x3D;\varphi (G)$</p>
 <br>
 
 <p>错误的方式:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>正确的方式:</p>
 <p>定义一个 substitution function<br>$$<br>sub(m,n)&#x3D;j<br>$$<br>where</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>The function $sub(m,n)$ is computable, So by Godel’s Lemma, have an arithmetic formula<br>$$<br>\text{SUB}(x,y,z)<br>$$<br>s.t. $\forall m,n,j \in N, \text{SUB(m,n,j)}&#x3D;True \iff sub(m,n)&#x3D;j$</p>
 <br>
 
@@ -397,7 +397,7 @@ $$
 <p>所以 $P$ is inconsistent.</p>
 <blockquote>
 <p>The provability conditions on $P$ required for Godel’s second Incompleteness Theroem (due to Lob)</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 </blockquote>
 <br>
 
@@ -439,7 +439,7 @@ $$
 <br>
 
 <p>那么</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -467,12 +467,12 @@ $$
 
 <p>目前我们说明 R.E.( recursive enumerable &#x2F; semi-decidable ) $\ne$ Recursive (decidable)</p>
 <p>接下来考虑 complexity, 以及最著名的 Np vs P</p>
-<p><img src="/Blog/Blog/intro/cmpt308/incomplete_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/incomplete_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
-<h1 id="Complexity-Theory"><a href="#Complexity-Theory" class="headerlink" title="Complexity Theory"></a>Complexity Theory</h1><p><img src="/Blog/Blog/intro/cmpt308/complexity.PNG" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Complexity-Theory"><a href="#Complexity-Theory" class="headerlink" title="Complexity Theory"></a>Complexity Theory</h1><p><img src="/Blog/Blog/intro/cmpt308/complexity.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Complexity Theory &#x3D; Computability Theory <strong>with Bounded Resources</strong></p>
 </blockquote>
@@ -494,9 +494,9 @@ $$
 <br>
 
 <h2 id="Deterministic-Time-Complexity-P"><a href="#Deterministic-Time-Complexity-P" class="headerlink" title="Deterministic Time Complexity(P)"></a>Deterministic Time Complexity(P)</h2><p>DTM 的每一步可以看作是一个configuration</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们定义 worst-case time measure over all inputs of size $n$ 为<br>$$<br>\text{Time} _{M}(n)&#x3D;\max _{x:|x|&#x3D;n}(time _M(x))<br>$$<br>for $t:\N \to \N$, (t 是一个function, 输入是natural number, 输出也是 natural number) define</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>e.g. $\text{TIME}(n), \text{TIME}(n^2), \text{TIME}(2^n)$</p>
 <p>$\text{TIME}(n)$ 代表 all problems can be decide in linear time<br>$$<br>P&#x3D;\bigcup_{k&gt;0} \text{TIME}(n^k)<br>$$<br>$P$ 是所有可以在 polynomial time 解决的问题的集合</p>
 <blockquote>
@@ -531,8 +531,8 @@ $$
 
 <br>
 
-<h2 id="Nondeterministic-Polytime-NP"><a href="#Nondeterministic-Polytime-NP" class="headerlink" title="Nondeterministic Polytime (NP)"></a>Nondeterministic Polytime (NP)</h2><p><img src="/Blog/Blog/intro/cmpt308/complexity_3.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>\text{NTime} _M(n)&#x3D;\max _{x:|x|&#x3D;n}(time _M(x))<br>$$<br>For $t:\N\to \N$ (t 是一个function, 输入是natural number, 输出也是 natural number)</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Nondeterministic-Polytime-NP"><a href="#Nondeterministic-Polytime-NP" class="headerlink" title="Nondeterministic Polytime (NP)"></a>Nondeterministic Polytime (NP)</h2><p><img src="/Blog/Blog/intro/cmpt308/complexity_3.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>\text{NTime} _M(n)&#x3D;\max _{x:|x|&#x3D;n}(time _M(x))<br>$$<br>For $t:\N\to \N$ (t 是一个function, 输入是natural number, 输出也是 natural number)</p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>first definition of $NP$<br>$$<br>NP&#x3D;\bigcup_{k&gt;0} \text{NTIME}(n^k)<br>$$</p>
@@ -547,18 +547,18 @@ $$
 <p>对于 language $L$, 我们可以判断$L$ 是否在$NP$中</p>
 <p>我们有 Prover $P$, 和 Verifier $V$ (Prover可能说谎, 所以才有Verifier)</p>
 <p>input x, x 会同时传给 $P$ 和 $V$, 而它们会判断 $x$ 是否在 $L$ 中</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Prover $P$ 的算力是无尽的(unbounded), 而 Verifier $V$ is a <strong>deterministic polytime algorithm</strong> (say, time $O(n^c)$ )</p>
 <p>Prover 是用来帮助 Verifier 判断 $x$ 是否在 $L$ 中: Prover 会把一个”proof” $\pi$ (some string that shows&#x2F;proofs $x\in L$) 发送给 $V$<br>$$<br>|\pi| \le O(n^c)<br>$$<br>for some constant $c\ge 0$</p>
 <p>因为 Verifier 需要$O(n^c)$ 的时间来判断 proof 的正确性, 所以 proof 最多只能用 $O(n^c)$ 的时间</p>
 <br>
 
 <p>定义: The language decided by the prover-verifier pair $(P, V)$ </p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>例如:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -598,7 +598,7 @@ $$
 
 <p>为什么这么说:<br>$$<br>\text{Decidable}\to P<br>$$</p>
 <p>$$<br>\text{Semi-Decidable}\to NP<br>$$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果 $V$ 的 time complexity 是 $P$, 那么$L(P,V)$所表示的 class of the languages  就是NP (这是NP的定义)</p>
 <p>如果我们把 V 的 polytime decide algorithm 改为 some decider ($V\in Dec$) , V is computable by halting machine, 我们不对这个turing machine的 runtime 进行任何约束</p>
 <p>此时 , $L(P,V)$所表示的 class of the languages  就是 Semi-Decidable language</p>
@@ -609,7 +609,7 @@ $$
 <p>exercise: proof the two definition of $NP$ are equivalent</p>
 <p>def2 $\to$ def1 (backward)</p>
 <p>如果我们有一个这样的 game 模型</p>
-<p><img src="/Blog/Blog/intro/cmpt308/complexity_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/complexity_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们可以构建 NTM</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs livecodeserver">&gt;<span class="hljs-keyword">on</span> <span class="hljs-title">input</span> <span class="hljs-title">x</span><br><br>&gt;non-deterministic guess <span class="hljs-keyword">a</span> proof <span class="hljs-literal">pi</span><br>&gt;<span class="hljs-keyword">if</span> verify V accept proof <span class="hljs-literal">pi</span><br><span class="hljs-keyword">then</span> accept<br></code></pre></td></tr></table></figure>
 
@@ -716,7 +716,7 @@ $$
 <br>
 
 <h2 id="NP-Completeness"><a href="#NP-Completeness" class="headerlink" title="NP-Completeness"></a>NP-Completeness</h2><p>What is a <strong>hardest</strong> problem in $NP$?</p>
-<p>a language $B\in NP$ is “the hardest” if<br>$$<br>\forall A\in NP, A\le_pB<br>$$<br><img src="/Blog/Blog/intro/cmpt308/np.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>a language $B\in NP$ is “the hardest” if<br>$$<br>\forall A\in NP, A\le_pB<br>$$<br><img src="/Blog/Blog/intro/cmpt308/np.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Language $B$ is NP-complete if</p>
@@ -731,7 +731,7 @@ $$
 <p>Remark:</p>
 <ol>
 <li>Each NP-complete problem $B$ is a hardest problem in $NP$ (every other NP problem is reducible to $B$)</li>
-<li>For every two NP-Complete problem $A, B$, we have <img src="/Blog/Blog/intro/cmpt308/np_1.PNG" srcset="/img/loading.gif" lazyload>, $A, B$ 是 polytime-equivalent</li>
+<li>For every two NP-Complete problem $A, B$, we have <img src="/Blog/Blog/intro/cmpt308/np_1.PNG" srcset="/Blog/img/loading.gif" lazyload>, $A, B$ 是 polytime-equivalent</li>
 <li>let $A$ be any $\text{NP-complete}$ problem, then $A\in P \iff P&#x3D;NP$</li>
 <li>$\forall A,B\in NP$ , $A$ is NP-complete and $A\le_PB$ . Then $B$ is NP-complete</li>
 </ol>
@@ -795,7 +795,7 @@ $$
 <p>现在我们希望$B&#x3D;2$, 我们可以构建一个新的NTM, with $B&#x3D;2$ 并且等价于原本的NTM</p>
 <p>using extra states and instructions, we can simulate $M$ with a NTM $M’$ s.t. $L(M)&#x3D;L(M’)$ and<br>$$<br>\max(|\delta_M(\star, \star)|)&#x3D;2<br>$$<br><br></p>
 <p>这个步骤是比较简单的, 就像是一个4叉树, 我们总是可以使用一个二叉树来表示它</p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>注意: runtime of $M’ \le$ O(runtime of $M$) </p>
 <br>
 
@@ -820,7 +820,7 @@ $$
 <p>$x&#x3D;x_1x_2…x_n, y&#x3D;y_1y_2…y_t$</p>
 <p>假设 TM 是 one tape</p>
 <p>初始状态: conf 0</p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果我们从$q_0$出发, 运行$T$ 步, 起始点和终止点最远只能是$T$</p>
 <p>因此 $q_0$ 左边 $T$ tape 和右边 $T$ tape, 总共 $2T$ tape 是运行当前TM最多使用空间. 其余的所有tape我们都无法碰触</p>
 <p>即 The relevant portion of the tape is of length $\le 2T$<br>$$<br>\text{conf}_0\to\text{conf}_1\to\cdots \to \text{conf}_T<br>$$<br>is an accepting computation of $M_0$ on $x,y \iff$ </p>
@@ -833,37 +833,37 @@ $$
 <br>
 
 <p><strong>Coding a configuration in binary</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>$\perp$ 代表当前位置没有state, 只有一个state是当前state, 其余都是$\perp$ </p>
 <p>举个例子</p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>in binary:</p>
 <p>Each block is encoded with</p>
 <p>$Q$ 个state + $\perp$ , $\Gamma$是tape的alpha bit<br>$$<br>\le \lceil \log_2(|Q|+1) \rceil+\lceil \log_2|\Gamma| \rceil &#x3D; d<br>$$<br>bits &#x2F; propositional variables<br>$$<br>z_1,z_2\cdots z_d<br>$$<br>每个configuration 有 2T blocks, 每个 block 有 d bits, 也就是说有 2Td variables</p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>总共有 $T$ configurations</p>
 <p>因此, total number propositional variables to encode a time-T computation of $M_0$ on $x,y$ is $2T^2d \le poly(n)$ (因为 $T$ is polynomial in $n$)</p>
 <p>让 $m&#x3D;2T^2d$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_7.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_8.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_9.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/np_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>give $\text{conf}_{i-1}$</p>
 <p>我们想知道 $\text{conf}_{i}$ 是否正确</p>
 <p>然而我们并不需要整个 $\text{conf}<em>{i-1}$ , 只需要在 $j$ 的周围两个内看看即可, 因为从 $\text{conf}</em>{i-1}$ 到 $\text{conf}_{i}$ 只运行了一步.</p>
 <blockquote>
 <p>turing machine’s computation is very local thing. “locality” of TM 是这个证明能成功的重要原因</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt308/np_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>由于我们在思考$M_0$ 而 $M_0$ 不是NTM, 所以只有一种可能</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt308/np_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>由于window只需要4个参数(const number of variables), 也就是说我们可以在constant 的时间内检查完一个窗口. 我们可以用一个constant size of formula 来做这步操作, 有$ T$ 个窗口, 这个formula 的size大约就是$T$(忽略常量)</p>
 <p>$T$ 是 polynomial, 也就是说 $MOVE$ 的 size 是 polynomial</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt308/np_13.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>M \text{ accepts } x\iff<br>$$</p>
+<p><img src="/Blog/Blog/intro/cmpt308/np_13.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>M \text{ accepts } x\iff<br>$$</p>
 <p>$$<br> \exists y&#x3D;y_1…y_t\ M_0 \text{ accepts }x,y \iff<br>$$</p>
 <p>$$<br>\exists y\exists z\ \varphi(x, y, z) \iff<br>$$</p>
 <p>$$<br>\Psi_x(y,z)&#x3D;\varphi(x,y,z) \in SAT<br>$$</p>
@@ -880,7 +880,7 @@ $$
 </blockquote>
 <br>
 
-<h3 id="SAT-的变种-variants-all-NP-complete"><a href="#SAT-的变种-variants-all-NP-complete" class="headerlink" title="SAT 的变种(variants) (all NP-complete)"></a>SAT 的变种(variants) (all NP-complete)</h3><p><img src="/Blog/Blog/intro/cmpt308/np_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<h3 id="SAT-的变种-variants-all-NP-complete"><a href="#SAT-的变种-variants-all-NP-complete" class="headerlink" title="SAT 的变种(variants) (all NP-complete)"></a>SAT 的变种(variants) (all NP-complete)</h3><p><img src="/Blog/Blog/intro/cmpt308/np_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>3-SAT 是 NP complete 但是 2-SAT 可以在polytime 解决 </p>
 </blockquote>
@@ -898,13 +898,13 @@ $$
 <p>我们需要把一个任意的 formula $\varphi (x_1,…x_n)$ map to a CNF formula $\psi(y_1,…,y_m)$</p>
 <p>so $\varphi \text{ is satisfiable} \iff \psi \text{ is satisfiable}$</p>
 <p>这是 satisfiability equivalent (not logically equivalent). 就是说 $\varphi$ 不用等价与 $\psi$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>$\varphi$ is satisfiable $\iff \exists x_1x_2x_3x_4x_7x_{13}$ s.t.</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们希望$\text{gate}_6$ 是true</p>
 <p>因此对于 $\psi$ 我们添加6个variable来代表$\text{gate}$<br>$$<br>\psi(x_1,x_2,x_3,x_4,x_7,x_{13}, y_1, y_2, y_3, y_4, y_5, y_6)<br>$$</p>
 <p>$$<br>&#x3D;\bigwedge^6_{i&#x3D;1} \text{“} y_i\equiv \text{the value of gate i”} \wedge y_6<br>$$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p> Observe : $\varphi \text{ is satisfiable} \iff \psi \text{ is satisfiable}$</p>
 <p>Convert $\psi$ to an equivalent CNF, using the rules:</p>
 <ul>
@@ -914,7 +914,7 @@ $$
 <li>$\overline {a \vee b}$ is $\overline a \wedge \overline b$</li>
 <li>$\overline {a \wedge b}$ is $\overline a \vee \overline b$</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Overall, get $\bigwedge \text{CNFs}\equiv \text{CNF}$</p>
 <p>so $\text{CNF-SAT}$ is NP-complete</p>
 <br>
@@ -922,7 +922,7 @@ $$
 <br>
 
 <h3 id="3-SAT-is-NP-Complete"><a href="#3-SAT-is-NP-Complete" class="headerlink" title="3-SAT is NP-Complete"></a>3-SAT is NP-Complete</h3><p>CNF的证明就已经把问题转换成3-CNF了</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>$\forall k\ge 3$, K-SAT is NP-complete</p>
 <p>因为 K-SAT contains 3-SAT, 所以 3-SAT $\le_p$ K-SAT</p>
@@ -935,7 +935,7 @@ $$
 <p>证明:</p>
 <p>思路对于一个 $\text{2-SAT}$ 例如: $(x\vee \overline y) \wedge (\overline x \vee \overline z)\wedge (y\vee z)$</p>
 <p>每一个clause, 都是 $a\vee b$ 的形式, 而这等价于<br>$$<br>a \vee b \equiv \neg a\to b \equiv \neg b \to a<br>$$<br>我们可以基于此构建一个有向图 on nodes $x, \overline x , y, \overline y, z, \overline z$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果 $w \iff \overline w$ , 即可以从一个$w$推导出 $\overline w$, 同时 $\overline w$ 可以推导出 $w$</p>
 <p>说明 $w, \overline w$ 是等价的</p>
 <p>如果存在这样一个环, 就说明 formula 无法被 satisfy</p>
@@ -952,8 +952,8 @@ $$
 <h3 id="NAE-3SAT-is-NP-complete"><a href="#NAE-3SAT-is-NP-complete" class="headerlink" title="NAE-3SAT is NP complete"></a>NAE-3SAT is NP complete</h3><p>NAE-3SAT 就是一个 3-SAT, 它的 assignment 在满足 formula 的同时每一个 clause 包含一个True literal 和一个 False literal</p>
 <p>证明方法1.</p>
 <p>TODO:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_6.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>另一种简单的证法:</p>
@@ -961,7 +961,7 @@ $$
 <br>
 
 <h2 id="NP-Complete-graph-problems"><a href="#NP-Complete-graph-problems" class="headerlink" title="NP-Complete graph problems"></a>NP-Complete graph problems</h2><h3 id="Independent-Set-IS"><a href="#Independent-Set-IS" class="headerlink" title="Independent Set(IS)"></a>Independent Set(IS)</h3><p>Given a graph $G&#x3D;(V,E)$ and an integer $K\ge 0$, decide if $G$ has an independent set of size $\ge K$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>就是说在这个graph中选 至少$K$个点, 而这些点中没有相连的边</p>
 <br>
 
@@ -977,7 +977,7 @@ $$
 <p>我们可以构建一个 graph $G&#x3D;(V,E), |V|&#x3D;3m, K&#x3D;m$, 使得:<br>$$<br>\varphi \in 3SAT \iff (G,K)\in IS<br>$$<br><br></p>
 <p>对于一个3-CNF, 例如: $\phi&#x3D;(x_1\vee \overline x_2\vee x_4)\wedge (\overline x_1\vee x_2 \vee \overline x_3)\wedge (x_2 \vee \overline x_3 \vee \overline x_4)$</p>
 <p>我们可以创建出这样一个图, 每个clause对应一个三角形</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>这个图有 $m$ 个 clause.</p>
 <p><strong>forward &#x3D;&gt;</strong></p>
 <p>如果 $\phi$ is satisfiable, 那么我们希望我们创建的graph $G$ 有 large Independent set. 同时反过来也一样</p>
@@ -986,12 +986,12 @@ $$
 <p>如果 $\phi$ is satisfiable, 每个clause至少有一个true literal. 我们choose exactly one true literal per clause</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt308/sat_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p><strong>backward &lt;&#x3D;</strong></p>
 <p>如果 $G$ 有 large independent set, 我们能否让 $\phi$ satisfiable?</p>
 <p>不能, 因为如果我们在第一个三角形中选 $x_1$ 第二个三角形中选$\overline x_1$ 作为 independent set 中的元素, 那么对于 $\phi$ 来说, 就必须同时满足 $x_1\wedge \overline x_1&#x3D;True$ 而这是不可能的.</p>
 <p>因此我们要确保: 当选中 $x$ 时, 无法在图中选择 $\overline x$. 这个方法就是把图的所有元素和它的complement 进行连接, 这样我们就无法同时选择它们了</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时如果G中有$|IS|&#x3D;m$ 那么 $\phi$ 就可以被 satisfy</p>
 <p>而这个改变不会影响forward的推导, 同时由满足backward.</p>
 <br>
@@ -1000,7 +1000,7 @@ $$
 
 <h3 id="CLIQUE"><a href="#CLIQUE" class="headerlink" title="CLIQUE"></a>CLIQUE</h3><p>CLIQUE: give a graph $G&#x3D;(V,E)$ and an integer $K\ge 0$ decide if $G$ has a clique of size $\ge K$</p>
 <p>clique 就是给定图的一个子图, 且这个子图是一个完全图(和IS正好相反)</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_11.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p><strong>Thm: CLIQUE is NP-complete</strong></p>
@@ -1033,26 +1033,26 @@ $$
 <p>NAE-assignment 是 $x_1&#x3D;T, x_2&#x3D;F, x_3&#x3D;F,x_4&#x3D;F$</p>
 <p>如何构建图?</p>
 <p>和IS 类似, 每个clause可以看作是一个三角形</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时这个图肯定是3 colorable, 然而我们希望 3-colorable relate to satisfying assignment. 我们可以把3-color R, B, G看作数字<br>$$<br>R&#x3D;0, B&#x3D;1,G&#x3D;2<br>$$<br>0 代表 false, 1 代表 true, 我们不在乎 2</p>
 <p>每个clause要有at least one true and at least one false literals. 最后一个可以是true也可以是false </p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>然而backward 通常是难点</p>
 <p>如果我们有一个3-colourable graph, 如何使得$\phi$ satisfiable?</p>
 <p>如果我们color $x_1$ 1 (true), 那么我们希望再之后color的时候 $\overline x_1$是 0 (false)</p>
 <p>这里和IS的证明思想有点像, 所以如果我们连接 $x, \overline x$ 的话</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时却无法奏效, 因为 2 我们不确定是true还是false.</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如这条红色的边, 它连接的两个 color-2</p>
 <p>因此这种构图的方式是不对的, 然而, 问题就出现在color-2上. 对于color-0 和 color-1 是没有这个问题的</p>
 <p>因此我们只要稍微改动一些构图的方案 </p>
 <p>首先, 所有的variable都有可能 color to 2.</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们先构建一个点, 将他color to 2, 对于所有的 variable 和variable 的 complement, 和这个点连接成一个三角形</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>这个顶点上的color我们可以定义成color-2, 什么意思?</p>
 <p>就是说对于这个图, 如果我们这个顶点的color是1, 我们可以rename colors, 将 2 和 1 进行交换, 使得它永远是 “2”</p>
@@ -1061,11 +1061,11 @@ $$
 <p>当我们color三角形时, 当我们color $x$, 有两种选择, 要么是 color-1, 和上面对应. 要么是 color-2. </p>
 <p>同理, 当color $\overline x$ 时, 要么是 color-0, 要么是 color-2</p>
 <p>如何确保这一点? 注意在这张图中 $x, \overline x$ 只能是 0, 1</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_14.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>因此我们连接第一张图的 $x$ 和 第二张图 的 $\overline x$  , 第一张图, $x$只能是color-1, 因此第二张图 $\overline x$ 就只能是 color-0 或 color-2</p>
 <p>同理 对于 $\overline x$ 也是一样</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>backward证明完毕</p>
 <p>因此 3-COL 是 NP-complete</p>
 <br>
@@ -1075,7 +1075,7 @@ $$
 <p>我们依然不知道 $P&#x3D;NP$ , 假设 $P\ne NP$. 我们至今没有 det polytime algo for $SAT$ 或其他NP-complete 问题的解 that is <strong>correct on all inputs</strong></p>
 <p>然而我们可能会有一个 fast(polytime) algorithm 可以解决 SAT on all “real-life” instances</p>
 <p>因为现实生活中我们可能只会遇到一部分 SAT instance(称呼他们为 “natural” SAT instances). 如果可以快速解开这些问题, 那也是非常有用的</p>
-<p><img src="/Blog/Blog/intro/cmpt308/sat_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/sat_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时怎么定义 “natural” 这个子集, 以及如何找到对应的polytime 算法就是有用的</p>
 <p>所以即使 $P\ne NP$ , It is not the end of the story!</p>
 <br>
@@ -1084,7 +1084,7 @@ $$
 
 <h1 id="Space-Complexity"><a href="#Space-Complexity" class="headerlink" title="Space Complexity"></a>Space Complexity</h1><p>Space-bounded TM model</p>
 <p>有 input tape (read only) 和 work tape (read &#x2F; write)</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>The space used by a TM on input x is the total number of cells touched on its <strong>worktape</strong></p>
 <blockquote>
 <p>counting only the work tape for space usage allows us to talk about sublinear-space TMs</p>
@@ -1161,13 +1161,13 @@ $$
 <li>$|V|$ 个顶点的图的 simple path 的最大长度是 $|V|-1$</li>
 </ol>
 <p>最重要的一点是, 对于图中的两个点 $x,y$ 我们如何确定 二者之间有一个长度为 $L$ 的 path?</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>定义:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们可以计算 $\text{Path}()$ recursively</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>space used:<br>$$<br>\text{space}(0) &#x3D; O(\log|V|)<br>$$<br>因为只需要检测两个点是否是同一点, 或者是否能从一个点直接走到另一点, 注意一个vertex 的大小就是 $\log |V| &#x3D; \log (2^{S(n)})&#x3D;S(n)$<br>$$<br>\forall i &gt; 0, \text{space}(i)&#x3D;\text{space}(i-1)+O(\log |V|)<br>$$<br>space(i-1) 用于递归调用(第二个递归会使用第一个递归释放的内存)</p>
@@ -1189,7 +1189,7 @@ $$
 
 <br>
 
-<h2 id="PSPACE-complete"><a href="#PSPACE-complete" class="headerlink" title="PSPACE complete"></a>PSPACE complete</h2><p><img src="/Blog/Blog/intro/cmpt308/space_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="PSPACE-complete"><a href="#PSPACE-complete" class="headerlink" title="PSPACE complete"></a>PSPACE complete</h2><p><img src="/Blog/Blog/intro/cmpt308/space_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>假设 $P\ne NP$, NPC 指的是 NP-complete</p>
 <p>我们知道 NP 问题都是 PSPACE, 因此我们假设 PSPACE-complete 和 NP 是 disjoint 的, 因为如果 PSPACE-complete 中有一个问题是 NP, 那么整个 PSPACE set 就会和 NP 重合 (我们不知道, 但是我们不相信这样, 就像我们不相信 NPC 会和 P 重合)</p>
 <br>
@@ -1198,7 +1198,7 @@ $$
 <p>PSPACE-Complete: $\exists x_1 \forall x_2 \exists x_3…Qx_n \varphi(x_1,x_2…,x_n)$</p>
 <p>就是 $\exists, \forall$ 交替出现</p>
 <p>例如:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>思想就是 如果一个 varaible 的 quantifier 是 $\exists$, 那么就$\varphi&#x3D;\varphi(..,1,..) \vee \varphi(..,0,..)$ 尝试将那个位置填入0, 或1, 只要有一个是true即可</p>
 <p>如果一个 varaible 的 qualifier 是 $\forall$, 那么就$\varphi&#x3D;\varphi(..,1,..) \wedge \varphi(..,0,..)$ 尝试将那个位置填入0, 或1, 二者必须都是true</p>
 <br>
@@ -1226,12 +1226,12 @@ $$
 <p>和上面一样, 我们构建 conf graph $G_{M,x}$</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt308/space_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>同样使用上面 $PATH$ 的定义</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>且 $0\le i\le \log N$ , 这样才能保证最后结果是 poly-space</p>
 <p>我们希望:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Final formula: $\Psi _m(\langle \text{conf} _{init}\rangle, \langle \text{conf} _{accept} \rangle)$  where $m&#x3D;O(n^c)$</p>
@@ -1255,7 +1255,7 @@ $$
 </blockquote>
 <p>a better way to construct $\Psi_{i+1}$ from $\Psi_i$</p>
 <p>我们可以 reuse the formula, with the help of the $\forall$ quantifier</p>
-<p><img src="/Blog/Blog/intro/cmpt308/space_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/space_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>此时 $|\Psi_{i+1}| &#x3D; C+|\Psi_i|$, $C$ 是 constant</p>
 <p>而这个式子等价于 $\exists z[\Psi_i(v,z)\wedge \Psi_i(z, w)]$</p>
 <blockquote>
@@ -1283,7 +1283,7 @@ $$
 
 <br>
 
-<h2 id="LOGSPACE"><a href="#LOGSPACE" class="headerlink" title="LOGSPACE"></a>LOGSPACE</h2><p><img src="/Blog/Blog/intro/cmpt308/log_sp.PNG" srcset="/img/loading.gif" lazyload><br>$$<br>L&#x3D;\text{SPACE}(\log n)<br>$$</p>
+<h2 id="LOGSPACE"><a href="#LOGSPACE" class="headerlink" title="LOGSPACE"></a>LOGSPACE</h2><p><img src="/Blog/Blog/intro/cmpt308/log_sp.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>L&#x3D;\text{SPACE}(\log n)<br>$$</p>
 <p>$$<br>NL&#x3D;\text{NSPACE}(\log n)<br>$$</p>
 <br>
 
@@ -1297,9 +1297,9 @@ $$
 <br>
 
 <p>例子: Give a digraph $G&#x3D;(V,E)$ s.t. $\text{out-deg}(v)\le 1$ for each $v\in V$ </p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>and give two nodes $s,t \in V$. decide if $s\to t$ in $G$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>算法</p>
@@ -1332,7 +1332,7 @@ $$
 <li>if $(s, v)\notin E$ then reject, else goto 6</li>
 <li>Replace $s$ with $v$ on the work tape (此时work tape 保存的是 $v, t$) goto 2</li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>space used(Non-deterministic): $3\cdot \log |V|$ for 3 nodes of $G$ $\le O(\log |G|)$</p>
 <blockquote>
 <p>Open Question: Is directed (directed graph) st-Conn $\in L$ deterministicly logspace?</p>
@@ -1343,14 +1343,14 @@ $$
 <p><strong>proof</strong>: Directed st-CONN is $\text{NL-complete}$</p>
 <p>under logspace reductions.</p>
 <p>$f$ is a logspace reduction from $A$ to $B$ if $f:\Sigma^\star \to \Sigma^\star$ s.t. $\forall x$<br>$$<br>x \in A \iff f(x) \in B<br>$$<br>and f is computable by a logspace TM</p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Space &#x3D; number of work tape cells used(output tape is not counted toward SPACE usage)</p>
 <br>
 
 <p>for every $A\in NL$ decide by a NTM $M$, the reduction $f$</p>
 <p>from A to Directed st-Conn is:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_5.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>size of graph is poly, 因为$M$ 是 logspace, 因此 graph 的 size 就是$2^{O(\log n)}\le poly (n)$</p>
 <p>然而这个reduction $f$ can be computed by a logspace algorithm (output is bigger than $\log n$ but work space is $\log n$)</p>
 <blockquote>
@@ -1375,20 +1375,20 @@ $$
 <br>
 
 <h3 id="NL-x3D-coNL"><a href="#NL-x3D-coNL" class="headerlink" title="$NL&#x3D;coNL$"></a>$NL&#x3D;coNL$</h3><p>NL 和 NL 的 complement 是一样的</p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>coNL-complete problem: <strong>directed st-UNREACH</strong></p>
 <p>Given an undirected graph $G&#x3D;(V,E)$ and nodes $s,t\in V$, decide if $t$ is <strong>NOT</strong> reachable from $s$</p>
 <br>
 
 <p><strong>directed st-UNREACH</strong> $\in NL$ , 并且是complete in NL, 因此coNL&#x3D;NL</p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们希望这个图中是否没有 $s$ 到 $t$ 的路径</p>
 <p>我们的non-det algorithm 必须 accept iff 没有 $s$ 到 $t$ 的 path</p>
 <br>
 
 <p>解决问题的思路就是使用counting</p>
 <p>N &#x3D; number of nodes reachable from $s$ in $G$ is known to us (later we show how to compute N in NL)</p>
-<p><img src="/Blog/Blog/intro/cmpt308/log_sp_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/log_sp_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>算法思路: </p>
 <p>Nondet guess all nodes reachable from $s$ and check that $t$ is not among them</p>
 <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs q"><span class="hljs-built_in">count</span> = <span class="hljs-number">0</span><br>for <span class="hljs-built_in">each</span> node v in V<br>	guess yes <span class="hljs-built_in">or</span> no <span class="hljs-comment">// 用来猜测我们猜测的路径是否正确</span><br>	if yes<br>		guess a path s-&gt;v<br>		<span class="hljs-built_in">count</span> ++<br><br>if <span class="hljs-built_in">count</span> == N then we&#x27;ve seen <span class="hljs-built_in">all</span> nodes reachable <span class="hljs-keyword">from</span> S<br>	if non of these node was t<br>	then t is <span class="hljs-built_in">not</span> reachable <span class="hljs-keyword">from</span> s<br></code></pre></td></tr></table></figure>
@@ -1402,7 +1402,7 @@ $$
 
 <br>
 
-<h1 id="Randomized-Complexity"><a href="#Randomized-Complexity" class="headerlink" title="Randomized Complexity"></a>Randomized Complexity</h1><h2 id="Randomized-TM"><a href="#Randomized-TM" class="headerlink" title="Randomized TM"></a>Randomized TM</h2><p><img src="/Blog/Blog/intro/cmpt308/rc.PNG" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Randomized-Complexity"><a href="#Randomized-Complexity" class="headerlink" title="Randomized Complexity"></a>Randomized Complexity</h1><h2 id="Randomized-TM"><a href="#Randomized-TM" class="headerlink" title="Randomized TM"></a>Randomized TM</h2><p><img src="/Blog/Blog/intro/cmpt308/rc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>random tape 只能向右移动, 因此想访问之前的值就需要将它存储在work tape中</p>
 <p>我们用 ${M^{$}(x)}$ 代表可以访问 random tape 的 TM</p>
 <p>而现在, 我们思考的是 accept 或 reject 一个 input $x$ 的可能性<br>$$<br>Pr[M^$(x) \text{ accept}]<br>$$</p>
@@ -1410,20 +1410,20 @@ $$
 <p>我们可以把一个Det TM 看作是 accept 和 reject 的 probability 为 1 的$M^{$}$</p>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt308/random_12.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/random_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>2-side error: may have false positive and true negative</p>
 </blockquote>
 <br>
 
-<p><img src="/Blog/Blog/intro/cmpt308/random_13.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/random_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>$\frac 12 , 1$ 这两个值只是place holder, 我们可以自定义这两个值</p>
 </blockquote>
 <br>
 
 <p>example: undirected st-conn</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_1.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Randomly walk for $n^3$ steps from $s$ will see $t$ with high probability if $t$ is reachable from $s$</p>
 <br>
 
@@ -1460,7 +1460,7 @@ $$
 <h3 id="Randomized-PolyTime-RP-algorithm"><a href="#Randomized-PolyTime-RP-algorithm" class="headerlink" title="Randomized PolyTime(RP) algorithm"></a>Randomized PolyTime(RP) algorithm</h3><p><strong>Polynomial identity testing (PIT) problem</strong></p>
 <p>Given: arithmetic formula (with $+, \times$) $A(x_1,…x_n)$</p>
 <p>decide: Is $A\not \equiv 0$ ?</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_2.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>例如: $A(x_1,x_2,x_3)&#x3D;x_1\cdot x_2+5x_3$ of size $L&#x3D;4$</p>
 <p>我们可以从 ${1,2,3,4,5,6,7,8}$ 中选择integer random, independently</p>
 <p>例如: $x_1&#x3D;3, x_2&#x3D;6,x_3&#x3D;1$</p>
@@ -1491,7 +1491,7 @@ $$
 <p>base case: $L&#x3D;1$ then $deg(A)\le 1$, true</p>
 <p>inductive step: Assume $deg(B)\le |B|$ for all formulas $B$ with $|B| &lt; L$ will prove for $A$ with $|A|&#x3D;L$</p>
 <p>let $A(x_1,…x_n)&#x3D;A_0 \text{ Operstor } A_1$, operator 可能是 $+, \times$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_3.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>因此 $deg(A) \le deg(A_0)+deg(A_1) \le |A_0|+|A_1|&#x3D;A$</p>
 <blockquote>
 <p>根据 inductive hypothesis (IH) $deg(A_0)+deg(A_1) \le |A_0|+|A_1|$</p>
@@ -1526,7 +1526,7 @@ $$
 <blockquote>
 <p>Open: P&#x3D;RP ?</p>
 </blockquote>
-<h2 id="x2F-x2F-TODO-Error-Reduction"><a href="#x2F-x2F-TODO-Error-Reduction" class="headerlink" title="&#x2F;&#x2F; TODO: Error Reduction"></a>&#x2F;&#x2F; TODO: Error Reduction</h2><h2 id="Interactive-Proofs"><a href="#Interactive-Proofs" class="headerlink" title="Interactive Proofs"></a>Interactive Proofs</h2><p><img src="/Blog/Blog/intro/cmpt308/rc_4.PNG" srcset="/img/loading.gif" lazyload></p>
+<h2 id="x2F-x2F-TODO-Error-Reduction"><a href="#x2F-x2F-TODO-Error-Reduction" class="headerlink" title="&#x2F;&#x2F; TODO: Error Reduction"></a>&#x2F;&#x2F; TODO: Error Reduction</h2><h2 id="Interactive-Proofs"><a href="#Interactive-Proofs" class="headerlink" title="Interactive Proofs"></a>Interactive Proofs</h2><p><img src="/Blog/Blog/intro/cmpt308/rc_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Generalize this set-up in two ways:</p>
 <ol>
@@ -1534,7 +1534,7 @@ $$
 <li>allow $\le$ poly rounds of communication</li>
 </ol>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_5.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <ul>
 <li>$\forall x \in L, \exists$ Prover (computationally unbounded), s.t. <strong>Prover</strong> get <strong>Verifier</strong> to accept $x$ after $\le O(|x|^c)$ rounds with probability &#x3D; 1</li>
 <li>$\forall x \notin L, \forall$ Prover, Verifier rejects $x$ after $\le O(|x|^c)$ rounds with probability $\ge \frac 34$</li>
@@ -1558,18 +1558,18 @@ $$
 <p>Merlin claims the balls are blue and green</p>
 </blockquote>
 <p>Arthur doesn’t trust Merlin, but can use Merlin’s help to figure if the balls are of different color or catch Merlin lying</p>
-<p> <img src="/Blog/Blog/intro/cmpt308/rc_6.PNG" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/Blog/Blog/intro/cmpt308/rc_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>随着询问次数的增多, Prover 撒谎的可能性会越来越小</p>
 <br>
 
 <p>example: graph isomorphism problem</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_7.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>Graph iso $\in $ NP</p>
 <p>IP Protocol for graph NonIsomorphism:</p>
 <p>input $(G_0, G_1)$ 给 Prover 和 Verifier</p>
 <p>Verifier 会从 $G_0,G_1$ 选择一个random graph (各有百分之五十的概率), 之后apply random permutation for nodes in that graph</p>
 <p>send to Prover, Prover需要告诉Verifier这个新的图是由 $G_0,G_1$ 中的哪一个得到的, Verifier进行check</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_8.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <p>Correctness analysis:</p>
@@ -1592,7 +1592,7 @@ $$
 <p>例如: $\sum_{x_1&#x3D;0}^1 \sum_{x_2&#x3D;0}^1\cdots \sum_{x_n&#x3D;0}^1 \varphi(x_1, x_2,…x_n)$</p>
 <p>Note: # SAT is at least as hard as SAT, but probably much harder</p>
 <p>Thm: $# SAT \in IP$</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_9.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>如果Prover 最开始说谎了, 那它就必须一直说谎, 至少variable为0时也会说谎(此时Verifier可以简单地check)</p>
 <p>Proof:</p>
 <p>Let $\varphi(x_1,…x_n)$ be a given 3-cnf</p>
@@ -1633,17 +1633,17 @@ $$
 <p>polynomial 可以选择任何 integer value 作为输入 而不仅仅是 bool value. 这个 domain 的扩张会在接下来设计 randomized interactive protocol 时有用</p>
 <br>
 
-<p>randomized interactive protocol(“Sum check Protocol”) for checking if<br>$$<br>k&#x3D;\sum _{x _1&#x3D;0}^1\cdots\sum _{x _n&#x3D;0}^1p _\varphi(x_1,…x_n)<br>$$<br><img src="/Blog/Blog/intro/cmpt308/rc_10.PNG" srcset="/img/loading.gif" lazyload></p>
+<p>randomized interactive protocol(“Sum check Protocol”) for checking if<br>$$<br>k&#x3D;\sum _{x _1&#x3D;0}^1\cdots\sum _{x _n&#x3D;0}^1p _\varphi(x_1,…x_n)<br>$$<br><img src="/Blog/Blog/intro/cmpt308/rc_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>check $k&#x3D;p_1(0)+p_1(1)$ 如果不等, reject, 不然 就选择一个random integer $1\le r_1\le 4\cdot d\cdot n$</p>
 <p>Verifier 会向 Proofer 发送 $r_1$, expects the proof “$p_1(r_1)&#x3D;\sum_{x_2&#x3D;0}^1…\sum_{x_n}^1p(r_1,x_2,…x_n)$”</p>
 <p>Prover is forced to claim “$k’&#x3D;\sum_{x_2&#x3D;0}^1\cdots \sum_{x_n&#x3D;0}^1p’(x_2,…x_n)$”</p>
 <p>continue for another $n-1$ rounds until either Verifier rejects in some round OR the Prover is forced to claim<br>$$<br>\tilde k &#x3D; p(r_1,r_2,…r_n)<br>$$<br>此时 Verifier 可以check $\tilde k$ 是 true (accept) 还是 false(reject).</p>
 <blockquote>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_11.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_12.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_13.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_14.PNG" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_15.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 </blockquote>
 <p>Thm:</p>
 <ol>
@@ -1694,7 +1694,7 @@ $$
 <p>假设有 K-cnf $c_1,c_2,..c_m$ 有 m 个 clauses, 每个 clauses 有 k variables</p>
 <p>有 random variables $X_1, X_2,…X_m\in{0,1}$</p>
 <p>For a random truth assignment:</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_16.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>我们要argue 的是 $E[X_1+X_2…X_m]$ is large ($1-\frac 1 {2^k}$)</p>
 <p>根据 linearity of expectation<br>$$<br>E[X_1+X_2…X_m]<br>$$</p>
 <p>$$<br>&#x3D;E[X_1]+E[X_2]…+E[X_m]<br>$$</p>
@@ -1788,7 +1788,7 @@ $$
 
 <h2 id="Time-and-Space-Hierarchies"><a href="#Time-and-Space-Hierarchies" class="headerlink" title="Time and Space Hierarchies"></a>Time and Space Hierarchies</h2><p>For all “nice” functions $t:\N\to \N, T:\N\to \N$ s.t.<br>$$<br>(t(n)\cdot \log t(n))\in o(T(n))<br>$$<br> we have<br>$$<br>TIME(t(n))\subset TIME(T(n))<br>$$<br>可以 proof by diagonalization</p>
 <p>通过定义 </p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_17.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <p>而</p>
 <ol>
 <li><p>$D \notin TIME(t(n))$ by diagonalization</p>
@@ -1796,13 +1796,13 @@ $$
 <li><p>$D\in TIME(T(n))$ by using a time-efficient universal TM (which can simulate every t(n)-time TM M in time $O(t(n)\cdot \log t(n))$)</p>
 </li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_18.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
 
 <p>类似的 for all “nice” function $s:\N\to\N, S:\N\to \N$ s.t.<br>$$<br>s(n)\in o(S(n))<br>$$<br>we have<br>$$<br>SPACE(s(n)) \subset SPACE(S(n))<br>$$<br>依然可以用 diagonalization 证明</p>
-<p><img src="/Blog/Blog/intro/cmpt308/rc_19.PNG" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/Blog/Blog/intro/cmpt308/rc_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
 <br>
 
 <br>
@@ -1861,7 +1861,7 @@ $$
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -1869,9 +1869,9 @@ $$
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
                     
                   </div>
                 
@@ -1888,19 +1888,19 @@ $$
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/27/algorithm-analysis/">
+                      <a href="/Blog/2022/03/27/algorithm-analysis/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">前の記事</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/09/09/Computability-and-Complexity/">
+                      <a href="/Blog/2021/09/09/Computability-and-Complexity/">
                         <span class="hidden-mobile">Computability and Complexity</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">次の記事</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -1917,7 +1917,7 @@ $$
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;ディレクトリ</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -1943,7 +1943,7 @@ $$
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">検索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1952,7 +1952,7 @@ $$
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">キーワード</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1992,18 +1992,18 @@ $$
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -2056,7 +2056,7 @@ $$
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>
