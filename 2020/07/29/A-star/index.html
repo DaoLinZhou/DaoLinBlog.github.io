@@ -16,12 +16,12 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="A* 寻路算法A*算法和Dijkstra 算法非常相似. 不过A-star 算法中每个点的权重(F)不单单是路径的长度(G), 还要加上这个点到目的地的预计长度(H) F &#x3D; G + H   假设从绿色的格子走到红色的格子.    首先要引入一些概念  OpenList: 用来存储可以到达的格子 CloseList: 用来存储已经到达的格子 F &#x3D; G + H  G 是 从">
+    <meta name="description" content="A* 寻路算法A*算法和Dijkstra 算法非常相似. 不过A-star 算法中每个点的权重(F)不单单是路径的长度(G), 还要加上这个点到目的地的预计长度(H) F &#x3D; G + H  假设从绿色的格子走到红色的格子.   首先要引入一些概念  OpenList: 用来存储可以到达的格子 CloseList: 用来存储已经到达的格子 F &#x3D; G + H   G 是 从起点走到当前格子的成本.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A-star 寻路算法">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/29/A-star/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/29/A-star/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
-<meta property="og:description" content="A* 寻路算法A*算法和Dijkstra 算法非常相似. 不过A-star 算法中每个点的权重(F)不单单是路径的长度(G), 还要加上这个点到目的地的预计长度(H) F &#x3D; G + H   假设从绿色的格子走到红色的格子.    首先要引入一些概念  OpenList: 用来存储可以到达的格子 CloseList: 用来存储已经到达的格子 F &#x3D; G + H  G 是 从">
+<meta property="og:description" content="A* 寻路算法A*算法和Dijkstra 算法非常相似. 不过A-star 算法中每个点的权重(F)不单单是路径的长度(G), 还要加上这个点到目的地的预计长度(H) F &#x3D; G + H  假设从绿色的格子走到红色的格子.   首先要引入一些概念  OpenList: 用来存储可以到达的格子 CloseList: 用来存储已经到达的格子 F &#x3D; G + H   G 是 从起点走到当前格子的成本.">
 <meta property="og:locale">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/a-star_1.PNG">
 <meta property="article:published_time" content="2020-07-29T22:29:40.000Z">
@@ -105,7 +105,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -117,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -129,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -141,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      857 字
+      842 字
     </span>
   
 
@@ -245,70 +245,58 @@
             
             <div class="markdown-body">
               <span id="more"></span>
-
 <h1 id="A-寻路算法"><a href="#A-寻路算法" class="headerlink" title="A* 寻路算法"></a>A* 寻路算法</h1><p>A*算法和Dijkstra 算法非常相似. 不过A-star 算法中每个点的权重(F)不单单是路径的长度(G), 还要加上这个点到目的地的预计长度(H)</p>
-<p>F &#x3D; G + H</p>
-<br>
-
+<p>F = G + H</p>
+<p><br></p>
 <p>假设从绿色的格子走到红色的格子.</p>
-<p><img src="/Blog/Blog/intro/a-star_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/a-star_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>首先要引入一些概念</p>
 <ul>
 <li>OpenList: 用来存储<strong>可以到达的格子</strong></li>
 <li>CloseList: 用来存储<strong>已经到达的格子</strong></li>
-<li>F &#x3D; G + H</li>
+<li>F = G + H </li>
 </ul>
 <p>G 是 从起点走到当前格子的成本. H是当前格子到目标格子的估计距离, 通常使用直线距离(不考虑障碍物)</p>
-<br>
-
+<p><br></p>
 <p>第一步: 把起点放入OpenList</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs crmsh">OpenList: <span class="hljs-keyword">Node</span><span class="hljs-title">(1</span>, <span class="hljs-number">2</span>)<br>CloseList:<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/a-star_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/a-star_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>第二步: 找出OpenList中F值最小的方格, 将其移出OpenList, 放入CloseList, 并将它上下左右所有可以到达的格子放入OpenList中(如果OpenList中没有), 并计算出相应的G, H, F值. 并把当前格子作为它们的父亲节点.</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">OpenList: <span class="hljs-keyword">Node</span><span class="hljs-title">(1</span>, <span class="hljs-number">1</span>), <span class="hljs-keyword">Node</span><span class="hljs-title">(0</span>, <span class="hljs-number">2</span>), <span class="hljs-keyword">Node</span><span class="hljs-title">(2</span>, <span class="hljs-number">2</span>), <span class="hljs-keyword">Node</span><span class="hljs-title">(1</span>, <span class="hljs-number">3</span>)<br>CloseList: <span class="hljs-keyword">Node</span><span class="hljs-title">(1</span>, <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/a-star_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/a-star_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><strong>图中每个格子的左下方数字是G, 右下方是H, 左上方是F</strong></p>
-<br>
-
+<p><br></p>
 <p>之后和Dijkstra 就非常类似了. 从OpenList中取出F最小的点进行访问.</p>
-<p><img src="/Blog/Blog/intro/a-star_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/a-star_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于Node(3, 2)是墙壁, 所以不考虑.</p>
-<br>
-
+<p><br></p>
 <p>重复这个过程直到到达目的地</p>
-<p><img src="/Blog/Blog/intro/a-star_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/a-star_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
+<p><img src="/Blog/intro/a-star_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/a-star_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
 <blockquote>
 <p>我认为理论上来说, A* 算法不仅仅可以应用于这样网格状的图中. 它和Dijkstra 的唯一区别就是使用了H(当前格子到目标格子的预估距离).</p>
 <p>对于非网格状的图这个距离是非常难以估计的. 但如果可以估计的话, 就意味着我们可以使用A-star</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <blockquote>
 <p>如果d(n)表达状态n到目标状态的距离, 那么h(n)大概有3种情况</p>
 <ul>
 <li><p>如果h(n)&lt; d(n)到目标状态的实际距离，这种情况下，搜索的点数多，搜索范围大，效率低。但能得到最优解。</p>
 </li>
-<li><p>如果h(n)&#x3D;d(n)，即距离估计h(n)等于最短距离，那么搜索将严格沿着最短路径进行， 此时的搜索效率是最高的。</p>
+<li><p>如果h(n)=d(n)，即距离估计h(n)等于最短距离，那么搜索将严格沿着最短路径进行， 此时的搜索效率是最高的。</p>
 </li>
 <li><p>如果 h(n)&gt;d(n)，搜索的点数少，搜索范围小，效率高，但不能保证得到最优解。</p>
 </li>
@@ -351,7 +339,7 @@
                       <a href="/Blog/2020/07/30/expression-tree/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">表达式树</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -360,7 +348,7 @@
                     
                       <a href="/Blog/2020/07/23/Huffman-Tree/">
                         <span class="hidden-mobile">哈夫曼树 Haffman Tree</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -377,7 +365,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -403,7 +391,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -412,7 +400,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

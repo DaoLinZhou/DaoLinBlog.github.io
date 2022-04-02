@@ -16,12 +16,12 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="结论:    插入排序 希尔排序    代码复杂程度 简单 简单   时间复杂度 O(n^2) 可以优化 O(n^(3&#x2F;2))   空间复杂度 O(1) O(1)   稳定性 稳定 不稳定   特点 可以提前终止第二层循环">
+    <meta name="description" content="结论:     插入排序 希尔排序     代码复杂程度 简单 简单   时间复杂度 O(n^2) 可以优化 O(n^(3&#x2F;2))   空间复杂度 O(1) O(1)   稳定性 稳定 不稳定   特点 可以提前终止第二层循环">
 <meta property="og:type" content="article">
 <meta property="og:title" content="插入排序 Insert Sort 和 希尔排序 Shell Sort">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/22/Insert-Sort/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/22/Insert-Sort/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
-<meta property="og:description" content="结论:    插入排序 希尔排序    代码复杂程度 简单 简单   时间复杂度 O(n^2) 可以优化 O(n^(3&#x2F;2))   空间复杂度 O(1) O(1)   稳定性 稳定 不稳定   特点 可以提前终止第二层循环">
+<meta property="og:description" content="结论:     插入排序 希尔排序     代码复杂程度 简单 简单   时间复杂度 O(n^2) 可以优化 O(n^(3&#x2F;2))   空间复杂度 O(1) O(1)   稳定性 稳定 不稳定   特点 可以提前终止第二层循环">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-06-23T06:29:31.000Z">
 <meta property="article:modified_time" content="2019-06-23T07:26:45.658Z">
@@ -103,7 +103,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -115,7 +115,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -127,7 +127,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -139,7 +139,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -151,7 +151,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -210,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      11 分钟
     </span>
   
 
@@ -242,7 +242,8 @@
             <h1 style="display: none">插入排序 Insert Sort 和 希尔排序 Shell Sort</h1>
             
             <div class="markdown-body">
-              <h2 id="结论"><a href="#结论" class="headerlink" title="结论:"></a>结论:</h2><table>
+              <h2 id="结论"><a href="#结论" class="headerlink" title="结论:"></a>结论:</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -250,7 +251,8 @@
 <th>希尔排序</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>代码复杂程度</td>
 <td>简单</td>
 <td>简单</td>
@@ -258,7 +260,7 @@
 <tr>
 <td>时间复杂度</td>
 <td>O(n^2) 可以优化</td>
-<td>O(n^(3&#x2F;2))</td>
+<td>O(n^(3/2))</td>
 </tr>
 <tr>
 <td>空间复杂度</td>
@@ -273,16 +275,14 @@
 <tr>
 <td>特点</td>
 <td>可以提前终止第二层循环</td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <span id="more"></span>
-
 <h2 id="插入排序-Insert-Sort"><a href="#插入排序-Insert-Sort" class="headerlink" title="插入排序 Insert Sort"></a>插入排序 Insert Sort</h2><p>思想: <strong>把当前元素向前遍历, 如果前一个元素大于当前元素则swap</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertionSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">for</span>( <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i ++ )&#123;<br>        <span class="hljs-comment">// 寻找元素 arr[i] 合适的插入位置</span><br>        <span class="hljs-keyword">for</span>( <span class="hljs-type">int</span> j = i; j &gt; <span class="hljs-number">0</span> &amp;&amp; arr[j] &lt; arr[j<span class="hljs-number">-1</span>]; j -- )<br>            <span class="hljs-built_in">swap</span>(arr[j], arr[j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br/>
-
+<p><br/></p>
 <h4 id="优化版插入排序"><a href="#优化版插入排序" class="headerlink" title="优化版插入排序"></a>优化版插入排序</h4><p>特点: <strong>在数组中元素近乎有序的情况下, 时间复杂度进化为O(n)</strong></p>
 <p>思想: <strong>保存当前元素, 向前遍历, 如果前一个元素大于大于当前元素, 则把当前元素赋值为前一个元素的值, 直到找到正确的位置, 把保存的值赋值给这个位置的元素</strong></p>
 <p>作用: </p>
@@ -292,16 +292,12 @@
 </ol>
 <p>上一个版本的swap十分耗时, 因为一次swap 相当于三次赋值, 通过改进我们可以让它只交换一次</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insertionSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">for</span>( <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i ++ )&#123;<br>        T temp = arr[i];<br>        <span class="hljs-type">int</span> j;          <span class="hljs-comment">// j保存元素temp应该插入的位置</span><br>        <span class="hljs-keyword">for</span>( j = i; j &gt; <span class="hljs-number">0</span> &amp;&amp; temp &lt; arr[j<span class="hljs-number">-1</span>]; j -- )<br>            arr[j] = arr[j<span class="hljs-number">-1</span>];<br>        arr[j] = temp;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br/>
-
-<h3 id="希尔排序-Shell-Sort-–-插入排序的进化-O-n-3-x2F-2"><a href="#希尔排序-Shell-Sort-–-插入排序的进化-O-n-3-x2F-2" class="headerlink" title="希尔排序 (Shell Sort) – 插入排序的进化 O(n^(3&#x2F;2))"></a>希尔排序 (Shell Sort) – 插入排序的进化 O(n^(3&#x2F;2))</h3><p>插入排序: 每次和前一个元素进行比较</p>
+<p><br/></p>
+<h3 id="希尔排序-Shell-Sort-—-插入排序的进化-O-n-3-2"><a href="#希尔排序-Shell-Sort-—-插入排序的进化-O-n-3-2" class="headerlink" title="希尔排序 (Shell Sort) — 插入排序的进化 O(n^(3/2))"></a>希尔排序 (Shell Sort) — 插入排序的进化 O(n^(3/2))</h3><p>插入排序: 每次和前一个元素进行比较</p>
 <p>希尔排序: 每次和前h个元素进行比较 (h 从很大的值缩小到1)</p>
-<br/>
-
-<p>思想: <strong>将一个完全无序的数组 -&gt; 变成近乎有序的数组 -&gt; 变成有序性更强的数组 -&gt; h &#x3D; 1 变成排好序的数组</strong></p>
+<p><br/></p>
+<p>思想: <strong>将一个完全无序的数组 -&gt; 变成近乎有序的数组 -&gt; 变成有序性更强的数组 -&gt; h = 1 变成排好序的数组</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">shellSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-comment">// 计算increment sequence 1, 4, 13, 40, 121, 364, 1093...</span><br>    <span class="hljs-type">int</span> h = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>( h &lt; n/<span class="hljs-number">3</span> )<br>        h = <span class="hljs-number">3</span> * h + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>( h &gt;= <span class="hljs-number">1</span> )&#123;<br>        <span class="hljs-comment">//h-sort to array</span><br>        <span class="hljs-keyword">for</span>( <span class="hljs-type">int</span> i = h; i &lt; n; i++ )&#123;<br>            <span class="hljs-comment">// 对 arr[i], arr[i-h], arr[i-2*h], arr[i-3*h]... 使用插入排序</span><br>            T e = arr[i];<br>            <span class="hljs-type">int</span> j;<br>            <span class="hljs-keyword">for</span>( j = i; j &gt;= h &amp;&amp; e &lt; arr[j-h]; j-= h)<br>                arr[j] = arr[j-h];<br>            arr[j] = e;<br>        &#125;<br>        h/=<span class="hljs-number">3</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
             </div>
             <hr>
@@ -339,7 +335,7 @@
                       <a href="/Blog/2019/06/23/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">学习资料自收集 (置顶文章)</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -348,7 +344,7 @@
                     
                       <a href="/Blog/2019/06/22/tcp-wavehand/">
                         <span class="hidden-mobile">TCP 四次挥手</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -365,7 +361,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -391,7 +387,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -400,7 +396,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

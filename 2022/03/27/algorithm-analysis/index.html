@@ -19,7 +19,7 @@
     <meta name="description" content="title: algorithm analysisdate: 2021-01-13 19:05:48tags:  算法分析categories: 算法与数据结构banner_img: &#x2F;intro&#x2F;internet.jpgindex_img: &#x2F;intro&#x2F;cmpt307&#x2F;merge_sort.PNG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Daolin&#39;s Repository">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2022/03/27/algorithm-analysis/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2022/03/27/algorithm-analysis/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="title: algorithm analysisdate: 2021-01-13 19:05:48tags:  算法分析categories: 算法与数据结构banner_img: &#x2F;intro&#x2F;internet.jpgindex_img: &#x2F;intro&#x2F;cmpt307&#x2F;merge_sort.PNG">
 <meta property="og:locale">
@@ -392,7 +392,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -404,7 +404,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -416,7 +416,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -428,7 +428,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -440,7 +440,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -499,7 +499,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      124 分钟
+      123 分钟
     </span>
   
 
@@ -883,8 +883,8 @@ for i = 1 to n do:
 <p><strong>Average running time analysis</strong></p>
 <ul>
 <li><p>An assumption on the distribution of inputs</p>
-<p>Let $A=\{A_1,… A_r\}$ be the set of possible input sequences ($r=n!$)</p>
-<p>Let $p(A_j)\ge 0$ be the probability that $A_j$ is an input $\sum_{j=1}^rp(A_j)=1$</p>
+<p>Let $A={A_1,… A_r}$ be the set of possible input sequences ($r=n!$)</p>
+<p>Let $p(A<em>j)\ge 0$ be the probability that $A_j$ is an input $\sum</em>{j=1}^rp(A_j)=1$</p>
 <p>Let $k_j$ be the number function $f$ is called when $A_j$ is the input</p>
 </li>
 <li><p>Average running time</p>
@@ -923,10 +923,10 @@ Pr[A]=\frac {|A|}{|S|}\tag 2</script><ol>
 <p>例如:</p>
 <ul>
 <li><p>Probability of getting H(head) in tossing a coin:</p>
-<p>Sample space $S=\{H, T\}$ event $A=\{H\}, Pr[A]=\frac {|A|}{|S|}=\frac 12$</p>
+<p>Sample space $S={H, T}$ event $A={H}, Pr[A]=\frac {|A|}{|S|}=\frac 12$</p>
 </li>
 <li><p>Probability of gettting event number in rolling a dice:</p>
-<p>$S=\{1,2,3,4,5,6\}$ event $A={2,4,6}, Pr[A]=\frac {|A|}{|S|}=\frac 36=\frac 12$</p>
+<p>$S={1,2,3,4,5,6}$ event $A={2,4,6}, Pr[A]=\frac {|A|}{|S|}=\frac 36=\frac 12$</p>
 </li>
 </ul>
 <p><img src="/Blog/intro/cmpt307/dis_var.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
@@ -934,12 +934,12 @@ Pr[A]=\frac {|A|}{|S|}\tag 2</script><ol>
 <p><br></p>
 <p><strong>Average running time of Random ALG-Example</strong></p>
 <ul>
-<li><p>Random variable $X_i=1$ if $f(a_i)$ is called, otherwise $X_i=0$, $X=\sum_{i=1}^n X_i$</p>
+<li><p>Random variable $X<em>i=1$ if $f(a_i)$ is called, otherwise $X_i=0$, $X=\sum</em>{i=1}^n X_i$</p>
 </li>
-<li><p>$E[X_i]=Pr[a_i&gt;x]=Pr[a_i&gt;max_{i\le c\le i-1}a_c]$</p>
+<li><p>$E[X<em>i]=Pr[a_i&gt;x]=Pr[a_i&gt;max</em>{i\le c\le i-1}a_c]$</p>
 <p>On the uniform distribution assumtion, every interger in a sequence $a_1…a_i$ is equally likely to be the maximun, So $E[X_i]=1/i$</p>
 </li>
-<li><p>$E[X] = E[\sum_{i=1}^nX_i]=\sum_{i=1}^nE[X_i]=\sum_{i=1}^n1/i=\ln n+O(1)$</p>
+<li><p>$E[X] = E[\sum<em>{i=1}^nX_i]=\sum</em>{i=1}^nE[X<em>i]=\sum</em>{i=1}^n1/i=\ln n+O(1)$</p>
 </li>
 </ul>
 <p>The average running time is $O(n+tE[X])=O(n+t\log n)$</p>
@@ -951,7 +951,7 @@ Pr[A]=\frac {|A|}{|S|}\tag 2</script><ol>
 <p><img src="/Blog/intro/cmpt307/heap.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt307/heap_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>为什么是 $O(\sum_{k=1}^{\log_2n}kn/2^k)$</p>
-<p>当对一个node进行shift down, 需要k步, $k$ 是高度, 而这一层一共有$n/2^k$个node, $O(\sum_{k=1}^{\log_2n}kn/2^k) = O(n \sum_{k=1}^{\log_2n}k/2^k)=O(n)$</p>
+<p>当对一个node进行shift down, 需要k步, $k$ 是高度, 而这一层一共有$n/2^k$个node, $O(\sum<em>{k=1}^{\log_2n}kn/2^k) = O(n \sum</em>{k=1}^{\log_2n}k/2^k)=O(n)$</p>
 <p><br></p>
 <p>heap sort</p>
 <p><img src="/Blog/intro/cmpt307/heap_sort.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
@@ -1003,7 +1003,7 @@ Pr[A]=\frac {|A|}{|S|}\tag 2</script><ol>
 <p>这种方法会找到一个x, 这个x距离median很近, 之后进行paration</p>
 <p><br></p>
 <p><br></p>
-<h2 id="Hash-Tables"><a href="#Hash-Tables" class="headerlink" title="Hash Tables"></a>Hash Tables</h2><p><strong>Dictionary:</strong>maintain a dynamic set $S$, each $x\in S$ has a key $x.key$ from $U=\{0,1,…n-1\}$ so that insert, search and delete operations in $S$ is efficient.</p>
+<h2 id="Hash-Tables"><a href="#Hash-Tables" class="headerlink" title="Hash Tables"></a>Hash Tables</h2><p><strong>Dictionary:</strong>maintain a dynamic set $S$, each $x\in S$ has a key $x.key$ from $U={0,1,…n-1}$ so that insert, search and delete operations in $S$ is efficient.</p>
 <p><img src="/Blog/intro/cmpt307/hash_table.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>然而我们可以使用一个小的array</p>
@@ -1025,7 +1025,7 @@ Pr[A]=\frac {|A|}{|S|}\tag 2</script><ol>
 <p><img src="/Blog/intro/cmpt307/hash_table_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>证明 $H_{pm}$ 是 universal</p>
-<p>让 $k, l$ 为两个不同的key. 我们要证明 $Pr[h_{ab}(k)=h_{ab}(l)] \le 1/m$ 对于正整数 a,b, 让 $r=(ak+b) \mod p$ 同时 $s=(al+b) \mod p$.  那么:</p>
+<p>让 $k, l$ 为两个不同的key. 我们要证明 $Pr[h<em>{ab}(k)=h</em>{ab}(l)] \le 1/m$ 对于正整数 a,b, 让 $r=(ak+b) \mod p$ 同时 $s=(al+b) \mod p$.  那么:</p>
 <script type="math/tex; mode=display">
 r-s=a(k-l) \mod p</script><p> 由于 $a&gt;0$ 同时 $|k-l|&gt;0$. 因此 $a(k-l) \mod p$ 不为 0.</p>
 <p>所以$r \ne s$, mod $p$ 不会产生碰撞</p>
@@ -1203,7 +1203,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
 <li>$A[0]$ is filpped once in every $2^0=1$ increment</li>
 <li>$A[1]$ is flipped once in every $2^1=2$ iincrement</li>
 <li>$A[i]$ is flipped once in every $2^i$ increment</li>
-<li>Total cost is $\sum_{i=0}^{k-1}\lfloor n/2^i\rfloor &lt; n\sum_{i=0}^{\text{inf}}(1/2^i)=2n$</li>
+<li>Total cost is $\sum<em>{i=0}^{k-1}\lfloor n/2^i\rfloor &lt; n\sum</em>{i=0}^{\text{inf}}(1/2^i)=2n$</li>
 <li>Amortized cost per increment is $O(n)/n=O(1)$</li>
 </ul>
 </li>
@@ -1217,7 +1217,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
 <li>给不同的operation不同的cost, cost charged to an operation is the amortized cost of the operation</li>
 </ul>
 <p>对于operation $i$, 定义$\hat c_i$ be the amortized cost, $c_i$ be the real cost of i. For $\hat c_i \ge c_i$, $\hat c_i -c_i$ is called credit of $i$</p>
-<p>For sequence of operations, $\sum_{i=1}^n \hat c_i \ge \sum_{i=1}^n c_i$ is always required</p>
+<p>For sequence of operations, $\sum<em>{i=1}^n \hat c_i \ge \sum</em>{i=1}^n c_i$ is always required</p>
 <p>Analysis for a sequence of $n$ PUSH, POP and MultiPOP operations</p>
 <ul>
 <li>Real cost: PUSH 1; POP 1; MultiPOP $\min(|S|, k)$</li>
@@ -1245,9 +1245,9 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
 <h4 id="Analysis-for-stack-operation"><a href="#Analysis-for-stack-operation" class="headerlink" title="Analysis for stack operation"></a>Analysis for stack operation</h4><p>$\Phi(D_0)=0$ for each $1 \le i \le n, \Phi(D_i)=|S|$ the number of objects in $S$ after the ith operation</p>
 <p>这里 $\Phi(D_i)$ 代表在第i次操作后stack中的元素</p>
 <ul>
-<li>If the $i$th operation is PUSH, then $\hat c_i = c_i+\Phi(D_i)-\Phi(D_{i-1})=1+1=2$</li>
-<li>If the $i$ th operation is POP, then $\hat c_i = c_i+\Phi(D_i)-\Phi(D_{i-1})=1-1=0$</li>
-<li>If the $i$ th operation is MultiPOP then $\hat c_i = c_i+\Phi(D_i)-\Phi(D_{i-1})=c_i+(-c_i)=0$</li>
+<li>If the $i$th operation is PUSH, then $\hat c<em>i = c_i+\Phi(D_i)-\Phi(D</em>{i-1})=1+1=2$</li>
+<li>If the $i$ th operation is POP, then $\hat c<em>i = c_i+\Phi(D_i)-\Phi(D</em>{i-1})=1-1=0$</li>
+<li>If the $i$ th operation is MultiPOP then $\hat c<em>i = c_i+\Phi(D_i)-\Phi(D</em>{i-1})=c_i+(-c_i)=0$</li>
 </ul>
 <p>就变成和Accounting一样的问题了</p>
 <p><br></p>
@@ -1443,7 +1443,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
                     
                       <a href="/Blog/2021/09/09/Computability-and-Complexity2/">
                         <span class="hidden-mobile">Computability and Complexity (2)</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -1460,7 +1460,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -1486,7 +1486,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1495,7 +1495,7 @@ a=((r-s)({(k-l)^{-1} \mod p})) \mod p</script><script type="math/tex; mode=displ
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

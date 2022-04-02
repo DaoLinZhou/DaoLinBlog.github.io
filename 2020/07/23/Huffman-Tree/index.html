@@ -19,7 +19,7 @@
     <meta name="description" content="哈夫曼编码, 哈夫曼树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="哈夫曼树 Haffman Tree">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/23/Huffman-Tree/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/23/Huffman-Tree/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="哈夫曼编码, 哈夫曼树">
 <meta property="og:locale">
@@ -105,7 +105,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -117,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -129,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -141,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -246,17 +246,14 @@
             <div class="markdown-body">
               <p>哈夫曼编码, 哈夫曼树</p>
 <span id="more"></span>
-
 <h1 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h1><h2 id="哈夫曼编码-Huffman-Coding"><a href="#哈夫曼编码-Huffman-Coding" class="headerlink" title="哈夫曼编码(Huffman Coding)"></a>哈夫曼编码(Huffman Coding)</h2><p>是现代压缩算法的基础.</p>
-<p><img src="/Blog/Blog/intro/huffman_coding_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/huffman_coding_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>然而使用哈夫曼编码可以压缩至41个二进制位. 约为原来长度的68%(不过传输的时候也要把树一起传输过去. 某些情况下甚至可能比原来还长)</p>
-<br>
-
+<p><br></p>
 <h2 id="哈夫曼树-1"><a href="#哈夫曼树-1" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><p>先计算出每个字母的出现频率(作为权值)</p>
-<p><img src="/Blog/Blog/intro/huffman_coding_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/huffman_coding_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>利用这些权值, 构建一颗哈夫曼树</p>
-<br>
-
+<p><br></p>
 <h2 id="如何构建哈夫曼树"><a href="#如何构建哈夫曼树" class="headerlink" title="如何构建哈夫曼树?"></a>如何构建哈夫曼树?</h2><p>假设有n个权值.</p>
 <ol>
 <li>以权值为根节点构建n棵二叉树, 组成森林</li>
@@ -264,44 +261,44 @@
 <li>从森林中删除刚才选中的2棵树, 并将新树加入森林</li>
 <li>重复2,3直到只有一棵树为止, 这棵树就是哈夫曼树</li>
 </ol>
-<br>
-
-<p><img src="/Blog/Blog/intro/huffman_coding_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/huffman_coding_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/huffman_coding_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/huffman_coding_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>最后这颗树就是哈夫曼树</p>
-<br>
-
+<p><br></p>
 <h2 id="构建哈夫曼编码"><a href="#构建哈夫曼编码" class="headerlink" title="构建哈夫曼编码"></a>构建哈夫曼编码</h2><p>left 为0, right 为1, 可以得到5个字母对应的哈夫曼编码</p>
-<p><img src="/Blog/Blog/intro/huffman_coding_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/huffman_coding_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">A</th>
-<th align="center">B</th>
-<th align="center">C</th>
-<th align="center">D</th>
-<th align="center">E</th>
+<th style="text-align:center">A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">D</th>
+<th style="text-align:center">E</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">1110</td>
-<td align="center">110</td>
-<td align="center">0</td>
-<td align="center">10</td>
-<td align="center">1111</td>
+<tbody>
+<tr>
+<td style="text-align:center">1110</td>
+<td style="text-align:center">110</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">1111</td>
 </tr>
-</tbody></table>
-<p> <img src="/Blog/Blog/intro/huffman_coding_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+</tbody>
+</table>
+</div>
+<p> <img src="/Blog/intro/huffman_coding_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于每个字母的编码都不是另外一个字母编码的<strong>前缀</strong> 所以一定能解析出来</p>
-<br>
-
+<p><br></p>
 <p><strong>为什么哈夫曼能进行压缩?</strong></p>
 <p>C出现的次数最多.A, E出现的次数最少</p>
 <p>出现次数最多的(权值最高的)字符的编码是最短的</p>
 <p>出现次数最少的字符编码是最长的</p>
 <p>这样组成的编码就是最短的.</p>
-<br>
-
+<p><br></p>
 <ul>
 <li><p>n个权值构建出来的哈夫曼树拥有n个叶子节点.</p>
 </li>
@@ -309,8 +306,7 @@
 </li>
 <li><p>哈夫曼树是带权路径长度最短的树, 权值较大的节点离根节点较近</p>
 </li>
-<li><p>带权路径长度: 树中所有的叶子节点的权值乘上其到根节点的路径长度. 与最终的哈夫曼编码的总长度成正比关系.(C的权值乘上路径长度, 加上D的权值乘上路径长度….)</p>
-</li>
+<li>带权路径长度: 树中所有的叶子节点的权值乘上其到根节点的路径长度. 与最终的哈夫曼编码的总长度成正比关系.(C的权值乘上路径长度, 加上D的权值乘上路径长度….)</li>
 </ul>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EW411u7th?p=21">更多压缩相关的知识</a></p>
@@ -352,7 +348,7 @@
                       <a href="/Blog/2020/07/29/A-star/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">A-star 寻路算法</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -361,7 +357,7 @@
                     
                       <a href="/Blog/2020/07/22/B-tree/">
                         <span class="hidden-mobile">B树</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -378,7 +374,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -404,7 +400,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -413,7 +409,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

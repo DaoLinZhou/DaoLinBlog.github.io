@@ -16,12 +16,12 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="AVL树 对于二分搜索树来说, 有一个很严重的问题, 如果数据是顺序添加进搜索树的话, 二分搜索树就会退化成链表 解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持平衡二叉树的性质 AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构     平衡二叉树 满二叉树一定是平衡二叉树 通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树  对于一颗完全二叉树, 整">
+    <meta name="description" content="AVL树 对于二分搜索树来说, 有一个很严重的问题, 如果数据是顺序添加进搜索树的话, 二分搜索树就会退化成链表 解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持平衡二叉树的性质 AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构   平衡二叉树 满二叉树一定是平衡二叉树 通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树  对于一颗完全二叉树, 整棵树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平衡二叉树与AVL树">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/06/23/AVL/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/06/23/AVL/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
-<meta property="og:description" content="AVL树 对于二分搜索树来说, 有一个很严重的问题, 如果数据是顺序添加进搜索树的话, 二分搜索树就会退化成链表 解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持平衡二叉树的性质 AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构     平衡二叉树 满二叉树一定是平衡二叉树 通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树  对于一颗完全二叉树, 整">
+<meta property="og:description" content="AVL树 对于二分搜索树来说, 有一个很严重的问题, 如果数据是顺序添加进搜索树的话, 二分搜索树就会退化成链表 解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持平衡二叉树的性质 AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构   平衡二叉树 满二叉树一定是平衡二叉树 通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树  对于一颗完全二叉树, 整棵树">
 <meta property="og:locale">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/avl_1.PNG">
 <meta property="article:published_time" content="2020-06-24T00:19:57.000Z">
@@ -105,7 +105,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -117,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -129,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -141,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9.6k 字
+      725 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      81 分钟
+      7 分钟
     </span>
   
 
@@ -244,132 +244,111 @@
             <h1 style="display: none">平衡二叉树与AVL树</h1>
             
             <div class="markdown-body">
-              <h1 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h1><p><img src="/Blog/Blog/intro/avl.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+              <h1 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h1><p><img src="/Blog/intro/avl.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于二分搜索树来说, 有一个很严重的问题, 如果数据是<strong>顺序</strong>添加进搜索树的话, 二分搜索树就会退化成链表</p>
 <p>解决的方法就是在现有的二分搜索树上添加一些机制使得二分搜索树能维持<strong>平衡二叉树</strong>的性质</p>
 <p>AVL是一种最为经典的平衡二叉树, 是最早的自平衡二分搜索树结构</p>
-<br>
-
-<br>
-
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p><img src="/Blog/Blog/intro/avl_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><br></p>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p><img src="/Blog/intro/avl_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>满二叉树一定是平衡二叉树</p>
 <p>通常情况下数据不会正好是满二叉树, 而完全二叉树也是平衡二叉树</p>
-<p><img src="/Blog/Blog/intro/avl_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于一颗完全二叉树, 整棵树的叶子节点最大的深度值和最小的深度值相差不会超过1, (也就是说叶子节点要么在最后一层要么在倒数第二层)</p>
-<br>
-
+<p><br></p>
 <p>线段树也是平衡二叉树但不是完全二叉树, 虽然叶子节点不都在树的左侧, 但同样最大的深度值和最小的深度值相差不会超过1</p>
-<p><img src="/Blog/Blog/intro/avl_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/avl_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="AVL"><a href="#AVL" class="headerlink" title="AVL"></a>AVL</h2><p>这些平衡二叉树都是比较理想的情况, 这样的二叉树的平衡度非常高. 在AVL树中维护的平衡二叉树的条件更加宽松:</p>
 <p>AVL是这样定义平衡二叉树的:</p>
 <p><strong>对于任意一个节点, 左子树和右子树的高度差不能超过1</strong></p>
-<p><img src="/Blog/Blog/intro/avl_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于这样的平衡二叉树, 它的高度和节点数量之间的关系也是O(logn)的</p>
-<br>
-
+<p><br></p>
 <p>由于要跟踪每一个节点的高度来判断二叉树是否平衡, 所以要标注每一个节点的高度</p>
-<p><img src="/Blog/Blog/intro/avl_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>标记完高度后要计算<strong>平衡因子</strong>, 它就是左右子树的高度差</p>
-<p><img src="/Blog/Blog/intro/avl_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当前的树中有两个节点破坏了平衡二叉树的性质</p>
- <br>
-
-<br>
-
+<p> <br></p>
+<p><br></p>
 <h2 id="左旋和右旋"><a href="#左旋和右旋" class="headerlink" title="左旋和右旋"></a>左旋和右旋</h2><p>在什么时候维护平衡?</p>
 <p>插入节点时, 由于新添加了一个节点使得整个二分搜索树不再满足平衡性. 那么这个不平衡的节点只有可能在插入节点到根节点的路径中.</p>
-<p><img src="/Blog/Blog/intro/avl_rote.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因为插入节点后, 它的祖先节点的高度值就要进行更新</p>
 <p>所以<strong>加入节点之后, 沿着节点向上维护平衡性</strong></p>
-<br>
-
- <br>
-
-<h3 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h3><p><img src="/Blog/Blog/intro/avl_rote_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p> <br></p>
+<h3 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h3><p><img src="/Blog/intro/avl_rote_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>此时在y这个节点上, 左子树的高度减去右子树的高度是大于1的, 于此同时对于x节点它的平衡因子是大于等于0的. 也就是说左子树的高度是大于等于右子树的高度的</p>
-<p>对于二分搜索数来说, 就存在这样一个关系:<br>$$<br>T1&lt;z&lt;T2&lt;x&lt;T3&lt;y&lt;T4<br>$$<br>此时对于y来说, 左子树过于高了, 所以我希望经过一系列操作使得y保持平衡性, 于此同时整颗子树不能失去二分搜索树的性质</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/avl_rote_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对于二分搜索数来说, 就存在这样一个关系:</p>
+<script type="math/tex; mode=display">
+T1<z<T2<x<T3<y<T4</script><p>此时对于y来说, 左子树过于高了, 所以我希望经过一系列操作使得y保持平衡性, 于此同时整颗子树不能失去二分搜索树的性质</p>
+<p><br></p>
+<p><img src="/Blog/intro/avl_rote_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>首先让x的右子树指向y, 在让y的左子树指向T3</p>
 <p>之后让x变成新的二叉树的根节点, 这样的过程就叫右旋转</p>
 <p>这个过程就像y这个节点顺时针转到x的右子树的位置, 这个顺时针的旋转在x的角度就是右旋转</p>
 <p>更重要的是, <strong>此时这颗新的二叉树既满足二分搜索树的性质, 又满足平衡二叉树的性质</strong></p>
-<br>
-
+<p><br></p>
 <p>为什么保持平衡二叉树的性质?</p>
-<p><img src="/Blog/Blog/intro/avl_rote_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于左侧二叉树中, y是不平衡的节点, 所以在这种情况下z这个节点为根的二叉树和x节点为根的二叉树是平衡的二叉树</p>
 <p>不然的话我们从加入的节点向上回溯找到第一个不平衡的节点就不是y</p>
 <p>所以右侧以z为根的二叉树依然是平衡二叉树(T1, T2的高度差不超过1)</p>
 <p>假设T1, T2中最大的高度值为h的话, z这个节点的高度值就是h+1</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/avl_rote_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/avl_rote_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于x也是保持平衡的, 且x的平衡因子大于等于0, 小于等于1的, 所以T3的高度要么是h, 要么是 h+1, 这样x这个节点的高度就是h+2</p>
-<br>
-
+<p><br></p>
 <p>再看y这个节点, 在这个节点上打破了平衡, 所以左右子树高度差是大于1的, 但是这个高度差其实最大是2. 因为我们只添加了一个节点.</p>
 <p>所以此时y的左子树比右子树大2, 所以T4的高度为h</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/avl_rote_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/avl_rote_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>所以旋转之后y的高度要么是h+2, 要么是h+1, 而从x的角度去看, 左右子树依然是平衡的, y 和 z的高度差不会超过1</p>
-<br>
-
+<p><br></p>
 <p>所以这颗旋转后的新树既保持着平衡二叉树的性质, 又保持二分搜索树的性质</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h3 id="左旋转"><a href="#左旋转" class="headerlink" title="左旋转"></a>左旋转</h3><p>右旋转是插入的元素在不平衡节点<strong>左侧的左侧</strong>时触发</p>
 <p>而左旋转是插入元素在不平衡节点<strong>右侧的右侧</strong>时触发</p>
-<p><img src="/Blog/Blog/intro/avl_rote_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>此时节点之间的关系就是<br>$$<br>T4&lt;y&lt;T3&lt;x&lt;T1&lt;z&lt;T2<br>$$<br><img src="/Blog/Blog/intro/avl_rote_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>此时节点之间的关系就是</p>
+<script type="math/tex; mode=display">
+T4<y<T3<x<T1<z<T2</script><p><img src="/Blog/intro/avl_rote_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>左旋转和右旋转是完全对称的</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 对节点y进行向右旋转操作，返回旋转后新的根节点x</span><br><span class="hljs-comment">//        y                              x</span><br><span class="hljs-comment">//       / \                           /   \</span><br><span class="hljs-comment">//      x   T4     向右旋转 (y)        z     y</span><br><span class="hljs-comment">//     / \       - - - - - - - -&gt;    / \   / \</span><br><span class="hljs-comment">//    z   T3                       T1  T2 T3 T4</span><br><span class="hljs-comment">//   / \</span><br><span class="hljs-comment">// T1   T2</span><br><span class="hljs-function">Node* <span class="hljs-title">rightRotate</span><span class="hljs-params">(Node* y)</span></span>&#123;<br>    Node* x = y-&gt;left;<br>    Node* t3 = x-&gt;right;<br>    x-&gt;right = y;<br>    y-&gt;left = t3;<br><br>    <span class="hljs-comment">// 更新height</span><br>    y-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(y-&gt;left), <span class="hljs-built_in">getHeight</span>(y-&gt;right));<br>    x-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(x-&gt;left), <span class="hljs-built_in">getHeight</span>(x-&gt;right));<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-comment">// 对节点y进行向左旋转操作，返回旋转后新的根节点x</span><br><span class="hljs-comment">//    y                             x</span><br><span class="hljs-comment">//  /  \                          /   \</span><br><span class="hljs-comment">// T1   x      向左旋转 (y)       y     z</span><br><span class="hljs-comment">//     / \   - - - - - - - -&gt;   / \   / \</span><br><span class="hljs-comment">//   T2  z                     T1 T2 T3 T4</span><br><span class="hljs-comment">//      / \</span><br><span class="hljs-comment">//     T3 T4</span><br><span class="hljs-function">Node* <span class="hljs-title">leftRotate</span><span class="hljs-params">(Node* y)</span></span>&#123;<br>    Node* x = y-&gt;right;<br>    Node* t2 = x-&gt;left;<br><br>    x-&gt;left = y;<br>    y-&gt;right = t2;<br><br>    <span class="hljs-comment">// 更新height</span><br>    y-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(y-&gt;left), <span class="hljs-built_in">getHeight</span>(y-&gt;right));<br>    x-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(x-&gt;left), <span class="hljs-built_in">getHeight</span>(x-&gt;right));<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="LR和RL"><a href="#LR和RL" class="headerlink" title="LR和RL"></a>LR和RL</h2><p>之前处理的两种情况分别时<strong>LL</strong>(左侧的左侧插入元素)和<strong>RR</strong>(右侧的右侧插入元素)</p>
-<p><img src="/Blog/Blog/intro/avl_rote_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>但如果插入的节点是在不平衡节点左孩子的右侧(<strong>LR</strong>)时就不能简单使用一次旋转解决了</p>
-<p><img src="/Blog/Blog/intro/avl_rote_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/avl_rote_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>LR的情况其实处理也很简单</p>
 <p>首先要对x这个节点进行一次左旋转, 使得整棵树变成这个样子</p>
-<p><img src="/Blog/Blog/intro/avl_rote_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>此时就转化成了LL的情况, 此时再基于y进行一次右旋转就好了</p>
-<br>
-
+<p><br></p>
 <p>和LR对称的就是另外一种情况, RL</p>
-<p><img src="/Blog/Blog/intro/avl_rote_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>先对x节点进行右旋转, 转化成RR的情况</p>
-<p><img src="/Blog/Blog/intro/avl_rote_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>再基于y这个节点进行一次左旋转就好了</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="删除元素时维护自平衡"><a href="#删除元素时维护自平衡" class="headerlink" title="删除元素时维护自平衡"></a>删除元素时维护自平衡</h2><p>插入节点时, 这个节点到根节点的路径上的节点的高度可能发生改变, 也就是说这个路径上的节点可能破坏平衡.</p>
-<p><img src="/Blog/Blog/intro/avl_rote.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/avl_rote.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>然而删除节点时, 同样是删除节点到根节点的路径上节点的高度会发生改变, 依然是这个路径上的节点可能破坏平衡</p>
 <p>而这个维护平衡的方式和添加元素是一模一样的</p>
 <p>只不过删除后子树可能为空, 所以要对判空进行一下处理, 而且removeMax和removeMin废弃了, 使用remove来代替</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_AVL_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_AVL_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Key, <span class="hljs-keyword">typename</span> Value&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">AVL</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span>&#123;<br>        Key key;<br>        Value value;<br>        Node* left;<br>        Node* right;<br>        <span class="hljs-type">int</span> height;<br><br>        <span class="hljs-built_in">Node</span>(Key key, Value value)&#123;<br>            <span class="hljs-keyword">this</span>-&gt;key = key;<br>            <span class="hljs-keyword">this</span>-&gt;value = value;<br>            left = <span class="hljs-literal">NULL</span>;<br>            right = <span class="hljs-literal">NULL</span>;<br>            height = <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-built_in">Node</span>(Node* node)&#123;<br>            <span class="hljs-keyword">this</span>-&gt;key = node-&gt;key;<br>            <span class="hljs-keyword">this</span>-&gt;value = node-&gt;value;<br>            <span class="hljs-keyword">this</span>-&gt;left = node-&gt;left;<br>            <span class="hljs-keyword">this</span>-&gt;right = node-&gt;right;<br>            height = node-&gt;height;<br>        &#125;<br>    &#125;;<br><br>    Node* root;<br>    <span class="hljs-type">int</span> count;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">AVL</span>() &#123;<br>        root = <span class="hljs-literal">NULL</span>;<br>        count = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    ~<span class="hljs-built_in">AVL</span>()&#123;<br>        <span class="hljs-built_in">destroy</span>(root);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-keyword">return</span> count; &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> count == <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(Key key, Value value)</span></span>&#123;<br>        root = <span class="hljs-built_in">insert</span>(root, key, value);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">contain</span><span class="hljs-params">(Key key)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">contain</span>(root, key);<br>    &#125;<br><br>    <span class="hljs-function">Value* <span class="hljs-title">search</span><span class="hljs-params">(Key key)</span></span>&#123;<br>        Node* node = <span class="hljs-built_in">search</span>(root, key);<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        <span class="hljs-keyword">return</span> &amp;(node-&gt;value);<br>    &#125;<br><br>    <span class="hljs-function">Key <span class="hljs-title">minimum</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count != <span class="hljs-number">0</span>);<br>        Node* minNode = <span class="hljs-built_in">minimum</span>(root);<br>        <span class="hljs-keyword">return</span> minNode-&gt;key;<br>    &#125;<br><br>    <span class="hljs-function">Key <span class="hljs-title">maximum</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(count != <span class="hljs-number">0</span>);<br>        Node* maxNode = <span class="hljs-built_in">maximum</span>(root);<br>        <span class="hljs-keyword">return</span> maxNode-&gt;key;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(Key key)</span></span>&#123;<br>        root = <span class="hljs-built_in">remove</span>(root, key);<br>    &#125;<br><br>    <span class="hljs-comment">// 判断该二叉树是否是一颗二分搜索树</span><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isBST</span><span class="hljs-params">()</span></span>&#123;<br>        vector&lt;Key&gt; keys;<br>        <span class="hljs-built_in">inOrder</span>(root, keys);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; keys.<span class="hljs-built_in">size</span>(); i++)<br>            <span class="hljs-keyword">if</span>(keys[i<span class="hljs-number">-1</span>] &gt; keys[i])<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isBalanced</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">isBalanced</span>(root);<br>    &#125;<br><br><span class="hljs-keyword">private</span>:<br><br>    <span class="hljs-function">Node* <span class="hljs-title">insert</span><span class="hljs-params">(Node* node, Key key, Value value)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">NULL</span>) &#123;<br>            count++;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(key, value);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(node-&gt;key == key)<br>            node-&gt;value = value;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(node-&gt;key &lt; key)<br>            node-&gt;right = <span class="hljs-built_in">insert</span>(node-&gt;right, key, value);<br>        <span class="hljs-keyword">else</span><br>            node-&gt;left = <span class="hljs-built_in">insert</span>(node-&gt;left, key, value);<br><br>        <span class="hljs-comment">// 更新 height</span><br>        node-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(node-&gt;left), <span class="hljs-built_in">getHeight</span>(node-&gt;right));<br><br>        <span class="hljs-comment">// 计算平衡因子</span><br>        <span class="hljs-type">int</span> balanceFactor = <span class="hljs-built_in">getBalanceFactor</span>(node);<br><br>        <span class="hljs-comment">// 平衡维护</span><br>        <span class="hljs-comment">// LL</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &gt; <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(node-&gt;left) &gt;= <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">// 左子树和右子树高度差超过1, 并且是左边要高的, 并且不平衡的原因是因为左侧的左侧多添加了一个元素</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">rightRotate</span>(node);<br>        &#125;<br><br>        <span class="hljs-comment">// RR</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &lt; <span class="hljs-number">-1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(node-&gt;right) &lt;= <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">leftRotate</span>(node);<br>        &#125;<br><br>        <span class="hljs-comment">// LR</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &gt; <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(node-&gt;left) &lt; <span class="hljs-number">0</span>)&#123;<br>            node-&gt;left = <span class="hljs-built_in">leftRotate</span>(node-&gt;left);<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">rightRotate</span>(node);<br>        &#125;<br><br>        <span class="hljs-comment">// RL</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &lt; <span class="hljs-number">-1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(node-&gt;right) &gt; <span class="hljs-number">0</span>)&#123;<br>            node-&gt;right = <span class="hljs-built_in">rightRotate</span>(node-&gt;right);<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">leftRotate</span>(node);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br><br>    <span class="hljs-comment">// 查找以node为根的二叉搜索树中是否包含键值为key的节点</span><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">contain</span><span class="hljs-params">(Node* node, Key key)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">if</span>(key == node-&gt;key)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(key &lt; node-&gt;key)<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">contain</span>(node-&gt;left, key);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">contain</span>(node-&gt;right,key);<br>    &#125;<br><br>    <span class="hljs-comment">// 在以node为根的二叉搜索树中查找key所对应的value</span><br>    <span class="hljs-function">Node* <span class="hljs-title">search</span><span class="hljs-params">(Node* node, Key key)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>        <span class="hljs-keyword">if</span>(node-&gt;key == key)<br>            <span class="hljs-keyword">return</span> node;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(node-&gt;key &gt; key)<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">search</span>(node-&gt;left, key);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">search</span>(node-&gt;right, key);<br>    &#125;<br><br>    <span class="hljs-comment">// 与后序遍历基本一致</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">(Node* node)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span>;<br>        <span class="hljs-built_in">destroy</span>(node-&gt;left);<br>        <span class="hljs-built_in">destroy</span>(node-&gt;right);<br>        <span class="hljs-keyword">delete</span> node;<br>        count --;<br>    &#125;<br><br>    <span class="hljs-function">Node* <span class="hljs-title">minimum</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node-&gt;left == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span> node;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">minimum</span>(node-&gt;left);<br>    &#125;<br><br>    <span class="hljs-function">Node* <span class="hljs-title">maximum</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node-&gt;right == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span> node;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">maximum</span>(node-&gt;right);<br>    &#125;<br><br>    <span class="hljs-function">Node* <span class="hljs-title">remove</span><span class="hljs-params">(Node* node, Key key)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">NULL</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br><br>        Node* retNode;<br>        <span class="hljs-keyword">if</span>(key &gt; node-&gt;key)&#123;<br>            node-&gt;right = <span class="hljs-built_in">remove</span>(node-&gt;right, key);<br>            retNode = node;<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(key &lt; node-&gt;key)&#123;<br>            node-&gt;left = <span class="hljs-built_in">remove</span>(node-&gt;left, key);<br>            retNode = node;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span> (node-&gt;left == <span class="hljs-literal">NULL</span>) &#123;<br>                Node *rightNode = node-&gt;right;<br>                <span class="hljs-keyword">delete</span> node;<br>                count--;<br>                retNode = rightNode;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node-&gt;right == <span class="hljs-literal">NULL</span>) &#123;<br>                Node *leftNode = node-&gt;left;<br>                <span class="hljs-keyword">delete</span> node;<br>                count--;<br>                retNode = leftNode;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">// 寻找大于node的最小值最为前驱</span><br>                Node *successor = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-built_in">minimum</span>(node-&gt;right));<br>                successor-&gt;right = <span class="hljs-built_in">remove</span>(node-&gt;right, successor-&gt;key);<br>                successor-&gt;left = node-&gt;left;<br><br>                <span class="hljs-keyword">delete</span> node;<br>                retNode = successor;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">// 删除后新的子树可能为空</span><br>        <span class="hljs-keyword">if</span>(retNode == <span class="hljs-literal">nullptr</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">nullptr</span>;<br><br>        <span class="hljs-comment">// 更新height</span><br>        retNode-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(retNode-&gt;left), <span class="hljs-built_in">getHeight</span>(retNode-&gt;right));<br>        <span class="hljs-type">int</span> balanceFactor = <span class="hljs-built_in">getBalanceFactor</span>(retNode);<br><br>        <span class="hljs-comment">// 平衡维护</span><br>        <span class="hljs-comment">// LL</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &gt; <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(retNode-&gt;left) &gt;= <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">// 左子树和右子树高度差超过1, 并且是左边要高的, 并且不平衡的原因是因为左侧的左侧多添加了一个元素</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">rightRotate</span>(retNode);<br>        &#125;<br><br>        <span class="hljs-comment">// RR</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &lt; <span class="hljs-number">-1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(retNode-&gt;right) &lt;= <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">leftRotate</span>(retNode);<br>        &#125;<br><br>        <span class="hljs-comment">// LR</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &gt; <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(retNode-&gt;left) &lt; <span class="hljs-number">0</span>)&#123;<br>            retNode-&gt;left = <span class="hljs-built_in">leftRotate</span>(retNode-&gt;left);<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">rightRotate</span>(retNode);<br>        &#125;<br><br>        <span class="hljs-comment">// RL</span><br>        <span class="hljs-keyword">if</span>(balanceFactor &lt; <span class="hljs-number">-1</span> &amp;&amp; <span class="hljs-built_in">getBalanceFactor</span>(retNode-&gt;right) &gt; <span class="hljs-number">0</span>)&#123;<br>            retNode-&gt;right = <span class="hljs-built_in">rightRotate</span>(retNode-&gt;right);<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">leftRotate</span>(retNode);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> retNode;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getHeight</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">nullptr</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> node-&gt;height;<br>    &#125;<br><br>    <span class="hljs-comment">// 获得节点node的平衡引子</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getBalanceFactor</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">nullptr</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">getHeight</span>(node-&gt;left) - <span class="hljs-built_in">getHeight</span>(node-&gt;right);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inOrder</span><span class="hljs-params">(Node* node, vector&lt;Key&gt;&amp; keys)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">nullptr</span>)<br>            <span class="hljs-keyword">return</span>;<br>        <span class="hljs-built_in">inOrder</span>(node-&gt;left, keys);<br>        keys.<span class="hljs-built_in">push_back</span>(node-&gt;key);<br>        <span class="hljs-built_in">inOrder</span>(node-&gt;right, keys);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isBalanced</span><span class="hljs-params">(Node* node)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(node == <span class="hljs-literal">nullptr</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(<span class="hljs-built_in">getBalanceFactor</span>(node)) &gt; <span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">isBalanced</span>(node-&gt;left) &amp;&amp; <span class="hljs-built_in">isBalanced</span>(node-&gt;right);<br>    &#125;<br><br><br>    <span class="hljs-comment">// 对节点y进行向右旋转操作，返回旋转后新的根节点x</span><br>    <span class="hljs-comment">//        y                              x</span><br>    <span class="hljs-comment">//       / \                           /   \</span><br><span class="hljs-comment">    //      x   T4     向右旋转 (y)        z     y</span><br>    <span class="hljs-comment">//     / \       - - - - - - - -&gt;    / \   / \</span><br><span class="hljs-comment">    //    z   T3                       T1  T2 T3 T4</span><br>    <span class="hljs-comment">//   / \</span><br><span class="hljs-comment">    // T1   T2</span><br>    <span class="hljs-function">Node* <span class="hljs-title">rightRotate</span><span class="hljs-params">(Node* y)</span></span>&#123;<br>        Node* x = y-&gt;left;<br>        Node* t3 = x-&gt;right;<br>        x-&gt;right = y;<br>        y-&gt;left = t3;<br><br>        <span class="hljs-comment">// 更新height</span><br>        y-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(y-&gt;left), <span class="hljs-built_in">getHeight</span>(y-&gt;right));<br>        x-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(x-&gt;left), <span class="hljs-built_in">getHeight</span>(x-&gt;right));<br><br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br><br>    <span class="hljs-comment">// 对节点y进行向左旋转操作，返回旋转后新的根节点x</span><br>    <span class="hljs-comment">//    y                             x</span><br>    <span class="hljs-comment">//  /  \                          /   \</span><br><span class="hljs-comment">    // T1   x      向左旋转 (y)       y     z</span><br>    <span class="hljs-comment">//     / \   - - - - - - - -&gt;   / \   / \</span><br><span class="hljs-comment">    //   T2  z                     T1 T2 T3 T4</span><br>    <span class="hljs-comment">//      / \</span><br><span class="hljs-comment">    //     T3 T4</span><br>    <span class="hljs-function">Node* <span class="hljs-title">leftRotate</span><span class="hljs-params">(Node* y)</span></span>&#123;<br>        Node* x = y-&gt;right;<br>        Node* t2 = x-&gt;left;<br><br>        x-&gt;left = y;<br>        y-&gt;right = t2;<br><br>        <span class="hljs-comment">// 更新height</span><br>        y-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(y-&gt;left), <span class="hljs-built_in">getHeight</span>(y-&gt;right));<br>        x-&gt;height = <span class="hljs-number">1</span> + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">getHeight</span>(x-&gt;left), <span class="hljs-built_in">getHeight</span>(x-&gt;right));<br><br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_AVL_H</span></span><br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="AVL树的优化"><a href="#AVL树的优化" class="headerlink" title="AVL树的优化"></a>AVL树的优化</h2><p>我们对AVL树的实现由于保持了自平衡, 所以性能在最差的情况下, 增删改查都是O(logn)级别的</p>
 <p>然而还是可以进行一些优化:</p>
 <p>在维护平衡之前, 要对每一个节点的高度进行重新计算, 如果重新计算的高度和节点原先的高度相等的话, 那么对于这个节点的祖先节点就不用再维护平衡了</p>
-<br>
+<p><br></p>
+
             </div>
             <hr>
             <div>
@@ -406,7 +385,7 @@
                       <a href="/Blog/2020/06/27/red-black-tree/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2-3树与红黑树</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -415,7 +394,7 @@
                     
                       <a href="/Blog/2020/05/31/calculus/">
                         <span class="hidden-mobile">微积分</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -432,7 +411,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -458,7 +437,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -467,7 +446,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

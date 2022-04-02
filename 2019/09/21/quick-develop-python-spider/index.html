@@ -19,18 +19,18 @@
     <meta name="description" content="优点 : 开发速度快 缺点 : 不适合大型爬虫项目, 没有设置请求头, 没有动态ip 等等 需要的包: requests, lxml">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高速开发小型python爬虫">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/09/21/quick-develop-python-spider/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/09/21/quick-develop-python-spider/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="优点 : 开发速度快 缺点 : 不适合大型爬虫项目, 没有设置请求头, 没有动态ip 等等 需要的包: requests, lxml">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/xpath.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/xpath.PNG">
 <meta property="article:published_time" content="2019-09-22T01:04:56.000Z">
 <meta property="article:modified_time" content="2019-11-20T21:30:31.746Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/xpath.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/xpath.PNG">
   
   
   <title>高速开发小型python爬虫 - Daolin&#39;s Repository</title>
@@ -106,7 +106,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -118,7 +118,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -130,7 +130,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -142,7 +142,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -154,7 +154,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -249,60 +249,39 @@
 <p>缺点 : 不适合大型爬虫项目, 没有设置请求头, 没有动态ip 等等</p>
 <p>需要的包: requests, lxml</p>
 <span id="more"></span>
-
 <p>在真正编程以前, 要先安装一下依赖的包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">pip install requests<br>pip install lxml<br></code></pre></td></tr></table></figure>
-
-<br>
-
-<h1 id="具体用法"><a href="#具体用法" class="headerlink" title="具体用法"></a>具体用法</h1><br>
-
+<p><br></p>
+<h1 id="具体用法"><a href="#具体用法" class="headerlink" title="具体用法"></a>具体用法</h1><p><br></p>
 <h2 id="一-引入包"><a href="#一-引入包" class="headerlink" title="一. 引入包"></a>一. 引入包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> html<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="二-获取相应数据"><a href="#二-获取相应数据" class="headerlink" title="二. 获取相应数据"></a>二. 获取相应数据</h2><p>通过requests来get或post到数据, 可能是json格式, 也可能是html, 下文默认以html来解析</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">url = <span class="hljs-string">&#x27;https://www.bilibili.com/&#x27;</span><br>html_context = requests.get(url).text<br></code></pre></td></tr></table></figure>
-
 <p>除了.text, 还有.status_code(返回状态码), .encoding(编码格式) 等等内容, 可以根据需要获取</p>
-<br>
-
+<p><br></p>
 <h2 id="三-分析"><a href="#三-分析" class="headerlink" title="三. 分析"></a>三. 分析</h2><p>lxml下的html支持通过xpath的方式对html文本进行解析</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 进行加载</span><br>selector = html.fromstring(html_context)	<br><span class="hljs-comment"># 通过xpath的方式进行解析</span><br>ul = selector.xpath(<span class="hljs-string">&#x27;//div[@id=&quot;search_nature_rg&quot;]/ul&#x27;</span>)  <br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>如果懒得写xpath, 也可以在对应元素右击, 找到复制xpath, 但这个结果只供参考</p>
-<p><img src="/Blog/Blog/intro/xpath.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="简单说一下xpath的语法"><a href="#简单说一下xpath的语法" class="headerlink" title="简单说一下xpath的语法"></a>简单说一下xpath的语法</h2><p>开头&#x2F;&#x2F; 代表在任意位置匹配, &#x2F; 代表在调用对象的路径下匹配(最开始是以html为路径), 匹配的就是ul下的li, 例如:</p>
+<p><img src="/Blog/intro/xpath.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="简单说一下xpath的语法"><a href="#简单说一下xpath的语法" class="headerlink" title="简单说一下xpath的语法"></a>简单说一下xpath的语法</h2><p>开头// 代表在任意位置匹配, / 代表在调用对象的路径下匹配(最开始是以html为路径), 匹配的就是ul下的li, 例如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">li_list = ul.xpath(<span class="hljs-string">&#x27;/li&#x27;</span>)<br></code></pre></td></tr></table></figure>
-
-<p>如果我们要确定匹配对象的属性时可以通过[@属性名&#x3D;”属性值”]来约束, 就如上面ul的xpath一样</p>
-<br>
-
+<p>如果我们要确定匹配对象的属性时可以通过[@属性名=”属性值”]来约束, 就如上面ul的xpath一样</p>
+<p><br></p>
 <p>如果我们要获取文本可以通过text(), 例如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">store = li.xpath(<span class="hljs-string">&#x27;p[@class=&quot;search_shangjia&quot;]/a/text()&#x27;</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>如果我们要获取属性值可以用 @属性名, 例如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">link = li.xpath(<span class="hljs-string">&#x27;a/@href&#x27;</span>)<br>title = li.xpath(<span class="hljs-string">&#x27;a/@title&#x27;</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>其他函数:</p>
 <p>last() 获取body下最后一个p标签的内容</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">p = selector.xpath(<span class="hljs-string">&#x27;/html/body/p[last()]/text()&#x27;</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>在其他的用法就直接查xpath的语法吧.</p>
-<br>
-
+<p><br></p>
 <h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">urllib.request.urlretrieve(url, target_dir + <span class="hljs-string">&#x27;.mp3&#x27;</span>)<br></code></pre></td></tr></table></figure>
-
 <p>只要有url就可以爬去资源文件</p>
 
             </div>
@@ -343,7 +322,7 @@
                       <a href="/Blog/2019/09/26/python-excel-database/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Python操作Excel和MySql</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -352,7 +331,7 @@
                     
                       <a href="/Blog/2019/09/07/simple-algorithm-problem-solving-experience/">
                         <span class="hidden-mobile">简单算法的解题经验(一)</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -369,7 +348,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -395,7 +374,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -404,7 +383,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

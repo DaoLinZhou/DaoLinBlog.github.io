@@ -19,7 +19,7 @@
     <meta name="description" content="批量梯度下降法(bgd), 随机梯度下降法(sgd), 小批量梯度下降法(mbgd)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(4)-梯度下降法">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/04/27/machine-learning-4/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/04/27/machine-learning-4/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="批量梯度下降法(bgd), 随机梯度下降法(sgd), 小批量梯度下降法(mbgd)">
 <meta property="og:locale">
@@ -106,7 +106,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -118,7 +118,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -130,7 +130,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -142,7 +142,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -154,7 +154,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15k 字
+      14k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      123 分钟
+      121 分钟
     </span>
   
 
@@ -247,43 +247,44 @@
             <div class="markdown-body">
               <p>批量梯度下降法(bgd), 随机梯度下降法(sgd), 小批量梯度下降法(mbgd)</p>
 <span id="more"></span>
-
 <h1 id="梯度下降法-Gradient-Descent"><a href="#梯度下降法-Gradient-Descent" class="headerlink" title="梯度下降法 Gradient Descent"></a>梯度下降法 Gradient Descent</h1><ul>
 <li>不是一个机器学习算法</li>
 <li>是一种基于搜索的最优化方法</li>
 <li>作用: 最小化一个损失函数</li>
 <li>梯度上升法: 最大化一个效用函数</li>
 </ul>
-<p><img src="/Blog/Blog/intro/gradient_descent.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当我们定义一个损失函数之后, 如果取不同的参数, 都对应一个J的值, 而J应该有一个最小值</p>
 <p>对于最小化一个损失函数这个过程来说, 相当于是在这样一个坐标系中找到一个合适的参数使得损失函数J是最小值</p>
 <blockquote>
 <p>在二维平面上, 所以相当于参数只有一个. 依然是使用它来理解梯度下降法, 后面会将其拓展到高维的形式</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <p>对于损失函数J来说, 每取一个theta值, 相应的它就有一个损失函数J, 如果这一点的导数不为0, 那么这个点肯定不在一个极值点上</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>对于导数(一阶导数), 通常写作:<br>$$<br>\frac {dJ} {d\theta}<br>$$<br>在直线方程中, 导数代表斜率. 在曲线方程中, 导数代表切线斜率</p>
+<p><img src="/Blog/intro/gradient_descent_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>对于导数(一阶导数), 通常写作:</p>
+<script type="math/tex; mode=display">
+\frac {dJ} {d\theta}</script><p>在直线方程中, 导数代表斜率. 在曲线方程中, 导数代表切线斜率</p>
 <p>换一个角度理解: <strong>导数代表theta单位变化时, J 相应的变化</strong> </p>
 <p>而上图中蓝色点的导数为负数, 所以当theta增大 J 变小, theta减小 J 增大</p>
-<p>**因此导数也可以代表方向, 对应 J 增大的 方向 **(重点)</p>
+<p><strong>因此导数也可以代表方向, 对应 J 增大的 方向 </strong>(重点)</p>
 <p>所以在上图蓝色点, J 增大的方向应该是在x轴的负方向上, 也就是theta减少的时候</p>
 <p>我们希望找到 J 的最小值, 所以我们希望这个点能够向对应 J 减小的方向移动, 所以就应该向这个导数的负方向移动.</p>
-<p>对应还应该移动一个步长, 这个步长我们通常称为η(yita 或 eta)<br>$$<br>-η \frac {dJ} {d\theta}<br>$$<br>就是说对于一个点来说, 求出它的导数就知道对应这个点J增大的方向, 但是如果向 J 减小的方向继续前进的话只需要将这个导数乘以一个 -η 就好了</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>对应还应该移动一个步长, 这个步长我们通常称为η(yita 或 eta)</p>
+<script type="math/tex; mode=display">
+-η \frac {dJ} {d\theta}</script><p>就是说对于一个点来说, 求出它的导数就知道对应这个点J增大的方向, 但是如果向 J 减小的方向继续前进的话只需要将这个导数乘以一个 -η 就好了</p>
+<p><img src="/Blog/intro/gradient_descent_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>通常η会通常会提前取好一个值, 例如0.1</p>
 <p>这个点对应的theta值就会首先减去0.1乘以导数</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>相应的就是蓝色的点在向右移动, theta在增大, 这是因为导数为负值, 减去负数相当于加上正数. 相应的 J 就会减少一些</p>
 <p>不过在新的点上再取一个导数, 这个导数还不等于0, 所以它还不处于一个极值点, 就尝试再把这个点的导出乘以η值, 就相当于theta又向右移动了一步, 以此类推</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们就不断使用这个过程, 找到对于损失函数 J 来说, theta取哪里J的值最小</p>
 <p>这个点是跟着导数的方向逐渐在损失函数中下降的, 这也是这个方法叫做<strong>梯度下降法</strong>的原因</p>
 <p>为什叫梯度? 这是因为上面的例子中是在一维的函数, 所以直接用导数就可以了. 但在多维函数中, 要对各个方向的分量分别求导, 最终得到的方向就是<strong>梯度</strong></p>
 <p>就是说梯度代表方向, 对应损失函数 J 增大的<strong>方向</strong></p>
-<br>
-
+<p><br></p>
 <ul>
 <li>η称为学习率(learning rate)</li>
 <li>η的取值影响获得最优解的速度</li>
@@ -291,16 +292,15 @@
 <li>η是梯度下降法的一个超参数</li>
 </ul>
 <p>如果η太小, 每一次这一点向 J 最小的位置滚动的距离就小, 速度就慢</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果η太大, 甚至导致不收敛, 使用梯度下降法但损失却增大了</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/gradient_descent_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="局部最优解和全局最优解"><a href="#局部最优解和全局最优解" class="headerlink" title="局部最优解和全局最优解"></a>局部最优解和全局最优解</h2><p>梯度下降法还有其他的注意事项:</p>
 <p><strong>并不是所有函数都有唯一的极值点.</strong> </p>
-<p><img src="/Blog/Blog/intro/gradient_descent_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>加入用梯度下降法寻找这个函数对应J的最小值, 初始点从红点出发</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>最终找到的点可能不是整个函数最小值的点, 对于这种情况, 我们找到的是局部最优解, 但是对于整个函数来说, 这个局部最优解可能不是全局最优解</p>
 <p>搜索过程中, 可能只是找到了一个我们能看到的最好的解而已, 但是这个所谓最好的解不是真正的, 在全局层面上的最优解 </p>
 <p><strong>解决方案</strong></p>
@@ -309,190 +309,191 @@
 <li>梯度下降法的初始点也是一个超参数(起始点是非常重要的)</li>
 </ul>
 <p>而在线性回归中使用梯度下降法, 线性回归法的损失函数具有唯一解</p>
-<br>
-
+<p><br></p>
 <h2 id="编程可视化"><a href="#编程可视化" class="headerlink" title="编程可视化"></a>编程可视化</h2><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ</span>(<span class="hljs-params">theta</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * (theta - <span class="hljs-number">2.5</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">J</span>(<span class="hljs-params">theta</span>):<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">return</span> (theta-<span class="hljs-number">2.5</span>)**<span class="hljs-number">2</span> - <span class="hljs-number">1.</span><br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    plot_x = np.linspace(-<span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">141</span>)<br>    plot_y = (plot_x - <span class="hljs-number">2.5</span>) ** <span class="hljs-number">2</span> - <span class="hljs-number">1</span><br><br>    eta = <span class="hljs-number">0.01</span><br>    epsilon = <span class="hljs-number">1e-8</span><br><br>    theta = <span class="hljs-number">0.0</span><br>    theta_history = [theta]<br>	<br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>        gradient = dJ(theta)<br>        last_theta = theta<br>        theta = theta - eta * gradient<br>        theta_history.append(theta)<br><br>        <span class="hljs-comment"># 走的这一步带来的损失函数上的差距可以忽略不计</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(J(theta) - J(last_theta)) &lt; epsilon:<br>            <span class="hljs-keyword">break</span><br><br>    plt.plot(plot_x, J(plot_x))<br>    plt.plot(np.array(theta_history), J(np.array(theta_history)), color=<span class="hljs-string">&quot;r&quot;</span>, marker=<span class="hljs-string">&quot;+&quot;</span>)<br>    plt.show()<br><br>    <span class="hljs-built_in">print</span>(theta)<br>    <span class="hljs-built_in">print</span>(J(theta))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(theta_history))<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/gradient_descent_program.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果η较小, 取0.001</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果η较大, 取0.8</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>只要η不超过某一个限度就可以, 每一次可以减少一定损失函数的值就可以, 不一定非要沿着一边下去</p>
 <p>但如果η太大,取1.1, 就需要设置最大循环次数</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="多元线性回归中的梯度下降法"><a href="#多元线性回归中的梯度下降法" class="headerlink" title="多元线性回归中的梯度下降法"></a>多元线性回归中的梯度下降法</h2><p><img src="/Blog/Blog/intro/gradient_descent_program_4.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>\nabla 是梯度符号, \nabla J是一个向量, 每一个元素都是\theta的偏导<br>$$<br>这样就把梯度下降拓展到高维空间中, 区别只是之前处理的导数只是一个数字, 现在处理的导数是一个向量</p>
+<p><img src="/Blog/intro/gradient_descent_program_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="多元线性回归中的梯度下降法"><a href="#多元线性回归中的梯度下降法" class="headerlink" title="多元线性回归中的梯度下降法"></a>多元线性回归中的梯度下降法</h2><p><img src="/Blog/intro/gradient_descent_program_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+\nabla 是梯度符号, \nabla J是一个向量, 每一个元素都是\theta的偏导</script><p>这样就把梯度下降拓展到高维空间中, 区别只是之前处理的导数只是一个数字, 现在处理的导数是一个向量</p>
 <p>这种情况下, 梯度下降法依然是成立的, 下图是对一个有两个参数的梯度下降法进行可视化</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<p><img src="/Blog/Blog/intro/gradient_descent_program_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>也就是说这个函数对应就是损失函数<br>$$<br>J(\theta)&#x3D;\sum^m_{i&#x3D;1}(y^{(i)}-\theta_0-\theta_1X_1^{(i)}-\theta_2X_2^{(i)}-…-\theta_nX_n^{(i)})^2<br>$$</p>
-<p>$$<br>&#x3D;\sum^m_{i&#x3D;1}(y^{(i)}-X_b^{(i)}\theta)^2 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <br>$$</p>
-<p><img src="/Blog/Blog/intro/muti_l_reg_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><img src="/Blog/intro/gradient_descent_program_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>也就是说这个函数对应就是损失函数</p>
+<script type="math/tex; mode=display">
+J(\theta)=\sum^m_{i=1}(y^{(i)}-\theta_0-\theta_1X_1^{(i)}-\theta_2X_2^{(i)}-...-\theta_nX_n^{(i)})^2</script><script type="math/tex; mode=display">
+=\sum^m_{i=1}(y^{(i)}-X_b^{(i)}\theta)^2 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p><img src="/Blog/intro/muti_l_reg_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>相应的, 在J上对θ去求梯度值, 就是在J函数上针对θ每一个维度求偏导</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而可以看到, 最终向量上的每一项都是若干项(m项)的求和, </p>
 <p>显然, 梯度的大小将和样本的数量有关, 样本数量越大, 在求出来的梯度中, 每一个元素也就越大. 这是不合理的</p>
 <p>我们希望, 最后求出的梯度中, 每一个元素的值应该和m是无关的</p>
 <p>为此, 我们让整个梯度值再除以一个m</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>这么写其实相当于目标函数本身不是<br>$$<br>J(\theta)&#x3D;\sum^m_{i&#x3D;1}(y^{(i)}-\theta_0-\theta_1X_1^{(i)}-\theta_2X_2^{(i)}-…-\theta_nX_n^{(i)})^2<br>$$<br>而是这样一个式子<br>$$<br>J(\theta)&#x3D;\frac 1m\sum_{i&#x3D;1}^m(y^{(i)}-\hat y^{(i)})^2<br>$$<br>对这个式子求梯度, 得到的才是我们想要的结果</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>而这个式子其实就是MSE<br>$$<br>J(\theta)&#x3D;MSE(y,\hat y)<br>$$<br>有的机器学习的教材对于在线性回归中使用梯度下降法会把优化的目标函数写成这样:<br>$$<br>J(\theta)&#x3D;\frac 1{2m}\sum_{i&#x3D;1}^m(y^{(i)}-\hat y^{(i)})^2<br>$$<br>是为了把梯度最终结果分母上的2消掉, 但其实这个2影响并不大</p>
-<p>但如果没有1&#x2F;m, 梯度中的每一个元素就会非常大</p>
- <br>
-
+<p><img src="/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这么写其实相当于目标函数本身不是</p>
+<script type="math/tex; mode=display">
+J(\theta)=\sum^m_{i=1}(y^{(i)}-\theta_0-\theta_1X_1^{(i)}-\theta_2X_2^{(i)}-...-\theta_nX_n^{(i)})^2</script><p>而是这样一个式子</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac 1m\sum_{i=1}^m(y^{(i)}-\hat y^{(i)})^2</script><p>对这个式子求梯度, 得到的才是我们想要的结果</p>
+<p><img src="/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而这个式子其实就是MSE</p>
+<script type="math/tex; mode=display">
+J(\theta)=MSE(y,\hat y)</script><p>有的机器学习的教材对于在线性回归中使用梯度下降法会把优化的目标函数写成这样:</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac 1{2m}\sum_{i=1}^m(y^{(i)}-\hat y^{(i)})^2</script><p>是为了把梯度最终结果分母上的2消掉, 但其实这个2影响并不大</p>
+<p>但如果没有1/m, 梯度中的每一个元素就会非常大</p>
+<p> <br></p>
 <p>也就是说:</p>
 <p>当使用梯度下降法来求一个函数的最小值时, 有时候要对目标函数进行一些特殊的设计, 不见得所有的目标函数都非常合适</p>
-<p>虽然理论上每一个梯度都非常大的话, 依然可以通过调节η得到想要的结果, 但是这回影响效率<br>$$<br>J(\theta)&#x3D;\frac 1m\sum_{i&#x3D;1}^m(y^{(i)}-\hat y^{(i)})^2&#x3D;MSE(y,\hat y)<br>$$<br>而这里我们就对这个目标函数进行优化. 相应梯度的值就被这个式子所表达</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p>虽然理论上每一个梯度都非常大的话, 依然可以通过调节η得到想要的结果, 但是这回影响效率</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac 1m\sum_{i=1}^m(y^{(i)}-\hat y^{(i)})^2=MSE(y,\hat y)</script><p>而这里我们就对这个目标函数进行优化. 相应梯度的值就被这个式子所表达</p>
+<p><img src="/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="编程实现多元线性回归中的梯度下降"><a href="#编程实现多元线性回归中的梯度下降" class="headerlink" title="编程实现多元线性回归中的梯度下降"></a>编程实现多元线性回归中的梯度下降</h2><p>之前说在多元线性回归中用正规方程解求θ的时间复杂度很高, 而用梯度下降求解则快很多</p>
 <p>因此, 把梯度下降的过程封装进LinearRegression类中</p>
-<p>公式:<br>$$<br>J(\theta)&#x3D;\frac 1m \sum^m_{i&#x3D;1}(y^{(i)}-\theta_0-\theta_1X_1^{(i)}-\theta_2X_2^{(i)}-…-\theta_nX_n^{(i)})^2<br>$$</p>
-<p>$$<br>&#x3D;\frac 1m \sum^m_{i&#x3D;1}(y^{(i)}-X_b^{(i)}\theta)^2 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <br>$$</p>
-<p>$$<br>&#x3D;\frac 1m (y-X_b\theta)\cdot(y-X_b\theta)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <br>$$</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/vector_gd.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>公式:</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac 1m \sum^m_{i=1}(y^{(i)}-\theta_0-\theta_1X_1^{(i)}-\theta_2X_2^{(i)}-...-\theta_nX_n^{(i)})^2</script><script type="math/tex; mode=display">
+=\frac 1m \sum^m_{i=1}(y^{(i)}-X_b^{(i)}\theta)^2 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">
+=\frac 1m (y-X_b\theta)\cdot(y-X_b\theta)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><p><img src="/Blog/intro/gradient_descent_program_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/vector_gd.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">LinearRegression</span>:<br>    <br>    <span class="hljs-comment"># 省略其余代码</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit_normal</span>(<span class="hljs-params">self, X_train, y_train</span>):<br>    	<span class="hljs-keyword">pass</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit_gd</span>(<span class="hljs-params">self, X_train, y_train, eta=<span class="hljs-number">0.01</span>, n_iters=<span class="hljs-number">10000</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;根据训练数据集X_train, y_train, 使用梯度下降法训练Linear Regression模型&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">assert</span> X_train.shape[<span class="hljs-number">0</span>] == y_train.shape[<span class="hljs-number">0</span>], \<br>            <span class="hljs-string">&quot;the size of X_train must be equal to the size of y_train&quot;</span><br><br>        <span class="hljs-comment"># 计算损失函数的值</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">J</span>(<span class="hljs-params">theta, X_b, y</span>):<br>            <span class="hljs-keyword">try</span>:<br>                <span class="hljs-keyword">return</span> np.<span class="hljs-built_in">sum</span>((y - X_b.dot(theta)) ** <span class="hljs-number">2</span>) / <span class="hljs-built_in">len</span>(X_b)<br>            <span class="hljs-keyword">except</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br><br>        <span class="hljs-comment"># 计算梯度(导数)</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ</span>(<span class="hljs-params">theta, X_b, y</span>):<br>            res = np.empty(<span class="hljs-built_in">len</span>(theta))<br>            res[<span class="hljs-number">0</span>] = np.<span class="hljs-built_in">sum</span>(X_b.dot(theta) - y)<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(theta)):<br>                res[i] = (X_b.dot(theta) - y).dot(X_b[:, i])<br>            <span class="hljs-keyword">return</span> res * <span class="hljs-number">2</span> / <span class="hljs-built_in">len</span>(X_b)<br><br>        <span class="hljs-comment"># 梯度下降</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">gradient_descent</span>(<span class="hljs-params">X_b, y, initial_theta, eta, n_iters=<span class="hljs-number">10000</span>, epsilon=<span class="hljs-number">1e-8</span></span>):<br>            theta = initial_theta<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_iters):<br>                gradient = dJ(theta, X_b, y)<br>                last_theta = theta<br>                theta = theta - eta * gradient<br>                <span class="hljs-comment"># 如果误差可以忽略不计</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(J(theta, X_b, y) - J(last_theta, X_b, y)) &lt; epsilon:<br>                    <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">return</span> theta<br><br>        X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X_train), <span class="hljs-number">1</span>)), X_train])<br><br>        initial_theta = np.zeros(X_b.shape[<span class="hljs-number">1</span>])<br>        self._theta = gradient_descent(X_b, y_train, initial_theta, eta, n_iters)<br><br>        self.intercept_ = self._theta[<span class="hljs-number">0</span>]<br>        self.coef_ = self._theta[<span class="hljs-number">1</span>:]<br><br>        <span class="hljs-keyword">return</span> self<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="线性回归中梯度下降法的向量化"><a href="#线性回归中梯度下降法的向量化" class="headerlink" title="线性回归中梯度下降法的向量化"></a>线性回归中梯度下降法的向量化</h2><p>向量化处理主要集中在求梯度的过程</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>上面的dJ函数中是一项一项的把每个元素都求出来, 使用了一个循环. 而这个能否向量化, 转换成矩阵的运算?</p>
 <p>首先把第0项和其他项统一</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/vector_gd.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/vector_gd.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>X<sub>0</sub>依然恒等于1</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>而这个结果是一个行向量, 为了规范起见, 要把它转换成列向量, 即求它的转置<br>$$<br>\frac 2 m X_b^T(X_b\theta-y)<br>$$<br><img src="/Blog/Blog/intro/gradient_descent_program_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而这个结果是一个行向量, 为了规范起见, 要把它转换成列向量, 即求它的转置</p>
+<script type="math/tex; mode=display">
+\frac 2 m X_b^T(X_b\theta-y)</script><p><img src="/Blog/intro/gradient_descent_program_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因此, 求导的那个函数就可以简写为这样</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ</span>(<span class="hljs-params">theta, X_b, y</span>):<br>    <span class="hljs-keyword">return</span> X_b.T.dot(X_b.dot(theta) - y) * <span class="hljs-number">2</span> / <span class="hljs-built_in">len</span>(X_b)<br></code></pre></td></tr></table></figure>
-
 <p>如果用这个方法来处理真实的数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    boston = datasets.load_boston()<br>    X = boston.data<br>    y = boston.target<br><br>    X = X[y &lt; <span class="hljs-number">50</span>]<br>    y = y[y &lt; <span class="hljs-number">50</span>]<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="hljs-number">666</span>)<br><br>    reg = LinearRegression()<br>    <span class="hljs-comment"># score 0.7616</span><br>    reg.fit_gd(X, y, eta=<span class="hljs-number">0.000001</span>, n_iters=<span class="hljs-built_in">int</span>(<span class="hljs-number">1e6</span>))<br>    <span class="hljs-built_in">print</span>(reg.score(X_test, y_test))<br></code></pre></td></tr></table></figure>
-
 <p>很耗时, 而且score才0.76. 就是说用来很长时间还是达不到cost函数的最小值</p>
 <p>而如果再增加循环次数会更加耗时</p>
 <p>这种情况应该怎么办?</p>
-<br>
-
+<p><br></p>
 <h2 id="梯度下降法和数据归一化"><a href="#梯度下降法和数据归一化" class="headerlink" title="梯度下降法和数据归一化"></a>梯度下降法和数据归一化</h2><p>之所以会出现这种情况是因为数据整体不在一个规模上</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_program_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_program_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>解决的方法就是进行数据归一化, <strong>使用梯度下降法前, 最好进行数据归一化</strong></p>
 <blockquote>
 <p>注意: 在使用<strong>正规方程</strong>解线性回归算法时<strong>不需要</strong>进行<strong>数据归一化</strong></p>
 <p>这是因为我们将线性回归问题的求解过程整体变成了公式的计算, 公式的计算中牵扯的中间搜索的过程比较少, 所以不需要进行数据归一化</p>
-<br>
-
+<p><br></p>
 <p>可是当使用梯度下降法的时候就不一样了</p>
 <p>由于有η这个变量, 所以首先就会有一个问题, 如果最终这些数值不在一个维度上就会影响最终梯度的结果, 而梯度的结果在乘以η是每次真正走的<strong>步长</strong>, 这个步长就有可能太大或太小</p>
 <p>如果将所有数据进行归一化, 问题就完全解决了</p>
 </blockquote>
 <p> 进行数据归一化后的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    boston = datasets.load_boston()<br>    X = boston.data<br>    y = boston.target<br><br>    X = X[y &lt; <span class="hljs-number">50</span>]<br>    y = y[y &lt; <span class="hljs-number">50</span>]<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, seed=<span class="hljs-number">666</span>)<br><br>    standardScaler = StandardScaler()<br>    standardScaler.fit(X_train)<br>    X_train_standard = standardScaler.transform(X_train)<br>    X_test_standard = standardScaler.transform(X_test)<br><br>    reg = LinearRegression()<br>    <span class="hljs-comment"># score 0.8129</span><br>    reg.fit_gd(X_train_standard, y_train)<br>    <span class="hljs-built_in">print</span>(reg.score(X_test_standard, y_test))<br></code></pre></td></tr></table></figure>
-
 <p>归一化后不仅运行快, score也高了很多, 和使用正规方程的score是一致的, 也就是说找到了损失函数的最小值</p>
-<br>
-
+<p><br></p>
 <p>梯度下降法的优势: 在<strong>特征数量</strong>非常多的时候(成千上万), 使用梯度下降是快于正规方程法的, 因为当特征数量多M<sup>T</sup>M这个方阵的行数和列数就更多, 使用正规方程法求矩阵的逆就更耗时</p>
 <p>然而就是这样的梯度下降法在计算梯度的时候要让每一个样本都参与计算, 如果<strong>样本数量</strong>过多, 其实计算梯度也比较慢</p>
 <p>这也有改进方式, 那就是随机梯度下降法</p>
-<br>
-
-<h2 id="随机梯度下降法"><a href="#随机梯度下降法" class="headerlink" title="随机梯度下降法"></a>随机梯度下降法</h2><p><img src="/Blog/Blog/intro/gradient_descent_program_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h2 id="随机梯度下降法"><a href="#随机梯度下降法" class="headerlink" title="随机梯度下降法"></a>随机梯度下降法</h2><p><img src="/Blog/intro/gradient_descent_program_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之前的梯度下降法一直是想要把最优化的损失函数某一点的θ的梯度值准确地求出来</p>
 <p>每一项都要对所有的样本进行计算(每一项都有Σm)</p>
 <p>这种梯度下降法也被称为<strong>批量梯度下降法(Batch Gradient Descent)</strong></p>
 <p>就是说每一次计算的过程都要将样本的信息批量地进行计算, 但是这显然就带来了一个问题, 如果 <strong>样本量m</strong> 非常大, 那么计算梯度本身也是非常耗时的. 有什么改进的方案?</p>
-<br>
-
+<p><br></p>
 <p>在这个式子中</p>
-<p><img src="/Blog/Blog/intro/random_gradient_descent.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/random_gradient_descent.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于每一项都对m个样本进行了计算, 之后为了取平均又除以了m</p>
 <p>所以一个自然的想法就是: 是否可以每一次只对一个样本进行计算?</p>
 <p>基于这个想法, 式子就变成这样</p>
-<p><img src="/Blog/Blog/intro/random_gradient_descent_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/random_gradient_descent_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>把Σ去掉了, 同时对于i来说, 每次只取固定的一个i, 相应的在最外面也就不用除以m了, 当然也可以对它进行向量化</p>
-<p><img src="/Blog/Blog/intro/random_gradient_descent_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/random_gradient_descent_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>向量化方式和之前是一样的, 只不多此时对于X<sub>b</sub>来说, 每次只取一行</p>
 <p>我们使用这样的式子来当作<strong>搜索</strong>的方向 (而不是<strong>梯度</strong>的方向, 因为这个函数已经不是损失函数的梯度了)</p>
 <p>只不过观察梯度这个式子, 设想每次都<strong>随机取出一个i</strong>, 对于随机取的i计算这样一个式子, 这个式子也是一个向量, 也可以表达一个方向</p>
 <p>向这个方向进行搜索, 不停迭代, 能否得到损失函数的最小值</p>
 <p>这个方法就叫做<strong>随机梯度下降法(Stochastic Gradient Descent)</strong></p>
-<p><img src="/Blog/Blog/intro/random_gradient_descent_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/random_gradient_descent_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>随机梯度下降法依然可以差不多地来到整个函数最小值的附近, 虽然可能不像批量梯度下降法那样一定可以来到最小值, 但当样本量m非常大的时候, 很多时候我们可能原意用一定的精度换取一定的时间, 这样一来, 随机梯度下降法就有意义了</p>
 </blockquote>
 <p>而且在具体实现的时候有一个非常重要的技巧, 就是在随机梯度下降的过程中, 学习率的取值变得很重要. 这是因为在随机梯度下降法的过程中, 如果学习率一直取一个固定值的话, 很有可能已经来到最小值左右的位置了, 但由于随机过程不够好, η又是一个固定值, 慢慢地又跳出最小值所在的位置</p>
 <p>所以在实际梯度下降法中, 我们希望<strong>学习率是逐渐递减</strong>的</p>
 <p>因此可以设计一个函数让学习率η随着梯度下降法循环次数的增加, η值越来越小</p>
-<p>这个函数最简单的表示方法就是倒数<br>$$<br>\eta &#x3D; \frac 1 {i_iters}<br>$$<br>不过这样的实现有的时候会有一些问题, 当循环次数太少了的时候, η值下降的太快了 , 例如当 i_iters 从1变到2, η一下子下降50%</p>
+<p>这个函数最简单的表示方法就是倒数</p>
+<script type="math/tex; mode=display">
+\eta = \frac 1 {i\_iters}</script><p>不过这样的实现有的时候会有一些问题, 当循环次数太少了的时候, η值下降的太快了 , 例如当 i_iters 从1变到2, η一下子下降50%</p>
 <p>但如果i_iters从10000增长到10001, η才下降万分之一. η前后下降的比例差值太大了</p>
-<p>所以通常在实现的时候在分母上再加上一个常数b<br>$$<br>\eta &#x3D; \frac 1 {i_iters+b}<br>$$<br>b通常取50, 也就是说, 当i_iters上升1的时候, η只会下降2%左右, 这样缓解在初始时η下降值太大</p>
-<p>另外分子如果固定取1, 很多时候也达不到理想的效果, 所以让分子也取一个常数a, 比1灵活一些<br>$$<br>\eta &#x3D; \frac a {i_iters+b}<br>$$<br>a和b就是随机梯度下降法的两个超参数, 这里就凭经验a取5, b取50</p>
+<p>所以通常在实现的时候在分母上再加上一个常数b</p>
+<script type="math/tex; mode=display">
+\eta = \frac 1 {i\_iters+b}</script><p>b通常取50, 也就是说, 当i_iters上升1的时候, η只会下降2%左右, 这样缓解在初始时η下降值太大</p>
+<p>另外分子如果固定取1, 很多时候也达不到理想的效果, 所以让分子也取一个常数a, 比1灵活一些</p>
+<script type="math/tex; mode=display">
+\eta = \frac a {i\_iters+b}</script><p>a和b就是随机梯度下降法的两个超参数, 这里就凭经验a取5, b取50</p>
 <p>这种逐渐递减的思想是模拟在搜索领域一个非常重要的思想, <strong>模拟退火的思想</strong>. 模拟在自然界火焰温度从高到低逐渐冷却的过程, 这个过程是和时间相关的</p>
-<p>所以有的时候我们也把a, b改写为<br>$$<br>\eta &#x3D; \frac {t_0} {i_iters+t_1}<br>$$<br><br></p>
+<p>所以有的时候我们也把a, b改写为</p>
+<script type="math/tex; mode=display">
+\eta = \frac {t_0} {i\_iters+t_1}</script><p><br></p>
 <h3 id="随机梯度下降的实现"><a href="#随机梯度下降的实现" class="headerlink" title="随机梯度下降的实现"></a>随机梯度下降的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 求梯度</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ_sgd</span>(<span class="hljs-params">theta, X_b_i, y_i</span>):<br>    <span class="hljs-keyword">return</span> X_b_i.T.dot(X_b_i.dot(theta) - y_i) * <span class="hljs-number">2</span><br><br><span class="hljs-comment"># 随机梯度下降法</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sgd</span>(<span class="hljs-params">X_b, y, initial_theta, n_iters</span>):<br>    t0 = <span class="hljs-number">5</span><br>    t1 = <span class="hljs-number">50</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">learning_rate</span>(<span class="hljs-params">t</span>):<br>        <span class="hljs-keyword">return</span> t0 / (t + t1)<br><br>    theta = initial_theta<br>    <span class="hljs-keyword">for</span> cur_iter <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_iters):<br>        <span class="hljs-comment"># 随机一列求梯度</span><br>        rand_i = np.random.randint(<span class="hljs-built_in">len</span>(X_b))<br>        gradient = dJ_sgd(theta, X_b[rand_i], y[rand_i])<br>        theta = theta - learning_rate(cur_iter) * gradient<br><br>    <span class="hljs-keyword">return</span> theta<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    m = <span class="hljs-number">100000</span><br><br>    x = np.random.normal(size=m)<br>    X = x.reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br>    y = <span class="hljs-number">4.</span>*x + <span class="hljs-number">3.</span> + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, size=m)<br><br>    X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X), <span class="hljs-number">1</span>)), X])<br>    initial_theta = np.zeros(X_b.shape[<span class="hljs-number">1</span>])<br>    <span class="hljs-comment"># 总运行次数甚至没有批量线性回归一次运算多</span><br>    theta = sgd(X_b, y, initial_theta, n_iters=<span class="hljs-built_in">len</span>(X_b)//<span class="hljs-number">3</span>)<br><br>    <span class="hljs-built_in">print</span>(theta)<br></code></pre></td></tr></table></figure>
-
 <p>然而这里还是有一些问题, 那就是n_iters怎么取值, n_iters影响遍历次数, 而为了准确, 至少要把所有样本遍历一遍, 这样才能保证所有样本的信息都被考虑进来了. </p>
 <p>基于这样的思想n_iters具体传什么值很难讲, 这和样本数量有关</p>
 <p>因此n_iters最好代表<strong>所有样本</strong>遍历的次数. 而且如果随机选取索引进行遍历的话有可能某些样本被遍历多次, 而有些样本没有被遍历. </p>
 <p>因此我们作两次循环, 外层就是对n_iters进行循环, 每次循环的过程中都把所有的样本看一遍, 如何保证把所有样本都看一遍同时还是随机的? 使用洗牌算法, 乱序之后从第一个样本看到最后一个样本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">LinearRegression</span>:<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit_sgd</span>(<span class="hljs-params">self, X_train, y_train, n_iters=<span class="hljs-number">5</span>, t0=<span class="hljs-number">5</span>, t1=<span class="hljs-number">50</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;根据训练数据集X_train, y_train, 使用随机梯度下降法训练Linear Regression模型&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">assert</span> X_train.shape[<span class="hljs-number">0</span>] == y_train.shape[<span class="hljs-number">0</span>], \<br>            <span class="hljs-string">&quot;the size of X_train must be equal to the size of y_train&quot;</span><br>        <span class="hljs-keyword">assert</span> n_iters &gt;= <span class="hljs-number">1</span><br><br>        <span class="hljs-comment"># 求某一行的梯度</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ_sgd</span>(<span class="hljs-params">theta, X_b_i, y_i</span>):<br>            <span class="hljs-keyword">return</span> X_b_i.T.dot(X_b_i.dot(theta) - y_i) * <span class="hljs-number">2</span><br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">sgd</span>(<span class="hljs-params">X_b, y, initial_theta, n_iters, t0=<span class="hljs-number">5</span>, t1=<span class="hljs-number">50</span></span>):<br><br>            <span class="hljs-keyword">def</span> <span class="hljs-title function_">learning_rate</span>(<span class="hljs-params">t</span>):<br>                <span class="hljs-keyword">return</span> t0 / (t + t1)<br><br>            theta = initial_theta<br>            m = <span class="hljs-built_in">len</span>(X_b)<br><br>            <span class="hljs-comment"># n_iters代表把所有样本考虑几遍</span><br>            <span class="hljs-keyword">for</span> cur_iter <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_iters):<br>                <span class="hljs-comment"># 为了考虑所有样本, 同时随机, 所以要洗牌</span><br>                indexes = np.random.permutation(m)<br>                X_b_new = X_b[indexes]<br>                y_new = y[indexes]<br>                <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>                    gradient = dJ_sgd(theta, X_b_new[i], y_new[i])<br>                    theta = theta - learning_rate(cur_iter * m + i) * gradient<br><br>            <span class="hljs-keyword">return</span> theta<br><br>        X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X_train), <span class="hljs-number">1</span>)), X_train])<br><br>        initial_theta = np.zeros(X_b.shape[<span class="hljs-number">1</span>])<br>        self._theta = sgd(X_b, y_train, initial_theta, n_iters, t0, t1)<br><br>        self.intercept_ = self._theta[<span class="hljs-number">0</span>]<br>        self.coef_ = self._theta[<span class="hljs-number">1</span>:]<br><br>        <span class="hljs-keyword">return</span> self<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h3 id="scikit-learn中的SGD"><a href="#scikit-learn中的SGD" class="headerlink" title="scikit-learn中的SGD"></a>scikit-learn中的SGD</h3><p>scikit-learn中的随机梯度下降法被封装在 sklearn.linear_model.SGDRegressor 中</p>
 <p>使用过程和之前的都一样</p>
 <blockquote>
 <p>调包 -&gt; 实例化对象 -&gt; fit -&gt; predict</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">sgd_reg = SGDRegressor(n_iter_no_change=<span class="hljs-number">100</span>)<br>sgd_reg.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(sgd_reg.score(X_test, y_test))<br></code></pre></td></tr></table></figure>
-
 <p>scikit-learn中的随机梯度下降法是更加复杂的, 速度也更加快, 我们自己实现的只是为了理解随机梯度下降法最基本的原理. scikit-learn中使用了很多优化的方案</p>
-<br>
-
+<p><br></p>
 <h2 id="关于梯度的调试"><a href="#关于梯度的调试" class="headerlink" title="关于梯度的调试"></a>关于梯度的调试</h2><p>对于梯度下降法的使用, 非常重要的一个步骤就是求出定义的损失函数在某一个点θ上对应的点是什么</p>
 <p>然而如果遇见更加复杂的函数, 很有可能求解梯度并不容易, 这种情况下, 推导出公式以后, 实现并运行程序的时候很有可能程序并不会报错, 但是梯度却求的是错误的</p>
 <p>这种情况下怎样才能发现这种错误?</p>
-<br>
-
+<p><br></p>
 <p>方法是这样的:</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_debug.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于一根曲线, 要求它在某一点相应的梯度值, 就是在这一点上与曲线相切的斜率</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_debug_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>在曲线的右边附近(正方向)再取一个点, 再在左边附近(负方向)再取一点</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_debug_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>那么这两点之间连线的斜率, 和我们想求的切线的斜率大抵是相等的</p>
 <p>而且, 取得这两点的间距越小, 斜率就越相等</p>
 <p>而这其实就是导数的定义, 在数学中, 如果取的这两个点的间距趋近于0(极限), 那么得到的就是红点的导数.</p>
 <p>而在计算机实际实现的时候, 完全可以取两个非常小的值在真正地算出两个点连线的斜率<strong>作为</strong>红色的点的导数的取代值</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>ε就是(左&#x2F;右)间距, 只需要这样就可以模拟地计算出来对于某一点的导数</p>
-<p>这样的模拟同样适用于高维的场景, 如果θ是一个向量<br>$$<br>\theta &#x3D; (\theta_0, \theta_1\cdots,\theta_n)<br>$$<br>如果想求出损失函数 J 针对 θ 的梯度的话, 就是分别对函数 J 和 θ中每一个分量去求偏导 </p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_debug_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>ε就是(左/右)间距, 只需要这样就可以模拟地计算出来对于某一点的导数</p>
+<p>这样的模拟同样适用于高维的场景, 如果θ是一个向量</p>
+<script type="math/tex; mode=display">
+\theta = (\theta_0, \theta_1\cdots,\theta_n)</script><p>如果想求出损失函数 J 针对 θ 的梯度的话, 就是分别对函数 J 和 θ中每一个分量去求偏导 </p>
+<p><img src="/Blog/intro/gradient_descent_debug_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>以对θ<sub>0</sub>这个分量求导为例</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/gradient_descent_debug_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>同理θ<sub>1</sub>这个分量求导</p>
-<p><img src="/Blog/Blog/intro/gradient_descent_debug_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/gradient_descent_debug_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>可以看出, 这样做在数学的解释上是非常简单的, 但是时间复杂度非常高. </p>
 <p>因为每求一个维度的导数, 就要把两个θ代入损失函数, 如果J的复杂度较高, 那么没求一个梯度都要花相当多的时间</p>
 <p>因此, 这种方法是作为<strong>调试</strong>的手段</p>
 <p>例子:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">J</span>(<span class="hljs-params">theta, X_b, y</span>):<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">return</span> np.<span class="hljs-built_in">sum</span>((y-X_b.dot(theta)) ** <span class="hljs-number">2</span>)/ <span class="hljs-built_in">len</span>(X_b)<br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ_math</span>(<span class="hljs-params">theta, X_b, y</span>):<br>    <span class="hljs-keyword">return</span> X_b.T.dot(X_b.dot(theta) - y) * <span class="hljs-number">2</span> / <span class="hljs-built_in">len</span>(y)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ_debug</span>(<span class="hljs-params">theta, X_b, y, epsilon=<span class="hljs-number">0.01</span></span>):<br>    res = np.empty(<span class="hljs-built_in">len</span>(theta))<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(theta)):<br>        theta_1 = theta.copy()<br>        theta_1[i] += epsilon<br>        theta_2 = theta.copy()<br>        theta_2[i] -= epsilon<br>        res[i] = (J(theta_1, X_b, y)-J(theta_2, X_b, y)) / (<span class="hljs-number">2</span>*epsilon)<br>    <span class="hljs-keyword">return</span> res<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gradiet_descent</span>(<span class="hljs-params">dJ, X_b, y, initial_theta, eta, n_iters=<span class="hljs-number">10000</span>, epsilon=<span class="hljs-number">1e-8</span></span>):<br>    theta = initial_theta<br>    cur_iter = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_iters):<br>        gradient = dJ(theta, X_b, y)<br>        last_theta = theta<br>        theta = theta - eta * gradient<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(J(theta, X_b, y)- J(last_theta, X_b, y)) &lt; epsilon:<br>            <span class="hljs-keyword">break</span><br><br>    <span class="hljs-keyword">return</span> theta<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    np.random.seed(<span class="hljs-number">666</span>)<br>    X = np.random.random(size=(<span class="hljs-number">1000</span>, <span class="hljs-number">10</span>))<br>    true_theta = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">12</span>, dtype=<span class="hljs-built_in">float</span>)<br>    X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X), <span class="hljs-number">1</span>)), X])<br>    y = X_b.dot(true_theta) + np.random.normal(size=<span class="hljs-number">1000</span>)<br><br>    X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X), <span class="hljs-number">1</span>)), X])<br>    initial_theta = np.zeros(X_b.shape[<span class="hljs-number">1</span>])<br>    eta = <span class="hljs-number">0.01</span><br><br>    theta = gradiet_descent(dJ_debug, X_b, y, initial_theta, eta)<br>    <span class="hljs-built_in">print</span>(theta)<br>    theta2 = gradiet_descent(dJ_math, X_b, y, initial_theta, eta)<br>    <span class="hljs-built_in">print</span>(theta2)<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    第二种方法(属性方法)速度更快, 但得到的结果都是一样的</span><br><span class="hljs-string">    [ 1.1251597   2.05312521  2.91522497  4.11895968  5.05002117  5.90494046</span><br><span class="hljs-string">      6.97383745  8.00088367  8.86213468  9.98608331 10.90529198]</span><br><span class="hljs-string">    [ 1.1251597   2.05312521  2.91522497  4.11895968  5.05002117  5.90494046</span><br><span class="hljs-string">      6.97383745  8.00088367  8.86213468  9.98608331 10.90529198]</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-
 <p>如果机器学习算法涉及到梯度的求法的时候, 可以先用dJ_debug来作为梯度的求法, 通过这个方式先得到正确的结果, 然后再来推导公式, 求出数学解, 最后将数学解代入到机器学习算法中, 对比结果是否一样来验证推导的数学解是否是正确的推导</p>
 <p>而且dJ_debug是和 函数 J 无关的, 它适用于所有的函数</p>
-<br>
-
+<p><br></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一共讲了两种梯度下降法</p>
 <ul>
 <li>批量梯度下降法 Batch Gradient Descent</li>
@@ -507,10 +508,9 @@
 <p>相应的对于小批量梯度下降法来说又多了一个超参数k</p>
 <blockquote>
 <p>小批量梯度下降法的由来: 取两种方法, 但都不那么极端, 而是结合在一起, 很多机器学习的方法都会使用这种结合的手段</p>
-<p>个人理解: 其实批量梯度下降法就是k&#x3D;m的小批量梯度下降(m为样本容量; 而当所有样本都要取的时候打不打乱顺序就无所谓了), 而随机梯度下降法就是k&#x3D;1的小批量梯度下降</p>
+<p>个人理解: 其实批量梯度下降法就是k=m的小批量梯度下降(m为样本容量; 而当所有样本都要取的时候打不打乱顺序就无所谓了), 而随机梯度下降法就是k=1的小批量梯度下降</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <p>“随机” 在机器学习领域是具有非常大的意义的</p>
 <p>这里的随机梯度下降法一直在强度运算速度是更快的, 这是因为对于解决线性回归模型来说, 损失函数是非常简单的</p>
 <p>实际上对于一个复杂的损失函数来说, 随机还有另外一个出其不意的优点: <strong>跳出局部最优解</strong></p>
@@ -521,24 +521,19 @@
 <p>alphaGo中主要使用的一种数据结构是蒙特卡洛树, 也涉及到了随机</p>
 </blockquote>
 <p>由于机器学习本身就是在解决不确定的世界中不确定的问题, 本身很有可能没有一个固定的最优解, 因此随机扮演着非常重要的角色</p>
-<br>
-
+<p><br></p>
 <p>自己尝试的小批量梯度下降</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">LinearRegression</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit_mbgd</span>(<span class="hljs-params">self, X, y, k=<span class="hljs-number">10</span>, n_iters=<span class="hljs-number">5</span>, t0=<span class="hljs-number">5</span>, t1=<span class="hljs-number">50</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;根据训练数据集X_train, y_train, 使用小批量梯度下降法训练Linear Regression模型&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">assert</span> X_train.shape[<span class="hljs-number">0</span>] == y_train.shape[<span class="hljs-number">0</span>], \<br>            <span class="hljs-string">&quot;the size of X_train must be equal to the size of y_train&quot;</span><br>        <span class="hljs-keyword">assert</span> n_iters &gt;= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">assert</span> k &gt;= <span class="hljs-number">1</span><br>        <span class="hljs-comment"># 每次取k个样本, 所以k最大为样本容量</span><br>        k = <span class="hljs-built_in">min</span>(<span class="hljs-built_in">len</span>(X), k)<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ_mbgd</span>(<span class="hljs-params">theta, X_b_k, y_k</span>):<br>            <span class="hljs-keyword">return</span> X_b_k.T.dot(X_b_k.dot(theta) - y_k) * <span class="hljs-number">2</span> / <span class="hljs-built_in">len</span>(X_b_k)<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dJ</span>(<span class="hljs-params">X_b, y, initial_theta, k=<span class="hljs-number">10</span>, n_iters=<span class="hljs-number">5</span>, t0=<span class="hljs-number">5</span>, t1=<span class="hljs-number">50</span></span>):<br>            <span class="hljs-keyword">def</span> <span class="hljs-title function_">learning_rate</span>(<span class="hljs-params">n_iters, t0, t1</span>):<br>                <span class="hljs-keyword">return</span> t0 / (n_iters + t1)<br><br>            m = <span class="hljs-built_in">len</span>(X_b)<br>            res = np.empty(m)<br>            theta = initial_theta<br>            <span class="hljs-keyword">for</span> cur_iter <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_iters):<br>                <span class="hljs-comment"># 每一个样本索引重复k遍, 洗牌并且k个一组, 每次取一组</span><br>                indexes = np.array([i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m)] * k)<br>                np.random.shuffle(indexes)<br>                indexes = indexes.reshape(-<span class="hljs-number">1</span>, k)<br><br>                <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>                    X_b_new = X_b[indexes[i]]<br>                    y_new = y[indexes[i]]<br>                    gradient = dJ_mbgd(theta, X_b_new, y_new)<br>                    theta = theta - gradient * learning_rate(cur_iter*m + i, t0, t1)<br><br>            <span class="hljs-keyword">return</span> theta<br><br>        X_b = np.hstack([np.ones((<span class="hljs-built_in">len</span>(X), <span class="hljs-number">1</span>)), X])<br>        initial_theta = np.zeros(X_b.shape[<span class="hljs-number">1</span>])<br>        self._theta = dJ(X_b, y, initial_theta, k, n_iters, t0, t1)<br><br>        self.intercept_ = self._theta[<span class="hljs-number">0</span>]<br>        self.coef_ = self._theta[<span class="hljs-number">1</span>:]<br><br>        <span class="hljs-keyword">return</span> self<br></code></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="梯度上升法"><a href="#梯度上升法" class="headerlink" title="梯度上升法"></a>梯度上升法</h3><p><img src="/Blog/Blog/intro/gradient_descent_debug_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h3 id="梯度上升法"><a href="#梯度上升法" class="headerlink" title="梯度上升法"></a>梯度上升法</h3><p><img src="/Blog/intro/gradient_descent_debug_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果某些场景, 我们想求某一个函数的最大值, 就可以使用梯度上升法, 此时只不过是加上η乘以导数.</p>
 <p>因为梯度本身就代表增大的方向, 直接向这个方向走就好了</p>
-<br>
-
+<p><br></p>
 <p class="note note-primary"><b>梯度下降法和梯度上升法</b>本身不是机器学习的算法, 它是一种基于搜索的<b>最优化算法</b></p>
 
 <p>可以用梯度下降法来最小化一个损失函数</p>
 <p>或者用梯度上升法来最大化一个效用函数</p>
-<br>
-
+<p><br></p>
 <p>机器学习一个非常重要的算法: PCA(主成分分析法) 用于降维</p>
 <p>接下来将用梯度上升法对PCA进行实现</p>
 <p>PCA背后有非常严谨的数学的理论支撑, 所以完全可以使用公式将PCA求出来</p>
@@ -582,7 +577,7 @@
                       <a href="/Blog/2020/04/28/machine-learning-5/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">python3入门机器学习(5)-PCA与梯度上升法</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -591,7 +586,7 @@
                     
                       <a href="/Blog/2020/04/27/machine-learning-3/">
                         <span class="hidden-mobile">python3入门机器学习(3)-线性回归法</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -608,7 +603,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -634,7 +629,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -643,7 +638,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

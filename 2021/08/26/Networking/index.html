@@ -19,7 +19,7 @@
     <meta name="description" content="网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/08/26/Networking/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/08/26/Networking/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="网络">
 <meta property="og:locale">
@@ -105,7 +105,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -117,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -129,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -141,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      161 分钟
+      159 分钟
     </span>
   
 
@@ -246,42 +246,35 @@
             <div class="markdown-body">
               <p>网络  </p>
 <span id="more"></span>
-
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><p><img src="/Blog/Blog/intro/network/osi.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="TCP-x2F-IP-四层模型"><a href="#TCP-x2F-IP-四层模型" class="headerlink" title="TCP&#x2F;IP 四层模型"></a>TCP&#x2F;IP 四层模型</h2><p><img src="/Blog/Blog/intro/network/ip.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><p><img src="/Blog/intro/network/osi.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="TCP-IP-四层模型"><a href="#TCP-IP-四层模型" class="headerlink" title="TCP/IP 四层模型"></a>TCP/IP 四层模型</h2><p><img src="/Blog/intro/network/ip.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而路由器不需要应用层和传输层</p>
-<p><img src="/Blog/Blog/intro/network/ip_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>不同层的协议</p>
-<p><img src="/Blog/Blog/intro/network/ip_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>现代互联网的网络拓扑</p>
-<p><img src="/Blog/Blog/intro/network/ip_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/ip_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/osi.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/ip_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/ip_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/osi.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>这里讲几个重点layer</p>
 <h3 id="Transport-Layer"><a href="#Transport-Layer" class="headerlink" title="Transport Layer"></a>Transport Layer</h3><p><strong>Transport layer</strong>: Manages exchange of application data between end systems</p>
-<p>TCP&#x2F;UDP 都是这一层的协议</p>
-<p>进程级寻址、分段、复用&#x2F;解复用 </p>
-<p>Process level addressing, Segmentation, Multiplexing &#x2F; Demultiplexing</p>
-<br>
-
+<p>TCP/UDP 都是这一层的协议</p>
+<p>进程级寻址、分段、复用/解复用 </p>
+<p>Process level addressing, Segmentation, Multiplexing / Demultiplexing</p>
+<p><br></p>
 <h3 id="Network-Layer"><a href="#Network-Layer" class="headerlink" title="Network Layer"></a>Network Layer</h3><p>也叫做IP layer, 因为这层为数据报添加IP头</p>
 <p>Addressing, forwarding and routing in the network. How to get your packet from A to B</p>
-<p>Fragmentation &#x2F; Reassembly</p>
+<p>Fragmentation / Reassembly</p>
 <p>Error detection and handling</p>
-<br>
-
+<p><br></p>
 <h3 id="Data-Link-Layer"><a href="#Data-Link-Layer" class="headerlink" title="Data Link Layer"></a>Data Link Layer</h3><p>making the physical link reliable and usable</p>
 <p>Operates on frames containing messages sent between directly connected devices.<br><strong>Bit level error detection</strong> and handling (finds corruption that happens during transmission)<br>Link control and management, Link level addressing<br>Media access control, sharing the physical media between multiple devices</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/cmpt371/ip_layer.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ip_layer_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><br></p>
+<p><img src="/Blog/intro/cmpt371/ip_layer.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ip_layer_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>时延有4种:</p>
 <ol>
 <li>发送时延</li>
@@ -289,49 +282,43 @@
 <li>传播时延</li>
 <li>处理时延</li>
 </ol>
-<br>
-
-<h3 id="发送时延-Transmission-delay"><a href="#发送时延-Transmission-delay" class="headerlink" title="发送时延(Transmission delay)"></a>发送时延(Transmission delay)</h3><p>本机在进行网络发送时, 在本机停留的时间<br>$$<br>\text{发送时延} &#x3D; \frac {\text{数据长度(bit)}}{\text{发送速率(bit&#x2F;s)}}<br>$$<br>数据长度由用户决定, 而发送速率由计算机网卡决定的</p>
-<br>
-
-<h3 id="传播时延-Propagation-Delay"><a href="#传播时延-Propagation-Delay" class="headerlink" title="传播时延(Propagation Delay)"></a>传播时延(Propagation Delay)</h3><p>$$<br>\text{传播时延} &#x3D; \frac {\text{传输路径距离}}{\text{传播速率(bit&#x2F;s)}}<br>$$</p>
-<p> 传播速率受限与传播介质</p>
-<br>
-
+<p><br></p>
+<h3 id="发送时延-Transmission-delay"><a href="#发送时延-Transmission-delay" class="headerlink" title="发送时延(Transmission delay)"></a>发送时延(Transmission delay)</h3><p>本机在进行网络发送时, 在本机停留的时间</p>
+<script type="math/tex; mode=display">
+\text{发送时延} = \frac {\text{数据长度(bit)}}{\text{发送速率(bit/s)}}</script><p>数据长度由用户决定, 而发送速率由计算机网卡决定的</p>
+<p><br></p>
+<h3 id="传播时延-Propagation-Delay"><a href="#传播时延-Propagation-Delay" class="headerlink" title="传播时延(Propagation Delay)"></a>传播时延(Propagation Delay)</h3><script type="math/tex; mode=display">
+\text{传播时延} = \frac {\text{传输路径距离}}{\text{传播速率(bit/s)}}</script><p> 传播速率受限与传播介质</p>
+<p><br></p>
 <h3 id="排队时延-Queuing-delay"><a href="#排队时延-Queuing-delay" class="headerlink" title="排队时延(Queuing delay)"></a>排队时延(Queuing delay)</h3><p>数据包在网络设备中等待被处理的时间</p>
-<br>
-
+<p><br></p>
 <h3 id="处理时延-Processing-delay"><a href="#处理时延-Processing-delay" class="headerlink" title="处理时延(Processing delay)"></a>处理时延(Processing delay)</h3><p>数据包到达设备或者目的机器被处理所需要的时间</p>
-<br>
-
+<p><br></p>
 <p>总时延 就是上述所有时延的和</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/cmpt371/delay.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/delay_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>因此单个 packet 的 delay at each router is<br>$$<br>d_{\text{nodal}}&#x3D;d_{\text{proc}}+d_{\text{prop}}+(d_{\text{data}}+d_{\text{head}})+d_{\text{queue}}<br>$$<br>如果忽略 queuing delay, 那么从 source 到 receiver 的 delay 就是<br>$$<br>d_{\text{endtoend}}&#x3D;(d_{\text{proc}}+d_{\text{prop}}+(d_{\text{data}}+d_{\text{head}}))\times N_{\text{trans}}<br>$$</p>
-<p>上面是单个package整体发出时的情况, 如果我们把一个package拆分成3份, 那么</p>
-<p><img src="/Blog/Blog/intro/cmpt371/delay_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt371/delay.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/delay_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>因此单个 packet 的 delay at each router is </p>
+<script type="math/tex; mode=display">
+d_{\text{nodal}}=d_{\text{proc}}+d_{\text{prop}}+(d_{\text{data}}+d_{\text{head}})+d_{\text{queue}}</script><p>如果忽略 queuing delay, 那么从 source 到 receiver 的 delay 就是</p>
+<script type="math/tex; mode=display">
+d_{\text{endtoend}}=(d_{\text{proc}}+d_{\text{prop}}+(d_{\text{data}}+d_{\text{head}}))\times N_{\text{trans}}</script><p>上面是单个package整体发出时的情况, 如果我们把一个package拆分成3份, 那么</p>
+<p><img src="/Blog/intro/cmpt371/delay_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>然而更多的拆分意味着要传输的header更多, 并不一定是好事</p>
-<p><img src="/Blog/Blog/intro/cmpt371/delay_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/delay_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>上图中拆分10个小package反而比拆分5个小package更耗时</p>
-<br>
-
+<p><br></p>
 <h3 id="End-to-end-delay"><a href="#End-to-end-delay" class="headerlink" title="End to end delay"></a>End to end delay</h3><p>上图如果我们只考虑一个packet</p>
-<p><img src="/Blog/Blog/intro/cmpt371/delay_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/delay_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果我们考虑两个packet</p>
-<p><img src="/Blog/Blog/intro/cmpt371/delay_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/delay_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>5个packet以及更一般的情况</p>
-<p><img src="/Blog/Blog/intro/cmpt371/delay_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
-<p><img src="/Blog/Blog/intro/cmpt371/delay_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
+<p><img src="/Blog/intro/cmpt371/delay_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt371/delay_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
 <h2 id="Multiplexing-多路复用"><a href="#Multiplexing-多路复用" class="headerlink" title="Multiplexing(多路复用)"></a>Multiplexing(多路复用)</h2><p>有两种常用的多路复用技术:</p>
 <ol>
 <li>频分多路复用FDM (Frequency Division Multiplexing)</li>
@@ -341,92 +328,82 @@
 </ul>
 </li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt371/multiplexing.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/multiplexing.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <h3 id="Frequency-division-multiplexing"><a href="#Frequency-division-multiplexing" class="headerlink" title="Frequency-division multiplexing"></a>Frequency-division multiplexing</h3><p>当 transmission media (传输介质) 的 bandwidth (带宽) 比要传输的 signal 大很多倍时, 就应该让介质一次传输多个 signal</p>
 <p>每个要被传输的 signal 都会被 modulated(调制) to a different carrier frequency.</p>
 <p>The different carrier frequencies are separated by at least the bandwidth of the individual signals to be transmitted.</p>
 <p>The frequency bandwidth is shared by the signals being simultaneously transmitted</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <p>一种典型的 voice signal 有着 effective spectrum(有效频谱) 300-3400 Hz</p>
 <p>When multiplexing signals the signals must be adequately separated, so allow 4KHz bandwidth for each voice signal</p>
 <p>A voice signal can be modulated so that the spectrum of the modulated signal has a center frequency at the frequency of the modulation carrier $f_c$</p>
 <p>If the carrier has a bandwidth between $f_1$ Hz and $f_2$ Hz, then $f_c$ would be chosen to be $f_1$+4K Hz</p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/signal.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="ADSL"><a href="#ADSL" class="headerlink" title="ADSL"></a>ADSL</h3><p>Asymmetric Digital Subscriber Line, to 20 Mbps downstream and 100 Mbps upstream (Typically 512 kbps and 64 kbps)</p>
 <p>Provides high speed access over twisted pair telephone wires. Up to 256 4MHz channels available</p>
 <ul>
 <li>Normal telephone connection filtered to 4KHz bandwidth at end office (switching station)</li>
 <li>For ADSL filter is removed making entire capacity of the twisted pair(category 3) available to the user. The capacity and attainable speed depend on the distance from the end office(length of connection)</li>
 <li>Typical user needs more down stream capacity than upstream capacity for internet applications</li>
-<li>Use FDM and&#x2F;or discrete multiton(DMT)</li>
+<li>Use FDM and/or discrete multiton(DMT)</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PZBUfDGEwEM">https://www.youtube.com/watch?v=PZBUfDGEwEM</a></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/signal_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="TDM-Time-Division"><a href="#TDM-Time-Division" class="headerlink" title="TDM(Time Division)"></a>TDM(Time Division)</h3><p>The data are organized in <strong>frames</strong></p>
 <p>Each frame contains a cycle of time slots</p>
 <p>A sequence of slots dedicated to one source is a <strong>channel</strong></p>
 <p>Data from different sources is inserted into slots or channels in some sequence</p>
 <ul>
 <li>Synchronous: TDM slots 由预定的源序列填充。 如果没有数据要传输，则发送“空闲”信号（电路交换）</li>
-<li>Statistical: 当 data 可用时 TDM 会填充 slots, 没有预先设置的sequence. 如果任何源已准备好传输数据，则不会发送空或“空闲”时隙。 仅当所有通道都没有数据要传输时才发送空闲（数据包交换）</li>
+<li>Statistical: 当 data 可用时 TDM 会填充 slots, 没有预先设置的sequence. 如果任何源已准备好传输数据，则不会发送空或“空闲”时隙。 仅当所有通道都没有数据要传输时才发送空闲（数据包交换） </li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/signal_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h3 id="两种tdm的不同"><a href="#两种tdm的不同" class="headerlink" title="两种tdm的不同"></a>两种tdm的不同</h3><p><img src="/Blog/Blog/intro/cmpt371/tdm.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/signal_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/signal_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="两种tdm的不同"><a href="#两种tdm的不同" class="headerlink" title="两种tdm的不同"></a>两种tdm的不同</h3><p><img src="/Blog/intro/cmpt371/tdm.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <h2 id="RTT-Route-Trip-Time"><a href="#RTT-Route-Trip-Time" class="headerlink" title="RTT(Route-Trip Time)"></a>RTT(Route-Trip Time)</h2><p>RTT 是往返时间</p>
 <p>表示的是数据报文在端到端通信中的来回一次的时间</p>
 <p>通常用 ping 命令查看RTT</p>
-<p><img src="/Blog/Blog/intro/network/ip_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个time就是RTT</p>
-<br>
-
+<p><br></p>
 <h2 id="数据链路层概述"><a href="#数据链路层概述" class="headerlink" title="数据链路层概述"></a>数据链路层概述</h2><h3 id="帧"><a href="#帧" class="headerlink" title="帧"></a>帧</h3><p>“帧” 是数据链路层数据的基本单位</p>
 <p>发送端在网络层的一段数据前后添加特定标记形成”帧” (在数据链路层添加)</p>
 <p>接收端根据前后特定标记识别出”帧”</p>
-<p><img src="/Blog/Blog/intro/network/ip_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/ip_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/ip_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>帧首部用 SOH 表达, 帧尾部用 EOT 表达</p>
 <p>如果数据里面恰好有SOH或EOT怎么办?</p>
-<br>
-
+<p><br></p>
 <h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><p>“透明” 在计算机领域是非常重要的一个术语</p>
 <p>“一种实际存在的事物却又看起来不存在一样”</p>
 <p>简单来说就是使用转移字符</p>
 <p>我们定义一种特殊字符 ESC, 作为转移字符</p>
-<p><img src="/Blog/Blog/intro/network/ip_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>把 ESC 放到待转义的字符前</p>
-<br>
-
+<p><br></p>
 <h3 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h3><p>物理层只管传输比特流, 无法控制是否出错</p>
 <p>数据链路层负责”差错检测”的工作</p>
-<br>
-
+<p><br></p>
 <h4 id="奇偶校验码"><a href="#奇偶校验码" class="headerlink" title="奇偶校验码"></a>奇偶校验码</h4><p>在比特流的尾部添加一位校验码</p>
-<p><img src="/Blog/Blog/intro/network/ip_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>然而这个校验码有局限, 如果有2n个bit位出错的话是无法检测出来的</p>
-<br>
-
+<p><br></p>
 <h4 id="循环冗余校验码CRC"><a href="#循环冗余校验码CRC" class="headerlink" title="循环冗余校验码CRC"></a>循环冗余校验码CRC</h4><p>根据传输或保存的数据而<strong>产生固定位数校验码</strong>的方法</p>
 <p>检测数据传输或者保存后可能出现的错误</p>
 <p>模 “2” 除法是二进制下的除法</p>
 <p>与算数除法类似, 但除法使用异或操作</p>
-<p><img src="/Blog/Blog/intro/network/ip_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/ip_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>步骤</p>
 <ol>
 <li><p>选定一个用于校验的多项式 $G(x)$, 并在尾部添加r个0</p>
@@ -436,95 +413,83 @@
 <li><p>将得到的余数填充在原数据r个0的位置得到可校验的位串</p>
 </li>
 </ol>
-<br>
-
-<p><img src="/Blog/Blog/intro/network/crc.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/crc_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/network/crc.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/crc_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>接收端接收的数据除以$G(x)$的位串, 根据余数判断出错</p>
-<p><img src="/Blog/Blog/intro/network/crc_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/crc_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>CRC的错误检测能力与位串阶数 r 有关(阶数越高, 能力越强)</p>
-<p>当 r&#x3D;1 时, CRC会退化成奇偶校验码</p>
-<br>
-
+<p>当 r=1 时, CRC会退化成奇偶校验码</p>
+<p><br></p>
 <p>数据链路层只进行数据检测, 不进行纠正, 只要有错就丢弃掉</p>
-<p><img src="/Blog/Blog/intro/network/crc_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/crc_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="最大传输单元MTU"><a href="#最大传输单元MTU" class="headerlink" title="最大传输单元MTU"></a>最大传输单元MTU</h2><p>最大传输单元(Maximum Transmission Unit)</p>
 <p>数据链路层的数据帧不是无限大的</p>
 <p>帧数过大或过小都会影响传输效率</p>
 <p>以太网MTU一般为1500字节</p>
-<p>我们知道<br>$$<br>\text{总时延&#x3D;发送时延+排队时延+传播时延+处理时延}<br>$$<br>如果帧过大, 则发送时延, 排队时延, 传播时延, 处理时延都会增加</p>
+<p>我们知道</p>
+<script type="math/tex; mode=display">
+\text{总时延=发送时延+排队时延+传播时延+处理时延}</script><p>如果帧过大, 则发送时延, 排队时延, 传播时延, 处理时延都会增加</p>
 <p>如果帧过小, 则会发送太多额外数据(帧首部以及帧尾部), 而且发送次数增多 </p>
-<br>
-
+<p><br></p>
 <p>路径MTU 指的是路径中最小的MTU</p>
-<p><img src="/Blog/Blog/intro/network/crc_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/crc_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="以太网协议"><a href="#以太网协议" class="headerlink" title="以太网协议"></a>以太网协议</h2><h3 id="MAC-地址"><a href="#MAC-地址" class="headerlink" title="MAC 地址"></a>MAC 地址</h3><p>也称作物理地址, 硬件地址</p>
 <p>全世界物理设备都有唯一的一个MAC地址</p>
 <p>MAC地址共48位, 使用十六进制表示, 6 个 16进制的数 例如: <code>30-B4-9E-ED-85-CA</code></p>
 <p>windows 用 <code>ipconfig</code> linux 用 <code>ifconfig</code></p>
-<br>
-
+<p><br></p>
 <h3 id="以太网协议-1"><a href="#以太网协议-1" class="headerlink" title="以太网协议"></a>以太网协议</h3><p>以太网(Ethernet) 是一种广泛的局域网技术</p>
 <p>以太网是一种数据链路层的协议, 使用以太网可以完成<strong>相邻设备</strong>的数据帧传输</p>
-<br>
-
+<p><br></p>
 <p>主要可以分成5个部分, 单位值byte</p>
-<p><img src="/Blog/Blog/intro/network/crc_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/crc_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>MAC是48位, 也就是 6 byte, 因此目的地址和源地址都是 6 byte长度</p>
 <p>类型表示帧数据具体是什么协议的数据</p>
 <p>如果是ip协议, 类型就是 0800</p>
 <p>如果是ARP, 类型就是 0806</p>
 <p>如果是RARP, 类型就是8035</p>
-<p><img src="/Blog/Blog/intro/network/crc_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/crc_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这几个都是网络层的协议</p>
-<br>
-
+<p><br></p>
 <h3 id="MAC地址表"><a href="#MAC地址表" class="headerlink" title="MAC地址表"></a>MAC地址表</h3><p>MAC地址表会把MAC地址映射到具体的硬件接口</p>
-<p><img src="/Blog/Blog/intro/network/crc_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p> <img src="/Blog/Blog/intro/network/crc_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/crc_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p> <img src="/Blog/intro/network/crc_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果A要给C发送数据, 需要经过路由器 E, 但是E怎么知道发送给C?</p>
-<p><img src="/Blog/Blog/intro/network/crc_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/crc_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>如果MAC地址表不知道C的硬件接口</p>
-<p><img src="/Blog/Blog/intro/network/crc_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<p><img src="/Blog/Blog/intro/network/crc_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/crc_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><img src="/Blog/intro/network/crc_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>然而这种情况, A只能给D,F发数据, 这也是为什么所只能进行相邻物理节点传输</p>
 <p>这种情况需要网络层的相关知识</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p>网络层是路由器的最顶层</p>
-<p><img src="/Blog/Blog/intro/network/ip_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ip_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>网络层决定数据在网络的路径</p>
 <p>数据链路层只能解决<strong>相邻节点传输</strong>问题, 无法解决<strong>跨节点传输</strong>问题 </p>
 <p>把问题放大:</p>
-<p><img src="/Blog/Blog/intro/network/crc_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/crc_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这种情况下如果从A发送数据到B</p>
-<br>
-
+<p><br></p>
 <h2 id="虚拟互联网络"><a href="#虚拟互联网络" class="headerlink" title="虚拟互联网络"></a>虚拟互联网络</h2><p>实际的计算机网络是错综复杂的</p>
 <p>物理设备通过使用IP协议, 屏蔽了物理网络之间的差异</p>
 <p>当网络中的主机使用IP协议连接时, 则无须关心细节</p>
-<p><img src="/Blog/Blog/intro/network/net.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/net.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>IP协议使得复杂的实际网络变成一个虚拟互联的网络</p>
 <p>IP协议使得网络层可以屏蔽底层细节而专注于网络层的数据转发</p>
 <p>IP协议解决了在虚拟网络中数据报传输路径的问题</p>
-<p><img src="/Blog/Blog/intro/network/net_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/net_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每个物理设备的MAC地址是唯一的, 而IP地址受到网络环境影响</p>
-<br>
-
+<p><br></p>
 <h3 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h3><p>IP地址长度为 3  位, 常分为 4 个 8 位</p>
 <p>IP地址通常使用点分十进制来表示 (<code>0~255.0~255.0~255.0~255</code>)</p>
-<p><img src="/Blog/Blog/intro/network/net_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/net_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/net_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/net_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每一行是32位(4个字节), 前5行必须要有, IP协议至少有20个字节的长度</p>
 <p><strong>版本</strong>: 占4位, 指的是IP协议的版本, 通信双方的版本必须一致, 当前主流的版本是4, 即IPv4, 也有IPv6</p>
 <p><strong>首部长度:</strong> 占4位, 最大数据值为15, 表示的是IP首部长度, 单位是”32位字”(4个字节) 也即是IP首部最大长度为60字节($15\cdot 4$)</p>
@@ -534,33 +499,28 @@
 </blockquote>
 <p><strong>标志</strong>: 标记IP报文是否可以分片</p>
 <p><strong>片偏移:</strong> 如果IP报文被拆分(分片), 就要记录当前数据帧保存的是第几个偏移的IP数据</p>
-<p><strong>TTL:</strong> 占8位, 表明IP数据报文在网络中的寿命, 每经过一个设备, TTL减1, 当TTL&#x3D;0时, 网络设备必须丢弃该报文</p>
-<p><img src="/Blog/Blog/intro/network/net_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>TTL:</strong> 占8位, 表明IP数据报文在网络中的寿命, 每经过一个设备, TTL减1, 当TTL=0时, 网络设备必须丢弃该报文</p>
+<p><img src="/Blog/intro/network/net_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><strong>首部校验和:</strong> 占16位, 校验IP首部是否有出错</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <p>逐跳 <strong>hop-by-hop</strong></p>
-<p><img src="/Blog/Blog/intro/network/hop.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/hop.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>假设这是A到B的网络路径, 从A发送的数据会先跳到 网络1, 再跳到路由器1, 再跳到网2… 这个步骤就叫做逐跳 </p>
 <h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><p>和MAC地址表类似, 路由表存储 <strong>目的IP地址</strong> 和 <strong>下一跳IP地址</strong></p>
-<p><img src="/Blog/Blog/intro/network/hop_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/hop_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>计算机或者路由器都有路由表</p>
-<br>
-
-<h3 id="IP协议的转发流程"><a href="#IP协议的转发流程" class="headerlink" title="IP协议的转发流程"></a>IP协议的转发流程</h3><p><img src="/Blog/Blog/intro/network/hop_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h3 id="IP协议的转发流程"><a href="#IP协议的转发流程" class="headerlink" title="IP协议的转发流程"></a>IP协议的转发流程</h3><p><img src="/Blog/intro/network/hop_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>以上仅是从网络层的层次看待转发的过程</p>
 <p>如果同时从网络层和数据链路层看待的话</p>
-<p><img src="/Blog/Blog/intro/network/hop_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/hop_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/hop_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/hop_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/hop_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/hop_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>数据帧<strong>每一跳的MAC地址都在变化</strong>, IP数据报<strong>每一跳的IP地址始终不变</strong></p>
-<br>
-
-<br>
-
-<h2 id="ARP-协议和-RARP-协议"><a href="#ARP-协议和-RARP-协议" class="headerlink" title="ARP 协议和 RARP 协议"></a>ARP 协议和 RARP 协议</h2><p><img src="/Blog/Blog/intro/network/arp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><br></p>
+<h2 id="ARP-协议和-RARP-协议"><a href="#ARP-协议和-RARP-协议" class="headerlink" title="ARP 协议和 RARP 协议"></a>ARP 协议和 RARP 协议</h2><p><img src="/Blog/intro/network/arp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果路由器不知道C的MAC地址, 此时就会把A的数据包进行广播</p>
 <ul>
 <li>E检查MAC地址表, 发现没有C的信息</li>
@@ -568,17 +528,15 @@
 <li>E将收到来自B,C的回应, 并将地址和接口记录</li>
 </ul>
 <p>这是解决不知道MAC地址的情况</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/network/arp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/network/arp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这里有个问题, A怎么知道E的MAC地址</p>
-<br>
-
+<p><br></p>
 <h3 id="ARP缓存表"><a href="#ARP缓存表" class="headerlink" title="ARP缓存表"></a>ARP缓存表</h3><p>ARP(Address Resolution Protocol) 地址解析协议</p>
 <p>它的作用就是将网络层的32位IP地址转化为数据链路层MAC48位地址</p>
-<p><img src="/Blog/Blog/intro/network/arp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个过程中有一个非常重要的表: ARP 缓存表</p>
-<p><img src="/Blog/Blog/intro/network/arp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>使用ARP缓存表时有两种情况:</p>
 <ol>
 <li>ARP缓存表存有IP地址和MAC地址的映射关系</li>
@@ -587,47 +545,41 @@
 <p>如果有缓存, 从缓存中读取MAC地址就行</p>
 <p>如果没有缓存, 和之前类似, 对所有设备广播一个包</p>
 <p>收到广播的所有设备会回应一个包, 表示”我是不是这个IP地址”, 若是则记录IP地址和MAC地址</p>
-<br>
-
+<p><br></p>
 <p>ARP缓存表时ARP协议和RARP协议运行的关键</p>
 <p>ARP缓存表缓存了IP地址到硬件地址之间的映射关系</p>
 <p>ARP缓存表中的记录并不是永久有效的, 有一定的期限(因为IP会变化)</p>
 <p>可以通过<code>arp -a</code> 来查看</p>
-<p><img src="/Blog/Blog/intro/network/arp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/arp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><p>ARP协议是直接被封装到数据链路层的数据帧里的</p>
-<p><img src="/Blog/Blog/intro/network/arp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>PAD是填充</p>
-<br>
-
+<p><br></p>
 <p>既然ARP协议是封装到数据帧的, 为什么属于网络层?</p>
 <p>因为ARP协议使用到IP地址</p>
-<br>
-
+<p><br></p>
 <h3 id="RARP协议"><a href="#RARP协议" class="headerlink" title="RARP协议"></a>RARP协议</h3><p>RARP(Reverse Address Resolution Protocol) 逆地址解析协议</p>
 <p>如今已经比较少用了</p>
 <p>就是把MAC地址转化为32位IP地址</p>
-<p><img src="/Blog/Blog/intro/network/arp_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>它的格式和ARP一样</p>
-<p><img src="/Blog/Blog/intro/network/arp_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/arp_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/arp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这里”告知目的MAC地址为E”是先查询ARP缓存表才知道目的的MAC地址为E</p>
-<br>
-
+<p><br></p>
 <h2 id="IP地址子网划分"><a href="#IP地址子网划分" class="headerlink" title="IP地址子网划分"></a>IP地址子网划分</h2><p>IP地址长度为23位, 常分为4个8位</p>
 <p>IP地址通常使用点分十进制来表示 (<code>0~255.0~255.0~255.0~255</code>)</p>
-<p>也就是说 IP 地址最多有 $2^{32}&#x3D;4294961296$ 个 IP</p>
+<p>也就是说 IP 地址最多有 $2^{32}=4294961296$ 个 IP</p>
 <p>规划和分配IP地址非常麻烦, 因此需要对IP地址进行进一步的规划</p>
-<br>
-
+<p><br></p>
 <p>我们把IP地址分成两个部分, 分别是网络号和主机号</p>
 <p>而根据网络号和主机号的长度, 又可以分成三类</p>
-<p><img src="/Blog/Blog/intro/network/arp_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>A类地址的网络号只有8位, 且首位是0</p>
 <p>B类地址的网络号有16位, 首位是10</p>
 <p>C类地址的网络号有24位, 首位是110</p>
-<p><img src="/Blog/Blog/intro/network/arp_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这只是理想的状况, 但是有一些要排除掉</p>
 <p><strong>特殊主机号</strong></p>
 <ul>
@@ -637,58 +589,49 @@
 <p>例子: 假设IP为<code>1.2.3.4</code> 那么<code>1.0.0.0</code> 表示的就是这个地址的网络段, <code>1.255.255.255</code> 表示的是广播地址</p>
 <p><strong>特殊网络号</strong></p>
 <ul>
-<li>A类地址**网络段全0(00000000)**表示特殊网络, 不允许使用</li>
-<li>A类地址<strong>网络段后7位全1(01111111:127)</strong> 表示回环地址</li>
+<li>A类地址<strong>网络段全0(00000000)</strong>表示特殊网络, 不允许使用</li>
+<li>A类地址<strong>网络段后7位全1(01111111:127)</strong> 表示回环地址 </li>
 </ul>
 <p>同理</p>
 <p>B类地址<code>128.0</code> 不可使用</p>
 <p>C类地址<code>192.0.0</code> 不可被使用</p>
-<p><img src="/Blog/Blog/intro/network/arp_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/arp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>假设我们得到一个IP地址<code>125.125.3.60</code>, 那么怎么判断它是那一类地址?</p>
 <p>我们把首8位取出来 <code>01111101</code> 因为是0开头, 所以是A类地址</p>
 <p>同理 <code>163.70.31.23</code> 的首八位是 <code>10100011</code> 所以是B类地址</p>
-<br>
-
+<p><br></p>
 <p><code>127.0.0.1</code> 通常被称为本地回环地址(Loopback Address), 不属于任何一个有类别地址类, 它代表设备的本地虚拟接口, 所以默认被看作时永远不会宕掉的接口. 在 Windows 系统中也有类似定义, 所以通常在安装网卡前就可以ping通这个本地回环地址. 一般都会用来检查本地网络协议, 基本数据接口是否正常</p>
-<br>
-
+<p><br></p>
 <p>除了ABC类以外, 还有D类地址和E类地址, 这两类地址是特殊使用的</p>
-<p><img src="/Blog/Blog/intro/network/arp_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/arp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h3><p>如果某公司有100名员工, 每人配备一个计算机, 问该公司应该申请那种网络段?</p>
-<p><img src="/Blog/Blog/intro/network/arp_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>C类地址可以拥有254个主机号, 因此C类网络就足够了</p>
 <p>假设有256名员工, 此时C类网络就不够了, 需要B类网络</p>
 <p>然而B类网络的主机数量远远大于256, 因此会造成很大的<strong>地址空间浪费</strong></p>
-<br>
-
+<p><br></p>
 <p>我们知道IP地址总共只有24亿个, 如果一直如此浪费的话很快就会不够用</p>
 <p>因此需要子网划分</p>
-<br>
-
+<p><br></p>
 <p>一个IP地址可以分为网络号和主机号, 这里我们再划分一个子网号</p>
-<p><img src="/Blog/Blog/intro/network/arp_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>假设IP是 <code>193.10.10.0</code> 这个C类地址有254个主机号</p>
 <p>如果对这个C类地址进行子网划分, 我们可以把第25位看作是子网号, 就可以划分出两个子网</p>
-<p><img src="/Blog/Blog/intro/network/arp_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这样就可以节省一部分IP地址</p>
 <p>例如公司100人, 我们分配一个子网IP, 即可以有个126主机, 此时就只浪费26个IP</p>
-<br>
-
+<p><br></p>
 <p>如果我们将A,B,C类地址都进行很多的子网划分的话, 就会导致有非常多的子网, 这种情况下有没有办法快速判断某个IP的网络号</p>
-<br>
-
+<p><br></p>
 <h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>就是一个MASK, 过滤出网络号, 由连续的1和0组成</p>
-<p><img src="/Blog/Blog/intro/network/arp_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因此对于子网</p>
-<p><img src="/Blog/Blog/intro/network/arp_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>计算子网号就是使用MASK进行and运算</p>
-<p><img src="/Blog/Blog/intro/network/arp_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/arp_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="无分类编址CIDR"><a href="#无分类编址CIDR" class="headerlink" title="无分类编址CIDR"></a>无分类编址CIDR</h3><blockquote>
 <p>现在更常用的方法</p>
 </blockquote>
@@ -696,57 +639,49 @@
 <p>CIDR中没有A,B,C类网络号和子网划分的概念</p>
 <p>CIDR将<strong>网络前缀</strong>相同的IP地址称为一个”<strong>CIDR地址块</strong>“</p>
 <p>网络前缀和网络号类似, 但二者不同, 它更广泛</p>
-<p><img src="/Blog/Blog/intro/network/arp_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/arp_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h4 id="斜线记法"><a href="#斜线记法" class="headerlink" title="斜线记法"></a>斜线记法</h4><p>通常使用斜线记法记录相关地址</p>
 <p>例如<code>193.10.10.128/25</code></p>
 <p>这个表示的是它的网络前缀有25位, 主机号7位</p>
-<p><img src="/Blog/Blog/intro/network/arp_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/arp_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/arp_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>子网掩码, 特殊网络号, 特殊地址号等等和之前一样</p>
-<br>
-
+<p><br></p>
 <p>再回到之前的问题, 如果公司有100名员工, 每人一台计算机, 问应该申请那种网络段</p>
 <p>使用CIDR的话分配网络前缀是<code>/25</code>的即可</p>
-<p><img src="/Blog/Blog/intro/network/arp_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/arp_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/arp_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/arp_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="网络地址转换NAT技术"><a href="#网络地址转换NAT技术" class="headerlink" title="网络地址转换NAT技术"></a>网络地址转换NAT技术</h2><p>IPv4最多只有40+亿个IP地址</p>
 <p>由于早期对IP地址的不合理规划导致IP号浪费</p>
-<p><img src="/Blog/Blog/intro/network/arp_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>很多家庭只有一个公网IP地址</p>
 <p>那么内网设备是怎么进行内网通信的?</p>
-<br>
-
+<p><br></p>
 <p>IP地址可以分为两类: 内网地址, 外网地址 </p>
-<p><img src="/Blog/Blog/intro/network/arp_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>A类的内网地址 <code>10.0.0.0~10.255.255.255</code> 支持千万数量级设备</p>
 <p>B类的内网地址 <code>172.16.0.0~172.31.255.255</code> 支持百万数量级设备</p>
 <p>C类的内网地址 <code>192.168.0.0~192.168.255.255</code> 支持万数量级设备</p>
-<p><img src="/Blog/Blog/intro/network/arp_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这里又有一个问题:</p>
 <p>内网多个设备使用同一个外网IP请求外网服务, 外部怎么知道具体是哪个设备在请求的?</p>
 <p>这就需要<strong>网络地址转换NAT技术</strong></p>
-<br>
-
+<p><br></p>
 <p>网络地址转换NAT(Network Address Translation)</p>
 <p>NAT技术用于多个主机通过一个共有IP访问互联网的私有网络中</p>
-<br>
-
+<p><br></p>
 <p>假设外网IP为<code>173.21.59.10</code>, 同时内网有两个设备</p>
-<p><img src="/Blog/Blog/intro/network/arp_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/arp_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>出入的地址和端口号会进行一个转换, 来对外进行通信</p>
 <p>在接收到数据的时候会映射到内网地址和端口号再转发</p>
 <p>这个表叫做<strong>NA(P)T表</strong></p>
 <blockquote>
 <p>NAT减缓了IP地址的损耗, 但是增加了网络通信的复杂度</p>
 </blockquote>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h3 id="ICMP-协议详解"><a href="#ICMP-协议详解" class="headerlink" title="ICMP 协议详解"></a>ICMP 协议详解</h3><p>网络控制报文协议 (Internet Control Message Protocol)</p>
 <blockquote>
 <p>IP协议用于传输真实数据</p>
@@ -755,54 +690,50 @@
 </blockquote>
 <p>而ICMP是用来辅助IP协议进行数据传输的</p>
 <p>ICMP协议可以报告错误信息或者异常情况</p>
-<p><img src="/Blog/Blog/intro/network/icmp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/icmp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/icmp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/icmp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>8位类型指的是ICMP报文的种类</p>
 <p>8位代码值得是具体是哪个错误</p>
 <p>这里是IP协议头部</p>
-<p><img src="/Blog/Blog/intro/network/icmp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/icmp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果传输的是ICMP数据的话就会在8位协议的字段把1写入</p>
 <p>ICMP有两个种类的报文:<strong>差错报告报文</strong>,<strong>询问报文</strong></p>
-<h4 id="差错报告报文"><a href="#差错报告报文" class="headerlink" title="差错报告报文"></a>差错报告报文</h4><p><img src="/Blog/Blog/intro/network/icmp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="差错报告报文"><a href="#差错报告报文" class="headerlink" title="差错报告报文"></a>差错报告报文</h4><p><img src="/Blog/intro/network/icmp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之前我们也知道, 网络有一个公网IP </p>
 <p>网络不可达指的是如果整个(内网)网络都不可达</p>
 <p>主机不可达可能是由于计算机关闭等原因</p>
 <p>网络重定向指的是发送的数据可能不能走某一个网络了</p>
 <p>如果报文发到主机, 主机不能处理, 要求发送到另外一个主机, 就是主机重定向</p>
-<h4 id="询问报文"><a href="#询问报文" class="headerlink" title="询问报文"></a>询问报文</h4><p><img src="/Blog/Blog/intro/network/icmp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h4 id="询问报文"><a href="#询问报文" class="headerlink" title="询问报文"></a>询问报文</h4><p><img src="/Blog/intro/network/icmp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>回送(Echo)请求或应答主要用来验证网络是否是通的</p>
 <p>例如A与B进行通信, A发出报文, 请求空的数据, 如果B收到了, 则给予回应</p>
 <p>时间戳请求或应答主要用于时间同步</p>
-<br>
-
-<h3 id="ICMP-协议应用"><a href="#ICMP-协议应用" class="headerlink" title="ICMP 协议应用"></a>ICMP 协议应用</h3><h4 id="Ping应用"><a href="#Ping应用" class="headerlink" title="Ping应用"></a>Ping应用</h4><p><img src="/Blog/Blog/intro/network/icmp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h3 id="ICMP-协议应用"><a href="#ICMP-协议应用" class="headerlink" title="ICMP 协议应用"></a>ICMP 协议应用</h3><h4 id="Ping应用"><a href="#Ping应用" class="headerlink" title="Ping应用"></a>Ping应用</h4><p><img src="/Blog/intro/network/icmp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>Ping应用主要使用的是ICMP的询问报文</p>
-<p><img src="/Blog/Blog/intro/network/ip_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>可以看到 bytes&#x3D;32, 就是说发出报文的长度是32 bytes</p>
+<p><img src="/Blog/intro/network/ip_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>可以看到 bytes=32, 就是说发出报文的长度是32 bytes</p>
 <p>而IP协议首部至少有20 bytes, 而剩下的12个bytes就是ICMP报文的长度</p>
 <p>TTL是IP在网络中生效的寿命(IP协议首部)</p>
-<br>
-
+<p><br></p>
 <blockquote>
 <p>用 Ping 进行网络排查</p>
 <ol>
 <li>Ping 回环地址 <code>127.0.0.1</code>, 若不通, 则说明计算机协议栈出现问题, 可能要重装系统来重新安装协议栈</li>
-<li>Ping 网关, 即路由器地址, 一般是 <code>192.168.0.1</code> 或  <code>192.168.1.1</code> , 如果不通, 可能是网线&#x2F;wifi等问题</li>
+<li>Ping 网关, 即路由器地址, 一般是 <code>192.168.0.1</code> 或  <code>192.168.1.1</code> , 如果不通, 可能是网线/wifi等问题</li>
 <li>Ping 远端地址</li>
 </ol>
 </blockquote>
-<br>
-
+<p><br></p>
 <h4 id="Traceroute-应用"><a href="#Traceroute-应用" class="headerlink" title="Traceroute 应用"></a>Traceroute 应用</h4><p>Traceroute 可以探测IP数据报在网络中走过的路径</p>
-<p><img src="/Blog/Blog/intro/network/icmp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/icmp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当丢弃报文时, 会发送一个ICMP报文报告错误 </p>
 <p>通过控制TTL, TTL从1开始, 发送数据, 接收ICMP报文并记录, 每次把TTL加1, 最终到达目标地址</p>
-<p><img src="/Blog/Blog/intro/network/icmp_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="网络层的路由概述"><a href="#网络层的路由概述" class="headerlink" title="网络层的路由概述"></a>网络层的路由概述</h2><p><img src="/Blog/Blog/intro/network/r.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/icmp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="网络层的路由概述"><a href="#网络层的路由概述" class="headerlink" title="网络层的路由概述"></a>网络层的路由概述</h2><p><img src="/Blog/intro/network/r.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>路由表是网络层核心数据结构</p>
-<p><img src="/Blog/Blog/intro/network/hop_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/hop_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个路由表是怎么来的, 或者说</p>
 <ul>
 <li><p>路由表的下一条地址是怎么来的?</p>
@@ -814,11 +745,10 @@
 <li><p>路由器这么多, 他们是怎么协同工作的?</p>
 </li>
 </ul>
-<p><img src="/Blog/Blog/intro/network/r_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/r_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>互联网网络复杂(例如突然某个网络设备故障等等因素)</p>
 <p>互联网网络实时变化, 因此路由算法要比图论算法复杂</p>
-<br>
-
+<p><br></p>
 <p>理想的路由算法有什么特点?</p>
 <ul>
 <li>算法是<strong>正确</strong>的, <strong>完整</strong>的</li>
@@ -827,8 +757,7 @@
 <li>算法是<strong>稳定</strong>的和<strong>公平</strong>的</li>
 </ul>
 <p>由于互联网规模庞大, 环境复杂, 因此我们人为对互联网进行一些处理</p>
-<br>
-
+<p><br></p>
 <p><strong>自治系统(Autonomous System)</strong></p>
 <p>一个自治系统(AS) 是处于一个管理机构下的网络设备群</p>
 <p>一个自治系统可以是一个国家, 一个城市…</p>
@@ -840,76 +769,69 @@
 <blockquote>
 <p>BGP协议运行在自治系统外面</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/network/r_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h3 id="内部网关路由协议–RIP协议"><a href="#内部网关路由协议–RIP协议" class="headerlink" title="内部网关路由协议–RIP协议"></a>内部网关路由协议–RIP协议</h3><h4 id="距离矢量-DV-算法"><a href="#距离矢量-DV-算法" class="headerlink" title="距离矢量(DV)算法"></a>距离矢量(DV)算法</h4><p>DV (destination vector)</p>
+<p><img src="/Blog/intro/network/r_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="内部网关路由协议—RIP协议"><a href="#内部网关路由协议—RIP协议" class="headerlink" title="内部网关路由协议—RIP协议"></a>内部网关路由协议—RIP协议</h3><h4 id="距离矢量-DV-算法"><a href="#距离矢量-DV-算法" class="headerlink" title="距离矢量(DV)算法"></a>距离矢量(DV)算法</h4><p>DV (destination vector)</p>
 <p>每一个节点使用两个向量 $D_i$ 和 $S_i$ </p>
 <p>$D_i$​ 表示当前节点到别的节点的距离</p>
 <p>$S_i$描述的是当前节点到别的节点的下一个节点</p>
-<br>
-
+<p><br></p>
 <p>DV算法过程:</p>
 <p>每个节点与相邻节点交换向量$D_i$ 和 $S_i$ 的信息</p>
 <p>之后每一个节点根据交换的信息更新自己的节点信息</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/network/dv.PNG" srcset="/Blog/img/loading.gif" lazyload><br>$$<br>d_{ij} &#x3D; \min (d_{ix}+d_{xj})<br>$$<br>举个例子</p>
-<p><img src="/Blog/Blog/intro/network/dv_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/network/dv.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+d_{ij} = \min (d_{ix}+d_{xj})</script><p>举个例子</p>
+<p><img src="/Blog/intro/network/dv_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之后A与BCDF交换数据</p>
-<p><img src="/Blog/Blog/intro/network/dv_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/dv_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>我们把向量信息融合成一张表</p>
-<p><img src="/Blog/Blog/intro/network/dv_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这里有一个问题: 为什么A到B的距离是11, 而B到A的距离是9</p>
 <p>这是因为距离向量不是最新的, 比如说A到B的距离可能是A-&gt;C-&gt;B得到的</p>
 <p>而B到A的距离可能是B-&gt;C-&gt;D-&gt;A</p>
 <p>因此距离向量可能不一样</p>
 <p>$S_a$ 初始化为空</p>
-<br>
-
+<p><br></p>
 <p>首先A与B交换节点信息, 此时A得到B的节点信息</p>
-<p><img src="/Blog/Blog/intro/network/dv_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>A节点收到信息后会首先进行运算</p>
 <p>在交换的过程当中, A和B是直接通信的, A知道A-&gt;B的直接距离是多少, 这里假设是6</p>
-<p>再 计算 A-&gt;B-&gt;C 的距离 &#x3D; 6+11 &#x3D; 17</p>
-<p>再计算 A-&gt;B-&gt;D 的距离 &#x3D; 6+7 &#x3D; 13</p>
-<p>再计算 A-&gt;B-&gt;E &#x3D; 6+17 &#x3D; 23</p>
-<p>再计算 A-&gt;B-&gt;F &#x3D; 6+11 &#x3D; 17</p>
+<p>再 计算 A-&gt;B-&gt;C 的距离 = 6+11 = 17</p>
+<p>再计算 A-&gt;B-&gt;D 的距离 = 6+7 = 13</p>
+<p>再计算 A-&gt;B-&gt;E = 6+17 = 23</p>
+<p>再计算 A-&gt;B-&gt;F = 6+11 = 17</p>
 <p>之后A会把这些值和自己$D_a$​中的值进行比较</p>
 <p>如果更小, 则更新$D_a$ 和 $S_a$</p>
-<p><img src="/Blog/Blog/intro/network/dv_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/dv_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/dv_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/dv_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>之后A与C交换信息</p>
-<p><img src="/Blog/Blog/intro/network/dv_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>A与D交换信息</p>
-<p><img src="/Blog/Blog/intro/network/dv_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>A与F交换信息</p>
-<p><img src="/Blog/Blog/intro/network/dv_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
+<p><img src="/Blog/intro/network/dv_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
 <h4 id="RIP协议的过程"><a href="#RIP协议的过程" class="headerlink" title="RIP协议的过程"></a>RIP协议的过程</h4><p>RIP(Routing Information Protocol)</p>
 <p>RIP协议是使用DV算法的一种路由协议</p>
 <p>RIP把网络的跳数(hop) 作为DV算法的距离</p>
 <p>RIP协议每隔30s交换一次路由信息</p>
 <p>RIP协议认为<strong>跳数&gt;15</strong>的路由为不可达路由</p>
-<br>
-
+<p><br></p>
 <ol>
 <li><p>路由器初始化路由信息(两个向量 $D_i$ 和 $S_i$​)</p>
 </li>
 <li><p>对相邻路由器X发送过来的信息, 对信息的内容进行修改(下一跳地址设置为X, 所有距离+1)(就是说可以通过X到达X向量表中的节点)</p>
 <ol>
 <li><p>检索本地路由, 将信息中新的路由插入到路由表里面(因为X向量表中的目的地有可能本地没有)</p>
-<p><img src="/Blog/Blog/intro/network/dv_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </li>
 <li><p>检索本地路由, 对与下一条为X的, 更新为修改后的信息</p>
-<p><img src="/Blog/Blog/intro/network/dv_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </li>
 <li><p>检索本例路由, 对比相同目的地的距离, 如果新信息的距离更小, 则更新本地路由表</p>
 </li>
@@ -919,23 +841,21 @@
 </li>
 </ol>
 <h4 id="RIP协议的缺点"><a href="#RIP协议的缺点" class="headerlink" title="RIP协议的缺点"></a>RIP协议的缺点</h4><p>假设有ABC三个节点, 且顺序连接</p>
-<p><img src="/Blog/Blog/intro/network/dv_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>B可以直接到达A, C通过B到达A</p>
 <p>假设某一时刻, A宕掉了, A不可达了</p>
 <p>B发现A不可达后就询问C, 发现可以通过C到达A, 于是就把下一跳设置为C</p>
-<p><img src="/Blog/Blog/intro/network/dv_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>C在某一时刻发现A不可达, 于是询问B, B说它3跳可以到达A, 于是</p>
-<p><img src="/Blog/Blog/intro/network/dv_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>最终到达16, 才发现A是不可达的</p>
-<p><img src="/Blog/Blog/intro/network/dv_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dv_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这就是RIP协议最致命的缺点: <strong>故障信息传递慢</strong></p>
 <p>其中一个原因就是因为B无条件相信C传来的信息</p>
-<br>
-
+<p><br></p>
 <h4 id="RIP协议的优点"><a href="#RIP协议的优点" class="headerlink" title="RIP协议的优点"></a>RIP协议的优点</h4><p>优点: 实现简单, 开销小</p>
 <p>缺点: 限制网络的规模(大于15跳被认为不可达), 故障信息传递慢(更新收敛时间过长)</p>
-<br>
-
+<p><br></p>
 <h3 id="内部网络路由协议值OSPF协议"><a href="#内部网络路由协议值OSPF协议" class="headerlink" title="内部网络路由协议值OSPF协议"></a>内部网络路由协议值OSPF协议</h3><h4 id="链路状态-LS-协议"><a href="#链路状态-LS-协议" class="headerlink" title="链路状态 (LS) 协议"></a>链路状态 (LS) 协议</h4><p>这个协议会向所有路由器发送信息 (一个路由器向周围发送消息, 周围路由器收到后会继续向它们的周围发送消息…)</p>
 <blockquote>
 <p>RIP协议只和相邻路由器交换信息</p>
@@ -949,10 +869,9 @@
 <blockquote>
 <p>RIP协议每隔30s就交换路由信息</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/network/ls.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/ls.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于每个路由器都会发送消息, 所以任意一个路由器都会收到该网络其他路由器所发送的消息, 因此不会像RIP那样”视野不够”</p>
- <br>
-
+<p> <br></p>
 <h4 id="OSPF协议的过程"><a href="#OSPF协议的过程" class="headerlink" title="OSPF协议的过程"></a>OSPF协议的过程</h4><p>OSPF(Open Shortest Path First: 开放最短路径优先)</p>
 <p>这个协议的核心就是 Dijkstra 算法</p>
 <p>OSPF 是链路状态协议的一种实现</p>
@@ -961,8 +880,7 @@
 <p>链路状态数据库是全网一致的</p>
 <p>因此每一个路由器都可以运行Dijkstra算法</p>
 <p>这样就可以找到自己到达某一个顶点的最短路径</p>
-<br>
-
+<p><br></p>
 <p>OSPF协议有5种消息类型</p>
 <ul>
 <li>问候消息(Hello)</li>
@@ -971,71 +889,59 @@
 <li>链路状态更新信息 (网络状态实时变化, 所以经常更新)</li>
 <li>链路状态确认信息</li>
 </ul>
-<p><img src="/Blog/Blog/intro/network/ls_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/ls_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/ls_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/ls_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="外部网关路由协议之BGP协议"><a href="#外部网关路由协议之BGP协议" class="headerlink" title="外部网关路由协议之BGP协议"></a>外部网关路由协议之BGP协议</h3><p>BGP(Border Gateway Protocol: 边际网关协议)</p>
 <p>BGP协议是运行在AS之间的一种协议</p>
 <p>互联网规模太大, 使得在AS之间选择路由困难, 如果在AS之间使用链路状态协议, 每个路由器都要存储很多链路状态数据</p>
-<br>
-
+<p><br></p>
 <p>BGP协议只能找到一条到达目的地的<strong>比较好</strong>(不是最好)的路由</p>
 <p>BGP发言人(speaker) 是一个路由器, 简单来说, 就是AS的出口</p>
-<p><img src="/Blog/Blog/intro/network/bgp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/bgp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>人为策略配置, 例如: 然你经过(不经过)我这个AS, 或者让你付出什么代价经过…</p>
-<p><img src="/Blog/Blog/intro/network/bgp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
+<p><img src="/Blog/intro/network/bgp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
 <h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><h2 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h2><p>UDP(User Datagram Protocol: 用户数据报协议)</p>
 <p>对于数据包(Datagram) udp协议不会进行任何处理, 不合并, 不拆分</p>
-<p><img src="/Blog/Blog/intro/network/udp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h3 id="UDP首部"><a href="#UDP首部" class="headerlink" title="UDP首部"></a>UDP首部</h3><p><img src="/Blog/Blog/intro/network/udp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/udp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="UDP首部"><a href="#UDP首部" class="headerlink" title="UDP首部"></a>UDP首部</h3><p><img src="/Blog/intro/network/udp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>UDP是无连接的协议, 它只管发送数据, 无法保证数据在网络中是否丢失</p>
 <p>UDP没有<strong>拥塞控制</strong></p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h2><p>TCP(Transmission Control Protocol: 传输控制协议)</p>
-<p><img src="/Blog/Blog/intro/network/tcp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/tcp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>TCP的连接有两端(点对点通信)</p>
 <p>TCP提供可靠的传输服务, 并且是全双工的通信</p>
 <p>TCP是面向字节流的协议, 就是说可以被拆分</p>
-<h3 id="TCP首部"><a href="#TCP首部" class="headerlink" title="TCP首部"></a>TCP首部</h3><p><img src="/Blog/Blog/intro/network/tcp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<h3 id="TCP首部"><a href="#TCP首部" class="headerlink" title="TCP首部"></a>TCP首部</h3><p><img src="/Blog/intro/network/tcp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>TCP首部至少有20个字节(前5行必须有, 一行32bits, 4bytes)</p>
 <p><a href="https://daolinzhou.github.io/Blog/2019/06/20/TCP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F/">https://daolinzhou.github.io/Blog/2019/06/20/TCP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F/</a></p>
-<br>
-
+<p><br></p>
 <h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><p><a href="https://daolinzhou.github.io/Blog/2019/06/24/Tcp-sliding-window/">https://daolinzhou.github.io/Blog/2019/06/24/Tcp-sliding-window/</a></p>
 <h3 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h3><p>流量控制指的是让<strong>发送方发送速率不要太快</strong></p>
 <p>流量控制是使用滑动窗口来实现</p>
-<p><img src="/Blog/Blog/intro/network/window.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/window.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>通过把窗口设为0</p>
-<p><img src="/Blog/Blog/intro/network/window_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/network/window_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>如果我们要再更改窗口为1000</p>
 <p>然而假设调整窗口的消息在网络传输中丢失了</p>
-<p><img src="/Blog/Blog/intro/network/window_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/window_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>此时发送方会持续等待, 因为它依然以为窗口size为0</p>
 <p>而接收方已经把窗口改变的消息告诉对方了, 它会等待发送方发送数据, 所以导致双方都在相互等待(死锁)</p>
 <p>TCP的可靠是对数据的可靠, 就是说序列号和确认号的正确, 对于这种窗口大小调整(或其他特殊消息) 是没有这种机制的, 因此可能丢失</p>
-<br>
-
+<p><br></p>
 <h4 id="坚持定时器"><a href="#坚持定时器" class="headerlink" title="坚持定时器"></a>坚持定时器</h4><p>而解决这种情况需要在发送方启用一个定时器</p>
 <ul>
 <li>当接收到窗口为0的消息, 会启用<strong>坚持定时器</strong></li>
 <li>坚持定时器每隔一段时间会发送一个<strong>窗口探测报文</strong>, 来询问窗口是否调大</li>
 </ul>
-<br>
-
+<p><br></p>
 <h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><p>流量控制考虑点对点的通信量的控制</p>
 <p>拥塞控制考虑整个网络, 是全局性的考虑</p>
 <p><strong>报文超时则认为是拥塞</strong></p>
@@ -1051,16 +957,13 @@
 <li>只要网络不拥塞(报文不超时), 就试探着将拥塞窗口调大, 每次+1</li>
 </ul>
 <p>假设慢起动阈值是16, 启动拥塞避免算法, 下一次发送17个报文, 18个, 19个…直到发生拥塞</p>
-<p><img src="/Blog/Blog/intro/network/window_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
+<p><img src="/Blog/intro/network/window_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
 <blockquote>
 <p>Congestion window (控制每次发送多少数据)</p>
 <p>通常比 RecWindow (size of sliding window) 小</p>
-<br>
-
+<p><br></p>
 <p>slow start 是成指数增长 1, 2, 4, 8… 直到达到ssthresh</p>
 <p>之后就会线性增长, 16, 17, 18….</p>
 <p>有两种 loss events: </p>
@@ -1070,17 +973,14 @@
 </ol>
 <p>第一种是不太严重的loss event, 此时我们会缩小sshresh</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs awk">sshresh = CongWindow/<span class="hljs-number">2</span> <br><span class="hljs-regexp">//</span> CongWindow = sshresh + <span class="hljs-number">3</span><br>CongWindow = CongWindow/<span class="hljs-number">2</span> +<span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
-
-<p>第二种的问题就严重了, 此时我们一样会缩小sshresh, 同时重新启动SlowStart 算法, CongWindow&#x3D;1</p>
+<p>第二种的问题就严重了, 此时我们一样会缩小sshresh, 同时重新启动SlowStart 算法, CongWindow=1</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">sshresh</span> <span class="hljs-operator">=</span> CongWindow/<span class="hljs-number">2</span> <br><span class="hljs-attribute">CongWindow</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-
-<br>
-
-<p><img src="/Blog/Blog/intro/cmpt371/fair.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/fair_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/fair_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/fair_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/fair_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt371/fair.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/fair_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/fair_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/fair_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/fair_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </blockquote>
 <h3 id="握手挥手"><a href="#握手挥手" class="headerlink" title="握手挥手"></a>握手挥手</h3><p>三次握手: <a href="https://daolinzhou.github.io/Blog/2019/06/20/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/">https://daolinzhou.github.io/Blog/2019/06/20/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/</a></p>
 <p>四次挥手: <a href="https://daolinzhou.github.io/Blog/2019/06/22/tcp-wavehand/">https://daolinzhou.github.io/Blog/2019/06/22/tcp-wavehand/</a></p>
@@ -1089,21 +989,18 @@
 <p><code>&#123;IP:Port&#125;</code> 这样的组合就叫 Socket</p>
 <p>Socket 是一个抽象概念, 表示TCP连接的一端</p>
 <p>通过套接字可以进行数据发送或接收</p>
-<p>TCP &#x3D; <code>&#123;Socket1, Socket2&#125;</code> 通过两个socket可以唯一指定一个TCP连接</p>
-<br>
-
-<br>
-
+<p>TCP = <code>&#123;Socket1, Socket2&#125;</code> 通过两个socket可以唯一指定一个TCP连接</p>
+<p><br></p>
+<p><br></p>
 <h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><p>Domain Name System: 域名系统</p>
 <p>我们知道通过<code>&#123;IP: Port&#125;</code> 可以指定主机进程</p>
 <p>然而这并不好记住</p>
 <p>因此需要使用域名系统</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/network/dns.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/dns_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/dns_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/network/dns_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/network/dns.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/dns_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/dns_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/network/dns_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而域名是部署在域名服务器上的 </p>
 <p>DNS 查询过程</p>
 <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/324975">https://cloud.tencent.com/developer/news/324975</a></p>
@@ -1111,18 +1008,17 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/stpice/article/details/82662033">https://blog.csdn.net/stpice/article/details/82662033</a></p>
 <blockquote>
 <p>What is the smallest domain?</p>
-<p>1 host, host name &#x3D; domain name</p>
-<p>1 local network &#x3D; 2 DNS servers</p>
+<p>1 host, host name = domain name</p>
+<p>1 local network = 2 DNS servers</p>
 <p>为了确保一个倒了之后网络还能运行</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt371/zones.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/zones.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们会发送这样的DNS请求</p>
-<p><img src="/Blog/Blog/intro/cmpt371/dns.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/dns.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>linux 可以用 dig命令查询DNS记录</p>
 <p>使用方法: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/daxian2012/archive/2013/01/10/2854126.html">https://www.cnblogs.com/daxian2012/archive/2013/01/10/2854126.html</a></p>
 <p>A记录、AAAA记录 等记录的意思: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/bluestorm/p/10345334.html/">https://www.cnblogs.com/bluestorm/p/10345334.html/</a></p>
-<br>
-
+<p><br></p>
 <p>DNS 有两种查询方式:</p>
 <ul>
 <li><p><strong>iterative</strong>: the name server receiving the query responds with either the IP address of the host or the name of the next server it would consult (next higher server in the tree)</p>
@@ -1133,116 +1029,99 @@
 <p>出于对效率的考虑, 大部分DNS服务器会拒绝recursive 请求</p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PS0UppB3-fg">https://www.youtube.com/watch?v=PS0UppB3-fg</a></p>
 <p>iterative query</p>
-<p><img src="/Blog/Blog/intro/cmpt371/dns_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/dns_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>Recursive queries</p>
-<p><img src="/Blog/Blog/intro/cmpt371/dns_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/dns_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h1 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h1><p>Dynamic Host Configuration Protocol 动态主机设置协议</p>
 <p>DHCP是一个局域网协议</p>
 <p>DHCP是应用UDP协议的应用层协议</p>
-<br>
-
+<p><br></p>
 <p>任何设备在进行网络连接时, 都需要配置IP地址, 而生活中我们一般没有手动配置过</p>
 <p>这就是使用DHCP的功能, 它提供一种即插即用联网的方式</p>
-<p><img src="/Blog/Blog/intro/network/dns_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/network/dns_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>使用自动获取, 则用的就是DHCP协议, 会临时分配一个IP, 可以暂时用这个IP进行网络连接 </p>
-<p><img src="/Blog/Blog/intro/network/dns_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h1 id="HTTP-x2F-HTTPS"><a href="#HTTP-x2F-HTTPS" class="headerlink" title="HTTP&#x2F;HTTPS"></a>HTTP&#x2F;HTTPS</h1><p>HTTP : <a href="https://daolinzhou.github.io/Blog/2019/06/25/HTTP-basic/">https://daolinzhou.github.io/Blog/2019/06/25/HTTP-basic/</a></p>
+<p><img src="/Blog/intro/network/dns_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h1 id="HTTP-HTTPS"><a href="#HTTP-HTTPS" class="headerlink" title="HTTP/HTTPS"></a>HTTP/HTTPS</h1><p>HTTP : <a href="https://daolinzhou.github.io/Blog/2019/06/25/HTTP-basic/">https://daolinzhou.github.io/Blog/2019/06/25/HTTP-basic/</a></p>
 <p>HTTPS: <a href="https://daolinzhou.github.io/Blog/2019/06/28/HTTP-and-HTTPS/">https://daolinzhou.github.io/Blog/2019/06/28/HTTP-and-HTTPS/</a></p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h1 id="EMail"><a href="#EMail" class="headerlink" title="EMail"></a>EMail</h1><h2 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h2><p>Simple Mail Transfer Protocol</p>
 <p>我们可以使用 SMTP without connecting through the WWW</p>
 <p>这是一个 Push Protocol (send to server)</p>
 <p>作为对比: HTTP 是 Pull Protocol (requests from server)</p>
-<p><img src="/Blog/Blog/intro/cmpt371/smtp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<p><img src="/Blog/Blog/intro/cmpt371/smtp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/smtp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/smtp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt371/smtp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/smtp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果 user 2 的 email server 无法到达</p>
-<p><img src="/Blog/Blog/intro/cmpt371/smtp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/smtp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>SMTP是较老的协议, 它只支持ASCII code, 所以一些其他文本要进行编码解码</p>
-<br>
-
+<p><br></p>
 <p>user2 要从服务器拉取邮件, 此时要用pull operation, 所以不使用SMTP</p>
 <ul>
 <li>POP3 (post office protocol v3)</li>
 <li>IMAP (internet mail access protocol)</li>
 <li>HTTP (hotmail and webmail)</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt371/smtp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/smtp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="POP3"><a href="#POP3" class="headerlink" title="POP3"></a>POP3</h2><p>A simple mail server access protocol (for downloading received mail)</p>
 <p>The user agent connects to the mail server through a TCP connection</p>
 <p>Once the connection is made POP3 will check the authorization (username, password ….) of the user</p>
 <p>The user agent then performs transactions needed to download the user’s Email</p>
-<br>
-
+<p><br></p>
 <p>之后 user agent 进行transactions</p>
 <p>通过TCP连接从服务器检索消息(may delete messages as they are retrieved or not. Two modes available)</p>
-<p>The agent breaks the connection and then the server  completes outstanding deletion&#x2F;modification requests from the agent (有点像指令模式)</p>
-<br>
-
+<p>The agent breaks the connection and then the server  completes outstanding deletion/modification requests from the agent (有点像指令模式)</p>
+<p><br></p>
 <p>假设一个用户有多台设备</p>
 <p>如果使用 POP 的 download and delete 模式, 那么当一台设备下载邮件后, 其他的设备就访问不到了</p>
 <p>而如果使用 download 模式, 则没有这个问题, 但是用户要记得手动删除文件</p>
-<br>
-
-<p>如果用户想sort&#x2F;search 邮件, 他只能从downloaded email中操作, server通常不支持这些操作</p>
-<br>
-
+<p><br></p>
+<p>如果用户想sort/search 邮件, 他只能从downloaded email中操作, server通常不支持这些操作</p>
+<p><br></p>
 <h2 id="IMAP"><a href="#IMAP" class="headerlink" title="IMAP"></a>IMAP</h2><p>IMAP是一种更复杂, 功能更多的协议</p>
 <p>Allows organization of mail into folders on the mail server.</p>
 <p>这样就可以在任意位置访问它</p>
-<br>
-
+<p><br></p>
 <p>flexibility:</p>
 <p>Mail will be associated with an inbox folder on arrival</p>
 <p>The user organize the mail into user created into folders on the server from any client. The organization of the mail is stored on the server</p>
 <p>The chages on one client will be visible when the user logs into another client</p>
 <p>All mail can be searched</p>
 <p>Accessing from low bandwidth location you can<br>request only message headers be downloaded, than<br>only download the desired messages that are<br>immediately needed.</p>
-<br>
-
-<h1 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h1><p><img src="/Blog/Blog/intro/cmpt371/p2p.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h1 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h1><p><img src="/Blog/intro/cmpt371/p2p.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <h2 id="How-long-to-send-to-all-clients"><a href="#How-long-to-send-to-all-clients" class="headerlink" title="How long to send to all clients"></a>How long to send to all clients</h2><p>服务器必须要把一个file copy发送给所有 client. 假设file 有 $F$ bits, rate of transmission from the server to the internet is $U_s$</p>
-<p>因此每个copy会需要 $F&#x2F;U_s$ seconds to transmit into the internet</p>
-<p>Transmitting all $N$ copies 需要 $N\times F&#x2F;U_s$ seconds</p>
+<p>因此每个copy会需要 $F/U_s$ seconds to transmit into the internet</p>
+<p>Transmitting all $N$ copies 需要 $N\times F/U_s$ seconds</p>
 <p>但是 client 同时需要receive their copies</p>
-<br>
-
+<p><br></p>
 <h2 id="How-long-to-receive-all-copies"><a href="#How-long-to-receive-all-copies" class="headerlink" title="How long to receive all copies"></a>How long to receive all copies</h2><p>一个 host 下载file 最多所需时间是取决于slowest download rate $D_{\min}$</p>
 <ul>
-<li>这个host会需要 $F&#x2F;D_{\min}$ second to download</li>
+<li>这个host会需要 $F/D_{\min}$ second to download</li>
 </ul>
-<p>If we send to each host at the rate that host can receive(alternating blocks of bits between hosts) then the maximum download time for all files is $F&#x2F;D_{\min}$ seconds</p>
-<br>
-
+<p>If we send to each host at the rate that host can receive(alternating blocks of bits between hosts) then the maximum download time for all files is $F/D_{\min}$ seconds</p>
+<p><br></p>
 <h2 id="How-long-1-server-nclients"><a href="#How-long-1-server-nclients" class="headerlink" title="How long 1 server - nclients"></a>How long 1 server - nclients</h2><p>Consider that the server distributes its delivery of bits in proportion the download rate of each host</p>
-<p>If the host that has the longest download time receives bits at a minimum of the download rate then the time to distribute the file to al client is $F&#x2F;D_{\min}$ seconds</p>
-<p>If bits arrive more slowly that the download rate of the slowest downloading host then the time to distribute the file to all hosts will be $N\times F&#x2F;U_s$ the time taken to transmit the $N$ copies of the file</p>
-<p>Download Time &#x3D; $\max(F&#x2F;D_{\min}, N\times F&#x2F;U_s)$</p>
-<br>
-
-<h2 id="How-long-to-send-using-P2P"><a href="#How-long-to-send-using-P2P" class="headerlink" title="How long to send using P2P"></a>How long to send using P2P</h2><p>The server must send at least one copy of the file to the peers. This takes $F&#x2F;U_s$ seconds</p>
-<p>The slowest peer must have time to download all the bits in the file. This takes $F&#x2F;D_{\min}$ seconds</p>
-<p>The fastest that any host can receive uploads is $U_s + \Sigma_{i&#x3D;1}^NU_i$ so the fastest all hosts can receive the uploaded files is<br>$$<br>\max(\frac {F}{U_s}, \frac {F}{D_{\min}}, \frac {N\times F}{U_s + \Sigma_{i&#x3D;1}^NU_i})<br>$$<br><img src="/Blog/Blog/intro/cmpt371/p2p_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="Bit-torrent"><a href="#Bit-torrent" class="headerlink" title="Bit torrent"></a>Bit torrent</h2><p><img src="/Blog/Blog/intro/cmpt371/p2p_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p>If the host that has the longest download time receives bits at a minimum of the download rate then the time to distribute the file to al client is $F/D_{\min}$ seconds</p>
+<p>If bits arrive more slowly that the download rate of the slowest downloading host then the time to distribute the file to all hosts will be $N\times F/U_s$ the time taken to transmit the $N$ copies of the file</p>
+<p>Download Time = $\max(F/D_{\min}, N\times F/U_s)$</p>
+<p><br></p>
+<h2 id="How-long-to-send-using-P2P"><a href="#How-long-to-send-using-P2P" class="headerlink" title="How long to send using P2P"></a>How long to send using P2P</h2><p>The server must send at least one copy of the file to the peers. This takes $F/U_s$ seconds</p>
+<p>The slowest peer must have time to download all the bits in the file. This takes $F/D_{\min}$ seconds</p>
+<p>The fastest that any host can receive uploads is $U<em>s + \Sigma</em>{i=1}^NU_i$ so the fastest all hosts can receive the uploaded files is</p>
+<script type="math/tex; mode=display">
+\max(\frac {F}{U_s}, \frac {F}{D_{\min}}, \frac {N\times F}{U_s + \Sigma_{i=1}^NU_i})</script><p><img src="/Blog/intro/cmpt371/p2p_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Bit-torrent"><a href="#Bit-torrent" class="headerlink" title="Bit torrent"></a>Bit torrent</h2><p><img src="/Blog/intro/cmpt371/p2p_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>什么是Bit torrent?</p>
 <p>Torrent 是 一组 peer exchanging portions(chunks) of a file</p>
 <p>Torrent 被 Trakker 收集, Trakker是一个host, it managing the peers trading chunks of file.</p>
 <p>The file being exchanged is divided into chunks (512K)</p>
-<br>
-
+<p><br></p>
 <p>工作流程</p>
 <p>假设 A peer “Mew” joins a torrent to obtain a file</p>
 <p>最开始 “Mew” 没有任何chunks of the file</p>
@@ -1262,261 +1141,249 @@
 <h3 id="Acquiring-Chunks"><a href="#Acquiring-Chunks" class="headerlink" title="Acquiring Chunks"></a>Acquiring Chunks</h3><p>不同的peer有不同的subset of file</p>
 <p>任何时间, 一个peer都可以从neighboring peer得到一个list of avilable chunks</p>
 <p>peer will usually request the chunks that are hardest to find first (to equalize the availability of those chunks)</p>
-<br>
-
+<p><br></p>
 <h3 id="Trading-Algorithm-tit-for-tat"><a href="#Trading-Algorithm-tit-for-tat" class="headerlink" title="Trading Algorithm(tit for tat)"></a>Trading Algorithm(tit for tat)</h3><p>每10s, “Mew” 会计算向它提供data最频繁的4个neighboring peer</p>
 <p>“Mew” <strong>unchokes</strong> those four neighboring peers by sending them chunks they have requested.</p>
 <p>Every 30s “Mew” also <strong>optimistically unchokes</strong> one randomly chosen neighboring peer by sending that peer chunks</p>
 <p>The optimistically unchoked neighboring peer may then become one of “Mew”s trading partners</p>
-<br>
-
-<h1 id="设计一个protocol"><a href="#设计一个protocol" class="headerlink" title="设计一个protocol"></a>设计一个protocol</h1><p><img src="/Blog/Blog/intro/cmpt371/protocol.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h1 id="设计一个protocol"><a href="#设计一个protocol" class="headerlink" title="设计一个protocol"></a>设计一个protocol</h1><p><img src="/Blog/intro/cmpt371/protocol.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>source 等待从应用层传来的数据, 当接收到数据时, 就创建packet并发送</p>
 <p>receiver 等待从source传来的数据, 当接收到packet时会对它解包, 发送给自己的应用层</p>
 <p>然而这么设计有个问题如果到达receiver的packet是损坏的怎么办?</p>
 <p>receiver需要告诉source收到的packet是否损坏, 通过回传一个ACK包</p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/protocol_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>当传输的packet有错误时, 接收方向发送方回传一个NACK来通知发送方重传</p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>如果ACK &#x2F; NACK corrupted 怎么办?</p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/protocol_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>如果ACK / NACK corrupted 怎么办?</p>
+<p><img src="/Blog/intro/cmpt371/protocol_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>如果packet lost 怎么办? 我们添加一个timer, 如果超时则重新发送</p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/protocol_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
-<h2 id="滑动窗口-1"><a href="#滑动窗口-1" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><p><img src="/Blog/Blog/intro/cmpt371/sliding_windows.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/protocol_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/protocol_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="滑动窗口-1"><a href="#滑动窗口-1" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><p><img src="/Blog/intro/cmpt371/sliding_windows.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>在接收端(receiver):</p>
 <p>当发送ACK后, 移动window</p>
 <p>这个ACK告诉发送端(source) 它期望的下一个packet是什么</p>
 <p>一般会等接收到一定包后才发送ACK, 就是说当我们send ACKn, 就说明n之前的packet我们都收到了</p>
-<br>
-
+<p><br></p>
 <p>在发送端(source)</p>
 <p>当收到ACK时会移动window</p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="Go-Back-N"><a href="#Go-Back-N" class="headerlink" title="Go Back N"></a>Go Back N</h2><p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="Selective-Repeat-ARQs"><a href="#Selective-Repeat-ARQs" class="headerlink" title="Selective Repeat ARQs"></a>Selective Repeat ARQs</h2><p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="Credit-allocation-mechanism"><a href="#Credit-allocation-mechanism" class="headerlink" title="Credit allocation mechanism"></a>Credit allocation mechanism</h2><p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_32.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_33.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_34.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_35.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_36.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_37.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_38.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_39.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_40.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_41.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_42.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_43.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_44.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_45.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/sliding_windows_46.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><p><img src="/Blog/Blog/intro/cmpt371/tcp.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_32.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_33.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_34.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_35.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_36.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_37.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_38.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_39.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_40.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_41.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_42.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/tcp_43.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt371/sliding_windows_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Go-Back-N"><a href="#Go-Back-N" class="headerlink" title="Go Back N"></a>Go Back N</h2><p><img src="/Blog/intro/cmpt371/sliding_windows_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Selective-Repeat-ARQs"><a href="#Selective-Repeat-ARQs" class="headerlink" title="Selective Repeat ARQs"></a>Selective Repeat ARQs</h2><p><img src="/Blog/intro/cmpt371/sliding_windows_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Credit-allocation-mechanism"><a href="#Credit-allocation-mechanism" class="headerlink" title="Credit allocation mechanism"></a>Credit allocation mechanism</h2><p><img src="/Blog/intro/cmpt371/sliding_windows_32.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_33.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_34.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_35.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_36.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_37.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_38.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_39.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_40.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_41.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_42.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_43.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_44.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_45.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/sliding_windows_46.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><p><img src="/Blog/intro/cmpt371/tcp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_32.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_33.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_34.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_35.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_36.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_37.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_38.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_39.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_40.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_41.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_42.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/tcp_43.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h1 id="Network-layer"><a href="#Network-layer" class="headerlink" title="Network layer"></a>Network layer</h1><p>一些词的意思</p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/nl_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="Address-forwarding"><a href="#Address-forwarding" class="headerlink" title="Address forwarding"></a>Address forwarding</h2><p><img src="/Blog/Blog/intro/cmpt371/af.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="CIDR"><a href="#CIDR" class="headerlink" title="CIDR"></a>CIDR</h2><p><img src="/Blog/Blog/intro/cmpt371/af_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_32.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_33.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_34.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_35.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h2><p><img src="/Blog/Blog/intro/cmpt371/af_36.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_37.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_38.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_39.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_40.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_41.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_42.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_43.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/af_44.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h2><p><img src="/Blog/Blog/intro/cmpt371/ICMP.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/ICMP_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p><img src="/Blog/Blog/intro/cmpt371/NAT_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/nl.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/nl_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Address-forwarding"><a href="#Address-forwarding" class="headerlink" title="Address forwarding"></a>Address forwarding</h2><p><img src="/Blog/intro/cmpt371/af.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="CIDR"><a href="#CIDR" class="headerlink" title="CIDR"></a>CIDR</h2><p><img src="/Blog/intro/cmpt371/af_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_32.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_33.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_34.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_35.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h2><p><img src="/Blog/intro/cmpt371/af_36.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_37.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_38.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_39.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_40.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_41.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_42.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_43.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/af_44.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h2><p><img src="/Blog/intro/cmpt371/ICMP.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/ICMP_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p><img src="/Blog/intro/cmpt371/NAT_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>NAT 有三种类型:</p>
 <ol>
 <li>Static NAT</li>
@@ -1526,171 +1393,166 @@
 <p>static NAT 是将 private address 和 一个有效的global address进行映射. router 在分配时会得到一部分global address来进行分配</p>
 <p>Dynamic NAT 和Static NAT 类似, 只不过用一个pool来进行动态管理</p>
 <p>Overloaded NAT 是常用的, 将 private address 和 router的port进行映射</p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/NAT_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a>Routing</h2><p><img src="/Blog/Blog/intro/cmpt371/routing.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_32.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_33.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_34.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_35.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_36.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<p><img src="/Blog/Blog/intro/cmpt371/routing_37.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_38.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_39.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_40.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_41.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_42.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_43.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_44.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_45.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_46.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_47.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_48.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_49.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_50.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_51.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_52.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_53.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_54.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_55.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_56.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_57.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_58.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_59.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_60.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_61.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_62.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_63.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_64.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_65.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/routing_66.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h2><p><img src="/Blog/Blog/intro/cmpt371/BGP.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/BGP_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
-<h1 id="Data-link-layer"><a href="#Data-link-layer" class="headerlink" title="Data link layer"></a>Data link layer</h1><h2 id="Error-detection"><a href="#Error-detection" class="headerlink" title="Error detection"></a>Error detection</h2><p><img src="/Blog/Blog/intro/cmpt371/error.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_24.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_25.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_26.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_27.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_28.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_29.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_30.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_31.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt371/error_32.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt371/NAT_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/NAT_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a>Routing</h2><p><img src="/Blog/intro/cmpt371/routing.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_32.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_33.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_34.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_35.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_36.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt371/routing_37.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_38.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_39.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_40.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_41.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_42.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_43.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_44.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_45.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_46.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_47.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_48.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_49.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_50.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_51.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_52.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_53.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_54.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_55.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_56.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_57.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_58.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_59.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_60.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_61.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_62.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_63.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_64.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_65.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/routing_66.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h2><p><img src="/Blog/intro/cmpt371/BGP.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/BGP_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h1 id="Data-link-layer"><a href="#Data-link-layer" class="headerlink" title="Data link layer"></a>Data link layer</h1><h2 id="Error-detection"><a href="#Error-detection" class="headerlink" title="Error detection"></a>Error detection</h2><p><img src="/Blog/intro/cmpt371/error.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt371/error_32.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -1728,7 +1590,7 @@
                       <a href="/Blog/2021/09/09/Computability-and-Complexity/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Computability and Complexity</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -1737,7 +1599,7 @@
                     
                       <a href="/Blog/2021/05/25/Data-science/">
                         <span class="hidden-mobile">Data science</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -1754,7 +1616,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -1780,7 +1642,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1789,7 +1651,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

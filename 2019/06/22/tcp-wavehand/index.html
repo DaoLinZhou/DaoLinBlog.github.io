@@ -18,18 +18,18 @@
   
     <meta property="og:type" content="article">
 <meta property="og:title" content="TCP 四次挥手">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/22/tcp-wavehand/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/22/tcp-wavehand/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/wavehand.png">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/wavehand.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/wavehand.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/wavehand.png">
 <meta property="article:published_time" content="2019-06-22T22:04:48.000Z">
 <meta property="article:modified_time" content="2019-06-22T22:58:53.842Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="网络">
 <meta property="article:tag" content="tcp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/wavehand.png">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/wavehand.png">
   
   
   <title>TCP 四次挥手 - Daolin&#39;s Repository</title>
@@ -105,7 +105,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -117,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -129,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -141,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -244,27 +244,24 @@
             <h1 style="display: none">TCP 四次挥手</h1>
             
             <div class="markdown-body">
-              <p><img src="/Blog/Blog/intro/wavehand.png" srcset="/Blog/img/loading.gif" lazyload></p>
+              <p><img src="/Blog/intro/wavehand.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <span id="more"></span>
-
 <p>“挥手” 的目的是终止连接. “挥手” 由客户端或服务端任意一方执行close触发.</p>
 <p>假设由客户端主动close</p>
-<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="/Blog/Blog/intro/wavehand.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="/Blog/intro/wavehand.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>第一次挥手: Client 发送一个FIN, 用来关闭Client 到 Server的数据传输, Client 进入FIN_WAIT_1 状态;</p>
-<br/>
-
+<p><br/></p>
 <p>第二次挥手: Server收到 FIN 后, 发送一个ACK给Client, 确认序号为收到的序号+1(与SYN相同, 一个FIN占用一个序号), Server 进入 CLOSE_WAIT 状态, 这个状态下, 依然会给Client传输数据;</p>
-<br/>
-
+<p><br/></p>
 <p>第三次握手: Server 发送一个FIN, 用来关闭Server 到 Client 的数据传输,  Server进入 LAST_ACK状态;</p>
-<br/>
-
+<p><br/></p>
 <p>第四次握手: Client 收到 FIN后, Client进入TIME_WAIT状态, 接着发送一个 ACK 给 Server, 确认序号为收到序号+1, Server 进入CLOSED状态, 完成四次挥手;</p>
 <h3 id="Client-为什么要等待-2MSL"><a href="#Client-为什么要等待-2MSL" class="headerlink" title="Client 为什么要等待 2MSL"></a>Client 为什么要等待 2MSL</h3><ol>
 <li><p>确保有足够的时间让对方收到ACK包, 如果被动关闭那端没有收到ACK包, 则会触发重发 Finish 包, 一去一回就是2MLS</p>
 </li>
 <li><p>避免新旧连接混淆</p>
-<br/></li>
+<p><br/></p>
+</li>
 </ol>
 <h2 id="为什么需要四次握手才能断开连接"><a href="#为什么需要四次握手才能断开连接" class="headerlink" title="为什么需要四次握手才能断开连接"></a>为什么需要四次握手才能断开连接</h2><p>全双工: 同一时间, 服务器可以发送数据给客户端, 客户端也可以发送数据给服务器</p>
 <p>正因为是全双工, 发送方和接收方都需要FIN报文和ACK报文, 所有各自挥手2次. 由于有一方式被动的, 看起来就像4次挥手</p>
@@ -312,7 +309,7 @@
                       <a href="/Blog/2019/06/22/Insert-Sort/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">插入排序 Insert Sort 和 希尔排序 Shell Sort</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -321,7 +318,7 @@
                     
                       <a href="/Blog/2019/06/22/Selection-Sort/">
                         <span class="hidden-mobile">选择排序 Selection Sort</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -338,7 +335,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -364,7 +361,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -373,7 +370,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

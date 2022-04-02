@@ -16,12 +16,12 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Noise123456789101112if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    n &#x3D; 200    x &#x3D; np.linspace(-15, 15, n)    truth &#x3D; x**2 + 20*np.sin(x)    sigma &#x3D; 10    noise &#x3D; np.random.normal(0, sigma, n)    measurem">
+    <meta name="description" content="Noise123456789101112if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    n &#x3D; 200    x &#x3D; np.linspace(-15, 15, n)    truth &#x3D; x**2 + 20*np.sin(x)    sigma &#x3D; 10    noise &#x3D; np.random.normal(0, sigma, n)    measurement">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data science">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/05/25/Data-science/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2021/05/25/Data-science/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
-<meta property="og:description" content="Noise123456789101112if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    n &#x3D; 200    x &#x3D; np.linspace(-15, 15, n)    truth &#x3D; x**2 + 20*np.sin(x)    sigma &#x3D; 10    noise &#x3D; np.random.normal(0, sigma, n)    measurem">
+<meta property="og:description" content="Noise123456789101112if __name__ &#x3D;&#x3D; &amp;#x27;__main__&amp;#x27;:    n &#x3D; 200    x &#x3D; np.linspace(-15, 15, n)    truth &#x3D; x**2 + 20*np.sin(x)    sigma &#x3D; 10    noise &#x3D; np.random.normal(0, sigma, n)    measurement">
 <meta property="og:locale">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt353/observations_1.PNG">
 <meta property="article:published_time" content="2021-05-25T20:06:55.000Z">
@@ -106,7 +106,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -118,7 +118,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -130,7 +130,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -142,7 +142,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -154,7 +154,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      246 分钟
+      242 分钟
     </span>
   
 
@@ -246,17 +246,12 @@
             
             <div class="markdown-body">
               <span id="more"></span>
-
-
-
 <h1 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h1><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">200</span><br>    x = np.linspace(-<span class="hljs-number">15</span>, <span class="hljs-number">15</span>, n)<br><br>    truth = x**<span class="hljs-number">2</span> + <span class="hljs-number">20</span>*np.sin(x)<br><br>    sigma = <span class="hljs-number">10</span><br>    noise = np.random.normal(<span class="hljs-number">0</span>, sigma, n)<br>    measurements = truth + noise<br><br>    plt.plot(x, measurements, <span class="hljs-string">&#x27;b.&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/cmpt353/noise.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而真实的值可能是这样</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们怎么降噪?</p>
-<br>
-
+<p><br></p>
 <h2 id="LOESS-Smoothing"><a href="#LOESS-Smoothing" class="headerlink" title="LOESS Smoothing"></a>LOESS Smoothing</h2><p><strong>LOESS</strong> or <strong>LOWESS</strong> smoothing (LOcally WEighted Scatterplot Smoothing) 是一种smooth curve的技术</p>
 <p>LOESS 的思想是这样</p>
 <ol>
@@ -265,31 +260,25 @@
 <li>Declare that line to be the part of the curve for the middle of the neighbourhood</li>
 <li>Slide the window along, generating a curve as you go</li>
 </ol>
-<p><img src="/Blog/Blog/intro/cmpt353/loess.gif" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/loess.gif" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>可以看到fraction越大, curve越平滑</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/noise_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>如果我们有很多数据, LOESS 会有很好的效果, 反之如果数据量小, 那么他的效果会较差</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> statsmodels.nonparametric.smoothers_lowess <span class="hljs-keyword">import</span> lowess<br>filtered = lowess(measurements, input_range, frac=<span class="hljs-number">0.05</span>)<br>plt.plot(filtered[:, <span class="hljs-number">0</span>], filtered[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>, linewidth=<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><br><span class="hljs-keyword">from</span> statsmodels.nonparametric.smoothers_lowess <span class="hljs-keyword">import</span> lowess<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n = <span class="hljs-number">200</span><br>    x = np.linspace(-<span class="hljs-number">15</span>, <span class="hljs-number">15</span>, n)<br>    truth = x**<span class="hljs-number">2</span> + <span class="hljs-number">20</span>*np.sin(x)<br><br>    sigma = <span class="hljs-number">10</span><br>    noise = np.random.normal(<span class="hljs-number">0</span>, sigma, n)<br>    measurements = truth + noise<br><br>    filtered = lowess(measurements, x, frac=<span class="hljs-number">0.5</span>)<br><br>    plt.plot(filtered[:, <span class="hljs-number">0</span>], filtered[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>, linewidth=<span class="hljs-number">3</span>)<br>    plt.plot(x, measurements, <span class="hljs-string">&#x27;b.&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
-
 <p>当 <code>frac=0.5</code> 时</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当 <code>frac=0.15</code>时</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>LOESS smoothing is easy to work with: only one parameter to get right. It’s better when it has lots of data to work with.</p>
 <p>But it’s about smoothing the curve, not exactly finding the true signal. Those are often similar, but not always perfectly identical.</p>
 </blockquote>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="Kalman-Filtering"><a href="#Kalman-Filtering" class="headerlink" title="Kalman Filtering"></a>Kalman Filtering</h2><blockquote>
 <p>我感觉下面自己记得笔记就是狗屎</p>
 <p>还是这个视频好, <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ez4y1X7eR">卡尔曼滤波器</a></p>
@@ -302,26 +291,42 @@
 </ol>
 <p>假设我们要测量一个硬币的长度: 第$k$次的测量结果为 $Z_k$ </p>
 <p>每个人测量不一样, 尺子有误差, 每一次测量的结果都不一样</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th>$Z_1&#x3D;50.1mm$</th>
-<th>$Z_2&#x3D;50.4mm$</th>
-<th>$Z_3&#x3D;50.2mm$</th>
+<th>$Z_1=50.1mm$</th>
+<th>$Z_2=50.4mm$</th>
+<th>$Z_3=50.2mm$</th>
 </tr>
 </thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
 </table>
+</div>
 <p>如果我们要估计真实结果, 很自然的, 我们会求平均值</p>
-<p>用 $\hat x_k$ 表示第 $k$ 次的估计值<br>$$<br>\hat x_k &#x3D; \frac 1k (Z_1+Z_2+\cdots Z_k)<br>$$</p>
-<p>$$<br>&#x3D;\frac 1k (Z_1+ Z_2+\cdots+Z_{k-1})+\frac 1k Z_k<br>$$</p>
-<p>$$<br>&#x3D;\frac 1k \cdot \frac {k-1}{k-1}\cdot (Z_1+ Z_2+\cdots+Z_{k-1})+\frac 1k Z_k<br>$$</p>
-<p>如果我们知道<br>$$<br>\hat x_{k-1} &#x3D;\frac {1}{k-1}\cdot (Z_1+ Z_2+\cdots+Z_{k-1})<br>$$<br>所以:<br>$$<br>\hat x_k &#x3D; \frac {k-1} {k} \hat x_{k-1} + \frac 1 k Z_k<br>$$<br>整理得到<br>$$<br>\hat x_k &#x3D; \hat x_{k-1} + \frac 1 k (Z_k - \hat x_{k-1})<br>$$<br>$Z_k$ 是第k次的测量值, $x_{k-1}$ 是第 $k-1$ 次的估计值</p>
+<p>用 $\hat x_k$ 表示第 $k$ 次的估计值</p>
+<script type="math/tex; mode=display">
+\hat x_k = \frac 1k (Z_1+Z_2+\cdots Z_k)</script><script type="math/tex; mode=display">
+=\frac 1k (Z_1+ Z_2+\cdots+Z_{k-1})+\frac 1k Z_k</script><script type="math/tex; mode=display">
+=\frac 1k \cdot \frac {k-1}{k-1}\cdot (Z_1+ Z_2+\cdots+Z_{k-1})+\frac 1k Z_k</script><p>如果我们知道</p>
+<script type="math/tex; mode=display">
+\hat x_{k-1} =\frac {1}{k-1}\cdot (Z_1+ Z_2+\cdots+Z_{k-1})</script><p>所以:</p>
+<script type="math/tex; mode=display">
+\hat x_k = \frac {k-1} {k} \hat x_{k-1} + \frac 1 k Z_k</script><p>整理得到</p>
+<script type="math/tex; mode=display">
+\hat x_k = \hat x_{k-1} + \frac 1 k (Z_k - \hat x_{k-1})</script><p>$Z<em>k$ 是第k次的测量值, $x</em>{k-1}$ 是第 $k-1$ 次的估计值</p>
 <p>随着 k 的增加(测量次数的增加) $\frac 1 k \to 0$, $\hat x \to \hat x_{k-1}$ . 也就是说随着$k$的增加, 测量结果就变得不在重要了</p>
-<p>也就是说当我们有的大量的数据之后, 我们就对估计的结果很有信心了, 以后的测量值就不重要的, 侧数据量比较小时, $1&#x2F;k$ 较大, 此时测量结果就会起到很大的作用</p>
-<p>我们让$\frac 1k &#x3D; k_k$<br>$$<br>\hat x_k &#x3D; \hat x_{k-1} + k_k (Z_k - \hat x_{k-1})<br>$$<br>它的意思就是:</p>
-<p>$\text{当前的估计值} &#x3D; \text{上一次的估计值}+系数\cdot(当前测量值 - 上一次的估计值)$</p>
+<p>也就是说当我们有的大量的数据之后, 我们就对估计的结果很有信心了, 以后的测量值就不重要的, 侧数据量比较小时, $1/k$ 较大, 此时测量结果就会起到很大的作用</p>
+<p>我们让$\frac 1k = k_k$</p>
+<script type="math/tex; mode=display">
+\hat x_k = \hat x_{k-1} + k_k (Z_k - \hat x_{k-1})</script><p>它的意思就是:</p>
+<p>$\text{当前的估计值} = \text{上一次的估计值}+系数\cdot(当前测量值 - 上一次的估计值)$</p>
 <p>$k_k$ 叫做 Kalman Gain(卡尔曼增益)</p>
-<p>由这个公式可以看出当前估计值 $\hat x_k$ 和上一次的估计值 $\hat x_{k-1}$ 有关</p>
+<p>由这个公式可以看出当前估计值 $\hat x<em>k$ 和上一次的估计值 $\hat x</em>{k-1}$ 有关</p>
 <p>而上一次又会与上上次有关…</p>
 <p>这里引入两个参数:</p>
 <ul>
@@ -330,56 +335,64 @@
 <li><p>测量误差 $e_{MEA}$: 测量值和真实值的差距</p>
 </li>
 </ul>
-<p>此时 Kalman Gain 等于:<br>$$<br>k_k &#x3D; \frac {e_{EST_{k-1}}}{e_{EST_{k-1}}+e_{MEA_k}}<br>$$<br>为什么是这个式子后面会细讲(数据融合)</p>
-<p>先分析一下:<br>$$<br>\hat x_k &#x3D; \hat x_{k-1} + k_k (Z_k - \hat x_{k-1})<br>$$<br>当 $e_{EST_{k-1}} &gt;&gt; e_{MEA_k}$ 时, $k_k\to 1$, 此时 $\hat x_k &#x3D; \hat x_{k-1} + Z_k - \hat x_{k-1} &#x3D; Z_k$</p>
+<p>此时 Kalman Gain 等于:</p>
+<script type="math/tex; mode=display">
+k_k = \frac {e_{EST_{k-1}}}{e_{EST_{k-1}}+e_{MEA_k}}</script><p>为什么是这个式子后面会细讲(数据融合)</p>
+<p>先分析一下:</p>
+<script type="math/tex; mode=display">
+\hat x_k = \hat x_{k-1} + k_k (Z_k - \hat x_{k-1})</script><p>当 $e<em>{EST</em>{k-1}} &gt;&gt; e<em>{MEA_k}$ 时, $k_k\to 1$, 此时 $\hat x_k = \hat x</em>{k-1} + Z<em>k - \hat x</em>{k-1} = Z_k$</p>
 <p>当估计误差远大于测量误差时, 第 $k$ 次的估计值就趋近于测量值 (因为估计的误差大, 而测量的更准确, 所以需要更加信任测量值)</p>
-<br>
-
-<p>当 $e_{EST_{k-1}} &lt;&lt; e_{MEA_k}$ 时, $k_k\to 0$, 此时 $\hat x_k &#x3D; \hat x_{k-1}$, 就是说当测量误差很大时, 我们选择更相信估计值</p>
-<br>
-
+<p><br></p>
+<p>当 $e<em>{EST</em>{k-1}} &lt;&lt; e<em>{MEA_k}$ 时, $k_k\to 0$, 此时 $\hat x_k = \hat x</em>{k-1}$, 就是说当测量误差很大时, 我们选择更相信估计值</p>
+<p><br></p>
 <p>有了这些知识, 我们就可以用卡尔曼滤波器来解决问题, 分3步</p>
 <ol>
-<li>计算 Kalman Gain $k_k &#x3D; \frac {e_{EST_{k-1}}}{e_{EST_{k-1}}+e_{MEA_k}}$</li>
-<li>计算 $\hat x_k &#x3D; \hat x_{k-1} + k_k (Z_k - \hat x_{k-1})$</li>
-<li>更新 $e_{EST_k} &#x3D; (1-k_k)e_{EST_{k-1}}$ (这个式子后面也会细讲)</li>
+<li>计算 Kalman Gain $k<em>k = \frac {e</em>{EST<em>{k-1}}}{e</em>{EST<em>{k-1}}+e</em>{MEA_k}}$</li>
+<li>计算 $\hat x<em>k = \hat x</em>{k-1} + k<em>k (Z_k - \hat x</em>{k-1})$</li>
+<li>更新 $e<em>{EST_k} = (1-k_k)e</em>{EST_{k-1}}$ (这个式子后面也会细讲)</li>
 </ol>
 <p>通常在使用用一个测量工具的情况下测量误差是不变的, 因为测量误差属于测量工具</p>
-<br>
-
+<p><br></p>
 <h3 id="数据融合-Data-Fusion"><a href="#数据融合-Data-Fusion" class="headerlink" title="数据融合(Data Fusion)"></a>数据融合(Data Fusion)</h3><p>从一个例子开始:</p>
 <p>假设我们要用两个称去测量一个东西, 得到两个结果</p>
 <ul>
-<li>$z_1 &#x3D; 30g$</li>
-<li>$z_2&#x3D;32g$</li>
+<li>$z_1 = 30g$</li>
+<li>$z_2=32g$</li>
 </ul>
 <p>这两个称都不准, 测量有误差, 并且符合正态分布, 标准差为</p>
 <ul>
-<li>$\sigma_1 &#x3D; 2g$</li>
-<li>$\sigma_2 &#x3D; 4g$</li>
+<li>$\sigma_1 = 2g$</li>
+<li>$\sigma_2 = 4g$</li>
 </ul>
-<p>我们要估计真实值 $\hat z&#x3D;?$<br>$$<br>\hat z &#x3D; z_1+k(z_2-z_1)<br>$$<br>k 就是 kalman gain, 求$k$, 使得$\hat z$方差最小 (最准确)<br>$$<br>var(\hat z) &#x3D; var(z_1+k(z_2-z_1))<br>$$</p>
-<p>$$<br>&#x3D;var((1-k) z_1 + kz_2)<br>$$</p>
-<p>而 $z_1$ 和 $z_2$ 是相互独立的, 因为它们分别取自两次不同的测量, 互不影响</p>
-<p>因为他们相互独立, 根据方差的性质<br>$$<br>&#x3D;var((1-k) z_1) + var(kz_2)<br>$$</p>
-<p>$$<br>&#x3D;(1-k)^2 var(z_1)+ k^2var(z_2)<br>$$</p>
-<p>$$<br>&#x3D;(1-k)^2\sigma_1^2 + k^2\sigma_2^2<br>$$</p>
-<p>如果要求解这个数的最小值, 就可以通过对k求导, 让导数为零求极值<br>$$<br>-2(1-k)\sigma_1^2+2k\sigma_2^2 &#x3D; 0<br>$$</p>
-<p>$$<br>(k-1)\sigma_1^2+k\sigma_2^2 &#x3D; 0<br>$$</p>
-<p>$$<br>k&#x3D;\frac {\sigma_1^2}{\sigma_1^2+\sigma_2^2}<br>$$</p>
-<p>这就是k的推导过程</p>
-<p>回到例子中 $k&#x3D;\frac {2^2}{2^2+4^2}&#x3D;0.2$<br>$$<br>\hat z &#x3D; z_1+k(z_2-z_1)<br>$$</p>
-<p>$$<br>\hat z &#x3D; 30+0.2(32-30) &#x3D; 30.4g<br>$$</p>
-<p>我们用数学证明了这个是最优解, 同时方差为:<br>$$<br>var(\hat z)&#x3D;(1-k)^2\sigma_1^2 + k^2\sigma_2^2<br>$$</p>
-<p>$$<br>&#x3D;(1-0.2)2^2+0.2^2\cdot 4^2 &#x3D; 3.2<br>$$</p>
-<p>标准差就是方差开根号, $\sigma_{\hat z}&#x3D;1.79$</p>
+<p>我们要估计真实值 $\hat z=?$</p>
+<script type="math/tex; mode=display">
+\hat z = z_1+k(z_2-z_1)</script><p>k 就是 kalman gain, 求$k$, 使得$\hat z$方差最小 (最准确)</p>
+<script type="math/tex; mode=display">
+var(\hat z) = var(z_1+k(z_2-z_1))</script><script type="math/tex; mode=display">
+=var((1-k) z_1 + kz_2)</script><p>而 $z_1$ 和 $z_2$ 是相互独立的, 因为它们分别取自两次不同的测量, 互不影响</p>
+<p>因为他们相互独立, 根据方差的性质</p>
+<script type="math/tex; mode=display">
+=var((1-k) z_1) + var(kz_2)</script><script type="math/tex; mode=display">
+=(1-k)^2 var(z_1)+ k^2var(z_2)</script><script type="math/tex; mode=display">
+=(1-k)^2\sigma_1^2 + k^2\sigma_2^2</script><p>如果要求解这个数的最小值, 就可以通过对k求导, 让导数为零求极值</p>
+<script type="math/tex; mode=display">
+-2(1-k)\sigma_1^2+2k\sigma_2^2 = 0</script><script type="math/tex; mode=display">
+(k-1)\sigma_1^2+k\sigma_2^2 = 0</script><script type="math/tex; mode=display">
+k=\frac {\sigma_1^2}{\sigma_1^2+\sigma_2^2}</script><p>这就是k的推导过程</p>
+<p>回到例子中 $k=\frac {2^2}{2^2+4^2}=0.2$</p>
+<script type="math/tex; mode=display">
+\hat z = z_1+k(z_2-z_1)</script><script type="math/tex; mode=display">
+\hat z = 30+0.2(32-30) = 30.4g</script><p>我们用数学证明了这个是最优解, 同时方差为:</p>
+<script type="math/tex; mode=display">
+var(\hat z)=(1-k)^2\sigma_1^2 + k^2\sigma_2^2</script><script type="math/tex; mode=display">
+=(1-0.2)2^2+0.2^2\cdot 4^2 = 3.2</script><p>标准差就是方差开根号, $\sigma_{\hat z}=1.79$</p>
 <p>就像这样</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/noise_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h3><p>协方差的意义和协方差的算法可以参考统计学的资料</p>
 <p>这里主要将如何用矩阵来计算协方差</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -389,7 +402,8 @@
 <th>年龄(y)</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>瓦尔迪</td>
 <td>179</td>
 <td>74</td>
@@ -407,19 +421,19 @@
 <td>71</td>
 <td>28</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>过渡矩阵 </p>
-<p><img src="/Blog/Blog/intro/cmpt353/matrix.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/matrix.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>就是相当于原本矩阵减去平均值</p>
-<p>协方差矩阵就是<br>$$<br>p&#x3D;\frac 1 3 a^T\cdot a<br>$$<br>上面两个式子中$\frac 1 3$ 是因为矩阵有3行</p>
+<p>协方差矩阵就是</p>
+<script type="math/tex; mode=display">
+p=\frac 1 3 a^T\cdot a</script><p>上面两个式子中$\frac 1 3$ 是因为矩阵有3行</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    m = np.array([[<span class="hljs-number">179</span>, <span class="hljs-number">74</span>, <span class="hljs-number">33</span>],<br>                  [<span class="hljs-number">187</span>, <span class="hljs-number">80</span>, <span class="hljs-number">31</span>],<br>                  [<span class="hljs-number">175</span>, <span class="hljs-number">71</span>, <span class="hljs-number">28</span>]])<br>    a = m - (<span class="hljs-number">1</span>/<span class="hljs-number">3</span>)*np.ones((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)).dot(m)<br>    p = a.T.dot(a)/<span class="hljs-number">3</span><br>    <span class="hljs-built_in">print</span>(p)<br></code></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
+<p><br></p>
 <p><strong>Kalman filtering</strong> is designed to let you express what you know. It predicts the <em>most likely value</em> for the truth given your assumptions</p>
 <p>我们可能想知道:</p>
 <ul>
@@ -434,143 +448,127 @@
 <p>我们假设noise是正态分布的, 我们希望$\mu$ 是 truth, $\sigma$ 描述how much noise we are getting</p>
 <p>两个变量的covariance(协方差) says something about how their values relate</p>
 <p>如果一个value related to the other, 那么 covariance 就非0. change in the same direction: positive covariance, opposite direction: negative covariance.</p>
-<br>
-
+<p><br></p>
 <h3 id="Kalman-Operation"><a href="#Kalman-Operation" class="headerlink" title="Kalman Operation"></a>Kalman Operation</h3><p>Kalman filter works with two things : <strong>our observations(data)</strong> and <strong>our prediction of what we expect to happen (the prior)</strong></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/noise_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>假设在time step $k$, true state $\vec x_k$</p>
 <p>Kalman filtering asks us to predict the next state. We will call our estimate of the state $\hat x_k$</p>
 <p>问题就是: given (the filter’s best guess for) $\hat x_{k-1}$ what do you think $\hat x_k$ will be?</p>
 <p>假设我们有两个value: position 和 velocity. </p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因为我们知道velocity 是什么, 所以我们可以预测新的position.</p>
-<p>我们猜测<br>$$<br>p_k &#x3D; p_{k-1} + \Delta t\cdot v_{k-1}<br>$$</p>
-<p>$$<br>v_k&#x3D;v_{k-1}<br>$$</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p>我们猜测 </p>
+<script type="math/tex; mode=display">
+p_k = p_{k-1} + \Delta t\cdot v_{k-1}</script><script type="math/tex; mode=display">
+v_k=v_{k-1}</script><p><img src="/Blog/intro/cmpt353/noise_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="Kalman-Variances"><a href="#Kalman-Variances" class="headerlink" title="Kalman Variances"></a>Kalman Variances</h3><p>我们还关心 how much do I trust the measurements(prediction)</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对角线上的值是variance, 对角线之外的值是covariance</p>
 <p>我们设定covariance为0, 因为我们不认为两个error related to each other.</p>
 <p>这些值是我们自己设定的, 我们思考 how wrong do i expect this to be most of the times. 平方后就是variance</p>
 <p>我们需要这些矩阵, for both ovservations(measurements) often called $R$, and our predictions, often call $Q$</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/noise_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>假设这是我们的数据点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">n_samples = <span class="hljs-number">25</span><br><br>input_range = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>*np.pi, n_samples, dtype=np.<span class="hljs-built_in">float</span>)<br>observations = pd.DataFrame()<br>observations[<span class="hljs-string">&#x27;sin&#x27;</span>] = (np.sin(input_range)<br>        + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, n_samples))<br>observations[<span class="hljs-string">&#x27;cos&#x27;</span>] = (np.cos(input_range)<br>        + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.25</span>, n_samples))<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/cmpt353/noise_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>使用LOESS的结果</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_17.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/noise_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>使用Kalman Filtering</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pykalman <span class="hljs-keyword">import</span> KalmanFilter<br>initial_value_guess = observations.iloc[<span class="hljs-number">0</span>]<br>observation_covariance = np.diag([<span class="hljs-number">0.5</span>, <span class="hljs-number">0.25</span>]) ** <span class="hljs-number">2</span><br><br>kf = KalmanFilter(<br>    initial_state_mean=initial_value_guess,<br>    initial_state_covariance=observation_covariance,<br>    observation_covariance=observation_covariance<br>)<br>pred_state, state_cov = kf.smooth(observations)<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/cmpt353/noise_18.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>可以看到结果并不好</p>
 <blockquote>
 <p>But, we haven’t made any attempt to predict. We’re accepting the defaults (everything stays the same; variance of 1; covariance 0), which aren’t good for our problem</p>
 </blockquote>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_19.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_20.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_23.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/noise_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">delta_t = np.pi * <span class="hljs-number">2</span> / n_samples<br>transition_matrix = [[<span class="hljs-number">1</span>, delta_t], [-delta_t, <span class="hljs-number">1</span>]]<br><br>transition_covariance = np.diag([<span class="hljs-number">0.2</span>, <span class="hljs-number">0.2</span>]) ** <span class="hljs-number">2</span><br>kf = KalmanFilter(<br>    initial_state_mean=initial_value_guess,<br>    initial_state_covariance=observation_covariance,<br>    observation_covariance=observation_covariance,<br>    transition_covariance=transition_covariance,<br>    transition_matrices=transition_matrix<br>)<br>pred_state, state_cov = kf.smooth(observations)<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/cmpt353/noise_21.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/noise_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>方差接近0并不真实</p>
 <p>在真实世界中, 配置好的Kalman惊人的好</p>
-<p><img src="/Blog/Blog/intro/cmpt353/noise_22.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/noise_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    n_samples = <span class="hljs-number">25</span><br><br>    input_range = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span> * np.pi, n_samples, dtype=np.<span class="hljs-built_in">float</span>)<br>    observations = pd.DataFrame()<br>    observations[<span class="hljs-string">&#x27;sin&#x27;</span>] = (np.sin(input_range)<br>                           + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, n_samples))<br>    observations[<span class="hljs-string">&#x27;cos&#x27;</span>] = (np.cos(input_range)<br>                           + np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.25</span>, n_samples))<br><br>    initial_value_guess = observations.iloc[<span class="hljs-number">0</span>]<br>    observation_covariance = np.diag([<span class="hljs-number">0.5</span>, <span class="hljs-number">0.25</span>]) ** <span class="hljs-number">2</span><br><br>    kf = KalmanFilter(<br>        initial_state_mean=initial_value_guess,<br>        initial_state_covariance=observation_covariance,<br>        observation_covariance=observation_covariance<br>    )<br>    pred_state, state_cov = kf.smooth(observations)<br><br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;sin&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">0</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;cos&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br><br><br>    delta_t = np.pi * <span class="hljs-number">2</span> / n_samples<br>    transition_matrix = [[<span class="hljs-number">1</span>, delta_t], [-delta_t, <span class="hljs-number">1</span>]]<br><br>    transition_covariance = np.diag([<span class="hljs-number">0.2</span>, <span class="hljs-number">0.2</span>]) ** <span class="hljs-number">2</span><br>    kf = KalmanFilter(<br>        initial_state_mean=initial_value_guess,<br>        initial_state_covariance=observation_covariance,<br>        observation_covariance=observation_covariance,<br>        transition_covariance=transition_covariance,<br>        transition_matrices=transition_matrix<br>    )<br>    pred_state, state_cov = kf.smooth(observations)<br><br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;sin&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">0</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br>    plt.scatter(input_range, observations[<span class="hljs-string">&#x27;cos&#x27;</span>])<br>    plt.plot(input_range, pred_state[:, <span class="hljs-number">1</span>], <span class="hljs-string">&#x27;r-&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h3 id="Kalman-Parameters"><a href="#Kalman-Parameters" class="headerlink" title="Kalman Parameters"></a>Kalman Parameters</h3><p>$F_k$,  <code>transition_matrix</code>  says what you <strong>predict</strong> the next value will be, base on the current values</p>
 <p>This is often a fairly bad prediction: 如果我们可以预测outcome 那我们还measuring干嘛, 尽管如此，我们尽我们所能，让它引导结果</p>
-<br>
-
+<p><br></p>
 <p>$R$, <code>observation_covariance</code> matrix expresses what you think about the <em>error in the observations</em></p>
 <p>Lower values → less sensor error assumed → observations have more effect on the result → more noise.</p>
 <p>Higher values → ⋯ → less noise</p>
-<br>
-
+<p><br></p>
 <p>$Q$, <code>transition_covariance</code> says what you think about the error in your prediction. Assuming the prediction is fairly smooth</p>
 <p>Lower values → less prediction error assumed → prediction has more effect on the result → less noise.</p>
 <p>Higher values → ⋯ → more noise.</p>
-<br>
-
+<p><br></p>
 <p>Kalman filter 还有其他参数 例如 gain ($K$) and control inputs $B_k$</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="Mann–Whitney-U-test"><a href="#Mann–Whitney-U-test" class="headerlink" title="Mann–Whitney U-test"></a>Mann–Whitney U-test</h2><p>Nonparametric tests </p>
 <p>如果我们不知道数据的distribution 并且我们无法使用transform 来让数据normal, 那么就可以使用这个test</p>
-<p>这个test的作用是: decide that samples from one group are larger&#x2F;smaller than another, 它假设: </p>
+<p>这个test的作用是: decide that samples from one group are larger/smaller than another, 它假设: </p>
 <ul>
 <li>Observations are independent.</li>
 <li>Values are <strong>ordinal</strong>: can be sorted.</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt353/utest.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<br>
-
+<p><img src="/Blog/intro/cmpt353/utest.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
 <h2 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h2><p>贝叶斯是解决分类问题</p>
-<p>假设我们有input $x&#x3D;[x_1\cdots x_n]$ 以及可能的output classes $C_k$ 我们可以计算出probability of each category is<br>$$<br>P(C_k|x_1,\cdots x_m)<br>$$<br>就是说在observation $x_1…x_m$ 的情况下 $C_k$ 为真的可能性</p>
+<p>假设我们有input $x=[x_1\cdots x_n]$ 以及可能的output classes $C_k$ 我们可以计算出probability of each category is</p>
+<script type="math/tex; mode=display">
+P(C_k|x_1,\cdots x_m)</script><p>就是说在observation $x_1…x_m$ 的情况下 $C_k$ 为真的可能性</p>
 <p>当我们得到所有的 $P(C_k|x_1,\cdots x_m)$ 后, 我们就可以找到可能性最大的category, 并且predict it</p>
 <p>进行<strong>极大似然估计</strong>(maximum likelihood estimation)</p>
-<br>
-
-<p>贝叶斯定理:<br>$$<br>P(A|B)&#x3D;P(B|A)\frac {P(A)}{P(B)}<br>$$<br>通过一些计算, 得到<br>$$<br>P(C_k|x_1,…x_m)&#x3D;\frac 1 Z P(C_k)\prod_{i&#x3D;1}^mP(x_i|C_k)<br>$$<br>$Z$ 是一个 positive constant, We choose the prediction $k$ that maximizes this.</p>
-<br>
-
+<p><br></p>
+<p>贝叶斯定理:</p>
+<script type="math/tex; mode=display">
+P(A|B)=P(B|A)\frac {P(A)}{P(B)}</script><p>通过一些计算, 得到</p>
+<script type="math/tex; mode=display">
+P(C_k|x_1,...x_m)=\frac 1 Z P(C_k)\prod_{i=1}^mP(x_i|C_k)</script><p>$Z$ 是一个 positive constant, We choose the prediction $k$ that maximizes this.</p>
+<p><br></p>
 <p>The hidden algebra 假设 $P(x_i|C_k),P(x_j|C_k)$ independent</p>
 <blockquote>
 <p>That’s the “naïve” part of the “naïve Bayes classifier”: we are assuming the input features are not related to each other</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <p>假设我们有这样的数据</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>我们看each axis&#x2F;feature and ask about the distribution of each category (we take these as samples and look at the sample distribution)</p>
+<p><img src="/Blog/intro/cmpt353/observations.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们看each axis/feature and ask about the distribution of each category (we take these as samples and look at the sample distribution)</p>
 <p>我们假设 normal distributions 并且计算 $\bar x$ and $s$ to estimate $\mu$ and $\sigma$. 这样就得到 $P(x_i|C_k)$ for each category.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/observations_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>这里有一个问题, 我们怎么知道 $P(C_k)$ </p>
-<p>一种方法是看training data, 假设training data 有 95% 的数据在 $C_1$, 那么$P(C_1)&#x3D;0.95$ , 这也是默认情况下GaussianNB的方法</p>
+<p>一种方法是看training data, 假设training data 有 95% 的数据在 $C_1$, 那么$P(C_1)=0.95$ , 这也是默认情况下GaussianNB的方法</p>
 <p>但是如果我们事先知道这个概率, 我们可以指定这个 <em>prior</em> :what is our belief in the likelihood of each category before we start looking at predictions</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/observations_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h3 id="Bayesian-Failures"><a href="#Bayesian-Failures" class="headerlink" title="Bayesian Failures"></a>Bayesian Failures</h3><p>我们的假设: input independent, 并且我们可以将它们看作normal distributed</p>
 <p>如果不符合这些情况, 那么我们的预测会得到bad prediction</p>
 <p>例如这种情况</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/observations_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>此时就只能使用其他的classifier了</p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/observations_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/observations_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/observations_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <ol>
 <li>You can’t just blindly throw an ML tool at data and expect magic.</li>
@@ -578,69 +576,57 @@
 <li>Understanding what the model assumes and how it works will help you use it effectively.</li>
 </ol>
 </blockquote>
-<br>
-
+<p><br></p>
 <p>贝叶斯分类实现:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> accuracy_score<br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><span class="hljs-keyword">from</span> sklearn.naive_bayes <span class="hljs-keyword">import</span> GaussianNB<br><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bayes</span>:<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, priors=<span class="hljs-literal">None</span></span>):<br>        self.prob = priors<br>        self.y = <span class="hljs-literal">None</span><br>        self.scalar = []<br>        self.has_prob = self.prob <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit</span>(<span class="hljs-params">self, X_train: np.ndarray, y_train: np.ndarray</span>):<br>        self.y = np.unique(y_train)<br>        <span class="hljs-keyword">if</span> self.prob <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            self.prob = np.empty(self.y.shape[<span class="hljs-number">0</span>])<br>        total_count = X_train.shape[<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> idx <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.y.shape[<span class="hljs-number">0</span>]):<br>            indices = y_train == self.y[idx]<br>            count = indices.<span class="hljs-built_in">sum</span>()<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.has_prob:<br>                self.prob[idx] = count / total_count<br>            <span class="hljs-comment"># 最重要的一步, 要保存每一个category的 StandardScaler, 用来计算probability</span><br>            self.scalar.append(StandardScaler().fit(X_train[indices]))<br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict</span>(<span class="hljs-params">self, X:np.ndarray</span>):<br>        y_predict = np.empty(X.shape[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(X.shape[<span class="hljs-number">0</span>]):<br>            y_predict[i] = self.__predict_one(X[i].reshape(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>))<br>        <span class="hljs-keyword">return</span> y_predict<br><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__predict_one</span>(<span class="hljs-params">self, x</span>):<br>        prob_arr = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">normal_distribution</span>(<span class="hljs-params">X</span>):<br>            <span class="hljs-keyword">return</span> np.exp(-X ** <span class="hljs-number">2</span> / <span class="hljs-number">2</span>) / np.sqrt(<span class="hljs-number">2</span> * np.pi)<br><br>        <span class="hljs-comment"># 计算 x 属于每个 category 的 probability</span><br>        <span class="hljs-keyword">for</span> scalar, prob <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(self.scalar, self.prob):<br>            new_x = scalar.transform(x)<br>            p = prob * np.product(normal_distribution(new_x))<br>            prob_arr.append(p)<br><br>        <span class="hljs-keyword">return</span> self.y[np.array(prob_arr).argmax()]<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    centers = [[<span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [-<span class="hljs-number">4</span>, -<span class="hljs-number">5</span>], [-<span class="hljs-number">1</span>, <span class="hljs-number">2.5</span>], [<span class="hljs-number">2</span>, -<span class="hljs-number">2</span>]]<br>    X, y = datasets.make_blobs(n_samples=<span class="hljs-number">1000</span>, centers=centers, cluster_std=<span class="hljs-number">0.8</span>)<br><br>    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">666</span>)<br><br>    bayes = Bayes([<span class="hljs-number">0.01</span>, <span class="hljs-number">0.49</span>, <span class="hljs-number">0.49</span>, <span class="hljs-number">0.01</span>]).fit(X_train, y_train)<br>    y_predict = bayes.predict(X_test)<br>    <span class="hljs-built_in">print</span>(accuracy_score(y_test, y_predict))<br><br>    gauss = GaussianNB(priors=[<span class="hljs-number">0.01</span>, <span class="hljs-number">0.49</span>, <span class="hljs-number">0.49</span>, <span class="hljs-number">0.01</span>])<br>    gauss.fit(X_train, y_train)<br>    y_gauss_predict = gauss.predict(X_test)<br>    <span class="hljs-built_in">print</span>(accuracy_score(y_test, y_gauss_predict))<br><br>    <span class="hljs-built_in">print</span>((y_predict != y_gauss_predict).<span class="hljs-built_in">sum</span>())<br></code></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h1 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h1><p>确保电脑有java</p>
 <p>首先通过这个安装Hadoop, 并配置<strong>HADOOP_HOME</strong> 以及 path</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/steveloughran/winutils">https://github.com/steveloughran/winutils</a></p>
 <p>再 <code>pip pyspark</code> 就可以了</p>
-<br>
-
+<p><br></p>
 <p>和 pandas 很相似</p>
 <p>读取csv</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/spark.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>过滤行或列</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/spark_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>写文件</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/spark_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>展示dataframe 前 20 行</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/spark_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>展示统计信息</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/spark_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>其他细节</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/spark_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/spark_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/spark_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/spark_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>spark 由于是分布式的, 所以最好不要写loop, 因为loop只能访问本地的内容, 无法访问其他机器的文件</p>
-<br>
-
+<p><br></p>
 <p>通常在使用spark时, 由于数据量很大, 所以如果把所有数据放在一个文件中并不是一个好的选择</p>
 <p>spark可以读取文件夹</p>
 <p>读取cities文件夹下csv文件</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">data = spark.read.csv(<span class="hljs-string">&#x27;cities&#x27;</span>)<br><br><span class="hljs-comment"># 指定每一列的名称以及数据类型</span><br>data = spark.read.csv(<span class="hljs-string">&#x27;cities&#x27;</span>, schema=<span class="hljs-string">&#x27;city string, population int, area float&#x27;</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>spark 的 dataFrame 是 partitioned</p>
-<p>subsets of rows are handled separately by different processes&#x2F;threads. Each piece can (hopefully) be operated on in paralled</p>
+<p>subsets of rows are handled separately by different processes/threads. Each piece can (hopefully) be operated on in paralled</p>
 <p>If operations can truly be done in parallel without much coordination, $n$ processes can do the work almost n times faster</p>
-<p>因此, 当处理input&#x2F;output时, 每个 thread&#x2F;process&#x2F;core&#x2F;executor 都会reading individual input files, 当writing是, 它们也会write in paralled</p>
+<p>因此, 当处理input/output时, 每个 thread/process/core/executor 都会reading individual input files, 当writing是, 它们也会write in paralled</p>
 <p>所以 each partition was written as a separate file in the output directory</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/spark_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>查看output</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> output/part-*.csv | less<br><span class="hljs-built_in">cat</span> output/part-*.csv.gz | zless<br></code></pre></td></tr></table></figure>
-
 <p>The Hadoop infrastructure is what runs our cluster. Review:</p>
 <ul>
 <li>YARN: manages compute jobs on the cluster. Responsible for getting computation done.</li>
 <li>HDFS: Hadoop Distributed File System, for storing data on the cluster’s nodes.</li>
 </ul>
 <p>We’ll be using YARN to run Spark jobs on the cluster, and HDFS for input and output.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/spark_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="HDFS-Command"><a href="#HDFS-Command" class="headerlink" title="HDFS Command"></a>HDFS Command</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">hdfs dfs -<span class="hljs-built_in">ls</span> <span class="hljs-comment"># list files in your HDFS home</span><br>hdfs dfs -<span class="hljs-built_in">ls</span> /folder  <span class="hljs-comment"># list files in folder</span><br>hdfs dfs -copyFromLocal data <span class="hljs-comment"># copy file/directory to HDFS</span><br>hdfs dfs -copyToLocal output <span class="hljs-comment"># copy file/directory to gateway</span><br>hdfs dfs -<span class="hljs-built_in">cat</span> output/part* | less  <span class="hljs-comment"># show output files</span><br>hdfs dfs -<span class="hljs-built_in">cat</span> output/part* | zless  <span class="hljs-comment"># show compressed output</span><br></code></pre></td></tr></table></figure>
-
 <p>What HDFS is actually doing:</p>
 <ul>
 <li>Storing files on the $n$ worker nodes</li>
@@ -648,9 +634,8 @@
 <li>… with each block replicated in a couple of places(by default 3)</li>
 <li>Making them avilable to our computer jobs when needed</li>
 </ul>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/spark_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="YARN"><a href="#YARN" class="headerlink" title="YARN"></a>YARN</h2><p>YARN 的 责任就是是的compute work 结束: manage the CPU and memory resources</p>
 <p>当你在集群中start 一个job, it’s a request to YARN to give you the resources you need</p>
 <p>i.e. the <code>spark-submit</code> command is the way we generally interact with YARN</p>
@@ -658,10 +643,9 @@
 <p>It’s easier to move the compute work to the data than to move the data.</p>
 </blockquote>
 <p>YARN试图从HDFS上可以找到数据的节点访问数据。</p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/spark_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/spark_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/spark_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="How-Spark-Calculates"><a href="#How-Spark-Calculates" class="headerlink" title="How Spark Calculates"></a>How Spark Calculates</h2><p>一些术语(terminology)</p>
 <p>我们写的spark程序叫做 driver, 如果我们print 或者 create variables 或者do general python things: that is the driver process</p>
 <p>Spark DataFrame 中的 data 被 一个或多个 <strong>executor</strong> processes (or threads) They take instructions from the driver about what to do with the DataFrames: perform the calculations, write the output, etc.</p>
@@ -669,8 +653,7 @@
 <p>On the cluster, the driver runs on the gateway , YARN starts executors on the cluster nodes.</p>
 <p>在 DataFrame (or RDD) 的任何 operation is done by having executors do work on its partitions</p>
 <p>并行性由数据的分区方式来控制。</p>
-<br>
-
+<p><br></p>
 <p>例如</p>
 <p>If we have 1000 executors and 2 partitions in a DataFrame, 998 executors will be sitting idle.</p>
 <p>如果有 2 个executors , 两个 partitions, both will be used, 但是 如果一个partition明显大与另一个, one executor will finish first and then sit idle </p>
@@ -678,39 +661,31 @@
 <h2 id="Controlling-Partitions"><a href="#Controlling-Partitions" class="headerlink" title="Controlling Partitions"></a>Controlling Partitions</h2><p>我们需要对Dataframe中的分区控制。</p>
 <p>然而通常更简单的做法是把input file <a target="_blank" rel="noopener" href="https://linux.die.net/man/1/split">split</a> 成合理的小文件之后放入HDFS</p>
 <p>There are a few operations where you can explicitly ask for a number of partitions:</p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/partitions_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/partitions_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>如果partitions太多, 可以用 <code>.coalesce(n)</code> 来 concatenate 其中一部分</p>
 <p>这个function可能不会像你期望那样工作, 但是它确实减少partitions</p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/partitions_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>groupBy</p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/partitions_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>如果需要 partition rearranged 那么可以用 <code>repartition(n)</code></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-built_in">print</span>(partition_sizes(lumpy_df.coalesce(<span class="hljs-number">4</span>)))<br><span class="hljs-built_in">print</span>(partition_sizes(lumpy_df.repartition(<span class="hljs-number">4</span>)))<br><span class="hljs-comment"># output</span><br><span class="hljs-comment"># [0, 220, 450, 0]</span><br><span class="hljs-comment"># [168, 167, 167, 168]</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="Shuffle-Operations"><a href="#Shuffle-Operations" class="headerlink" title="Shuffle Operations"></a>Shuffle Operations</h2><p><img src="/Blog/Blog/intro/cmpt353/partitions_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/partitions_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/partitions_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Shuffle-Operations"><a href="#Shuffle-Operations" class="headerlink" title="Shuffle Operations"></a>Shuffle Operations</h2><p><img src="/Blog/intro/cmpt353/partitions_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/partitions_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>分区存在不同的物理机器上, 由网络连接他们</p>
 <p>如果欧美要repartition Dataframe, 就需要exchange over the network, 如果Dataframe 较大的话会很慢</p>
 <p>Any Spark operation that rearranges data among partitions is a shuffle operation. Obviously <code>.repartition()</code> is one.</p>
 <p><code>sort(), groupBy()</code> 也都是</p>
 <h2 id="Grouping-Data"><a href="#Grouping-Data" class="headerlink" title="Grouping Data"></a>Grouping Data</h2><p>groupBy 的作用是: you take all rows with the given columns the same, and do some aggregation over those values.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python">int_range = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>, numPartitions=<span class="hljs-number">6</span>)<br>values = int_range.select(<br>    (int_range[<span class="hljs-string">&#x27;id&#x27;</span>] % <span class="hljs-number">3</span>).alias(<span class="hljs-string">&#x27;mod&#x27;</span>),<br>    (functions.length(int_range[<span class="hljs-string">&#x27;id&#x27;</span>].astype(types.StringType()))).alias(<span class="hljs-string">&#x27;num_digits&#x27;</span>),<br>    int_range[<span class="hljs-string">&#x27;id&#x27;</span>],<br>    functions.sin(int_range[<span class="hljs-string">&#x27;id&#x27;</span>]).alias(<span class="hljs-string">&#x27;sin&#x27;</span>)<br>)<br>values.show(<span class="hljs-number">6</span>)<br><br>+---+----------+---+-------------------+<br>|mod|num_digits| <span class="hljs-built_in">id</span>|                sin|<br>+---+----------+---+-------------------+<br>|  <span class="hljs-number">0</span>|         <span class="hljs-number">1</span>|  <span class="hljs-number">0</span>|                <span class="hljs-number">0.0</span>|<br>|  <span class="hljs-number">1</span>|         <span class="hljs-number">1</span>|  <span class="hljs-number">1</span>| <span class="hljs-number">0.8414709848078965</span>|<br>|  <span class="hljs-number">2</span>|         <span class="hljs-number">1</span>|  <span class="hljs-number">2</span>| <span class="hljs-number">0.9092974268256817</span>|<br>|  <span class="hljs-number">0</span>|         <span class="hljs-number">1</span>|  <span class="hljs-number">3</span>| <span class="hljs-number">0.1411200080598672</span>|<br>|  <span class="hljs-number">1</span>|         <span class="hljs-number">1</span>|  <span class="hljs-number">4</span>|-<span class="hljs-number">0.7568024953079282</span>|<br>|  <span class="hljs-number">2</span>|         <span class="hljs-number">1</span>|  <span class="hljs-number">5</span>|-<span class="hljs-number">0.9589242746631385</span>|<br>+---+----------+---+-------------------+<br>only showing top <span class="hljs-number">6</span> rows<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">groups = values.groupBy(<span class="hljs-string">&#x27;mod&#x27;</span>) <span class="hljs-comment"># a GroupedData obj, not a DF</span><br>result = groups.agg(&#123;<span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-string">&#x27;count&#x27;</span>, <span class="hljs-string">&#x27;sin&#x27;</span>: <span class="hljs-string">&#x27;sum&#x27;</span>&#125;)<br>result = groups.agg(functions.count(values[<span class="hljs-string">&#x27;id&#x27;</span>]),<br>                    functions.<span class="hljs-built_in">sum</span>(values[<span class="hljs-string">&#x27;sin&#x27;</span>]))<br>result.show() <span class="hljs-comment"># results are the same from either of the above.</span><br>+---+---------+------------------+<br>|mod|count(<span class="hljs-built_in">id</span>)|          <span class="hljs-built_in">sum</span>(sin)|<br>+---+---------+------------------+<br>|  <span class="hljs-number">0</span>|     <span class="hljs-number">3334</span>|<span class="hljs-number">0.3808604635953807</span>|<br>|  <span class="hljs-number">1</span>|     <span class="hljs-number">3333</span>|<span class="hljs-number">0.6264613886425877</span>|<br>|  <span class="hljs-number">2</span>|     <span class="hljs-number">3333</span>|<span class="hljs-number">0.9321835584427463</span>|<br>+---+---------+------------------+<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python">groups = values.groupBy(<span class="hljs-string">&#x27;mod&#x27;</span>, <span class="hljs-string">&#x27;num_digits&#x27;</span>)<br>result = groups.agg(functions.avg(values[<span class="hljs-string">&#x27;id&#x27;</span>]),<br>                    functions.<span class="hljs-built_in">max</span>(values[<span class="hljs-string">&#x27;sin&#x27;</span>]))<br>result.sort(<span class="hljs-string">&#x27;mod&#x27;</span>, <span class="hljs-string">&#x27;num_digits&#x27;</span>).show()<br>+---+----------+-------+------------------+<br>|mod|num_digits|avg(<span class="hljs-built_in">id</span>)|          <span class="hljs-built_in">max</span>(sin)|<br>+---+----------+-------+------------------+<br>|  <span class="hljs-number">0</span>|         <span class="hljs-number">1</span>|    <span class="hljs-number">4.5</span>|<span class="hljs-number">0.4121184852417566</span>|<br>|  <span class="hljs-number">0</span>|         <span class="hljs-number">2</span>|   <span class="hljs-number">55.5</span>|<span class="hljs-number">0.9999118601072672</span>|<br>|  <span class="hljs-number">0</span>|         <span class="hljs-number">3</span>|  <span class="hljs-number">550.5</span>| <span class="hljs-number">0.999990471552965</span>|<br>|  <span class="hljs-number">0</span>|         <span class="hljs-number">4</span>| <span class="hljs-number">5500.5</span>|<span class="hljs-number">0.9999933680737474</span>|<br>|  <span class="hljs-number">1</span>|         <span class="hljs-number">1</span>|    <span class="hljs-number">4.0</span>|<span class="hljs-number">0.8414709848078965</span>|<br>|  <span class="hljs-number">1</span>|         <span class="hljs-number">2</span>|   <span class="hljs-number">53.5</span>|<span class="hljs-number">0.9928726480845371</span>|<br>|  <span class="hljs-number">1</span>|         <span class="hljs-number">3</span>|  <span class="hljs-number">548.5</span>|<span class="hljs-number">0.9999122598719259</span>|<br>|  <span class="hljs-number">1</span>|         <span class="hljs-number">4</span>| <span class="hljs-number">5498.5</span>|<span class="hljs-number">0.9999931466878679</span>|<br>|  <span class="hljs-number">2</span>|         <span class="hljs-number">1</span>|    <span class="hljs-number">5.0</span>|<span class="hljs-number">0.9893582466233818</span>|<br>|  <span class="hljs-number">2</span>|         <span class="hljs-number">2</span>|   <span class="hljs-number">54.5</span>|<span class="hljs-number">0.9995201585807313</span>|<br>|  <span class="hljs-number">2</span>|         <span class="hljs-number">3</span>|  <span class="hljs-number">549.5</span>|<span class="hljs-number">0.9999110578521441</span>|<br>|  <span class="hljs-number">2</span>|         <span class="hljs-number">4</span>| <span class="hljs-number">5499.5</span>|<span class="hljs-number">0.9999935858249229</span>|<br>+---+----------+-------+------------------+<br></code></pre></td></tr></table></figure>
-
 <h2 id="Execution-Plans"><a href="#Execution-Plans" class="headerlink" title="Execution Plans"></a>Execution Plans</h2><p>Grouping is a shuffle operation, but not as bad as some. To see why, we can ask for the execution plan Spark has for a DataFrame:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">result.explain()<br><br>== Physical Plan ==<br>*(<span class="hljs-number">2</span>) HashAggregate(keys=[mod<span class="hljs-comment">#90L, num_digits#91], functions=[avg(id#88L), max(sin#92)])</span><br>+- Exchange hashpartitioning(mod<span class="hljs-comment">#90L, num_digits#91, 200)</span><br>   +- *(<span class="hljs-number">1</span>) HashAggregate(keys=[mod<span class="hljs-comment">#90L, num_digits#91], functions=[partial_avg(id#88L), partial_max(sin#92)])</span><br>      +- *(<span class="hljs-number">1</span>) Project [(<span class="hljs-built_in">id</span><span class="hljs-comment">#88L % 3) AS mod#90L, length(cast(id#88L as string)) AS num_digits#91, id#88L, SIN(cast(id#88L as double)) AS sin#92]</span><br>         +- *(<span class="hljs-number">1</span>) Range (<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>, step=<span class="hljs-number">1</span>, splits=<span class="hljs-number">6</span>)<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>Read from the bottom-up. The plan is also visible in the Spark web frontend SQL tab while a job is running</p>
 </blockquote>
@@ -722,78 +697,58 @@
 <p>That’s a lot better than the shuffle from a <code>.sort()</code> or <code>.repartition()</code>. Spark has been clever on our behalf.</p>
 <p>Compare the plans for a <code>.repartition()</code> or <code>.sort()</code>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">values.repartition(<span class="hljs-number">100</span>).explain()<br>values.sort(<span class="hljs-string">&#x27;sin&#x27;</span>).explain()<br><br><br>== Physical Plan ==<br>Exchange RoundRobinPartitioning(<span class="hljs-number">100</span>)<br>+- *(<span class="hljs-number">1</span>) Project [(<span class="hljs-built_in">id</span><span class="hljs-comment">#88L % 3) AS mod#90L, length(cast(id#88L as string)) AS num_digits#91, id#88L, SIN(cast(id#88L as double)) AS sin#92]</span><br>   +- *(<span class="hljs-number">1</span>) Range (<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>, step=<span class="hljs-number">1</span>, splits=<span class="hljs-number">6</span>)<br>== Physical Plan ==<br>*(<span class="hljs-number">2</span>) Sort [sin<span class="hljs-comment">#92 ASC NULLS FIRST], true, 0</span><br>+- Exchange rangepartitioning(sin<span class="hljs-comment">#92 ASC NULLS FIRST, 200)</span><br>   +- *(<span class="hljs-number">1</span>) Project [(<span class="hljs-built_in">id</span><span class="hljs-comment">#88L % 3) AS mod#90L, length(cast(id#88L as string)) AS num_digits#91, id#88L, SIN(cast(id#88L as double)) AS sin#92]</span><br>      +- *(<span class="hljs-number">1</span>) Range (<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>, step=<span class="hljs-number">1</span>, splits=<span class="hljs-number">6</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="Lazy-Evaluation"><a href="#Lazy-Evaluation" class="headerlink" title="Lazy Evaluation"></a>Lazy Evaluation</h2><p>Spark 的所有计算都是lazy的</p>
 <p>例如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">100000000000</span>, numPartitions=<span class="hljs-number">10000</span>)<br>numbers = numbers.select(<br>    numbers[<span class="hljs-string">&#x27;id&#x27;</span>],<br>    functions.rand(),<br>    (numbers[<span class="hljs-string">&#x27;id&#x27;</span>] % <span class="hljs-number">100</span>).alias(<span class="hljs-string">&#x27;m&#x27;</span>)<br>)<br><br><span class="hljs-comment"># 到此行为止, spark其实没有进行任何计算, 我们只是告诉spark要怎么进行计算</span><br><br>numbers.show()		<span class="hljs-comment"># 只有在这一步, 会进行计算</span><br></code></pre></td></tr></table></figure>
-
 <p>只有<code>show, write</code> 等操作是才会计算, 因为此时我们需要的是结果</p>
 <p>That’s why creating many DataFrames isn’t bad:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = spark.read.…<br>df2 = df1.select(…)<br>df3 = df2.groupBy(…).agg(…)<br>df4 = df3.<span class="hljs-built_in">filter</span>(…)<br>df4.write.…<br></code></pre></td></tr></table></figure>
-
 <p>Dataframe <code>df1, df2, df3</code> are never computed. They are just used to build the execution plan (in the driver) for <code>df4</code>, which runs (on the executors) when the <code>.write</code> happens</p>
 <p>The last unexplained oddity: <code>.coalesce()</code> behaves the way it does because the plan is made before any data exists: it makes its best guess about what to put together.</p>
 <p>On the other hand, <code>.repartition()</code> waits for calculation of the data, and then makes “perfect” partitions.</p>
-<br>
-
+<p><br></p>
 <p>Lazy evaluation 很好, 但是某些情况并非如此:</p>
 <p>例如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">int_range = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>, numPartitions=<span class="hljs-number">6</span>)<br>values = int_range.select(<br>    (int_range[<span class="hljs-string">&#x27;id&#x27;</span>] % <span class="hljs-number">3</span>).alias(<span class="hljs-string">&#x27;mod&#x27;</span>),<br>    (functions.length(int_range[<span class="hljs-string">&#x27;id&#x27;</span>].astype(types.StringType()))).alias(<span class="hljs-string">&#x27;num_digits&#x27;</span>),<br>    int_range[<span class="hljs-string">&#x27;id&#x27;</span>],<br>    functions.sin(int_range[<span class="hljs-string">&#x27;id&#x27;</span>]).alias(<span class="hljs-string">&#x27;sin&#x27;</span>)<br>)<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">result1 = values.groupBy(<span class="hljs-string">&#x27;mod&#x27;</span>).agg(<br>    functions.count(values[<span class="hljs-string">&#x27;id&#x27;</span>]),<br>    functions.<span class="hljs-built_in">sum</span>(values[<span class="hljs-string">&#x27;sin&#x27;</span>]))<br>result2 = values.groupBy(<span class="hljs-string">&#x27;mod&#x27;</span>, <span class="hljs-string">&#x27;num_digits&#x27;</span>).agg(<br>    functions.avg(values[<span class="hljs-string">&#x27;id&#x27;</span>]),<br>    functions.<span class="hljs-built_in">max</span>(values[<span class="hljs-string">&#x27;sin&#x27;</span>]))<br><br>result1.explain()<br>result2.explain()<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs out">== Physical Plan ==<br>*(2) HashAggregate(keys=[mod#19L], functions=[count(1), sum(sin#21)])<br>+- Exchange hashpartitioning(mod#19L, 200)<br>   +- *(1) HashAggregate(keys=[mod#19L], functions=[partial_count(1), partial_sum(sin#21)])<br>      +- *(1) Project [(id#17L % 3) AS mod#19L, SIN(cast(id#17L as double)) AS sin#21]<br>         +- *(1) Range (0, 10000, step=1, splits=6)<br>== Physical Plan ==<br>*(2) HashAggregate(keys=[mod#19L, num_digits#20], functions=[avg(id#17L), max(sin#21)])<br>+- Exchange hashpartitioning(mod#19L, num_digits#20, 200)<br>   +- *(1) HashAggregate(keys=[mod#19L, num_digits#20], functions=[partial_avg(id#17L), partial_max(sin#21)])<br>      +- *(1) Project [(id#17L % 3) AS mod#19L, length(cast(id#17L as string)) AS num_digits#20, id#17L, SIN(cast(id#17L as double)) AS sin#21]<br>         +- *(1) Range (0, 10000, step=1, splits=6)<br></code></pre></td></tr></table></figure>
-
 <p>可以看到, 我们 进行了两次 range, 两次 project</p>
-<br>
-
+<p><br></p>
 <p>这是因为我们使用了两次values, 因此, 我们 copied its <strong>not-yet-evaluated plan</strong>. When they execute, that work gets done twice</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs py">int_range = spark.<span class="hljs-built_in">range</span>(…)<br>values = int_range.select(…)<br>result1 = values.groupBy(…).agg(…)<br>result2 = values.groupBy(…).agg(…)<br></code></pre></td></tr></table></figure>
-
 <p>很显然, 我们要把中间结果进行保存</p>
 <h2 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h2><p>告诉spark我们要再次使用某个值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">int_range = spark.<span class="hljs-built_in">range</span>(…)<br>values = int_range.select(…).cache()<br>result1 = values.groupBy(…).agg(…)<br>result2 = values.groupBy(…).agg(…)<br></code></pre></td></tr></table></figure>
-
 <p>当计算values时, 会把它放到内存中, 因为我们之后会再次使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs out">== Physical Plan ==<br>*(2) HashAggregate(keys=[mod#19L], functions=[count(1), sum(sin#21)])<br>+- Exchange hashpartitioning(mod#19L, 200)<br>   +- *(1) HashAggregate(keys=[mod#19L], functions=[partial_count(1), partial_sum(sin#21)])<br>      +- *(1) InMemoryTableScan [mod#19L, sin#21]<br>            +- InMemoryRelation [mod#19L, num_digits#20, id#17L, sin#21], StorageLevel(disk, memory, deserialized, 1 replicas)<br>                  +- *(1) Project [(id#17L % 3) AS mod#19L, length(cast(id#17L as string)) AS num_digits#20, id#17L, SIN(cast(id#17L as double)) AS sin#21]<br>                     +- *(1) Range (0, 10000, step=1, splits=6)<br>== Physical Plan ==<br>*(2) HashAggregate(keys=[mod#19L, num_digits#20], functions=[avg(id#17L), max(sin#21)])<br>+- Exchange hashpartitioning(mod#19L, num_digits#20, 200)<br>   +- *(1) HashAggregate(keys=[mod#19L, num_digits#20], functions=[partial_avg(id#17L), partial_max(sin#21)])<br>      +- *(1) InMemoryTableScan [mod#19L, num_digits#20, id#17L, sin#21]<br>            +- InMemoryRelation [mod#19L, num_digits#20, id#17L, sin#21], StorageLevel(disk, memory, deserialized, 1 replicas)<br>                  +- *(1) Project [(id#17L % 3) AS mod#19L, length(cast(id#17L as string)) AS num_digits#20, id#17L, SIN(cast(id#17L as double)) AS sin#21]<br>                     +- *(1) Range (0, 10000, step=1, splits=6)<br></code></pre></td></tr></table></figure>
-
 <p>可以看到 InMemoryRelation ,InMemoryTableScan </p>
-<br>
-
+<p><br></p>
 <h2 id="Spark-Optimizer"><a href="#Spark-Optimizer" class="headerlink" title="Spark Optimizer"></a>Spark Optimizer</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">int_range = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">10000000</span>, numPartitions=<span class="hljs-number">6</span>)<br>df1 = int_range.select(<br>    (int_range[<span class="hljs-string">&#x27;id&#x27;</span>] % <span class="hljs-number">100</span>).alias(<span class="hljs-string">&#x27;mod&#x27;</span>),<br>    functions.sin(int_range[<span class="hljs-string">&#x27;id&#x27;</span>]).alias(<span class="hljs-string">&#x27;sin&#x27;</span>)<br>)<br>df2 = df1.select(df1[<span class="hljs-string">&#x27;mod&#x27;</span>], df1[<span class="hljs-string">&#x27;sin&#x27;</span>] + <span class="hljs-number">1</span>)<br>df3 = df2.<span class="hljs-built_in">filter</span>(df2[<span class="hljs-string">&#x27;mod&#x27;</span>] == <span class="hljs-number">0</span>)<br>df4 = df3.withColumn(<span class="hljs-string">&#x27;mod2&#x27;</span>, df3[<span class="hljs-string">&#x27;mod&#x27;</span>] * <span class="hljs-number">2</span>)<br>df4.explain()<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs out">== Physical Plan ==<br>*(1) Project [(id#0L % 100) AS mod#2L, (SIN(cast(id#0L as double)) + 1.0) AS (sin + 1)#6, ((id#0L % 100) * 2) AS mod2#9L]<br>+- *(1) Filter ((id#0L % 100) = 0)<br>   +- *(1) Range (0, 10000000, step=1, splits=6)<br></code></pre></td></tr></table></figure>
-
 <p>可以看到实际 Filter 是第二个执行的, 因为Spark知道, 当进行filter时, 得到的结果肯定比原先的少(或者相等), 使用filter后的数据进行操作会更快</p>
 <p>因此它会把 filter 提前, </p>
 <p><code>.filter()</code> moved <em>before</em> the calculation (so there’s less to do); all calculations combined into one step.</p>
-<br>
-
+<p><br></p>
 <p>Example: never calculates the <code>sin</code> or <code>sqrt</code> because they aren’t needed to generate the final result.</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs py">int_range = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">10000000</span>, numPartitions=<span class="hljs-number">6</span>)<br>df1 = int_range.select(<br>    int_range[<span class="hljs-string">&#x27;id&#x27;</span>],<br>    functions.sin(int_range[<span class="hljs-string">&#x27;id&#x27;</span>]).alias(<span class="hljs-string">&#x27;sin&#x27;</span>),<br>    functions.sqrt(int_range[<span class="hljs-string">&#x27;id&#x27;</span>]).alias(<span class="hljs-string">&#x27;sqrt&#x27;</span>)<br>)<br>df2 = df1.groupBy(df1[<span class="hljs-string">&#x27;id&#x27;</span>]).count()<br>df2.explain()<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs out">== Physical Plan ==<br>*(1) HashAggregate(keys=[id#13L], functions=[count(1)])<br>+- *(1) HashAggregate(keys=[id#13L], functions=[partial_count(1)])<br>   +- *(1) Range (0, 10000000, step=1, splits=6)<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/cmpt353/cache.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
-<h2 id="Spark-Join"><a href="#Spark-Join" class="headerlink" title="Spark Join"></a>Spark Join</h2><p><img src="/Blog/Blog/intro/cmpt353/cache_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/cache.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Spark-Join"><a href="#Spark-Join" class="headerlink" title="Spark Join"></a>Spark Join</h2><p><img src="/Blog/intro/cmpt353/cache_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>Joining two 1 TB DataFrames will about double that, to get equal keys together.</p>
 <p>At some scale, shuffling the data is something you either can’t do, or can only do <em>very</em> carefully.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/cache_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<h2 id="Column-Functions"><a href="#Column-Functions" class="headerlink" title="Column Functions"></a>Column Functions</h2><p><img src="/Blog/Blog/intro/cmpt353/cache_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/cache_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/cache_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Column-Functions"><a href="#Column-Functions" class="headerlink" title="Column Functions"></a>Column Functions</h2><p><img src="/Blog/intro/cmpt353/cache_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="Who-Calculates"><a href="#Who-Calculates" class="headerlink" title="Who Calculates?"></a>Who Calculates?</h2><p>记得我们说过, spark是lazy evaluation, 我们实际是在告诉spark怎么计算</p>
 <p>而Spark实际上实在JVM上进行运算的</p>
 <p>Our Python code has been doing nothing but building execution plans.</p>
@@ -805,17 +760,12 @@
 <p>The function <code>functions.udf</code> will turn a Python function into a user-defined function that can work on Column objects (similar to <code>np.vectorize</code>).</p>
 <p>You must specify the <code>returnType</code>, so the execution plan can be built sensibly.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">complicated_function</span>(<span class="hljs-params">a, b</span>):<br>    <span class="hljs-keyword">return</span> a + <span class="hljs-number">2</span>*b  <span class="hljs-comment"># pretend this is Python-specific logic.</span><br><br>complicated_udf = functions.udf(complicated_function,<br>                        returnType=types.IntegerType())<br></code></pre></td></tr></table></figure>
-
 <p>Then use it like any other column function:</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs py">ints = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>)<br>result = ints.select(<br>    ints[<span class="hljs-string">&#x27;id&#x27;</span>],<br>    complicated_udf(ints[<span class="hljs-string">&#x27;id&#x27;</span>], ints[<span class="hljs-string">&#x27;id&#x27;</span>]+<span class="hljs-number">1</span>).alias(<span class="hljs-string">&#x27;res&#x27;</span>)<br>)<br>result.show(<span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs out">+---+---+<br>| id|res|<br>+---+---+<br>|  0|  2|<br>|  1|  5|<br>|  2|  8|<br>|  3| 11|<br>|  4| 14|<br>+---+---+<br>only showing top 5 rows<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>然而使用自定义函数可能会让程序变慢, 因为这段函数要在python上运行</p>
-<br>
-
+<p><br></p>
 <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><p>There have been some hints that some concepts from SQL are in here somewhere.</p>
 <ul>
 <li><p>The original import:</p>
@@ -823,63 +773,53 @@
 </li>
 <li><p>Terminology: row, column, UDF.</p>
 </li>
-<li><p>The operations we are doing: <code>.select()</code>, <code>.filter()</code> (&#x3D;&#x3D; <code>.where()</code>), <code>.groupBy()</code>, <code>.sort()</code> (&#x3D;&#x3D; <code>.orderBy()</code>), <code>.join()</code>.</p>
+<li><p>The operations we are doing: <code>.select()</code>, <code>.filter()</code> (== <code>.where()</code>), <code>.groupBy()</code>, <code>.sort()</code> (== <code>.orderBy()</code>), <code>.join()</code>.</p>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">ints = spark.<span class="hljs-built_in">range</span>(<span class="hljs-number">10000</span>)<br>ints.createOrReplaceTempView(<span class="hljs-string">&#x27;int_table&#x27;</span>)<br>result = spark.sql(<br>    <span class="hljs-string">&quot;SELECT id, id+1 AS id1 FROM int_table WHERE id%2 = 0&quot;</span>)<br>result.show(<span class="hljs-number">5</span>)<br><br><br><br>+---+---+<br>| <span class="hljs-built_in">id</span>|id1|<br>+---+---+<br>|  <span class="hljs-number">0</span>|  <span class="hljs-number">1</span>|<br>|  <span class="hljs-number">2</span>|  <span class="hljs-number">3</span>|<br>|  <span class="hljs-number">4</span>|  <span class="hljs-number">5</span>|<br>|  <span class="hljs-number">6</span>|  <span class="hljs-number">7</span>|<br>|  <span class="hljs-number">8</span>|  <span class="hljs-number">9</span>|<br>+---+---+<br>only showing top <span class="hljs-number">5</span> rows<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs py">result.explain()<br>result2 = ints.<span class="hljs-built_in">filter</span>(ints[<span class="hljs-string">&#x27;id&#x27;</span>]%<span class="hljs-number">2</span> == <span class="hljs-number">0</span>) \<br>    .select(ints[<span class="hljs-string">&#x27;id&#x27;</span>], (ints[<span class="hljs-string">&#x27;id&#x27;</span>]+<span class="hljs-number">1</span>).alias(<span class="hljs-string">&#x27;id1&#x27;</span>))<br>result2.explain()<br><br><br>== Physical Plan ==<br>*(<span class="hljs-number">1</span>) Project [<span class="hljs-built_in">id</span><span class="hljs-comment">#14L, (id#14L + 1) AS id1#16L]</span><br>+- *(<span class="hljs-number">1</span>) Filter ((<span class="hljs-built_in">id</span><span class="hljs-comment">#14L % 2) = 0)</span><br>   +- *(<span class="hljs-number">1</span>) Range (<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>, step=<span class="hljs-number">1</span>, splits=<span class="hljs-number">12</span>)<br>== Physical Plan ==<br>*(<span class="hljs-number">1</span>) Project [<span class="hljs-built_in">id</span><span class="hljs-comment">#14L, (id#14L + 1) AS id1#27L]</span><br>+- *(<span class="hljs-number">1</span>) Filter ((<span class="hljs-built_in">id</span><span class="hljs-comment">#14L % 2) = 0)</span><br>   +- *(<span class="hljs-number">1</span>) Range (<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>, step=<span class="hljs-number">1</span>, splits=<span class="hljs-number">12</span>)<br></code></pre></td></tr></table></figure>
-
-<p>A SQL <code>WHERE</code> expression can be used in <code>.filter()</code>&#x2F;<code>.where()</code> calls:</p>
+<p>A SQL <code>WHERE</code> expression can be used in <code>.filter()</code>/<code>.where()</code> calls:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">result3 = ints.<span class="hljs-built_in">filter</span>(<span class="hljs-string">&#x27;id%2 = 0&#x27;</span>) \<br>    .select(ints[<span class="hljs-string">&#x27;id&#x27;</span>], (ints[<span class="hljs-string">&#x27;id&#x27;</span>]+<span class="hljs-number">1</span>).alias(<span class="hljs-string">&#x27;id1&#x27;</span>))<br>result3.explain()<br>== Physical Plan ==<br>*(<span class="hljs-number">1</span>) Project [<span class="hljs-built_in">id</span><span class="hljs-comment">#14L, (id#14L + 1) AS id1#31L]</span><br>+- *(<span class="hljs-number">1</span>) Filter ((<span class="hljs-built_in">id</span><span class="hljs-comment">#14L % 2) = 0)</span><br>   +- *(<span class="hljs-number">1</span>) Range (<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>, step=<span class="hljs-number">1</span>, splits=<span class="hljs-number">12</span>)<br></code></pre></td></tr></table></figure>
-
 <p>SQL无法cache</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="RDDs"><a href="#RDDs" class="headerlink" title="RDDs"></a>RDDs</h2><p>之前都是 high-level API, Spark 可以 optimize and plan well</p>
 <p>But, there’s a lot more happening behind the scenes. Some of it’s worth exploring a little: we will have a little more flexibility</p>
-<br>
-
+<p><br></p>
 <p>The underlying data structure that Spark manages is the <strong>RDD</strong> or <strong>Resilient Distributed Dataset</strong></p>
-<p>An RDD is fundamentally one-dimensional: it holds a collection of whatever values you put into it. Something like a list&#x2F;array, but distributed.</p>
-<br>
-
+<p>An RDD is fundamentally one-dimensional: it holds a collection of whatever values you put into it. Something like a list/array, but distributed.</p>
+<p><br></p>
 <p>DataFrames are implemented as a specific type of RDDs: they are an RDD of <code>Row</code> objects.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_6.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/rdd.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pyspark.sql <span class="hljs-keyword">import</span> Row<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_from_lines</span>(<span class="hljs-params">line</span>):<br>    city, tail = line.split(<span class="hljs-string">&#x27;:&#x27;</span>)<br>    i, n = tail.split(<span class="hljs-string">&#x27;, &#x27;</span>)<br>    <span class="hljs-keyword">return</span> Row(city=city, count=<span class="hljs-built_in">int</span>(i), measure=<span class="hljs-built_in">float</span>(n))<br><br>lines = spark.sparkContext.textFile(<span class="hljs-string">&#x27;odd_data.txt&#x27;</span>)<br>rows = lines.<span class="hljs-built_in">map</span>(extract_from_lines)<br>data = spark.createDataFrame(rows, schema=<span class="hljs-string">&#x27;city:string, count:int, measure:double&#x27;</span>)<br>data.show()<br><br><br>+--------+-----+-------+<br>|    city|count|measure|<br>+--------+-----+-------+<br>|  Canada|    <span class="hljs-number">5</span>|  <span class="hljs-number">6.324</span>|<br>|     USA|    <span class="hljs-number">9</span>|  <span class="hljs-number">12.31</span>|<br>|  France|   <span class="hljs-number">10</span>| <span class="hljs-number">8.9003</span>|<br>|Thailand|    <span class="hljs-number">2</span>| <span class="hljs-number">14.291</span>|<br>+--------+-----+-------+<br></code></pre></td></tr></table></figure>
-
 <p>It was possible to do that with DataFrames functions, but it would have been a pain (but possibly faster).</p>
 <p>Or with a DataFrame UDF, but a little harder and probably about the same performance.</p>
-<br>
-
+<p><br></p>
 <h2 id="Row-Oriented-Data"><a href="#Row-Oriented-Data" class="headerlink" title="Row-Oriented Data"></a>Row-Oriented Data</h2><p>We previously saw that Pandas was column-oriented: the thing stored together in memory was a column (“series” in Pandas’ terminology) from a DataFrame.</p>
-<p>From the way Spark deals with DataFrames&#x2F;RDDs, we can guess that they are row-oriented</p>
+<p>From the way Spark deals with DataFrames/RDDs, we can guess that they are row-oriented</p>
 <p>Being row-oriented gives some hint why Pandas and Spark DataFrame methods are a little different.</p>
 <p>With Spark, it makes more sense to do all of the operations on a row at once, so we tend to be specifying a “whole DataFrame” operation (like <code>.select()</code> that can use any of the columns).</p>
-<p>Except row-oriented storage is worse: memory layout isn’t right for using a processor’s SIMD (vector&#x2F;SSE) instructions. Memory locality is worse for individual-column operations.</p>
+<p>Except row-oriented storage is worse: memory layout isn’t right for using a processor’s SIMD (vector/SSE) instructions. Memory locality is worse for individual-column operations.</p>
 <p>Those need values where you want to do the same operations (usually a whole column) adjacent in memory.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_7.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/cmpt353/rdd_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <h2 id="Spark-↔-Python"><a href="#Spark-↔-Python" class="headerlink" title="Spark ↔ Python"></a>Spark ↔ Python</h2><p>Example where small data becomes big: maybe we have a large data set and want to (broadcast) join a small table we just generated in Python. We would need to turn it into a DataFrame.</p>
 <p>Example of big → small: we just did a <code>.groupBy()</code> and only have a few thousand rows left. The next analysis we’re doing would be easier in Pandas than Spark.</p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_8.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_9.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_10.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_11.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_12.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_13.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_14.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_15.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p><img src="/Blog/Blog/intro/cmpt353/rdd_16.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/cmpt353/rdd_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt353/rdd_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -919,7 +859,7 @@
                       <a href="/Blog/2021/08/26/Networking/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">计算机网络</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -928,7 +868,7 @@
                     
                       <a href="/Blog/2021/05/14/Principles-of-Compiler-Design/">
                         <span class="hidden-mobile">Principles of Compiler Design</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -945,7 +885,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -971,7 +911,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -980,7 +920,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

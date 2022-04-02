@@ -19,7 +19,7 @@
     <meta name="description" content="集成学习 Hard Voting Classifier Soft Voting Classifier Bagging 和 Pasting Bagging的并行处理与差异化 随机森林 Extra-Trees">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(11)-集成学习和随机森林">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/17/machine-learning-11/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/05/17/machine-learning-11/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="集成学习 Hard Voting Classifier Soft Voting Classifier Bagging 和 Pasting Bagging的并行处理与差异化 随机森林 Extra-Trees">
 <meta property="og:locale">
@@ -106,7 +106,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -118,7 +118,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -130,7 +130,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -142,7 +142,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -154,7 +154,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -253,33 +253,25 @@
 <p>随机森林</p>
 <p>Extra-Trees</p>
 <span id="more"></span>
-
 <h1 id="集成学习和随机森林"><a href="#集成学习和随机森林" class="headerlink" title="集成学习和随机森林"></a>集成学习和随机森林</h1><h2 id="什么是集成学习"><a href="#什么是集成学习" class="headerlink" title="什么是集成学习"></a>什么是集成学习</h2><p>集成学习: ensemble learning</p>
 <p>每一种机器学习算法考虑问题的方式都略微有所不同, 所以对于同一个问题不同的算法可能给出不同的结果</p>
 <p>这个时候应该听那个算法的结果? 此时就可以把多个算法集中起来进行投票, 最后少数服从多数. 这就是集成学习</p>
-<br>
-
+<p><br></p>
 <p>实现一个集成学习并不难, scikit-learn提供了更加方便的接口: Voting Classifier</p>
 <p>就是基于不同算法最后进行投票的分类器</p>
 <p>使用的数据:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">500</span>, noise=<span class="hljs-number">0.3</span>, random_state=<span class="hljs-number">42</span>)<br><br>    plt.scatter(X[y==<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y==<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y==<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/voting_clf.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/voting_clf.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python">X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">42</span>)<br><br>log_clf = LogisticRegression()<br>log_clf.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(log_clf.score(X_test, y_test))    <span class="hljs-comment"># 0.864</span><br><br>svm_clf = SVC()<br>svm_clf.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(svm_clf.score(X_test, y_test))    <span class="hljs-comment"># 0.896</span><br><br>dt_clf = DecisionTreeClassifier()<br>dt_clf.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(dt_clf.score(X_test, y_test))     <span class="hljs-comment"># 0.84</span><br><br>y_predict1 = log_clf.predict(X_test)<br>y_predict2 = svm_clf.predict(X_test)<br>y_predict3 = dt_clf.predict(X_test)<br><br><span class="hljs-comment"># 对于二分类问题, 如果有两个预测值为1, 则预测为1</span><br>y_predict = np.array((y_predict1 + y_predict2 + y_predict3) &gt;= <span class="hljs-number">2</span>, dtype=<span class="hljs-string">&#x27;int&#x27;</span>)<br><span class="hljs-built_in">print</span>(accuracy_score(y_test, y_predict))    <span class="hljs-comment"># 89.6%的准确率</span><br></code></pre></td></tr></table></figure>
-
 <p>手动地方式实现了一次集成学习</p>
-<br>
-
+<p><br></p>
 <p><strong>使用Voting Classifier</strong></p>
 <p>少数服从多数的方式就是 <strong>hard classifier</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">voting_clf = VotingClassifier(estimators=[<br>    (<span class="hljs-string">&#x27;log_clf&#x27;</span>, LogisticRegression()),<br>    (<span class="hljs-string">&#x27;svm_clf&#x27;</span>, SVC()),<br>    (<span class="hljs-string">&#x27;dt_clf&#x27;</span>, DecisionTreeClassifier())<br>], voting=<span class="hljs-string">&#x27;hard&#x27;</span>)<br><br>voting_clf.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(voting_clf.score(X_test, y_test))		<span class="hljs-comment"># 89.6%的准确率</span><br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="Soft-Voting"><a href="#Soft-Voting" class="headerlink" title="Soft Voting"></a>Soft Voting</h2><p>少数服从多数的投票方式叫做Hard Voting</p>
 <p>还有一个更重要的方式: Soft Voting</p>
-<br>
-
+<p><br></p>
 <p>背后的想法也比较简单.</p>
 <p>很多情况下, 少数服从多数是不合理的.  </p>
 <blockquote>
@@ -287,81 +279,67 @@
 <p>就是如果一人一票的话, 使用完全民主的方式, 有些时候反而是一个非常不好的结果</p>
 </blockquote>
 <p>更合理的投票, 应该有权值</p>
-<br>
-
+<p><br></p>
 <p>假设有5个模型, 面对一个二分类问题, 把数据分为A类和B类</p>
-<p><img src="/Blog/Blog/intro/soft_voting.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/soft_voting.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于一些算法, 它把某一个数据分为某一类的依据其实是计算概率</p>
 <p>这里就是5个模型把一个数据分成A类和B类的概率</p>
 <p>对于这样一个结果, 如果我们只看最终的结果, A-两票, B-三票</p>
 <p>根据Hard Voting, 最终结果为B</p>
-<br>
-
+<p><br></p>
 <p>但是看这个数据好像有点问题, 虽然只有两个模型把这个数据分成A类. 但是这两个模型近乎是<strong>非常确定</strong>, 认为这个模型就应该分为A类; 相应有3个模型把这个数据分为B类, 但是他们分类为B的概率并不高.</p>
 <p>所以虽然分为A类的票数少, 但是它的<strong>权值</strong>应该更高一些.</p>
 <p>所谓Soft Voting就是这样的一个考虑</p>
 <p>计算分为每类的概率的平均值</p>
-<p><img src="/Blog/Blog/intro/soft_voting_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/soft_voting_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>根据这样的数字来看的话, 其实我们应该把结果分为A类. 这就是Soft Voting</p>
 <p>换句话说, 它不仅要看把多少票投给A, 把多少票投给B, 还要看投给A的票到底有多大的概率确认分为A类, 看投给B的票到底有多大的概率确认分为B类</p>
-<br>
-
+<p><br></p>
 <p>因此Soft Voting要求集合的<strong>每一个模型都能估计概率</strong></p>
 <p>逻辑回归就是根据一个概率模型创建的, 它有一个predict_proba方法, 有这个函数就说明是可以求出概率的</p>
 <p>借此回顾一下分类算法是不是都可以估计概率</p>
-<br>
-
+<p><br></p>
 <hr>
 
 <p><strong>逻辑回归</strong>, 本身就是基于概率模型的</p>
-<p><img src="/Blog/Blog/intro/logic_reg_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/logic_reg_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <hr>
 
-<p><strong>kNN</strong>, 根据离他最近的几个点进行分类, 通过投票kNN会把这个点预测为是红色的类, 此时它属于红色类的概率就是66% &#x3D; 2&#x2F;3</p>
-<p><img src="/Blog/Blog/intro/knn_5.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><strong>kNN</strong>, 根据离他最近的几个点进行分类, 通过投票kNN会把这个点预测为是红色的类, 此时它属于红色类的概率就是66% = 2/3</p>
+<p><img src="/Blog/intro/knn_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>kNN也可以考虑权值, 考虑权值的话就看加权值所占的比重就可以了. 因此kNN算法也是支持计算概率的</p>
-<br>
-
+<p><br></p>
 <hr>
 
 <p><strong>决策树算法</strong>计算概率的方式和kNN算法计算概率的方式非常一致, 只不过样本在决策树中从根节点走到叶子节点, 在叶子节点中通常是包含多个类别的数据的, 它的基尼系数或信息熵不为0, 此时哪个类数据量大就分给哪个类. </p>
-<p><img src="/Blog/Blog/intro/decision_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/decision_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个概率和kNN算法是一样的, 占比率最大的节点的数量除以总结点的数量</p>
-<br>
-
+<p><br></p>
 <hr>
 
 <p>最复杂的是<strong>SVM算法</strong></p>
-<p>对于SVM &#x2F; SVC算法, 它本身是没有考虑概率的, 而是寻找一个统计上margin的最大值. 虽然如此, SVM算法依然可以使用一些方式来计算出概率</p>
+<p>对于SVM / SVC算法, 它本身是没有考虑概率的, 而是寻找一个统计上margin的最大值. 虽然如此, SVM算法依然可以使用一些方式来计算出概率</p>
 <p>这种方式代价就是更多的计算资源.</p>
 <p>具体是怎么计算出概率的就不涉及了, 不过scikit-learn中SVC有一个probability参数, 默认为False, 但是如果改为True, 就可以估计样本分到各个类别的概率</p>
-<br>
-
+<p><br></p>
 <hr>
 
 <p>他们都可以直接或间接的算出样本分到各个类别的概率, 有这个概率就可以使用Soft Voting这种方式</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">voting_clf2 = VotingClassifier(estimators=[<br>    (<span class="hljs-string">&#x27;log_clf&#x27;</span>, LogisticRegression()),<br>    (<span class="hljs-string">&#x27;svm_clf&#x27;</span>, SVC(probability=<span class="hljs-literal">True</span>)),<br>    (<span class="hljs-string">&#x27;dt_clf&#x27;</span>, DecisionTreeClassifier(random_state=<span class="hljs-number">666</span>))<br>], voting=<span class="hljs-string">&#x27;soft&#x27;</span>)<br>voting_clf2.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(voting_clf2.score(X_test, y_test))  <span class="hljs-comment"># 0.904</span><br></code></pre></td></tr></table></figure>
-
 <p>很多时候Soft Voting Classifier的效果是比Hard Voting Classifier效果好</p>
-<br>
-
+<p><br></p>
 <p>这只是集成学习入门的方式, 集成不同的算法.</p>
 <p>可是这里有一个很大的问题, 但是算法的种类再多也是非常有限的, 怎样才能聚集更多的分类器,  创建出更好的分类结果?</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="Bagging-和-Pasting"><a href="#Bagging-和-Pasting" class="headerlink" title="Bagging 和 Pasting"></a>Bagging 和 Pasting</h2><p>集成学习就是集成多个算法, 让不同的算法对用一组数据进行分析, 投票来看具体那个结果是更好的结果.</p>
 <p>虽然有很多机器学习方法, 但是从投票的角度看, 仍然不够多</p>
 <p>如果想要有一个好的结果, 我们就希望有更多的投票者, 成百上千乃至上万, 才能保证结果更加可信. (概率论中的大数定理)</p>
-<br>
-
+<p><br></p>
 <p>所以要创建更多子模型, 来集成更多子模型的意见.</p>
 <p>更加重要的是, 子模型之间不能一致! 子模型之间要有差异性</p>
-<br>
-
+<p><br></p>
 <p>例如: 一共有500个样本数据, 每个子模型只看100个样本数据. 而相应的, 每个子模型使用的算法可以是同一个算法</p>
 <p>这样就做到了创建很多的子模型, 而且这些子模型之间存在差异</p>
 <blockquote>
@@ -372,17 +350,22 @@
 <p>举个例子: 如果每个子模型只有51%的准确率.  (不需要太高的准确率, 但好歹也要比平均水平要高)</p>
 <p>假设分类任务整体的数据是<strong>无偏</strong>的</p>
 <p>如果我们只有一个子模型, 整体准确率: 51% </p>
-<p>如果有3个子模型, 判断正确有两种情况(三个模型都判断正确, 或任意两个模型判断正确) 整体准确率:<br>$$<br>0.51^3+C_3^2\cdot 0.51^2\cdot0.49&#x3D;51.5%<br>$$<br>如果有500个子模型, (只要有250个以上的模型判断正确) 整体准确率:<br>$$<br>\sum_{i&#x3D;251}^{500}C_{500}^i\cdot 0.51^i\cdot0.49^{500-i}&#x3D;65.6%<br>$$<br>随着子模型数量的增加, 集成学习的整体模型的准确率也是在不断上升的</p>
-<br>
-
-<p>假设准确率达到了60%, 如果有500个子模型, 整体准确率就达到<br>$$<br>\sum_{i&#x3D;251}^{500}C_{500}^i\cdot 0.6^i\cdot0.4^{500-i}&#x3D;99.999%<br>$$<br>当然这只是理论情况, 同时我们也不能保证每个模型都有60%的准确率, 通过这样的计算可以看到集成学习的威力. 每个模型不需要太高的准确率, 但合在一起, 整体显著率就会非常高</p>
-<br>
-
+<p>如果有3个子模型, 判断正确有两种情况(三个模型都判断正确, 或任意两个模型判断正确) 整体准确率: </p>
+<script type="math/tex; mode=display">
+0.51^3+C_3^2\cdot 0.51^2\cdot0.49=51.5\%</script><p>如果有500个子模型, (只要有250个以上的模型判断正确) 整体准确率:</p>
+<script type="math/tex; mode=display">
+\sum_{i=251}^{500}C_{500}^i\cdot 0.51^i\cdot0.49^{500-i}=65.6\%</script><p>随着子模型数量的增加, 集成学习的整体模型的准确率也是在不断上升的</p>
+<p><br></p>
+<p>假设准确率达到了60%, 如果有500个子模型, 整体准确率就达到</p>
+<script type="math/tex; mode=display">
+\sum_{i=251}^{500}C_{500}^i\cdot 0.6^i\cdot0.4^{500-i}=99.999\%</script><p>当然这只是理论情况, 同时我们也不能保证每个模型都有60%的准确率, 通过这样的计算可以看到集成学习的威力. 每个模型不需要太高的准确率, 但合在一起, 整体显著率就会非常高</p>
+<p><br></p>
 <p>这就是统计显著 (Statistically Significant), </p>
-<p>根据 <a href="https://daolinzhou.github.io/Blog/2020/04/04/stat-203/#%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86-Central-Limit-Theorem">中心极限定理</a> 可以算出z值:<br>$$<br>\frac {0.5-p} {\sqrt {\frac {p(1-p)}{n}}} \le z<br>$$<br>z值服从正态分布, p为预测正确的概率, n为样本数量, 在Z table中就可以找到对应的概率. 当p&gt;0.5的时候, n越大这个式子的值就越小, 因此z在正态分布下右侧的面积就越大, 概率就越大.</p>
+<p>根据 <a href="https://daolinzhou.github.io/Blog/2020/04/04/stat-203/#%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86-Central-Limit-Theorem">中心极限定理</a> 可以算出z值:</p>
+<script type="math/tex; mode=display">
+\frac {0.5-p} {\sqrt {\frac {p(1-p)}{n}}} \le z</script><p>z值服从正态分布, p为预测正确的概率, n为样本数量, 在Z table中就可以找到对应的概率. 当p&gt;0.5的时候, n越大这个式子的值就越小, 因此z在正态分布下右侧的面积就越大, 概率就越大.</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <p>如何创建差异性?</p>
 <p>每个子模型只看样本数据的一部分. 我们怎么看样本数据的一部分?</p>
 <p>我们有两种方式只看样本数据的一部分: 放回取样(<strong>Bagging</strong>) 和 不放回取样 (<strong>Pasting</strong>)</p>
@@ -393,82 +376,63 @@
 <p>通常来讲放回取样(Bagging)更常用</p>
 <p>如果使用不放回取样, 500个样本, 每次看100个样本, 只能训练5个模型, 数量太少. 而Bagging可以训练成千上万的子模型</p>
 <p>Bagging的第二个优点就是: 没有那么强地依赖<strong>随机</strong>, 如果使用Pasting训练5个样本, 其实就相当于把样本分成5份, 每一份有100个样本. 怎么分就会非常强烈地影响最终的结果. Bagging则是每次从500个样本中取100个样本进行学习, 这个学习过程重复非常多次, 其实一定程度将随机带来的问题给取消了</p>
-<br>
-
+<p><br></p>
 <p>Bagging是机器学习中的叫法. <strong>统计学中, 放回取样叫做bootstrap</strong></p>
 <p>scikit-learn中, 选择放回取样还是不放回取样只要调节bootstrap这个参数即可</p>
-<br>
-
+<p><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> sklearn.ensemble <span class="hljs-keyword">import</span> BaggingClassifier<br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><span class="hljs-keyword">from</span> sklearn.tree <span class="hljs-keyword">import</span> DecisionTreeClassifier<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br><br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">500</span>, noise=<span class="hljs-number">0.3</span>, random_state=<span class="hljs-number">42</span>)<br>    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">42</span>)<br><br>    <span class="hljs-comment"># Bagging</span><br>    <span class="hljs-comment"># 集成500个模型, 每个模型看100个数据, 放回取样.</span><br>    bagging_clf = BaggingClassifier(DecisionTreeClassifier(),<br>                                    n_estimators=<span class="hljs-number">500</span>, max_samples=<span class="hljs-number">100</span>,<br>                                    bootstrap=<span class="hljs-literal">True</span>)<br>    bagging_clf.fit(X_train, y_train)<br>    <span class="hljs-built_in">print</span>(bagging_clf.score(X_test, y_test))    <span class="hljs-comment"># 0.904</span><br></code></pre></td></tr></table></figure>
-
 <p>让每一个集成的算法都是决策树模型, 因为决策树这种非参数学习的方式更能产生差异比较大的子模型</p>
 <p>所以要集成成百上千个子模型, 首选决策树</p>
 <blockquote>
 <p>scikit-learn中bagging和pasting统一使用BaggingClassifier, 只不过通过bootstrap传入True或False来改变</p>
 </blockquote>
-<p>n_estimators&#x3D;5000时, 准确率能达到 0.912</p>
+<p>n_estimators=5000时, 准确率能达到 0.912</p>
 <p>理论上说, 子模型数量越多, 最终准确率就会越高. 只不过不会向上面所说达到99.999%, 这是因为具体的学习中还是<strong>和样本数据相关</strong>的. 如果样本存在噪音, 甚至存在错误的样本, 我们依然会犯更大的错误</p>
 <p>不管怎么说这种策略通常都是有很好的结果的</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="OOB-Out-of-Bag"><a href="#OOB-Out-of-Bag" class="headerlink" title="OOB (Out-of-Bag)"></a>OOB (Out-of-Bag)</h2><p>对于Bagging有一个非常重要的概念OOB. 什么是oob?</p>
 <p>放回取样导致一部分样本很有可能没有取到</p>
 <p>平均大约有37%的样本没有取到.</p>
 <p>这37% 的样本就叫做 Out of Bag , 从来没有被取出来的样本.</p>
-<p>如果有这样的情况的话, 其实在使用Bagging时就不用train-test-split了, 而是使用这部分没有取到的样本做<strong>测试 &#x2F; 验证</strong></p>
+<p>如果有这样的情况的话, 其实在使用Bagging时就不用train-test-split了, 而是使用这部分没有取到的样本做<strong>测试 / 验证</strong></p>
 <p>scikit-learn中有一个属性 oob-score, 使用这个属性就能直接看对于Bagging, 这些Out-of-Bag样本作为测试数据集得到结果是怎样的</p>
-<br>
-
+<p><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">500</span>, noise=<span class="hljs-number">0.3</span>, random_state=<span class="hljs-number">42</span>)<br>    <span class="hljs-comment"># 如果想使用oob, 就要把oob_score设置为True</span><br>    bagging_clf = BaggingClassifier(DecisionTreeClassifier(),<br>                                    n_estimators=<span class="hljs-number">500</span>, max_samples=<span class="hljs-number">100</span>,<br>                                    bootstrap=<span class="hljs-literal">True</span>, oob_score=<span class="hljs-literal">True</span>)<br>    bagging_clf.fit(X, y)<br>    <span class="hljs-built_in">print</span>(bagging_clf.oob_score_)   <span class="hljs-comment"># 0.918</span><br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="Baggiing的更多探讨"><a href="#Baggiing的更多探讨" class="headerlink" title="Baggiing的更多探讨"></a>Baggiing的更多探讨</h2><h3 id="并行处理"><a href="#并行处理" class="headerlink" title="并行处理"></a>并行处理</h3><p>集成学习(Bagging)的思路极易进行<strong>并行化处理</strong>, 因为我们是独立训练若干个子模型, 每一个子模型都是从500个样本中取100个样本, 取样本的过程也是独立的</p>
 <p>scikit-learn中, 对于可以并行处理的算法都是传入n_jobs这个参数, 传入几就用几个核, -1就用上所有核</p>
 <p>Grid-SearchCV时使用过了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">bagging_clf = BaggingClassifier(DecisionTreeClassifier(),<br>                                n_estimators=<span class="hljs-number">500</span>, max_samples=<span class="hljs-number">100</span>,<br>                                bootstrap=<span class="hljs-literal">True</span>, oob_score=<span class="hljs-literal">True</span>, n_jobs=-<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h3 id="差异化"><a href="#差异化" class="headerlink" title="差异化"></a>差异化</h3><p>Bagging创建子模型要让子模型有一定差异化, 之前让子模型产生差异化的方式是让每个子模型都看<strong>更小的样本集</strong>, 其实还有其他产生差异化的方式</p>
-<br>
-
+<p><br></p>
 <p>一个非常重要的方式就是<strong>针对特征进行随机取样</strong> (随机子空间:Random Subspaces)</p>
 <p>通常应用在特征非常多的情况, 例如图像识别: 每一个像素点都是一个特征, 每一个样本的特征量就比较大</p>
 <p>随机子空间: 所有特征组成一个特征空间, 每一次取样的时候是在一个子空间进行取样</p>
-<br>
-
+<p><br></p>
 <p>如果同时使用bootstrap对样本的数量进行取样, 又对样本特征进行取样(Random Subspaces)</p>
 <p>这种采样方式又叫 Random Patches 随机补丁</p>
 <p>这个名字本身很形象</p>
 <p>数据本身就是一个矩阵, 每一行是一个样本, 每一列代表一个特征, Random Patches就是<strong>既在行的维度随机, 又在列的维度随机</strong>. 就如下图, 像是一块布上的很多补丁</p>
-<p><img src="/Blog/Blog/intro/random_patches.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/random_patches.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>在特征空间上的随机采样也可以叫 bootstrap features</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">500</span>, noise=<span class="hljs-number">0.3</span>, random_state=<span class="hljs-number">42</span>)<br>    random_subspaces_clf = BaggingClassifier(DecisionTreeClassifier(),<br>                                             <span class="hljs-comment"># 总共有500个样本, 采用500就相当于没有随机</span><br>                                             n_estimators=<span class="hljs-number">500</span>, max_samples=<span class="hljs-number">500</span>,<br>                                             bootstrap=<span class="hljs-literal">True</span>, oob_score=<span class="hljs-literal">True</span>,<br>                                             <span class="hljs-comment"># 最大特征数为1, 设置针对特征进行采样</span><br>                                             max_features=<span class="hljs-number">1</span>, bootstrap_features=<span class="hljs-literal">True</span>)<br>    random_subspaces_clf.fit(X, y)<br>    <span class="hljs-built_in">print</span>(random_subspaces_clf.oob_score_)  <span class="hljs-comment"># 0.832</span><br></code></pre></td></tr></table></figure>
-
 <p>由于样本只有2个特征, 使用随机特征采样的方式是不合适的, 主要了解怎么使用的对样本进行随机采样的</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p>我们用BaggingClassifier都是集合了大量决策树, 其实这种集合方式还有一个非常形象的名字: <strong>随机森林</strong></p>
 <p>BaggingClassifier中有500颗树, 它们就一起构成了一个森林, 对于每一棵树看到的样本都是不同的.</p>
-<br>
-
-<p>scikit-learn分装了一个随机森林类, 这个随机森林的模型还提供了更多的随机性: <strong>决策点在节点划分上, 在随机的特征子集上寻找最优划分特征</strong> (最好的维度&#x2F;特征, 最优的阈值)</p>
+<p><br></p>
+<p>scikit-learn分装了一个随机森林类, 这个随机森林的模型还提供了更多的随机性: <strong>决策点在节点划分上, 在随机的特征子集上寻找最优划分特征</strong> (最好的维度/特征, 最优的阈值)</p>
 <p> 换句话说, 并不是在每一个节点上都在所有的特征上寻找最优划分, 这种划分方式增加了子模型的随机性</p>
 <blockquote>
 <p>集成学习中, 子模型有成百上千个的时候, 每一个子模型和其他的子模型越有差异越好, 创建这种差异性的一个方式就是增加随机性</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">500</span>, noise=<span class="hljs-number">0.3</span>, random_state=<span class="hljs-number">42</span>)<br><br>    <span class="hljs-comment"># 随机森林</span><br>    rf_clf = RandomForestClassifier(n_estimators=<span class="hljs-number">500</span>, random_state=<span class="hljs-number">666</span>, oob_score=<span class="hljs-literal">True</span>, n_jobs=-<span class="hljs-number">1</span>)<br>    rf_clf.fit(X, y)<br>    <span class="hljs-built_in">print</span>(rf_clf.oob_score_)    <span class="hljs-comment"># 0.896</span><br></code></pre></td></tr></table></figure>
-
 <p>随机森林结合了BaggingClassifier和DecisionTreeClassifier, 它的参数也包含两者的大部分参数</p>
-<br>
-
+<p><br></p>
 <h2 id="Extra-Trees"><a href="#Extra-Trees" class="headerlink" title="Extra-Trees"></a>Extra-Trees</h2><p>和随机森林非常类似还有另外一种方法. 有时候我们也可以叫它随机森林, 不过有些时候它有另外一个名字 <strong>Extra-Trees (全称: Extremely Random Trees) 极其随机森林</strong></p>
 <p>极其随机森林的随机表现在: 在决策树的节点划分上, 使用<strong>随机的特征和随机的阈值.</strong></p>
 <p>此时每颗决策树的差异就会更加大, 因为更加随机</p>
@@ -478,20 +442,19 @@
 <p>这就时 Extra Trees 有应用价值的基础</p>
 <p>这种方式提供了额外的随机性, <strong>抑制过拟合, 遏制了方差, 但增大了偏差bias</strong></p>
 <p>由于Extra-Tree划分时毫不费劲, 使用随机的阈值, 随机的特征. 所以这个模型有另外一个优点: 更快的训练速度</p>
-<br>
-
+<p><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">et_clf = ExtraTreesClassifier(n_estimators=<span class="hljs-number">500</span>, bootstrap=<span class="hljs-literal">True</span>, oob_score=<span class="hljs-literal">True</span>, random_state=<span class="hljs-number">666</span>)<br>et_clf.fit(X, y)<br><span class="hljs-built_in">print</span>(et_clf.oob_score_)    <span class="hljs-comment"># 0.892</span><br></code></pre></td></tr></table></figure>
-
-<br>
-
-<h2 id="集成学习解决回归问题"><a href="#集成学习解决回归问题" class="headerlink" title="集成学习解决回归问题"></a>集成学习解决回归问题</h2><table>
+<p><br></p>
+<h2 id="集成学习解决回归问题"><a href="#集成学习解决回归问题" class="headerlink" title="集成学习解决回归问题"></a>集成学习解决回归问题</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>解决分类问题</th>
 <th>解决回归问题</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>BaggingClassifier()</td>
 <td>BaggingRegressor()</td>
 </tr>
@@ -503,84 +466,79 @@
 <td>ExtraTreesClassifier()</td>
 <td>ExtraTreesRegressor()</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>使用方法都是类似的, 就不赘述了.</p>
-<br>
-
+<p><br></p>
 <p>至此就是Bagging的方式进行集成学习的方式, 通过随机取样的方式进行集成学习.</p>
 <p>这种方式是非常常用的一种集成学习方式</p>
 <p>但这不是唯一的一种集中学习的方式.</p>
-<br>
-
+<p><br></p>
 <h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><p>boosting是增强推动的意思</p>
 <p>这种集成学习的思路也是要集成多个模型, 不过和Bagging不同, 这些模型之间不是彼此独立的关系, 而是相互增强的关系</p>
 <p><strong>每个模型都在尝试增强(Boosting)整体的效果</strong></p>
-<br>
-
+<p><br></p>
 <h3 id="Ada-Boosting"><a href="#Ada-Boosting" class="headerlink" title="Ada Boosting"></a>Ada Boosting</h3><p>首先有蓝色的原始数据集, 通过某一种学习的方法(假设解决回归问题, 当然也可以解决分类问题) (初始数据点的权值是一样的)</p>
-<p><img src="/Blog/Blog/intro/ada_boosting.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/ada_boosting.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>通过这样的算法学习完之后, 显然所有的算法都会犯错误, 那么我们就可以得到这样一个结果</p>
-<p><img src="/Blog/Blog/intro/ada_boosting_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/ada_boosting_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>此时数据点分成深色浅色,  浅色的点就是被第一个模型近乎毫无差别地被预测成功的点, 而深色的点和得到的模型差距比较远, 所以形成这样的样本点</p>
 <p>在这组样本点中, 数据和数据之间产生了<strong>权重</strong>的差别</p>
 <p>我们让上一次学习中没有很好被学习的点的权值增大一些, 而在上一次学习中已经很好学习的点的权值减小一些, 这样得到的新的样本数据再使用某一种学习算法进行学习. </p>
-<br>
-
+<p><br></p>
 <p>经过第二次学习, 由得到一个模型, 同样也是有些样本点被准确预测, 有一些样本点没有被准确预测. 这样一来又形成一组新的数据</p>
-<p><img src="/Blog/Blog/intro/ada_boosting_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/ada_boosting_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这组数据点中每一个点的权重又有差距, 再进行学习, 预测, 改变权值. 持续进行下去</p>
-<p><img src="/Blog/Blog/intro/ada_boosting_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/ada_boosting_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>再这个过程中, <strong>每次生成的子模型都是在想办法弥补上一次没有成功预测的样本点,</strong> 换句话说每一个子模型都是在想办法推动 (Boosting), Boost上一个模型所犯的错误.</p>
 <p>经过这个过程Ada Boosting也可以生成非常多的子模型, 对于每一个子模型它是基于同样的一组样本点只不过这些样本点中, 点和点之间的权重不一样, 子模型认为哪些点更重要, 哪些点不重要的程度不同, 所以每一个子模型是有差异的.</p>
 <p>最终所有子模型进行投票作为Ada Boosting最终的学习结果</p>
-<br>
-
+<p><br></p>
 <p>对于Ada Boosting来说, 怎样为数据点附上权值? </p>
 <p>我们可以把整体的思路转换成是求极值的问题, 背后也是有严格的数学推导</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">500</span>, noise=<span class="hljs-number">0.3</span>, random_state=<span class="hljs-number">42</span>)<br>    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">666</span>)<br><br>    ada_clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=<span class="hljs-number">2</span>), n_estimators=<span class="hljs-number">500</span>)<br>    ada_clf.fit(X_train, y_train)<br>    <span class="hljs-built_in">print</span>(ada_clf.score(X_test, y_test))<br></code></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <h3 id="Gradient-Boosting"><a href="#Gradient-Boosting" class="headerlink" title="Gradient Boosting"></a>Gradient Boosting</h3><p>另一种Boosting的算法是Gradient Boosting</p>
 <p>思想是这样的:</p>
 <p>训练一个模型m1, 产生错误 e1</p>
 <p>针对e1训练第二个模型m2, 产生错误 e2</p>
 <p>针对e2训练第三个模型m3, 产生错误 e3</p>
 <p>最终预测结果是: m1 + m2 + m3 … …</p>
-<p><img src="/Blog/Blog/intro/ada_boosting_4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/ada_boosting_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>左边绿色的线是每个模型的预测线, 右边红色的线是最终模型的样子(所有预测模型相加的结果)</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">当前模型(绿色的线)</th>
-<th align="left">总体模型(红色线)</th>
+<th style="text-align:center">当前模型(绿色的线)</th>
+<th style="text-align:left">总体模型(红色线)</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">m1</td>
-<td align="left">m1</td>
+<tbody>
+<tr>
+<td style="text-align:center">m1</td>
+<td style="text-align:left">m1</td>
 </tr>
 <tr>
-<td align="center">m2</td>
-<td align="left">m1 + m2</td>
+<td style="text-align:center">m2</td>
+<td style="text-align:left">m1 + m2</td>
 </tr>
 <tr>
-<td align="center">m3</td>
-<td align="left">m1 + m2 + m3</td>
+<td style="text-align:center">m3</td>
+<td style="text-align:left">m1 + m2 + m3</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>m2 是根据 m1 犯的错误 (y<sub>predict</sub>-y<sub>true</sub>) 得到的模型, m3 是根据 m2 犯的错误得到的模型 (y<sub>predict</sub>-y<sub>true</sub>) </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># GradientBoostingClassifier就是以决策树作为基础的, 不是项AdaBoosting那样可以选择</span><br>gb_clf = GradientBoostingClassifier(max_depth=<span class="hljs-number">2</span>, n_estimators=<span class="hljs-number">30</span>)<br>gb_clf.fit(X_train, y_train)<br><span class="hljs-built_in">print</span>(gb_clf.score(X_test, y_test))<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>和集成学习一样, Boosting可以解决回归问题</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -588,7 +546,8 @@
 <th>回归</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>GradientBoostingClassifier</td>
 <td>GradientBoostingRegressor</td>
 </tr>
@@ -596,64 +555,54 @@
 <td>AdaBoostClassifier</td>
 <td>AdaBoostRegressor</td>
 </tr>
-</tbody></table>
-<br>
-
-<br>
-
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p><br></p>
 <h2 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h2><p>Voting Classifier 这种集成学习的方式就是: 假设有3个算法, 每个算法针对数据都进行预测, 最后综合这3个算法结果, 分类问题少数服从多数, 回归问题就是求均值</p>
-<br>
-
+<p><br></p>
 <p>Stacking是另外一种思路:</p>
-<p><img src="/Blog/Blog/intro/stacking_clf.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/stacking_clf.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>首先也假设有3个算法, 对于这3个算法先求出对于数据的预测结果. 但是不使用这3个预测结果综合来得到最后的结果</p>
 <p>而是以这3个预测结果进行输入, 再添加一层算法(以这三个算法为输入, 训练一个新的模型, 用这个新的模型的输出作为预测的结果)</p>
-<p><img src="/Blog/Blog/intro/stacking_clf_1.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/stacking_clf_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>多了一个模型, 落在三个模型之上. “落”这个动作就是Stacking表示的意义</p>
 <blockquote>
 <p>这种思路同样可以解决分类问题, 解决的方法也非常简单: </p>
 <p>下面这3个模型预测的结果是某一类的概率, 概率是一个具体的数值</p>
 <p>将三个模型的概率值作为第四个模型的输入再得到一个总体的新的概率, 用这个概率进行分类</p>
 <p>分类问题和回归问题可以以概率作为桥梁, 将分类问题转换为回归问题, 回归问题转换为分类问题</p>
-<br>
-
+<p><br></p>
 <p>逻辑回归也介绍过, 为什么逻辑回归解决的是分类问题, 但这种方法却叫逻辑<strong>回归</strong>, 原因在于计算的是样本分为某一类的概率</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <p>怎么训练一个Stacking?</p>
-<p><img src="/Blog/Blog/intro/stacking_clf_2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/stacking_clf_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们要做的是首先把训练数据集分成两份, 对于其中的一份用于训练这3个模型, 另外一份用于训练上面的那层模型</p>
-<br>
-
+<p><br></p>
 <p>也就是说, 用第一个训练集把底下的三个模型训练好了, 在训练好了之后对于第二部分就可以直接扔进这些模型中得到一组输出.</p>
 <p>这组输出结果和第二份样本数据真值的输出就形成了一个新的数据集</p>
 <p>用这新的数据集训练第4个模型, 最终形成Stacking整体的模型</p>
-<br>
-
+<p><br></p>
 <p>理解这一步之后, 就可以构建更加复杂的Stacking模型</p>
-<p><img src="/Blog/Blog/intro/stacking_clf_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/stacking_clf_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>落了3层模型, 第一层的三个模型就得到3个输出, 把这3个输出作为输入就可以分别再训练3个模型.</p>
 <p>这三个模型(第二层)以第一层的输出作为输入再得到3个输出. 最终以这3个输出作为第三层(一个模型) 的输入, 第三层的输出结果作为整个集成学习Stacking的输出结果</p>
 <p>训练这样一个Stacking就要将原始数据集分成<strong>3份</strong>, 第一份由于训练第一层的3个模型, 第二份用于训练第二层的3个模型, 第三份用于训练最后一层的一个模型</p>
-<br>
-
+<p><br></p>
 <p>所以对于Stacking来说, <strong>有几层</strong>也是一个超参数, <strong>每一层使用多少个模型</strong>也是一个超参数</p>
 <p>正因如此, 训练Stacking模型要复杂很多, 也因为这种复杂性, 它是非常容易<strong>过拟合</strong>的</p>
- <br>
-
-<p><img src="/Blog/Blog/intro/stacking_clf_3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p> <br></p>
+<p><img src="/Blog/intro/stacking_clf_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个图这样的方式已经非常像<strong>神经网络</strong>了, 只不过对于神经网络来说, 每一个神经元不是一个全新的算法, 而只是计算一个函数的值而已</p>
 <p>对于神经网络来说, 如果层数增多就已经是深度学习的模型了, 对于神经网络如果层数增多会引发一些新的问题, 这些问题就是深度学习要解决的问题</p>
 <p>神经网络正是因为这种灵活性, 非常<strong>容易发生过拟合</strong></p>
 <p>深度学习中很多话题就是在探讨对于这样一个模型, 我们要如何解决过拟合问题. 其中的很多技术其实适用于Stacking这个模型</p>
-<br>
-
+<p><br></p>
 <p>Stacking这样的模型scikit-learn中根本没有提供任何接口来实现Stacking这个算法.</p>
-<br>
-
-<br>
-
+<p><br></p>
+<p><br></p>
 <p>集成学习本身是一种非常强大的方法, 背后也有非常多的理论基础, 有统计学的知识支撑</p>
 
             </div>
@@ -694,7 +643,7 @@
                       <a href="/Blog/2020/05/20/k-means/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">非监督机器学习算法KMeans</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -703,7 +652,7 @@
                     
                       <a href="/Blog/2020/05/16/machine-learning-10/">
                         <span class="hidden-mobile">python3入门机器学习(10)-决策树</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -720,7 +669,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -746,7 +695,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -755,7 +704,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

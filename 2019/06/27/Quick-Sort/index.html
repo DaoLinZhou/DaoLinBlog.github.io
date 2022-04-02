@@ -19,19 +19,19 @@
     <meta name="description" content="快速排序是21世纪最伟大的算法之一 许多系统内部就是使用快速排序来进行排序的(有点绕口??) 本文从最简单的快速排序开始, 演进写出性能较好的快速排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速排序">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/27/Quick-Sort/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/06/27/Quick-Sort/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="快速排序是21世纪最伟大的算法之一 许多系统内部就是使用快速排序来进行排序的(有点绕口??) 本文从最简单的快速排序开始, 演进写出性能较好的快速排序">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/common_quicksort.png">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/quicksortways.png">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/quickSort3ways.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/common_quicksort.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/quicksortways.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/quickSort3ways.png">
 <meta property="article:published_time" content="2019-06-28T01:11:33.000Z">
 <meta property="article:modified_time" content="2019-09-01T02:03:37.687Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="排序算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/common_quicksort.png">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/common_quicksort.png">
   
   
   <title>快速排序 - Daolin&#39;s Repository</title>
@@ -107,7 +107,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -119,7 +119,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -131,7 +131,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -143,7 +143,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -155,7 +155,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -250,7 +250,6 @@
 <p>许多系统内部就是使用快速排序来进行排序的(有点绕口??)</p>
 <p>本文从最简单的快速排序开始, 演进写出性能较好的快速排序</p>
 <span id="more"></span>
-
 <h2 id="普通快排"><a href="#普通快排" class="headerlink" title="普通快排"></a>普通快排</h2><p>代码复杂程度: 简单</p>
 <p>时间复杂度: O(nlogn)</p>
 <p>空间复杂度: O(1)</p>
@@ -262,27 +261,21 @@
 <li>没有考虑相等元素的情况</li>
 </ol>
 <p>思想: <strong>随机选一个数,  对数组进行整理, 左边都比这个数小, 右边都比他大, 这个数就在他排好序后应该在的位置</strong></p>
-<p><img src="/Blog/Blog/intro/common_quicksort.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/common_quicksort.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 以第一个元素为基础, 左边都比它小, 右边都比他大</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">int</span> __partition(T arr[], <span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)&#123;<br>    <span class="hljs-type">int</span> p = l;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = l+<span class="hljs-number">1</span>; i &lt;= r; i++)<br>        <span class="hljs-keyword">if</span>(arr[i] &lt; arr[l])<br>            <span class="hljs-built_in">swap</span>(arr[++p], arr[i]);<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[p]);<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">void</span> __quickSort(T arr[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)&#123;<br><span class="hljs-comment">//    if(l&gt;=r)</span><br><span class="hljs-comment">//        return;</span><br>    <span class="hljs-keyword">if</span>(r-l &gt; <span class="hljs-number">15</span>)&#123;		<span class="hljs-comment">// 优化: 插入排序 arr[l...r]	这步优化会大大提升性能</span><br>        <span class="hljs-built_in">insertionSort</span>(arr, l, r);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> p = __partition(arr, l, r);<br>    __quickSort(arr, l, p<span class="hljs-number">-1</span>);<br>    __quickSort(arr, p+<span class="hljs-number">1</span>, r);<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    __quickSort(arr, <span class="hljs-number">0</span>, n<span class="hljs-number">-1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br/>
-
+<p><br/></p>
 <h3 id="优化版普通快速排序"><a href="#优化版普通快速排序" class="headerlink" title="优化版普通快速排序"></a>优化版普通快速排序</h3><p>随机算法, 有极大的概率效率非常高, 极低的概率退化为 n^2 级别(近乎为0)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">int</span> __partition(T arr[], <span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)&#123;<br>    <span class="hljs-comment">//随机选择一个元素, 和第一个元素互换, 之后依然以第一个元素作为基准</span><br>    <span class="hljs-built_in">swap</span>(arr[l], arr[<span class="hljs-built_in">rand</span>()%(r-l+<span class="hljs-number">1</span>)+l]);<br>    T e = arr[l];<br>    <span class="hljs-type">int</span> p = l;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = l+<span class="hljs-number">1</span>; i &lt;= r; i++)<br>        <span class="hljs-keyword">if</span>(arr[i] &lt; arr[l])<br>            <span class="hljs-built_in">swap</span>(arr[++p], arr[i]);<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[p]);<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">void</span> __quickSort(T arr[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)&#123;<br><span class="hljs-comment">//    if(l&gt;=r)</span><br><span class="hljs-comment">//        return;</span><br>    <span class="hljs-keyword">if</span>(r-l &gt; <span class="hljs-number">15</span>)&#123;<br>        <span class="hljs-built_in">insertionSort</span>(arr, l, r);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> p = __partition(arr, l, r);<br>    __quickSort(arr, l, p<span class="hljs-number">-1</span>);<br>    __quickSort(arr, p+<span class="hljs-number">1</span>, r);<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-built_in">srand</span>(<span class="hljs-built_in">time</span>(<span class="hljs-literal">NULL</span>));<br>    __quickSort(arr, <span class="hljs-number">0</span>, n<span class="hljs-number">-1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br/>
-
+<p><br/></p>
 <h2 id="双路快排"><a href="#双路快排" class="headerlink" title="双路快排"></a>双路快排</h2><p>代码复杂程度: 中等</p>
 <p>时间复杂度: O(nlogn)</p>
 <p>空间复杂度: O(1)</p>
 <p>稳定性: 不稳定</p>
 <p>思想: <strong>和普通快排大致一样, 但要把等于标定点的元素均匀分布在大于和小于的部分</strong></p>
 <p>swap i 和 j</p>
-<p><img src="/Blog/Blog/intro/quicksortways.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/quicksortways.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">int</span> __partition2(T arr[], <span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)&#123;<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[<span class="hljs-built_in">rand</span>()%(r-l+<span class="hljs-number">1</span>)+l]);<br>    <span class="hljs-type">int</span> p = l+<span class="hljs-number">1</span>, q = r;<br>    T e = arr[l];<br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)&#123;<br>        <span class="hljs-keyword">while</span> (p&lt;=r &amp;&amp; arr[p] &lt; e) p++;<br>        <span class="hljs-keyword">while</span> (q&gt;=l+<span class="hljs-number">1</span> &amp;&amp; arr[q] &gt; e) q--;<br>        <span class="hljs-keyword">if</span>(p &gt; q) <span class="hljs-keyword">break</span>;<br>        <span class="hljs-built_in">swap</span>(arr[p], arr[q]);<br>        p++;<br>        q--;<br>    &#125;<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[q]);<br>    <span class="hljs-keyword">return</span> q;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">void</span> __quickSort2(T arr[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)&#123;<br><span class="hljs-comment">//    if(l&gt;=r)</span><br><span class="hljs-comment">//        return;</span><br>    <span class="hljs-keyword">if</span>(r-l &gt; <span class="hljs-number">15</span>)&#123;<br>        <span class="hljs-built_in">insertionSort</span>(arr, l, r);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> p = __partition2(arr, l, r);<br>    __quickSort2(arr, l, p<span class="hljs-number">-1</span>);<br>    __quickSort2(arr, p+<span class="hljs-number">1</span>, r);<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort2</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-built_in">srand</span>(<span class="hljs-built_in">time</span>(<span class="hljs-literal">NULL</span>));<br>    __quickSort2(arr, <span class="hljs-number">0</span>, n<span class="hljs-number">-1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br/>
-
+<p><br/></p>
 <h2 id="三路快排"><a href="#三路快排" class="headerlink" title="三路快排"></a>三路快排</h2><p>代码复杂程度: 中等</p>
 <p>时间复杂度: O(nlogn)</p>
 <p>空间复杂度: O(1)</p>
@@ -292,26 +285,20 @@
 <p>p : less后下一个元素位置</p>
 <p>q : equal后下一个元素位置</p>
 <p>k : more 前一个元素</p>
-<p><img src="/Blog/Blog/intro/quickSort3ways.png" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/quickSort3ways.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">void</span> __quickSort3(T arr[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)&#123;<br>    <span class="hljs-keyword">if</span>(l&gt;=r)<br>        <span class="hljs-keyword">return</span>;<br><span class="hljs-comment">//    if(r-l &gt; 15)&#123;</span><br><span class="hljs-comment">//        insertionSort(arr, l, r);</span><br><span class="hljs-comment">//        return;</span><br><span class="hljs-comment">//    &#125;</span><br>    <span class="hljs-built_in">swap</span>(arr[l], arr[<span class="hljs-built_in">rand</span>()%(r-l+<span class="hljs-number">1</span>)+l]);<br>    T e = arr[l];<br>    <span class="hljs-comment">//这里的起始位置非常重要, 要明白起始位置代表的是什么</span><br>    <span class="hljs-type">int</span> p=l+<span class="hljs-number">1</span>, q=l+<span class="hljs-number">1</span>, k=r;<br>    <span class="hljs-keyword">while</span> (q &lt;= k)&#123;<br>        <span class="hljs-keyword">if</span>(arr[q] == e)	<span class="hljs-comment">//如果等于</span><br>            q++;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(arr[q] &lt; e) <span class="hljs-comment">//如果小于</span><br>            <span class="hljs-built_in">swap</span>(arr[p++], arr[q++]);<br>        <span class="hljs-keyword">else</span>	<span class="hljs-comment">//如果大于</span><br>            <span class="hljs-built_in">swap</span>(arr[q], arr[k--]);<br>    &#125;<br>    <span class="hljs-comment">//p-1 指向less中最后一个元素, 而不应该是p</span><br>    <span class="hljs-built_in">swap</span>(arr[l], arr[p<span class="hljs-number">-1</span>]);<br><br>    <span class="hljs-comment">//递归</span><br>    __quickSort3(arr, l, p<span class="hljs-number">-2</span>);<br>    __quickSort3(arr, q, r);<br>&#125;<br><br><span class="hljs-comment">// 比较Merge Sort和双路快速排序和三路快排三种排序算法的性能效率</span><br><span class="hljs-comment">// 对于包含有大量重复数据的数组, 三路快排有巨大的优势</span><br><span class="hljs-comment">// 对于一般性的随机数组和近乎有序的数组, 三路快排的效率虽然不是最优的, 但是是在非常可以接受的范围里</span><br><span class="hljs-comment">// 因此, 在一些语言中, 三路快排是默认的语言库函数中使用的排序算法。比如Java:)</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSort3</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-built_in">srand</span>(<span class="hljs-built_in">time</span>(<span class="hljs-literal">NULL</span>));<br>    __quickSort3(arr, <span class="hljs-number">0</span>, n<span class="hljs-number">-1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br/>
-
+<p><br/></p>
 <h2 id="非递归三路快排"><a href="#非递归三路快排" class="headerlink" title="非递归三路快排"></a>非递归三路快排</h2><p>如果想把一个递归算法, 改写成非递归算法, 最好的辅助数据结构就是栈(stack)</p>
 <p>大体思路没变, 只是把递归操作改为入栈操作</p>
 <p>但由于使用了栈, 所以会消耗额外的数据空间</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">void</span> __partition(T arr[], stack&lt;<span class="hljs-type">int</span>&gt; *st)&#123;<br>    <span class="hljs-comment">//先取出右边界, 再取出左边界</span><br>    <span class="hljs-type">int</span> r = st-&gt;<span class="hljs-built_in">top</span>();<br>    st-&gt;<span class="hljs-built_in">pop</span>();<br>    <span class="hljs-type">int</span> l = st-&gt;<span class="hljs-built_in">top</span>();<br>    st-&gt;<span class="hljs-built_in">pop</span>();<br><br>    <span class="hljs-keyword">if</span>(l&gt;=r)<br>        <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-built_in">swap</span>(arr[l], arr[<span class="hljs-built_in">rand</span>()%(r-l+<span class="hljs-number">1</span>)+l]);<br>    T v = arr[l];<br><br>    <span class="hljs-type">int</span> lt = l+<span class="hljs-number">1</span>, k = l+<span class="hljs-number">1</span>, gt = r;<br>    <span class="hljs-keyword">while</span>(k &lt;= gt)&#123;<br>        <span class="hljs-keyword">if</span>(arr[k] == v)&#123;<br>            k++;<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(arr[k] &lt; v)&#123;<br>            <span class="hljs-built_in">swap</span>(arr[k++], arr[lt++]);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-built_in">swap</span>(arr[k], arr[gt--]);<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[lt<span class="hljs-number">-1</span>]);<br><br>    <span class="hljs-comment">//分别入栈</span><br>    st-&gt;<span class="hljs-built_in">push</span>(l);<br>    st-&gt;<span class="hljs-built_in">push</span>(lt<span class="hljs-number">-2</span>);<br>    st-&gt;<span class="hljs-built_in">push</span>(gt+<span class="hljs-number">1</span>);<br>    st-&gt;<span class="hljs-built_in">push</span>(r);<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quickSortLoop</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-built_in">srand</span>(<span class="hljs-built_in">time</span>(<span class="hljs-number">0</span>));<br>    stack&lt;<span class="hljs-type">int</span>&gt; *st = <span class="hljs-keyword">new</span> <span class="hljs-built_in">stack</span>&lt;<span class="hljs-type">int</span>&gt;();<br>    <span class="hljs-comment">//先放左边界, 再放右边界</span><br>    st-&gt;<span class="hljs-built_in">push</span>(<span class="hljs-number">0</span>);<br>    st-&gt;<span class="hljs-built_in">push</span>(n<span class="hljs-number">-1</span>);<br>    <span class="hljs-keyword">while</span>(!st-&gt;<span class="hljs-built_in">empty</span>())&#123;<br>        __partition(arr, st);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>mergeSort 与 quickSort 都使用了分治算法, 而这两者又代表了分治算法的两种情况</p>
 <p>mergeSort : 分简单, 归并难</p>
 <p>quickSort : 分难,归并简单(不用归并, 只要分就可以)</p>
-<br/>
-
+<p><br/></p>
 <h4 id="获取数组中第N大的元素"><a href="#获取数组中第N大的元素" class="headerlink" title="获取数组中第N大的元素"></a>获取数组中第N大的元素</h4><p>通过快速排序, 每一次会把一个元素放大它排好序应该在的位置, 通过与这个位置比较我们能直到应该是向前处理还是向后处理. 直到找到我们想要的元素</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_NTHNUMBER_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_NTHNUMBER_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ctime&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-type">int</span> __quickSort(T arr[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> rank)&#123;<br>    <span class="hljs-keyword">if</span>(l &gt;= r)<br>        <span class="hljs-keyword">return</span> arr[l];<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[<span class="hljs-built_in">rand</span>()%(r-l)+l]);<br>    T v = arr[l];<br>    <span class="hljs-type">int</span> lt = l+<span class="hljs-number">1</span>, gt = r, q = l+<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(q &lt;= gt)&#123;<br>        <span class="hljs-keyword">if</span>(arr[q] == v)<br>            q++;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(arr[q] &gt; v)<br>            <span class="hljs-built_in">swap</span>(arr[q], arr[gt--]);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-built_in">swap</span>(arr[q++], arr[lt++]);<br>    &#125;<br>    <span class="hljs-built_in">swap</span>(arr[l], arr[--lt]);<br><br>    <span class="hljs-keyword">if</span>(rank &gt;= lt &amp;&amp; rank &lt; q) &#123;<br>        <span class="hljs-comment">//cout &lt;&lt; rank &lt;&lt; &quot; &quot; &lt;&lt; lt &lt;&lt; &quot;, &quot; &lt;&lt; gt &lt;&lt; endl &lt;&lt; &quot;number:&quot; &lt;&lt; arr[lt] &lt;&lt; endl;</span><br>        <span class="hljs-keyword">return</span> arr[lt];<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(rank &lt;= (lt<span class="hljs-number">-1</span>))<br>        <span class="hljs-keyword">return</span> __quickSort(arr, l, lt - <span class="hljs-number">1</span>, rank);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> __quickSort(arr, q, r, rank);<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-comment">// n        数组长度</span><br><span class="hljs-comment">// rank     希望获取第 rank 大的元素 从 1 到 n</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getNthNumber</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n, <span class="hljs-type">int</span> rank)</span></span>&#123;<br>    <span class="hljs-built_in">srand</span>(<span class="hljs-built_in">time</span>(<span class="hljs-literal">NULL</span>));<br>    <span class="hljs-keyword">return</span> __quickSort(arr, <span class="hljs-number">0</span>, n<span class="hljs-number">-1</span>, n-rank);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span> <span class="hljs-comment">//ALGORITHM_NTHNUMBER_H</span></span><br></code></pre></td></tr></table></figure>
-
 
             </div>
             <hr>
@@ -349,7 +336,7 @@
                       <a href="/Blog/2019/06/28/HTTP-and-HTTPS/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">HTTP 和 HTTPS</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -358,7 +345,7 @@
                     
                       <a href="/Blog/2019/06/25/HTTP-basic/">
                         <span class="hidden-mobile">HTTP 基础</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -375,7 +362,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -401,7 +388,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -410,7 +397,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

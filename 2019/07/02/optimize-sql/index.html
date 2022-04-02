@@ -19,21 +19,21 @@
     <meta name="description" content="如何定位并优化慢查询SQL 联合索引的最左匹配原则的成因 索引是建立得越多越好吗?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="调优sql">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/02/optimize-sql/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/02/optimize-sql/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="如何定位并优化慢查询SQL 联合索引的最左匹配原则的成因 索引是建立得越多越好吗?">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/sql.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/explain_type.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/explain_extra.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/table.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/complex_index.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/sql.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/explain_type.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/explain_extra.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/table.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/complex_index.PNG">
 <meta property="article:published_time" content="2019-07-02T21:03:57.000Z">
 <meta property="article:modified_time" content="2019-07-06T06:49:30.932Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/sql.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/sql.PNG">
   
   
   <title>调优sql - Daolin&#39;s Repository</title>
@@ -109,7 +109,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -121,7 +121,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -133,7 +133,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -145,7 +145,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -157,7 +157,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -254,85 +254,63 @@
 <li>索引是建立得越多越好吗?</li>
 </ul>
 <span id="more"></span>
-
 <h1 id="如何定位并优化慢查询SQL"><a href="#如何定位并优化慢查询SQL" class="headerlink" title="如何定位并优化慢查询SQL"></a>如何定位并优化慢查询SQL</h1><p>开放性问题, 只有大致思路</p>
 <ol>
 <li>通过慢日志定位慢查询sql</li>
 <li>使用explain等工具分析sql</li>
 <li>修改sql或者尽量让sql走索引</li>
 </ol>
-<br>
-
+<p><br></p>
 <h2 id="查看变量"><a href="#查看变量" class="headerlink" title="查看变量"></a>查看变量</h2><figure class="highlight sql"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">show</span> variables <span class="hljs-keyword">like</span> &quot;%quer%&quot;;<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/sql.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/sql.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>slow_query_log : 是否开启慢日志</p>
 <p>slow_query_log_file : 慢日志记录位置</p>
 <p>long_query_time : 时限, 上图: 一次如果超过10秒就会被记录(通常超过1秒就是慢sql)</p>
-<br>
-
+<p><br></p>
 <h2 id="显示慢查询数量"><a href="#显示慢查询数量" class="headerlink" title="显示慢查询数量"></a>显示慢查询数量</h2><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">show</span> <span class="hljs-built_in">status</span> like <span class="hljs-string">&quot;%slow_queries%&quot;</span>;<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <h2 id="explain-的使用"><a href="#explain-的使用" class="headerlink" title="explain 的使用"></a>explain 的使用</h2><p>一般explain放在select查询语句的前面, 用于描述mysql如何执行查询操作, 以及mysql成功返回结果集所要执行的函数</p>
- <br>
-
+<p> <br></p>
 <h3 id="关键字段"><a href="#关键字段" class="headerlink" title="关键字段:"></a>关键字段:</h3><p><strong>type:</strong></p>
-<p><img src="/Blog/Blog/intro/explain_type.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/explain_type.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果type是最后两个,代表本次走的是全表扫描, 是需要优化的语句</p>
-<br>
-
+<p><br></p>
 <p><strong>extra:</strong></p>
-<p><img src="/Blog/Blog/intro/explain_extra.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
- <br>
-
+<p><img src="/Blog/intro/explain_extra.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p> <br></p>
 <h2 id="修改sql-让它走索引"><a href="#修改sql-让它走索引" class="headerlink" title="修改sql, 让它走索引"></a>修改sql, 让它走索引</h2><p>例:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> name frm person_info_large <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> name <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
-
-<p><img src="/Blog/Blog/intro/table.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/table.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>可以看到, name没有索引, 而account有索引. 如果用account 替代name就可以让sql走索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> account frm person_info_large <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> account <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
-
- <br>
-
+<p> <br></p>
 <p>或者直接为name加上索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> person_info_large <span class="hljs-keyword">add</span> index idx_name(name);<br></code></pre></td></tr></table></figure>
-
-<br>
-
+<p><br></p>
 <p>还可以通过force index() 测试哪个索引是比较好的</p>
-<br>
-
-<h1 id="联合索引的最左匹配原则的成因"><a href="#联合索引的最左匹配原则的成因" class="headerlink" title="联合索引的最左匹配原则的成因"></a>联合索引的最左匹配原则的成因</h1><p><img src="/Blog/Blog/intro/complex_index.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<h1 id="联合索引的最左匹配原则的成因"><a href="#联合索引的最左匹配原则的成因" class="headerlink" title="联合索引的最左匹配原则的成因"></a>联合索引的最左匹配原则的成因</h1><p><img src="/Blog/intro/complex_index.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><strong>联合索引</strong>: 由多列组成的索引, 上图中这句话就是联合索引</p>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">KEY `index_are<span class="hljs-built_in">a_title</span>` (`area`, `title`)<br></code></pre></td></tr></table></figure>
-
 <p><strong>最左匹配原则</strong>: </p>
 <p>​    假设有A,B 两列, 将A , B 都设置为索引(联合索引), 顺序是A,B. </p>
 <p>​    在where 语句中 </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">/</span><span class="hljs-operator">/</span> 走索引<br><span class="hljs-keyword">where</span> A <span class="hljs-operator">=</span> xx <span class="hljs-keyword">and</span> B <span class="hljs-operator">=</span> xxx<br><span class="hljs-keyword">where</span> A <span class="hljs-operator">=</span> xx<br><span class="hljs-operator">/</span><span class="hljs-operator">/</span> 不走索引<br><span class="hljs-keyword">where</span> B <span class="hljs-operator">=</span> xxx<br></code></pre></td></tr></table></figure>
-
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义:"></a>定义:</h3><p>​    1. 最左前缀匹配原则, 非常重要的原则, mysql会一直向右匹配直到遇到范围查询 (&gt;, &lt;, between, like) 就停止匹配, 比如</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">where</span> a<span class="hljs-operator">=</span><span class="hljs-number">3</span> <span class="hljs-keyword">and</span> b<span class="hljs-operator">=</span><span class="hljs-number">4</span> <span class="hljs-keyword">and</span> c<span class="hljs-operator">&gt;</span><span class="hljs-number">5</span> <span class="hljs-keyword">and</span> d<span class="hljs-operator">=</span><span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
-
 <p>如果建立(a,b,c,d) 顺序的索引, d是用不到索引的, </p>
 <p>如果建立(a,b,d,c)顺序的索引, 则都可以用到.</p>
 <p>a, b, d的顺序可以任意调整.</p>
-<br>
-
-<ol start="2">
-<li>&#x3D; 和 in 可以乱序, 比如</li>
+<p><br></p>
+<ol>
+<li>= 和 in 可以乱序, 比如</li>
 </ol>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">where <span class="hljs-attribute">a</span>=1 <span class="hljs-keyword">and</span> <span class="hljs-attribute">b</span>=2 <span class="hljs-keyword">and</span> <span class="hljs-attribute">c</span>=3<br></code></pre></td></tr></table></figure>
-
 <p>建立(a,b,c)索引可以任意顺序,  mysql的查询优化器会帮你优化成索引可以识别的形式</p>
-<br>
-
+<p><br></p>
 <h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>mysql 创建复合索引的规则是会首先对复合索引最左边, 也就是第一</p>
 <p>个索引字段的数据进行排序, 之后再对第二个字段进行排序, 所以第一个字段是绝对有序的, 而第二个字段则是无序的. 因此直接使用第二个字段进行条件判断是用不到索引的</p>
-<br>
-
+<p><br></p>
 <h1 id="索引是建立越多越好吗"><a href="#索引是建立越多越好吗" class="headerlink" title="索引是建立越多越好吗"></a>索引是建立越多越好吗</h1><p>物极必反, 肯定不是建立越多越好</p>
 <ol>
 <li>数据量小的时候不需要建立索引, 建立会增加额外的索引开销</li>
@@ -376,7 +354,7 @@
                       <a href="/Blog/2019/07/04/Binary-Search/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">二分搜索法</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -385,7 +363,7 @@
                     
                       <a href="/Blog/2019/06/30/cpp%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
                         <span class="hidden-mobile">C++入门学习</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -402,7 +380,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -428,7 +406,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -437,7 +415,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

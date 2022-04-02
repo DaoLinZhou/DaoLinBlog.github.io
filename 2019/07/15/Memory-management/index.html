@@ -19,22 +19,22 @@
     <meta name="description" content="内存由操作系统统一管理 一个字节Byte有8个二进制位 计算机插两根2G内存条 等同于 插一根4G内存条 无论插多少根内存条, 计算机会把内存看成是一个整体来计算内存大小">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内存管理">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/15/Memory-management/index.html">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/15/Memory-management/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="内存由操作系统统一管理 一个字节Byte有8个二进制位 计算机插两根2G内存条 等同于 插一根4G内存条 无论插多少根内存条, 计算机会把内存看成是一个整体来计算内存大小">
 <meta property="og:locale">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/2lines.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/memory2.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/useapplication.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/memory3.PNG">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/Blog/intro/memory4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/2lines.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/memory2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/useapplication.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/memory3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/memory4.PNG">
 <meta property="article:published_time" content="2019-07-15T19:16:16.000Z">
 <meta property="article:modified_time" content="2019-07-15T20:51:53.082Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="操作系统">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/Blog/intro/2lines.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/2lines.PNG">
   
   
   <title>内存管理 - Daolin&#39;s Repository</title>
@@ -110,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
-                Hejmpaĝo
+                Home
               </a>
             </li>
           
@@ -122,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Arkivoj
+                Archives
               </a>
             </li>
           
@@ -134,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Kategorioj
+                Categories
               </a>
             </li>
           
@@ -146,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Etikedoj
+                Tags
               </a>
             </li>
           
@@ -158,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                Pri
+                About
               </a>
             </li>
           
@@ -254,69 +254,58 @@
 <p>计算机插两根2G内存条 等同于 插一根4G内存条</p>
 <p>无论插多少根内存条, 计算机会把内存看成是一个整体来计算内存大小</p>
 <span id="more"></span>
-
 <h2 id="32位操作系统"><a href="#32位操作系统" class="headerlink" title="32位操作系统"></a>32位操作系统</h2><p>32 位操作系统最大使用4G内存</p>
-<br>
-
+<p><br></p>
 <p>32 位操作系统上, 地址总线是32位, 即寻址空间是32位</p>
 <p>32 位指的是: 给内存编号只能编到32个二进制位</p>
-<br>
-
+<p><br></p>
 <p>两根地址总线有4种状态</p>
-<p><img src="/Blog/Blog/intro/2lines.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<p>32根地址总线就有2^32个状态, 2^32字节<br>$$<br>2^{32} &#x3D; 2^{10} * 2^{10} * 2^{10} * 2^2<br>$$</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">= 1024 * 1024 * 1024 * 4</span><br><span class="hljs-section">= 1024 * 1024 * 4K</span><br><span class="hljs-section">= 1024 * 4M</span><br><span class="hljs-section">= 4G</span><br></code></pre></td></tr></table></figure>
-
+<p><img src="/Blog/intro/2lines.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>32根地址总线就有2^32个状态, 2^32字节</p>
+<script type="math/tex; mode=display">
+2^{32} = 2^{10} * 2^{10} * 2^{10} * 2^2</script><figure class="highlight asciidoc"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">= 1024 * 1024 * 1024 * 4</span><br><span class="hljs-section">= 1024 * 1024 * 4K</span><br><span class="hljs-section">= 1024 * 4M</span><br><span class="hljs-section">= 4G</span><br></code></pre></td></tr></table></figure>
 <p>所以32位操作系统最多只能管理4G内存</p>
-<br>
-
+<p><br></p>
 <h2 id="64位操作系统"><a href="#64位操作系统" class="headerlink" title="64位操作系统"></a>64位操作系统</h2><p>64位主机可以管理 2^64 字节</p>
-<p>2^30 &#x3D;&gt; GB</p>
-<p>2^40 &#x3D;&gt; TB</p>
+<p>2^30 =&gt; GB</p>
+<p>2^40 =&gt; TB</p>
 <p>… …</p>
 <p>64位系统下的内存足够使用了</p>
-<br>
-
-<h2 id="内存地址"><a href="#内存地址" class="headerlink" title="内存地址"></a>内存地址</h2><p>操作系统会对所有的内存进行编号, 编号 &#x3D; 唯一的内存字节的地址, 1个字节存放8个二进制位的数据</p>
+<p><br></p>
+<h2 id="内存地址"><a href="#内存地址" class="headerlink" title="内存地址"></a>内存地址</h2><p>操作系统会对所有的内存进行编号, 编号 = 唯一的内存字节的地址, 1个字节存放8个二进制位的数据</p>
 <p>64 位操作系统内存地址编号, 二进制表示</p>
 <p>0000 0000 … … 0000 0000    (64 个 0)</p>
 <p>1111 1111 … … 1111 1111    (64 个 1)</p>
-<br>
-
-<p><img src="/Blog/Blog/intro/memory2.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><br></p>
+<p><img src="/Blog/intro/memory2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>右边的每一个格子都代表计算机中的一个字节, 每个字节可以保存8个二进制位的数据, 假设他们都是0</p>
-<p>最高位 0xffffffffffffffff    16个f, 因为一个f 对应 1111 四个一, 16 * 4 &#x3D; 64, 相当于64 个 1</p>
-<br>
-
+<p>最高位 0xffffffffffffffff    16个f, 因为一个f 对应 1111 四个一, 16 * 4 = 64, 相当于64 个 1</p>
+<p><br></p>
 <h3 id="为什么要交给操作系统管理"><a href="#为什么要交给操作系统管理" class="headerlink" title="为什么要交给操作系统管理"></a>为什么要交给操作系统管理</h3><p>计算机中要同时运行多个程序</p>
 <p>如果由程序员对内存直接进行管理, 可能会出现多个程序对同一个地址来操作</p>
 <p>那么该内存应该分给那个程序</p>
 <p>我们不知道用户会在什么时候启用哪些程序, 也不知道哪个程序会占用哪个内存, 所以内存不应由程序员直接管理</p>
-<br>
-
+<p><br></p>
 <p>当我们买计算机时, 第一个应用程序就是操作系统. 其他的应用程序都是安装到操作系统上的. 所以实际上 应用程序是由操作系统来调用的</p>
-<p><img src="/Blog/Blog/intro/useapplication.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
-<br>
-
+<p><img src="/Blog/intro/useapplication.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
 <p>操作系统 不仅能给内存编号, 还可以给内存进行一定的规划</p>
 <p><strong>在64位操作系统中: 系统认为程序员使用的内存只要有前面48位就可以了</strong></p>
-<p><img src="/Blog/Blog/intro/memory3.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/memory3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>即上图红框区域 0x0 到 0x7fffffffffffffff</p>
 <p>而0x7fffffffffffffff 之上的内存空间是给操作系统内核使用的</p>
-<br>
-
+<p><br></p>
 <h3 id="用户内存和操作系统内存隔离的好处"><a href="#用户内存和操作系统内存隔离的好处" class="headerlink" title="用户内存和操作系统内存隔离的好处"></a>用户内存和操作系统内存隔离的好处</h3><ul>
 <li>操作系统的内存不会被大量占用</li>
 <li>避免机器卡住, 卡死, 死机等状态 (哪怕用户内存全部沾满, 操作系统内存也不会受到影响)</li>
 <li>可以通过操作系统把应用程序关闭</li>
 <li>使操作系统更安全</li>
 </ul>
-<p><img src="/Blog/Blog/intro/memory4.PNG" srcset="/Blog/img/loading.gif" lazyload></p>
+<p><img src="/Blog/intro/memory4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>假设我们写了一个c语言代码, 编译后存到磁盘</p>
 <p>一旦我们运行这个程序, 代码编译后的二进制数据就会加载到内存中, 即代码段</p>
 <p>我们可能会声明一些全局变量, 或者常量.这些放在数据段</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">const</span> <span class="hljs-type">int</span> i;<br><span class="hljs-type">int</span> global;<br></code></pre></td></tr></table></figure>
-
 <p>绿色区域为自由可分配内存</p>
 <p>栈: 第一个执行的函数, 如果这个函数调用其他函数会依次往下压栈.</p>
 
@@ -358,7 +347,7 @@
                       <a href="/Blog/2019/08/13/BST/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">二分搜索树 Binary Search Tree</span>
-                        <span class="visible-mobile">Antaŭa afiŝo</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -367,7 +356,7 @@
                     
                       <a href="/Blog/2019/07/13/what-is-printf-scanf/">
                         <span class="hidden-mobile">printf 和 scanf 的本质及流的重定向</span>
-                        <span class="visible-mobile">Sekva afiŝo</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -384,7 +373,7 @@
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Enhavtabelo</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -410,7 +399,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Serĉi</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -419,7 +408,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">ŝlosivorto</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
