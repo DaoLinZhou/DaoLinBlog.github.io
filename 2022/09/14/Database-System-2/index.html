@@ -16,18 +16,23 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Database System 2">
+    <meta name="description" content="数据库实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库 2">
 <meta property="og:url" content="https://daolinzhou.github.io/Blog/2022/09/14/Database-System-2/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="数据库实现">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/database/database.PNG">
 <meta property="article:published_time" content="2022-09-14T07:49:44.000Z">
-<meta property="article:modified_time" content="2022-09-14T07:49:44.359Z">
+<meta property="article:modified_time" content="2022-10-03T16:24:21.870Z">
 <meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/database/database.PNG">
   
   
-  <title>Database System 2 - Daolin&#39;s Repository</title>
+  <title>数据库 2 - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -172,12 +177,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/longyin.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Database System 2">
+            <span class="h2" id="subtitle" title="数据库 2">
               
             </span>
 
@@ -198,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      5.4k 字
     </span>
   
 
@@ -207,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      46 分钟
     </span>
   
 
@@ -236,15 +241,448 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Database System 2</h1>
+            <h1 style="display: none">数据库 2</h1>
             
             <div class="markdown-body">
-              
+              <p>数据库实现</p>
+<span id="more"></span>
+<h1 id="数据库Ⅱ"><a href="#数据库Ⅱ" class="headerlink" title="数据库Ⅱ"></a>数据库Ⅱ</h1><p>我们说 Database System 指的是 Database 和 DBMS 的结合</p>
+<ul>
+<li>Database (DB), 指的是数据, 有关联的数据会被存储在表中</li>
+<li>Database Management System (DBMS) 是管理数据的软件, 例如 MySQL</li>
+</ul>
+<p><br></p>
+<h2 id="数据独立性-Data-independence"><a href="#数据独立性-Data-independence" class="headerlink" title="数据独立性 (Data independence)"></a>数据独立性 (Data independence)</h2><p><strong>应用层</strong>只关心数据 以及 relational model, 不关心 <strong>DBMS</strong> 怎么实现的存储与查找.</p>
+<p>无论实施细节如何，DBMS 都为应用层维护着相同的 relational conceptual view</p>
+<p><img src="/Blog/intro/cmpt454/big_pic.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="DBMS-的功能"><a href="#DBMS-的功能" class="headerlink" title="DBMS 的功能"></a>DBMS 的功能</h2><ol>
+<li>要维护和应用层的连接</li>
+<li>要管理 data manipulation language (DML)<ul>
+<li>权限控制: 什么时候执行请求</li>
+<li>线程管理: 为请求分配线程执行</li>
+</ul>
+</li>
+<li>检查命令并生成一个 query plan</li>
+<li>执行 query plan<ul>
+<li>通过调用存储和 transaction management code</li>
+<li>访问数据记录，同时保持各种 constraints and guarantees</li>
+</ul>
+</li>
+<li>返回结果</li>
+</ol>
+<p><img src="/Blog/intro/cmpt454/components.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>应用层和 DBMS 的接口有两种</p>
+<ul>
+<li>嵌入式<ul>
+<li>通过直接使用 API 调用, 例如 SQLite</li>
+</ul>
+</li>
+<li>Tiered client-server<ul>
+<li>应用程序与DBMS的客户通信管理器建立连接. 通过JDBC/ODBC/等等.</li>
+<li>Connect to some server(s) that connect to the database server</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/components_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Process-Manager"><a href="#Process-Manager" class="headerlink" title="Process Manager"></a>Process Manager</h2><p><img src="/Blog/intro/cmpt454/components.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>DBMS 会分配线程给每个 “Queries” (例如 SQL command)  来处理</p>
+<p><br></p>
+<p>权限管理:</p>
+<p>DBMS 的资源有限, 只有再有足够的资源时才会接受新的工作</p>
+<ul>
+<li>为了避免 thrashing, 允许 graceful degradation</li>
+<li>在使用高峰期，吞吐量仍然很高，延迟增加</li>
+</ul>
+<p><br></p>
+<h2 id="Relational-Query-Processor"><a href="#Relational-Query-Processor" class="headerlink" title="Relational Query Processor"></a>Relational Query Processor</h2><p><img src="/Blog/intro/cmpt454/components.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>如果有足够的资源运行 query</p>
+<ul>
+<li>Determined by admission control and scheduling components</li>
+<li>Enough system resources such as memory, CPU cores</li>
+</ul>
+<p>就要用 query processor 来进一步处理</p>
+<ul>
+<li>检查用户是否有执行 query 的权限</li>
+<li>生成 query plan</li>
+<li>Plan executor 来执行 query plan</li>
+</ul>
+<p><br></p>
+<p>Plan Executor</p>
+<ul>
+<li>Consists of a series of general-purpose “operators” that can be used to execute any query. 例如: select, sort</li>
+<li>Operators 会调用 transactional storage manager 来访问真实数据</li>
+</ul>
+<p><br></p>
+<h2 id="Transactional-Storage-Manager"><a href="#Transactional-Storage-Manager" class="headerlink" title="Transactional Storage Manager"></a>Transactional Storage Manager</h2><p><img src="/Blog/intro/cmpt454/components.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>处理所有 data accesses and manipulations</p>
+<p>Key component for online transaction processing (OLTP)</p>
+<p><br></p>
+<p>高效读取/修改数据</p>
+<ul>
+<li>indexes, tables</li>
+<li>Buffering and judicious use of storage devices</li>
+</ul>
+<p>保持数据完整性(Guarantee data integrity)</p>
+<ul>
+<li>防止故障和崩溃时的数据损坏</li>
+<li>协调来自多个线程的并发访问</li>
+</ul>
+<p><br></p>
+<h2 id="Return-Data-to-Application"><a href="#Return-Data-to-Application" class="headerlink" title="Return Data to Application"></a>Return Data to Application</h2><p>“unwinding” the stack of previous activities</p>
+<p>Access method returns control to Query Processor</p>
+<p>Query processor 生成 data record 把他们放到 buffer 等待 Connection Manager/API interface 处理</p>
+<p>Connection Manager/API interface 把数据运给 调用者</p>
+<p><br></p>
+<h2 id="物理层级"><a href="#物理层级" class="headerlink" title="物理层级"></a>物理层级</h2><p><img src="/Blog/intro/cmpt454/hierarchy.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>必须把data从 storage 移动到 memory 以供 CPU 访问</p>
+<p><br></p>
+<h3 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h3><p>可以”永久”存储数据</p>
+<ul>
+<li>hard disk</li>
+<li>SSD (solid state drive)</li>
+<li>非常便宜, 3GB memory 和 2000GB disk 价格差不多</li>
+<li>但是访问速度非常慢</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/hierarchy_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Hard-Disk"><a href="#Hard-Disk" class="headerlink" title="Hard Disk"></a>Hard Disk</h3><p>近及年主要的持久化存储格式</p>
+<p><img src="/Blog/intro/cmpt454/hierarchy_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>由大量的 sectors (扇区) 组成</p>
+<ul>
+<li>每个 sector 是 512 byte block</li>
+<li>可以看作是 array of sectors</li>
+</ul>
+<p>Hard Disk 的访问</p>
+<ul>
+<li>“Only single sector accesses are atomic” (只在软件层保证, 硬件层不保证)</li>
+<li>通常经常需要 multi-sector accesses <ul>
+<li>例如 文件系统 read/write in 4KB blocks</li>
+<li>可能会导致 torn write, 例如在multi-sector write 时断电, 使得有一些 sector 没有成功写入</li>
+</ul>
+</li>
+<li>Sequential access 比 random access 更快(例如顺序访问1-100 比乱序更快)</li>
+</ul>
+<p>Cache</p>
+<ul>
+<li>Internal, invisible to software</li>
+<li>由设备来保证 “真正的 “持久性</li>
+</ul>
+<p><br></p>
+<h3 id="NAND-Flash-memory"><a href="#NAND-Flash-memory" class="headerlink" title="NAND Flash memory"></a>NAND Flash memory</h3><p>Basic building block: floating gate transistors (cells)</p>
+<ul>
+<li>Data 存储在 cell 中</li>
+<li>每个 cell 中 bit 的数量取决于 voltage levels</li>
+</ul>
+<p>Flash memory types</p>
+<ul>
+<li>Single-level cell (SLC): 1bit/cell (1 threshold voltage)</li>
+<li>Multi-level cell (MLC): 2 bit/cell (3 threshold voltage)</li>
+<li>还有 TLC 和 QLC …</li>
+</ul>
+<p>Organized in blocks and pages</p>
+<ul>
+<li>只能以 block 或 page level 进行 read / write, 任何修改必须 erase block</li>
+</ul>
+<p>Fixed erase cycles</p>
+<ul>
+<li>SLC best, MLC worse, TLC even worse, QLC worst</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/hierarchy_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/hierarchy_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Main-Memory"><a href="#Main-Memory" class="headerlink" title="Main Memory"></a>Main Memory</h3><p>DRAM (dynamic random access memory)</p>
+<p>需要恒定的电流来保留数据</p>
+<p>挥发性 (volatile)：停电时内容会丢失</p>
+<p>系统也可能有少量的非易失性RAM（或ROM），通常用于保存基本信息。</p>
+<ul>
+<li>Bootstrap loader</li>
+<li>BIOS (Basic input output system)</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/hierarchy_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/hierarchy_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>Memory 和 Storage 相关工具</p>
+<ul>
+<li>df: Storage usage stats</li>
+<li>mount: 挂载现有的文件系统以供访问，或显示当前挂载的文件系统</li>
+<li>iostat: 显示 storage I/O speed</li>
+<li>free: 显示 memory usage</li>
+<li>hdparm/sdparm: 显示 I/O device 状态 和 参数</li>
+</ul>
+<p><br></p>
+<h2 id="单个处理器"><a href="#单个处理器" class="headerlink" title="单个处理器"></a>单个处理器</h2><p><img src="/Blog/intro/cmpt454/processor.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/processor_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/processor_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这里指的是物理层面的 thread, 而不是软件层面的</p>
+<p><img src="/Blog/intro/cmpt454/processor_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/processor_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Data-Organization"><a href="#Data-Organization" class="headerlink" title="Data Organization"></a>Data Organization</h2><h3 id="Classic-DBMS"><a href="#Classic-DBMS" class="headerlink" title="Classic DBMS"></a>Classic DBMS</h3><p>Main memory 通常比 storage 小很多</p>
+<p>我们需要把数据从 storage 读取到 memory 或 从 memory 写入 storage</p>
+<p><img src="/Blog/intro/cmpt454/organization.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>明显 Disk/storage 的访问速度决定了整体 DBMS 的性能</p>
+<blockquote>
+<p>I/O on the critical path</p>
+</blockquote>
+<p>现在内存越来越便宜</p>
+<p><img src="/Blog/intro/cmpt454/organization_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>因此有些 DBMS 直接使用 Main Memory 存储 data</p>
+<p><img src="/Blog/intro/cmpt454/organization_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>很多 classic DBMS 的约束都不再适用了</p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt454/organization_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="数据的结构"><a href="#数据的结构" class="headerlink" title="数据的结构"></a>数据的结构</h3><p>Page: 最基本的 I/O 单元 (软件层面的 Page)</p>
+<p>通常不会太大: 1KB, 4KB, 8KB 或 16 KB (MySQL default)</p>
+<p>Page size 是一个可变的参数, 但是当确定下来后就不太容易改变</p>
+<p>和物理层的 Page 不一样</p>
+<p><br></p>
+<p>每个 Page 需要</p>
+<ul>
+<li>a page header</li>
+<li>a collection of slots, each slot stores a record</li>
+</ul>
+<p><br></p>
+<p><strong>Record</strong> : fields 的 集合, 用于用户访问</p>
+<p>Records can be variable or fixed length</p>
+<p>Each record identified by a unique Record ID (RID)</p>
+<ul>
+<li>RID: $\text{<Page ID, Slot Number>}$ Pair</li>
+</ul>
+<p>An RID uniquely identifies a data record</p>
+<p><br></p>
+<h3 id="Fixed-Length-Record"><a href="#Fixed-Length-Record" class="headerlink" title="Fixed-Length Record"></a>Fixed-Length Record</h3><p><img src="/Blog/intro/cmpt454/organization_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>可以随机访问, 因为可以直接计算出位置</p>
+<p><br></p>
+<h3 id="Variable-Length-Records"><a href="#Variable-Length-Records" class="headerlink" title="Variable-Length Records"></a>Variable-Length Records</h3><p>通过分隔符区分每个record</p>
+<p>不可以随机访问, 需要扫描来寻找特定的 field</p>
+<p><img src="/Blog/intro/cmpt454/organization_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>对上面的 variable-length record 进行改进</p>
+<p>我们可以把每个 record 的大小存储在最前面, 通过他们来寻找 field 的位置</p>
+<p><img src="/Blog/intro/cmpt454/organization_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h3 id="Page-Format-Fixed-Length-record"><a href="#Page-Format-Fixed-Length-record" class="headerlink" title="Page Format: Fixed Length record"></a>Page Format: Fixed Length record</h3><p>由于所有 record 大小都一样, 我们可以像数组那样存储他们</p>
+<p><img src="/Blog/intro/cmpt454/format.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这样就可以进行随机访问</p>
+<blockquote>
+<p>使用 <code>i*sizeof(Record)</code> 来访问第 i+1 个元素</p>
+</blockquote>
+<p>问题是当我们删除一个元素时, 要如何处理?</p>
+<p>可以将删除元素后面的元素都向前移动一位</p>
+<p><strong>好处</strong>: 简单</p>
+<p><strong>坏处</strong>: </p>
+<ul>
+<li>移动元素太耗时</li>
+<li>移动 record 时, RID 可能会被改变</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>基于此, 我们可以进行一些改进</p>
+<p>增加一个 bit array 来存储每个record 位置的信息 (1 表示这个 record 正在被使用, 反之是 0)</p>
+<p><img src="/Blog/intro/cmpt454/format_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>只需要扫描 bit array 就能知道哪个位置有空</p>
+<p><strong>好处:</strong> </p>
+<ul>
+<li>不需要对 record 进行重新排列</li>
+<li>RIDs 不会改变</li>
+</ul>
+<p><strong>坏处:</strong> 需要处理 bit array (但是很快)</p>
+<p><br></p>
+<p><br></p>
+<h3 id="Page-Format-Variable-Length-record"><a href="#Page-Format-Variable-Length-record" class="headerlink" title="Page Format: Variable Length record"></a>Page Format: Variable Length record</h3><p>record 在这种情况下可以是任意 size (但是通常会比整个 page 小)</p>
+<p><img src="/Blog/intro/cmpt454/format_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h4 id="slotted-page-structure"><a href="#slotted-page-structure" class="headerlink" title="slotted page structure"></a>slotted page structure</h4><p>每个 slot entry 有一个 <strong>record offset</strong> (指向 record 的起始位置) 和一个 <strong>record length</strong> (用于计算 record 的终止位置)</p>
+<p><img src="/Blog/intro/cmpt454/format_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>例如: 上图中 slot directory 的第一个元素指向一个 record (RID=(i, 1)), 这就是 记录 record offset</p>
+<p>而它同时知道 record length = 24</p>
+<p><img src="/Blog/intro/cmpt454/format_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这种方式更灵活但也更复杂</p>
+<p><strong>删除操作:</strong></p>
+<ul>
+<li>将 valid slot 的数量 减一</li>
+<li>把 slot entry 的 offset 和 size 设为 invalid</li>
+<li>但是我们不能删除 slot entry, 因为 RID 会因此改变<ul>
+<li>除非删除的 record 是最后一个 slot entry</li>
+</ul>
+</li>
+</ul>
+<p><strong>插入操作:</strong></p>
+<ul>
+<li>尝试 reuse 之前创建的 slot (现在已经删除的)</li>
+<li>需要扫描 existing slot entries</li>
+</ul>
+<p>修改 (扩展) 操作:</p>
+<p>扩展会导致现存的空间不够</p>
+<ul>
+<li>有两种解决方法: <ol>
+<li>可以在 free space 创建一个新的entry, 把值复制过去</li>
+<li>可以在 entry 的最后添加下一段数据的位置 (像一个链表)</li>
+</ol>
+</li>
+</ul>
+<p><br></p>
+<h3 id="Organizing-Pages-into-a-Heap-File"><a href="#Organizing-Pages-into-a-Heap-File" class="headerlink" title="Organizing Pages into a Heap File"></a>Organizing Pages into a Heap File</h3><p><strong>Heap file</strong>: a collection of fixed-size pages (这里叫做 heap 只是因为行为类似与我们从 heap 种 allocate 对象)</p>
+<p>这个就是一个 file, 这个 file 中存储多个 Pages</p>
+<ul>
+<li><p>Pages 可以随着 file 的增长或缩小进行 allocated 和 decallocate</p>
+</li>
+<li><p>Heap file 中的 Pages 是无序的</p>
+<ul>
+<li>只确保我们能找到所有的 pages</li>
+</ul>
+</li>
+<li>支持的操作<ul>
+<li>insert/delete/update a record</li>
+<li>search for a record, scan for a range of record</li>
+</ul>
+</li>
+<li>核心问题<ul>
+<li>需要跟踪所有的 page</li>
+<li>需要跟踪所有的 free space</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="Heap-File-双向链表"><a href="#Heap-File-双向链表" class="headerlink" title="Heap File: 双向链表"></a>Heap File: 双向链表</h3><p><img src="/Blog/intro/cmpt454/format_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>经典 allocate 的算法</p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt454/format_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/format_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/format_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/format_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/format_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="访问数据"><a href="#访问数据" class="headerlink" title="访问数据"></a>访问数据</h2><p>DB record 必须先从硬盘读取到内存在进行访问</p>
+<p>并且在需要的时候从 main memory 中 remove (evict) page</p>
+<p>需要使用 Buffer Pool 来进行数据访问</p>
+<p><img src="/Blog/intro/cmpt454/access.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/access_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/access_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/access_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Buffer-Frame-Replacement-Policies"><a href="#Buffer-Frame-Replacement-Policies" class="headerlink" title="Buffer Frame Replacement Policies"></a>Buffer Frame Replacement Policies</h3><blockquote>
+<p>事实: Buffer pool 的大小远远小于 data size</p>
+</blockquote>
+<p>我们可能需要释放 buffer pool 中的一些 page 来读取新的 page</p>
+<p>这个操作对性能有极大的影响</p>
+<ul>
+<li>取决与访问的方式 (workload)</li>
+</ul>
+<p><br></p>
+<p>主要的几种方式</p>
+<ul>
+<li>Random</li>
+<li>First-in-first-out (FIFO)</li>
+<li>Least Recently Used (LRU)</li>
+<li>Clock Replacement</li>
+<li>Most Recently Used (MRU)</li>
+</ul>
+<p><br></p>
+<p><strong>Random</strong></p>
+<p>随机释放可能在实际使用时的性能超过 LRU</p>
+<p>因为 LRU 还需要使用锁以及一大堆操作来维护, 而 Random 没有这些需求</p>
+<p><br></p>
+<p><strong>LRU</strong></p>
+<p><img src="/Blog/intro/cmpt454/access_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><strong>Clock Replacement</strong></p>
+<p><img src="/Blog/intro/cmpt454/access_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>为什么我们不使用系统的 cache 而是实现自己的 Buff Pool?</p>
+<ol>
+<li>DBMS 知道 workload</li>
+<li>我们可以预测 prefetching, customized replacement 的 pattern</li>
+<li>有时我们需要强制将缓存中的内容写入硬盘</li>
+<li>操作系统间存在差异, OS file 通常不能跨磁盘</li>
+</ol>
+<p><br></p>
+<h2 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h2><p><img src="/Blog/intro/cmpt454/access_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B+ - Tree"></a>B+ - Tree</h3><p>在数据库中, 当讨论 B-Tree 时, 通常说的是 B+Tree</p>
+<p>B+Tree 只有 leaf node 存储数据, 而 B-Tree 是每个节点都存储数据</p>
+<p><img src="/Blog/intro/cmpt454/index_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<p><strong>B-Tree 插入</strong></p>
+<p>遍历树找到对应 leaf 节点 $L$</p>
+<p>把 data entry 放入 $L$</p>
+<ul>
+<li>如果 $L$ 有足够的空间, 结束 (每个 node 有 max size limit, 一般来说是一个 page)</li>
+<li>如果 $L$ 没有足够空间, 则把 $L$ 拆分为 $L_1,L_2$ <ul>
+<li>Redistribute entries evenly</li>
+<li>向父节点插入 middle key (新的 separator key)<ul>
+<li>可能会引发进一步的拆分, 甚至会传播到 root node</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/index_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<p><strong>B-Tree 删除</strong></p>
+<p>遍历树找到对应 leaf 节点 $L$</p>
+<p>删除 entry</p>
+<ul>
+<li>如果 $L$ 还有一半以上的 数据 (半满), 结束</li>
+<li>反之 需要 redistribute 或 merge<ul>
+<li>Redistribute: 从 sibling 借一条数据</li>
+<li>Merge: 和 sibling 组合成一个新的 node, 删除 父节点中的 key pointer<ul>
+<li>如果 父节点的数据因此小于一半, 继续向上传播</li>
+<li>可能传播到 root 节点并且缩小 tree 的高度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/index_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/index_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
                 
               </div>
               
