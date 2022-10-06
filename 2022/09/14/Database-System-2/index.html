@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/database/database.PNG">
 <meta property="article:published_time" content="2022-09-14T07:49:44.000Z">
-<meta property="article:modified_time" content="2022-10-03T16:24:21.870Z">
+<meta property="article:modified_time" content="2022-10-05T23:59:43.253Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.4k 字
+      7k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46 分钟
+      59 分钟
     </span>
   
 
@@ -663,6 +663,162 @@
 <p><img src="/Blog/intro/cmpt454/index_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt454/index_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt454/index_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><img src="/Blog/intro/cmpt454/btree.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>S-latch 是读锁, X-latch 是写锁</p>
+<p><br></p>
+<h4 id="Latch-Coupling-Crabbing"><a href="#Latch-Coupling-Crabbing" class="headerlink" title="Latch Coupling (Crabbing)"></a>Latch Coupling (Crabbing)</h4><p>在访问 单个node 之前 就获取需要的 <strong>S/X latches</strong> </p>
+<p>如果你确定任何在子节点的操作不会影响父亲节点</p>
+<ul>
+<li>update 操作 不会 split/merge node</li>
+<li>叶子节点 not full (可以 insert), not less than half full (可以delete)</li>
+</ul>
+<p>当 子节点 成功 latched 后, 再 Unlatch 父节点</p>
+<p><br></p>
+<p>Search 一个 single key (point query)</p>
+<ul>
+<li>在 root 节点请求 S-latching</li>
+<li>在 child node 请求 S-latch</li>
+<li>释放 parent node 的 S-latch</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/btree_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>B-Link Trees</strong></p>
+<p><img src="/Blog/intro/cmpt454/btree_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>压缩key</p>
+<p><img src="/Blog/intro/cmpt454/btree_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/btree_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Skip-List"><a href="#Skip-List" class="headerlink" title="Skip List"></a>Skip List</h3><p><img src="/Blog/intro/cmpt454/skip_list.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>当我们进行 traversal 时</p>
+<p>要用 stack/array 来存储路径</p>
+<p>这对 reverse scan, insert, delete 非常有用</p>
+<ul>
+<li>Reverse scan: find start key, then move backwards using the stack</li>
+<li>Insert/delete: insert at the lowest level, then build up towers</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/skip_list_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h4 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h4><p><img src="/Blog/intro/cmpt454/skip_list_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_31.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_32.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>解决思路:</p>
+<p>这种方式是 lock free 算法的一个常用的方式</p>
+<p>使用 logically delete, 而不是真的 delete</p>
+<p>我们可以使用一个bit来表示这个node是否真的被删除</p>
+<p><img src="/Blog/intro/cmpt454/skip_list_33.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>删除操作 (设置 delete bit 为 1):</p>
+<ul>
+<li>仅仅是逻辑上删除</li>
+<li>依然可以被遍历到 (但是会被 filtered out)</li>
+<li>只有当真的没有线程使用时才会回收 (物理删除)</li>
+</ul>
+<p>插入操作:</p>
+<ul>
+<li><p>只有在 predecessor 的 delete bit 为 0 时插入</p>
+</li>
+<li><p>当 predecessor 被 logically deleted 时会无法插入</p>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt454/skip_list_34.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt454/skip_list_35.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>对于每个 “tower”, 只存储一个值, 可以使用多个pointer代表多层</p>
+<p><img src="/Blog/intro/cmpt454/skip_list_36.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>减少 cache misses, 提高 space efficiency</p>
+<p><br></p>
+<p>我们还可以把相邻的 block 合并起来, 这样也减少的指针的使用</p>
+<p><img src="/Blog/intro/cmpt454/skip_list_37.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>但我们无法预测每个 block 开辟空间的大小, 因此有时候我们需要预先开辟空间, 当我们再插入元素是可以使用这些空间</p>
+<p><br></p>
+<p>在此之上还可以减少 <code>random</code> 函数的使用次数</p>
+<p><img src="/Blog/intro/cmpt454/skip_list_38.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>只调用一次random确定层数</p>
+<p>或者使用 <code>random() % max_level + 1</code> 来确定层数</p>
+<p><br></p>
+<h3 id="Skip-Lists-对比-B-Tree"><a href="#Skip-Lists-对比-B-Tree" class="headerlink" title="Skip Lists 对比 B+-Tree"></a>Skip Lists 对比 B+-Tree</h3><ul>
+<li>二者都保存了数据的 order</li>
+<li>二者都被广泛使用<ul>
+<li>B-trees 一般在所有 DBMS 中都使用</li>
+<li>Skip lists 也被 一些DBMS 中使用, 同时在 key-value stores (KVS) 中 也很受欢迎<ul>
+<li>Redis (KVS), LevelDB (KVS), SingleStore (DBMS), RocksDB (DBMS), WiredTiger (DBMS)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>B+-trees</p>
+<ul>
+<li>在存储上更为优化, 比 skip lists 更加 cache efficient </li>
+<li>很难 latch-free</li>
+<li>更容易支持 forward and reverse range scan</li>
+</ul>
+<p>Skip lists</p>
+<ul>
+<li>对 disk/storage 不友好, not optimized for locality</li>
+<li>latch-free 更容易</li>
+<li>reverse range scan 稍微复杂一点</li>
+</ul>
+<p><br></p>
+<h3 id="什么是-Lock-Latch-Free-算法"><a href="#什么是-Lock-Latch-Free-算法" class="headerlink" title="什么是 Lock/Latch Free 算法"></a>什么是 Lock/Latch Free 算法</h3><p>内存管理可能会很 tricky</p>
+<ul>
+<li>必须要确保 unlink node 不被 recycle 直到没有线程使用它们<ul>
+<li>不然会引发 Segfault 或 访问到垃圾数据</li>
+</ul>
+</li>
+<li>一些解决方案<ul>
+<li>Hazard pointers</li>
+<li>Epoch-based reclamation</li>
+<li>Reference count</li>
+</ul>
+</li>
+</ul>
+<p>Lock-free: ensures overall progress</p>
+<ul>
+<li>使用锁是确保只有一个线程往前执行 (critical section), 而其他线程在做一些其他的事情</li>
+<li>而在 Lock-free 中没有任何 critical section, 所有线程能访问所有变量的所有中间状态</li>
+</ul>
 
             </div>
             <hr>
