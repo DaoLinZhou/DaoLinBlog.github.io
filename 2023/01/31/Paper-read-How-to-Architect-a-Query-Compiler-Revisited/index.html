@@ -23,14 +23,28 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Paper: How to Architect a Query Compiler, Revisited SIGMOD, 2016">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_8.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_9.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler_10.PNG">
 <meta property="article:published_time" content="2023-02-01T00:41:14.000Z">
-<meta property="article:modified_time" content="2023-02-01T02:45:46.399Z">
+<meta property="article:modified_time" content="2023-02-01T21:22:27.848Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="论文">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler.PNG">
   
   
   <title>论文阅读 How to Architect a Query Compiler Revisited - Daolin&#39;s Repository</title>
@@ -204,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      675 字
+      5k 字
     </span>
   
 
@@ -213,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      42 分钟
     </span>
   
 
@@ -248,7 +262,7 @@
               <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><p>Paper: How to Architect a Query Compiler, Revisited</p>
 <p>SIGMOD, 2016</p>
 <span id="more"></span>
-<p>论文: <a target="_blank" rel="noopener" href="https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf">https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf</a></p>
+<h1 id="Paper-How-to-Architect-a-Query-Compiler-Revisited"><a href="#Paper-How-to-Architect-a-Query-Compiler-Revisited" class="headerlink" title="Paper: How to Architect a Query Compiler, Revisited"></a>Paper: How to Architect a Query Compiler, Revisited</h1><p>论文: <a target="_blank" rel="noopener" href="https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf">https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf</a></p>
 <p>参考: <a target="_blank" rel="noopener" href="http://loopjump.com/architect-query-compiler-revisited/">http://loopjump.com/architect-query-compiler-revisited/</a></p>
 <p><br></p>
 <p>思路: 使用 Futamura projections</p>
@@ -260,6 +274,126 @@
 <p>从宏观的视角来看, 数据库基本符合教科书对编译器的描述: 解析器, 前端, 优化器 以及 后端, 一个关键的区别就是在最后一步, 传统 DBMS 通常不生成 machine code</p>
 <p><br></p>
 <p>在以前这是个好的选择, 因为当时 I/O 是性能瓶颈, 而通过解释器来解释 query plan 提供了可移植的优势, <span class="hint--info hint--rounded hint--top" data-hint="生产者消费者模式中生产速度慢, 消费再快也无法提升整体性能" ontouchstart>而速度没有太多降低</span> , 因此进行 low-level code generation 是不值得的 (<a target="_blank" rel="noopener" href="https://www.seas.upenn.edu/~zives/cis650/papers/System-R.PDF">System R: relational approach to database management</a>)</p>
+<p>但现在 NVM 硬件发展, OLAP 型查询需求增多, 使得很多查询都是 CPU bound, 因此将 query execution plans (QEPs) 转为本地代码这种想法得到复兴 (old idea)</p>
+<p>很多商业系统都使用这种技术 (lmpala, Hekaton, Spark SQL …)</p>
+<p><br></p>
+<p>学术界很多人认为困难, 但其实没有必要细致到操作寄存器的地步, 只要生成 C/LLVM 代码就够了(其实这也叫编译). </p>
+<p>HyPer 使用 programmatic LLVM 并取得出色的性能, 代价是一些低级实现会渗透到引擎代码的很大一部分</p>
+<p><br></p>
+<h2 id="Futamura-Projections"><a href="#Futamura-Projections" class="headerlink" title="Futamura Projections"></a>Futamura Projections</h2><p>1970 年 Codd 提出: “data could be profitably represented as high-level relations without explicit reference to a given storage model or traversal strategy”</p>
+<p>1971 年 Yoshihiko Futamura 发表论文 “ “Partial Evaluation of Computation Process An approach to a Compiler-Comp”, 他的观点是 编译器和解释器没有本质上的区别, compilation 可以看作是 <span class="hint--info hint--rounded hint--top" data-hint="without explicit reference to a
+given hardware platform or code generation strategy" ontouchstart>**specialization** of interpreter</span></p>
+<p><br></p>
+<p><br></p>
+<h3 id="Specialization"><a href="#Specialization" class="headerlink" title="Specialization"></a>Specialization</h3><p>我们首先要明白什么是 specialization</p>
+<p>它意味着对于一个通用函数, 用一个给定参数将其实例化, 之后再简化, 例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs pseudocode">def power(x:Int, n:Int): Int =<br>    if (n == 0) 1 else x * power(x, n - 1)<br> <br>def power4(x:Int): Int = x * x * x * x<br></code></pre></td></tr></table></figure>
+<p>这种也叫做 <strong>partial evaluation</strong></p>
+<p><br></p>
+<h3 id="Specializing-Interpreters"><a href="#Specializing-Interpreters" class="headerlink" title="Specializing Interpreters"></a>Specializing Interpreters</h3><p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Futamura 的思想是对 interpreters 进行 specialization.</p>
+<p>就像上面的 pow 函数, interpreter 需要两个参数: </p>
+<ol>
+<li>Code of the function to interpret</li>
+<li>Input data</li>
+</ol>
+<p>例如 Figure 2a, 需要一个 <span class="hint--info hint--rounded hint--top" data-hint="类似于 prepare statement" ontouchstart>SQL query (static input)</span>  和 <span class="hint--info hint--rounded hint--top" data-hint="prepare statement的参数" ontouchstart>data (dynamic input)</span></p>
+<blockquote>
+<p>个人感觉就像 MyBatis, 给 SQL 动态传入data</p>
+</blockquote>
+<p><br></p>
+<p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而对 interpreter 使用 specializing 就像 Figure 2b</p>
+<p>如果我们有一个 program specializer 或者说 partial evaluator (基于历史原因叫 mix), 那么我们就可以 specialize query 生成 mix, 再用 mix 和 data 计算结果. 这是因为 specialization 避免了 “interpretive overhead” (例如解释器对查询结构调度的开销)</p>
+<p>换句话说就是生成了这个查询的 compiled version</p>
+<p>这个叫做 first Futamura projection</p>
+<p><br></p>
+<h3 id="Programmatic-Specialization"><a href="#Programmatic-Specialization" class="headerlink" title="Programmatic Specialization"></a>Programmatic Specialization</h3><p>然而这个东西在实际中是难以实践的</p>
+<p>但作者说只需要找到另一种方式来实现 program specialization (perhaps with some help from the programmer)</p>
+<p>回到之前 Pow 函数的例子中, 可以像这样实现一个 self-specializing power function</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">def power(x:MyInt, n:Int): MyInt =<br>   if (n == 0) 1 else x * power(x, n - 1)<br></code></pre></td></tr></table></figure>
+<p>我们把 Int 转为 MyInt, 并假设我们在一个高级的语言上工作并使用运算符重载</p>
+<p>我们可以这样实现 MyInt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">// symbolic integer type <br>class MyInt(ref: String) &#123;<br>  def *(y: MyInt) = &#123;<br>    val id = freshName();<br>    println(s&quot;int $id = $ref * $&#123;y.ref&#125;;&quot;); <br>    new MyInt(id);<br>  &#125;<br>&#125;<br><br>// implicit conversion Int -&gt; MyInt <br>implicit def constInt(x: Int) = new MyInt(x.toString)<br></code></pre></td></tr></table></figure>
+<p>此时当我们调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">power(new MyInt(&quot;in&quot;),4)<br></code></pre></td></tr></table></figure>
+<p>它就会生成如下代码</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">int x0 <span class="hljs-operator">=</span> in * <span class="hljs-number">1</span><span class="hljs-comment">;</span><br>int x1 <span class="hljs-operator">=</span> in * x0<span class="hljs-comment">;</span><br>int x2 <span class="hljs-operator">=</span> in * x1<span class="hljs-comment">;</span><br>int x3 <span class="hljs-operator">=</span> in * x2<span class="hljs-comment">; // = in * in * in * in</span><br></code></pre></td></tr></table></figure>
+<p><span class="hint--info hint--rounded hint--top" data-hint="Based on this core idea of introducing special data types for symbolic or staged computation" ontouchstart>通过引入符号化和分阶段计算的特殊数据类型</span> 我们使得 first Futamura projection 变得实用</p>
+<p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这就是 Figure2c 的思路, staged interpreter 就是 source 中 input 符号化后的解释执行过程</p>
+<p><br></p>
+<p><br></p>
+<h2 id="Structuring-Query-Evaluators"><a href="#Structuring-Query-Evaluators" class="headerlink" title="Structuring Query Evaluators"></a>Structuring Query Evaluators</h2><p>First Futamura projection 本身不涉及任何代码分析或优化</p>
+<p>然而 specialized code 是和 interpreter 有着类似的结构的</p>
+<p>因此一个设计的原则是 : By engineering the source interpreter in<br>a certain way, we can control the shape of the compiled code</p>
+<p>下面分析几种常见模型</p>
+<p><br></p>
+<p><img src="/Blog/intro/paper_1/compiler_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="The-Iterator-Volcano-Model"><a href="#The-Iterator-Volcano-Model" class="headerlink" title="The Iterator (Volcano) Model"></a>The Iterator (Volcano) Model</h3><p>基于统一的 <code>open/next/close</code> 接口, Figure 3a-b 显示了 Query Execution Plan (QEP) 以及 Volcano 的 interface.</p>
+<p>执行时从 root 开始向下调用迭代器, 当得到一个值就会 pop up, 由上层检查是否符合要求</p>
+<p>因此这种 mode 叫做 <strong>pull-based</strong>, 每次得到值都会拉上来</p>
+<p>尽管这种模型非常直观, 但 function call 会产生大量开销, 人们希望通过编译来消除这些开销</p>
+<p><img src="/Blog/intro/paper_1/compiler_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而且 Figure4b 中 <code>select * from Dep where rank &lt; 10</code> 的每一步都要进行 null check, 因为每个 operator 本身处理的都是 dynamic data, 然而实际只有最底层的 operator 进行 null check 就足够了,这也导致了这种方式的性能差</p>
+<p><br></p>
+<p><br></p>
+<h3 id="The-Data-Centric-Produce-Consume-Model"><a href="#The-Data-Centric-Produce-Consume-Model" class="headerlink" title="The Data-Centric (Produce/Consume) Model"></a>The Data-Centric (Produce/Consume) Model</h3><p>由 HyPer 引入, 可以得到更好的编译结果, 被广泛使用, 如: LegoBase, DBLAB 和 Spark SQL.</p>
+<p>这个模型中, control flow 是反转的</p>
+<p>Data 被 push 给 operators (<strong>push-base</strong>), 而那些 <span class="hint--info hint--rounded hint--top" data-hint="例如 aggregate 和 hash join" ontouchstart>会 materialize tuples 的 operator</span> 叫做 pipeline breaker</p>
+<p>Producer 的任务是获取 tuples (scan 或其他接口), 而 Consumer 执行 operation</p>
+<p>从 Futamura projection 的视角来看, inter-operator control flow 不依赖 dynamic data, 因此 specialization 可以移除对 operator structure 的 调度, 留下 Figure 4c 这样紧凑的代码.</p>
+<p>而且对比 Volcano model, 每个 operator 只操作 valid data, 不需要重复的 null check</p>
+<p><br></p>
+<p><br></p>
+<h3 id="Data-Centric-Evaluation-with-Callbacks"><a href="#Data-Centric-Evaluation-with-Callbacks" class="headerlink" title="Data-Centric Evaluation with Callbacks"></a>Data-Centric Evaluation with Callbacks</h3><p><img src="/Blog/intro/paper_1/compiler_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>但是 data-centric 这个模型不太直观, 因为它把 evaluation 分散到 producer 和 consumer 中了, 我们需要另一套 API 实现相同的 specialization</p>
+<p>Figure 5a 就是 push 模型, HashJoin 有 left 和 right 两个 operators</p>
+<p>当调用 produce method 时, 会依次调用 left 和 right 的 produce.</p>
+<p>首先调用 <code>left.produce</code> 并执行一段时间, 直到到达 scan 或 pipeline breaker. (<strong>step 2</strong>)</p>
+<p>之后调用 consume, 此时会把 record 存入 hash map 中 (<strong>step 3</strong>)</p>
+<p>再之后调用 <code>right.produce</code> 直到到达 scan 或 pipeline breaker (step 4)</p>
+<p>再执行 <code>HashJoin.consume</code> (step 5)</p>
+<p>consume 是在 produce 中调用的, 而当一个 operator 的 children 比较多时, consume 就会变得更加复杂</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://loopjump.com/architect-query-compiler-revisited/">http://loopjump.com/architect-query-compiler-revisited/</a></p>
+<p><img src="/Blog/intro/paper_1/compiler_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>push模型可以看做DFS访问执行计划树，第一次访问调用produce触发准备数据，第二次回来的时候调用consume触发消费数据。</p>
+</blockquote>
+<p><br></p>
+<p>作者决定使用 callback 来解决这个问题, 提出一个新模型</p>
+<p>Data-centric with callbacks model (LB2)</p>
+<p><img src="/Blog/intro/paper_1/compiler_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Figure 5b</p>
+<p>每一个join branch 都调用不同的 callback, 先调用 left 再调用 right</p>
+<p><code>op.exec(cb)</code> 可以理解为 operator op 会生成一堆 result 并对每个tuple 执行 callback function</p>
+<p><br></p>
+<h2 id="Building-Optimized-Query-Compiler"><a href="#Building-Optimized-Query-Compiler" class="headerlink" title="Building Optimized Query Compiler"></a>Building Optimized Query Compiler</h2><p>但是代码生成应该放在查询引擎的什么位置，以尽量减少对 operator</p>
+<p> code 的更改?</p>
+<h3 id="Pure-Template-Expansion"><a href="#Pure-Template-Expansion" class="headerlink" title="Pure Template Expansion"></a>Pure Template Expansion</h3><p><img src="/Blog/intro/paper_1/compiler_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>首先尝试在 operator level 进行粗颗粒度的代码生成</p>
+<p>如上图直接用 string 和 parameters 的 placeholders</p>
+<p><img src="/Blog/intro/paper_1/compiler_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>但这么做有三个问题:</p>
+<ol>
+<li>代码实现可能不够优化</li>
+<li>无法进行 cross-operator 优化, 以及 data layout changes 等等</li>
+<li>字符串的转义问题</li>
+</ol>
+<p><br></p>
+<h3 id="Programmatic-Specialization-1"><a href="#Programmatic-Specialization-1" class="headerlink" title="Programmatic Specialization"></a>Programmatic Specialization</h3><p><img src="/Blog/intro/paper_1/compiler_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>为了避免上面这些问题, 论文继续将 specialization 继续下推到 operator 的内部成员的数据结构上，特别是 Record 和各种 HashMap 类</p>
+<p><img src="/Blog/intro/paper_1/compiler_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这种方法的主要好处是 Figure 6 中的 main engine code 可以保持不变</p>
+<p><br></p>
+<p><strong>Optimized Programmatic Specialization.</strong> </p>
+<p>为了更好的性能, 继续下推 specialized 到 primitive types and operations 层次上</p>
+<p>这就意味这 Record 和 HashMap 也不需要直接的代码生成</p>
+<p><br></p>
+<p><strong>Lightweight Modular Staging (LMS)</strong></p>
+<p>LB2 使用 LMS, LMS 维护一个类似于 graph 的 intermediate representation (IR)</p>
 
             </div>
             <hr>
