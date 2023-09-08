@@ -1,0 +1,563 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Ring and Fields环(Ring) 是一类包含两种运算(加法和乘法)的代数系统  域(Field) 是一种具有加法跟乘法的集合，且其加法跟乘法运算就如同普通的有理数还有实数   Natural Number $\N$ 是有顺序的, 例如 2 &lt; 3 $N$ 是 well-ordered: 对于任何非空子集 $S\subseteq \N$, S 总有一个最小值 例如:  has s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algebra 2">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2023/09/06/Algebra-2/">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Ring and Fields环(Ring) 是一类包含两种运算(加法和乘法)的代数系统  域(Field) 是一种具有加法跟乘法的集合，且其加法跟乘法运算就如同普通的有理数还有实数   Natural Number $\N$ 是有顺序的, 例如 2 &lt; 3 $N$ 是 well-ordered: 对于任何非空子集 $S\subseteq \N$, S 总有一个最小值 例如:  has s">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l8.PNG">
+<meta property="article:published_time" content="2023-09-07T05:07:43.000Z">
+<meta property="article:modified_time" content="2023-09-08T00:33:49.045Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/math340/l1.PNG">
+  
+  
+  <title>Algebra 2 - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Daolin&#39;s Repo</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Algebra 2">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-06 22:07" pubdate>
+        2023年9月6日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Algebra 2</h1>
+            
+            <div class="markdown-body">
+              <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><span id="more"></span>
+<h1 id="Ring-and-Fields"><a href="#Ring-and-Fields" class="headerlink" title="Ring and Fields"></a>Ring and Fields</h1><p>环(Ring) 是一类包含两种运算(加法和乘法)的代数系统</p>
+<p><img src="/Blog/intro/math340/l1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>域(Field) 是一种具有加法跟乘法的集合，且其加法跟乘法运算就如同普通的有理数还有实数</p>
+<p><img src="/Blog/intro/math340/l2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Natural-Number"><a href="#Natural-Number" class="headerlink" title="Natural Number"></a>Natural Number</h2><p><img src="/Blog/intro/math340/l3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>$\N$ 是有顺序的, 例如 2 &lt; 3</p>
+<p>$N$ 是 well-ordered: 对于任何非空子集 $S\subseteq \N$, S 总有一个最小值</p>
+<p>例如:</p>
+<p><img src="/Blog/intro/math340/l4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>has smallest element 1</p>
+<p><br></p>
+<h3 id="Theorem-Strong-induction"><a href="#Theorem-Strong-induction" class="headerlink" title="Theorem (Strong induction):"></a>Theorem (Strong induction):</h3><p>让 $X \subseteq\N$, 如果满足</p>
+<ol>
+<li>$0 \in X$ </li>
+<li>如果 $n \in \N$, 且 $m&lt;n \implies m\in X$, 那么 $n\in X$</li>
+</ol>
+<p>那么 $X= \N$</p>
+<p><br></p>
+<p>应用例子:</p>
+<p><img src="/Blog/intro/math340/l5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>证明 Strong Induction</strong></p>
+<p>假设 $X\ne \N$, 那么 就让 $Y=\N\backslash X$</p>
+<p>by well-ordering of $\N$, $Y$ 有一个最小值 $n$</p>
+<p>由于 $0\in X$, $n&gt;0$</p>
+<p>考虑 $m\in \N$ 且 $m&lt;n$ 那么 $m\in X$, 根据 $X$ 的第二个性质 $n\in X$</p>
+<p>矛盾, 因此 $X = \N$</p>
+<p><br></p>
+<p>其他的 properties of $\N$</p>
+<p>定义: 一个 binary operation on set $S$ 就是一个 map 映射</p>
+<script type="math/tex; mode=display">
+S\times S\rightarrow S</script><h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>例如 加法</p>
+<script type="math/tex; mode=display">
+\N\times \N\rightarrow \N</script><script type="math/tex; mode=display">
+(a, b) \rightarrow a+b</script><p>加法 + 是 commutative </p>
+<p><img src="/Blog/intro/math340/l6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>加法 + 是 associative</p>
+<p><img src="/Blog/intro/math340/l7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>第三个 property   $\forall a\in \N$</p>
+<script type="math/tex; mode=display">
+0+a=a+0=a</script><p><br></p>
+<h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><p>我们可以用 + 加法来定义乘法</p>
+<script type="math/tex; mode=display">
+\N\times \N\rightarrow \N</script><script type="math/tex; mode=display">
+(a, b) \rightarrow a\cdot b</script><p>$a\cdot b$ 的定义是 $0 \cdot b=0, \forall b\in\N$</p>
+<p>同时 $\forall a, b \in \N$</p>
+<script type="math/tex; mode=display">
+(a+1)\cdot b = a\cdot b + b</script><p>我们可以用induction 来证明这个定义 uniquely determines $a\cdot b,  \forall a, b \in \N$</p>
+<p><br></p>
+<p>证明: $\forall a, b \in \N$</p>
+<ol>
+<li>$a\cdot b = b\cdot a$ (commutativity)</li>
+<li>$(a\cdot b) \cdot c = a\cdot (b\cdot c)$  (associativity)</li>
+</ol>
+<p><br></p>
+<p>证明</p>
+<p>lemma: $a\cdot 0 = 0 , \forall a \in \N$</p>
+<p>Induction on $a$</p>
+<script type="math/tex; mode=display">
+0\cdot 0 = 0</script><p>假设 $a &gt; 0, a = a’+1$</p>
+<p>$a\cdot 0 = (a’+1)\cdot 0 = a’\cdot 0 + 1\cdot 0 = 0+0=0$</p>
+<p><br></p>
+<p>证明1: $a\cdot b = b\cdot a$ (induct on a)</p>
+<p>假设  $a,b&gt;0 , \qquad a=a’+1,\qquad b=b’+1$</p>
+<p><img src="/Blog/intro/math340/l8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2023/04/22/Computer-Architecture/">
+                        <span class="hidden-mobile">Computer Architecture</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>
