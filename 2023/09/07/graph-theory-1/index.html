@@ -16,19 +16,39 @@
   <meta name="author" content="Daolin">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://daolinzhou.github.io/Blog/archives/2019/09/">
+    <meta name="description" content="Graph TheoryGraph $G$ 被看作是有一组顶点 $V(G)$ 和 一组边 $E(G)$,  相连接的边和顶点叫做 incidence 而相邻的节点(有一条连接到边)叫做 adjacent Loop, Parallel Edge 和 Simple Graph:   只有一个顶点的 edge 是 loop 如果两个顶点之间有两条边那就是 parallel edge 没有 loop 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intro to Graph Theory">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2023/09/07/graph-theory-1/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Graph TheoryGraph $G$ 被看作是有一组顶点 $V(G)$ 和 一组边 $E(G)$,  相连接的边和顶点叫做 incidence 而相邻的节点(有一条连接到边)叫做 adjacent Loop, Parallel Edge 和 Simple Graph:   只有一个顶点的 edge 是 loop 如果两个顶点之间有两条边那就是 parallel edge 没有 loop 和">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-08T00:41:22.000Z">
+<meta property="article:modified_time" content="2023-09-08T02:06:35.355Z">
 <meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>归档 - Daolin&#39;s Repository</title>
+  <title>Intro to Graph Theory - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -59,7 +79,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/Blog/">
@@ -155,22 +175,52 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/img/default.png') no-repeat center center;
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="没什么好看的">
+            <span class="h2" id="subtitle" title="Intro to Graph Theory">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-07 17:41" pubdate>
+        2023年9月7日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      195 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      2 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -179,52 +229,98 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 97 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/Blog/2019/09/27/python3-skills-1/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">python3编程技巧(一)</span>
-      <time style="float: right;">09-27</time>
-    </a>
-  
-    
-    <a href="/Blog/2019/09/26/python-excel-database/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Python操作Excel和MySql</span>
-      <time style="float: right;">09-26</time>
-    </a>
-  
-    
-    <a href="/Blog/2019/09/21/quick-develop-python-spider/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">高速开发小型python爬虫</span>
-      <time style="float: right;">09-21</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Intro to Graph Theory</h1>
+            
+            <div class="markdown-body">
+              <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><span id="more"></span>
+<h1 id="Graph-Theory"><a href="#Graph-Theory" class="headerlink" title="Graph Theory"></a>Graph Theory</h1><p>Graph $G$ 被看作是有一组顶点 $V(G)$ 和 一组边 $E(G)$, </p>
+<p>相连接的边和顶点叫做 incidence</p>
+<p>而相邻的节点(有一条连接到边)叫做 adjacent</p>
+<p>Loop, Parallel Edge 和 Simple Graph: </p>
+<ul>
+<li>只有一个顶点的 edge 是 loop</li>
+<li>如果两个顶点之间有两条边那就是 parallel edge</li>
+<li>没有 loop 和 parallel edge 的叫做 Simple Graph</li>
+</ul>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2023/09/06/Algebra-2/">
+                        <span class="hidden-mobile">Algebra 2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -308,6 +404,19 @@
 
 
 
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
 
 
 
@@ -327,6 +436,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
