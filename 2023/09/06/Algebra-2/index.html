@@ -31,8 +31,27 @@
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l6.PNG">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l7.PNG">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l8.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/l9.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_8.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_9.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_10.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_11.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_12.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_13.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_14.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_15.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_16.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_17.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/int_18.PNG">
 <meta property="article:published_time" content="2023-09-07T05:07:43.000Z">
-<meta property="article:modified_time" content="2023-09-08T02:10:44.802Z">
+<meta property="article:modified_time" content="2023-09-16T18:49:26.658Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -210,7 +229,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      4.9k 字
     </span>
   
 
@@ -219,7 +238,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 分钟
+      41 分钟
     </span>
   
 
@@ -313,11 +332,295 @@ S\times S\rightarrow S</script><h3 id="加法"><a href="#加法" class="headerli
 <p>Induction on $a$</p>
 <script type="math/tex; mode=display">
 0\cdot 0 = 0</script><p>假设 $a &gt; 0, a = a’+1$</p>
-<p>$a\cdot 0 = (a’+1)\cdot 0 = a’\cdot 0 + 1\cdot 0 = 0+0=0$</p>
+<p>$a\cdot 0 = (a’+1)\cdot 0 = a’\cdot 0 + 0 = 0+0=0$</p>
+<blockquote>
+<p>注意, 这里使用了这个定义</p>
+<script type="math/tex; mode=display">
+(a+1)\cdot b = a\cdot b + b</script><p>而不是进行这步操作</p>
+<script type="math/tex; mode=display">
+(a+1)\cdot b = a\cdot b + 1\cdot b = a\cdot b + b</script><p>因为我们不知道 $1\cdot b$ 的结果</p>
+</blockquote>
 <p><br></p>
 <p>证明1: $a\cdot b = b\cdot a$ (induct on a)</p>
 <p>假设  $a,b&gt;0 , \qquad a=a’+1,\qquad b=b’+1$</p>
 <p><img src="/Blog/intro/math340/l8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h2><p><img src="/Blog/intro/math340/l9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们有两个binary operation</p>
+<p>加法:</p>
+<p><img src="/Blog/intro/math340/int_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>乘法:</p>
+<p><img src="/Blog/intro/math340/int_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h3 id="Division-with-reminder"><a href="#Division-with-reminder" class="headerlink" title="Division with reminder"></a>Division with reminder</h3><p>让 $n \in \mathbb{Z}, q\in \mathbb{Z}-0$</p>
+<p>那么 $\exists!\ \lambda ,r \in \mathbb{Z},\quad s.t. 0\le r\le |q|$</p>
+<p>并且 $n=\lambda \cdot q+r$</p>
+<p><br></p>
+<p>证明: 首先证明存在 $\lambda, r$</p>
+<p>First case $n \ge 0, q &gt; 0$, induct on n</p>
+<p><img src="/Blog/intro/math340/int_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>如果 $n\ge q$ 那么就存在 $n’=n-q \ge 0$</p>
+<p>存在 $\lambda’ ,r’. \quad 0\le r’\le q$  (根据 induction)</p>
+<p>使得 $n’=\lambda ‘\cdot q+r’$</p>
+<script type="math/tex; mode=display">
+n=n'+q=\lambda'\cdot q+r'+q=(\lambda'+1)\cdot q+r'</script><p>因此 $\lambda = \lambda’ + 1, r= r’$</p>
+<p><br></p>
+<p>假设 $n &lt; 0 , q &gt; 0,\quad m=-n &gt;0$</p>
+<script type="math/tex; mode=display">
+m=\lambda'q+r'</script><p>因此</p>
+<script type="math/tex; mode=display">
+n=(-\lambda')\cdot q+ (-r')</script><p>如果 $r’=0$ 那么  $n=(-\lambda’)\cdot q+0$</p>
+<p>如果 $-r’&lt;0$, 那么 $n=(-\lambda-1)q+(q-r’)$</p>
+<p><br></p>
+<p>如果 q &lt; 0 也是一个道理</p>
+<p><br></p>
+<p><br></p>
+<p>证明唯一性</p>
+<p>假设</p>
+<p><img src="/Blog/intro/math340/int_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们要证明 $\lambda’=\lambda, r’=r$</p>
+<p>让上面两个式子相减</p>
+<script type="math/tex; mode=display">
+0=(\lambda - \lambda')q+r-r'</script><script type="math/tex; mode=display">
+r'-r = (\lambda-\lambda')\cdot q</script><p>由于$\lambda - \lambda’$ 是整数, 因此 $r’-r$ 整除 $q$</p>
+<p>然而 </p>
+<script type="math/tex; mode=display">
+0 \le r < |q| \quad 0\le r' < |q|</script><p>因此  $|r’-r|&lt; |q|$</p>
+<p>我们可以得到 $r’-r=0$</p>
+<p>再得到 $\lambda - \lambda’=0$</p>
+<p><br></p>
+<h3 id="Divisibility"><a href="#Divisibility" class="headerlink" title="Divisibility"></a>Divisibility</h3><script type="math/tex; mode=display">
+m, n \in \mathbb{Z},\quad m\ne 0</script><p>m divides n $(m|n) \iff \exist \lambda \in \mathbb{Z}$  使得 $n=m\cdot \lambda$</p>
+<p>The divisors of $n\in\mathbb{Z}$ are all $m\in \mathbb{Z}\backslash 0$    s.t. $m|n$</p>
+<p>最大公约数 greatest common divisor of a, b:</p>
+<p>$a,b \in \mathbb{Z}$, 最大公约数就是一个 natural number $d$ 满足下面条件</p>
+<ol>
+<li>$d|a$  同时 $d|b$</li>
+<li>$\forall x\in \mathbb{N}, \text{ s.t.}\quad x|a \and  x|b \implies x|d$</li>
+</ol>
+<p><br></p>
+<p>证明: a,b 有唯一的最大公约数</p>
+<p>先证明有最大公约数</p>
+<p><img src="/Blog/intro/math340/int_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>让d是 $I$ 中最小的正整数 (因为 $\mathbb{N}$ 是 well-ordered)</p>
+<p>证明 d 是 a 和 b 的最大公约数</p>
+<p>证明 $d|a$</p>
+<p><img src="/Blog/intro/math340/int_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>我们知道 $0\le r&lt;d$ 且 $r\in I$, 另一方面由于我们选择的 $d$ 是 $I$ 中最小的正整数, 这意味着,  $r\le0$ 因此 r 只能等于 0</p>
+</blockquote>
+<p><br></p>
+<p>证明 d 是最大的</p>
+<p>假设有 $d’|a \quad d’|b$, 我们要证明 $d’|d$</p>
+<p>由于 $d \in I\quad \exist \lambda_1\lambda_2\in \mathbb{Z}$ 使得</p>
+<script type="math/tex; mode=display">
+d=\lambda_1 a+ \lambda_2 b</script><p><img src="/Blog/intro/math340/int_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>因此 $d$ 是 gcd</p>
+<p><br></p>
+<p>GCD 是唯一的, 假设 $d, d’$ 都是 $a,b$ 的 gcd</p>
+<p>根据上面的结论, 我们可以推导出 $d|d’ \and d’|d$</p>
+<script type="math/tex; mode=display">
+d = k\cdot d' \quad d'=l\cdot d</script><script type="math/tex; mode=display">
+d=k\cdot l\cdot d \implies 1=k\cdot l</script><script type="math/tex; mode=display">
+|k|=|l|=1 \quad k=1 \implies d=d'</script><p><br></p>
+<p>就是说我们总是可以把 $m, n$ 的 GCD 写成 $m, n$ 的 $\mathbb{Z}$ - linear combination 的形式</p>
+<script type="math/tex; mode=display">
+d=\lambda_1 \cdot m+\lambda_2 \cdot n \quad \lambda_1\lambda_2\in \mathbb{N}</script><p><br></p>
+<h3 id="Euclidean-algorithm"><a href="#Euclidean-algorithm" class="headerlink" title="Euclidean algorithm"></a>Euclidean algorithm</h3><p>$m, n \in\mathbb{Z}-0 \quad \quad |m|&lt;|n|$</p>
+<script type="math/tex; mode=display">
+p_0=n,\ q_o=m\quad p_0=\lambda_0q_0+r_0</script><p>$0\le r_0 &lt;|q_0|$</p>
+<p>之后进行迭代, 直到 $r_i=0$</p>
+<script type="math/tex; mode=display">
+p_{i+1} = q_i, \ q_{i+1}=r_i \quad p_{i+1}=\lambda_{i+1}q_{i+1}+r_{i+1}</script><p>$0\le r<em>{i+1}&lt;|q</em>{i+1}|$</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">m</span> = <span class="hljs-number">12</span>		n = <span class="hljs-number">16</span>		p = lambda * q + r<br><span class="hljs-attribute">p0</span> = <span class="hljs-number">16</span>		q0 = <span class="hljs-number">12</span>		<span class="hljs-number">16</span> = <span class="hljs-number">1</span> * <span class="hljs-number">12</span> + <span class="hljs-number">4</span>     <br><span class="hljs-attribute">p1</span> = <span class="hljs-number">12</span>		q1 = <span class="hljs-number">4</span>		<span class="hljs-number">12</span> = <span class="hljs-number">3</span> * <span class="hljs-number">4</span> + <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>这个算法会终止</li>
+<li>如果在 step k 终止 $r_k=0$ , 那么 $GCD(m,n)=q_k$</li>
+</ol>
+<p><br></p>
+<p>证明 1:</p>
+<p>证明:</p>
+<script type="math/tex; mode=display">
+|q_0|>r_0=q_1> q_2>q_3\cdots\ge 0</script><p>由于是 strictly descending, 一定会存在一个 $r_k=0$</p>
+<p><br></p>
+<p>证明 2:</p>
+<p><img src="/Blog/intro/math340/int_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们要得到一个结论: $I<em>i = I</em>{i+1}$</p>
+<p>而 $p<em>i, q_i\in I</em>{i+1}$</p>
+<p><img src="/Blog/intro/math340/int_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/int_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>NTS: need to show</p>
+</blockquote>
+<p><br></p>
+<h3 id="Primes"><a href="#Primes" class="headerlink" title="Primes"></a>Primes</h3><ul>
+<li>$n\in \mathbb{Z}$ is <strike>prime</strike> (irreducible) iff $n \ne 0, 1, -1$ if $g|n$ then $g=\pm 1, \pm n$</li>
+</ul>
+<p>我们讨论的是整数的素数, 因此包括负数</p>
+<ul>
+<li>$n\in \mathbb{Z}$ is prime if $n\ne 0,\pm1$ and if  $n|a\cdot b$  then either  $n|a$ or  $n|b$</li>
+</ul>
+<p><br></p>
+<p>性质:</p>
+<p>n is prime $\iff$ n is irreducible</p>
+<p>假设又 prime $n$ 但他不是 irreducible</p>
+<p>那么 $n=a\cdot b \quad a, b\ne \pm 1$</p>
+<p>由于 $n$ 是 prime, $n|a$ 或者 $n|b$</p>
+<p>假设 $n|a \implies a = n\cdot k$</p>
+<script type="math/tex; mode=display">
+1\cdot n=a\cdot b=n\cdot k\cdot b</script><script type="math/tex; mode=display">
+1 = k\cdot b</script><script type="math/tex; mode=display">
+b = \pm 1</script><p><br></p>
+<p>假设 n 是 irreducible</p>
+<p>让 $a, b \in \mathbb{Z}$ 使得 $n|a\cdot b$</p>
+<p>如果 $n|a$ 那么我们就结束证明了, 这满足 prime 的定义</p>
+<p>假设 n 不被 a 整除, <code>gcd(a, n)=1</code></p>
+<p>根据 gcd identity</p>
+<script type="math/tex; mode=display">
+1=\alpha \cdot a + \beta \cdot n</script><p>for some  $\alpha,\beta \in \mathbb{Z}$</p>
+<script type="math/tex; mode=display">
+b = 1\cdot b = (\alpha\cdot a+\beta\cdot n)b</script><script type="math/tex; mode=display">
+=\alpha \cdot a\cdot b + \beta\cdot n\cdot b</script><p>而这个式子的两个部分</p>
+<p>$n|a\cdot b, \quad n|\beta\cdot n\cdot b$</p>
+<p>因此 $n|b$</p>
+<p>满足prime 定义, 完成证明</p>
+<p><br></p>
+<p><br></p>
+<p>性质: $a_1\cdots a_k \in \mathbb{Z}, \quad p \in\mathbb{Z}$ is prime</p>
+<p>IF $p|a_1\cdots a_k$, then $p|a_i$ for some $1\le i \le k$</p>
+<p>证明: 我们要 induct on $k$</p>
+<p>base case: k=1, k=2 (定义为 prime)</p>
+<p>假设 $k = m$ 都为 true</p>
+<p>当 $k=m+1$ 时, 考虑 $a<em>1\cdots a</em>{m+1}\in \mathbb{Z}$, 使得 </p>
+<script type="math/tex; mode=display">
+p|a_1\cdots a_{m+1}</script><script type="math/tex; mode=display">
+a_1\cdots a_{m+1} = a_1\cdot (a_2\cdots a_{m+1})</script><p>由于 $p$ 是 prime, 所以要么</p>
+<ol>
+<li>$p|a_1$ we are done</li>
+<li>$p|a<em>2\cdots a</em>{m+1}$ 根据 induction $p|a_j$ for some $2\le j\le m+1$</li>
+</ol>
+<p>done</p>
+<p><br></p>
+<p><br></p>
+<p><strong>Theorem: Fundamental theorem of arithmetic</strong> </p>
+<p>让 $n\in \mathbb{N}, n\ne 0$, 那么 $\exist$ primes $p_1\cdots p_k \in \mathbb{N}$, 使得 $n=p_1\cdot p_2\cdots p_k$ (convention: if $k=0$, RHS = 1)</p>
+<p>更进一步, 这个 decomposition 是唯一的(up to permutation of the primes)</p>
+<p>例如: <code>12 = 2*3*2 = 2*2*3</code></p>
+<p><strong>证明: 存在</strong></p>
+<p>induct on $n$, base case $n=1$</p>
+<p>假设对于 $n &lt; m$ 这个结论都是真的</p>
+<p>那么 考虑 m, 如果 m 是 irreducible, m 是 prime 那么 $m = m$ 本身就是一个 decomposition</p>
+<p>如果 m 不是 irreducible, 那么 $\exist a,b\in \mathbb{N}$</p>
+<script type="math/tex; mode=display">
+m=a\cdot b \quad \quad 1<a,b<m</script><p>根据 induction</p>
+<script type="math/tex; mode=display">
+a=q_1q_2\cdots q_l</script><script type="math/tex; mode=display">
+b=q_1'q_2'\cdots q_{l'}'</script><p>因此 $m=q<em>1q_2\cdots q_l \cdot q_1’q_2’\cdots q</em>{l’}’$ </p>
+<p>这就是一个 prime factorization for $m$</p>
+<p>因此存在这样的质数分解</p>
+<p><br></p>
+<p><strong>证明:唯一</strong></p>
+<p>我们对 n 进行 induction</p>
+<p>base case: n = 1</p>
+<p>假设 唯一性对于 $n &lt; m$ 都成立</p>
+<p>假设 $m=p_1p_2\cdots p_k=q_1q_2\cdots q_l$</p>
+<p>我们要证明: $k=l$ 且 $p_1p_2\cdots p_k$ 是 $q_1q_2\cdots q_l$ 的 permutation</p>
+<p>而我们知道</p>
+<script type="math/tex; mode=display">
+p_1 | m=q_1q_2\cdots q_l</script><p>根据 之前的证明, 我们知道存在一个 $j, 1\le j\le l$, 使得 $p_1|q_j$</p>
+<p>由于 $q_j$ 是 irreducible 的 因此 $p_1=q_j$</p>
+<p>根据 cancellative property of $\mathbb{Z}$, 我们可以抵消掉 $p_1$ 和 $q_j$</p>
+<script type="math/tex; mode=display">
+m'=p_2\cdots p_k = q_1\cdots \hat {q_j}\cdots q_l</script><p>$m’ &lt; m$ 根据 induction hypothesis $k-1 = l-1$</p>
+<p>并且 $p_2\cdots p_k $ 是 $ q_1\cdots \hat {q_j}\cdots q_l$ 的permutation</p>
+<p>因此  $k=l$ 且 $p_1p_2\cdots p_k$ 是 $q_1q_2\cdots q_l$ 的 permutation</p>
+<p><br></p>
+<p><br></p>
+<h2 id="Equivalence-Relations"><a href="#Equivalence-Relations" class="headerlink" title="Equivalence Relations"></a>Equivalence Relations</h2><p>动机: 什么是 rational number?</p>
+<script type="math/tex; mode=display">
+\frac 1 2 = \frac 2 4</script><p>定义: 一个 Equivalence relation on set $S$ is a subset $R\subseteq S\times S$ 使得</p>
+<ol>
+<li>$\forall r\in S,\quad (r,r)\in R$   reflexive property</li>
+<li>$(a,b)\in R \implies (b,a)\in R$    symmetric property</li>
+<li>$(a, b) \in R, (b,c) \in R \implies (a,c)\in R$    transitive property</li>
+</ol>
+<p><br></p>
+<p>Notation:, 我们写作 $a \sim_R b \iff (a,b)\in R$</p>
+<ol>
+<li>$r\sim r, \forall r\in S$</li>
+<li>$a\sim b \implies b\sim a$</li>
+<li>$a\sim b, b\sim c \implies a\sim c$</li>
+</ol>
+<p>例子:</p>
+<p><img src="/Blog/intro/math340/int_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/int_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/int_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h3><p>接下来我们要定义除法</p>
+<script type="math/tex; mode=display">
+\frac a b = \frac c d \iff ad= bc</script><p>我们不知道 $\frac ab$ 是什么意思, 所以我们用乘法表示两个除法是同一类的(等价的)</p>
+<p><img src="/Blog/intro/math340/int_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Reflexivity: $(a,b)\sim (a, b)\quad ab=ba$ 因此是true</p>
+<p>Symmetry: $(a, b)\sim(c, d)\rightarrow (c,d)\sim (a,b)$</p>
+<script type="math/tex; mode=display">
+(a, b) \sim(c,d) \iff ad=bc \iff cb=ad \iff (c,d)\sim (a,b)</script><p>Transitivity: $(a,b)\sim(c, d), (c,d)\sim (e,f) \rightarrow (a,b)\sim(e,f)$</p>
+<p>$(a,b)\sim(c, d) \iff ad=bc$</p>
+<p>$(c,d)\sim (e,f)\iff cf=de$</p>
+<script type="math/tex; mode=display">
+ad=bc\iff adf = bcf</script><p>Since $cf=de$, $bcf=bde$</p>
+<script type="math/tex; mode=display">
+adf=bde\iff af=be\iff (a,b)\sim (e,f)</script><p><br></p>
+<h3 id="Equivalence-Class"><a href="#Equivalence-Class" class="headerlink" title="Equivalence Class"></a>Equivalence Class</h3><p>定义: Let $S$ be a set with an equivalence relation  $R\quad (\sim)$</p>
+<p>一个 equivalent class of $S$ (with respect to R) is a set of the form</p>
+<script type="math/tex; mode=display">
+\bar x := \{y\in S\ |\ x\sim y\}</script><p>for some $x \in S$</p>
+<p><br></p>
+<p>例如: $S=\text{student in this room}$</p>
+<p>如果 x 和 y 在同一个月份出生 $x\sim y$ </p>
+<p>有 12 个 equivalence class, 1 for each month </p>
+<p><br></p>
+<p>性质</p>
+<ol>
+<li>$x\in \bar x$</li>
+<li>Let $C\subseteq S$ be an equivalence class, $x\in S$, then $x\in C \iff x \in \bar x$</li>
+</ol>
+<p>由于 C 是一个 equivalent class, 就存在 $y\in S$, 使得 $C=\bar y={z\in S | y\sim z}$</p>
+<p>假设 $x\in C$ 我们要证明 $\bar y = \bar x$</p>
+<p>$x\in C \rightarrow y\sim x$ </p>
+<p><br></p>
+<p>证明 $\bar y \subseteq \bar x$</p>
+<p>对于任意 $z\in \bar y,\quad y\sim z$ 根据 symmetric $x\sim y$ , 根据 tran prop $x\sim z\rightarrow z\in \bar x$</p>
+<p><br></p>
+<p>证明 $\bar x \subseteq \bar y$</p>
+<p>对任意 $z\in\bar x, \quad x\sim z$ </p>
+<p>$y\sim x, x\sim z \rightarrow  y\sim z$</p>
+<p>因此 $z\in\bar y$</p>
+<p>$\bar x = \bar y$</p>
+<p><br></p>
+<p><br></p>
+<p><strong>Terminology</strong>:  equivalent class $C$ 中的任何元素 $x$ 都可以硕士 representative of $C$</p>
+<script type="math/tex; mode=display">
+\text{x is a represent of C} \iff\bar x = C</script><p>Notation:</p>
+<p><img src="/Blog/intro/math340/int_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>例如:</p>
+<p><img src="/Blog/intro/math340/int_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>m = 2:   $\mathbb{Z}/2\mathbb{Z}$  = 2 equivalent classes</p>
+<p><img src="/Blog/intro/math340/int_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>定义: partition</p>
+<p><img src="/Blog/intro/math340/int_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>性质: $S/\sim$ gives a partition of $S$</p>
+<p>对于 (3) 由于$\forall x \in S, x\in\bar x$</p>
+<p>因此$x\in \bigcup_{C\in S/\sim} C \quad \bar x \in S/\sim$</p>
+<p>对于 (2) 考虑 equivalent class C, C’</p>
+<p>假设 $ C\cap C’\ne \empty$ , 那么 就存在 $\exist x\in S$ 使得 $x\in C, x\in C’$</p>
+<p> 那么 $C=\bar x = C’$</p>
+<p>任何 equivalent class 根据 definition 都不是 empty 的</p>
+<p><br></p>
 
             </div>
             <hr>
