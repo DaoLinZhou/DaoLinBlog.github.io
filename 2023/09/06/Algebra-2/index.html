@@ -123,8 +123,23 @@
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_13.PNG">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_14.PNG">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_15.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_16.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_17.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_18.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_19.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ring_20.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_1.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_2.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_5.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_6.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_7.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_8.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math340/ideal_9.PNG">
 <meta property="article:published_time" content="2023-09-07T05:07:43.000Z">
-<meta property="article:modified_time" content="2023-10-11T17:22:12.697Z">
+<meta property="article:modified_time" content="2023-10-16T05:50:47.498Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -980,7 +995,7 @@ x(y-z)=xy+x(-z)</script><p>$x\ne0$ 如果 $y\ne z$ 但 $xy=xz$ 那么 $x(y-z)=0$
 <li>$\phi(x\cdot_R y)=\phi(x)\cdot_S\phi(y)$</li>
 <li>$\phi(0_R)=0_S$</li>
 </ul>
-<p>$x\in R ,\phi (x)\in S$ 因此 $+$ 和 $\cdot$ 需要指明在那个 space 进行的操作</p>
+<p>$x\in R ,\phi (x)\in S$ 因此 $+$ 和 $\cdot$ 需要指明在哪个 space 进行的操作</p>
 <blockquote>
 <script type="math/tex; mode=display">
 f: V\rightarrow W</script><script type="math/tex; mode=display">
@@ -994,6 +1009,80 @@ f(\lambda \cdot v)=\lambda f(v)</script></blockquote>
 <p><img src="/Blog/intro/math340/ring_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>Isomorphism: $\mathbb{Z}/6\mathbb{Z} \rightarrow \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/3\mathbb{Z}$</p>
 <p><img src="/Blog/intro/math340/ring_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>性质:</p>
+<script type="math/tex; mode=display">
+\phi: R\rightarrow S</script><p>a ring homeomorphism 是 injective $\iff \text{ker}(\phi)=0$</p>
+<blockquote>
+<p>$ker(\phi)={  r\in R\ |\ \phi(r)=0 } = \phi^{-1}(0_S)$</p>
+</blockquote>
+<p><img src="/Blog/intro/math340/ring_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们得到结论 $\phi(1_R)=1_S$</p>
+<p>证明 property 由于 $\phi(0_R)=0_S, 0_R\in ker (\phi)$</p>
+<p>如果 $ker(\phi)\ne {0 }$ 那么 它就包含两个以上的元素, 因此 $\phi$ 不是 injective</p>
+<p><img src="/Blog/intro/math340/ring_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ring_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+R\subseteq S \quad S \text{ is a domain} \rightarrow R \text{ is a domain}</script><p><img src="/Blog/intro/math340/ring_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><strong>Properties of Kernels</strong></p>
+<ol>
+<li>$0\in ker(\phi)$</li>
+<li>$\forall x, y \in ker(\phi)$<ul>
+<li>$\phi(x+y)=\phi(x)+\phi(y)=0_S+0_S=0_S$</li>
+</ul>
+</li>
+<li>$x \in ker(\phi) \rightarrow -x \in ker(\phi)$<ul>
+<li>$\phi(-x)=-\phi(x)=-0_S=0_S$</li>
+</ul>
+</li>
+</ol>
+<p>Kernel is an Abelam group</p>
+<ol>
+<li>$\forall r \in R, \forall x \in ker(\phi)$<ul>
+<li>$rx\in ker(\phi)$</li>
+<li>$\phi(r\cdot x)=\phi(r)\cdot \phi(x)=\phi(r)\cdot 0_S=0_S$</li>
+<li>因此 $r\cdot x \in ker(\phi)$</li>
+</ul>
+</li>
+</ol>
+<h3 id="Ideal"><a href="#Ideal" class="headerlink" title="Ideal"></a>Ideal</h3><p>Ideal $I$ of $R$, 是一个 subset $I\subseteq R$ 并且满足上面四点, 例如:</p>
+<ul>
+<li>$(I, +)$ is an abeliam group</li>
+<li>$\forall r\in R, x\in I, r\cdot x\in I$</li>
+</ul>
+<p><img src="/Blog/intro/math340/ring_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<p>remark</p>
+<script type="math/tex; mode=display">
+\phi:R\rightarrow S</script><script type="math/tex; mode=display">
+\text{ker}(\phi)=\phi^{-1} \text{ is an ideal}</script><p>example:</p>
+<ul>
+<li>$R$ is an ideal of $R$ (improper ideal)</li>
+<li>$0_R\subseteq R$ is an ideal (trivial ideal)</li>
+<li><code>x in R,  I = &#123;y in R | x|y &#125; = &lt;x&gt;</code> , <code>I</code> is an ideal</li>
+</ul>
+<p><br></p>
+<h3 id="Quotient-Rings"><a href="#Quotient-Rings" class="headerlink" title="Quotient Rings"></a>Quotient Rings</h3><p>思想: Give $I \subset R$ 使用 $I$ 来定义 equivalent relation on $R$ . Given $R/\sim$ ring structure</p>
+<p> <img src="/Blog/intro/math340/ideal.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ideal_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>定义: 一个 quotient ($R/I$) of $R$ by $I$ is $R/\sim$ 例如: The set of equivalent classes of $R$ under $\sim$ </p>
+<p><br></p>
+<p>问题: $R/I$ 中都有哪些元素?</p>
+<p>例如: $\mathbb{Z}/\langle M\rangle = \mathbb{Z}/m\mathbb{Z}$ </p>
+<blockquote>
+<p>element in $\mathbb{Z}/m\mathbb{Z}$ 是 sets of form</p>
+</blockquote>
+<p><img src="/Blog/intro/math340/ideal_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>更一般的情况, $x\in R$ , 它的 equivalent class 是</p>
+<p><img src="/Blog/intro/math340/ideal_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+x+I=\{x+z\ |\ z\in I\}</script><p><img src="/Blog/intro/math340/ideal_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ideal_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ideal_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ideal_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ideal_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math340/ideal_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
