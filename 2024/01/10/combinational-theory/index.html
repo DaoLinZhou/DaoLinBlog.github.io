@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-01-16T06:15:39.050Z">
+<meta property="article:modified_time" content="2024-01-21T00:26:00.837Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      3.4k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23 分钟
+      29 分钟
     </span>
   
 
@@ -361,6 +361,35 @@
 <p><img src="/Blog/intro/math443/vp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/vp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们要这个线性系统的非负整数解</p>
+<p><br></p>
+<p><br></p>
+<h2 id="Polytopes"><a href="#Polytopes" class="headerlink" title="Polytopes"></a>Polytopes</h2><p>一些 polytopes 的例子:</p>
+<p><img src="/Blog/intro/math443/poly.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>实际上在 linear programming 中我们就已经见过这个 polytopes,</p>
+<p>simplex algorithm 就是在 polytopes 的顶点之间移动</p>
+<p>convex 的定义: 就是图形中任意两点连成的线都在这个图形内</p>
+<p><img src="/Blog/intro/math443/poly_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而 <strong>convex hull</strong> 就是 最小可以容纳这个多边形的 convex set</p>
+<p>$conv(S)$ 是 所有 S 中,点的线性组合, 这里就像是我们描述线的时候</p>
+<p>$\vec v_1 \vec v_2$ 这条线可以用一个式子表达 $t\cdot \vec v_1+(1-t)\cdot \vec v_2$ 这里 t 是大于等于 0 小于等于 1 的实数.</p>
+<p>同理要表达一个多维空间的 hyperplain 就可以对 convex set 的每个顶点进行同样的操作. 如果一个点不是 convex 的 顶点那么在这个式子中就会被自动忽略, 因为我们总是可以把他的系数设为 0.</p>
+<p><img src="/Blog/intro/math443/poly_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>如果我们把 0 去掉, 那么就是 $conv((e_1, e_2, e_3))$ 就是由这三个点组成的三角形 (二维) 而不是三维体</p>
+<script type="math/tex; mode=display">
+\text{conv}((\pm 1, \pm1))=\text{conv}((1,1), (1,-1), (-1, 1), (-1, -1))</script><p>就是包裹这四个点的最小的 convex 图形, 即由这四个点组成的正方形</p>
+<p><img src="/Blog/intro/math443/poly_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>d-维 Euclidean space $\mathbb{R}^d$ 的 Hyperplane 是 一个 d-1 维的 affine subspace</p>
+<p><img src="/Blog/intro/math443/poly_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>polygon 是由 hyperplane 来定义的 (linear programming 中就讲过)</p>
+<p><img src="/Blog/intro/math443/poly_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>每个 $a_i$ 都定义了一个 polytope 的 facet 或是 flat side</p>
+<p><img src="/Blog/intro/math443/poly_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>standard simplex 就是由 $e_i$ 组成的 convex hull</p>
+<p><img src="/Blog/intro/math443/poly_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
