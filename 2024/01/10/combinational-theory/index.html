@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-01-28T00:07:36.939Z">
+<meta property="article:modified_time" content="2024-02-04T21:05:48.989Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.2k 字
+      7k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      44 分钟
+      59 分钟
     </span>
   
 
@@ -451,7 +451,7 @@ x_1+x_2\cdots + x_d=n</script><p>的 integer solution</p>
 <p><br></p>
 <p><strong>Theorem</strong>: 假设 $P\subseteq \mathbb{R}^2$ , vertices 在 $\mathbb{Z}^2$ 中 (顶点都是整数), 假设 $Area (P) = A$, 并且在 boundary 有 $B$ 个 lattice points, 那么</p>
 <script type="math/tex; mode=display">
-L_P(n)= An^2+\frac {B}{2}n-1</script><p><img src="/Blog/intro/math443/poly_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+L_P(n)= An^2+\frac {B}{2}n+1</script><p><img src="/Blog/intro/math443/poly_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>Pick’s Theorem</strong></p>
 <p>假设 $P$ 是一个 integreal convex polygon with $i$ <strong>interior</strong> points (内部), 并且有 $b$ integral boundary points (边界), 那么</p>
@@ -492,6 +492,108 @@ n^2 & \text{n is odd} \\
 <p>这里有个错误: (0, 1) 应该是</p>
 <figure class="highlight scss"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs scss">(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) -&gt; <span class="hljs-selector-attr">[2, 1]</span> <span class="hljs-selector-attr">[0, 1]</span> <span class="hljs-selector-attr">[1,0]</span><br></code></pre></td></tr></table></figure>
 <p><img src="/Blog/intro/math443/poly_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Partition-Functions"><a href="#Partition-Functions" class="headerlink" title="Partition Functions"></a>Partition Functions</h2><p>让 A 是一个 $d\times k$ matrix</p>
+<p><img src="/Blog/intro/math443/vp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><strong>这里的三个准则非常重要</strong></p>
+<p><img src="/Blog/intro/math443/vp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="General-Combinatorial-Classes"><a href="#General-Combinatorial-Classes" class="headerlink" title="General Combinatorial Classes"></a>General Combinatorial Classes</h2><p>让 $C$ 是一个 denumerable class, $|\cdot|$ 表示 size $|\cdot |:C\rightarrow \mathbb{N}$</p>
+<p>任何给定 size 的 objective 都是 finite 的</p>
+<p><img src="/Blog/intro/math443/gcc.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>例如: Binary word class 是一个 string</p>
+<p>让 size 为 number of 0s + number of 1s</p>
+<script type="math/tex; mode=display">
+|1001011100| = 10</script><blockquote>
+<p>但我们不能让 size 只是 number of 0s, 因为这样我们就可以有任意数量的 1, 例如对于 size 1, 我们有 0, 01, 011, 等等, 这个集合有无限个元素</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/gcc_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>还有二叉树, 这里指的二叉树是每个节点要么没有子节点要么有两个子节点, 不存在一个节点只有一个子节点的情况</p>
+<p><br></p>
+<h2 id="Notation-Conventions"><a href="#Notation-Conventions" class="headerlink" title="Notation Conventions"></a>Notation Conventions</h2><p><img src="/Blog/intro/math443/gcc_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们的目标是 给一个 description of a class</p>
+<ul>
+<li>计算 formula for $c_n$ (number of objects size n) (systematically)</li>
+<li>estimate $c_n$ (systematically)</li>
+<li>identify useful structure in $C$ that can be exploited</li>
+</ul>
+<p><br></p>
+<p><strong>Strategies</strong></p>
+<ul>
+<li><p>manually generate small elements and guess (OEIS <strong>On-Line Encyclopedia of Integer Sequences</strong>)</p>
+</li>
+<li><p>递归关系</p>
+</li>
+<li><p><img src="/Blog/intro/math443/gcc_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+</li>
+<li><p>使用 generating functions</p>
+<ul>
+<li>将 structure 转为 generating function 的 <strong>functional equations</strong>. 使用 complex analysis + algebra 来解出系数</li>
+</ul>
+</li>
+<li>Singularity analysis<ul>
+<li>poles + square root singularities are useful to determine asymptotic counting formula. (“Analytic combinatorics”)</li>
+<li>极点 + 平方根奇异点有助于确定渐近计数公式。(“解析组合学”)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/math443/gcc_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><em>**</em></p>
+<p><img src="/Blog/intro/math443/gcc_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>这个式子是递归的式子, coefficient 描述的就是每种情况有多少种可能, 这个式子和binary tree的递归结构是一致的</p>
+<p>如果我们允许二叉树的中间节点可以只有一个叶子节点</p>
+<p>那么就应该是 </p>
+<script type="math/tex; mode=display">
+B(z)=z+1\cdot B(z)^2+1\cdot B(z)</script></blockquote>
+<p><img src="/Blog/intro/math443/gcc_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<p>如果 elements 是 uniquely generated, 那么我们可以直接将它转为 generating function</p>
+<p><img src="/Blog/intro/math443/gcc_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>由于 $D$ 是 $A$ 的一个 term, 所以 Class $A$ 依赖于 $D$. 我们可以制作一个 directed graph of dependencies</p>
+<p>而如过在这个 graph 中, $D$ 到 $A$ 也有一条线 ($D$ depend on $A$), 那么我们就有 <strong>cyclic dependency</strong></p>
+<p>如果我们用 $+, \times , *, \circ \text{(Atomic)}, \epsilon$ 定义一个 class, 并且没有 cycle dependencies 那么它也被叫做 S-Regular</p>
+<blockquote>
+<p>计算机理论中, 证明一个 language 不是 regular 使用 pummping lemma</p>
+</blockquote>
+<p>例如: </p>
+<p><img src="/Blog/intro/math443/gcc_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们有 $B\equiv A^*$ , $B$ 是 S-regular</p>
+<p>This is even true if </p>
+<p><img src="/Blog/intro/math443/gcc_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这是一个有 cyclic dependency 的 equation</p>
+<p><img src="/Blog/intro/math443/gcc_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>$A^*$ 的 generating function 是 $\frac 1{1-t}$ (A 的 generating function 是 $t$)</p>
+<p>之后我们可以递归进行求解问题</p>
+<p>得到这个 class 的 generating function</p>
+<p><img src="/Blog/intro/math443/gcc_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><strong>S-regular class</strong> 的 generating function 是一个 rational function $\frac{p(t)} {q(t)}$.</p>
+<p>如果我们说一个 class 没有 rational generating function, 那么我们就知道它不是 S-regular</p>
+<blockquote>
+<p>Regular language 时使用 finite automata 来进行分别</p>
+<p>我们可以通过证明一个 language 的 generating function 不是一个 rational function 来说明它不是 regular (也可以用 pumping lemma)</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/gcc_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -525,6 +627,12 @@ n^2 & \text{n is odd} \\
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/Blog/2024/01/31/Network-Flow/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Network Flow</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

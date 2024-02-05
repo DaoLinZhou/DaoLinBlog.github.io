@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Network Flow 最短路径最短路径与 Linear programming我们可以用 linear programming 来解决 最短路径问题 最短路径有起始点 $s$ 和 目标点 $t$, 以及图 $G&#x3D;(V,E)$ 这样的表述虽然不能改进算法, 但是可以供更多的见解, 更进一步有特殊的 simplex 算法 (dual simplex method) 解决最短路径问题 我们可以这样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Network Flow">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2024/01/31/Network-Flow/">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Network Flow 最短路径最短路径与 Linear programming我们可以用 linear programming 来解决 最短路径问题 最短路径有起始点 $s$ 和 目标点 $t$, 以及图 $G&#x3D;(V,E)$ 这样的表述虽然不能改进算法, 但是可以供更多的见解, 更进一步有特殊的 simplex 算法 (dual simplex method) 解决最短路径问题 我们可以这样">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
+<meta property="article:modified_time" content="2024-02-02T06:34:00.996Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/">
+  
+  
+  <title>Network Flow - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Daolin&#39;s Repo</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Network Flow">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2024-01-31 03:07" pubdate>
+        2024年1月31日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      33 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Network Flow</h1>
+            
+            <div class="markdown-body">
+              <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><span id="more"></span>
+<h1 id="Network-Flow"><a href="#Network-Flow" class="headerlink" title="Network Flow"></a>Network Flow</h1><p><br></p>
+<h2 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h2><h3 id="最短路径与-Linear-programming"><a href="#最短路径与-Linear-programming" class="headerlink" title="最短路径与 Linear programming"></a>最短路径与 Linear programming</h3><p>我们可以用 linear programming 来解决 最短路径问题</p>
+<p>最短路径有起始点 $s$ 和 目标点 $t$, 以及图 $G=(V,E)$</p>
+<p>这样的表述虽然不能改进算法, 但是可以供更多的见解, 更进一步有特殊的 simplex 算法 (dual simplex method) 解决最短路径问题</p>
+<p>我们可以这样看待这个问题: 节点 s 有一个 unit 的供应(supply), 而节点 t 有一个单位的需求(demand), 我们需要沿最短路径（这是成本最低的运输计划）将 s 处的供应发送到 t 处以满足需求, 同时不拆分这一个 unit 的供应</p>
+<p><img src="/Blog/intro/math448/sp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>方便起见我们定义两个集合, 对于一个点 $i$</p>
+<ul>
+<li>$O(i)$: 为所有从 $i$ 走出的边的节点 (<strong>out-flow</strong> at node $i$)</li>
+<li>$I(i)$ 为所有走入 $i$ 的边的节点 (<strong>in-flow</strong> at node $i$)</li>
+</ul>
+<p>那么, 对于所有的 node (除了 $s, t$), 他们的 out-flow 减去 in-flow 必须为 0, 从一个边流入, 从另一个边流出</p>
+<p>而 node $s$ out-flow 减去 in-flow 为 1</p>
+<p>而 node $t$ out-flow 减去 in-flow 为 -1</p>
+<p><br></p>
+<p>有这些信息就可以构建 linear programming problem</p>
+<p><img src="/Blog/intro/math448/sp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>$c_{ij}$ 指的是 边 i-j 的 cost, 我们要最小化的路径长度</p>
+</blockquote>
+<p>但这里对于 $x_{ij}$ 的约束是他们必须是 0 或 1</p>
+<p>但实际上, constraint coefficient matrix 是 unimodular 的, (即每个 square submatrix 都有 determinant 1, -1 或 0) 同时 右侧的约束条件都是整数, 这说明所有 basic feasible solution 都是整数, 因此我们可以放宽限制, 让 $x_{ij}\ge0$ 即可</p>
+<p><img src="/Blog/intro/math448/sp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>对于每个 linear programming problem 都有一个对应的 dual problem</p>
+<ul>
+<li><p>Max $c\cdot x$</p>
+</li>
+<li><p>$Ax = b$</p>
+</li>
+<li><p>$x\ge 0$</p>
+</li>
+</ul>
+<p>对应的 dual problem 就是</p>
+<ul>
+<li>Min $w\cdot b$</li>
+<li>$w A\ge c$</li>
+<li>$w$ unrestricted</li>
+</ul>
+<p><br></p>
+<p>而对于最短路径问题, 我们的 dual problem 是</p>
+<p><img src="/Blog/intro/math448/sp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>为什么是 $y_s-y_t$:</p>
+<p>因为 $b$ 中只有 $i=s$ 的位置是 1, $i=t$ 的位置是 -1, 其余位置是 0.</p>
+<p>因此只留下了 $y_i-y_t$, $y$ 是 我们上面所说的 $w$</p>
+<p><br></p>
+<p><img src="/Blog/intro/math448/sp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>但是这里如果我们将 (1) 中的所有 constrain 相加, 我们会得到 0 = 0</p>
+<p>(linear dependent) 这说明至少有一个 constrain 是多余的 (实际上只有一个是多余的, 因为 A 的 rank 是 n-1), 我们删除一个 constrain, 删除 node $s$ 的 constrian, 这意味着 在 dual 中 $y_s=0$</p>
+<p>因此此时的 dual 是</p>
+<p><img src="/Blog/intro/math448/sp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>我们扩展这个 linear programming formulation 来计算 $s$ 到其他节点的 shortest path</p>
+<p><img src="/Blog/intro/math448/sp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>重点: 为什么这里是 -1 而不是 0</p>
+<p>首先对于每个节点, 如果只考虑他作为 internal node, 那么应该定于 0 </p>
+<p>但我们考虑到每个点的最短路径, 因此这个点也会作为终点, 在重点只进不出, 因此是 -1</p>
+<p>所以 sum 一起, 对于 非 $s$ 的节点, out-flow 减 in-flow 为 -1</p>
+</blockquote>
+<p><br></p>
+<p>在前一个 formulation, constraint coefficient matrix 是 totally unimodular, 同时 right hand side 是 integer, 因此 basic feasible solution都是整数, 同样我们可以放开整数的限制</p>
+<p><img src="/Blog/intro/math448/sp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>同样我们可以得到 dual linear program</p>
+<p><img src="/Blog/intro/math448/sp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>如果我们将 (5) 的 constrain 相加, 我们得到 0=0, linear dependent, 同样我们可以将 $y_s$ 设为 0</p>
+<p><img src="/Blog/intro/math448/sp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>而 linear programming 中, complementary slackness 有个定理</p>
+<p><a href="https://daolinzhou.github.io/Blog/2023/01/05/linear-programming/#Duality-equation-and-complementary-slackness">https://daolinzhou.github.io/Blog/2023/01/05/linear-programming/#Duality-equation-and-complementary-slackness</a></p>
+<p><img src="/Blog/intro/math448/sp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这说明 如果 $x<em>{ij}&gt;0$ , 那么 $d_i+c</em>{ij}=dj$ , 例如 如果 $(i,j)$ 在 shortest path 上, $d<em>i+c</em>{ij}=dj$</p>
+<p>因此，在一般的最短路径算法或其变种，如 Bellman-Ford 或 Dijkstra 算法的特殊情况下我们维护 complementary slackness</p>
+<p>但 intermediate solution 既不是 primal feasible 也不是 dual feasible</p>
+<p>The algorithm tries to achieve primal and dual feasibility, while maintaining complementary slackness conditions which guarantees optimality.</p>
+<p><img src="/Blog/intro/math448/sp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>但是我们的 solution 中可能会有一些额外的 edge</p>
+<p><img src="/Blog/intro/math448/sp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们不需要将这些 exponential number of subtour elimination constrains 添加进去,We need only to add the constraints violated by a linear programming relaxation solution and these constraints can be added.</p>
+<p><img src="/Blog/intro/math448/sp_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>将 (12) 添加进 integer program 会得到任意 edge weight 的 图的 shortest path problem 的 正确的 formulation</p>
+<p><img src="/Blog/intro/math448/sp_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Maximum-Capacity-Path-problem"><a href="#Maximum-Capacity-Path-problem" class="headerlink" title="Maximum Capacity Path problem"></a>Maximum Capacity Path problem</h2><p>我们这里关注两个问题</p>
+<p><strong>MCPP (Maximum capacity path problem)</strong> </p>
+<p><strong>BPP (bottleneck path problem)</strong></p>
+<p>这两个问题是等价的, 因为只要我们将每个边的权值乘以 -1, 那么就可以从一个问题转换为另一个问题</p>
+<p>MCPP 在某些最大流量算法中被用作最大容量增强路径 (augmenting path)</p>
+<p>BPP 用于寻找易腐烂 (perishable) (reduce in value) 货物的运输路线。</p>
+<p><img src="/Blog/intro/math448/mcpp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而这个问题可以通过稍微修改 Dijkstra 算法来解决 $O(n^2)$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><pre><code class="hljs pseudocode">s: source node<br>t: target node<br><br>d(x) = current MCPP s to x<br>visited = set()<br>queue = queue().add(s)<br>prev = array[-1...]<br><br>while queue.isNotEmpty():<br>	choose node i from queue such that<br>	d(i) is max in queue<br>	<br>	// visite node i<br>	visited.add(i)<br>	queue.remove(i)<br>	<br>	for j in i.out_flow_neighbour():<br>		if j in visited:<br>			continue<br>		// get min capacity<br>		capacity_to_j = min(d(i), capacityBetween(i, j))<br>		// if currently no path to j or capacity to j is less than the capacity in this path<br>		// try to max min d(j)<br>		if d(j) is None or d(j) &lt; capacity_to_j then:<br>			d(j) = capacity_to_j<br>			prev[j] = i<br>			// update the max min capacity<br>			queue.addOrUpdate(j, capacity_to_j)<br><br>return capacity<br></code></pre></td></tr></table></figure>
+<p>简单来说就是我们将什么视为距离, 原本是将 distanc 的 和设为距离</p>
+<p>这里将每个路径的 bottleneck 视为距离 </p>
+<p>这个算法是求 mcpp 的, 即最大 capacity</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs stylus">s: source node<br>t: target node<br><br><span class="hljs-function"><span class="hljs-title">d</span><span class="hljs-params">(x)</span></span> = current MCPP s to x<br>visited = <span class="hljs-built_in">set</span>()<br>queue = <span class="hljs-built_in">queue</span>()<span class="hljs-selector-class">.add</span>(s)<br>prev = array<span class="hljs-selector-attr">[-1...]</span><br><br>while queue<span class="hljs-selector-class">.isNotEmpty</span>():<br>	choose node <span class="hljs-selector-tag">i</span> from queue such that<br>	<span class="hljs-built_in">d</span>(i) is min <span class="hljs-keyword">in</span> queue<br>	<br>	<span class="hljs-comment">// visite node i</span><br>	visited<span class="hljs-selector-class">.add</span>(i)<br>	queue<span class="hljs-selector-class">.remove</span>(i)<br>	<br>	<span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-selector-tag">i</span><span class="hljs-selector-class">.out_flow_neighbour</span>():<br>		<span class="hljs-keyword">if</span> j <span class="hljs-keyword">in</span> visited:<br>			continue<br>		<span class="hljs-comment">// get max capacity of this path</span><br>		capacity_to_j = <span class="hljs-built_in">max</span>(<span class="hljs-built_in">d</span>(i), <span class="hljs-built_in">capacityBetween</span>(<span class="hljs-selector-tag">i</span>, j))<br>		<span class="hljs-comment">// try to min max d(j)</span><br>		<span class="hljs-keyword">if</span> <span class="hljs-built_in">d</span>(j) is None or <span class="hljs-built_in">d</span>(j) &gt; capacity_to_j then:<br>			<span class="hljs-built_in">d</span>(j) = capacity_to_j<br>			prev<span class="hljs-selector-attr">[j]</span> = <span class="hljs-selector-tag">i</span><br>			<span class="hljs-comment">// update the max min capacity</span><br>			queue<span class="hljs-selector-class">.addOrUpdate</span>(j, capacity_to_j)<br><br>return capacity<br></code></pre></td></tr></table></figure>
+<p>尝试最小化 bottleneck</p>
+<p>这个dijkstra 算法可以在 $O(n^2)$ 时间解决 BPP</p>
+<p>如果用 斐波那契堆则可以优化到 $O(m+n\log n)$</p>
+<p><br></p>
+<h3 id="Incremental-Search"><a href="#Incremental-Search" class="headerlink" title="Incremental Search"></a>Incremental Search</h3><p>我们再看另一个算法, 有点类似于 Kruskal 算法</p>
+<p>首先我们先将边的权值进行排序</p>
+<script type="math/tex; mode=display">
+d_1<d_2<\cdots<d_r</script><p><strong>MCPP 算法</strong> maxmize 每个 path 的最小边</p>
+<p>// TODO</p>
+<p><strong>BPP 算法</strong> minimize 每个 path 的最大边</p>
+<p>每次我们选择最小的权值$d_i$, 将有这个权值的边添加到 graph 中</p>
+<p>如果添加这些边之前 没有从 s 到 t 的路径, 那说明每个 path 的最大边一定大于$d_{i-1}$, (不然就会有一条路径, 所有边的权值都小于 $d_i$)</p>
+<p>当添加了这条边, 如果有了 s 到 t 的路径, 说明这条 s-t 路径一定包含 权值为 $d_i$ 的边, 那就说明最小的 max capacity 就是 $d_i$</p>
+<p>和 Kruskal 算法简直一样, 问题就是有向图中怎么判断有 s-t path</p>
+<p><img src="/Blog/intro/math448/mcpp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/mcpp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/mcpp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>当我们有所有边权重的排序时, incremental search 算法使用 $O(E)$ 的时间解决 bottleneck path problem</p>
+<p>但排序需要 $O(E\log E)$ 时间, $E\le V^2$ , $O(E\log E)\le O(E\log V^2) = O(E\cdot 2\log V) = O(E\log V)$</p>
+<p>因此总共用时 $O(E\log V + E) =O(E\log V)$</p>
+<blockquote>
+<p>这里我们没有说检查 s-t path 需要多少复杂度, 我们假设可以在 $O(1)$ 的时间知道是否有 s-t path</p>
+<p>同样我们也没有说添加边的复杂度, 当然也可以在原图上进行操作(不通过添加边的方式, 但这样做又使得我们无法在 $O(1)$ 的时间知道是否有s-t path)</p>
+</blockquote>
+<p><br></p>
+<p>本质上我们就是在排好序的 array 中找一个值, 我们可以将算法改进为 binary searrch, 这个算法就叫做 threshold algorithm</p>
+<p><br></p>
+<h3 id="Gabow-Tarjan-Algorithm"><a href="#Gabow-Tarjan-Algorithm" class="headerlink" title="Gabow-Tarjan Algorithm"></a>Gabow-Tarjan Algorithm</h3><p>很明显, 上面算法的时间复杂度大头在排序上, Gabow-Tarjan Algorithm 就在排序上做文章, 它先使用桶排序找到大致的范围, 再细致地找具体的值</p>
+<p>先用 $O(E)$ 的复杂度把桶设置好, 然后具体排序需要的时间是 $O(E\log^*V)$, 因为当我们具体排序时肯定小于原本的 $E$</p>
+<p>而 Gabow-Tarjan 算法的时间复杂度是 $O(E\log^*V)$</p>
+<p><br></p>
+<p>将 modified Dijkstra’s algorithm 和 Gabow-Tarjan Algorithm 结合</p>
+<p>我们可以再 $O(\min(E+V\log V, E\log^*V)$ 的时间中解决 BPP 问题, 这是已知的最好的时间复杂度</p>
+<p><br></p>
+<h3 id="Undirected-Graph"><a href="#Undirected-Graph" class="headerlink" title="Undirected Graph"></a>Undirected Graph</h3><p>而再 undirected graph 中则更为简单, 只需要 $O(E)$ 的时间</p>
+<p>我们可以使用二分法, 选择一个 weight, 把所有小于等于这个 weight 的边放入</p>
+<p><img src="/Blog/intro/math448/mcpp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>如果此时有 s-t path, 那么我们只需对已有的边再进行二分, 考虑 $E/2$ 个边即可</p>
+<p>如果此时没有 s-t path, 那么同样, 我们可以不考虑这些已添加的边, 只考虑 s 所在的 component 如何到达 t 所在的 component, 即只需考虑 $E/2$ 个点</p>
+<blockquote>
+<p>为什么有向图中依然需要考虑所有的边? 在无向图中, <strong>我们可以将 component 压缩成一个 node</strong>, 但在有向图中, 我们不可以这样做, 只有强连通分量才可以, 在有向图中, 一个node 可能可以进入一个弱联通分量但是出不去, 所以依然要考虑这些点</p>
+</blockquote>
+<p><img src="/Blog/intro/math448/mcpp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们第一个 iteration 要考虑 $E$ 个边</p>
+<p>第二个iteration 只需要考虑 $E/2$ 个边</p>
+<p>一直往下终会收敛</p>
+<p>总的时间复杂度就是 $O(E+\frac E2 +\frac E 4+\cdots)=O(E\cdot (1+\frac 12 +\frac 14\cdots))=O(2E)=O(E)$</p>
+<p><br></p>
+<h3 id="All-pair-bottleneck-paths-in-undirected-graphs"><a href="#All-pair-bottleneck-paths-in-undirected-graphs" class="headerlink" title="All pair bottleneck paths in undirected graphs"></a>All pair bottleneck paths in undirected graphs</h3><p>很简单, 就像之前说的,  两个点的情况我们使用 Kruskal 直到两个点相连.</p>
+<p>多个点的情况依然用 Kruskal 直到他们相连</p>
+<p>即最小生成树就是 all pair bottleneck paths.</p>
+<p>可以用 Prim’s Algorithm 也可以用 Kruskal </p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2024/01/10/combinational-theory/">
+                        <span class="hidden-mobile">combinational theory</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>
