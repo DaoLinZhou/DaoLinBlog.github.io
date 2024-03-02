@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
-<meta property="article:modified_time" content="2024-02-02T06:34:00.996Z">
+<meta property="article:modified_time" content="2024-02-24T18:56:39.771Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -402,6 +402,100 @@ d_1<d_2<\cdots<d_r</script><p><strong>MCPP 算法</strong> maxmize 每个 path �
 <p>多个点的情况依然用 Kruskal 直到他们相连</p>
 <p>即最小生成树就是 all pair bottleneck paths.</p>
 <p>可以用 Prim’s Algorithm 也可以用 Kruskal </p>
+<p><br></p>
+<p><br></p>
+<h2 id="Maximum-flow-problem"><a href="#Maximum-flow-problem" class="headerlink" title="Maximum flow problem"></a>Maximum flow problem</h2><p>让 $G=(V,E)$ 是 directed graph,对于每个 edge $(i,j)\in E$, 有 capacity $u_{ij}$ . 同时有两个 node $s, t$.</p>
+<p><strong>Maximum flow problem (MFP)</strong> 是要找到 可以从 $s$ 发送到 $t$ 的最大量的 flow 并且 每条边不超过 capacity</p>
+<p><img src="/Blog/intro/math448/mfp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mfp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>首先我们可以把这个问题转为 linear programming</p>
+<p>有很多方式来构建一个 MFP 的 linear programming.</p>
+<p>这里先以 <strong>arc flow formulation</strong> 开始</p>
+<p>让 $f$ 为 从 $s$ 点流出并流入 $t$ 的总 flow</p>
+<p>让 $x_{ij}$ 为 边 $(i,j)$ 上的 flow</p>
+<p>那么</p>
+<p><img src="/Blog/intro/math448/mfp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>假设: 没有一个 s-t path 有 infinite capacity (不然这题没有意义)</p>
+<p>假设: graph 没有 平行边, 但实际上我们可以把平行边合并为一条边</p>
+<p><br></p>
+<h3 id="Weak-duality-and-the-s-t-cut"><a href="#Weak-duality-and-the-s-t-cut" class="headerlink" title="Weak duality and the s-t cut"></a>Weak duality and the s-t cut</h3><p>s-t cut 就是 任意一个 cut, 将图分为两个部分</p>
+<p>让 $S\subset V, \bar S=V-S$, 且 $s\in S, t\in \bar S$, 那么 $(S,\bar S)$ 就是 s-t cut</p>
+<p><img src="/Blog/intro/math448/mfp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>那么 <strong>capacity of the cut $(S,\bar S) $</strong> 叫做 $c(S,\bar S)$</p>
+<script type="math/tex; mode=display">
+c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t cut 是所有 forward arc 的 capacity 的集合</p>
+<p>一个有 smallest capacity 的 s-t cut 叫做 minimum s-t cut</p>
+<p><br></p>
+<p><strong>Theorem 1 (Weak duality theorem for maximum flows))</strong></p>
+<p>Maximum flow from s to t $\le$ capacity of minimum s-t cut in G</p>
+<p><img src="/Blog/intro/math448/mfp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Path-flow-formulation"><a href="#Path-flow-formulation" class="headerlink" title="Path flow formulation"></a>Path flow formulation</h3><p>另一种方式是我们用 path flow formulation. 我们可以把 network flow 看作是从 $s$ 点向 $t$ 点进行输送, 可能有多个路径, 通过这些路径我们描述了 network flow 的 solution</p>
+<p>正规一点地说</p>
+<p>让 $F$ 作为 collection of $s-t$ paths in $G$. 对于每个 path $p\in F$ 我们有一个 decision variable $x<em>p$ 代表这条路径的 flow. 因此整个图的 flow 就是 $\sum</em>{p\in F}x_p$ . 对于每条边 $(i,j)\in E$ 定义 $F(i,j)$</p>
+<p><img src="/Blog/intro/math448/pf.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>就是说 $F(i,j)$ 代表了所有使用 $(i,j)$ 这条边的 flow path</p>
+<p>因此我们可以写出 linear programming:</p>
+<p><img src="/Blog/intro/math448/pf_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这个就是 path flow formulation of the MFP</p>
+<p>注意 $|F|$ 可能是exponential 的, 因此这个 fomulation 对解决 最大流问题不是非常有用.</p>
+<p>但是它对我们研究 最大流问题的各种属性非常有用</p>
+<p><br></p>
+<h3 id="Flow-decomposition-Theorem"><a href="#Flow-decomposition-Theorem" class="headerlink" title="Flow decomposition Theorem"></a>Flow decomposition Theorem</h3><p>我们可以把 path flow 转为 arc flow 问题</p>
+<p><br></p>
+<h4 id="Flow-decopmposition-theorem"><a href="#Flow-decopmposition-theorem" class="headerlink" title="Flow decopmposition theorem"></a>Flow decopmposition theorem</h4><p>对于任何 feasible flow on network $G=(V,E)$ (represented as arc flows) 可以被 decomposite 为 $|E|$ s-t path 和 cycle flows. 更进一步, value of the flow 就是 sum of the values of flows along the paths</p>
+<p><img src="/Blog/intro/math448/pf_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h4 id="Integrality-Theorem"><a href="#Integrality-Theorem" class="headerlink" title="Integrality Theorem"></a>Integrality Theorem</h4><p>当每个 edge 的 capacity 都是 integer 时, 最大流存在 optimal integer solution </p>
+<p>可以反证, 如果最大流不是 integer, 则有 path 不是 integer, 说明可以继续增加流量, 当前结果不是 optimal</p>
+<p><img src="/Blog/intro/math448/pf_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>Path flow formulation 和 arc flow formulation 在 最大流问题中是等价的</p>
+<p><img src="/Blog/intro/math448/pf_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="The-dual-of-PF"><a href="#The-dual-of-PF" class="headerlink" title="The dual of PF"></a>The dual of PF</h3><p>对于linear programming 问题 自然有对应的 dual 问题</p>
+<p><img src="/Blog/intro/math448/pf_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们为什么关系 dual PF, 每个 $y_{ij}$ 可以被视作 选择一个边 $(i,j)$.</p>
+<p>这个 constrain 关注于对于每个 s-t path 我们必须选择最少一条边 (如果没有选择任意一条边说明我们可以往这个边注入新的流量, 与 optimal 不符)</p>
+<p>Ignoring potential fractional values of $y_{ij}$</p>
+<p>这意味着 optimal dual solution 在选择边时，需要使每条路径都包含一条所选边，且所选 边的总容量最小化。</p>
+<p>The smallest capacity set of edges which intersects every path from $s$ to $t$ is precisely a minimum $s-t$ cut</p>
+<p><img src="/Blog/intro/math448/pf_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>1-4 这条边是 11</p>
+</blockquote>
+<p><img src="/Blog/intro/math448/apath_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/apath_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>

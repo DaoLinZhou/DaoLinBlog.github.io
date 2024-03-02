@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-02-04T21:05:48.989Z">
+<meta property="article:modified_time" content="2024-03-02T01:03:17.732Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7k 字
+      14k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      59 分钟
+      120 分钟
     </span>
   
 
@@ -594,6 +594,339 @@ B(z)=z+1\cdot B(z)^2+1\cdot B(z)</script></blockquote>
 <p><img src="/Blog/intro/math443/gcc_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/gcc_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/gcc_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Recursive-structure"><a href="#Recursive-structure" class="headerlink" title="Recursive structure"></a>Recursive structure</h2><h3 id="Rooted-Plane-Tree"><a href="#Rooted-Plane-Tree" class="headerlink" title="Rooted Plane Tree:"></a><strong>Rooted Plane Tree</strong>:</h3><ul>
+<li>有一个 root node</li>
+<li>embeded in plane</li>
+<li>children are ordered</li>
+</ul>
+<p><br></p>
+<h3 id="Binary-tree"><a href="#Binary-tree" class="headerlink" title="Binary tree:"></a>Binary tree:</h3><p>每个 vertex 有 两个或是零个子节点</p>
+<p>size = number of leaves</p>
+<p><img src="/Blog/intro/math443/rs.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+B(t)=t+B(t)^2</script><p>让 $u=B(t)$</p>
+<script type="math/tex; mode=display">
+u^2-u+t=0</script><p>解出来</p>
+<script type="math/tex; mode=display">
+u=\frac {1\pm \sqrt{1-4t}}{2}</script><p>我们选择有 right taylor series at 0: $\frac {1-\sqrt{1-4t}}{2}$</p>
+<script type="math/tex; mode=display">
+B(t)=t+t^2+2t^3+5t^4+\cdots</script><p>我们可以用 generativebinomial theorem 来确定第 n 项的系数</p>
+<script type="math/tex; mode=display">
+b_{n+1}={2n \choose n}\frac 1{n+1}</script><p><br></p>
+<h3 id="2-3-tree"><a href="#2-3-tree" class="headerlink" title="2-3 tree"></a>2-3 tree</h3><p>每个 vertex 有 0, 2 或 3 个子节点</p>
+<p><img src="/Blog/intro/math443/rs_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Full-Plane-trees"><a href="#Full-Plane-trees" class="headerlink" title="Full (Plane trees)"></a>Full (Plane trees)</h3><p>对于 children 没有任何约束</p>
+<p>size = number of vertices</p>
+<script type="math/tex; mode=display">
+T = \bullet \times T^*</script><p><img src="/Blog/intro/math443/rs_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Dyck-path"><a href="#Dyck-path" class="headerlink" title="Dyck path"></a>Dyck path</h3><p><img src="/Blog/intro/math443/rs_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Bijection"><a href="#Bijection" class="headerlink" title="Bijection"></a>Bijection</h2><p>如果对于所有 $n\ge 0$, generating function 都有 $a_n=b_n$  我们说两个combinational classes 是 bijection. 写作 $A\equiv B$</p>
+<p>考虑 class $B$ of binary tree</p>
+<p>size = number of internal vertices</p>
+<p>specification: $B=\epsilon+\bullet\times B\times B$</p>
+<p>$|\bullet|=1$</p>
+<p>$B(t)=1+t\cdot B(t)^2$, 因此 $b_n={2n \choose n}\frac {1}{n+1}$</p>
+<p><br></p>
+<h3 id="triangulations"><a href="#triangulations" class="headerlink" title="triangulations"></a>triangulations</h3><p>一个 labelled 的凸多边形的 triangulation 和 tree 是 bijection 关系的</p>
+<p><img src="/Blog/intro/math443/bijection.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>对于一个 triangulation, 我们先确定一条边, 之后这个边对应三角形的顶点就是 tree 的 root</p>
+<p>其余两条边分别是两个子树</p>
+<p><img src="/Blog/intro/math443/bijection_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>三角形有三条边, 第一条边用于和 parent node 链接, 剩余两条边用于和子节点链接</p>
+<p>triangle 的数量就是 internal node 的数量</p>
+<p><br></p>
+<p>但是我们如何证明</p>
+<h3 id="Strategy-1-mapping"><a href="#Strategy-1-mapping" class="headerlink" title="Strategy 1, mapping"></a>Strategy 1, mapping</h3><p>一种方法是定义一个 map</p>
+<p>$\phi: T_n\rightarrow B_n$ 并且 show</p>
+<ol>
+<li>image of $\phi$ 在 $B_n$ 中</li>
+<li>map 是 bijection<ol>
+<li>injective $\phi(T_1)=\phi(T_2)\implies T_1=T_2$</li>
+<li>surjective $\forall \beta, \exists B_n , \exists T \in T_n, \phi(T)=\beta$</li>
+</ol>
+</li>
+</ol>
+<p><img src="/Blog/intro/math443/bijection_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这个方式当我们在可以准确地链接两个 class 的 特征 (characterizing features) 时非常好用</p>
+<p><img src="/Blog/intro/math443/bijection_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Strategy-2"><a href="#Strategy-2" class="headerlink" title="Strategy 2"></a>Strategy 2</h3><p>我们只需要证明两个 class 的 combinationial specification 一致即可</p>
+<p>对于 triangulation 问题, 他的 specification 是</p>
+<p><img src="/Blog/intro/math443/bijection_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>因为我们从构造 triangulation 的角度看, 对于一个多边形, 我们先用一个三角形将它分成两个小的多边形, 然后对两个小多边形进行递归操作</p>
+<p><img src="/Blog/intro/math443/bijection_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>因此我们能得到这个 specification</p>
+<p>而这个和 binary tree 的 specification 是一样的</p>
+<script type="math/tex; mode=display">
+T(t)=1+t\cdot T(t)^2</script><script type="math/tex; mode=display">
+B(t)=1+t\cdot B(t)^2</script><p>因此二者一致</p>
+<p><br></p>
+<p><br></p>
+<h2 id="Labelled-Structures"><a href="#Labelled-Structures" class="headerlink" title="Labelled Structures"></a>Labelled Structures</h2><h3 id="Labels"><a href="#Labels" class="headerlink" title="Labels"></a>Labels</h3><p>对于一个 有 $n$ 个 atoms 的 size $n$ 的 object, 我们可以 labels $1, 2,\cdots,n$</p>
+<p><img src="/Blog/intro/math443/label.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>well labelled: 我们正好使用 “size of object” 来 label</p>
+</blockquote>
+<p><br></p>
+<h3 id="Exponential-generating-function-EGF"><a href="#Exponential-generating-function-EGF" class="headerlink" title="Exponential generating function (EGF)"></a>Exponential generating function (EGF)</h3><p>从 counting 的角度, 这意味着有很多的 structures. 例如对于一个 rooted plane trees, 如果我们 label 它则有 n! 种不同的 label 方式</p>
+<p>对于 labelled structures 我们使用 exponential generating function (EGF)</p>
+<p>让 $C$ 是一个 well labelled combinatorial class, 定义</p>
+<script type="math/tex; mode=display">
+c(t)=\sum_{n\ge 0}c_n\frac {t^n}{n!}</script><p>通常我们会知道 $c(t)$ 指的是 OGF (ordinary generating function) 还是 EGF, 通常情况下我们使用 $\tilde c(t)$ 表示 OGF.</p>
+<p><br></p>
+<p><br></p>
+<h4 id="basic-epsilon-and-atom"><a href="#basic-epsilon-and-atom" class="headerlink" title="basic: epsilon and atom"></a>basic: epsilon and atom</h4><p>一些 well labeled classes 和 他们的 egf 的例子</p>
+<p><img src="/Blog/intro/math443/label_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h4 id="classic-Permutations"><a href="#classic-Permutations" class="headerlink" title="classic: Permutations"></a>classic: Permutations</h4><script type="math/tex; mode=display">
+P_n=n!</script><script type="math/tex; mode=display">
+P(t)=\sum_{n\ge 0}n!\frac {t^n}{n!}=\sum_{n\ge 0}t^n=\frac 1{1-t}</script><p>就是说 permutation 的 egf 就是 $1+t+t^2\cdots$</p>
+<blockquote>
+<p>我觉得, 他就是普通的 generating function 但是为了节省一下冗余的 $n!$, 因为当我们 label 时通常会有 $n!$ 种情况</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/label_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>对于 permutation 有两种方式描述</p>
+<p>一种是以原本的顺序排列, 例如一个数组, 存储新的 label</p>
+<p>另一种是使用 graph, 2 的位置存 3 就将 2 指向 3. 这样, 表示如何交换 label</p>
+<p><br></p>
+<h4 id="urn"><a href="#urn" class="headerlink" title="urn"></a>urn</h4><p><img src="/Blog/intro/math443/label_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>对于 set, set 本身就不在意 order, 因此 relabel 不会改变什么, 因此 $u_n=1$</p>
+<p><br></p>
+<h4 id="Cycles"><a href="#Cycles" class="headerlink" title="Cycles"></a>Cycles</h4><p><img src="/Blog/intro/math443/label_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>cycle 我们可以选择一个点, 固定住它, 之后对其余 $n-1$个点进行 permutation. </p>
+<p><br></p>
+<p><br></p>
+<h3 id="General-thoughts"><a href="#General-thoughts" class="headerlink" title="General thoughts"></a>General thoughts</h3><p>一些一般的想法</p>
+<p>number of unlabelled (urns) $\le$ number of labelled $\le n! \cdot$ number of unlabelled (list)</p>
+<p>urns 就是 lower bound 的 例子</p>
+<p>list permutation 就是 upper bound 的例子</p>
+<p><br></p>
+<p><strong>Combinational sum + labelling is inherited</strong> </p>
+<p>证明 $C=A+B$:</p>
+<p>我们知道 $c_n=a_n+b_n$</p>
+<script type="math/tex; mode=display">
+C(t)=\sum c_n \frac {t^n}{n!}=\sum (a_n+b_n) \frac {t^n}{n!}</script><script type="math/tex; mode=display">
+=\sum a_n \frac {t^n}{n!}+\sum b_n \frac {t^n}{n!}</script><script type="math/tex; mode=display">
+=A(t)+B(t)</script><p><br></p>
+<h3 id="Products-star"><a href="#Products-star" class="headerlink" title="Products $\star$"></a>Products $\star$</h3><p>和简单的 cartesian product 不一样</p>
+<p><img src="/Blog/intro/math443/label_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们为所有 relabelled elements 创建一个 set</p>
+<script type="math/tex; mode=display">
+A\star B=\bigcup_{\alpha\in A, \beta\in B}\text{Relabel}(\alpha, \beta)</script><p>$\text{Relabel}(\alpha, \beta)$ 是 choose $|\alpha|$ labels from $(1\cdots |\alpha|+|\beta|)$</p>
+<ul>
+<li>为 atom 赋值时保持 label 的顺序</li>
+<li>使用其余的 $|\alpha|+|\beta|$ labels 来 relabel $\beta$ in some way</li>
+</ul>
+<p><img src="/Blog/intro/math443/label_0.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>如果 $C=A\star B$ 那么 </p>
+<script type="math/tex; mode=display">
+c_n=\sum_{k=0}^\text{inf} a_kb_{n-k}{n \choose k}</script><script type="math/tex; mode=display">
+\sum_{n\ge 0}c_n \frac {t^n}{n!} &=&\sum_{n\ge 0}(\sum_{k=0}^\text{n} a_kb_{n-k}{n \choose k})\frac {t^n}{n!} \\
+&=& \sum_{n\ge 0}\sum_{k=0}^n \frac {a_k}{k!}\frac {b_{n-k}}{(n-k)!}t^{k+(n-k)}\\
+&=&A(t)B(t)</script><p><img src="/Blog/intro/math443/label_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>Sequences</p>
+<script type="math/tex; mode=display">
+C=SEQ(A)\implies \text{egf }\quad C(t) = \frac 1 {1-A(t)}</script><script type="math/tex; mode=display">
+C=\epsilon+A\star C</script><p><br></p>
+<p><br></p>
+<h3 id="Sequence-operator"><a href="#Sequence-operator" class="headerlink" title="Sequence operator"></a>Sequence operator</h3><p>我们可以定义 exponents </p>
+<script type="math/tex; mode=display">
+C=A\star A\cdots A</script><script type="math/tex; mode=display">
+C(t)=A(t)^{\star k}</script><p>and sequence</p>
+<script type="math/tex; mode=display">
+C=\text{SEQ}(A)\implies C=\epsilon+A\star C\implies C(t)=\frac 1{1-A(t)}</script><p><img src="/Blog/intro/math443/set_op.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们可以用 ordered list 来表示一个 set, 但是 将所有的 ordering 视为等同的</p>
+<p><br></p>
+<p>例如: $\text{SET}(P)$</p>
+<p><img src="/Blog/intro/math443/set_op_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们用 $C=\text{SET(A)}$ 来表示 equivalent class of $\text{SEQ(A)}$ under permuting the components</p>
+<p><img src="/Blog/intro/math443/set_op_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>当 atom 被 labelled, 任何两个 components 必须是 distinct. for every sequence with k</p>
+<p>Components is in an equivalent class of size $k!$</p>
+<p>如果 $C^{(k)}\subset C=\text{SET(A)}$ 是 那些  constains exactlly $k$ 个 A 的 element  的 set 那么</p>
+<script type="math/tex; mode=display">
+C^{(k)}(t)=\frac {A(t)^k}{k!}</script><blockquote>
+<p>分子是 $A(t)^k$ 是因为有 $k$ 个 element</p>
+<p>分母是 $k!$ 因为有这么多的 permutations</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/set_op_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>用 1 来说</p>
+<p>Forest 是 set of plane tree, $F=\text{SET(P)}$</p>
+<p>$F(t)=e^{P(t)}$</p>
+<p>$P$ 是 plane tree, 它的 sqecification 是 $\bullet\times \text{SEQ(P)}$ , 他有一个 root 节点, 同时 可以有多个子树(可以是一个子树, 两个子树… 即 sequence 个子树)</p>
+<p>$SEQ(P)$ 的 generating function是 $\frac 1{1-P(t)}$</p>
+<script type="math/tex; mode=display">
+P(t)=t\cdot\frac 1{1-P(t)}</script><p>解出来 $P(t)$</p>
+</blockquote>
+<p><br></p>
+<h3 id="Cycle-Construction"><a href="#Cycle-Construction" class="headerlink" title="Cycle Construction"></a>Cycle Construction</h3><p>我们同样可以使用这个方式来进行 cycle construction</p>
+<p><img src="/Blog/intro/math443/set_op_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+C=\text{cyc}(A)\implies C(t)=\sum_{k\ge 0}\frac {A(t)^k}{k}=\log \frac {1}{1-A(t)}</script><blockquote>
+<p>for this to be well defined, $a_0 = 0$</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/set_op_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Surjection"><a href="#Surjection" class="headerlink" title="Surjection"></a>Surjection</h2><p>surjection 是一个 map $f:D\rightarrow R$, 使得每个元素都有 non-empty pre-image (考虑 finite $D$ 和 $R$)</p>
+<p><img src="/Blog/intro/math443/surjection.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+\text{R = a class of surjection}</script><script type="math/tex; mode=display">
+=\text{SEQ(SET}_{\ge0}(\bullet))</script><script type="math/tex; mode=display">
+\text{Size = Size of domain}</script><p><strong>labelled construction.</strong></p>
+<script type="math/tex; mode=display">
+R(t)=\frac{1}{1-(e^t-1)}=\frac {1}{2-e^t}=1+t+\frac 32t^2\cdots +\frac {1561}{240}t^6\cdots</script><blockquote>
+<p>有 $\frac {1561}{240}\cdot 6!=4683$ surjections on a domain of 6 elements</p>
+<p>如果有六个元素, 那么有 4683 种 surjection 方式</p>
+<p>注意</p>
+<script type="math/tex; mode=display">
+\text {SET}_{\ge 0}(\bullet) = \text {SET}(\bullet) - 1</script><p>从整体排除 empty 的 case, 而 $\text{SET}(\bullet)=e^t$</p>
+</blockquote>
+<p>由此我们可以得到几个变种</p>
+<p><br></p>
+<p><strong>(a) Surjection $f:D\rightarrow R, |D|=n$</strong></p>
+<script type="math/tex; mode=display">
+S=\text{SEQ(SET}_{\ge0}(\bullet)), \quad|\bullet|=1</script><script type="math/tex; mode=display">
+S(t)=\frac {1}{2-e^t}=(e^t-1)^1+(e^t-1)^2+(e^t-1)^3\cdots +(e^t-1)^n</script><p><br></p>
+<p><strong>(b) Surjection $f:D\rightarrow R, |D|=n, R=r$</strong></p>
+<p>我们不再允许任意 size 的 R, 而是将它固定为 r</p>
+<script type="math/tex; mode=display">
+S^r=(\text{SET}_{\ge0}(\bullet))^r</script><script type="math/tex; mode=display">
+S^r(t)=(e^t-1)^r</script><p>我们关注这个东西的 $r$ 次方, 就像普通的 generating function 一样</p>
+<p><br></p>
+<p> <strong>(c) Surjection $f:D\rightarrow R$ 使得 每个 R 中元素的 pre-image 是 size 1 或 2</strong></p>
+<p><img src="/Blog/intro/math443/surjection_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+\text{SEQ(SET}_{1,2}(\bullet))=\frac {1}{1-(t+\frac {t^2}{2})}</script><p><br></p>
+<h3 id="Set-Partiton"><a href="#Set-Partiton" class="headerlink" title="Set Partiton"></a>Set Partiton</h3><p>一个 set B 的 set partition 是一组 non-empty subset of $B$ , 同时 union 是 $B$ 并且没有 intersection</p>
+<p>例如: (1, 4), (3), (2,5,6) 是 (1..6) 的 一个 set partition</p>
+<p>我们可以用 notation: $14|256|3$ 来表示</p>
+<p>每个 subset 被叫做一般 block, 他们是 unordered</p>
+<script type="math/tex; mode=display">
+S=SET(SET_{\ge 0}(\bullet)),\quad \text{labelled}, \quad |\bullet|=1</script><script type="math/tex; mode=display">
+S(t)=e^{e^t-1}</script><script type="math/tex; mode=display">
+s_n=n![t^n]e^{e^t-1}</script><p>被叫做 Bell number</p>
+<p><br></p>
+<p><img src="/Blog/intro/math443/surjection_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们可以进行细粒度的控制 set 的样子</p>
+<p><br></p>
+<h3 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h3><p><img src="/Blog/intro/math443/surjection_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+P(t)=e^{\log \frac {1}{1-t}}=\frac 1 {1-t}</script><p>我们可以描述并且找到 各种 permutation family 的 generating function.</p>
+<p>我们可以 控制 cycle 的 length 和 cycle 的数量</p>
+<p><img src="/Blog/intro/math443/surjection_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>我们可以禁止一个元素的环 (no fixed point)</p>
+<p><img src="/Blog/intro/math443/surjection_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Polya-Redfield-counting"><a href="#Polya-Redfield-counting" class="headerlink" title="Polya-Redfield counting"></a>Polya-Redfield counting</h2><p>我们使用 equivalence classes of sequence 定义 SET 和 CYCLES</p>
+<p><strong>Equivalence class 的数量等于 distinct object 的数量</strong></p>
+<p>现在我们对 unlabelled object 使用这个 strategy</p>
+<p><br></p>
+<p>我们考虑 unlabelled version of SETS</p>
+<p>Multisets of size 4 with elements from <code>&#123;a,b&#125;</code></p>
+<p><code>&#123;a, a, a, a&#125;, &#123;a, a, a, b&#125;, &#123;a, a, b, b&#125;, &#123;a, b, b, b&#125;, &#123;b, b, b, b&#125;</code></p>
+<p>我们将下面这些 sequence 视为一个 equivalence class</p>
+<p><code>(a, a, b, b) = (a, b, a, b) = (a, b, b, a) = (b, b, a, a) = (b, a, b, a) = (b, a, a, b)</code></p>
+<p><br></p>
+<p><img src="/Blog/intro/math443/surjection_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>cyclic permutation 的每个括号代表一个 cycle</p>
+<p><code>(1, 2, 3, 4)</code> 代表的就是 <code>1-&gt;2-&gt;3-&gt;4-&gt;1</code> 这样一个cycle</p>
+<p><code>(1, 3)(2, 4)</code> 就是两个 cycle</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/surjection_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>两种颜色的还算简单</p>
+<p>对于正三边体, 我们有一个 colouring vector <code>(x1, x2, x3, x4)</code></p>
+<p>如果一个 colouring 可以通过旋转 (物理上的) 变成另一个 colouring 我们就认为他们是等价的 (在一个 equivalence class)</p>
+<p><img src="/Blog/intro/math443/surjection_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Sets-of-permutations"><a href="#Sets-of-permutations" class="headerlink" title="Sets of permutations"></a>Sets of permutations</h3><p>我们可以用哪些 permutations 来描述 equivalence class</p>
+<p>我们的 set 要满足下面三个性质</p>
+<ul>
+<li>Identity permutation 必须在 set 中 (例如一个 cycle 我们不进行旋转, 它本身也是 equivalence class 的一个元素)</li>
+<li>如果一个 permutation 在 set 中, 那么它的 inverse 也在 set 中 (例如 cycle, 我们顺时针旋转九十度后, 它在 set 中, 同样我们逆时针旋转 90 度 它也在 set 中)</li>
+<li>如果 $\sigma_1, \sigma_2$ 在 set 中, 那么 composition $\sigma_1(\sigma_2(x))$ 也在 set 中 (例如: 顺时针旋转 45 度 和 逆旋转 30 度结合是顺时针旋转 15 度)</li>
+</ul>
+<p><img src="/Blog/intro/math443/surjection_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>这被叫做 <strong>GROUP of permutations</strong></p>
+<p><br></p>
+<h3 id="Cycle-index-series"><a href="#Cycle-index-series" class="headerlink" title="Cycle index series"></a>Cycle index series</h3><p><img src="/Blog/intro/math443/surjection_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>例如 如果我们有三个元素</p>
+<p>cycle 1, 只有 <code>(1)(2)(3)</code>这种 permutation 方式, 即 $t_1^3$</p>
+<p>cycle 1 和 cycle 2, 有 <code>(1)(2, 3), (2)(1, 3), (3),(1,2)</code> 这三种方式 $3t_1 t_2$</p>
+<p>cycle 3 有 <code>(1, 2, 3) (1, 3, 2)</code> 两种方式</p>
+<p><img src="/Blog/intro/math443/surjection_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>example 中, 对于 cycle 为 3 的 index 我们有下面三种方案</p>
+<p><img src="/Blog/intro/math443/cyc.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+</blockquote>
+<p>对于 prime number, 他的式子就简单许多, 因为对 prime 进行 旋转不会得到和原本一样的图形</p>
+<p>例如一个 length 为 4 的 cycle 由 1 和 2 组成 (1, 2, 1, 2)</p>
+<p>我们将它偏移一次就是 (2, 1, 2, 1) 再偏移一次就是 (1, 2, 1, 2)</p>
+<p>但如果是 length 为 5 的 cycle, 只有偏移 5 次才能得到和原本一样的图形</p>
+<p><img src="/Blog/intro/math443/surjection_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>我们通过 equivalent class 的视角</p>
+<p><img src="/Blog/intro/math443/cyc_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>一个无序 set 可以看作是有序 tuple 的 equivalent class</p>
+<p><img src="/Blog/intro/math443/cyc_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+Z_{S_3}(2,2,2) = 24/6=4</script><blockquote>
+<p>2, 2, 2 指的是颜色, 就是这里的 a 和 b, 有两个变量, 如果我们寻找 a, b, c 三个变量再 cycle 3 的 组合, 那就应该是 3</p>
+<p>每个 2 分别对应 $t_1, t_2, t_3$ </p>
+<p>我怀疑如果 2, 2, 3 就可以是对于 length 为 1 和 2 的 cycle 允许用两种颜色, length 为 3 的  cycle 允许用 三种颜色, 颜色指的是 a, b, c</p>
+</blockquote>
+<script type="math/tex; mode=display">
+Z_{S_3}(a+b, a^2+b^2,a^3+b^3)=a^3+a^2b+ab^2+b^3</script><p><img src="/Blog/intro/math443/cyc_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/cyc_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>还有图论中的 isomorphic graph</p>
+<p><img src="/Blog/intro/math443/cyc_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/cyc_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/cyc_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>这里 (12)(3)(4)</p>
+<p>我们说 1 和 2 可以互相替换</p>
+<p>因此 边 A 没有等价的替代</p>
+<p>B 和 D 是可以互相替换的 因为我们把 B (1,3) 中的 1 替换为 2 就成了 D (2, 3), 反过来也是一样</p>
+<p>C 和 E 是可以互相替换的</p>
+<p>F 不可替换</p>
+<p>所以对应的 edge permutation 就是 (A)(BD)(CE)(F)</p>
+<p>我们之关系 cycle 的结构, (13)(24)等同于(12)(34)</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/cyc_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/cyc_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<h2 id="POSET"><a href="#POSET" class="headerlink" title="POSET"></a>POSET</h2><p>我们理解了 structure 和 counting of combinatorial classes. 我们尝试去组织 combinatorial class 的元素</p>
+<p><img src="/Blog/intro/math443/poset.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""><em>**</em></p>
+<p><img src="/Blog/intro/math443/poset_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
