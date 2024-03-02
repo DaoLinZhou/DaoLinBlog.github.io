@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-03-02T01:03:17.732Z">
+<meta property="article:modified_time" content="2024-03-02T01:24:34.576Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,24 +249,24 @@
 <p>有几种凑齐 200 的方法?</p>
 <p>例如: 100 + 50 + 10 + 10 + 10 + 10 + 10 = 200</p>
 <p><br></p>
-<p><img src="/Blog/intro/math443/paration.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们通常会限制 paration 中允许出现的元素</p>
 <p>例如:</p>
-<p><img src="/Blog/intro/math443/paration_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="Combinatorial-Properties-of-Partitions"><a href="#Combinatorial-Properties-of-Partitions" class="headerlink" title="Combinatorial Properties of Partitions"></a>Combinatorial Properties of Partitions</h2><p><strong>Conjugate of a paration</strong></p>
 <p>当我们有一个 partition 时, 可以将 Ferrers diagram 进行翻转</p>
-<p><img src="/Blog/intro/math443/paration_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>一个 paration 是 self-conjugate 如果它的翻转和自己一样</p>
 <p>A partition is self-conjugate if it is its own conjugate.</p>
 <p><br></p>
 <p><strong>Durfee square of a partition</strong></p>
-<p><img src="/Blog/intro/math443/paration_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>如果我们让A 是一个 self-conjugate 的 paration of n</p>
 <p>让 B 是一个 paration of n 同时 每个paration 都是 odd, distinct part</p>
 <p><strong>Theorem: The set A is in bijection with B for all n</strong></p>
-<p><img src="/Blog/intro/math443/paration_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>paration function</strong> $p(n)$</p>
 <p>让 $p(n)$ 代表 number of partitions of n</p>
@@ -276,7 +276,7 @@
 <p>Starting from n=0 the sequence of p(n) begins<br>1, 1, 2, 3, 5, 7, 11, 15, 22, 30, 42, 56, 77, 101, 135, …<br>This is sequence A000041 in the Online Encyclopedia of Integer Sequences (OEIS)</p>
 </blockquote>
 <p>利用 $p(n)$ 的生成函数，我们可以推导出很多东西。</p>
-<p><img src="/Blog/intro/math443/paration_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>为什么是这个式子?</p>
 <p>我的理解就是 首先我们看 $\frac 1 {1-x}$ 的 generating function</p>
@@ -288,18 +288,18 @@
 <p>那么就是 $(1+x+x^2\cdots ) (1+x^2+x^4\cdots)(1+x^3+x^6\cdots)$ 中 $x^3$ 的 系数</p>
 <p>我们可以忽略高于 $x^3$ 的项.</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/paration_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因此回归最原本的问题</p>
-<p><img src="/Blog/intro/math443/paration_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="理解-paratition-generating-function"><a href="#理解-paratition-generating-function" class="headerlink" title="理解 paratition generating function"></a>理解 paratition generating function</h2><p>Partition generating function 的 <strong>Product form</strong></p>
-<p><img src="/Blog/intro/math443/paration_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们说 下面的 identity 有一个 combinatorial interpretation</p>
-<p><img src="/Blog/intro/math443/paration_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每个 paration 都可以看作是一个长度递增的 sequence (可能是空)</p>
 <p>我们可以将这个动作解读(视作) combinatorial choices. Choose the number of 1s, either 0 or 1 or 2 or … Then choose the number of 2s, either 0, 1, 2, or.. and so on. </p>
-<p><img src="/Blog/intro/math443/paration_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>因为 </p>
 <script type="math/tex; mode=display">
@@ -307,100 +307,100 @@
 <p>选择一次 2 或是零次 2 等等</p>
 </blockquote>
 <p><br></p>
-<h3 id="使用-generating-function-来证明-partition-class-之间的-bijection"><a href="#使用-generating-function-来证明-partition-class-之间的-bijection" class="headerlink" title="使用 generating function 来证明 partition class 之间的 bijection"></a>使用 generating function 来证明 partition class 之间的 bijection</h3><p><img src="/Blog/intro/math443/paration_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="使用-generating-function-来证明-partition-class-之间的-bijection"><a href="#使用-generating-function-来证明-partition-class-之间的-bijection" class="headerlink" title="使用 generating function 来证明 partition class 之间的 bijection"></a>使用 generating function 来证明 partition class 之间的 bijection</h3><p><img src="/Blog/intro/math443/paration_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>$P(n)$ 指的是 n 的 paration, 研究人员发现了 hypergeometric function 和 partition generating function 之间的关系</p>
 <p>这种特性叫做 Rogers-Ramanujan identities: LHS 的和 等于 RHS 的乘积</p>
 <p>例如:</p>
-<p><img src="/Blog/intro/math443/paration_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>如果一个 <strong>Discrete set</strong> 每个元素都有 non-negative integer size, 并且任何给定大小的元素数都是有限的, 那么它就是一个 <strong>combinatorial class</strong> </p>
 <p>A <strong>discrete set</strong> is a <strong>combinatorial class</strong> if every element has a non-negative integer size, and the number of elements for any given size is finite</p>
-<p><img src="/Blog/intro/math443/paration_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/paration_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/paration_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>显然, 等式的右边是 parations by size 的集合</p>
 <p>例如: 1 的 parations 的数量就是序列中 $t$ 的系数, 2 的 parations 的数量就是序列中 $t^2$ 的系数</p>
 <p>我们要证明等式左边的序列也是这个性质</p>
 <p>首先右边的序列记录的是 parations by size 的集合, 即所有这样点的集合</p>
-<p><img src="/Blog/intro/math443/paration_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而我们可以把这个点阵分为 3 个部分, Durfee square, 和 at most k part 和 each part at most k</p>
-<p><img src="/Blog/intro/math443/paration_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们统计所有数的 paration 的可能</p>
 <p>从另一个角度讲, 考虑 durfee square 的 rank, 就是统计每个 rank 有多少种可能</p>
 <p>明显 对于 rank k, 有这些种点的组合形式</p>
-<p><img src="/Blog/intro/math443/paration_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>即 partition with k parts 乘以 partition with maximum part equal to k </p>
-<p>而我们还要统计点数, 还要在算上 $K\cdot K$ 这个矩阵中的点<br><img src="/Blog/intro/math443/paration_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而我们还要统计点数, 还要在算上 $K\cdot K$ 这个矩阵中的点<br><img src="/Blog/intro/math443/paration_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个是 generating function, 但我们不是基于哪一个数有多少种 paration 来进行计算的, 而是基于 rank 有多少种组合来进行计算的</p>
 <p>当我们固定 k 就可以算出 任意一个数有多少个 rank k paration</p>
-<p><img src="/Blog/intro/math443/paration_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </blockquote>
-<p><img src="/Blog/intro/math443/paration_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/paration_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/paration_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Vector-partition"><a href="#Vector-partition" class="headerlink" title="Vector partition"></a>Vector partition</h2><p>我们之前都是对 integer 进行 partition, 但我们也可以对 integer vector 进行 partition</p>
 <p>例如 <code>((1, 0), (2, 1), (2, 1), (0, 1))</code> 就是 <code>(5, 3)</code> 的 vector paration</p>
 <p>我们将 vector partition 通过一系列 变量来进行 encoding</p>
 <p>例如原本 integer k 我们只需要看 $x^k $ 的系数</p>
-<p>而现在对于 vector $(a,b,c)$ 我们要映射为 <img src="/Blog/intro/math443/vp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>而现在对于 vector $(a,b,c)$ 我们要映射为 <img src="/Blog/intro/math443/vp.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>通常情况下，我们会将部分内容限制在一小部分 vector 中, 我们可以 encode 在一个矩阵 $A$ 中, 并且用 $p_A(a,b)$ 表示使用 A 中 columns 的 paration 有多少种</p>
 <p>例如:</p>
-<p><img src="/Blog/intro/math443/vp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>实际上这个问题种对于任何 $(m,n), p_A(m,n)=1$  因为 A 是可逆矩阵,  linear independent, 只有唯一解</p>
-<p><img src="/Blog/intro/math443/vp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>Cheema’s Theorem: </p>
 <p>将 vector $\vec v$  partition 成 distinct part 的数量 等于 将 $\vec v$ partition 为每个 part 至少有一个 odd 元素</p>
-<p><img src="/Blog/intro/math443/vp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们要这个线性系统的非负整数解</p>
 <p><br></p>
 <p><br></p>
 <h2 id="Polytopes"><a href="#Polytopes" class="headerlink" title="Polytopes"></a>Polytopes</h2><p>一些 polytopes 的例子:</p>
-<p><img src="/Blog/intro/math443/poly.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>实际上在 linear programming 中我们就已经见过这个 polytopes,</p>
 <p>simplex algorithm 就是在 polytopes 的顶点之间移动</p>
 <p>convex 的定义: 就是图形中任意两点连成的线都在这个图形内</p>
-<p><img src="/Blog/intro/math443/poly_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而 <strong>convex hull</strong> 就是 最小可以容纳这个多边形的 convex set</p>
 <p>$conv(S)$ 是 所有 S 中,点的线性组合, 这里就像是我们描述线的时候</p>
 <p>$\vec v_1 \vec v_2$ 这条线可以用一个式子表达 $t\cdot \vec v_1+(1-t)\cdot \vec v_2$ 这里 t 是大于等于 0 小于等于 1 的实数.</p>
 <p>同理要表达一个多维空间的 hyperplain 就可以对 convex set 的每个顶点进行同样的操作. 如果一个点不是 convex 的 顶点那么在这个式子中就会被自动忽略, 因为我们总是可以把他的系数设为 0.</p>
-<p><img src="/Blog/intro/math443/poly_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果我们把 0 去掉, 那么就是 $conv((e_1, e_2, e_3))$ 就是由这三个点组成的三角形 (二维) 而不是三维体</p>
 <script type="math/tex; mode=display">
 \text{conv}((\pm 1, \pm1))=\text{conv}((1,1), (1,-1), (-1, 1), (-1, -1))</script><p>就是包裹这四个点的最小的 convex 图形, 即由这四个点组成的正方形</p>
-<p><img src="/Blog/intro/math443/poly_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>d-维 Euclidean space $\mathbb{R}^d$ 的 Hyperplane 是 一个 d-1 维的 affine subspace</p>
-<p><img src="/Blog/intro/math443/poly_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>polygon 是由 hyperplane 来定义的 (linear programming 中就讲过)</p>
-<p><img src="/Blog/intro/math443/poly_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每个 $a_i$ 都定义了一个 polytope 的 facet 或是 flat side</p>
-<p><img src="/Blog/intro/math443/poly_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/poly_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/poly_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>standard simplex 就是由 $e_i$ 组成的 convex hull</p>
-<p><img src="/Blog/intro/math443/poly_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/poly_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
-<h2 id="Dilates-of-Polytopes"><a href="#Dilates-of-Polytopes" class="headerlink" title="Dilates of Polytopes"></a>Dilates of Polytopes</h2><p><img src="/Blog/intro/math443/poly_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Dilates-of-Polytopes"><a href="#Dilates-of-Polytopes" class="headerlink" title="Dilates of Polytopes"></a>Dilates of Polytopes</h2><p><img src="/Blog/intro/math443/poly_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们可以将这个式子看作是一个 $n$ 的 integer partition</p>
 <p>选择 $a_1$ 次的 $m_1$, $a_2$ 次的 $m_2$  等等</p>
 <p>之后我们思考 parttions with restricted parts 和 dilates (扩张) of polytope 的关系</p>
 <p><br></p>
 <p><strong>Dilates</strong></p>
-<p><img src="/Blog/intro/math443/poly_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>Lattice (格网) point enumerator</strong></p>
-<p><img src="/Blog/intro/math443/poly_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们重新整理一下 problem</p>
 <p>对于 polytope P, 我们想确定 $p(n)$</p>
 <script type="math/tex; mode=display">
@@ -414,7 +414,7 @@ p(n)=|\mathbb{Z}^d \cap_n p|</script><blockquote>
 </ul>
 <p>例如:</p>
 <p>d 维的 立方体:</p>
-<p><img src="/Blog/intro/math443/poly_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每个 component 有三个 integer <code>-1, 0, 1</code>, 我们有 $d$ components 因此有 $3^d$ 个 integer point</p>
 <p>我们对立方体进行扩张, 得到 $(2n+1)^d$ 这是一个 polynomial in $n$</p>
 <p><br></p>
@@ -425,7 +425,7 @@ L_p(t)=|tP\cap \mathbb{Z}^d|</script><p>(t 不一定是 integer)</p>
 <blockquote>
 <p>$t$ 和上面的 $n$ 一样表示扩张的 scalar</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/poly_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们有两种视角</p>
 <ol>
 <li>固定网格, 之后扩展 polytope</li>
@@ -433,25 +433,25 @@ L_p(t)=|tP\cap \mathbb{Z}^d|</script><p>(t 不一定是 integer)</p>
 </ol>
 <p><br></p>
 <p>On the nature of $L_p(t)$</p>
-<p><img src="/Blog/intro/math443/poly_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>$x_1, x_2$ 都可以是 任意 positive integer.  这里我们计算的是 </p>
 <script type="math/tex; mode=display">
 x_1+x_2\cdots + x_d=n</script><p>的 integer solution</p>
 <p>如果 n 不是 integer 那么这个式子是无效的</p>
-<p><img src="/Blog/intro/math443/poly_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/poly_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/poly_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Theorems-for-2D-polytopes"><a href="#Theorems-for-2D-polytopes" class="headerlink" title="Theorems for 2D polytopes"></a>Theorems for 2D polytopes</h2><p>任何 polytope $P\subseteq \mathbb{R}^d$</p>
-<p><img src="/Blog/intro/math443/poly_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们有个假设: $L_P(n)$ 是一个 polynomial in $n$, 并且 degree = dimension of $P$ </p>
-<p><img src="/Blog/intro/math443/poly_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <p><strong>Theorem</strong>: 假设 $P\subseteq \mathbb{R}^2$ , vertices 在 $\mathbb{Z}^2$ 中 (顶点都是整数), 假设 $Area (P) = A$, 并且在 boundary 有 $B$ 个 lattice points, 那么</p>
 <script type="math/tex; mode=display">
-L_P(n)= An^2+\frac {B}{2}n+1</script><p><img src="/Blog/intro/math443/poly_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+L_P(n)= An^2+\frac {B}{2}n+1</script><p><img src="/Blog/intro/math443/poly_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>Pick’s Theorem</strong></p>
 <p>假设 $P$ 是一个 integreal convex polygon with $i$ <strong>interior</strong> points (内部), 并且有 $b$ integral boundary points (边界), 那么</p>
@@ -460,7 +460,7 @@ Area(P) = i+b/2 - 1</script><p><br></p>
 <p><strong>Linking dimension and degree</strong></p>
 <p>让 $P\subseteq \mathbb{R}^d$ 是一个 rational polytope, 那么 $L_P(n)$ 是一个 quasi polynomial of degree $d$</p>
 <p><strong>quasi polynomial:</strong> 就像是分段函数一样</p>
-<p><img src="/Blog/intro/math443/poly_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_23.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>例如</p>
 <script type="math/tex; mode=display">
 \begin{equation}
@@ -474,50 +474,50 @@ n^2 & \text{n is odd} \\
 <p><br></p>
 <p><strong>Computing $L_P(n)$ for generic $P$</strong> (defined by rational points)</p>
 <p>思想: 将 $P$ 的 <strong>hyper plane description</strong> 转为 <strong>vector partition problem</strong></p>
-<p><img src="/Blog/intro/math443/poly_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_24.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>和 linear programming 一样, 通过 <strong>slack variable</strong> 将不等式转为等式</p>
 <p> 后者使用 slack variable, 它 encode 一个 integer partition</p>
-<p><img src="/Blog/intro/math443/poly_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_25.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果 $a_i=a_j$ 我们将他们视作有着相同值的 distinct parts</p>
 <p>如果我们的 polytopes 由多个 half plane 组成, 我们可以将它视作 vector partition problem</p>
-<p><img src="/Blog/intro/math443/poly_26.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_26.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当添加 slack variable 后 $P$ 的 dimension 可能就不等同于 number of row in $A$</p>
-<p><img src="/Blog/intro/math443/poly_27.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/poly_28.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_27.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_28.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>vertex description 就是 conv hall</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/poly_29.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_29.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>$(i, j)$ 表示如何进行 partition, 其余的使用 [0 ,1] 或是 [1, 0] 填充</p>
 <p>这里有个错误: (0, 1) 应该是</p>
 <figure class="highlight scss"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs scss">(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) -&gt; <span class="hljs-selector-attr">[2, 1]</span> <span class="hljs-selector-attr">[0, 1]</span> <span class="hljs-selector-attr">[1,0]</span><br></code></pre></td></tr></table></figure>
-<p><img src="/Blog/intro/math443/poly_30.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poly_30.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Partition-Functions"><a href="#Partition-Functions" class="headerlink" title="Partition Functions"></a>Partition Functions</h2><p>让 A 是一个 $d\times k$ matrix</p>
-<p><img src="/Blog/intro/math443/vp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/vp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><strong>这里的三个准则非常重要</strong></p>
-<p><img src="/Blog/intro/math443/vp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/vp_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="General-Combinatorial-Classes"><a href="#General-Combinatorial-Classes" class="headerlink" title="General Combinatorial Classes"></a>General Combinatorial Classes</h2><p>让 $C$ 是一个 denumerable class, $|\cdot|$ 表示 size $|\cdot |:C\rightarrow \mathbb{N}$</p>
 <p>任何给定 size 的 objective 都是 finite 的</p>
-<p><img src="/Blog/intro/math443/gcc.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>例如: Binary word class 是一个 string</p>
 <p>让 size 为 number of 0s + number of 1s</p>
 <script type="math/tex; mode=display">
 |1001011100| = 10</script><blockquote>
 <p>但我们不能让 size 只是 number of 0s, 因为这样我们就可以有任意数量的 1, 例如对于 size 1, 我们有 0, 01, 011, 等等, 这个集合有无限个元素</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/gcc_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>还有二叉树, 这里指的二叉树是每个节点要么没有子节点要么有两个子节点, 不存在一个节点只有一个子节点的情况</p>
 <p><br></p>
-<h2 id="Notation-Conventions"><a href="#Notation-Conventions" class="headerlink" title="Notation Conventions"></a>Notation Conventions</h2><p><img src="/Blog/intro/math443/gcc_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Notation-Conventions"><a href="#Notation-Conventions" class="headerlink" title="Notation Conventions"></a>Notation Conventions</h2><p><img src="/Blog/intro/math443/gcc_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们的目标是 给一个 description of a class</p>
 <ul>
 <li>计算 formula for $c_n$ (number of objects size n) (systematically)</li>
@@ -531,7 +531,7 @@ n^2 & \text{n is odd} \\
 </li>
 <li><p>递归关系</p>
 </li>
-<li><p><img src="/Blog/intro/math443/gcc_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<li><p><img src="/Blog/intro/math443/gcc_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </li>
 <li><p>使用 generating functions</p>
 <ul>
@@ -544,28 +544,28 @@ n^2 & \text{n is odd} \\
 </ul>
 </li>
 </ul>
-<p><img src="/Blog/intro/math443/gcc_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><em>**</em></p>
-<p><img src="/Blog/intro/math443/gcc_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""><em>**</em></p>
+<p><img src="/Blog/intro/math443/gcc_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>这个式子是递归的式子, coefficient 描述的就是每种情况有多少种可能, 这个式子和binary tree的递归结构是一致的</p>
 <p>如果我们允许二叉树的中间节点可以只有一个叶子节点</p>
 <p>那么就应该是 </p>
 <script type="math/tex; mode=display">
 B(z)=z+1\cdot B(z)^2+1\cdot B(z)</script></blockquote>
-<p><img src="/Blog/intro/math443/gcc_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <p>如果 elements 是 uniquely generated, 那么我们可以直接将它转为 generating function</p>
-<p><img src="/Blog/intro/math443/gcc_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于 $D$ 是 $A$ 的一个 term, 所以 Class $A$ 依赖于 $D$. 我们可以制作一个 directed graph of dependencies</p>
 <p>而如过在这个 graph 中, $D$ 到 $A$ 也有一条线 ($D$ depend on $A$), 那么我们就有 <strong>cyclic dependency</strong></p>
 <p>如果我们用 $+, \times , *, \circ \text{(Atomic)}, \epsilon$ 定义一个 class, 并且没有 cycle dependencies 那么它也被叫做 S-Regular</p>
@@ -573,27 +573,27 @@ B(z)=z+1\cdot B(z)^2+1\cdot B(z)</script></blockquote>
 <p>计算机理论中, 证明一个 language 不是 regular 使用 pummping lemma</p>
 </blockquote>
 <p>例如: </p>
-<p><img src="/Blog/intro/math443/gcc_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们有 $B\equiv A^*$ , $B$ 是 S-regular</p>
 <p>This is even true if </p>
-<p><img src="/Blog/intro/math443/gcc_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这是一个有 cyclic dependency 的 equation</p>
-<p><img src="/Blog/intro/math443/gcc_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>$A^*$ 的 generating function 是 $\frac 1{1-t}$ (A 的 generating function 是 $t$)</p>
 <p>之后我们可以递归进行求解问题</p>
 <p>得到这个 class 的 generating function</p>
-<p><img src="/Blog/intro/math443/gcc_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><strong>S-regular class</strong> 的 generating function 是一个 rational function $\frac{p(t)} {q(t)}$.</p>
 <p>如果我们说一个 class 没有 rational generating function, 那么我们就知道它不是 S-regular</p>
 <blockquote>
 <p>Regular language 时使用 finite automata 来进行分别</p>
 <p>我们可以通过证明一个 language 的 generating function 不是一个 rational function 来说明它不是 regular (也可以用 pumping lemma)</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/gcc_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_24.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/gcc_25.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_23.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_24.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/gcc_25.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="Recursive-structure"><a href="#Recursive-structure" class="headerlink" title="Recursive structure"></a>Recursive structure</h2><h3 id="Rooted-Plane-Tree"><a href="#Rooted-Plane-Tree" class="headerlink" title="Rooted Plane Tree:"></a><strong>Rooted Plane Tree</strong>:</h3><ul>
 <li>有一个 root node</li>
@@ -603,7 +603,7 @@ B(z)=z+1\cdot B(z)^2+1\cdot B(z)</script></blockquote>
 <p><br></p>
 <h3 id="Binary-tree"><a href="#Binary-tree" class="headerlink" title="Binary tree:"></a>Binary tree:</h3><p>每个 vertex 有 两个或是零个子节点</p>
 <p>size = number of leaves</p>
-<p><img src="/Blog/intro/math443/rs.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <script type="math/tex; mode=display">
 B(t)=t+B(t)^2</script><p>让 $u=B(t)$</p>
 <script type="math/tex; mode=display">
@@ -615,18 +615,18 @@ B(t)=t+t^2+2t^3+5t^4+\cdots</script><p>我们可以用 generativebinomial theore
 <script type="math/tex; mode=display">
 b_{n+1}={2n \choose n}\frac 1{n+1}</script><p><br></p>
 <h3 id="2-3-tree"><a href="#2-3-tree" class="headerlink" title="2-3 tree"></a>2-3 tree</h3><p>每个 vertex 有 0, 2 或 3 个子节点</p>
-<p><img src="/Blog/intro/math443/rs_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h3 id="Full-Plane-trees"><a href="#Full-Plane-trees" class="headerlink" title="Full (Plane trees)"></a>Full (Plane trees)</h3><p>对于 children 没有任何约束</p>
 <p>size = number of vertices</p>
 <script type="math/tex; mode=display">
-T = \bullet \times T^*</script><p><img src="/Blog/intro/math443/rs_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/rs_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+T = \bullet \times T^*</script><p><img src="/Blog/intro/math443/rs_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
-<h3 id="Dyck-path"><a href="#Dyck-path" class="headerlink" title="Dyck path"></a>Dyck path</h3><p><img src="/Blog/intro/math443/rs_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/rs_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/rs_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/rs_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Dyck-path"><a href="#Dyck-path" class="headerlink" title="Dyck path"></a>Dyck path</h3><p><img src="/Blog/intro/math443/rs_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/rs_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Bijection"><a href="#Bijection" class="headerlink" title="Bijection"></a>Bijection</h2><p>如果对于所有 $n\ge 0$, generating function 都有 $a_n=b_n$  我们说两个combinational classes 是 bijection. 写作 $A\equiv B$</p>
@@ -637,10 +637,10 @@ T = \bullet \times T^*</script><p><img src="/Blog/intro/math443/rs_2.PNG" srcset
 <p>$B(t)=1+t\cdot B(t)^2$, 因此 $b_n={2n \choose n}\frac {1}{n+1}$</p>
 <p><br></p>
 <h3 id="triangulations"><a href="#triangulations" class="headerlink" title="triangulations"></a>triangulations</h3><p>一个 labelled 的凸多边形的 triangulation 和 tree 是 bijection 关系的</p>
-<p><img src="/Blog/intro/math443/bijection.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/bijection.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于一个 triangulation, 我们先确定一条边, 之后这个边对应三角形的顶点就是 tree 的 root</p>
 <p>其余两条边分别是两个子树</p>
-<p><img src="/Blog/intro/math443/bijection_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/bijection_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>三角形有三条边, 第一条边用于和 parent node 链接, 剩余两条边用于和子节点链接</p>
 <p>triangle 的数量就是 internal node 的数量</p>
 <p><br></p>
@@ -655,15 +655,15 @@ T = \bullet \times T^*</script><p><img src="/Blog/intro/math443/rs_2.PNG" srcset
 </ol>
 </li>
 </ol>
-<p><img src="/Blog/intro/math443/bijection_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/bijection_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个方式当我们在可以准确地链接两个 class 的 特征 (characterizing features) 时非常好用</p>
-<p><img src="/Blog/intro/math443/bijection_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/bijection_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h3 id="Strategy-2"><a href="#Strategy-2" class="headerlink" title="Strategy 2"></a>Strategy 2</h3><p>我们只需要证明两个 class 的 combinationial specification 一致即可</p>
 <p>对于 triangulation 问题, 他的 specification 是</p>
-<p><img src="/Blog/intro/math443/bijection_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/bijection_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因为我们从构造 triangulation 的角度看, 对于一个多边形, 我们先用一个三角形将它分成两个小的多边形, 然后对两个小多边形进行递归操作</p>
-<p><img src="/Blog/intro/math443/bijection_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/bijection_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因此我们能得到这个 specification</p>
 <p>而这个和 binary tree 的 specification 是一样的</p>
 <script type="math/tex; mode=display">
@@ -672,7 +672,7 @@ B(t)=1+t\cdot B(t)^2</script><p>因此二者一致</p>
 <p><br></p>
 <p><br></p>
 <h2 id="Labelled-Structures"><a href="#Labelled-Structures" class="headerlink" title="Labelled Structures"></a>Labelled Structures</h2><h3 id="Labels"><a href="#Labels" class="headerlink" title="Labels"></a>Labels</h3><p>对于一个 有 $n$ 个 atoms 的 size $n$ 的 object, 我们可以 labels $1, 2,\cdots,n$</p>
-<p><img src="/Blog/intro/math443/label.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>well labelled: 我们正好使用 “size of object” 来 label</p>
 </blockquote>
@@ -685,22 +685,22 @@ c(t)=\sum_{n\ge 0}c_n\frac {t^n}{n!}</script><p>通常我们会知道 $c(t)$ 指
 <p><br></p>
 <p><br></p>
 <h4 id="basic-epsilon-and-atom"><a href="#basic-epsilon-and-atom" class="headerlink" title="basic: epsilon and atom"></a>basic: epsilon and atom</h4><p>一些 well labeled classes 和 他们的 egf 的例子</p>
-<p><img src="/Blog/intro/math443/label_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <h4 id="classic-Permutations"><a href="#classic-Permutations" class="headerlink" title="classic: Permutations"></a>classic: Permutations</h4><script type="math/tex; mode=display">
 P_n=n!</script><script type="math/tex; mode=display">
 P(t)=\sum_{n\ge 0}n!\frac {t^n}{n!}=\sum_{n\ge 0}t^n=\frac 1{1-t}</script><p>就是说 permutation 的 egf 就是 $1+t+t^2\cdots$</p>
 <blockquote>
 <p>我觉得, 他就是普通的 generating function 但是为了节省一下冗余的 $n!$, 因为当我们 label 时通常会有 $n!$ 种情况</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/label_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于 permutation 有两种方式描述</p>
 <p>一种是以原本的顺序排列, 例如一个数组, 存储新的 label</p>
 <p>另一种是使用 graph, 2 的位置存 3 就将 2 指向 3. 这样, 表示如何交换 label</p>
 <p><br></p>
-<h4 id="urn"><a href="#urn" class="headerlink" title="urn"></a>urn</h4><p><img src="/Blog/intro/math443/label_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h4 id="urn"><a href="#urn" class="headerlink" title="urn"></a>urn</h4><p><img src="/Blog/intro/math443/label_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于 set, set 本身就不在意 order, 因此 relabel 不会改变什么, 因此 $u_n=1$</p>
 <p><br></p>
-<h4 id="Cycles"><a href="#Cycles" class="headerlink" title="Cycles"></a>Cycles</h4><p><img src="/Blog/intro/math443/label_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h4 id="Cycles"><a href="#Cycles" class="headerlink" title="Cycles"></a>Cycles</h4><p><img src="/Blog/intro/math443/label_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>cycle 我们可以选择一个点, 固定住它, 之后对其余 $n-1$个点进行 permutation. </p>
 <p><br></p>
 <p><br></p>
@@ -717,7 +717,7 @@ C(t)=\sum c_n \frac {t^n}{n!}=\sum (a_n+b_n) \frac {t^n}{n!}</script><script typ
 =\sum a_n \frac {t^n}{n!}+\sum b_n \frac {t^n}{n!}</script><script type="math/tex; mode=display">
 =A(t)+B(t)</script><p><br></p>
 <h3 id="Products-star"><a href="#Products-star" class="headerlink" title="Products $\star$"></a>Products $\star$</h3><p>和简单的 cartesian product 不一样</p>
-<p><img src="/Blog/intro/math443/label_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们为所有 relabelled elements 创建一个 set</p>
 <script type="math/tex; mode=display">
 A\star B=\bigcup_{\alpha\in A, \beta\in B}\text{Relabel}(\alpha, \beta)</script><p>$\text{Relabel}(\alpha, \beta)$ 是 choose $|\alpha|$ labels from $(1\cdots |\alpha|+|\beta|)$</p>
@@ -725,14 +725,14 @@ A\star B=\bigcup_{\alpha\in A, \beta\in B}\text{Relabel}(\alpha, \beta)</script>
 <li>为 atom 赋值时保持 label 的顺序</li>
 <li>使用其余的 $|\alpha|+|\beta|$ labels 来 relabel $\beta$ in some way</li>
 </ul>
-<p><img src="/Blog/intro/math443/label_0.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label_0.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果 $C=A\star B$ 那么 </p>
 <script type="math/tex; mode=display">
 c_n=\sum_{k=0}^\text{inf} a_kb_{n-k}{n \choose k}</script><script type="math/tex; mode=display">
 \sum_{n\ge 0}c_n \frac {t^n}{n!} &=&\sum_{n\ge 0}(\sum_{k=0}^\text{n} a_kb_{n-k}{n \choose k})\frac {t^n}{n!} \\
 &=& \sum_{n\ge 0}\sum_{k=0}^n \frac {a_k}{k!}\frac {b_{n-k}}{(n-k)!}t^{k+(n-k)}\\
-&=&A(t)B(t)</script><p><img src="/Blog/intro/math443/label_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/label_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+&=&A(t)B(t)</script><p><img src="/Blog/intro/math443/label_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/label_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>Sequences</p>
 <script type="math/tex; mode=display">
@@ -744,14 +744,14 @@ C=\epsilon+A\star C</script><p><br></p>
 C=A\star A\cdots A</script><script type="math/tex; mode=display">
 C(t)=A(t)^{\star k}</script><p>and sequence</p>
 <script type="math/tex; mode=display">
-C=\text{SEQ}(A)\implies C=\epsilon+A\star C\implies C(t)=\frac 1{1-A(t)}</script><p><img src="/Blog/intro/math443/set_op.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/set_op_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+C=\text{SEQ}(A)\implies C=\epsilon+A\star C\implies C(t)=\frac 1{1-A(t)}</script><p><img src="/Blog/intro/math443/set_op.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们可以用 ordered list 来表示一个 set, 但是 将所有的 ordering 视为等同的</p>
 <p><br></p>
 <p>例如: $\text{SET}(P)$</p>
-<p><img src="/Blog/intro/math443/set_op_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们用 $C=\text{SET(A)}$ 来表示 equivalent class of $\text{SEQ(A)}$ under permuting the components</p>
-<p><img src="/Blog/intro/math443/set_op_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当 atom 被 labelled, 任何两个 components 必须是 distinct. for every sequence with k</p>
 <p>Components is in an equivalent class of size $k!$</p>
 <p>如果 $C^{(k)}\subset C=\text{SET(A)}$ 是 那些  constains exactlly $k$ 个 A 的 element  的 set 那么</p>
@@ -760,8 +760,8 @@ C^{(k)}(t)=\frac {A(t)^k}{k!}</script><blockquote>
 <p>分子是 $A(t)^k$ 是因为有 $k$ 个 element</p>
 <p>分母是 $k!$ 因为有这么多的 permutations</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/set_op_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/set_op_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>用 1 来说</p>
 <p>Forest 是 set of plane tree, $F=\text{SET(P)}$</p>
@@ -773,16 +773,16 @@ P(t)=t\cdot\frac 1{1-P(t)}</script><p>解出来 $P(t)$</p>
 </blockquote>
 <p><br></p>
 <h3 id="Cycle-Construction"><a href="#Cycle-Construction" class="headerlink" title="Cycle Construction"></a>Cycle Construction</h3><p>我们同样可以使用这个方式来进行 cycle construction</p>
-<p><img src="/Blog/intro/math443/set_op_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <script type="math/tex; mode=display">
 C=\text{cyc}(A)\implies C(t)=\sum_{k\ge 0}\frac {A(t)^k}{k}=\log \frac {1}{1-A(t)}</script><blockquote>
 <p>for this to be well defined, $a_0 = 0$</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/set_op_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/set_op_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Surjection"><a href="#Surjection" class="headerlink" title="Surjection"></a>Surjection</h2><p>surjection 是一个 map $f:D\rightarrow R$, 使得每个元素都有 non-empty pre-image (考虑 finite $D$ 和 $R$)</p>
-<p><img src="/Blog/intro/math443/surjection.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <script type="math/tex; mode=display">
 \text{R = a class of surjection}</script><script type="math/tex; mode=display">
 =\text{SEQ(SET}_{\ge0}(\bullet))</script><script type="math/tex; mode=display">
@@ -808,7 +808,7 @@ S^r=(\text{SET}_{\ge0}(\bullet))^r</script><script type="math/tex; mode=display"
 S^r(t)=(e^t-1)^r</script><p>我们关注这个东西的 $r$ 次方, 就像普通的 generating function 一样</p>
 <p><br></p>
 <p> <strong>(c) Surjection $f:D\rightarrow R$ 使得 每个 R 中元素的 pre-image 是 size 1 或 2</strong></p>
-<p><img src="/Blog/intro/math443/surjection_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <script type="math/tex; mode=display">
 \text{SEQ(SET}_{1,2}(\bullet))=\frac {1}{1-(t+\frac {t^2}{2})}</script><p><br></p>
 <h3 id="Set-Partiton"><a href="#Set-Partiton" class="headerlink" title="Set Partiton"></a>Set Partiton</h3><p>一个 set B 的 set partition 是一组 non-empty subset of $B$ , 同时 union 是 $B$ 并且没有 intersection</p>
@@ -820,16 +820,16 @@ S=SET(SET_{\ge 0}(\bullet)),\quad \text{labelled}, \quad |\bullet|=1</script><sc
 S(t)=e^{e^t-1}</script><script type="math/tex; mode=display">
 s_n=n![t^n]e^{e^t-1}</script><p>被叫做 Bell number</p>
 <p><br></p>
-<p><img src="/Blog/intro/math443/surjection_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们可以进行细粒度的控制 set 的样子</p>
 <p><br></p>
-<h3 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h3><p><img src="/Blog/intro/math443/surjection_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h3><p><img src="/Blog/intro/math443/surjection_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <script type="math/tex; mode=display">
 P(t)=e^{\log \frac {1}{1-t}}=\frac 1 {1-t}</script><p>我们可以描述并且找到 各种 permutation family 的 generating function.</p>
 <p>我们可以 控制 cycle 的 length 和 cycle 的数量</p>
-<p><img src="/Blog/intro/math443/surjection_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们可以禁止一个元素的环 (no fixed point)</p>
-<p><img src="/Blog/intro/math443/surjection_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Polya-Redfield-counting"><a href="#Polya-Redfield-counting" class="headerlink" title="Polya-Redfield counting"></a>Polya-Redfield counting</h2><p>我们使用 equivalence classes of sequence 定义 SET 和 CYCLES</p>
@@ -842,18 +842,18 @@ P(t)=e^{\log \frac {1}{1-t}}=\frac 1 {1-t}</script><p>我们可以描述并且�
 <p>我们将下面这些 sequence 视为一个 equivalence class</p>
 <p><code>(a, a, b, b) = (a, b, a, b) = (a, b, b, a) = (b, b, a, a) = (b, a, b, a) = (b, a, a, b)</code></p>
 <p><br></p>
-<p><img src="/Blog/intro/math443/surjection_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/surjection_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>cyclic permutation 的每个括号代表一个 cycle</p>
 <p><code>(1, 2, 3, 4)</code> 代表的就是 <code>1-&gt;2-&gt;3-&gt;4-&gt;1</code> 这样一个cycle</p>
 <p><code>(1, 3)(2, 4)</code> 就是两个 cycle</p>
 </blockquote>
-<p><img src="/Blog/intro/math443/surjection_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>两种颜色的还算简单</p>
 <p>对于正三边体, 我们有一个 colouring vector <code>(x1, x2, x3, x4)</code></p>
 <p>如果一个 colouring 可以通过旋转 (物理上的) 变成另一个 colouring 我们就认为他们是等价的 (在一个 equivalence class)</p>
-<p><img src="/Blog/intro/math443/surjection_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h3 id="Sets-of-permutations"><a href="#Sets-of-permutations" class="headerlink" title="Sets of permutations"></a>Sets of permutations</h3><p>我们可以用哪些 permutations 来描述 equivalence class</p>
 <p>我们的 set 要满足下面三个性质</p>
@@ -862,28 +862,28 @@ P(t)=e^{\log \frac {1}{1-t}}=\frac 1 {1-t}</script><p>我们可以描述并且�
 <li>如果一个 permutation 在 set 中, 那么它的 inverse 也在 set 中 (例如 cycle, 我们顺时针旋转九十度后, 它在 set 中, 同样我们逆时针旋转 90 度 它也在 set 中)</li>
 <li>如果 $\sigma_1, \sigma_2$ 在 set 中, 那么 composition $\sigma_1(\sigma_2(x))$ 也在 set 中 (例如: 顺时针旋转 45 度 和 逆旋转 30 度结合是顺时针旋转 15 度)</li>
 </ul>
-<p><img src="/Blog/intro/math443/surjection_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这被叫做 <strong>GROUP of permutations</strong></p>
 <p><br></p>
-<h3 id="Cycle-index-series"><a href="#Cycle-index-series" class="headerlink" title="Cycle index series"></a>Cycle index series</h3><p><img src="/Blog/intro/math443/surjection_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Cycle-index-series"><a href="#Cycle-index-series" class="headerlink" title="Cycle index series"></a>Cycle index series</h3><p><img src="/Blog/intro/math443/surjection_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>例如 如果我们有三个元素</p>
 <p>cycle 1, 只有 <code>(1)(2)(3)</code>这种 permutation 方式, 即 $t_1^3$</p>
 <p>cycle 1 和 cycle 2, 有 <code>(1)(2, 3), (2)(1, 3), (3),(1,2)</code> 这三种方式 $3t_1 t_2$</p>
 <p>cycle 3 有 <code>(1, 2, 3) (1, 3, 2)</code> 两种方式</p>
-<p><img src="/Blog/intro/math443/surjection_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>example 中, 对于 cycle 为 3 的 index 我们有下面三种方案</p>
-<p><img src="/Blog/intro/math443/cyc.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/cyc.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </blockquote>
 <p>对于 prime number, 他的式子就简单许多, 因为对 prime 进行 旋转不会得到和原本一样的图形</p>
 <p>例如一个 length 为 4 的 cycle 由 1 和 2 组成 (1, 2, 1, 2)</p>
 <p>我们将它偏移一次就是 (2, 1, 2, 1) 再偏移一次就是 (1, 2, 1, 2)</p>
 <p>但如果是 length 为 5 的 cycle, 只有偏移 5 次才能得到和原本一样的图形</p>
-<p><img src="/Blog/intro/math443/surjection_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/surjection_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/surjection_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/surjection_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math443/surjection_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/surjection_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>我们通过 equivalent class 的视角</p>
 <p><img src="/Blog/intro/math443/cyc_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
