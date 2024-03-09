@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Combinational Theory回顾: 如果我们有无限的硬币 分别代表 5, 10, 25, 50, 100 有几种凑齐 200 的方法? 例如: 100 + 50 + 10 + 10 + 10 + 10 + 10 &#x3D; 200   我们通常会限制 paration 中允许出现的元素 例如:   Combinatorial Properties of PartitionsConjugate">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math443/surjection_8.png">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-03-02T01:24:34.576Z">
+<meta property="article:modified_time" content="2024-03-09T06:30:26.275Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/math443/surjection_8.png">
   
   
   <title>combinational theory - Daolin&#39;s Repository</title>
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      14k 字
+      16k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      120 分钟
+      131 分钟
     </span>
   
 
@@ -927,6 +927,59 @@ Z_{S_3}(a+b, a^2+b^2,a^3+b^3)=a^3+a^2b+ab^2+b^3</script><p><img src="/Blog/intro
 <p><img src="/Blog/intro/math443/poset_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/poset_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""><em>**</em></p>
 <p><img src="/Blog/intro/math443/poset_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Dilworth’s-Theorem"><a href="#Dilworth’s-Theorem" class="headerlink" title="Dilworth’s Theorem"></a>Dilworth’s Theorem</h2><p>这个 theorem 是针对 partially ordered set 的, 它等价于一些其他美丽的 theorem in combinatoric 例如 hall’s theorem</p>
+<p>定义 partially ordered set $S$ 和 relation $\le$ on $S$ 满足</p>
+<p><img src="/Blog/intro/math443/poset_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>注意 对于任意两个 poset 元素, 他们有可能也无法比较, 但如果任意两个都可以比较, 我们也称为 totally ordered</p>
+<p>例如我们可以定义 如果 a 可以整除 b, 那么 $b\le a$, 显然在这个 poset 中 2 和 3 是无法比较的</p>
+<p>有两个自然的方式来定义 partially ordered set 的宽度 width</p>
+<p>这可以被认为是衡量它与完全有序的距离有多远 (which can be thought of as measuring how far away from totally ordered it is)</p>
+<p>width 需要被定义为 positive integer, 只有是 1 的时候 才是 total ordered</p>
+<p><strong>chain 是一个 partially ordered set 的 subset, chain 中的所有元素都可以两两互相比较 (totally ordered)</strong></p>
+<p><strong>anti-chain 是一个 partially ordered set 的 subset, 但是两两都不可比较</strong></p>
+<p><img src="/Blog/intro/math443/poset_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Hasse-diagrams"><a href="#Hasse-diagrams" class="headerlink" title="Hasse diagrams"></a>Hasse diagrams</h3><p>我们可以将 poset 绘制成 Hasse diagrams</p>
+<p><img src="/Blog/intro/math443/poset_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<blockquote>
+<p> Dilworth theorem statement: 让 $S$ 是一个 finite partially ordered set. 最大的 antichain 的大小等于 $S$ 的最小 chain cover</p>
+</blockquote>
+<p>通常来说, 证明 $A==B$, 我们可以证明 $A\ge B \text{ and }A\le B$</p>
+<p>如果 最大 antichain 又 length $d$, 那么 任何 chain cover $h$ 都有 至少 d 个 chains, 因为 antichain 中 任何两个元素都无法互相比较, 必须将他们分配给不同的chain. 即: $h \ge d$</p>
+<blockquote>
+<p>Mirsky’s Theorem: 让 S 是一个 finite partially ordered set. 那么 maximal chain in $S$ 等于 minimal anti chain cover of $S$</p>
+</blockquote>
+<p><img src="/Blog/intro/math443/poset_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Dilworth’s-theorem-的应用"><a href="#Dilworth’s-theorem-的应用" class="headerlink" title="Dilworth’s theorem 的应用"></a>Dilworth’s theorem 的应用</h3><p>$P$ 是一个 finite poset, maximum anti-chain 是 minimal chain cover in P</p>
+<p><strong>应用 1: Erdos-szekges Theorem:</strong> 一个 有 $rs+1$ 个 实数的 sequence, 要么有一个 length $r+1$ 的 increasing sequence, 要么有一个 $r+1$ 的 decreasing sequence, 也可能两者都有</p>
+<p><img src="/Blog/intro/math443/poset_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>应用 2, hall’s theorem</strong></p>
+<p><img src="/Blog/intro/math443/poset_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h3><p>Poset 的 rank 是 length of longest chain (number of edges / number of elements + 1)</p>
+<p>一个 connected poset 是 graded: 如果所有的 maximal chains 有同样的 length</p>
+<p><img src="/Blog/intro/math443/poset_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/poset_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/sperner_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
