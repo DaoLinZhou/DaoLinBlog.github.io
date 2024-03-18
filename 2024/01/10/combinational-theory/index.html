@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math443/surjection_8.png">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-03-09T06:30:26.275Z">
+<meta property="article:modified_time" content="2024-03-18T05:50:13.754Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      16k 字
+      17k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      131 分钟
+      146 分钟
     </span>
   
 
@@ -980,6 +980,99 @@ Z_{S_3}(a+b, a^2+b^2,a^3+b^3)=a^3+a^2b+ab^2+b^3</script><p><img src="/Blog/intro
 <p><img src="/Blog/intro/math443/sperner_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/sperner_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/sperner_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Lattices"><a href="#Lattices" class="headerlink" title="Lattices"></a>Lattices</h2><p>定义: lattice 是一个 poset $P$, 使得 $\forall x, y\in P$, </p>
+<ul>
+<li>$x, y$ 有 上界(join) $x\or y$ 和 下界(meet) $x\and y$</li>
+</ul>
+<p><img src="/Blog/intro/math443/lattice.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>上界和下界是唯一的, 不然他们自身无法互相比较</p>
+<p>反例</p>
+<p><img src="/Blog/intro/math443/lattice_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Lattices 同样有 algebrraic characterization. 我们通过 meet 和 join operation 定义 lattice 并推导出 “$\le$”</p>
+<p><img src="/Blog/intro/math443/lattice_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/lattice_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="The-partition-Lattice"><a href="#The-partition-Lattice" class="headerlink" title="The partition Lattice"></a>The partition Lattice</h3><p>integer partition 有什么有用/有趣的?</p>
+<h4 id="Dominance-Ordering"><a href="#Dominance-Ordering" class="headerlink" title="Dominance Ordering"></a>Dominance Ordering</h4><p><img src="/Blog/intro/math443/lattice_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>$\lambda, M$ 都是一个序列</p>
+<p>我们假设他们都是从大到小 sorted</p>
+<p>但他们不一定等长.</p>
+<ol>
+<li><p>我们总是可以通过添加 padding 0 来让他们等长</p>
+<p>例如 $(3, 2, 1) \rightarrow (3,2,1,0,0)$ 来和 $(3,1,1,1,1)$ 等长</p>
+</li>
+<li><p><img src="/Blog/intro/math443/lattice_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+</li>
+</ol>
+<p>因此 $(3,1,1,1,1)\le (3,2,1,0,0)$</p>
+<p><img src="/Blog/intro/math443/lattice_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/lattice_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/lattice_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/lattice_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/lattice_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="q-Binomials"><a href="#q-Binomials" class="headerlink" title="q Binomials"></a>q Binomials</h2><h3 id="q-factorial"><a href="#q-factorial" class="headerlink" title="q factorial"></a>q factorial</h3><p>让 $q$ 是一个 formal variable</p>
+<p>Fix $j\ge 0$ 定义:</p>
+<script type="math/tex; mode=display">
+[j]_q:= 1+q+q^2\cdots +q^{j-1}=\frac {q^j-1}{q-1}</script><p>我们约定 $[q]_0=1$</p>
+<script type="math/tex; mode=display">
+[j]_q = \begin{cases}
+1 & q=0\\
+j & q=1\\
+\end{cases}</script><p>一个 q analog 是一个 泛化, 通常 q = 1 会给你 original function</p>
+<p>我们可以用这个 q-analogne of integer 来定义 factorial</p>
+<p><img src="/Blog/intro/math443/q_analog.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><strong>q-binomial</strong> 也被称为 Gaussian Binomial coefficient</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} k \\ j \end{bmatrix}_q =\begin{cases}
+\frac {[k]_q!}{[j]_q![k-j]_q!} & \text{if }\quad k,j\ge 0,\quad j \le k\\
+0 & \text{otherwise}\\
+\end{cases}</script><p><img src="/Blog/intro/math443/q_analog_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>当 $q=1$ 时, 等于 $k\choose j$</p>
+<p><img src="/Blog/intro/math443/q_analog_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><p>directly from definition 我们可以得到</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} n \\ k \end{bmatrix}_q = \begin{bmatrix} n \\ n-k \end{bmatrix}_q</script><script type="math/tex; mode=display">
+\begin{bmatrix} n \\ 0 \end{bmatrix}_q = \begin{bmatrix} n \\ n \end{bmatrix}_q = 1</script><script type="math/tex; mode=display">
+\begin{bmatrix} n \\ 1 \end{bmatrix}_q = \begin{bmatrix} n \end{bmatrix}_q</script><p>Lemma (pascal-type identity)</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} n \\ k \end{bmatrix}_q = \begin{bmatrix} n-1 \\ k \end{bmatrix}_q +q^{k-1}\begin{bmatrix} n-1 \\ k-1 \end{bmatrix}_q</script><p>可以使用代数证明它</p>
+<p>一个推论 $\begin{bmatrix} n \ k \end{bmatrix}_q$ 总是 polynomial</p>
+<p><img src="/Blog/intro/math443/q_analog_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>并且我们可以用 Mathematical induction 来证明这个 polynomial 的所有 coefficient 都是 positive integer</p>
+<p>但是我们怎么理解这个系数?</p>
+<p><img src="/Blog/intro/math443/q_analog_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Integer-Coefficients"><a href="#Integer-Coefficients" class="headerlink" title="Integer Coefficients"></a>Integer Coefficients</h3><p>对于 $n \choose k$ 我们有很多解释, $\begin{bmatrix} n \ k \end{bmatrix}_q$ 应该也如此 refinement</p>
+<p>How can we parametrize something counted by $n \choose k$</p>
+<p>例如 它可以用于计算有 k 个 1 的 length n 的 binary string 的数量</p>
+<p><img src="/Blog/intro/math443/q_analog_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>例如 $R_{m,n}$ 代表 $m\times n$ 的矩阵中的 set of partition </p>
+<p>总共有 $m+n \choose m$</p>
+<blockquote>
+<p>回顾: 这是一个 granded poset with $rank(\lambda)=|\lambda|$</p>
+</blockquote>
+<p>让</p>
+<script type="math/tex; mode=display">
+r_i(m,n)=|\{\lambda\in R_{m,n}\quad |\quad |\lambda|=i\}|</script><p><img src="/Blog/intro/math443/q_analog_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Interpretations-of-q-binomial"><a href="#Interpretations-of-q-binomial" class="headerlink" title="Interpretations of q-binomial"></a>Interpretations of q-binomial</h2><p>让 $r_i(m,n) = $  number of integer partition of $i$ that fit into an $m\times n$ rectangle</p>
+<p><img src="/Blog/intro/math443/q_analog_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Theorem: $R(m,n)=\begin{bmatrix} m+n \ n \end{bmatrix}_q$</p>
+<p><img src="/Blog/intro/math443/q_analog_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/q_analog_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>

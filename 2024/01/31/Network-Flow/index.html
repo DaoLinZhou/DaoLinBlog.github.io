@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
-<meta property="article:modified_time" content="2024-03-05T05:43:13.039Z">
+<meta property="article:modified_time" content="2024-03-13T23:58:05.888Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -503,7 +503,73 @@ c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t 
 <p>我们就可以先找到一个 non-optimal feasible flow, 之后根据 residual graph 进行更新</p>
 <p>这里 residual graph 每条边的 capacity 的定义应该减去 min flow constrain</p>
 </blockquote>
-
+<p><br></p>
+<p><br></p>
+<h2 id="Polynomial-time-augmenting-path-algorithm"><a href="#Polynomial-time-augmenting-path-algorithm" class="headerlink" title="Polynomial time augmenting path algorithm"></a>Polynomial time augmenting path algorithm</h2><p>上面 network flow 的复杂度是非常高的, 但是有几种选择 augmenting path 的方式可以降低复杂度</p>
+<p><strong>方法 1: 每次在 residual graph 中 选择 largest residual capacity 的那条 path 来作为 augmenting path</strong></p>
+<p><img src="/Blog/intro/math448/mcap.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h3 id="Preflow-push-algorithm"><a href="#Preflow-push-algorithm" class="headerlink" title="Preflow push algorithm"></a>Preflow push algorithm</h3><p>考虑 directed graph $G=(V,E)$, 每条边 $i,j \in E$ 给定 capacity $u_{ij}$, 同时有 s 和 t 两个 node</p>
+<p><img src="/Blog/intro/math448/preflow.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>基本思想就是尽可能向每个 node 输入, 多出来的流量先存着, 最后将多出来的流量流回 node $s$</p>
+<p>$e(i)$ 被叫做 <strong>excess</strong> at node $i$. 如果对于非 s 或 t 的 node,  $e(i)=0$ , 那么 $x$ 就是一个 flow (feasible flow)</p>
+<p>在 preflow 中我们假设 $x<em>{ij}, x</em>{ji}$ 不能都为 positive (和普通的 network flow 一样 ,相反边的 flow 可以互相 cancel</p>
+<blockquote>
+<p>x 是 flow</p>
+</blockquote>
+<p>我们拓展 residual graph 的定义: 如果 $x=(x_{ij})$ 是一个 preflow, 那么 residual capacity of arc $(i,j)$ 在 residual graph $G(x)$ 就是 </p>
+<script type="math/tex; mode=display">
+r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/preflow_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Minimum-cost-flow-problem"><a href="#Minimum-cost-flow-problem" class="headerlink" title="Minimum cost flow problem"></a>Minimum cost flow problem</h2><p>$G=(V, E)$ 是一个 directed graph, 有 n 个顶点, m 条边</p>
+<p>对于每个顶点 $i$, 有$b(i)$</p>
+<ul>
+<li>如果 $b(i)&gt;0$ 那么 node $i$ 就是 supply node</li>
+<li>如果 $b(i)&lt;0$ 那么 node $i$ 就是 demand node</li>
+<li>如果 $b(i)==0$ 那么 node $i$ 就是 transhipment node</li>
+</ul>
+<p>我们假设 $\sum b(i)=0$ , 即总体的供应和需求平衡</p>
+<p>同时对于每条边 $(i,j)\in E$, 有 cost $c_{ij}$</p>
+<p>Minimum cost flow problem (MCFP) 是要在 $G$ 中找到一个运输方式, 从 supply node 发往 demand node 并且 minimize total cost 的同时 满足所有 supply / demand restrictions</p>
+<p>我们让 $x_{ij}$ 代表 arc $(i,j)$ 的 flow, 那么 MCFP 问题可以整理为下面的 linear program</p>
+<p><img src="/Blog/intro/math448/mcfp.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>对于 $G$ 中的每个 node 我们都有一个 constraint, 并且 $G$ 中的每条边我们都有一个 variable. </p>
+<p>让 $u_i$ 作为 dual variable 对应 vertex $i\in V$, 我们可以写出下面的 dual linear program</p>
+<p><img src="/Blog/intro/math448/mcfp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>Shortest path problem</strong></p>
+<p>让 $G=(V,E)$ 作为一个 directed graph 并且有两个 distinguished nodes $s$ 和 $t$</p>
+<p>每条边 $(i,j)\in E$ 都有 $c_{ij}$ 代表 weight, 假设 没有 negative cycle</p>
+<p>我们可以让 $b(s)=1, b(t)=-1$ 其余 node i 有 $b(i)=0$ 来使用 MCFP 解决最短路径问题</p>
+<p><br><br></p>
+<p>虽然我们将运输问题、分配问题和最短路径问题表述为 MCFP，但对于所有这些问题，都有比使用 MCFP 表述更有效的专门算法。<br>但是，我们只想指出 MCFP 为所有这些问题提供了一个统一的框架。上述三个问题都具有 MCFP 的一些直观结构。现在让我们考虑另一个问题的例子，这个问题看似与 MCFP 毫无关联，但实际上却可以通过 MCFP 建模的问题。</p>
+<p><br></p>
+<p><br></p>
+<h3 id="Linear-programs-with-consecutive-ones-property"><a href="#Linear-programs-with-consecutive-ones-property" class="headerlink" title="Linear programs with consecutive ones property"></a>Linear programs with consecutive ones property</h3><p><img src="/Blog/intro/math448/mcfp_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="The-Caterer-Problem"><a href="#The-Caterer-Problem" class="headerlink" title="The Caterer Problem"></a>The Caterer Problem</h3>
             </div>
             <hr>
             <div>
