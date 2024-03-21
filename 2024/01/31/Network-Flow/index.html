@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
-<meta property="article:modified_time" content="2024-03-13T23:58:05.888Z">
+<meta property="article:modified_time" content="2024-03-21T06:06:37.900Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -569,7 +569,82 @@ r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.p
 <p><img src="/Blog/intro/math448/mcfp_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/mcfp_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
-<h3 id="The-Caterer-Problem"><a href="#The-Caterer-Problem" class="headerlink" title="The Caterer Problem"></a>The Caterer Problem</h3>
+<h3 id="The-Caterer-Problem"><a href="#The-Caterer-Problem" class="headerlink" title="The Caterer Problem"></a>The Caterer Problem</h3><p>某餐饮公司需要在接下来的 8 天提供 $d_i$ 纸巾 $(i=1,2\cdots 8)$. 她可以以每张餐巾纸 3 美元的价格购买新餐巾纸，或者将脏餐巾纸送去洗涤后重复使用。<br>她有两种洗衣选择：1 天服务每张餐巾纸 1 美元，2 天服务每张餐巾纸 0.5 美元。<br>所有餐巾纸在计划期（8 天）结束时丢弃。将计算餐饮店最低成本采购/租赁政策的问题表述为最低成本流量问题。<br>将该问题表述为最小成本流量问题。(绘制相关网络并确定弧<br>成本和供应/需求值）。</p>
+<p><br></p>
+<p><strong>Theorem : The rows of the node arc incidence matrix of a directed graph are linearly dependent.</strong></p>
+<p>请注意，有向图的node arc incidence matrix的每一列都包含正好包含一个 1 和一个 -1 ，其他元素均为零。因此，如果将矩阵的所有行相加<br>矩阵的所有行相加，就会得到零向量。因此，我们有一个有向图的行向量的线性组合。<br>矩阵的行向量为零，但线性组合中至少有一个乘数不为零 (此处所有乘数均为 1) 因此，行必须是线性相关的</p>
+<p><br></p>
+<p><strong>Theorem: The columns of the node-arc incidence matrix of a tree are linearly independent.</strong></p>
+<p><img src="/Blog/intro/math448/mcfp_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>Theorem: $G$ 是一个有 $n$ 个 node 的 connected network, 那么 node-arc incidence matrix 的 rank 为 n-1</strong></p>
+<p>根据 Theorem : The rows of the node arc incidence matrix of a directed graph are linearly dependent.</p>
+<script type="math/tex; mode=display">
+Rank(A)<n</script><p>由于 graph 是 connected, 所以 它包含一个 spanning tree, 根据 Theorem: The columns of the node-arc incidence matrix of a tree are linearly independent.</p>
+<script type="math/tex; mode=display">
+Rank(A)\ge n-1</script><p><br></p>
+<p><strong>Theorem: The columns of the node-arc incidence matrix of a cycle is linearly dependant.</strong></p>
+<p><img src="/Blog/intro/math448/mcfp_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>Theorem: Any n − 1 linearly independent columns of the node-arc incidence matrix corresponds to a spanning tree</strong></p>
+<p><img src="/Blog/intro/math448/mcfp_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_23.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_24.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_25.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_26.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_27.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_28.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_29.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_30.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_31.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_32.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_33.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_34.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_35.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_36.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="The-negative-cycle-cancelling-algorithm"><a href="#The-negative-cycle-cancelling-algorithm" class="headerlink" title="The negative cycle cancelling algorithm"></a>The negative cycle cancelling algorithm</h2><p><img src="/Blog/intro/math448/ncca.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Network-simplex-method-for-capacitated-MCFP"><a href="#Network-simplex-method-for-capacitated-MCFP" class="headerlink" title="Network simplex method for capacitated MCFP"></a>Network simplex method for capacitated MCFP</h2><p><strong>The basis structure</strong></p>
+<p>A variation of the cycle canceling algorithm, that works very well in practice, is the network simplex algorithm. We studied this algorithm for the uncapacitated case earlier. Let us now extend the algorithm to the capacitated MCFP. Recall that in the uncapacitated case, bases are represented by spanning trees of the underlying graph. For the capacitated case, we still maintain a basis as a spanning tree, but the non-basic variables could be either at the upper bound or at the lower bound. Let us develop this idea formally.</p>
+<p>Let $T$ be a spanning tree of $G$ and the arcs of the tree represent the basic variables associated with it. The non-basic variables will be either at their upper bounds or at their lower bounds. Let $L$ be the collection of all non-basic variables which are at their lower<br>bound values and $U$ be the collection of all non-basic variables which are at their upper bound values. The triplet $(T, L, U )$ is called a basis structure.</p>
+<p>Let us now see how we can compute a basic (feasible) solution (BFS) corresponding to the basis structure $(T, L, U )$.</p>
+<p><img src="/Blog/intro/math448/ncca_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_23.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_24.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_25.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_26.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_27.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_28.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+
             </div>
             <hr>
             <div>
