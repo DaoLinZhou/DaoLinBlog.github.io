@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math443/surjection_8.png">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-03-21T01:47:11.047Z">
+<meta property="article:modified_time" content="2024-03-27T01:48:26.369Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      18k 字
+      19k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      147 分钟
+      159 分钟
     </span>
   
 
@@ -1100,6 +1100,70 @@ r_i(m,n)=|\{\lambda\in R_{m,n}\quad |\quad |\lambda|=i\}|</script><p><img src="/
 <p><img src="/Blog/intro/math443/vector_space_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/vector_space_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/vector_space_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Discrete-Geometry"><a href="#Discrete-Geometry" class="headerlink" title="Discrete Geometry"></a>Discrete Geometry</h2><p>定义: <strong>incidence structures</strong></p>
+<p>incidence structure 是一个 triple $(V, L,\sim )$</p>
+<p>$V, L$ 是 disjoin set, $\sim$ 代表 relation on $V \times L$</p>
+<p>$V$ 是 points, $L$ 是 line (or “blocks”)</p>
+<p><img src="/Blog/intro/math443/geometry.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>定义: parallel</p>
+<p>我们说两个 line 是 parallel 的, 如果他们没有共同的点, 或是全是共同的点</p>
+<p>(Two lines are said to be parallel if they have no points in common or all points in common)</p>
+<script type="math/tex; mode=display">
+l||l'\implies l \cap l'=\empty \text{ or } l=l'</script><p><br></p>
+<h3 id="Affine-Plane"><a href="#Affine-Plane" class="headerlink" title="Affine Plane"></a>Affine Plane</h3><p>当一个 incidence structure 的 $V, L$ 满足以下性质时, 我们说他是 affine plane</p>
+<ol>
+<li>任何两个不同的 point 都在 exactly one line 上</li>
+<li><p>如果一个 point $p$ 不再 line $l$, 那么它就在某个 line $l’$ 且 $l||l’$</p>
+</li>
+<li><p>存在三个点不同时再一个 line 中 (There exists 3 points not all contained on a common line)</p>
+</li>
+</ol>
+<p><img src="/Blog/intro/math443/geometry_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Finite-Affine-Geometries-AG"><a href="#Finite-Affine-Geometries-AG" class="headerlink" title="Finite Affine Geometries (AG)"></a>Finite Affine Geometries (AG)</h3><p>Given a field $F$ (finite or infinite), 我们可以定义一个 incidence structure</p>
+<p>Notation $AG(2, F)$,  Points: $F^2$</p>
+<p><img src="/Blog/intro/math443/geometry_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h3 id="Projective-Geometry"><a href="#Projective-Geometry" class="headerlink" title="Projective Geometry"></a>Projective Geometry</h3><p>Affine Geometry: $AG(2, F)\quad AG(2,q)=AG(2,F_q)$</p>
+<p><img src="/Blog/intro/math443/ag.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Proposition: 如果 $P=(V,L,\sim )$ 是一个 affine plane, 那么 “parallel” 是一个 equivalence relation.</p>
+<p>如果 $V$ 是 finite 那么存在 $n\in \mathbb{N}$, 叫做 <strong>order of P</strong> such that:</p>
+<ol>
+<li>Every point is in $(n+1)$ lines</li>
+<li>Every line contains $n$ points</li>
+<li>Every parallel clan has size n</li>
+<li>$|V|=n^2, |L|=n^2+n$</li>
+</ol>
+<blockquote>
+<p>两个 parallel line 我们可以看作是在 infinity 远相交的线</p>
+</blockquote>
+<p><br></p>
+<h3 id="Projective-plane"><a href="#Projective-plane" class="headerlink" title="Projective plane"></a>Projective plane</h3><p>我们定义 second family of incidence structures</p>
+<p>定义: 一个 projective plane 是一个 incidence structure $P=(V, B, \sim)$ 使得:</p>
+<ol>
+<li>Any two points are contained in exactly one line (两个点只能同时存在于一条线上)</li>
+<li>The intersection of any two lines is a single point (任何两个线只能交与一点)</li>
+<li>Every point is <strong>not</strong> incident with at least two lines; Every line is non-incident with at least two points.</li>
+</ol>
+<p><img src="/Blog/intro/math443/geometry_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>Affine planes 和 projective planes 有什么联系?</p>
+<p>让 $P=(V,B,\sim)$ 作为一个 affine plane, 并且创建一个新的 incidence structure $P^+$ (为每个 parallel class 增加一个 infinite point)</p>
+<p><img src="/Blog/intro/math443/geometry_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/geometry_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
