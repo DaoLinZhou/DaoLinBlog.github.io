@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
-<meta property="article:modified_time" content="2024-03-21T06:06:37.900Z">
+<meta property="article:modified_time" content="2024-04-07T19:27:44.994Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -621,6 +621,10 @@ Rank(A)\ge n-1</script><p><br></p>
 <p><img src="/Blog/intro/math448/ncca_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>思想: 如果 residual graph 里有 negative cycle, 那么就说明我们可以沿着这个 cycle 进行运输来减少cost</p>
+<p>因为 residual graph 本身就描述的是node 直接可以发送多少 流, 以及发送这个流对原本graph 的 cost 有什么影响</p>
+</blockquote>
 <p><img src="/Blog/intro/math448/ncca_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
@@ -644,6 +648,28 @@ Rank(A)\ge n-1</script><p><br></p>
 <p><img src="/Blog/intro/math448/ncca_26.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_27.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_28.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Convex-cost-flows"><a href="#Convex-cost-flows" class="headerlink" title="Convex cost flows"></a>Convex cost flows</h2><p><img src="/Blog/intro/math448/ccf.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Let us first see how to obtain an integer optimal solution to convex cost network flow problem with objective function as separable smooth convex function</p>
+<p><br></p>
+<h2 id="Generalized-Network-Flows"><a href="#Generalized-Network-Flows" class="headerlink" title="Generalized Network Flows"></a>Generalized Network Flows</h2><p>让 $G=(V,E)$ 作为一个 有向图, 对于每个 edge $(i,j)\in E$ 有 capacity $u<em>{ij}$  和一个 lower bound $l</em>{ij}$ 和一个 positive multiplier $p_{ij}$ </p>
+<p>有灵感 distinguished node $s, t \in G$, 分别叫做 source node 和 sink node. </p>
+<p>Arc $(i,j)$ 的 flow 记作 $x_{ij}$ . 那么 generalized maximum flow problem (GMFP) 可以写作</p>
+<p><img src="/Blog/intro/math448/gmfp.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h2 id="Generalized-minimum-cost-flow-problem"><a href="#Generalized-minimum-cost-flow-problem" class="headerlink" title="Generalized minimum cost flow problem"></a>Generalized minimum cost flow problem</h2><p><img src="/Blog/intro/math448/gmfp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/gmfp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/gmfp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>

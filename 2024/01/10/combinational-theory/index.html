@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/math443/surjection_8.png">
 <meta property="article:published_time" content="2024-01-11T04:41:41.000Z">
-<meta property="article:modified_time" content="2024-03-27T01:48:26.369Z">
+<meta property="article:modified_time" content="2024-03-28T19:37:18.469Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -1040,7 +1040,7 @@ j & q=1\\
 \begin{bmatrix} n \\ 0 \end{bmatrix}_q = \begin{bmatrix} n \\ n \end{bmatrix}_q = 1</script><script type="math/tex; mode=display">
 \begin{bmatrix} n \\ 1 \end{bmatrix}_q = \begin{bmatrix} n \end{bmatrix}_q</script><p>Lemma (pascal-type identity)</p>
 <script type="math/tex; mode=display">
-\begin{bmatrix} n \\ k \end{bmatrix}_q = \begin{bmatrix} n-1 \\ k \end{bmatrix}_q +q^{k-1}\begin{bmatrix} n-1 \\ k-1 \end{bmatrix}_q</script><p>可以使用代数证明它</p>
+\begin{bmatrix} n \\ k \end{bmatrix}_q = \begin{bmatrix} n-1 \\ k \end{bmatrix}_q +q^{k}\begin{bmatrix} n \\ k-1 \end{bmatrix}_q</script><p>可以使用代数证明它</p>
 <p>一个推论 $\begin{bmatrix} n \ k \end{bmatrix}_q$ 总是 polynomial</p>
 <p><img src="/Blog/intro/math443/q_analog_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>并且我们可以用 Mathematical induction 来证明这个 polynomial 的所有 coefficient 都是 positive integer</p>
@@ -1116,7 +1116,7 @@ l||l'\implies l \cap l'=\empty \text{ or } l=l'</script><p><br></p>
 <h3 id="Affine-Plane"><a href="#Affine-Plane" class="headerlink" title="Affine Plane"></a>Affine Plane</h3><p>当一个 incidence structure 的 $V, L$ 满足以下性质时, 我们说他是 affine plane</p>
 <ol>
 <li>任何两个不同的 point 都在 exactly one line 上</li>
-<li><p>如果一个 point $p$ 不再 line $l$, 那么它就在某个 line $l’$ 且 $l||l’$</p>
+<li><p>如果一个 point $p$ 不再 line $l$, 那么它就在某个 line $l’$ 且 $l||l’$ , 这个线是唯一的</p>
 </li>
 <li><p>存在三个点不同时再一个 line 中 (There exists 3 points not all contained on a common line)</p>
 </li>
@@ -1164,6 +1164,17 @@ l||l'\implies l \cap l'=\empty \text{ or } l=l'</script><p><br></p>
 <p>让 $P=(V,B,\sim)$ 作为一个 affine plane, 并且创建一个新的 incidence structure $P^+$ (为每个 parallel class 增加一个 infinite point)</p>
 <p><img src="/Blog/intro/math443/geometry_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math443/geometry_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><img src="/Blog/intro/math443/affine.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math443/affine_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
