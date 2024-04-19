@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
 <meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
-<meta property="article:modified_time" content="2024-04-07T19:27:44.994Z">
+<meta property="article:modified_time" content="2024-04-16T05:08:47.733Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -638,6 +638,16 @@ Rank(A)\ge n-1</script><p><br></p>
 <p><img src="/Blog/intro/math448/ncca_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>$w$ 意味着什么</p>
+<p>考虑 node indecies matrix</p>
+<p><img src="/Blog/intro/math448/reduce_cost.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>prime problem variables 是计算的每条边的 flow</p>
+<p>每个 column 都是 0, 只有一个 1 和 -1, 代表 1 的 node 指向代表 -1 的 node (每个 column 代表一条边)</p>
+<p>dual variable 和 node 对应</p>
+<p>因此, 对于一个 basic variable 来说 $w\cdot e_i = c_i$, reduce cost = 0.  $e_i$ 代表一条边(假设 $n_i\rightarrow n_j$ 则 $c_i=w_i-w_j$</p>
+<p>reduce cost 指的是当我们试图改动这个变量时, 对整体结果的影响(slop)</p>
+</blockquote>
 <p><img src="/Blog/intro/math448/ncca_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/ncca_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
@@ -670,6 +680,16 @@ Rank(A)\ge n-1</script><p><br></p>
 <h2 id="Generalized-minimum-cost-flow-problem"><a href="#Generalized-minimum-cost-flow-problem" class="headerlink" title="Generalized minimum cost flow problem"></a>Generalized minimum cost flow problem</h2><p><img src="/Blog/intro/math448/gmfp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/gmfp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/math448/gmfp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<blockquote>
+<p>对于 MCFP, 如果我们为每个顶点增加一个 upper bound, 即流入该顶点的流量的极限</p>
+<p>我们可以将这样的问题转化为普通的 MCFP</p>
+<p><img src="/Blog/intro/math448/mcfp_v.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>T 是中转站, 使用边来约束upper bound</p>
+<p>对于 MCFP, 我们可以为每条边增加 lower bound</p>
+<p><img src="/Blog/intro/math448/mcfp_v_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>demand node 确保了 in flow 的 lower bound, 再用 supply node 送出去</p>
+</blockquote>
 
             </div>
             <hr>
