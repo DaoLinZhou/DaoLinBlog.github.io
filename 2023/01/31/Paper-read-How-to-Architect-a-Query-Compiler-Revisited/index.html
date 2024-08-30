@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -49,6 +49,8 @@
 <meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/paper_1/compiler.PNG">
   
   
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
+  
   <title>论文阅读 How to Architect a Query Compiler Revisited - Daolin&#39;s Repository</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
@@ -79,17 +81,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -101,7 +103,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -120,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -132,7 +134,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -144,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -156,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -168,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -194,7 +196,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -269,7 +271,7 @@
 <p><br></p>
 <p>思路: 使用 Futamura projections</p>
 <p>典型的数据库管理系统 (DBMS) 处理 queries 时会分为多个阶段 (Figure 1.1, Traditional Query Engine)</p>
-<p><img src="/Blog/intro/paper_1/compiler.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>在前端, 一个 parser 会将给定的 SQL query 转为 logical plan, 之后 query optimizer 会重写这个计划让它变得更为高效并给出一个 physical plan 以备评估. </p>
 <p>而后端通常是由一个 interpreter (解释器) 在数据上执行 optimized plan. (在存储数据上 一个 operator 一个 operator 地执行并产生一个又一个 record)</p>
 <p><br></p>
@@ -292,7 +294,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs pseudocode">def power(x:Int, n:Int): Int =<br>    if (n == 0) 1 else x * power(x, n - 1)<br> <br>def power4(x:Int): Int = x * x * x * x<br></code></pre></td></tr></table></figure>
 <p>这种也叫做 <strong>partial evaluation</strong></p>
 <p><br></p>
-<h3 id="Specializing-Interpreters"><a href="#Specializing-Interpreters" class="headerlink" title="Specializing Interpreters"></a>Specializing Interpreters</h3><p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Specializing-Interpreters"><a href="#Specializing-Interpreters" class="headerlink" title="Specializing Interpreters"></a>Specializing Interpreters</h3><p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>Futamura 的思想是对 interpreters 进行 specialization.</p>
 <p>就像上面的 pow 函数, interpreter 需要两个参数: </p>
 <ol>
@@ -304,7 +306,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <p>个人感觉就像 MyBatis, 给 SQL 动态传入data</p>
 </blockquote>
 <p><br></p>
-<p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而对 interpreter 使用 specializing 就像 Figure 2b</p>
 <p>如果我们有一个 program specializer 或者说 partial evaluator (基于历史原因叫 mix), 那么我们就可以 specialize query 生成 mix, 再用 mix 和 data 计算结果. 这是因为 specialization 避免了 “interpretive overhead” (例如解释器对查询结构调度的开销)</p>
 <p>换句话说就是生成了这个查询的 compiled version</p>
@@ -322,7 +324,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <p>它就会生成如下代码</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">int x0 <span class="hljs-operator">=</span> in * <span class="hljs-number">1</span><span class="hljs-comment">;</span><br>int x1 <span class="hljs-operator">=</span> in * x0<span class="hljs-comment">;</span><br>int x2 <span class="hljs-operator">=</span> in * x1<span class="hljs-comment">;</span><br>int x3 <span class="hljs-operator">=</span> in * x2<span class="hljs-comment">; // = in * in * in * in</span><br></code></pre></td></tr></table></figure>
 <p><span class="hint--info hint--rounded hint--top" data-hint="Based on this core idea of introducing special data types for symbolic or staged computation" ontouchstart>通过引入符号化和分阶段计算的特殊数据类型</span> 我们使得 first Futamura projection 变得实用</p>
-<p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这就是 Figure2c 的思路, staged interpreter 就是 source 中 input 符号化后的解释执行过程</p>
 <p><br></p>
 <p><br></p>
@@ -331,14 +333,14 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <p>因此一个设计的原则是 : By engineering the source interpreter in<br>a certain way, we can control the shape of the compiled code</p>
 <p>下面分析几种常见模型</p>
 <p><br></p>
-<p><img src="/Blog/intro/paper_1/compiler_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/paper_1/compiler_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/paper_1/compiler_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <h3 id="The-Iterator-Volcano-Model"><a href="#The-Iterator-Volcano-Model" class="headerlink" title="The Iterator (Volcano) Model"></a>The Iterator (Volcano) Model</h3><p>基于统一的 <code>open/next/close</code> 接口, Figure 3a-b 显示了 Query Execution Plan (QEP) 以及 Volcano 的 interface.</p>
 <p>执行时从 root 开始向下调用迭代器, 当得到一个值就会 pop up, 由上层检查是否符合要求</p>
 <p>因此这种 mode 叫做 <strong>pull-based</strong>, 每次得到值都会拉上来</p>
 <p>尽管这种模型非常直观, 但 function call 会产生大量开销, 人们希望通过编译来消除这些开销</p>
-<p><img src="/Blog/intro/paper_1/compiler_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而且 Figure4b 中 <code>select * from Dep where rank &lt; 10</code> 的每一步都要进行 null check, 因为每个 operator 本身处理的都是 dynamic data, 然而实际只有最底层的 operator 进行 null check 就足够了,这也导致了这种方式的性能差</p>
 <p><br></p>
 <p><br></p>
@@ -350,7 +352,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <p>而且对比 Volcano model, 每个 operator 只操作 valid data, 不需要重复的 null check</p>
 <p><br></p>
 <p><br></p>
-<h3 id="Data-Centric-Evaluation-with-Callbacks"><a href="#Data-Centric-Evaluation-with-Callbacks" class="headerlink" title="Data-Centric Evaluation with Callbacks"></a>Data-Centric Evaluation with Callbacks</h3><p><img src="/Blog/intro/paper_1/compiler_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Data-Centric-Evaluation-with-Callbacks"><a href="#Data-Centric-Evaluation-with-Callbacks" class="headerlink" title="Data-Centric Evaluation with Callbacks"></a>Data-Centric Evaluation with Callbacks</h3><p><img src="/Blog/intro/paper_1/compiler_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>但是 data-centric 这个模型不太直观, 因为它把 evaluation 分散到 producer 和 consumer 中了, 我们需要另一套 API 实现相同的 specialization</p>
 <p>Figure 5a 就是 push 模型, HashJoin 有 left 和 right 两个 operators</p>
 <p>当调用 produce method 时, 会依次调用 left 和 right 的 produce.</p>
@@ -361,23 +363,23 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <p>consume 是在 produce 中调用的, 而当一个 operator 的 children 比较多时, consume 就会变得更加复杂</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://loopjump.com/architect-query-compiler-revisited/">http://loopjump.com/architect-query-compiler-revisited/</a></p>
-<p><img src="/Blog/intro/paper_1/compiler_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>push模型可以看做DFS访问执行计划树，第一次访问调用produce触发准备数据，第二次回来的时候调用consume触发消费数据。</p>
 </blockquote>
 <p><br></p>
 <p>作者决定使用 callback 来解决这个问题, 提出一个新模型</p>
 <p>Data-centric with callbacks model (LB2)</p>
-<p><img src="/Blog/intro/paper_1/compiler_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>Figure 5b</p>
 <p>每一个join branch 都调用不同的 callback, 先调用 left 再调用 right</p>
 <p><code>op.exec(cb)</code> 可以理解为 operator op 会生成一堆 result 并对每个tuple 执行 callback function</p>
 <p><br></p>
 <h2 id="Building-Optimized-Query-Compiler"><a href="#Building-Optimized-Query-Compiler" class="headerlink" title="Building Optimized Query Compiler"></a>Building Optimized Query Compiler</h2><p>但是代码生成应该放在查询引擎的什么位置，以尽量减少对 operator</p>
 <p> code 的更改?</p>
-<h3 id="Pure-Template-Expansion"><a href="#Pure-Template-Expansion" class="headerlink" title="Pure Template Expansion"></a>Pure Template Expansion</h3><p><img src="/Blog/intro/paper_1/compiler_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Pure-Template-Expansion"><a href="#Pure-Template-Expansion" class="headerlink" title="Pure Template Expansion"></a>Pure Template Expansion</h3><p><img src="/Blog/intro/paper_1/compiler_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>首先尝试在 operator level 进行粗颗粒度的代码生成</p>
 <p>如上图直接用 string 和 parameters 的 placeholders</p>
-<p><img src="/Blog/intro/paper_1/compiler_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>但这么做有三个问题:</p>
 <ol>
 <li>代码实现可能不够优化</li>
@@ -385,9 +387,9 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 <li>字符串的转义问题</li>
 </ol>
 <p><br></p>
-<h3 id="Programmatic-Specialization-1"><a href="#Programmatic-Specialization-1" class="headerlink" title="Programmatic Specialization"></a>Programmatic Specialization</h3><p><img src="/Blog/intro/paper_1/compiler_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Programmatic-Specialization-1"><a href="#Programmatic-Specialization-1" class="headerlink" title="Programmatic Specialization"></a>Programmatic Specialization</h3><p><img src="/Blog/intro/paper_1/compiler_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>为了避免上面这些问题, 论文继续将 specialization 继续下推到 operator 的内部成员的数据结构上，特别是 Record 和各种 HashMap 类</p>
-<p><img src="/Blog/intro/paper_1/compiler_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/paper_1/compiler_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这种方法的主要好处是 Figure 6 中的 main engine code 可以保持不变</p>
 <p><br></p>
 <p><strong>Optimized Programmatic Specialization.</strong> </p>
@@ -405,7 +407,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
                     
                   </div>
                 
@@ -413,9 +415,9 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E8%AE%BA%E6%96%87/">论文</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BA%E6%96%87/">论文</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
                   </div>
                 
@@ -432,7 +434,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2023/04/22/Computer-Architecture/">
+                      <a href="/2023/04/22/Computer-Architecture/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Computer Architecture</span>
                         <span class="visible-mobile">上一篇</span>
@@ -442,7 +444,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2023/01/05/linear-programming/">
+                      <a href="/2023/01/05/linear-programming/">
                         <span class="hidden-mobile">Linear Optimization</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -536,18 +538,18 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -642,7 +644,7 @@ given hardware platform or code generation strategy" ontouchstart>**specializati
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

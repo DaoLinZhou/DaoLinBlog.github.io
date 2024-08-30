@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,15 +25,17 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="异常检测 Anomaly Detection异常检测就是发现离群点, 有时也被称为偏差检测  就是寻找出偏离集群的点  既可以单独作为一个分类方法使用, 也可以作为其他算法的辅助使用(过滤outlier)  异常检测有非常多的方法, 这里介绍一个比较常用的基于正态分布模型的方法 从一维数据看起假设有一组一维数据  \{ x^{(1)},x^{(2)},\cdots,x^{(m)} \}映射到数据轴">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/p_m_f_4.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/p_m_f_4.PNG">
 <meta property="article:published_time" content="2020-05-23T22:54:02.000Z">
 <meta property="article:modified_time" content="2020-05-24T07:24:48.301Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/p_m_f_4.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/p_m_f_4.PNG">
   
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>异常检测 Anomaly Detection - Daolin&#39;s Repository</title>
 
@@ -65,17 +67,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -87,7 +89,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -106,7 +108,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -118,7 +120,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -130,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -142,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -154,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -180,7 +182,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/sola_1.PNG') no-repeat center center;
+         style="background: url('/intro/sola_1.PNG') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -248,7 +250,7 @@
             
             <div class="markdown-body">
               <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><h1 id="异常检测-Anomaly-Detection"><a href="#异常检测-Anomaly-Detection" class="headerlink" title="异常检测 Anomaly Detection"></a>异常检测 Anomaly Detection</h1><p>异常检测就是发现<strong>离群点</strong>, 有时也被称为偏差检测</p>
-<p><img src="/Blog/intro/an_det.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/an_det.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>就是寻找出偏离集群的点</p>
 <p><br></p>
 <p>既可以单独作为一个分类方法使用, 也可以作为其他算法的辅助使用(过滤outlier)</p>
@@ -257,49 +259,49 @@
 <h2 id="从一维数据看起"><a href="#从一维数据看起" class="headerlink" title="从一维数据看起"></a>从一维数据看起</h2><p>假设有一组一维数据</p>
 <script type="math/tex; mode=display">
 \{ x^{(1)},x^{(2)},\cdots,x^{(m)} \}</script><p>映射到数据轴上就是</p>
-<p><img src="/Blog/intro/an_det_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/an_det_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>左右两边的数据密度比较稀疏, 中间的数据密度比较集中. </p>
 <p>通常服从正态分布</p>
-<p><img src="/Blog/intro/Normal_distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/Normal_distribution_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>也就是用正态分布作为<strong>概率密度函数</strong></p>
 <p><br></p>
 <p>概率密度函数是一个描述<strong>随机变量</strong>在某个确定的取值点附近的可能性函数</p>
-<p><img src="/Blog/intro/p_m_f.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/p_m_f.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>p(x1, x2)就是指的x1 到 x2 部分的阴影面积. </p>
 <script type="math/tex; mode=display">
 P(x_1, x_2)=\int_{x_1}^{x_2} p(x) dx</script><p>如果(x1, x2) = (-inf, inf), 那么整个阴影面积就是1</p>
 <p><br></p>
 <p>正态分布的p(x)为</p>
 <script type="math/tex; mode=display">
-p(x) = \frac 1 {\sqrt{2\pi}\sigma}e^{-\frac {(x-\mu)^2}{2\sigma^2}}</script><p><img src="/Blog/intro/Normal_distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+p(x) = \frac 1 {\sqrt{2\pi}\sigma}e^{-\frac {(x-\mu)^2}{2\sigma^2}}</script><p><img src="/Blog/intro/Normal_distribution_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>将数据点转化为标准正态分布之后, 就可以设立一个阈值ε</p>
 <p>将数据点代入式子中求p(x), 如果p(x) &lt; ε, 就说明这个点是异常点.</p>
-<p><img src="/Blog/intro/p_m_f_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/p_m_f_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="当数据高于一维"><a href="#当数据高于一维" class="headerlink" title="当数据高于一维"></a>当数据高于一维</h2><p>通常我们处理的数据都是多维度的, 此时应该怎么做?</p>
-<p><img src="/Blog/intro/p_m_f_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/p_m_f_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>此时就对每一个维度计算它的概率密度</p>
 <script type="math/tex; mode=display">
 p(x^{(i)})= \frac 1 {\sqrt{2\pi}\sigma}e^{-\frac {(x^{(i)}-\mu)^2}{2\sigma^2}}</script><p>μ和σ是当前维度 i 的均值和标准差</p>
 <p><br></p>
-<p><img src="/Blog/intro/p_m_f_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/p_m_f_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>整体的概率密度就是各个维度的概率密度的乘积</p>
 <script type="math/tex; mode=display">
 p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=display">
 \prod 代表乘积,\ \prod_{i=1}^n a_i = a_1a_2\cdots a_n</script><p><br></p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br><br><span class="hljs-comment"># 计算X对应正态分布的y值</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">normal_distribution</span>(<span class="hljs-params">X</span>):<br>    <span class="hljs-keyword">return</span> np.exp(-X**<span class="hljs-number">2</span> / <span class="hljs-number">2</span>) / np.sqrt(<span class="hljs-number">2</span> * np.pi)<br><br><span class="hljs-comment"># 计算概率密度函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">p</span>(<span class="hljs-params">X</span>):<br>    p = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(X.shape[<span class="hljs-number">1</span>]):<br>        p *= normal_distribution(X[:, i])<br>    <span class="hljs-keyword">return</span> p<br><br><span class="hljs-comment"># epsilon 默认取3sigma法则对应的y值</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">anomaly_detection</span>(<span class="hljs-params">X, epsilon=<span class="hljs-number">0.0044</span></span>):<br>    <span class="hljs-comment"># 归一化, 使得数据服从z分布</span><br>    new_X = StandardScaler().fit(X).transform(X)<br>    <span class="hljs-keyword">return</span> p(new_X) &lt;= epsilon<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    centers = [[<span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [-<span class="hljs-number">4</span>, -<span class="hljs-number">5</span>], [-<span class="hljs-number">1</span>, <span class="hljs-number">2.5</span>], [<span class="hljs-number">2</span>, -<span class="hljs-number">2</span>]]<br>    X, _ = datasets.make_blobs(n_samples=<span class="hljs-number">1000</span>, centers=centers, cluster_std=<span class="hljs-number">0.8</span>)<br>    outlier = np.array([[<span class="hljs-number">6</span>, -<span class="hljs-number">6</span>], [<span class="hljs-number">6</span>, -<span class="hljs-number">5</span>], [<span class="hljs-number">2</span>, -<span class="hljs-number">6</span>], [-<span class="hljs-number">4</span>, -<span class="hljs-number">6</span>], [<span class="hljs-number">4</span>, -<span class="hljs-number">2</span>],<br>                        [-<span class="hljs-number">7</span>, <span class="hljs-number">4</span>], [-<span class="hljs-number">6.5</span>, <span class="hljs-number">6</span>]])<br>    X = np.vstack([X, outlier])<br><br>    anomaly_data = X[anomaly_detection(X, <span class="hljs-number">0.007</span>), :]<br><br>    plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>])<br>    plt.scatter(anomaly_data[:, <span class="hljs-number">0</span>], anomaly_data[:, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
-<p><img src="/Blog/intro/p_m_f_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/p_m_f_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这就是使用<strong>高斯分布模型</strong>得到的异常点(红色)</p>
 <p><br></p>
 <p>其实对单一簇群的效果更好</p>
-<p><img src="/Blog/intro/p_m_f_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/p_m_f_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用异常检测去除outlier</span><br>new_X = X[~anomaly_detection(X), :]<br></code></pre></td></tr></table></figure>
 <p>之后使用kMeans或者MeanShift都得到了很好的结果</p>
 <p><br></p>
 <p>然而设置阈值也是比较麻烦的. 与其指定阈值, 不如指定百分比, 通过百分比找阈值.</p>
 <p>例如我们要找出10%个outlier, 就先求出所有x的概率密度函数y, y呈正态分布</p>
-<p><img src="/Blog/intro/Normal_distribution_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/Normal_distribution_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>因此找到最小的10%个y就找到outlier, 以最小的10%个y中最大的一个y作为分界点. 以此来predict</p>
 <p><br></p>
 <p>因此模仿scikit-learn中的EllipticEnvelope类</p>
@@ -307,8 +309,8 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyEllipticEnvelope</span>:<br><br>    <span class="hljs-comment"># 归一化</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">standard</span>(<span class="hljs-params">self, X</span>):<br>        means = np.mean(X, axis=<span class="hljs-number">0</span>)<br>        std = np.std(X, axis=<span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> (X-means)/std<br><br>    <span class="hljs-comment">#  contamination 指定筛选出多少outlier, 0.1就是10%的outlier</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, contamination=<span class="hljs-number">0.1</span></span>):<br>        <span class="hljs-keyword">assert</span> <span class="hljs-number">0</span> &lt;= contamination &lt;= <span class="hljs-number">1</span><br>        self.contamination = contamination<br>        self.split_y = <span class="hljs-literal">None</span><br><br>    <span class="hljs-comment"># 计算X对应正态分布的y值</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">normal_distribution</span>(<span class="hljs-params">self, X</span>):<br>        <span class="hljs-keyword">return</span> np.exp(-X ** <span class="hljs-number">2</span> / <span class="hljs-number">2</span>) / np.sqrt(<span class="hljs-number">2</span> * np.pi)<br><br>    <span class="hljs-comment"># 计算概率密度函数</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">p</span>(<span class="hljs-params">self, X</span>):<br>        p = np.ones(X.shape[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(X.shape[<span class="hljs-number">1</span>]):<br>            p *= self.normal_distribution(X[:, i])<br>        <span class="hljs-keyword">return</span> p<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fit</span>(<span class="hljs-params">self, X</span>):<br>        X_new = self.standard(X)<br>        y = self.p(X_new)  <span class="hljs-comment"># 获得正态分布中每一个样本对应的y值</span><br>        <span class="hljs-comment"># 前 split_line 的y值为outlier</span><br>        split_line = ceil(self.contamination * X.shape[<span class="hljs-number">0</span>])<br>        self.split_y = y[np.argsort(y)[:split_line][-<span class="hljs-number">1</span>]]<br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">predict</span>(<span class="hljs-params">self, X</span>):<br>        predict_value = np.ones(X.shape[<span class="hljs-number">0</span>])<br>        X_new = self.standard(X)<br>        y = self.p(X_new)<br>        <span class="hljs-comment"># 所有小于切分点的y都是outlier</span><br>        predict_value[y &lt;= self.split_y] = -<span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> predict_value<br><br></code></pre></td></tr></table></figure>
 <p>得到的效果和EllipticEnvelope一样. 测试代码, 1000个样本, 二者都找到100个异常值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    centers = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]<br>    X, y = datasets.make_blobs(n_samples=<span class="hljs-number">1000</span>, centers=centers, cluster_std=<span class="hljs-number">5</span>)<br><br>    ad_model = MyEllipticEnvelope(contamination=<span class="hljs-number">0.1</span>)<br>    ad_model.fit(X)<br>    y_predict = ad_model.predict(X)<br>    <span class="hljs-comment"># predict 中-1为异常值</span><br>    anomaly_data = X[y_predict==-<span class="hljs-number">1</span>, :]<br>    <br>    plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>])<br>    plt.scatter(anomaly_data[:, <span class="hljs-number">0</span>], anomaly_data[:, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.show()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;normal:&quot;</span>, np.<span class="hljs-built_in">sum</span>(y_predict==<span class="hljs-number">1</span>), <span class="hljs-string">&quot;, outlier:&quot;</span>, np.<span class="hljs-built_in">sum</span>(y_predict==-<span class="hljs-number">1</span>))<br><br>    ad_model = EllipticEnvelope(contamination=<span class="hljs-number">0.1</span>)<br>    ad_model.fit(X)<br>    y_predict = ad_model.predict(X)<br>    <br>    anomaly_data = X[y_predict == -<span class="hljs-number">1</span>, :]<br>    <br>    plt.scatter(X[:, <span class="hljs-number">0</span>], X[:, <span class="hljs-number">1</span>])<br>    plt.scatter(anomaly_data[:, <span class="hljs-number">0</span>], anomaly_data[:, <span class="hljs-number">1</span>], color=<span class="hljs-string">&quot;red&quot;</span>)<br>    plt.show()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;normal:&quot;</span>, np.<span class="hljs-built_in">sum</span>(y_predict == <span class="hljs-number">1</span>), <span class="hljs-string">&quot;, outlier:&quot;</span>, np.<span class="hljs-built_in">sum</span>(y_predict == -<span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
-<p><img src="/Blog/intro/testad.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/testad_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/testad.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/testad_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 
             </div>
@@ -319,7 +321,7 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -327,9 +329,9 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -346,7 +348,7 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2020/05/30/MLP/">
+                      <a href="/2020/05/30/MLP/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">多层感知器MLP与反向传播</span>
                         <span class="visible-mobile">上一篇</span>
@@ -356,7 +358,7 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/05/21/mean-shift/">
+                      <a href="/2020/05/21/mean-shift/">
                         <span class="hidden-mobile">均值漂移法 Mean Shift</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -450,18 +452,18 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -556,7 +558,7 @@ p(x)=\prod_{j=1}^n p(x_j;\mu_j, \sigma_j)</script><script type="math/tex; mode=d
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

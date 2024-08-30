@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="多层感知器, 反向传播">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/nn.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/nn.PNG">
 <meta property="article:published_time" content="2020-05-31T00:45:35.000Z">
 <meta property="article:modified_time" content="2020-06-03T02:09:42.505Z">
 <meta property="article:author" content="Daolin">
@@ -33,8 +33,10 @@
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/nn.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/nn.PNG">
   
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>多层感知器MLP与反向传播 - Daolin&#39;s Repository</title>
 
@@ -66,17 +68,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -88,7 +90,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -107,7 +109,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -119,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -131,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -143,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -155,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -181,7 +183,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/longyin.jpg') no-repeat center center;
+         style="background: url('/intro/longyin.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -252,12 +254,12 @@
 <span id="more"></span>
 <h1 id="多层感知器MLP与反向传播"><a href="#多层感知器MLP与反向传播" class="headerlink" title="多层感知器MLP与反向传播"></a>多层感知器MLP与反向传播</h1><p>我将尝试用简单的语言谈谈我对MLP的理解</p>
 <h2 id="MLP"><a href="#MLP" class="headerlink" title="MLP"></a>MLP</h2><p>MLP应该算是最简单的神经网络了吧, 虽然是深度学习, 但是和普通的机器学习一样, 都是通过已有的数据训练出一个模型. 通过模型来进行预测</p>
-<p><img src="/Blog/intro/category_task_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>因此在我眼里, MLP和逻辑回归非常相似. 甚至可以把每一个神经元都看作是一个小的逻辑回归.</p>
 <p><br></p>
 <p>记得对于逻辑回归, 我的理解是寻找一组θ, 使得sigmoid函数可以表示概率.</p>
 <p>而对于MLP来说, 就是找到<strong>多组θ</strong>来使得整个神经网络模型可以预测输出结果.</p>
-<p><img src="/Blog/intro/nn.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/nn.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这是一个神经网络的例子, 可以看到数据是这样前向传递的, 每一个节点都由前一层的所有节点决定.</p>
 <p>计算方式也是极为简单, 就是给前一层的每一个节点一个权值(wight), 再加上一个偏置(bias), 最后放入一个激活函数中</p>
 <script type="math/tex; mode=display">
@@ -277,12 +279,12 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>L+1层的第1
 <h2 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h2><p>前向传播就是一个矩阵的乘法, 每一个节点计算的公式也早已给出</p>
 <script type="math/tex; mode=display">
 a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>为了更直观的看到计算的方式, 将以下图MLP为例子, 来看它是怎么工作的.</p>
-<p><img src="/Blog/intro/mlp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>暂且不管sigmoid函数, 单看加权求和的那一部分, 就是一个矩阵的乘法</p>
 <blockquote>
 <p>w<sub>ij</sub><sup>k</sup>的意思是第k层, 第i个节点所连接的第 j 条边</p>
 </blockquote>
-<p><img src="/Blog/intro/mlp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>矩阵中每一个w都对应一个边. 因此从前一层计算下一层的方式可以看作是矩阵乘法之后再接一个sigmoid函数</p>
 <blockquote>
 <p>我习惯于让矩阵的每一行代表下一个节点所需要的权值.</p>
@@ -291,7 +293,7 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>为了更直�
 <p>m代表第L+1层(下一层)的节点个数</p>
 <p>n代表第L层(当前层)的节点个数</p>
 </blockquote>
-<p><img src="/Blog/intro/mlp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>也就是说, 只要直到每条边(权值w), 和偏置(b), 以及输入层的数据. 就可以得到最后输出层的结果.</p>
 <p>问题的关键是: 如何找到合适的权值w和偏置b, 使得整个网络可以正确预测. </p>
 <p><br></p>
@@ -306,7 +308,7 @@ C=\frac 12 \sum_j(p_j-y_j)^2</script><p>还有交叉熵等损失函数. p为预�
 <script type="math/tex; mode=display">
 a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a<sub>1</sub><sup>L+1</sup>是最终的输出层. 也就是p</p>
 <p>如果此时 p &lt; y, 我们要怎么调整才能使得p接近y?</p>
-<p><img src="/Blog/intro/mlp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
 <li>调整权值w</li>
 <li>调整偏置b</li>
@@ -317,37 +319,37 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
 <p>也就是说, 此层我们只能调整w和b.</p>
 <p><br></p>
 <p>首先看如何调整w</p>
-<p><img src="/Blog/intro/mlp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/mlp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/mlp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>就是对这六条边求导(梯度). <strong>这个时候一定要耐心推导, 这样有利于最后的编程实现</strong></p>
-<p><img src="/Blog/intro/mlp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>同理可以求出其余的边的导</p>
-<p><img src="/Blog/intro/mlp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>但是仅仅求出导还不够, 要让它们按照原本矩阵的排列方式进行排列, 这样才能用矩阵减法来快速地调整所有w.</p>
-<p><img src="/Blog/intro/mlp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/mlp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/mlp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>在写这个矩阵的时候, 有一种重复工作的感觉</p>
 <p>可以看出, 连接一个节点的两条边的导数的写法基本是一致的. 只是下标不同而已</p>
 <p>最后化简的结果也就是这样</p>
 </blockquote>
 <p>而这个向量正是输出层的梯度</p>
-<p><img src="/Blog/intro/mlp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>而对于b求导就更为简单了, 因为b的系数一直是1, 所以它的导就等于</p>
-<p><img src="/Blog/intro/mlp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>推广一下:</p>
-<p><img src="/Blog/intro/mlp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_12.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>这样就暂且有了些思路, 在实现的时候先对b求梯度, 在通过b的梯度计算出w的梯度</p>
 </blockquote>
 <p><br></p>
 <blockquote>
 <p>网上有一章我认为非常好的图</p>
-<p><img src="/Blog/intro/backprop.jpg" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/backprop.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>简单来说思想就是: 损失函数对于当前边的导等于下一个神经元对当前边的导乘以下一个神经元对损失函数的导</p>
 <p>这样, 对于全局的求导就变成了对于局部的求导. 有点递归的感觉.(整体的值等于当前的值加上之后的值)</p>
 <p><br></p>
@@ -358,16 +360,16 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
 </blockquote>
 <p><br></p>
 <p>然而还没完, 再向前推一层, 对输入层和隐藏层之间的边进行求导</p>
-<p><img src="/Blog/intro/mlp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/mlp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>依然是下一层的梯度乘以(<strong>不是点乘</strong>)σ’(下一层节点) 再点乘上一层的节点</p>
 <p><br></p>
 <p>值得注意的一点是: 下一层(节点)的梯度和下一层边的梯度是不一样的</p>
-<p><img src="/Blog/intro/mlp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>对于边求梯度的时候我们是对w求导, 所以余下的系数为a.</p>
 <p>但是对节点求导, 也就是对a求导余下的就应该是w.</p>
-<p><img src="/Blog/intro/mlp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/mlp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_15.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以看到代表权值的矩阵是可以横向增加的, 因此当且层的梯度就等于bias的导乘以<strong>权值矩阵</strong>(正向传播时使用的权值矩阵)</p>
 <p>又用到了bias的导数</p>
 <p><br></p>
@@ -387,10 +389,10 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
 <p><br></p>
 <p>测试代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plot_decision_boundary</span>(<span class="hljs-params">model, X</span>):<br>    axis = [np.<span class="hljs-built_in">min</span>(X[:, <span class="hljs-number">0</span>]), np.<span class="hljs-built_in">max</span>(X[:, <span class="hljs-number">0</span>]), np.<span class="hljs-built_in">min</span>(X[:, <span class="hljs-number">1</span>]), np.<span class="hljs-built_in">max</span>(X[:, <span class="hljs-number">1</span>])]<br>    x0, x1 = np.meshgrid(<br>        np.linspace(axis[<span class="hljs-number">0</span>], axis[<span class="hljs-number">1</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">1</span>] - axis[<span class="hljs-number">0</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>        np.linspace(axis[<span class="hljs-number">2</span>], axis[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span>((axis[<span class="hljs-number">3</span>] - axis[<span class="hljs-number">2</span>]) * <span class="hljs-number">100</span>)).reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>    )<br>    X_new = np.c_[x0.ravel(), x1.ravel()]<br>    y_predict = model.predict(X_new)<br>    zz = y_predict.reshape(x0.shape)<br>    custom_cmap = ListedColormap([<span class="hljs-string">&#x27;#EF9A9A&#x27;</span>, <span class="hljs-string">&#x27;#FFF59D&#x27;</span>, <span class="hljs-string">&#x27;#90CAF9&#x27;</span>, <span class="hljs-string">&#x27;#EE82EE&#x27;</span>, <span class="hljs-string">&#x27;#00FFFF&#x27;</span>, <span class="hljs-string">&#x27;#7FFFAA&#x27;</span>, <span class="hljs-string">&#x27;#BDB76B&#x27;</span>])<br>    plt.contourf(x0, x1, zz, cmap=custom_cmap)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    X, y = datasets.make_moons(n_samples=<span class="hljs-number">1000</span>, noise=<span class="hljs-number">0.1</span>, random_state=<span class="hljs-number">666</span>)<br><br>    <span class="hljs-comment"># 当层数增多时, epochs也应该增多, 不然会欠拟合, 因为要训练的参数增多了</span><br>    n = MLPClassifier((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>), activation=<span class="hljs-string">&#x27;tanh&#x27;</span>, epochs=<span class="hljs-number">300</span>, learning_rate=<span class="hljs-number">0.01</span>)<br>    n.fit(X, y)<br><br>    plot_decision_boundary(n, X)<br>    plt.scatter(X[y == <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])<br>    plt.scatter(X[y == <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], X[y == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>])<br>    plt.show()<br></code></pre></td></tr></table></figure>
-<p><img src="/Blog/intro/mlp_predict.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_predict.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">n = MLPClassifier((<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>), activation=<span class="hljs-string">&#x27;tanh&#x27;</span>, epochs=<span class="hljs-number">300</span>, learning_rate=<span class="hljs-number">0.01</span>)<br></code></pre></td></tr></table></figure>
 <p>如果只设立一个隐藏层, 隐藏层只有一个节点就退化为了逻辑回归.</p>
-<p><img src="/Blog/intro/mlp_predict_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/mlp_predict_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>逻辑回归在没有进行升维的时候是线性分割的, 这和上图是一样的.</p>
 <p><br></p>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>说到底多层感知器的作用就是加速. 因为逻辑回归有升维这个过程, 尤其是升维过高, 数据的特征就越来越多, 训练的时间也就越长.</p>
@@ -429,7 +431,7 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -437,11 +439,11 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                     
                   </div>
                 
@@ -458,7 +460,7 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2020/05/31/calculus/">
+                      <a href="/2020/05/31/calculus/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">微积分</span>
                         <span class="visible-mobile">上一篇</span>
@@ -468,7 +470,7 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2020/05/23/anomaly-detection/">
+                      <a href="/2020/05/23/anomaly-detection/">
                         <span class="hidden-mobile">异常检测 Anomaly Detection</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -562,18 +564,18 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -668,7 +670,7 @@ a_1^{L+1} = \sigma(w_0a_0^L+w_1a_1^L+\cdots+w_na_n^L+b)</script><p>现在假设a
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

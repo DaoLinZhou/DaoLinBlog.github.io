@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,14 +25,16 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="字符串字串查找算法 O(N)字符串字串查找算法">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/KMP/kmp_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/KMP/kmp_3.PNG">
 <meta property="article:published_time" content="2022-07-03T20:16:34.000Z">
 <meta property="article:modified_time" content="2022-07-04T04:52:47.205Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/KMP/kmp_3.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/KMP/kmp_3.PNG">
   
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>KMP 算法 - Daolin&#39;s Repository</title>
 
@@ -64,17 +66,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -86,7 +88,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -105,7 +107,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -117,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -129,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -141,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -153,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -179,7 +181,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -258,24 +260,24 @@
 <li>$M$ 是 str1 的长度 (for loop)</li>
 <li>$N$ 是 str2 的长度 (if statement 对比两个字符串是否相等)</li>
 </ul>
-<p><img src="/Blog/intro/KMP/substr_search.gif" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/substr_search.gif" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以看到, 每次对比失败后, 主串中的索引会倒退到下一个位置</p>
 <p><br></p>
 <p>KMP 的核心思想就是让主串中的索引不进行倒退, 它只往前走.</p>
-<p><img src="/Blog/intro/KMP/kmp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>例如当我们发现下面字符串不匹配时, </p>
-<p><img src="/Blog/intro/KMP/kmp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>是否可以这样将字串平移一下, 继续在当前位置匹配</p>
-<p><img src="/Blog/intro/KMP/kmp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>然而我们怎么知道要跳过多少个字符?</p>
 <p>这里就需要使用 KMP 中 next 数组</p>
 <blockquote>
 <p>我们先不去管 next 是如何生成的, 先看一眼它的功能和用途</p>
 </blockquote>
 <p><br></p>
-<p><img src="/Blog/intro/KMP/kmp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>KMP 算法在匹配失败时, 会看最后一个匹配字符所对应的 next 数值</p>
-<p><img src="/Blog/intro/KMP/kmp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>于是我们移动子串, 跳过<strong>字串最前面</strong>的两个字符, 这里的 <em>2</em> 代表子串中我们可以 “跳过匹配” 的字符个数</p>
 <p>显然这样是没有问题的, 因为跳过的 <em>AB</em> 能够和主串中的 <em>AB</em> 匹配上, 所以我们只要继续检测后面的字符即可</p>
 <p><br></p>
@@ -291,16 +293,16 @@
 <p>因为如果在一次匹配中, <strong>i</strong> 和 <strong>j</strong> 同时到达末尾, 此时匹配成功, 然而 <strong>i</strong> 在自增后不会进入 while loop, 我们错过了判断匹配成功的时机. 例如匹配两个一样的字符串</p>
 <p>如果我们对 while loop 的condition 稍作修改, 改为 <code>while i &lt;= len(string):</code> 那么此时应该是可以把这两行代码放到 loop 的开头, 然而整体代码的语义又很难解释</p>
 <p><br></p>
-<p><img src="/Blog/intro/KMP/kmp_6.gif" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_6.gif" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
-<h2 id="Next-数组生成"><a href="#Next-数组生成" class="headerlink" title="Next 数组生成"></a>Next 数组生成</h2><p><img src="/Blog/intro/KMP/kmp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Next-数组生成"><a href="#Next-数组生成" class="headerlink" title="Next 数组生成"></a>Next 数组生成</h2><p><img src="/Blog/intro/KMP/kmp_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>next 数值代表在匹配失败的时候, 子串中可以跳过匹配的字符个数</p>
 <p>为什么可以这么做? </p>
 <p>下面例子中的前4个字符, 拥有共同的前缀和后缀 <strong>AB</strong> (最长的前后缀)</p>
-<p><img src="/Blog/intro/KMP/kmp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>也就是说, 当我们跳过这两个字符后, 我们默认比较了原本的前缀和后缀(因为他们是一样的). 这就节省了重复运输的时间</p>
 <p><br></p>
-<p><img src="/Blog/intro/KMP/kmp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>使用最长的共同前后缀来跳过更多的字符.</p>
 <p><br></p>
 <p><strong>前后缀不能是字符串本身</strong>, 因为这样主串和子串的 index 都没有改变, 依旧不匹配, 形成无线 loop. 没有意义</p>
@@ -331,26 +333,26 @@
 <p>我们知道了 next 数组的含义, 代码应该怎么写?</p>
 <p>当然可以使用 for 循环 暴力求解, 然而我们可以使用递推的方式快速求解</p>
 <p>假设我们知道了当前共同前后缀, 长度为2</p>
-<p><img src="/Blog/intro/KMP/kmp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
 <li>如果下一个字符依然相同, 就直接构成了一个更长的前后缀</li>
 </ol>
-<p><img src="/Blog/intro/KMP/kmp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
 <li>但如果下一个字符不同</li>
 </ol>
-<p><img src="/Blog/intro/KMP/kmp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们会尝试寻找更短的前后缀, 此时我们已知子串前后两个部分是相同的</p>
 <p>我们想在 右边的 <strong>ABA</strong> 这里寻找到一个后缀, 其恰巧是左边<strong>ABA</strong> 的前缀, 之后 回到 step 1 继续执行</p>
 <p>这等同于寻找 左边 <strong>ABA</strong> 的共同前后缀 (因为左右都是 <strong>ABA</strong>)</p>
-<p><img src="/Blog/intro/KMP/kmp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_12.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而这个值我们早就计算过了, 直接寻找 next 中左边子串的最后一个字符对应的值即可</p>
-<p><img src="/Blog/intro/KMP/kmp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们回到step 1, 判断下一个字符是否相同</p>
-<p><img src="/Blog/intro/KMP/kmp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
-<p><img src="/Blog/intro/KMP/kmp_15.gif" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/KMP/kmp_15.gif" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>代码实现:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">build_next</span>(<span class="hljs-params">patt</span>):<br>    <span class="hljs-built_in">next</span> = [<span class="hljs-number">0</span>]        <span class="hljs-comment"># next 数组, 第一个元素是0</span><br>    prefix_len = <span class="hljs-number">0</span>    <span class="hljs-comment"># 当前共同前后缀的长度</span><br>    i = <span class="hljs-number">1</span>             <span class="hljs-comment"># 指针, 跳过 element 0 因为它的 next 已经设置好了</span><br>    <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(patt):<br>        <span class="hljs-keyword">if</span> patt[prefix_len] == patt[i]<br>            prefix_len += <span class="hljs-number">1</span><br>            <span class="hljs-built_in">next</span>.append(prefix_len)<br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">elif</span> prefix_len == <span class="hljs-number">0</span>:<br>            <span class="hljs-built_in">next</span>.append(<span class="hljs-number">0</span>)<br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            prefix_len = <span class="hljs-built_in">next</span>[prefix_len - <span class="hljs-number">1</span>]<br>     <br>     <span class="hljs-keyword">return</span> <span class="hljs-built_in">next</span>       <br></code></pre></td></tr></table></figure>
@@ -363,7 +365,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -371,7 +373,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
                   </div>
                 
@@ -388,7 +390,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2022/07/12/pytorch-study/">
+                      <a href="/2022/07/12/pytorch-study/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Pytorch 学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
@@ -398,7 +400,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2021/09/09/Computability-and-Complexity2/">
+                      <a href="/2021/09/09/Computability-and-Complexity2/">
                         <span class="hidden-mobile">Computability and Complexity (2)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -492,18 +494,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -598,7 +600,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

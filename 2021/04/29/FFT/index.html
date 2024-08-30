@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,14 +25,16 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever? 的 笔记  Fast Fourier Transform从问题的开始, 我们想要找到一个足够高效的算法来解决多项式乘法问题  A(x)&#x3D;x^2+3x+2 B(x)&#x3D;2x^2+1 C(x)&#x3D;A(x)\cdot B(x)我们知道一个方法解决这个问题: 使用 distri">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/fft/fft_13.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/fft/fft_13.PNG">
 <meta property="article:published_time" content="2021-04-30T03:16:26.000Z">
 <meta property="article:modified_time" content="2021-06-29T22:23:26.037Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/fft/fft_13.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/fft/fft_13.PNG">
   
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>FFT - Daolin&#39;s Repository</title>
 
@@ -64,17 +66,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -86,7 +88,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -105,7 +107,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -117,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -129,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -141,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -153,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -179,7 +181,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/lulutiya3.jpg') no-repeat center center;
+         style="background: url('/intro/lulutiya3.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -279,9 +281,9 @@ C(x)=2+3x+5x^2+6x^3+2x^4\to C=[2,3,5,6,2]</script><p>coefficient of kth index ma
 <script type="math/tex; mode=display">
 (x_0, P(x_0)), (x_1, P(x_1)), \cdots (x_d, P(x_d))</script><p>$P(x)=p_0+p_1x+p_2x^2+\cdots+p_dx^d$</p>
 <p>我们想证明: 对于这些点, 只有一组coefficient</p>
-<p><img src="/Blog/intro/fft/fft_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>写作矩阵乘法:</p>
-<p><img src="/Blog/intro/fft/fft_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如果$x_0,x_1\cdots x_d$ 都是unique, 那么矩阵就是可逆的(行列式不为0)</p>
 <p>也就是说Unique coefficient $p_0,p_1\cdots p_d$ 存在</p>
 <p>也就是说polynomial $P(x)$ unique</p>
@@ -294,7 +296,7 @@ C(x)=2+3x+5x^2+6x^3+2x^4\to C=[2,3,5,6,2]</script><p>coefficient of kth index ma
 A(x)=x^2+2x+1</script><script type="math/tex; mode=display">
 B(x)=x^2-2x+1</script><script type="math/tex; mode=display">
 C(x)=A(x)\cdot B(x)</script><p>$C(x)$ 是degree 4 的多项式, 因此需要5个点来表示</p>
-<p><img src="/Blog/intro/fft/fft_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们选定5个x, 分别求$A(x), B(x)$, 因此</p>
 <p>$A(x)$ 的 value representation 是: $[(-2,1),(-1, 0),(0, 1),(1,4),(2,9)]$</p>
 <p>$B(x)$ 的 value representation 是: $[(-2, 9),(-1, 4),(0,1),(1,0),(2,1)]$</p>
@@ -303,7 +305,7 @@ C(x)=A(x)\cdot B(x)</script><p>$C(x)$ 是degree 4 的多项式, 因此需要5个
 <p>此时, 进行乘法的时间复杂度就是$O(d)$</p>
 <p><br></p>
 <p>因此我们的思路如下</p>
-<p><img src="/Blog/intro/fft/fft_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们有两个coefficient  representation 的polynomial, 我们知道使用value representation 进行乘法更快, 所以我们先用<strong>某种方法</strong>把coefficient representation 转换为 value representation</p>
 <p>之后将两个value representation的polynomial进行乘法得到结果的value representation</p>
 <p>最后用<strong>某种方法</strong>把value representation 转换为 coefficient representation</p>
@@ -315,7 +317,7 @@ C(x)=A(x)\cdot B(x)</script><p>$C(x)$ 是degree 4 的多项式, 因此需要5个
 <p>我们要evaluate at $n\ge d+1$ points</p>
 <p>一种方法是随机选择 $n$ 个x点, 计算对应的 $P(x)$</p>
 <p>此时每一个点的evaluation 是$O(d)$的时间, 因此所有点的evaluation是$O(nd)=O(d^2)$ 的时间</p>
-<p><img src="/Blog/intro/fft/fft_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>问题是我们能否做的更好?</p>
 <p><br></p>
 <p>从简单的function看起</p>
@@ -323,7 +325,7 @@ C(x)=A(x)\cdot B(x)</script><p>$C(x)$ 是degree 4 的多项式, 因此需要5个
 <p>此时我们应该选择哪些点?</p>
 <p>有没有那种: 知道一个点就可以立即知道的另一个点?</p>
 <p>如果我们pick $x=1$, 求的$P(1)$后, 我们就可以立即知道 $P(-1)$</p>
-<p><img src="/Blog/intro/fft/fft_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>只要这些点都是 positive-negative pair, 因为 $P(-x)=P(x)$</p>
 <p><br></p>
 <p>如果是 $P(x)=x^3$, 此时 $P(-x) = -P(x)$</p>
@@ -346,12 +348,12 @@ P(-x_i)=P_e(x_i^2)-x_iP_o(x_i^2)</script><p>而 $P_e(x^2)=2x^2+7x+1, P_o(x^2)=3x
 <p><br></p>
 <p>继续 Evaluate $P<em>e(x^2), P_o(x^2)$ each at $x_1^2, x_2^2\cdots, x</em>{n/2}^2$ ($n/2$ points)</p>
 <p>这就是一个递归问题</p>
-<p><img src="/Blog/intro/fft/fft_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>也就是$T(n)=2T(n/2)+O(n)$ 根据Master Theory整个算法的时间复杂度就是 $O(n\log n)$ 级别的</p>
 <p><br></p>
 <p>但是, 这个算法有一个问题, 在递归的时候, 我们要有positive-negative pairs. </p>
 <p>然而 $[x<em>1^2,x_2^2\cdots, x</em>{n/2}^2]$ 不是 positive-negative pairs</p>
-<p><img src="/Blog/intro/fft/fft_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>因此recuesion breaks.</p>
 <p>是否可以让 $[x<em>1^2,x_2^2\cdots, x</em>{n/2}^2]$ 是 positive-negative pairs?</p>
 <p>这里就要引入复数</p>
@@ -359,39 +361,39 @@ P(-x_i)=P_e(x_i^2)-x_iP_o(x_i^2)</script><p>而 $P_e(x^2)=2x^2+7x+1, P_o(x^2)=3x
 <p><br></p>
 <p>假设我们有一个degree 3 polynomial $P(x)=x^3+x^2-x-1$</p>
 <p>我们需要4个点, 这些点要是positive-negative pairs</p>
-<p><img src="/Blog/intro/fft/fft_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>然而$x_1^2, x_2^2$ 应该是 positive-negative pair, 所以 $x_2^2=-x_1^2$</p>
-<p><img src="/Blog/intro/fft/fft_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>幸运的是我们有选择$x$的权利</p>
-<p><img src="/Blog/intro/fft/fft_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而这些$x$ 其实是 $x^4=1$的所有解, 我们叫做 $4^{\text{th}}$ roots of unity</p>
 <p><br></p>
 <p>而如果我们有degree 5的多项式, 那么就至少需要6个点.</p>
 <p>然而由于recursive 每次会分成两个sub problem, 所以点的个数如果是 $2^k$的格式会更方便计算, 所以这里我们选择8个点, $8^{\text{th}}$ roots of unity</p>
-<p><img src="/Blog/intro/fft/fft_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_12.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>更一般的情况下, 如果一个polynomial 是 degree d, 那么就要找到 $n\ge d+1$ 同时 $n=2^k$ k是正整数</p>
 <p><br></p>
 <p>为什么这个结论成立?</p>
 <p>$N^{th}$ roots of unity 其实就是”圆”上均匀分布的n个点</p>
-<p><img src="/Blog/intro/fft/fft_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>angle 是 $\frac {2\pi}{n}$</p>
-<p><img src="/Blog/intro/fft/fft_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而一个优美的方法来表示这些点就是使用欧拉公式(euler’s formula):</p>
 <script type="math/tex; mode=display">
 e^{i\theta} = \cos(\theta) + i\sin(\theta)</script><p>因此我们可以定义:</p>
 <script type="math/tex; mode=display">
-\omega = e^{\frac {2\pi i}{n}}</script><p><img src="/Blog/intro/fft/fft_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+\omega = e^{\frac {2\pi i}{n}}</script><p><img src="/Blog/intro/fft/fft_15.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如果说我们要evaluate a polynomial at nth root of unity, 这意味着我们要求: $P(x)$ at $[1,\omega^1,\omega^2, \cdots,\omega^{n-1}]$ </p>
 <p>回到问题, 为什么这个work?</p>
 <p>所有点都是 Positive-Negative pair</p>
-<p><img src="/Blog/intro/fft/fft_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_16.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如果我们在递归时, 会将每个点进行平方, 所以得到</p>
-<p><img src="/Blog/intro/fft/fft_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_17.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>依然是 Positive-Negative pair.</p>
 <p>每层递归都 hold 这个结果, 直到只有一个点 $1$</p>
 <p><br></p>
 <h2 id="FFT算法"><a href="#FFT算法" class="headerlink" title="FFT算法"></a>FFT算法</h2><p>因此根据上面的算法, 我们可以写出代码</p>
-<p><img src="/Blog/intro/fft/fft_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_18.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们知道 $x_j=\omega^j$, 因此</p>
 <script type="math/tex; mode=display">
 P(\omega^j)=P_e(\omega^{2j})+\omega^jP_o(\omega^{2j})</script><script type="math/tex; mode=display">
@@ -406,24 +408,24 @@ y_o[j]=P_o(\omega^{2j})</script><p>因此我们可以将式子改写为</p>
 P(\omega^j)=y_e[j]+\omega^jy_o[j]</script><script type="math/tex; mode=display">
 P(\omega^{j+n/2})=y_e[j]-\omega^jy_o[j]</script><p>最后:</p>
 <script type="math/tex; mode=display">
-y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/intro/fft/fft_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/intro/fft/fft_19.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="Interpolation-and-IFFT-Inverse-FFT"><a href="#Interpolation-and-IFFT-Inverse-FFT" class="headerlink" title="Interpolation and IFFT(Inverse FFT)"></a>Interpolation and IFFT(Inverse FFT)</h2><p>此时我们就有办法把coefficient representation转换为 value representation了.</p>
 <p>然而我们还要把 value representation 转换为 coefficient  representation</p>
 <p>对于这个问题有很多办法(参考numerical anaylisis 的interpolation), 这里我们关注IFFT</p>
 <p>我们知道</p>
-<p><img src="/Blog/intro/fft/fft_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而 $x_k=\omega^k, \omega=e^{\frac {2\pi i} {n}}$</p>
 <p>这使得我们可以重写matrix product</p>
-<p><img src="/Blog/intro/fft/fft_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_20.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这个matrix 有个特别的名字: <strong>Discrete Fourier Transform (DFT) matrix</strong></p>
 <blockquote>
 <p>证明矩阵可逆: <a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/426932/why-are-vandermonde-matrices-invertible">https://math.stackexchange.com/questions/426932/why-are-vandermonde-matrices-invertible</a></p>
 </blockquote>
 <p>而interpolation就是要用这个矩阵的逆</p>
-<p><img src="/Blog/intro/fft/fft_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/fft/fft_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/fft/fft_23.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_21.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_22.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/fft/fft_23.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ty0JcR6Dvis">算法执行实例</a></p>
 <p><br></p>
@@ -437,7 +439,7 @@ y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/in
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
                     
                   </div>
                 
@@ -445,7 +447,7 @@ y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/in
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
                     
                   </div>
                 
@@ -462,7 +464,7 @@ y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/in
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2021/05/13/Database/">
+                      <a href="/2021/05/13/Database/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">数据库</span>
                         <span class="visible-mobile">上一篇</span>
@@ -472,7 +474,7 @@ y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/in
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2021/01/13/algorithm-analysis/">
+                      <a href="/2021/01/13/algorithm-analysis/">
                         <span class="hidden-mobile">algorithm analysis</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -566,18 +568,18 @@ y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/in
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -672,7 +674,7 @@ y=[P(\omega^0),P(\omega^1),\cdots,P(\omega^{n-1})]</script><p><img src="/Blog/in
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

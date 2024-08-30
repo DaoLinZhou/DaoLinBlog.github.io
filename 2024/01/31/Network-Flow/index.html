@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,14 +25,16 @@
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="Network Flow 最短路径最短路径与 Linear programming我们可以用 linear programming 来解决 最短路径问题 最短路径有起始点 $s$ 和 目标点 $t$, 以及图 $G&#x3D;(V,E)$ 这样的表述虽然不能改进算法, 但是可以供更多的见解, 更进一步有特殊的 simplex 算法 (dual simplex method) 解决最短路径问题 我们可以这样">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta property="og:image" content="https://daolinzhou.github.io/intro/">
 <meta property="article:published_time" content="2024-01-31T11:07:18.000Z">
 <meta property="article:modified_time" content="2024-04-16T05:08:47.733Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/">
+<meta name="twitter:image" content="https://daolinzhou.github.io/intro/">
   
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>Network Flow - Daolin&#39;s Repository</title>
 
@@ -64,17 +66,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -86,7 +88,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -105,7 +107,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -117,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -129,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -141,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -153,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -179,7 +181,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -252,7 +254,7 @@
 <p>最短路径有起始点 $s$ 和 目标点 $t$, 以及图 $G=(V,E)$</p>
 <p>这样的表述虽然不能改进算法, 但是可以供更多的见解, 更进一步有特殊的 simplex 算法 (dual simplex method) 解决最短路径问题</p>
 <p>我们可以这样看待这个问题: 节点 s 有一个 unit 的供应(supply), 而节点 t 有一个单位的需求(demand), 我们需要沿最短路径（这是成本最低的运输计划）将 s 处的供应发送到 t 处以满足需求, 同时不拆分这一个 unit 的供应</p>
-<p><img src="/Blog/intro/math448/sp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>方便起见我们定义两个集合, 对于一个点 $i$</p>
 <ul>
 <li>$O(i)$: 为所有从 $i$ 走出的边的节点 (<strong>out-flow</strong> at node $i$)</li>
@@ -263,13 +265,13 @@
 <p>而 node $t$ out-flow 减去 in-flow 为 -1</p>
 <p><br></p>
 <p>有这些信息就可以构建 linear programming problem</p>
-<p><img src="/Blog/intro/math448/sp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>$c_{ij}$ 指的是 边 i-j 的 cost, 我们要最小化的路径长度</p>
 </blockquote>
 <p>但这里对于 $x_{ij}$ 的约束是他们必须是 0 或 1</p>
 <p>但实际上, constraint coefficient matrix 是 unimodular 的, (即每个 square submatrix 都有 determinant 1, -1 或 0) 同时 右侧的约束条件都是整数, 这说明所有 basic feasible solution 都是整数, 因此我们可以放宽限制, 让 $x_{ij}\ge0$ 即可</p>
-<p><img src="/Blog/intro/math448/sp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>对于每个 linear programming problem 都有一个对应的 dual problem</p>
 <ul>
@@ -288,20 +290,20 @@
 </ul>
 <p><br></p>
 <p>而对于最短路径问题, 我们的 dual problem 是</p>
-<p><img src="/Blog/intro/math448/sp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>为什么是 $y_s-y_t$:</p>
 <p>因为 $b$ 中只有 $i=s$ 的位置是 1, $i=t$ 的位置是 -1, 其余位置是 0.</p>
 <p>因此只留下了 $y_i-y_t$, $y$ 是 我们上面所说的 $w$</p>
 <p><br></p>
-<p><img src="/Blog/intro/math448/sp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>但是这里如果我们将 (1) 中的所有 constrain 相加, 我们会得到 0 = 0</p>
 <p>(linear dependent) 这说明至少有一个 constrain 是多余的 (实际上只有一个是多余的, 因为 A 的 rank 是 n-1), 我们删除一个 constrain, 删除 node $s$ 的 constrian, 这意味着 在 dual 中 $y_s=0$</p>
 <p>因此此时的 dual 是</p>
-<p><img src="/Blog/intro/math448/sp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>我们扩展这个 linear programming formulation 来计算 $s$ 到其他节点的 shortest path</p>
-<p><img src="/Blog/intro/math448/sp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>重点: 为什么这里是 -1 而不是 0</p>
 <p>首先对于每个节点, 如果只考虑他作为 internal node, 那么应该定于 0 </p>
@@ -310,33 +312,33 @@
 </blockquote>
 <p><br></p>
 <p>在前一个 formulation, constraint coefficient matrix 是 totally unimodular, 同时 right hand side 是 integer, 因此 basic feasible solution都是整数, 同样我们可以放开整数的限制</p>
-<p><img src="/Blog/intro/math448/sp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>同样我们可以得到 dual linear program</p>
-<p><img src="/Blog/intro/math448/sp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如果我们将 (5) 的 constrain 相加, 我们得到 0=0, linear dependent, 同样我们可以将 $y_s$ 设为 0</p>
-<p><img src="/Blog/intro/math448/sp_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>而 linear programming 中, complementary slackness 有个定理</p>
 <p><a href="https://daolinzhou.github.io/Blog/2023/01/05/linear-programming/#Duality-equation-and-complementary-slackness">https://daolinzhou.github.io/Blog/2023/01/05/linear-programming/#Duality-equation-and-complementary-slackness</a></p>
-<p><img src="/Blog/intro/math448/sp_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这说明 如果 $x<em>{ij}&gt;0$ , 那么 $d_i+c</em>{ij}=dj$ , 例如 如果 $(i,j)$ 在 shortest path 上, $d<em>i+c</em>{ij}=dj$</p>
 <p>因此，在一般的最短路径算法或其变种，如 Bellman-Ford 或 Dijkstra 算法的特殊情况下我们维护 complementary slackness</p>
 <p>但 intermediate solution 既不是 primal feasible 也不是 dual feasible</p>
 <p>The algorithm tries to achieve primal and dual feasibility, while maintaining complementary slackness conditions which guarantees optimality.</p>
-<p><img src="/Blog/intro/math448/sp_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_12.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>但是我们的 solution 中可能会有一些额外的 edge</p>
-<p><img src="/Blog/intro/math448/sp_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_15.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_16.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_17.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们不需要将这些 exponential number of subtour elimination constrains 添加进去,We need only to add the constraints violated by a linear programming relaxation solution and these constraints can be added.</p>
-<p><img src="/Blog/intro/math448/sp_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/sp_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_18.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_19.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>将 (12) 添加进 integer program 会得到任意 edge weight 的 图的 shortest path problem 的 正确的 formulation</p>
-<p><img src="/Blog/intro/math448/sp_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/sp_20.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Maximum-Capacity-Path-problem"><a href="#Maximum-Capacity-Path-problem" class="headerlink" title="Maximum Capacity Path problem"></a>Maximum Capacity Path problem</h2><p>我们这里关注两个问题</p>
@@ -345,7 +347,7 @@
 <p>这两个问题是等价的, 因为只要我们将每个边的权值乘以 -1, 那么就可以从一个问题转换为另一个问题</p>
 <p>MCPP 在某些最大流量算法中被用作最大容量增强路径 (augmenting path)</p>
 <p>BPP 用于寻找易腐烂 (perishable) (reduce in value) 货物的运输路线。</p>
-<p><img src="/Blog/intro/math448/mcpp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>而这个问题可以通过稍微修改 Dijkstra 算法来解决 $O(n^2)$</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><pre><code class="hljs pseudocode">s: source node<br>t: target node<br><br>d(x) = current MCPP s to x<br>visited = set()<br>queue = queue().add(s)<br>prev = array[-1...]<br><br>while queue.isNotEmpty():<br>	choose node i from queue such that<br>	d(i) is max in queue<br>	<br>	// visite node i<br>	visited.add(i)<br>	queue.remove(i)<br>	<br>	for j in i.out_flow_neighbour():<br>		if j in visited:<br>			continue<br>		// get min capacity<br>		capacity_to_j = min(d(i), capacityBetween(i, j))<br>		// if currently no path to j or capacity to j is less than the capacity in this path<br>		// try to max min d(j)<br>		if d(j) is None or d(j) &lt; capacity_to_j then:<br>			d(j) = capacity_to_j<br>			prev[j] = i<br>			// update the max min capacity<br>			queue.addOrUpdate(j, capacity_to_j)<br><br>return capacity<br></code></pre></td></tr></table></figure>
 <p>简单来说就是我们将什么视为距离, 原本是将 distanc 的 和设为距离</p>
@@ -366,8 +368,8 @@ d_1<d_2<\cdots<d_r</script><p><strong>MCPP 算法</strong> maxmize 每个 path �
 <p>如果添加这些边之前 没有从 s 到 t 的路径, 那说明每个 path 的最大边一定大于$d_{i-1}$, (不然就会有一条路径, 所有边的权值都小于 $d_i$)</p>
 <p>当添加了这条边, 如果有了 s 到 t 的路径, 说明这条 s-t 路径一定包含 权值为 $d_i$ 的边, 那就说明最小的 max capacity 就是 $d_i$</p>
 <p>和 Kruskal 算法简直一样, 问题就是有向图中怎么判断有 s-t path</p>
-<p><img src="/Blog/intro/math448/mcpp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcpp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/mcpp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/mcpp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_2.PNG" srcset="/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/mcpp_3.PNG" srcset="/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/mcpp_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>当我们有所有边权重的排序时, incremental search 算法使用 $O(E)$ 的时间解决 bottleneck path problem</p>
 <p>但排序需要 $O(E\log E)$ 时间, $E\le V^2$ , $O(E\log E)\le O(E\log V^2) = O(E\cdot 2\log V) = O(E\log V)$</p>
 <p>因此总共用时 $O(E\log V + E) =O(E\log V)$</p>
@@ -387,14 +389,14 @@ d_1<d_2<\cdots<d_r</script><p><strong>MCPP 算法</strong> maxmize 每个 path �
 <p><br></p>
 <h3 id="Undirected-Graph"><a href="#Undirected-Graph" class="headerlink" title="Undirected Graph"></a>Undirected Graph</h3><p>而再 undirected graph 中则更为简单, 只需要 $O(E)$ 的时间</p>
 <p>我们可以使用二分法, 选择一个 weight, 把所有小于等于这个 weight 的边放入</p>
-<p><img src="/Blog/intro/math448/mcpp_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcpp_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如果此时有 s-t path, 那么我们只需对已有的边再进行二分, 考虑 $E/2$ 个边即可</p>
 <p>如果此时没有 s-t path, 那么同样, 我们可以不考虑这些已添加的边, 只考虑 s 所在的 component 如何到达 t 所在的 component, 即只需考虑 $E/2$ 个点</p>
 <blockquote>
 <p>为什么有向图中依然需要考虑所有的边? 在无向图中, <strong>我们可以将 component 压缩成一个 node</strong>, 但在有向图中, 我们不可以这样做, 只有强连通分量才可以, 在有向图中, 一个node 可能可以进入一个弱联通分量但是出不去, 所以依然要考虑这些点</p>
 </blockquote>
-<p><img src="/Blog/intro/math448/mcpp_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcpp_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们第一个 iteration 要考虑 $E$ 个边</p>
 <p>第二个iteration 只需要考虑 $E/2$ 个边</p>
 <p>一直往下终会收敛</p>
@@ -408,8 +410,8 @@ d_1<d_2<\cdots<d_r</script><p><strong>MCPP 算法</strong> maxmize 每个 path �
 <p><br></p>
 <h2 id="Maximum-flow-problem"><a href="#Maximum-flow-problem" class="headerlink" title="Maximum flow problem"></a>Maximum flow problem</h2><p>让 $G=(V,E)$ 是 directed graph,对于每个 edge $(i,j)\in E$, 有 capacity $u_{ij}$ . 同时有两个 node $s, t$.</p>
 <p><strong>Maximum flow problem (MFP)</strong> 是要找到 可以从 $s$ 发送到 $t$ 的最大量的 flow 并且 每条边不超过 capacity</p>
-<p><img src="/Blog/intro/math448/mfp.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mfp_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mfp.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mfp_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>首先我们可以把这个问题转为 linear programming</p>
 <p>有很多方式来构建一个 MFP 的 linear programming.</p>
@@ -417,13 +419,13 @@ d_1<d_2<\cdots<d_r</script><p><strong>MCPP 算法</strong> maxmize 每个 path �
 <p>让 $f$ 为 从 $s$ 点流出并流入 $t$ 的总 flow</p>
 <p>让 $x_{ij}$ 为 边 $(i,j)$ 上的 flow</p>
 <p>那么</p>
-<p><img src="/Blog/intro/math448/mfp_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mfp_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>假设: 没有一个 s-t path 有 infinite capacity (不然这题没有意义)</p>
 <p>假设: graph 没有 平行边, 但实际上我们可以把平行边合并为一条边</p>
 <p><br></p>
 <h3 id="Weak-duality-and-the-s-t-cut"><a href="#Weak-duality-and-the-s-t-cut" class="headerlink" title="Weak duality and the s-t cut"></a>Weak duality and the s-t cut</h3><p>s-t cut 就是 任意一个 cut, 将图分为两个部分</p>
 <p>让 $S\subset V, \bar S=V-S$, 且 $s\in S, t\in \bar S$, 那么 $(S,\bar S)$ 就是 s-t cut</p>
-<p><img src="/Blog/intro/math448/mfp_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mfp_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>那么 <strong>capacity of the cut $(S,\bar S) $</strong> 叫做 $c(S,\bar S)$</p>
 <script type="math/tex; mode=display">
 c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t cut 是所有 forward arc 的 capacity 的集合</p>
@@ -431,15 +433,15 @@ c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t 
 <p><br></p>
 <p><strong>Theorem 1 (Weak duality theorem for maximum flows))</strong></p>
 <p>Maximum flow from s to t $\le$ capacity of minimum s-t cut in G</p>
-<p><img src="/Blog/intro/math448/mfp_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mfp_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h3 id="Path-flow-formulation"><a href="#Path-flow-formulation" class="headerlink" title="Path flow formulation"></a>Path flow formulation</h3><p>另一种方式是我们用 path flow formulation. 我们可以把 network flow 看作是从 $s$ 点向 $t$ 点进行输送, 可能有多个路径, 通过这些路径我们描述了 network flow 的 solution</p>
 <p>正规一点地说</p>
 <p>让 $F$ 作为 collection of $s-t$ paths in $G$. 对于每个 path $p\in F$ 我们有一个 decision variable $x<em>p$ 代表这条路径的 flow. 因此整个图的 flow 就是 $\sum</em>{p\in F}x_p$ . 对于每条边 $(i,j)\in E$ 定义 $F(i,j)$</p>
-<p><img src="/Blog/intro/math448/pf.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>就是说 $F(i,j)$ 代表了所有使用 $(i,j)$ 这条边的 flow path</p>
 <p>因此我们可以写出 linear programming:</p>
-<p><img src="/Blog/intro/math448/pf_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这个就是 path flow formulation of the MFP</p>
 <p>注意 $|F|$ 可能是exponential 的, 因此这个 fomulation 对解决 最大流问题不是非常有用.</p>
 <p>但是它对我们研究 最大流问题的各种属性非常有用</p>
@@ -447,57 +449,57 @@ c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t 
 <h3 id="Flow-decomposition-Theorem"><a href="#Flow-decomposition-Theorem" class="headerlink" title="Flow decomposition Theorem"></a>Flow decomposition Theorem</h3><p>我们可以把 path flow 转为 arc flow 问题</p>
 <p><br></p>
 <h4 id="Flow-decopmposition-theorem"><a href="#Flow-decopmposition-theorem" class="headerlink" title="Flow decopmposition theorem"></a>Flow decopmposition theorem</h4><p>对于任何 feasible flow on network $G=(V,E)$ (represented as arc flows) 可以被 decomposite 为 $|E|$ s-t path 和 cycle flows. 更进一步, value of the flow 就是 sum of the values of flows along the paths</p>
-<p><img src="/Blog/intro/math448/pf_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h4 id="Integrality-Theorem"><a href="#Integrality-Theorem" class="headerlink" title="Integrality Theorem"></a>Integrality Theorem</h4><p>当每个 edge 的 capacity 都是 integer 时, 最大流存在 optimal integer solution </p>
 <p>可以反证, 如果最大流不是 integer, 则有 path 不是 integer, 说明可以继续增加流量, 当前结果不是 optimal</p>
-<p><img src="/Blog/intro/math448/pf_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>Path flow formulation 和 arc flow formulation 在 最大流问题中是等价的</p>
-<p><img src="/Blog/intro/math448/pf_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h3 id="The-dual-of-PF"><a href="#The-dual-of-PF" class="headerlink" title="The dual of PF"></a>The dual of PF</h3><p>对于linear programming 问题 自然有对应的 dual 问题</p>
-<p><img src="/Blog/intro/math448/pf_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们为什么关系 dual PF, 每个 $y_{ij}$ 可以被视作 选择一个边 $(i,j)$.</p>
 <p>这个 constrain 关注于对于每个 s-t path 我们必须选择最少一条边 (如果没有选择任意一条边说明我们可以往这个边注入新的流量, 与 optimal 不符)</p>
 <p>Ignoring potential fractional values of $y_{ij}$</p>
 <p>这意味着 optimal dual solution 在选择边时，需要使每条路径都包含一条所选边，且所选 边的总容量最小化。</p>
 <p>The smallest capacity set of edges which intersects every path from $s$ to $t$ is precisely a minimum $s-t$ cut</p>
-<p><img src="/Blog/intro/math448/pf_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_16.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_17.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_18.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_19.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_20.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_21.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/pf_22.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_12.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_15.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_16.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_17.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_18.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_19.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_20.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_21.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/pf_22.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>1-4 这条边是 11</p>
 </blockquote>
-<p><img src="/Blog/intro/math448/apath_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/apath_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/apath_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_12.PNG" srcset="/img/loading.gif" lazyload alt=""><img src="/Blog/intro/math448/apath_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/apath_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <blockquote>
 <p>如果每条边都有 min constrain, 那么应该如何计算max flow.</p>
@@ -509,20 +511,20 @@ c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t 
 <p><br></p>
 <h2 id="Polynomial-time-augmenting-path-algorithm"><a href="#Polynomial-time-augmenting-path-algorithm" class="headerlink" title="Polynomial time augmenting path algorithm"></a>Polynomial time augmenting path algorithm</h2><p>上面 network flow 的复杂度是非常高的, 但是有几种选择 augmenting path 的方式可以降低复杂度</p>
 <p><strong>方法 1: 每次在 residual graph 中 选择 largest residual capacity 的那条 path 来作为 augmenting path</strong></p>
-<p><img src="/Blog/intro/math448/mcap.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcap_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_3.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_7.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_8.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcap_9.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h3 id="Preflow-push-algorithm"><a href="#Preflow-push-algorithm" class="headerlink" title="Preflow push algorithm"></a>Preflow push algorithm</h3><p>考虑 directed graph $G=(V,E)$, 每条边 $i,j \in E$ 给定 capacity $u_{ij}$, 同时有 s 和 t 两个 node</p>
-<p><img src="/Blog/intro/math448/preflow.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/preflow.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>基本思想就是尽可能向每个 node 输入, 多出来的流量先存着, 最后将多出来的流量流回 node $s$</p>
 <p>$e(i)$ 被叫做 <strong>excess</strong> at node $i$. 如果对于非 s 或 t 的 node,  $e(i)=0$ , 那么 $x$ 就是一个 flow (feasible flow)</p>
 <p>在 preflow 中我们假设 $x<em>{ij}, x</em>{ji}$ 不能都为 positive (和普通的 network flow 一样 ,相反边的 flow 可以互相 cancel</p>
@@ -531,8 +533,8 @@ c(S,\bar S)=\sum_{(i,j)\in E(S,\bar S)}u_{ij}</script><p>即 capacity of an s-t 
 </blockquote>
 <p>我们拓展 residual graph 的定义: 如果 $x=(x_{ij})$ 是一个 preflow, 那么 residual capacity of arc $(i,j)$ 在 residual graph $G(x)$ 就是 </p>
 <script type="math/tex; mode=display">
-r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/preflow_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/preflow_2.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_3.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_4.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_5.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_6.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_7.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_8.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_9.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_10.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_11.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_12.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_13.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_14.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_15.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_16.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_17.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_18.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_19.png" srcset="/img/loading.gif" lazyload alt=""><br><img src="/Blog/intro/math448/preflow_20.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="Minimum-cost-flow-problem"><a href="#Minimum-cost-flow-problem" class="headerlink" title="Minimum cost flow problem"></a>Minimum cost flow problem</h2><p>$G=(V, E)$ 是一个 directed graph, 有 n 个顶点, m 条边</p>
 <p>对于每个顶点 $i$, 有$b(i)$</p>
@@ -545,17 +547,17 @@ r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.p
 <p>同时对于每条边 $(i,j)\in E$, 有 cost $c_{ij}$</p>
 <p>Minimum cost flow problem (MCFP) 是要在 $G$ 中找到一个运输方式, 从 supply node 发往 demand node 并且 minimize total cost 的同时 满足所有 supply / demand restrictions</p>
 <p>我们让 $x_{ij}$ 代表 arc $(i,j)$ 的 flow, 那么 MCFP 问题可以整理为下面的 linear program</p>
-<p><img src="/Blog/intro/math448/mcfp.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>对于 $G$ 中的每个 node 我们都有一个 constraint, 并且 $G$ 中的每条边我们都有一个 variable. </p>
 <p>让 $u_i$ 作为 dual variable 对应 vertex $i\in V$, 我们可以写出下面的 dual linear program</p>
-<p><img src="/Blog/intro/math448/mcfp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_3.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_7.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_8.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>Shortest path problem</strong></p>
 <p>让 $G=(V,E)$ 作为一个 directed graph 并且有两个 distinguished nodes $s$ 和 $t$</p>
@@ -565,11 +567,11 @@ r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.p
 <p>虽然我们将运输问题、分配问题和最短路径问题表述为 MCFP，但对于所有这些问题，都有比使用 MCFP 表述更有效的专门算法。<br>但是，我们只想指出 MCFP 为所有这些问题提供了一个统一的框架。上述三个问题都具有 MCFP 的一些直观结构。现在让我们考虑另一个问题的例子，这个问题看似与 MCFP 毫无关联，但实际上却可以通过 MCFP 建模的问题。</p>
 <p><br></p>
 <p><br></p>
-<h3 id="Linear-programs-with-consecutive-ones-property"><a href="#Linear-programs-with-consecutive-ones-property" class="headerlink" title="Linear programs with consecutive ones property"></a>Linear programs with consecutive ones property</h3><p><img src="/Blog/intro/math448/mcfp_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h3 id="Linear-programs-with-consecutive-ones-property"><a href="#Linear-programs-with-consecutive-ones-property" class="headerlink" title="Linear programs with consecutive ones property"></a>Linear programs with consecutive ones property</h3><p><img src="/Blog/intro/math448/mcfp_9.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_10.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_11.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_12.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_13.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h3 id="The-Caterer-Problem"><a href="#The-Caterer-Problem" class="headerlink" title="The Caterer Problem"></a>The Caterer Problem</h3><p>某餐饮公司需要在接下来的 8 天提供 $d_i$ 纸巾 $(i=1,2\cdots 8)$. 她可以以每张餐巾纸 3 美元的价格购买新餐巾纸，或者将脏餐巾纸送去洗涤后重复使用。<br>她有两种洗衣选择：1 天服务每张餐巾纸 1 美元，2 天服务每张餐巾纸 0.5 美元。<br>所有餐巾纸在计划期（8 天）结束时丢弃。将计算餐饮店最低成本采购/租赁政策的问题表述为最低成本流量问题。<br>将该问题表述为最小成本流量问题。(绘制相关网络并确定弧<br>成本和供应/需求值）。</p>
 <p><br></p>
@@ -577,7 +579,7 @@ r_{ij}=u_{ij}-x_{ij}+x_{ji}</script><p><img src="/Blog/intro/math448/preflow_1.p
 <p>请注意，有向图的node arc incidence matrix的每一列都包含正好包含一个 1 和一个 -1 ，其他元素均为零。因此，如果将矩阵的所有行相加<br>矩阵的所有行相加，就会得到零向量。因此，我们有一个有向图的行向量的线性组合。<br>矩阵的行向量为零，但线性组合中至少有一个乘数不为零 (此处所有乘数均为 1) 因此，行必须是线性相关的</p>
 <p><br></p>
 <p><strong>Theorem: The columns of the node-arc incidence matrix of a tree are linearly independent.</strong></p>
-<p><img src="/Blog/intro/math448/mcfp_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_14.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>Theorem: $G$ 是一个有 $n$ 个 node 的 connected network, 那么 node-arc incidence matrix 的 rank 为 n-1</strong></p>
 <p>根据 Theorem : The rows of the node arc incidence matrix of a directed graph are linearly dependent.</p>
@@ -586,110 +588,110 @@ Rank(A)<n</script><p>由于 graph 是 connected, 所以 它包含一个 spanning
 <script type="math/tex; mode=display">
 Rank(A)\ge n-1</script><p><br></p>
 <p><strong>Theorem: The columns of the node-arc incidence matrix of a cycle is linearly dependant.</strong></p>
-<p><img src="/Blog/intro/math448/mcfp_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_15.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><strong>Theorem: Any n − 1 linearly independent columns of the node-arc incidence matrix corresponds to a spanning tree</strong></p>
-<p><img src="/Blog/intro/math448/mcfp_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_23.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_24.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_25.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_26.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_27.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_28.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_29.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_30.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_31.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_32.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_33.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_34.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_35.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/mcfp_36.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_16.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_17.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_18.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_19.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_20.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_21.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_22.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_23.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_24.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_25.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_26.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_27.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_28.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_29.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_30.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_31.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_32.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_33.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_34.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_35.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_36.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
-<h2 id="The-negative-cycle-cancelling-algorithm"><a href="#The-negative-cycle-cancelling-algorithm" class="headerlink" title="The negative cycle cancelling algorithm"></a>The negative cycle cancelling algorithm</h2><p><img src="/Blog/intro/math448/ncca.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="The-negative-cycle-cancelling-algorithm"><a href="#The-negative-cycle-cancelling-algorithm" class="headerlink" title="The negative cycle cancelling algorithm"></a>The negative cycle cancelling algorithm</h2><p><img src="/Blog/intro/math448/ncca.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_3.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_7.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_8.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_9.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_10.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_11.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>思想: 如果 residual graph 里有 negative cycle, 那么就说明我们可以沿着这个 cycle 进行运输来减少cost</p>
 <p>因为 residual graph 本身就描述的是node 直接可以发送多少 流, 以及发送这个流对原本graph 的 cost 有什么影响</p>
 </blockquote>
-<p><img src="/Blog/intro/math448/ncca_12.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_13.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_12.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_13.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Network-simplex-method-for-capacitated-MCFP"><a href="#Network-simplex-method-for-capacitated-MCFP" class="headerlink" title="Network simplex method for capacitated MCFP"></a>Network simplex method for capacitated MCFP</h2><p><strong>The basis structure</strong></p>
 <p>A variation of the cycle canceling algorithm, that works very well in practice, is the network simplex algorithm. We studied this algorithm for the uncapacitated case earlier. Let us now extend the algorithm to the capacitated MCFP. Recall that in the uncapacitated case, bases are represented by spanning trees of the underlying graph. For the capacitated case, we still maintain a basis as a spanning tree, but the non-basic variables could be either at the upper bound or at the lower bound. Let us develop this idea formally.</p>
 <p>Let $T$ be a spanning tree of $G$ and the arcs of the tree represent the basic variables associated with it. The non-basic variables will be either at their upper bounds or at their lower bounds. Let $L$ be the collection of all non-basic variables which are at their lower<br>bound values and $U$ be the collection of all non-basic variables which are at their upper bound values. The triplet $(T, L, U )$ is called a basis structure.</p>
 <p>Let us now see how we can compute a basic (feasible) solution (BFS) corresponding to the basis structure $(T, L, U )$.</p>
-<p><img src="/Blog/intro/math448/ncca_14.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_15.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_16.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_17.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_18.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_14.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_15.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_16.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_17.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_18.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>$w$ 意味着什么</p>
 <p>考虑 node indecies matrix</p>
-<p><img src="/Blog/intro/math448/reduce_cost.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/reduce_cost.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>prime problem variables 是计算的每条边的 flow</p>
 <p>每个 column 都是 0, 只有一个 1 和 -1, 代表 1 的 node 指向代表 -1 的 node (每个 column 代表一条边)</p>
 <p>dual variable 和 node 对应</p>
 <p>因此, 对于一个 basic variable 来说 $w\cdot e_i = c_i$, reduce cost = 0.  $e_i$ 代表一条边(假设 $n_i\rightarrow n_j$ 则 $c_i=w_i-w_j$</p>
 <p>reduce cost 指的是当我们试图改动这个变量时, 对整体结果的影响(slop)</p>
 </blockquote>
-<p><img src="/Blog/intro/math448/ncca_19.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_20.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_21.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_22.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_23.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_24.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_25.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_26.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_27.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ncca_28.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_19.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_20.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_21.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_22.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_23.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_24.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_25.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_26.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_27.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ncca_28.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
-<h2 id="Convex-cost-flows"><a href="#Convex-cost-flows" class="headerlink" title="Convex cost flows"></a>Convex cost flows</h2><p><img src="/Blog/intro/math448/ccf.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/ccf_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Convex-cost-flows"><a href="#Convex-cost-flows" class="headerlink" title="Convex cost flows"></a>Convex cost flows</h2><p><img src="/Blog/intro/math448/ccf.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_3.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_7.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_8.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/ccf_9.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>Let us first see how to obtain an integer optimal solution to convex cost network flow problem with objective function as separable smooth convex function</p>
 <p><br></p>
 <h2 id="Generalized-Network-Flows"><a href="#Generalized-Network-Flows" class="headerlink" title="Generalized Network Flows"></a>Generalized Network Flows</h2><p>让 $G=(V,E)$ 作为一个 有向图, 对于每个 edge $(i,j)\in E$ 有 capacity $u<em>{ij}$  和一个 lower bound $l</em>{ij}$ 和一个 positive multiplier $p_{ij}$ </p>
 <p>有灵感 distinguished node $s, t \in G$, 分别叫做 source node 和 sink node. </p>
 <p>Arc $(i,j)$ 的 flow 记作 $x_{ij}$ . 那么 generalized maximum flow problem (GMFP) 可以写作</p>
-<p><img src="/Blog/intro/math448/gmfp.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/gmfp.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
-<h2 id="Generalized-minimum-cost-flow-problem"><a href="#Generalized-minimum-cost-flow-problem" class="headerlink" title="Generalized minimum cost flow problem"></a>Generalized minimum cost flow problem</h2><p><img src="/Blog/intro/math448/gmfp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/gmfp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/math448/gmfp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h2 id="Generalized-minimum-cost-flow-problem"><a href="#Generalized-minimum-cost-flow-problem" class="headerlink" title="Generalized minimum cost flow problem"></a>Generalized minimum cost flow problem</h2><p><img src="/Blog/intro/math448/gmfp_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/gmfp_2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/gmfp_3.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <blockquote>
 <p>对于 MCFP, 如果我们为每个顶点增加一个 upper bound, 即流入该顶点的流量的极限</p>
 <p>我们可以将这样的问题转化为普通的 MCFP</p>
-<p><img src="/Blog/intro/math448/mcfp_v.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_v.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>T 是中转站, 使用边来约束upper bound</p>
 <p>对于 MCFP, 我们可以为每条边增加 lower bound</p>
-<p><img src="/Blog/intro/math448/mcfp_v_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/math448/mcfp_v_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>demand node 确保了 in flow 的 lower bound, 再用 supply node 送出去</p>
 </blockquote>
 
@@ -701,7 +703,7 @@ Rank(A)\ge n-1</script><p><br></p>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
                     
                   </div>
                 
@@ -709,7 +711,7 @@ Rank(A)\ge n-1</script><p><br></p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
                     
                   </div>
                 
@@ -730,7 +732,7 @@ Rank(A)\ge n-1</script><p><br></p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2024/01/10/combinational-theory/">
+                      <a href="/2024/01/10/combinational-theory/">
                         <span class="hidden-mobile">combinational theory</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -824,18 +826,18 @@ Rank(A)\ge n-1</script><p><br></p>
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -930,7 +932,7 @@ Rank(A)\ge n-1</script><p><br></p>
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>

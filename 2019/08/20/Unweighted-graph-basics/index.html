@@ -9,8 +9,8 @@
   <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
      crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
-  <link rel="icon" href="/Blog/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -38,6 +38,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/graph.png">
   
+  
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>图论(一)-无权图基础 - Daolin&#39;s Repository</title>
 
@@ -69,17 +71,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
-  <script  src="/Blog/js/utils.js" ></script>
-  <script  src="/Blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -91,7 +93,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Blog/">
+    <a class="navbar-brand" href="/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -110,7 +112,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -122,7 +124,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -134,7 +136,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -146,7 +148,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -158,7 +160,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -184,7 +186,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
+         style="background: url('/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -252,7 +254,7 @@
             
             <div class="markdown-body">
               <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><p>一个图主要是由节点和边来组成</p>
-<p><img src="/Blog/intro/graph.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graph.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <span id="more"></span>
 <p>图主要用于表示两个事物之间的关系:</p>
 <ol>
@@ -279,20 +281,20 @@
 <h2 id="图的连通性"><a href="#图的连通性" class="headerlink" title="图的连通性"></a>图的连通性</h2><p>图不一定非要是联通的(<del>也可以是移动/电信的</del>),  从一个点到另外一个点不一定有一条路</p>
 <p><br></p>
 <p>图根据实现的不同可以有 自环边(自己指向自己) 和 平行边(从一点到另一点有多条边).</p>
-<p><img src="/Blog/intro/graphloop.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graphloop.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="图的实现"><a href="#图的实现" class="headerlink" title="图的实现"></a>图的实现</h2><p>图通常情况下有两种实现</p>
 <ol>
 <li>邻接矩阵 - 用于稠密图</li>
 <li>邻接表 - 用于稀疏图</li>
 </ol>
-<p><img src="/Blog/intro/adjacency_matrix.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/adjacency_lists.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/adjacency_matrix.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/adjacency_lists.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以看出, 当每个节点和大部分其他节点产生关系时(稠密图), 比较适合邻接矩阵 </p>
 <p>当每个节点只和部分节点产生联系(稀疏图), 则更适合邻接表</p>
 <p><br></p>
 <p>完全图: 特殊的稠密图, 每个节点和其他所有节点产生联系</p>
-<p><img src="/Blog/intro/perfectgraph.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/perfectgraph.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
 <p> <br></p>
 <h3 id="邻接矩阵-稠密图"><a href="#邻接矩阵-稠密图" class="headerlink" title="邻接矩阵 - 稠密图"></a>邻接矩阵 - 稠密图</h3><figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_DENSEGRAPH_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_DENSEGRAPH_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">// 稠密图 - 邻接矩阵</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DenseGraph</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> n, m;   <span class="hljs-comment">// n 为节点数, m为边数</span><br>    <span class="hljs-type">bool</span> directed;<br>    vector&lt;vector&lt;<span class="hljs-type">bool</span>&gt;&gt; g;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">DenseGraph</span>(<span class="hljs-type">int</span> n, <span class="hljs-type">bool</span> directed)&#123;<br>        <span class="hljs-keyword">this</span>-&gt;n = n;<br>        <span class="hljs-keyword">this</span>-&gt;m = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">this</span>-&gt;directed = directed;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++)&#123;<br>            g.<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">bool</span>&gt;(n , <span class="hljs-literal">false</span>));<br>        &#125;<br>    &#125;<br><br>    ~<span class="hljs-built_in">DenseGraph</span>() &#123;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">V</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-keyword">return</span> n;&#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">E</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-keyword">return</span> m;&#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(v &gt;= <span class="hljs-number">0</span> &amp;&amp; v &lt; n);<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; n);<br><br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">hasEdge</span>(v, w))<br>            <span class="hljs-keyword">return</span>;<br><br>        g[v][w] = <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">if</span>(!directed)<br>            g[w][v] = <span class="hljs-literal">true</span>;<br>        m++;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(v &gt;= <span class="hljs-number">0</span> &amp;&amp; v &lt; n);<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; n);<br>        <span class="hljs-keyword">return</span> g[v][w];<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>                cout &lt;&lt; g[i][j] &lt;&lt; <span class="hljs-string">&quot;\t&quot;</span>;<br>            cout &lt;&lt; endl;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 相邻边的迭代器</span><br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">adjIterator</span>&#123;<br>    <span class="hljs-keyword">private</span>:<br>        DenseGraph &amp;G;<br>        <span class="hljs-type">int</span> v;<br>        <span class="hljs-type">int</span> index;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">adjIterator</span>(DenseGraph &amp;graph, <span class="hljs-type">int</span> v):<span class="hljs-built_in">G</span>(graph)&#123;<br>            <span class="hljs-keyword">this</span>-&gt;v = v;<br>            <span class="hljs-keyword">this</span>-&gt;index = <span class="hljs-number">-1</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">begin</span><span class="hljs-params">()</span></span>&#123;<br>            index = <span class="hljs-number">-1</span>;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">next</span>();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">next</span><span class="hljs-params">()</span></span>&#123;<br>            <span class="hljs-keyword">for</span>(index += <span class="hljs-number">1</span>; index &lt; G.<span class="hljs-built_in">V</span>(); index++)<br>                <span class="hljs-keyword">if</span>(G.g[v][index])<br>                    <span class="hljs-keyword">return</span> index;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isEnd</span><span class="hljs-params">()</span></span>&#123;<br>            <span class="hljs-keyword">return</span> index &gt;= G.<span class="hljs-built_in">V</span>();<br>        &#125;<br>    &#125;;<br><br>&#125;;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
 <h3 id="邻接表-稀疏图"><a href="#邻接表-稀疏图" class="headerlink" title="邻接表 - 稀疏图"></a>邻接表 - 稀疏图</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ALGORITHM_SPARSEGRAPH_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ALGORITHM_SPARSEGRAPH_H</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cassert&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">// 稀疏图 - 邻接表</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SparseGraph</span>&#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> n, m;   <span class="hljs-comment">// 点数 边数</span><br>    <span class="hljs-type">bool</span> direct;<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; g;<br><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">SparseGraph</span>( <span class="hljs-type">int</span> n, <span class="hljs-type">bool</span> directed )&#123;<br>        <span class="hljs-keyword">this</span>-&gt;n = n;<br>        <span class="hljs-keyword">this</span>-&gt;m = m;<br>        <span class="hljs-keyword">this</span>-&gt;direct = directed;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)<br>            g.<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;());<br>    &#125;<br><br>    ~<span class="hljs-built_in">SparseGraph</span>() &#123;&#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">V</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-keyword">return</span> n; &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">E</span><span class="hljs-params">()</span></span>&#123; <span class="hljs-keyword">return</span> m; &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(v &gt;= <span class="hljs-number">0</span> &amp;&amp; v &lt; n);<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; n);<br><br>        g[v].<span class="hljs-built_in">push_back</span>(w);<br>        <span class="hljs-keyword">if</span>( v != w &amp;&amp;  !direct )<br>            g[w].<span class="hljs-built_in">push_back</span>(v);<br>        m++;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> w)</span></span>&#123;<br>        <span class="hljs-built_in">assert</span>(v &gt;= <span class="hljs-number">0</span> &amp;&amp; v &lt; n);<br>        <span class="hljs-built_in">assert</span>(w &gt;= <span class="hljs-number">0</span> &amp;&amp; w &lt; n);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;g[v].<span class="hljs-built_in">size</span>(); i++)<br>            <span class="hljs-keyword">if</span>(g[v][i] == w)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;vertex &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;:\t&quot;</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; g[i].<span class="hljs-built_in">size</span>(); j++)<br>                cout &lt;&lt; g[i][j] &lt;&lt; <span class="hljs-string">&quot;\t&quot;</span>;<br>            cout &lt;&lt; endl;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 相邻边的迭代器</span><br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">adjIterator</span>&#123;<br>    <span class="hljs-keyword">private</span>:<br>        SparseGraph &amp;G;<br>        <span class="hljs-type">int</span> v;<br>        <span class="hljs-type">int</span> index;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">adjIterator</span>(SparseGraph &amp;graph, <span class="hljs-type">int</span> v):<span class="hljs-built_in">G</span>(graph)&#123;<br>            <span class="hljs-keyword">this</span>-&gt;v = v;<br>            <span class="hljs-keyword">this</span>-&gt;index = <span class="hljs-number">0</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">begin</span><span class="hljs-params">()</span></span>&#123;<br>            index = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span>(G.g[v].<span class="hljs-built_in">size</span>())<br>                <span class="hljs-keyword">return</span> G.g[v][<span class="hljs-number">0</span>];<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">next</span><span class="hljs-params">()</span></span>&#123;<br>            index++;<br>            <span class="hljs-keyword">if</span>(index &lt; G.g[v].<span class="hljs-built_in">size</span>())<br>                <span class="hljs-keyword">return</span> G.g[v][index];<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isEnd</span><span class="hljs-params">()</span></span>&#123;<br>            <span class="hljs-keyword">return</span> index &gt;= G.g[v].<span class="hljs-built_in">size</span>();<br>        &#125;<br>    &#125;;<br><br>&#125;;<br><br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
@@ -312,7 +314,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -320,9 +322,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
+                      <a class="hover-with-bg" href="/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
                     
-                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -339,7 +341,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/2019/08/20/Connected-component/">
+                      <a href="/2019/08/20/Connected-component/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">图论(二)-连通分量</span>
                         <span class="visible-mobile">上一篇</span>
@@ -349,7 +351,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/2019/08/15/UnionFind/">
+                      <a href="/2019/08/15/UnionFind/">
                         <span class="hidden-mobile">并查集 UnionFind</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -443,18 +445,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/Blog/js/events.js" ></script>
-<script  src="/Blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/Blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/Blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -549,7 +551,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/Blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
 </body>
