@@ -7,10 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,7 +19,7 @@
     <meta name="description" content="带权图还有一种常见问题: 最短路径问题 对于最小生成树问题通常都是作用于无向图 而最短路径问题则是同时支持无向图和有向图 所谓最短路径, 就是求出一个节点到另外一个节点耗费最小的路径">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论(六)-最短路径">
-<meta property="og:url" content="https://daolinzhou.github.io/2019/08/28/shortest-path/">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/08/28/shortest-path/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="带权图还有一种常见问题: 最短路径问题 对于最小生成树问题通常都是作用于无向图 而最短路径问题则是同时支持无向图和有向图 所谓最短路径, 就是求出一个节点到另外一个节点耗费最小的路径">
 <meta property="og:locale" content="zh_CN">
@@ -42,8 +40,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/shortestpathtree.PNG">
   
-  
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>图论(六)-最短路径 - Daolin&#39;s Repository</title>
 
@@ -75,17 +71,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -97,7 +93,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -116,7 +112,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -128,7 +124,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -140,7 +136,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -152,7 +148,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -164,7 +160,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +186,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/eye.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -272,19 +268,19 @@
 <li>游戏中自动寻路</li>
 </ol>
 <p>而<strong>无权图</strong>中, 使用<strong>广度优先遍历</strong>时我们也说找到的路径是最短路径, 其实我们所找到的是从起始节点到其他所有节点的最短路径, 我们也将其称之为<strong>最短路径树(Shortest Path Tree)</strong>, 其实这个树也是这张图的一个<strong>生成树</strong>, 所有的顶点距离起始的顶点的响应的权值是最小的, 而求得最短路径树的过程又被称之为解决<strong>单元最短路径(Single Source Shortest Path)</strong>问题, 单元(single source)就是起始点</p>
-<p><img src="/Blog/intro/shortestpathtree.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/shortestpathtree.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h1 id="松弛操作-Relaxation"><a href="#松弛操作-Relaxation" class="headerlink" title="松弛操作 (Relaxation)"></a>松弛操作 (Relaxation)</h1><p>对于<strong>有权图</strong>来说, 从一个点直接到达另一个点可能不是最短路径, 通过其他节点可能会有更短的路径. 而这个就是松弛操作</p>
-<p><img src="/Blog/intro/Relaxation.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/Relaxation.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>松弛操作是最短路径求解的核心</p>
 <p><br></p>
 <h1 id="Dijkstra-算法"><a href="#Dijkstra-算法" class="headerlink" title="Dijkstra 算法"></a>Dijkstra 算法</h1><p>算法局限: 不能处理带有 <strong>负权边</strong> 的图</p>
 <p>复杂度: O( E log(V) )</p>
 <h2 id="Dijkstra算法的思想"><a href="#Dijkstra算法的思想" class="headerlink" title="Dijkstra算法的思想"></a>Dijkstra算法的思想</h2><p>一个点的相邻边中最短的那条边就是这个点到达那个点的最短路径</p>
 <p>例如下图, 节点0的最短相邻边是0-&gt;2, 权值为2. 所以0-&gt;2的最短路径就是0-&gt;2. 因为如果从0到其他节点(大于0-&gt;2)再走向2的话一定比直接走向2权值更大. <strong>前提就是图中没有负权边</strong></p>
-<p><img src="/Blog/intro/djkstra.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/djkstra.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之后<strong>再寻找起始点到没访问过的节点中最小的权值对应的点</strong>, 2-&gt;1, 可以看到 0-&gt;2 + 2-&gt;1 的权值小于 0-&gt;1, 所以目前到1的最短路径就是0-&gt;2-&gt;1, 同理 如果2去往其他节点在回到1一定比 2-&gt;1 大. 重复这个过程.</p>
-<p><img src="/Blog/intro/dijkstra2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/dijkstra2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>可以从上面的逻辑中看到, 我们需要找到相邻边中的最短边, 所以要用到优先队列</p>
 <p><br></p>
 <blockquote>
@@ -310,7 +306,7 @@
 <p>好吧上面写的其实是错的.</p>
 <p>因为不能保证进行一次松弛操作就会多一条边</p>
 <p>真正的原因是这样: 首先有一个定理:</p>
-<p><img src="/Blog/intro/cmpt307/shortest_path_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt307/shortest_path_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>它说的是, 假设有一个最短路径, 我们根据最短路径上边出现的顺序进行松弛操作, 我们可以得到最短路径.</p>
 <p>而一个最短路径最多有$V-1$ 条边, 所以我们直接对所有边进行 $V-1$ 次松弛操作, 这样就可以抱枕松弛操作的顺序是最短路径上边出现的顺序.</p>
 </blockquote>
@@ -335,19 +331,19 @@
 <p>同理Bellman-Ford 就是 $O(V^2E)$ 级别的, 可以处理负权边, 检测负权环</p>
 <p>Floyed 是一个 $O(V^3)$ 级别的算法. </p>
 <p>它比 Bellman-Ford 的复杂度要地, 如果是稀疏图的话会比 Dijkstra 算法复杂度高一些. 但是Dijkstra有不能处理负权边的限制, 而Floyed可以处理负权边, 检测负权环</p>
-<p><img src="/Blog/intro/graph/floyed.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graph/floyed.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="Floyed-算法的思想"><a href="#Floyed-算法的思想" class="headerlink" title="Floyed 算法的思想"></a>Floyed 算法的思想</h2><p>虽然Floyed算法本身没有用到松弛操作. 但是原理类似</p>
 <p><br></p>
 <p>松弛操作:</p>
-<p><img src="/Blog/intro/graph/floyed_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graph/floyed_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>用虚线代表s-b, s-a, s-c, 当前已经找到的最短距离</p>
 <p>在这个基础上 a-b 之间是一条边, 所以a-b之间用的是实线. </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">if</span>(dis[b] + ba &lt; dis[a])<br>    dis[a] = dis[b] + ba<br></code></pre></td></tr></table></figure>
 <p><br></p>
 <p>Floyed的思想类似, 区别只是, a-b 之间不一定只是一条边, a-c 之间也不一定只是一条边. </p>
-<p><img src="/Blog/intro/graph/floyed_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graph/floyed_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>反正Floyed解决的是所有点对之间的最短路径问题. 所以也可以想成当前已经找到了从b到a的一条最短路径. 这条路径可能经过了多个顶点.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">if</span>(dis[b] + ba &lt; dis[a])<br>    dis[a] = dis[b] + ba<br></code></pre></td></tr></table></figure>
 <p>此时这个不等式的关系依然是存在的. 区别只是之前 b-a 代表的是一条边, 现在代表的是一条路径</p>
@@ -360,7 +356,7 @@
 <p>在这重循环下再进行两重循环. 这两重循环是找最短路径的起始点和终止点</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> v = <span class="hljs-number">0</span>; v &lt; V; v++)<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> w = <span class="hljs-number">0</span>; w &lt; V; w++)<br>        <span class="hljs-keyword">if</span>(dis[v][t] + dis[t][w] &lt; dis[v][w])<br>            dis[v][w] = dis[v][t] + dis[t][w]<br></code></pre></td></tr></table></figure>
 <p>t是我们在找这条最短路径时, 从v到w是否可以多绕一个弯, 从v-t, t-w这样的距离是否更短.</p>
-<p><img src="/Blog/intro/graph/floyed_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graph/floyed_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>为什么这样就能得到所有点对之间的最短路径?</p>
 <p>最外层的循环, 每轮是在求解出中间经过 [0 … t] 这些点的最短路径</p>
@@ -382,7 +378,7 @@
 <p><br></p>
 <p>这三个算法都使用了动态规划</p>
 <p>因为这三个算法都定义了一个状态, dijkstra还使用了贪心的思想</p>
-<p><img src="/Blog/intro/graph/floyed_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/graph/floyed_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 
             </div>
@@ -393,7 +389,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -401,7 +397,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/">图论算法</a>
                     
                   </div>
                 
@@ -418,7 +414,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/30/macm101/">
+                      <a href="/Blog/2019/08/30/macm101/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">离散数学-MACM</span>
                         <span class="visible-mobile">上一篇</span>
@@ -428,7 +424,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/08/25/Minimum-Span-Trees/">
+                      <a href="/Blog/2019/08/25/Minimum-Span-Trees/">
                         <span class="hidden-mobile">图论(五)-最小生成树</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -522,18 +518,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -628,7 +624,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

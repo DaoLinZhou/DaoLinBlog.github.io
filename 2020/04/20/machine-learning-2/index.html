@@ -7,10 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,21 +19,19 @@
     <meta name="description" content="kNN算法以及它的超参数 train-test-split衡量标准 网格搜索 数据归一化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(2)-kNN算法">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/04/20/machine-learning-2/">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/04/20/machine-learning-2/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="kNN算法以及它的超参数 train-test-split衡量标准 网格搜索 数据归一化">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/lris_flowers_9.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/lris_flowers_9.PNG">
 <meta property="article:published_time" content="2020-04-21T02:41:51.000Z">
 <meta property="article:modified_time" content="2020-05-04T06:23:28.539Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/lris_flowers_9.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/lris_flowers_9.PNG">
   
-  
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>python3入门机器学习(2)-kNN算法 - Daolin&#39;s Repository</title>
 
@@ -67,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -89,7 +85,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -108,7 +104,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -120,7 +116,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -132,7 +128,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -144,7 +140,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -156,7 +152,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -182,7 +178,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/imprinting2.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -265,43 +261,43 @@
 </ol>
 <p><br></p>
 <p>之前说过, 已知的数据点其实是分布在一个特征空间中的 (可视化方便通常使用二维屏幕)</p>
-<p><img src="/Blog/intro/knn_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>可以看出对于每一个病源, 它的肿瘤大小和发现的时间就构成了在这个特征平面中的一个点</p>
 <p>对于这个点, 我们又已经知道了它是一个恶性的肿瘤(蓝色)还是良性的肿瘤(红色), 这样就获得了8个数据点的初始信息</p>
 <p>如果这时新来了一个病人(绿色的点)</p>
-<p><img src="/Blog/intro/knn_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们怎样判断它可能是良性肿瘤还是恶性肿瘤?</p>
 <p><br></p>
 <p>k近邻算法是这样一个算法:</p>
 <p>首先要取一个k值, 这里让k=3, 具体k值要怎么取在后续有详细的介绍 (暂时可以理解机器学习的使用者根据经验取得了一个经验上的最好值)</p>
 <p>如果k=3的话, 对于每一个新的数据点, k近邻算法做的就是在所有的点中寻找与这个点<strong>最近</strong>的3个点</p>
-<p><img src="/Blog/intro/knn_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这三个点以自己的结果进行投票</p>
 <p>现在对于这个点最近的3个点都是代表恶性肿瘤的蓝色的点, 所以投票结果蓝色对红色是(3:0)</p>
 <p>因此k近邻算法就说这个新的点有很大的概率也是一个蓝色的点</p>
-<p><img src="/Blog/intro/knn_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>k近邻的算法本质是认为: <strong>如果两个样本足够的相似, 那么它就有更高的概率属于同一个类别</strong></p>
 <p>当然很有可能只看离他最近的一个样本是不准确的, 所以多看几个样本, 看和它最相似k个样本中那个类别最多, 我们就认为这个新的点属于那个类别</p>
 <p>这里我们描述两个样本是否相似(<strong>相似性</strong>)就是靠两个样本在特征空间中的<strong>距离</strong>来进行描述的</p>
 <p>最为常用的就是欧拉距离</p>
-<p><img src="/Blog/intro/knn_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于连加表示不方便, 所以有时也用Σ符号表示</p>
 <script type="math/tex; mode=display">
 \sqrt{\sum^n_{i=1}(X^{(a)}_i - X^{(b)}_i)^2}</script><p><br></p>
 <p>如果又新来的一个点</p>
-<p><img src="/Blog/intro/knn_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于这一个点, 离他最近的3个点的红色和蓝色的比是(2:1), 红色胜出, 所以k近邻算法就告诉我们这个点有更高概率是红色(良性肿瘤)</p>
-<p><img src="/Blog/intro/knn_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>k近邻算法首先可以解决的就是监督学习中<strong>分类</strong>这类问题</p>
 <p>不过k近邻算法其实也可以解决回归问题</p>
 <p><br></p>
 <h2 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h2><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">kNN_classify</span>(<span class="hljs-params">k, X_train, y_train, x</span>):<br><br>    <span class="hljs-keyword">assert</span> <span class="hljs-number">1</span> &lt;= k &lt;= X_train.shape[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;k must be valid&quot;</span><br>    <span class="hljs-keyword">assert</span> X_train.shape[<span class="hljs-number">0</span>] == y_train.shape[<span class="hljs-number">0</span>], \<br>        <span class="hljs-string">&quot;the size of X_train must equal to the size of y_train&quot;</span><br>    <span class="hljs-keyword">assert</span> X_train.shape[<span class="hljs-number">1</span>] == x.shape[<span class="hljs-number">0</span>], \<br>        <span class="hljs-string">&quot;the feature number of x must be equal to X_train&quot;</span><br><br>    <span class="hljs-comment"># 计算所有点到预测点的距离, 即对向量取模</span><br>    distance = [np.linalg.norm(x_train - x) <span class="hljs-keyword">for</span> x_train <span class="hljs-keyword">in</span> X_train]<br>    <span class="hljs-comment"># 排序, 返回索引</span><br>    nearest = np.argsort(distance)<br><br>    <span class="hljs-comment"># 从索引中取前k个元素进行投票</span><br>    topK_y = [y_train[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> nearest[:k]]<br>    votes = Counter(topK_y)<br><br>    <span class="hljs-keyword">return</span> votes.most_common(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]<br><br><br><span class="hljs-comment"># 测试</span><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    raw_data_X = [[<span class="hljs-number">3.39</span>, <span class="hljs-number">2.33</span>],<br>                  [<span class="hljs-number">3.11</span>, <span class="hljs-number">1.78</span>],<br>                  [<span class="hljs-number">1.34</span>, <span class="hljs-number">3.36</span>],<br>                  [<span class="hljs-number">3.58</span>, <span class="hljs-number">4.67</span>],<br>                  [<span class="hljs-number">2.28</span>, <span class="hljs-number">2.86</span>],<br>                  [<span class="hljs-number">7.42</span>, <span class="hljs-number">4.69</span>],<br>                  [<span class="hljs-number">5.74</span>, <span class="hljs-number">3.53</span>],<br>                  [<span class="hljs-number">9.17</span>, <span class="hljs-number">2.51</span>],<br>                  [<span class="hljs-number">7.79</span>, <span class="hljs-number">3.42</span>],<br>                  [<span class="hljs-number">7.93</span>, <span class="hljs-number">0.79</span>]]<br>    raw_data_y = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]<br>    X_train = np.array(raw_data_X)<br>    y_train = np.array(raw_data_y)<br>    x = np.array([<span class="hljs-number">8.09</span>, <span class="hljs-number">3.36</span>])<br>    <br>    predict_y = kNN_classify(<span class="hljs-number">6</span>, X_train, y_train, x)<br>    <span class="hljs-built_in">print</span>(predict_y)<br></code></pre></td></tr></table></figure>
 <p><br></p>
-<p><img src="/Blog/intro/category_task_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之前讲过机器学习的流程, 将大量的学习资料喂给机器学习算法, 算法就会训练出一个模型, 来了一个样例之后将它送入模型, 模型就能预测出相应的结果</p>
-<p><img src="/Blog/intro/knn_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于kNN来说”大量的学习资料”就是X_train, y_train</p>
 <p>机器学习算法训练模型这个过程在英文中称为 fit(拟合), 就是说算法要得到一个模型, 这个模型要能拟合我们的训练数据集 </p>
 <p>输入样例送给模型之后, 这个模型获得输出结果的过程称为predict(预测)</p>
@@ -313,7 +309,7 @@
 <p>但是如果换一个角度去看, 我们也可以认为<strong>训练数据集本身就是kNN算法的模型</strong></p>
 <p>而scikit-learn的设计上, 就是使用这样一个设计方式, 这是为了可以方便地和其他算法统一</p>
 </blockquote>
-<p><img src="/Blog/intro/knn_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>所以机器学习算法变得非常简单, 就是将X_train, y_train这个训练数据集拷贝过来形成”模型”, 而相对复杂的其实是在预测(predict)的过程</p>
 <p>但不管怎么样, 使用这样的方式还是为kNN算法找到了一个拟合(fit)的过程</p>
 <p>scikit-learn这个框架下, 对于所有的机器学习算法, 我们都是统一地先进行一下 fit 得到模型, 之后进行 predict 过程, 只不过对于kNN算法来说, fit的过程是非常简单的 </p>
@@ -327,7 +323,7 @@
 <h2 id="判断机器学习算法的性能"><a href="#判断机器学习算法的性能" class="headerlink" title="判断机器学习算法的性能"></a>判断机器学习算法的性能</h2><p>首先我们把<strong>所有</strong>的<strong>原始数据</strong>都当作<strong>训练数据</strong></p>
 <p>然后用训练数据训练出<strong>模型</strong>, 具体再kNN算法中, 就表现在每当来了一个新的数据, 新的数据要和训练中的所有的数据都来求出相应的距离, 得出前k小的距离, 投票看新的数据属于那种类别</p>
 <p>换句话说: 用全部的训练数据得到的模型用来预测新的数据的所属类型.</p>
-<p><img src="/Blog/intro/knn_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>然而, 得到这个模型的意义在于要在真实的环境中使用这个模型</p>
 <p>可是我们现在这么做是有很大的问题的</p>
 <ol>
@@ -337,7 +333,7 @@
 <p>这些问题都在告诉我们: <strong>用所有的原始数据来当训练集去直接训练模型, 投入到生产环境中这样的做法是不恰当的</strong></p>
 <p><br></p>
 <p>改进这个问题最简单的一个方法就是<strong>训练和测试数据集的分离</strong></p>
-<p><img src="/Blog/intro/knn_10.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_10.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>从原始数据中抽取一大部分(80%)数据作为训练数据, 剩余的数据(20%)作为测试数据 </p>
 <p>这样我们只用蓝色的训练数据训练模型, 拿到模型之后把测试数据扔进模型来让模型预测</p>
 <p>由于测试数据有真实的label值, 就可以很容易地看到训练数据训练出的模型的性能, 并且可以改进算法得到更好的模型</p>
@@ -356,7 +352,7 @@
 <blockquote>
 <p>顺便说一下,  每个数字对应64个特征, 转化为8*8排列成矩阵后可以看出, 每个数字就代表了图片上对应点的灰度, 随便取一个样本, 对应的矩阵和它的图像如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"> some_digit = X[<span class="hljs-number">450</span>]<br> some_digit_image = some_digit.reshape(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>)<br> <span class="hljs-built_in">print</span>(some_digit_image)<br> plt.imshow(some_digit_image, cmap = matplotlib.cm.binary)<br> plt.show()<br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">[[ 0.  0.  0.  5.  8.  0.  0.  0.]</span><br><span class="hljs-string">[ 0.  0.  1. 15. 10.  5.  0.  0.]</span><br><span class="hljs-string">[ 0.  0.  9. 11. 10. 10.  0.  0.]</span><br><span class="hljs-string">[ 0.  2. 15.  2. 14.  6.  0.  0.]</span><br><span class="hljs-string">[ 0.  8. 13.  5. 14. 13.  4.  0.]</span><br><span class="hljs-string">[ 0. 11. 16. 16. 16. 14.  3.  0.]</span><br><span class="hljs-string">[ 0.  0.  0.  3. 16.  0.  0.  0.]</span><br><span class="hljs-string">[ 0.  0.  0.  7. 10.  0.  0.  0.]]</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-<p><img src="/Blog/intro/knn_11.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_11.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 </blockquote>
 <p>对于分类任务来说, 分类结束后看一下分类准确率是多少是一个非常常见的操作, 因此可以对这个操作再进行一下封装</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">accuracy_score</span>(<span class="hljs-params">y_true, y_predict</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;计算y_true和y_predict之间的准确率&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">assert</span> y_true.shape[<span class="hljs-number">0</span>] == y_predict.shape[<span class="hljs-number">0</span>], \<br>        <span class="hljs-string">&quot;the size of y_true must be equal to the size of y_predict&quot;</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(y_true == y_predict) / <span class="hljs-built_in">len</span>(y_predict)<br><br><span class="hljs-comment"># 在先前的类中再添加一个方法</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">KNNClassifier</span>:<br>	<span class="hljs-comment"># 之前代码省略... ...</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">score</span>(<span class="hljs-params">self, X_test, y_test</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;根据测试数 据集 X_test 和 y_test确定当前模型的准确度&quot;&quot;&quot;</span><br>        y_predict = self.predict(X_test)<br>        <span class="hljs-keyword">return</span> accuracy_score(y_test, y_predict)<br></code></pre></td></tr></table></figure>
@@ -383,19 +379,19 @@
 <p>kNN算法并不只有k这一个超参数, 其实这个算法中还潜藏着一个非常重要的超参数, 与此同时这个超参数也对应着kNN算法的一个不太一样的用法</p>
 <p><br></p>
 <h3 id="kNN算法的另一个超参数"><a href="#kNN算法的另一个超参数" class="headerlink" title="kNN算法的另一个超参数"></a>kNN算法的另一个超参数</h3><p>现在的kNN算法, 当k=3时, 我们就找到离我们当前要判断的节点(绿色节点)最近的三个节点</p>
-<p><img src="/Blog/intro/knn_12.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_12.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>由于离绿色节点中最近的有2个蓝色节点, 一个红色节点所以蓝色的节点获胜</p>
 <p>这里虽然我们考虑了离绿色节点最近的三个节点, 但我们却忽略了最近的三个节点相应的距离是多少</p>
-<p><img src="/Blog/intro/knn_13.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_13.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这个绿色的节点其实离红色的节点是最近的, 虽然蓝色节点是离绿色节点次近的两个节点, 可是还是离绿色的节点比较远</p>
 <p>所以此时进行投票的话, 红色节点的票是否应该比 两个蓝色节点的票<strong>权重</strong>要重一些?</p>
 <p>这就是k近邻算法的另外一个用法, 就是考虑权重</p>
 <p>通常而言, 考虑权重时是将倒数作为权重, 这样离得越近权重就越大</p>
-<p><img src="/Blog/intro/knn_14.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_14.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>因此当我们考虑距离的时候, 红色获胜</p>
 <p><br></p>
 <p>而且当我们考虑距离之后还有另外一个优点</p>
-<p><img src="/Blog/intro/knn_15.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_15.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们之前一直没有谈一个问题就是使用普通的k近邻算法的话, 比如k=3的话, 分类的样本数最终也有3类的话, 就很有可能产生平票的情况</p>
 <p>比如说上图, 最近的3个节点分别是红蓝紫, 如果是之前的算法就只能随机选出一个结果—-这其实是不合理的</p>
 <p>而当我考虑距离之后就可以非常好地解决平票的问题, 此时实际比较的是离它最近的节点, 依然是红色节点获胜</p>
@@ -406,21 +402,21 @@
 <p>至今位置我们在kNN算法中说道的距离都是指<strong>欧拉距离</strong></p>
 <script type="math/tex; mode=display">
 \sqrt{\sum^n_{i=1}(X^{(a)}_i - X^{(b)}_i)^2}</script><p>说道距离还有一个非常著名的曼哈顿距离</p>
-<p><img src="/Blog/intro/distancemanhadun.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/distancemanhadun.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>曼哈顿距离就是指两个点在每个维度上的距离和</p>
 <p>在上图的二维平面中, 两个点的曼哈顿距离就是它们在x方向上的差值加上在y方向上的差值</p>
 <p>上图中红蓝黄三条线都是曼哈顿距离, 而绿色的线是曼哈顿距离</p>
 <p><br></p>
 <p>同样是距离, 我们可以使用曼哈顿距离, 还可以使用欧拉距离</p>
 <p>我们对欧拉距离的这个式子再进行一下推导</p>
-<p><img src="/Blog/intro/oula_fomular.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/oula_fomular.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>小括号再平方就等同于是绝对值再平方, 我们可以把开根号理解成是1/2次幂</p>
-<p><img src="/Blog/intro/distance_ol_manha.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/distance_ol_manha.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>欧拉距离是每一项为2次幂, 式子总体取1/2次幂</p>
 <p>而曼哈顿距离可以理解为式子总体是1次幂, 并且每一项的和是1次幂</p>
 <p>这样看来曼哈顿距离和欧拉距离在数学形式上是具有一定的一致性的</p>
 <p>我们把这个一致性进行一下推广</p>
-<p><img src="/Blog/intro/distance_ol_manha_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/distance_ol_manha_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每一项求p次方, 最终求整体和的1/p次方, 这个就是<strong>明可夫斯基距离(Minkowski Distance)</strong></p>
 <script type="math/tex; mode=display">
 {(\sum^n_{i=1}|X^{(a)}_i - X^{(b)}_i|^p)}^\frac 1 p</script><ul>
@@ -469,14 +465,14 @@
 <h2 id="数据归一化-Feature-Scaling"><a href="#数据归一化-Feature-Scaling" class="headerlink" title="数据归一化 Feature Scaling"></a>数据归一化 Feature Scaling</h2><p>之前使用kNN算法来完成分类任务时, 其实少了非常重要的一步</p>
 <p>那就是数据归一化(Feature Scaling)</p>
 <p><br></p>
-<h3 id="为什么要进行数据归一化"><a href="#为什么要进行数据归一化" class="headerlink" title="为什么要进行数据归一化?"></a>为什么要进行数据归一化?</h3><p><img src="/Blog/intro/feature_scaling.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="为什么要进行数据归一化"><a href="#为什么要进行数据归一化" class="headerlink" title="为什么要进行数据归一化?"></a>为什么要进行数据归一化?</h3><p><img src="/Blog/intro/feature_scaling.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>对于样本1来说肿瘤大小为1cm, 发现200天了. 而对于样本2来说肿瘤大小是5cm, 发现100天</p>
 <p>那么这两个样本之间的距离是怎样的呢? 如果使用欧拉距离就是</p>
 <script type="math/tex; mode=display">
 \sqrt {(1-5)^2-(200-100)^2}</script><p>显然, 这种情况下<strong>距离的大小</strong>被<strong>发现的时间</strong>所主导了, 因为间隔了100天, 而肿瘤的大小只相差4cm</p>
 <p>虽然在样本数据中5和1相差5倍之多, 而200和100只相差了2倍</p>
 <p>但是由于我们的量纲不同, 导致了最终的距离主要衡量的是发现时间的天数之间的差值, 这是因为肿瘤大小之间的差值太小了</p>
-<p><img src="/Blog/intro/feature_scaling_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/feature_scaling_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而如果我们把发现时间的单位换算为年, 此时这两个样本之间的距离由被肿瘤大小的距离所主导, 0.55-0.27这个数组变得特别地小</p>
 <p>而在这个量纲下5-1由变得非常大</p>
 <p>如果我们不进行数据的基本处理的话, 这样直接计算两个样本之间的距离很有可能是有偏差的, 不能非常好的<strong>同时</strong>反映出样本中<strong>每一个</strong>特征的重要程度, 正是因为如此, 我们要对数据进行归一化处理</p>
@@ -510,14 +506,14 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
 <p>不过将这两种归一化的方式具体地应用在机器学习算法之前的<strong>数据处理</strong>的时候, 还是有一些注意事项</p>
 <p><br></p>
 <h2 id="如何对测试数据集归一化"><a href="#如何对测试数据集归一化" class="headerlink" title="如何对测试数据集归一化?"></a>如何对测试数据集归一化?</h2><p>对于<strong>原始数据集</strong>我们将其分为<strong>训练数据集</strong>和<strong>测试数据集</strong>, 如果我们要用归一化后的数据来训练模型的话显然首先我们要对训练数据集进行归一化处理</p>
-<p><img src="/Blog/intro/feature_scaling_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/feature_scaling_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>比如说进行均值方差这样的归一化, 就要求出训练数据集的均值(mean_train)和标准差(std_train)</p>
 <p>当我们这样进行归一化之后, 将这样的训练数据集用于训练模型, 最终我们使用训练的模型来预测数据的话, 对于测试相应的也要进行归一化处理</p>
 <p>那么对于测试数据集如何进行归一化处理? 难道也是求出测试数据集的均值(mean_test)和标准差(std_test) 来对它进行标准化?</p>
-<p><img src="/Blog/intro/feature_scaling_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/feature_scaling_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>但这么做其实是不对的</p>
 <p>正确的做法是将<strong>测试数据集</strong>使用<strong>训练数据集</strong>的均值(mean_train)和标准差(std_train)来进行归一化</p>
-<p><img src="/Blog/intro/feature_scaling_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/feature_scaling_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这是因为测试数据是模拟真实环境</p>
 <ul>
 <li>真实环境很有可能无法得到所有测试数据的均值和方差</li>
@@ -531,7 +527,7 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
 <p><br></p>
 <h2 id="scikit-learn中的数据归一化"><a href="#scikit-learn中的数据归一化" class="headerlink" title="scikit-learn中的数据归一化"></a>scikit-learn中的数据归一化</h2><p>为了方便地进行操作, 在scikit-learn中专门封装了一个类Scaler</p>
 <p>封装就是想办法让Scaler这个类和机器学习算法这个类的整体的使用流程是一致的</p>
-<p><img src="/Blog/intro/feature_scaling_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/feature_scaling_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>Scaler的fit函数就是求出训练数据集的一些统计指标, 比如说对于均值方差归一化来说, 就是求出均值和标准差</p>
 <p>之后Scaler中保存了关键信息, 再来其他的样例之后, Scalar就可以对输入样例进行一步transform来得到归一化后的输出结果</p>
 <p><br></p>
@@ -546,7 +542,7 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
 <p><br></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>k近邻算法是解决分类问题的算法, 不仅如此, 它天然地可以解决多分类问题, 它的思想简单, 效果强大</p>
 <p>不仅如此, 使用k近邻算法还可以解决回归问题</p>
-<p><img src="/Blog/intro/knn_thinking.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_thinking.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>回归问题就是我们具体要预测的是一个数值, 对于要预测的节点, 找到离它最近的k个节点, 由于是监督学习所以都有真实的值</p>
 <p>上图的绿色节点的值大概可以预测为与它最近的3个节点的均值</p>
 <p>当然也可以考虑上离它最近的3个节点对应的距离, 它们可以代表权值, 100离得更近, 所以权值更高, 使用加权平均的算法预测.</p>
@@ -569,16 +565,16 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
 <p><strong>缺点4 : 维数灾难</strong></p>
 <p>维数灾难的概念: 随着维度的增加, “看似相近”的两个点之间的距离越来越大</p>
 <p>而k近邻算法非常依赖两个点之间的距离的计算, 这使得一旦我们使用k近邻算法处理高维数据的时候就很有可能遭受维数灾难</p>
-<p><img src="/Blog/intro/knn_thinking_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_thinking_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>10000维看似恨到, 实际就只能表达一个100*100像素的灰色图片</p>
 <p>实际生产环境中, 很多领域处理成千上万, 乃至几十万维的数据都是非常正常的</p>
 <p>解决方案就是降维</p>
 <p><br></p>
-<h3 id="机器学习流程回顾"><a href="#机器学习流程回顾" class="headerlink" title="机器学习流程回顾"></a>机器学习流程回顾</h3><p><img src="/Blog/intro/knn_thinking_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="机器学习流程回顾"><a href="#机器学习流程回顾" class="headerlink" title="机器学习流程回顾"></a>机器学习流程回顾</h3><p><img src="/Blog/intro/knn_thinking_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>首先要把原始数据分为训练数据集和测试数据集, 之后对数据进行归一化, 将归一化后的数据进行训练得到最终的模型</p>
-<p><img src="/Blog/intro/knn_thinking_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_thinking_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之后对于测试数据集也要使用同样的Scaler进行归一化, 然后计算分类的准确度</p>
-<p><img src="/Blog/intro/knn_thinking_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/knn_thinking_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>为了获得最好的模型, 要使用网格搜索寻找最好的超参数, 进而得到最好的模型</p>
 <p class="note note-danger">注意: 机器学习算法有一些隐式的超参数, 就算最简单的kNN算法也有k, p, weight等等超参数</p>
 
@@ -592,7 +588,7 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -600,9 +596,9 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -619,7 +615,7 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/04/27/machine-learning-3/">
+                      <a href="/Blog/2020/04/27/machine-learning-3/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">python3入门机器学习(3)-线性回归法</span>
                         <span class="visible-mobile">上一篇</span>
@@ -629,7 +625,7 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/04/10/machine-learning/">
+                      <a href="/Blog/2020/04/10/machine-learning/">
                         <span class="hidden-mobile">python3入门机器学习(1)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -723,18 +719,18 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -829,7 +825,7 @@ z = \frac {x-E(x)} {\sqrt {V(x)}}</script><h3 id="编程实现"><a href="#编程
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

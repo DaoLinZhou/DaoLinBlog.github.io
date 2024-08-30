@@ -7,10 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,7 +19,7 @@
     <meta name="description" content="如何在顺序数组中查找某一个元素的位置 二分搜索法就是很好的算法 我将实现递归和非递归两个版本的二分搜索法 递归版本思维起来更容易, 但性能比循环差, 但它们都是log(n)级别的算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分搜索法">
-<meta property="og:url" content="https://daolinzhou.github.io/2019/07/04/Binary-Search/">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2019/07/04/Binary-Search/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="如何在顺序数组中查找某一个元素的位置 二分搜索法就是很好的算法 我将实现递归和非递归两个版本的二分搜索法 递归版本思维起来更容易, 但性能比循环差, 但它们都是log(n)级别的算法">
 <meta property="og:locale" content="zh_CN">
@@ -34,8 +32,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/floor_ceil.PNG">
   
-  
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>二分搜索法 - Daolin&#39;s Repository</title>
 
@@ -67,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -89,7 +85,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -108,7 +104,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -120,7 +116,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -132,7 +128,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -144,7 +140,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -156,7 +152,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -182,7 +178,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/eye.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/eye.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -267,9 +263,9 @@
 <p>都比较简单, 没什么好解释的.</p>
 <p><br></p>
 <h2 id="二分查找的变种"><a href="#二分查找的变种" class="headerlink" title="二分查找的变种"></a>二分查找的变种</h2><p>上面的两个版本都只是找到就停止查找, 没有考虑数组中有相同元素的可能性.</p>
-<p><img src="/Blog/intro/floor_ceil.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/floor_ceil.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而且如果没有元素, floor 和 ceil也不应该返回-1, 而是:</p>
-<p><img src="/Blog/intro/floor_ceil2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/floor_ceil2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>思想依然简单, 如果找到了, 那么就 向前(floor) 或 向后(ceil) 遍历. 如果没找到, 此时r &lt; l, 那么 r 对应的就是floor, l 对应的就是ceil.</p>
 <p>floor和ceil大致思路是一样的, 下面我只给出floor和ceil的循环版本实现. 有兴趣的胖友可以试着实现递归版本</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//如果查找值比arr[0]还要小时, 返回-1</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">floor</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n, T target)</span></span>&#123;<br>    <br>    <span class="hljs-built_in">assert</span>( n &gt;= <span class="hljs-number">0</span> );<br>    <br>    <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>, r=n<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span>(l &lt;= r)&#123;<br>        <span class="hljs-type">int</span> mid = l + (r-l)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(arr[mid] &gt; target)<br>            r = mid<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(arr[mid] &lt; target)<br>            l = mid+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-comment">// 找到了, 开始向前查找</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=mid<span class="hljs-number">-1</span>; i&gt;=l; i--) &#123;<br>                <span class="hljs-keyword">if</span> (arr[i] != target)<br>                    <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>;<br>                <span class="hljs-comment">// 如果是第一个元素, 且arr[l] == target</span><br>                <span class="hljs-keyword">if</span> (i == l)<br>                    <span class="hljs-keyword">return</span> l;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> r;<br>&#125;<br><br><span class="hljs-comment">//如果查找的值比arr[n-1] 还大时, 返回n</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">ceil</span><span class="hljs-params">(T arr[], <span class="hljs-type">int</span> n, T target)</span></span>&#123;<br>    <br>    <span class="hljs-built_in">assert</span>( n &gt;= <span class="hljs-number">0</span> );<br>    <br>    <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>, r=n<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span>(l &lt;= r)&#123;<br>        <span class="hljs-type">int</span> mid = l + (r-l)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(arr[mid] &gt; target)<br>            r = mid<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(arr[mid] &lt; target)<br>            l = mid+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-comment">// 找到了, 开始向后查找</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=mid+<span class="hljs-number">1</span>; i&lt;=r; i++) &#123;<br>                <span class="hljs-keyword">if</span> (arr[i] != target)<br>                    <span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span>;<br>                <span class="hljs-comment">//如果是最后一个元素, 且 arr[r] == target</span><br>                <span class="hljs-keyword">if</span> (i == r)<br>                    <span class="hljs-keyword">return</span> r;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -282,7 +278,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -290,7 +286,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/">搜索算法</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/">搜索算法</a>
                     
                   </div>
                 
@@ -307,7 +303,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/07/05/Counting-Sort/">
+                      <a href="/Blog/2019/07/05/Counting-Sort/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">计数排序 Counting Sort 基数排序 Redix sort</span>
                         <span class="visible-mobile">上一篇</span>
@@ -317,7 +313,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/07/02/optimize-sql/">
+                      <a href="/Blog/2019/07/02/optimize-sql/">
                         <span class="hidden-mobile">调优sql</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -411,18 +407,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -517,7 +513,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

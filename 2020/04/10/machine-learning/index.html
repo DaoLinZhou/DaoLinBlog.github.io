@@ -7,10 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,21 +19,19 @@
     <meta name="description" content="机器学习基础介绍, 机器学习分类 numpy数据基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python3入门机器学习(1)">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/04/10/machine-learning/">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/04/10/machine-learning/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="机器学习基础介绍, 机器学习分类 numpy数据基础">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/lris_flowers.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/lris_flowers.PNG">
 <meta property="article:published_time" content="2020-04-11T02:41:51.000Z">
 <meta property="article:modified_time" content="2020-05-20T22:17:23.288Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/lris_flowers.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/lris_flowers.PNG">
   
-  
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>python3入门机器学习(1) - Daolin&#39;s Repository</title>
 
@@ -67,17 +63,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -89,7 +85,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -108,7 +104,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -120,7 +116,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -132,7 +128,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -144,7 +140,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -156,7 +152,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -182,7 +178,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/sincegate.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/sincegate.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -254,15 +250,15 @@
 <span id="more"></span>
 <h1 id="机器学习基础"><a href="#机器学习基础" class="headerlink" title="机器学习基础"></a>机器学习基础</h1><p><br></p>
 <h2 id="机器学习的数据"><a href="#机器学习的数据" class="headerlink" title="机器学习的数据"></a>机器学习的数据</h2><p>机器学习其实就是喂给我们的算法数据, 让我们的算法在数据中寻找相应的关系</p>
-<p><img src="/Blog/intro/lris_flowers.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>使用注明的鸢尾花数据来说明</p>
 <p>这个数据就是给出了很多鸢尾花相关的信息, 数据中主要包含三类鸢尾花</p>
 <p>这个数据整体的信息是这个样子的:</p>
-<p><img src="/Blog/intro/lris_flowers_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>总共包含150个数据信息, 对于每个数据信息给出了4个方面的信息: 萼片的长宽和花瓣的长宽</p>
-<p><img src="/Blog/intro/lris_flowers_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这样4个信息就描述了一朵花, 对于每一朵花都分属3种鸢尾花之一, 那么整个数据就可以表示成这个样子(这里只选出3条信息作为例子)</p>
-<p><img src="/Blog/intro/lris_flowers_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><strong>关于数据的相关概念:</strong></p>
 <ul>
 <li><p>数据整体叫<strong>数据集 (data set)</strong></p>
@@ -272,17 +268,17 @@
 <li>除去最后一列, 每一列表达样本的一个<strong>特征 (feature)</strong> , 或者可以理解成是一个属性</li>
 <li>最后一列, 称为<strong>标记 (label)</strong>, 这也是机器想要去学习的内容</li>
 </ul>
-<p><img src="/Blog/intro/lris_flowers_4.PNG" srcset="/img/loading.gif" lazyload alt=""> </p>
+<p><img src="/Blog/intro/lris_flowers_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""> </p>
 <p> 很显然X是一个矩阵, y是一个向量</p>
-<p><img src="/Blog/intro/lris_flowers_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每一行都是一个特征向量, 通常向量都是以列排列(列向量) 所以这个矩阵就也可以写成</p>
-<p><img src="/Blog/intro/lris_flowers_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>取两个特征举例</p>
-<p><img src="/Blog/intro/lris_flowers_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>特征可以很抽象 </p>
-<p><img src="/Blog/intro/lris_flowers_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/lris_flowers_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>喂给算法的特征是什么样子的, 将很大程度影响输出结果的准确性和可靠性, 甚至有专门领域取研究: 特征工程</p>
 <p>值得一提的是, 有一些 “高级方法” 例如深度学习, 其实可以理解成算法在自动地帮助我们进行特征工程</p>
 <p><br></p>
@@ -296,14 +292,14 @@
 <h4 id="二分类任务"><a href="#二分类任务" class="headerlink" title="二分类任务"></a>二分类任务</h4><p>二分类任务, 二选一的任务, 例如判断是猫是狗</p>
 <p>生活中很多任务使用二分类就可以了: 判断邮件是不是垃圾邮件, 判断发给客户信用卡是否有风险, 判断肿瘤是良性还是恶性</p>
 <p><br></p>
-<h4 id="多分类任务"><a href="#多分类任务" class="headerlink" title="多分类任务"></a>多分类任务</h4><p><img src="/Blog/intro/lris_flowers_9.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<h4 id="多分类任务"><a href="#多分类任务" class="headerlink" title="多分类任务"></a>多分类任务</h4><p><img src="/Blog/intro/lris_flowers_9.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>把结果锁定多个中的一个而不是两个中的一个, 手写数字识别就是从10个种类中选择一个</p>
 <p>生活中的应用: 数字识别, 图像识别</p>
 <p>一些看似复杂的任务, 也可以转换成分类任务, 例如2048</p>
-<p><img src="/Blog/intro/category_task.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>最终机器要做到的就是: 给出现在盘面的状况机器判断上移下移左移右移即可(4个中选一个)</p>
 <p>同理对于更加复杂的游戏也是如此, 例如下围棋. 毕竟棋盘上落子的地方有限的, 所以每一步机器要做的事情就是根据现在的棋盘信息选择一个地方进行落子</p>
-<p><img src="/Blog/intro/category_task_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>甚至无人车领域也可以转化为分类任务, 根据车周围环形的图像信息机器进行选择方向盘向左还是向右, 以及旋转多少角度</p>
 <p>即使配合上踩下油门和刹车力度的不同. 方向盘, 油门, 刹车他们的组合也是有限的, 在这些组合中选择一个, 因此我们也可以把它转换成一个多分类问题</p>
 <blockquote>
@@ -313,13 +309,13 @@
 <p>但是一个多分类的任务我们其实是可以转换成二分类的任务的, 这种转化的方式还不止一个</p>
 <p>有一些算法天然可以完成多分类任务</p>
 <p><br></p>
-<h4 id="多标签分类"><a href="#多标签分类" class="headerlink" title="多标签分类"></a>多标签分类</h4><p><img src="/Blog/intro/category_task_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<h4 id="多标签分类"><a href="#多标签分类" class="headerlink" title="多标签分类"></a>多标签分类</h4><p><img src="/Blog/intro/category_task_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>之前的分类对于某一张图片, 我们都是把图片放到一个类别中, 区别只是类别数是只有两个还是有多个</p>
 <p>不过更高级的分类任务可以让我们把一张图片分到多个类别中</p>
 <p>这是一个前沿的课题, 文章中不会涉及</p>
 <p><br></p>
 <p>然而还有另一类数据</p>
-<p><img src="/Blog/intro/category_task_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>和上一类数据的不同在与最后一列 (标签列)</p>
 <p>之前的数据的标签列都是 <strong>类别</strong>, 但是这个数据中, 价格不是类别, 而是连续的数字</p>
 <p>这一类任务被称为<strong>回归任务</strong></p>
@@ -329,7 +325,7 @@
 <p>某些情况下, 回归任务是可以简化为分类任务的</p>
 <p>依然用无人驾驶举例, 之前说它是分类问题, 但是方向盘打的角度其实是连续的数值, 只是我们将他类别化(每一度看作是一个类别), 这样一来我们就将一个回归任务简化成一个分类任务</p>
 <p>比如说预测学生的成绩, 其实是回归任务, 但有时候我们并不需要预测学生的具体成绩, 只需要看成绩是A+, A, B, C-等等, 这样也把一个回归的任务变成了分类的任务</p>
-<p><img src="/Blog/intro/category_task_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>我们说机器学习解决分类问题和监督问题, 其实更为准确地说是<strong>监督学习</strong>解决了它们, 其实机器学习领域还可以解决其他的问题, 不过文章以解决分类问题和回归问题为主</p>
 <p>机器学习还可以解决什么问题?</p>
@@ -340,20 +336,20 @@
 <p><br></p>
 <h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p><strong>给机器的训练数据拥有 “标记” 或者 “答案”</strong></p>
 <p>例如上面提到的鸢尾花和房产的数据集, 都拥有”标记”列</p>
-<p><img src="/Blog/intro/Supervised_learning.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/Supervised_learning.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>比如分辨照片是猫还是狗只给出照片是不够的, 还要分辨这个照片到底是猫还是狗</p>
-<p><img src="/Blog/intro/Supervised_learning_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/Supervised_learning_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>同样对于mnist数据集, 不仅要有图片信息, 还要有标记信息</p>
 <p><br></p>
 <p>监督的意思就在于我们人类已经针对给机器的数据进行了正确答案的划分. 这种正确答案的划分本身就被称为是一种监督的信息</p>
 <p>实际思考一下生活中很多学习的过程都是监督学习的过程</p>
-<p><img src="/Blog/intro/Supervised_learning_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/Supervised_learning_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>文章中大部分算法都属于监督学习算法</p>
 <p><br></p>
 <h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><p>给机器的训练数据没有任何”标记”或者”答案”</p>
-<p><img src="/Blog/intro/unSupervised_learning.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/unSupervised_learning.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>每一个点并没有表示类别, 非监督学习就是基于相应的算法可以为这些点进行分类</p>
-<p><img src="/Blog/intro/unSupervised_learning_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/unSupervised_learning_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>通常管这样的工作叫做<strong>聚类分析</strong></p>
 <p>其实电商网站对每一个人都是同等对待的, 初始的时候是没有标记的, 但是随着在电商网站上留下越来越多的足迹, 电商网站就可以用非监督学习的方式对用户进行分类</p>
 <p><br></p>
@@ -368,15 +364,15 @@
 </ul>
 <p>特征压缩并不丢弃任何特征</p>
 <p>特征压缩例子:</p>
-<p><img src="/Blog/intro/unSupervised_learning_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/unSupervised_learning_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>例如在这个二维特征平面上分布着很多数据点</p>
 <p>但是似乎这些点整体是成一个直线的形式, 如果化成一根直线的话, 把所有点都映射到这根直线上的话, 这些点的信息并没有丢失多少, 但是经过这样处理后这些二维的点就变成了一维的点</p>
 <p> <strong>特征压缩做的事情就是: 尽量少的损失信息的情况下, 将高维的特征向量压缩成低维的特征向量</strong></p>
 <p><br></p>
 <p>对数据进行降维还有一个重要的意义: 方便可视化</p>
-<p><img src="/Blog/intro/unSupervised_learning_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/unSupervised_learning_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>还可以进行<strong>异常检测</strong></p>
-<p><img src="/Blog/intro/unSupervised_learning_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/unSupervised_learning_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>就是有的时候数据中的某些点明显具有异常</p>
 <p> 并不是说异常点没有意义, 但是我们直观地去看它就可以看出来<strong>它不能表达样本的整体的特性</strong>, 而对于机器学习来说, 很多时候是要找到样本一般化的特征. 对于这种特殊的点对我们发现一般性规律很有可能是没有帮助的</p>
 <blockquote>
@@ -389,7 +385,7 @@
 <p>半监督学习就是监督学习和非监督学习的结合, 相对是容易的</p>
 <p><br></p>
 <h3 id="增强学习"><a href="#增强学习" class="headerlink" title="增强学习"></a>增强学习</h3><p>根据周围环境的情况, 采取行动, 根据采取行动的结果, 学习行动方式</p>
-<p><img src="/Blog/intro/unSupervised_learning_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/unSupervised_learning_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>算法通常叫做一个Agent, 要根据周围的环境来采取行动, 行动之后算法会收到一些反馈, 这些反馈有的时候会使用 reward(奖赏) 的机制, 有的时候是使用惩罚的机制进行反馈.</p>
 <p>当Agent得到反馈之后, 它就会相应地改变自己的行为模式, 之后根据该机的算法在做出一个Action(动作), 环境再反馈Agent以此类推</p>
 <p>在循环中增强自己的智能, 所以叫增强学习</p>
@@ -405,7 +401,7 @@
 <li>在线学习 Online Learning</li>
 </ul>
 <h3 id="批量学习"><a href="#批量学习" class="headerlink" title="批量学习"></a>批量学习</h3><p>之前所介绍的算法如果没有特殊说明都可以使用批量学习的方式来进行机器学习</p>
-<p><img src="/Blog/intro/category_task_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/category_task_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>所谓批量学习就是首先收集一定量的样本资料, 然后将这些样本资料送给机器学习算法, 算法就会训练出一个模型</p>
 <p>当我们训练出这个模型之后就可以直接将模型投入生产环境中了</p>
 <p>在具体应用的时候可能有新的样例送进来, 让模型预测出相应的结果, 这个过程中我们的模型不会再发生任何变化</p>
@@ -416,10 +412,10 @@
 <p><strong>解决方案</strong>: 定时重新批量学习, 让新来的样本数据和原来的样本融合在一起, 形成新的数据集, 然后在新的数据集上重新执行算法, 重新训练模型</p>
 <p><strong>缺点</strong>: 每次重新批量学习, 运算量巨大. 在某些环境变化非常快的情况下, 甚至不可能</p>
 <p><br></p>
-<h3 id="在线学习"><a href="#在线学习" class="headerlink" title="在线学习"></a>在线学习</h3><p><img src="/Blog/intro/category_task_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="在线学习"><a href="#在线学习" class="headerlink" title="在线学习"></a>在线学习</h3><p><img src="/Blog/intro/category_task_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>整体流程不变, 不过每次输入样例进入模型得到预期的结果之后同时我们输入样例并不浪费掉, 我们将输入样例和正确结果迭代进机器学习算法来改进模型</p>
 <p>在线学习相当不不仅仅使用模型得到想要的结果, 与此同时我们还在不断地训练算法让算法进行学习, 所以叫做在线学习</p>
-<p><img src="/Blog/intro/online_learning.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/online_learning.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <h4 id="在线学习的特点"><a href="#在线学习的特点" class="headerlink" title="在线学习的特点"></a>在线学习的特点</h4><p><strong>优点</strong>: 及时反映新的环境变化</p>
 <p><strong>问题</strong>: 新的数据带来不好的变化, 例如错误地使用系统产生的异常数据</p>
@@ -431,7 +427,7 @@
 <li>参数学习 Parametric Learning</li>
 <li>非参数学习 Nonparametric Learning</li>
 </ul>
-<h3 id="参数学习"><a href="#参数学习" class="headerlink" title="参数学习"></a>参数学习</h3><p><img src="/Blog/intro/para_leaning.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="参数学习"><a href="#参数学习" class="headerlink" title="参数学习"></a>参数学习</h3><p><img src="/Blog/intro/para_leaning.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>这就是一个二维的特征空间, 假设横坐标是房屋的面积, 纵坐标是房屋的价格</p>
 <p>对应每一个房屋相应就在特征空间中代表一个点, 基于这些数据点我可以假设房屋的价格和房屋的面积是一个线性的关系 f(x) = ax + b</p>
 <p>当有了这个假设之后, 机器学习的过程就是想办法找到一个好的a和b来描述房屋的面积和房屋的价格之间的关系. a 和 b 就是参数</p>
@@ -449,7 +445,7 @@
 <p>这和传统算法解决的问题有很大不同, 经典算法所解决的问题通常都是有固定, 唯一, 标准的答案的</p>
 <p>但机器学习不同, 它面对的是高度不确定的现实世界中的问题, 面对这些问题, 机器学习给我们的答案其实也是不确定的, 概率性的, 有统计意义的答案</p>
 <p>面对这样的答案, 我们难免会思考某些问题: 这些答案真的可靠吗, 我们到底能多大程度地相信这些答案, 机器学习学习到的本质是什么….</p>
-<p><img src="/Blog/intro/think_in_ai.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/think_in_ai.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>从算法的角度它们是有优劣的, 但微软的这篇文章揭示出来, 如果我们喂给这些算法足够多的数据 (横坐标是数据规模, 纵坐标是预测的准确率) 所有的算法的准确率都在稳定上升</p>
 <p> 数据量越大, 准确率越高. 当数据量大到一定程度时, 其实算法的准确率之间的差别并不大</p>
 <p>机器学习领域, 算法本身似乎不是那么重要, 只要我们喂给算法的数据足够多, 质量足够好, 甚至有过”数据计算法”这样一个说法</p>
@@ -624,7 +620,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
                     
                   </div>
                 
@@ -632,9 +628,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
+                      <a class="hover-with-bg" href="/Blog/tags/python3/">python3</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
                     
                   </div>
                 
@@ -651,7 +647,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/04/20/machine-learning-2/">
+                      <a href="/Blog/2020/04/20/machine-learning-2/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">python3入门机器学习(2)-kNN算法</span>
                         <span class="visible-mobile">上一篇</span>
@@ -661,7 +657,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/04/04/stat-203/">
+                      <a href="/Blog/2020/04/04/stat-203/">
                         <span class="hidden-mobile">统计自整理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -755,18 +751,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -861,7 +857,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>

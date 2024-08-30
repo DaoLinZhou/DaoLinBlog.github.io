@@ -7,10 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210"
-     crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,20 +19,18 @@
     <meta name="description" content="线段树线段树 Segement tree 也被称为区间树 Interval tree  为什么要使用线段树?线段树到底解决了一个什么样的问题? 对于有一类问题, 我们关系的是线段(或者区间)  经典的线段树问题: 区间染色 有一面墙, 长度为n, 每次选择一段墙进行染色   问m次操作后, 我们可以看见多少种颜色? m次操作后, 我们可以在[i, j]区间内看见多少种颜色?  另一个经典问题:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线段树 segment Tree">
-<meta property="og:url" content="https://daolinzhou.github.io/2020/07/18/segment-Tree/">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2020/07/18/segment-Tree/">
 <meta property="og:site_name" content="Daolin&#39;s Repository">
 <meta property="og:description" content="线段树线段树 Segement tree 也被称为区间树 Interval tree  为什么要使用线段树?线段树到底解决了一个什么样的问题? 对于有一类问题, 我们关系的是线段(或者区间)  经典的线段树问题: 区间染色 有一面墙, 长度为n, 每次选择一段墙进行染色   问m次操作后, 我们可以看见多少种颜色? m次操作后, 我们可以在[i, j]区间内看见多少种颜色?  另一个经典问题:">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://daolinzhou.github.io/intro/segement_tree_3.PNG">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/segement_tree_3.PNG">
 <meta property="article:published_time" content="2020-07-19T05:56:16.000Z">
 <meta property="article:modified_time" content="2020-07-19T20:58:08.966Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://daolinzhou.github.io/intro/segement_tree_3.PNG">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/segement_tree_3.PNG">
   
-  
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808425287808210" crossorigin="anonymous"></script>
   
   <title>线段树 segment Tree - Daolin&#39;s Repository</title>
 
@@ -66,17 +62,17 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/Blog/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -88,7 +84,7 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/Blog/">
       <strong>Daolin&#39;s Repo</strong>
     </a>
 
@@ -107,7 +103,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/Blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -119,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/Blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -131,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/Blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -143,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/Blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -155,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/Blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -181,7 +177,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/intro/death.jpg') no-repeat center center;
+         style="background: url('/Blog/intro/death.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -256,12 +252,12 @@
 <p><br></p>
 <p>经典的线段树问题: 区间染色</p>
 <p>有一面墙, 长度为n, 每次选择一段墙进行染色</p>
-<p><img src="/Blog/intro/segement_tree.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="/Blog/intro/segement_tree_1.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_1.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>问m次操作后, 我们可以看见多少种颜色? m次操作后, 我们可以在[i, j]区间内看见多少种颜色?</p>
 <p><br></p>
 <p>另一个经典问题: 区间查询</p>
-<p><img src="/Blog/intro/segement_tree_2.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_2.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>我们有时候会对一个区间内的元素进行<strong>统计查询</strong></p>
 <p>例如: 查询一个区间[i, j]的最大值, 最小值, 或者区间数字和</p>
 <p><br></p>
@@ -299,27 +295,27 @@
 <p><br></p>
 <p>对于线段树我们是不考虑添加元素或删除元素.</p>
 <p>对于大多数线段树的问题, 区间本身是固定的</p>
-<p><img src="/Blog/intro/segement_tree_3.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_3.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="线段树的基础表示"><a href="#线段树的基础表示" class="headerlink" title="线段树的基础表示"></a>线段树的基础表示</h2><p>8正好是2的3次方, 所以生成的线段树是一个满二叉树</p>
 <p>然而如果线段的长度为10, 此时生成的二叉树就不是满二叉树了.</p>
-<p><img src="/Blog/intro/segement_tree_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>当不能数组平分时, 我们就必须要让一边少一些, 另一边多一些</p>
 <p>而且线段树也不一定是一个完全二叉树(因为最后一排的节点没有靠左)</p>
 <p><br></p>
 <p>不过线段树是<strong>平衡二叉树</strong>(树的最大深度和最小深度只能为1)</p>
 <p><br></p>
-<p><img src="/Blog/intro/segement_tree_4.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_4.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而平衡二叉树也可以用数组表示. 我们可以把它<strong>看作是一个满二叉树</strong></p>
 <p>只不过最后一层很多节点都不存在, 这样就可以用数组表示.</p>
 <p><br></p>
 <p>如果区间有n个元素, 那么用数组表示需要有多少节点?</p>
 <p>对于满二叉树, 最后一层的节点数等于前面所有节点数之和+1.</p>
-<p><img src="/Blog/intro/segement_tree_5.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_5.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>如果n比较好, n = 2<sup>k</sup>, 则只需要2n-1的空间(2n也可以) $2*2^k-1$</p>
 <p><br></p>
-<p><img src="/Blog/intro/segement_tree_6.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_6.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>而如果n不等于2<sup>k</sup> 而是n=2<sup>k</sup> + m, 那么就需要再加上一层. 则需要 $4<em>2^k-1=2</em>2^{k+1}-1$ 的空间, 或者用4n也是可以的.</p>
 <p><br></p>
 <figure class="highlight java"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SegmentTree</span>&lt;E&gt; &#123;<br><br>    <span class="hljs-keyword">private</span> E[] tree;<br>    <span class="hljs-keyword">private</span> E[] data;<br>    <span class="hljs-keyword">private</span> Merger&lt;E&gt; merger;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getTreeLen</span><span class="hljs-params">(<span class="hljs-type">int</span> arrlen)</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(i &lt; arrlen)&#123;<br>            i *= <span class="hljs-number">2</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * i - <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">SegmentTree</span><span class="hljs-params">(E[] arr, Merger&lt;E&gt; merger)</span>&#123;<br>        <span class="hljs-built_in">this</span>.merger = merger;<br><br>        data = (E[])<span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[arr.length];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++)&#123;<br>            data[i] = arr[i];<br>        &#125;<br><br><span class="hljs-comment">//        tree = (E[])new Object[4 * arr.length];</span><br>        tree = (E[])<span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[getTreeLen(arr.length)];<br>        buildSegmentTree(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>, data.length-<span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-comment">//在treeIndex的位置创建表示区间 [l...r] 的线段树</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">buildSegmentTree</span><span class="hljs-params">(<span class="hljs-type">int</span> treeIndex, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span>&#123;<br>        <span class="hljs-keyword">if</span>(l == r) &#123;<br>            tree[treeIndex] = data[l];<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">leftTreeIndex</span> <span class="hljs-operator">=</span> leftChild(treeIndex);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rightTreeIndex</span> <span class="hljs-operator">=</span> rightChild(treeIndex);<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> l + (r - l) / <span class="hljs-number">2</span>;<br>        buildSegmentTree(leftTreeIndex, l, mid);<br>        buildSegmentTree(rightTreeIndex, mid + <span class="hljs-number">1</span>, r);<br>        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getSize</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> data.length;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">get</span><span class="hljs-params">(<span class="hljs-type">int</span> index)</span>&#123;<br>        <span class="hljs-keyword">if</span>(index &lt; <span class="hljs-number">0</span> || index &gt;= data.length)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">&quot;Index is illegal&quot;</span>);<br>        <span class="hljs-keyword">return</span> data[index];<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">leftChild</span><span class="hljs-params">(<span class="hljs-type">int</span> index)</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*index + <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rightChild</span><span class="hljs-params">(<span class="hljs-type">int</span> index)</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*index + <span class="hljs-number">2</span>;<br>    &#125;<br><br>    <span class="hljs-comment">//返回区间[queryL, queryR]的值</span><br>    <span class="hljs-keyword">public</span> E <span class="hljs-title function_">query</span><span class="hljs-params">(<span class="hljs-type">int</span> queryL, <span class="hljs-type">int</span> queryR)</span>&#123;<br>        <span class="hljs-keyword">if</span>(queryL &lt; <span class="hljs-number">0</span> || queryL &gt;= tree.length ||<br>                queryR &lt; <span class="hljs-number">0</span> || queryR &gt;= tree.length || queryL &gt; queryR)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">&quot;Index is illegal&quot;</span>);<br>        <span class="hljs-keyword">return</span> query(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, data.length - <span class="hljs-number">1</span>, queryL, queryR);<br>    &#125;<br><br>    <span class="hljs-comment">//在以 treeIndex 为根的线段树中 [l...r] 的范围里, 搜索区间 [queryL...queryR] 的值</span><br>    <span class="hljs-keyword">private</span> E <span class="hljs-title function_">query</span><span class="hljs-params">(<span class="hljs-type">int</span> treeIndex, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> queryL, <span class="hljs-type">int</span> queryR)</span>&#123;<br>        <span class="hljs-keyword">if</span>(l == queryL &amp;&amp; r == queryR)<br>            <span class="hljs-keyword">return</span> tree[treeIndex];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> l + (r - l) / <span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">leftTreeIndex</span> <span class="hljs-operator">=</span> leftChild(treeIndex);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rightTreeIndex</span> <span class="hljs-operator">=</span> rightChild(treeIndex);<br><br>        <span class="hljs-keyword">if</span>(queryL &gt;= mid + <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> query(rightTreeIndex,mid+<span class="hljs-number">1</span>, r, queryL, queryR);<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (queryR &lt;= mid)&#123;<br>            <span class="hljs-keyword">return</span> query(leftTreeIndex, l, mid, queryL, queryR);<br>        &#125;<span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-type">E</span> <span class="hljs-variable">rightResult</span> <span class="hljs-operator">=</span> query(rightTreeIndex,mid + <span class="hljs-number">1</span>, r, mid + <span class="hljs-number">1</span>, queryR);<br>            <span class="hljs-type">E</span> <span class="hljs-variable">leftResult</span> <span class="hljs-operator">=</span> query(leftTreeIndex, l, mid, queryL, mid);<br>            <span class="hljs-keyword">return</span> merger.merge(leftResult, rightResult);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//更新index 位置 为e</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">set</span><span class="hljs-params">(<span class="hljs-type">int</span> index, E e)</span>&#123;<br>        <span class="hljs-keyword">if</span>(index &lt; <span class="hljs-number">0</span> || index &gt;= data.length)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalArgumentException</span>(<span class="hljs-string">&quot;Index is illegal&quot;</span>);<br>        data[index] = e;<br>        set(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, data.length-<span class="hljs-number">1</span>, index, e);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">set</span><span class="hljs-params">(<span class="hljs-type">int</span> treeIndex, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> index, E e)</span>&#123;<br>        <span class="hljs-keyword">if</span>(l == r) &#123;<br>            tree[treeIndex] = e;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> l + (r-l) / <span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">leftTreeIndex</span> <span class="hljs-operator">=</span> leftChild(treeIndex);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">rightTreeIndex</span> <span class="hljs-operator">=</span> rightChild(treeIndex);<br>        <span class="hljs-keyword">if</span>(index &gt;= mid+<span class="hljs-number">1</span>)<br>            set(rightTreeIndex,mid+<span class="hljs-number">1</span>, r, index, e);<br>        <span class="hljs-keyword">else</span><br>            set(leftTreeIndex, l, mid, index, e);<br>        tree[treeIndex] = merger.merge(tree[leftTreeIndex],tree[rightTreeIndex]);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        res.append(<span class="hljs-string">&quot;[&quot;</span>);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; tree.length; i++)&#123;<br>            <span class="hljs-keyword">if</span>(tree[i] != <span class="hljs-literal">null</span>)&#123;<br>                res.append(tree[i]);<br>            &#125;<span class="hljs-keyword">else</span> &#123;<br>                res.append(<span class="hljs-string">&quot;null&quot;</span>);<br>            &#125;<br>            <span class="hljs-keyword">if</span>(i != tree.length - <span class="hljs-number">1</span>)&#123;<br>                res.append(<span class="hljs-string">&quot;, &quot;</span>);<br>            &#125;<br>        &#125;<br>        res.append(<span class="hljs-string">&quot;]&quot;</span>);<br>        <span class="hljs-keyword">return</span> res.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -332,10 +328,10 @@
 <h2 id="二维线段树"><a href="#二维线段树" class="headerlink" title="二维线段树"></a>二维线段树</h2><p>上面的线段树本质是一维线段树</p>
 <p>什么是一维线段树?</p>
 <p>就是处理的区间是在一维空间中(一个坐标轴中).</p>
-<p><img src="/Blog/intro/segement_tree_7.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_7.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><br></p>
 <p>我们可以把思想扩展到二维空间中.</p>
-<p><img src="/Blog/intro/segement_tree_8.PNG" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/segement_tree_8.PNG" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p>把二维空间分成一个个小块.</p>
 <p>同理3维乃至高维都可以这么做</p>
 <p><br></p>
@@ -354,7 +350,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
                     
                   </div>
                 
@@ -362,7 +358,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                      <a class="hover-with-bg" href="/Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
                   </div>
                 
@@ -379,7 +375,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/07/20/trie/">
+                      <a href="/Blog/2020/07/20/trie/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Trie 字典树</span>
                         <span class="visible-mobile">上一篇</span>
@@ -389,7 +385,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/07/17/hash-map/">
+                      <a href="/Blog/2020/07/17/hash-map/">
                         <span class="hidden-mobile">哈希表 hash map</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -483,18 +479,18 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/Blog/js/local-search.js" ></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/Blog/js/img-lazyload.js" ></script>
   
 
 
@@ -589,7 +585,7 @@
 
 
 <!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
+<script  src="/Blog/js/boot.js" ></script>
 
 
 </body>
