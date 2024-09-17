@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Blog/img/favicon.ico">
+  <link rel="icon" href="/Blog/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Daolin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Stable employer-application assignment有一些雇主和一些申请人, 我们要把申请人 assign 给雇主使得对于每个 雇主 $E$ 和 每个没有和 E 配对的申请人 $A$ , 下面两个条件中至少有一个 满足  $E$ 更倾向与它发送其他 offer 的申请人 $A$ 更倾向与它当前的雇主而不是 $E$  即不会出现 A 和 E 都倾向与对方, 而我们却没有将二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design and Analysis of Algorithms">
+<meta property="og:url" content="https://daolinzhou.github.io/Blog/2024/09/08/Design-and-Analysis-of-Algorithms/">
+<meta property="og:site_name" content="Daolin&#39;s Repository">
+<meta property="og:description" content="Stable employer-application assignment有一些雇主和一些申请人, 我们要把申请人 assign 给雇主使得对于每个 雇主 $E$ 和 每个没有和 E 配对的申请人 $A$ , 下面两个条件中至少有一个 满足  $E$ 更倾向与它发送其他 offer 的申请人 $A$ 更倾向与它当前的雇主而不是 $E$  即不会出现 A 和 E 都倾向与对方, 而我们却没有将二">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_1.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_2.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_3.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_4.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_5.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_6.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_7.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_8.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_9.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_10.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching_11.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/turing_machine.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/notations.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/notations_1.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/notations_2.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/gready.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy_1.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy_2.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy_3.png">
+<meta property="article:published_time" content="2024-09-08T20:06:43.000Z">
+<meta property="article:modified_time" content="2024-09-16T18:41:46.449Z">
+<meta property="article:author" content="Daolin">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/stable_matching.png">
+  
+  
+  <title>Design and Analysis of Algorithms - Daolin&#39;s Repository</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"daolinzhou.github.io","root":"/Blog/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Blog/local-search.xml"};
+  </script>
+  <script  src="/Blog/js/utils.js" ></script>
+  <script  src="/Blog/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Blog/">
+      <strong>Daolin&#39;s Repo</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/Blog/intro/imprinting2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Design and Analysis of Algorithms">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2024-09-08 13:06" pubdate>
+        2024年9月8日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Design and Analysis of Algorithms</h1>
+            
+            <div class="markdown-body">
+              <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><span id="more"></span>
+<h1 id="Stable-employer-application-assignment"><a href="#Stable-employer-application-assignment" class="headerlink" title="Stable employer-application assignment"></a>Stable employer-application assignment</h1><p>有一些雇主和一些申请人, 我们要把申请人 assign 给雇主使得对于每个 雇主 $E$ 和 每个没有和 E 配对的申请人 $A$ , 下面两个条件中至少有一个 满足</p>
+<ol>
+<li>$E$ 更倾向与它发送其他 offer 的申请人</li>
+<li>$A$ 更倾向与它当前的雇主而不是 $E$</li>
+</ol>
+<p>即不会出现 A 和 E 都倾向与对方, 而我们却没有将二者配对的情况</p>
+<p>这种情况我们称为 stable matching</p>
+<p><img src="/Blog/intro/cmpt705/stable_matching.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p>Formulate the problem:</p>
+<p>将问题简化一下:</p>
+<p>每个申请人会向所有的雇主发出申请, 而每个雇主只会接受一个申请人</p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p>设计算法</p>
+<p>G-S Algorithm for Stable Matching</p>
+<ol>
+<li><p>首先初始状态所有的 element 都是 unpair 的</p>
+</li>
+<li><p>对于每个 unpaired $m$, 让 $W_m = { w|\text{W and m has not tried to pair} }$ 并让 $w \in W_m$ with largest $f_m(w)$</p>
+<p>如果 w 是 unpaired 那么将 $(m,w)$ 放入 pair 中</p>
+<p>不然则 unpair $(m’, w)$</p>
+<p>​    如果 $g_w(m)&gt;g_w(m’)$ 那就 remove pair $(m’, w)$ 并让如 $(m,w)$ pair </p>
+<p>​    不然则 mark $w$ as that $m$ has tried to pair</p>
+</li>
+<li><p>最后当所有元素都是 paired 时, 算法停止</p>
+</li>
+</ol>
+<p><img src="/Blog/intro/cmpt705/stable_matching_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>每个 m 都有一个 W 的 copy $W_m$, 用于记录自己是否尝试和 w 匹配过</p>
+<p>每次 m 从 $W_m$ 中取出一个 $w$, 尝试配对, 如果 w 也没有配对则将他们配对</p>
+<p>如果 w 有配对则看看当前配对是否更合适</p>
+</blockquote>
+<p><img src="/Blog/intro/cmpt705/stable_matching_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_8.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<p><strong>Theorem: G-S Algorithm 在终止时会给出 stable matching</strong></p>
+<p>证明: 由于 $S$ 是一个 matching 并且 $|M|=|W|=n$. 根据 Property 1:  (当 $w$ 被 pair 以后, 在这个算法的执行过程中, 他会保持 paired)</p>
+<p>如果有一个 unpaired $m$, 那么就有一个 unpaired $w$, 并且 m <strong>没有</strong> 尝试去与其匹配过. 所以 每个 $m$ 都会和一个 $w$ 配对, 并且 这个算法终止时会返回一个 perfect matching $S$</p>
+<p>反证法, 假设有 instability, </p>
+<p><img src="/Blog/intro/cmpt705/stable_matching_9.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<ul>
+<li>这个算法的 iteration 可能会接近 $n^2$</li>
+<li>对于一个 input 可能有多个 stable matching</li>
+<li>G-S algorithm 可能会已不同的 order 选取 $m$ 来得到 different pairs (in different execution)</li>
+<li>对于同样的 input instance, 不同的执行可能会给出不同的 stable matching. 但是都会满足以下性质:<ul>
+<li><img src="/Blog/intro/cmpt705/stable_matching_10.png" srcset="/Blog/img/loading.gif" lazyload alt=""></li>
+</ul>
+</li>
+</ul>
+<p><img src="/Blog/intro/cmpt705/stable_matching_11.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/turing_machine.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h1 id="Notations"><a href="#Notations" class="headerlink" title="Notations:"></a>Notations:</h1><p>算法有很多notation, 大致意思就是</p>
+<p><img src="/Blog/intro/cmpt705/notations.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/notations_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/notations_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<h1 id="Greedy"><a href="#Greedy" class="headerlink" title="Greedy"></a>Greedy</h1><p><img src="/Blog/intro/cmpt705/gready.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/greedy.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/greedy_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/greedy_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/greedy_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法与数据结构</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/Blog/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Blog/2024/01/31/Network-Flow/">
+                        <span class="hidden-mobile">Network Flow</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/Blog/js/events.js" ></script>
+<script  src="/Blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/Blog/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/Blog/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/Blog/js/boot.js" ></script>
+
+
+</body>
+</html>

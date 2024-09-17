@@ -24,7 +24,7 @@
 <meta property="og:description" content="tar.gz 打开, 提取 tar.gz 文件  1tar xvzf file.tar.gz  解压 tar.gz 文件 1tar xvzf file.tar.gz -C &#x2F;path&#x2F;to&#x2F;yourdirectory  To view the Tar GZ files table of contents on Linux: tar -tvf file.tar.gz  To extract the">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-24T18:30:40.000Z">
-<meta property="article:modified_time" content="2023-12-09T05:53:35.639Z">
+<meta property="article:modified_time" content="2024-09-05T22:18:32.675Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -201,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2.6k 字
     </span>
   
 
@@ -210,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15 分钟
+      22 分钟
     </span>
   
 
@@ -274,18 +274,28 @@
 <p><br></p>
 <h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p><a target="_blank" rel="noopener" href="https://wangdoc.com/ssh/basic">https://wangdoc.com/ssh/basic</a></p>
 <p><br></p>
-<h2 id="编译汇编"><a href="#编译汇编" class="headerlink" title="编译汇编"></a>编译汇编</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">g++ -save-temps -fverbose-asm -muintr ../one-to-one.c<br></code></pre></td></tr></table></figure>
+<h1 id="编译汇编"><a href="#编译汇编" class="headerlink" title="编译汇编"></a>编译汇编</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">g++ -save-temps -fverbose-asm -muintr ../one-to-one.c<br></code></pre></td></tr></table></figure>
 <p><code>-save-temps</code> 应该是保存汇编</p>
 <p><code>-fverbose-asm</code> 把原代码作为汇编注释</p>
 <p><code>-muintr</code> 是为了让编译器识别 uintr, 和汇编无关</p>
 <p><br></p>
-<h2 id="Python-运行测试"><a href="#Python-运行测试" class="headerlink" title="Python 运行测试"></a>Python 运行测试</h2><p>同时记录程序 output 和 iostat output</p>
+<h1 id="Python-运行测试"><a href="#Python-运行测试" class="headerlink" title="Python 运行测试"></a>Python 运行测试</h1><p>同时记录程序1 output 和 iostat output</p>
 <p>一个小技巧就是 output file 的命名</p>
 <ul>
 <li>同一类别用<code>-</code> 分割 例如 <code>thd-10</code> 代表 10 个 thread</li>
 <li>不同类别用 <code>_</code> 分割, 例如 <code>thd-10_hotratio-0.8</code>, 这样我们在 parseing 的时候更方便</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess<br><br><span class="hljs-comment"># sequential, optane (参数)</span><br><span class="hljs-keyword">for</span> threads <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="hljs-number">20</span>]:<br>    <span class="hljs-keyword">for</span> hotratio <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>, <span class="hljs-number">0.95</span>, <span class="hljs-number">0.9</span>, <span class="hljs-number">0.8</span>]:<br>        <br>        <span class="hljs-comment"># iostate output file</span><br>        filename_iostat = <span class="hljs-string">&quot;/home/logs/sequential_thd-&quot;</span>+<span class="hljs-built_in">str</span>(threads)+<span class="hljs-string">&quot;_hotratio-&quot;</span>+<span class="hljs-built_in">str</span>(hotratio)+<span class="hljs-string">&quot;_iostat.txt&quot;</span><br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename_iostat, <span class="hljs-string">&quot;w+&quot;</span>) <span class="hljs-keyword">as</span> f:<br>            <span class="hljs-comment"># 监测 iostat 结果</span><br>            p_iostat = subprocess.Popen(<span class="hljs-string">&#x27;exec &#x27;</span>+<span class="hljs-string">&#x27;iostat -dh nvme0n1p1 1&#x27;</span>, shell=<span class="hljs-literal">True</span>, stdout=f)<br><br>            <span class="hljs-comment"># 程序 output file</span><br>            filename = <span class="hljs-string">&quot;/home/logs/sequential_thd-&quot;</span>+<span class="hljs-built_in">str</span>(threads)+<span class="hljs-string">&quot;_hotratio-&quot;</span>+<span class="hljs-built_in">str</span>(hotratio)+<span class="hljs-string">&quot;_benchmark.txt&quot;</span><br>            <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename, <span class="hljs-string">&quot;w+&quot;</span>) <span class="hljs-keyword">as</span> f:<br>                program = subprocess.Popen(<span class="hljs-string">&#x27;exec &#x27;</span>+<span class="hljs-string">&#x27;binary_path -param=128&#x27;</span>, shell=<span class="hljs-literal">True</span>, stdout=f, stderr=f)<br>                <br>                program.wait()<br>                p_iostat.kill()<br></code></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="批量-kill-进程"><a href="#批量-kill-进程" class="headerlink" title="批量 kill 进程"></a>批量 kill 进程</h1><p>寻找进程id, 这里 app_name 就是进程名字</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -ef | grep app_name | awk &#x27;&#123;print $2&#125;&#x27;<br></code></pre></td></tr></table></figure>
+<p>kill 掉他们</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">kill $(ps -ef | grep app_name | awk &#x27;&#123;print $2&#125;&#x27;)<br></code></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="Python-发送-email"><a href="#Python-发送-email" class="headerlink" title="Python 发送 email"></a>Python 发送 email</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> smtplib, ssl<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    receiver_email = sys.argv[<span class="hljs-number">1</span>]<br>    content = <span class="hljs-string">&quot;Your task is completed.&quot;</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sys.argv) &gt; <span class="hljs-number">2</span>:<br>        content = sys.argv[<span class="hljs-number">2</span>]<br><br>    port = <span class="hljs-number">465</span>  <span class="hljs-comment"># For SSL</span><br>    smtp_server = <span class="hljs-string">&quot;smtp.gmail.com&quot;</span><br>    sender_email = <span class="hljs-string">&quot;&quot;</span>  <span class="hljs-comment"># Enter your address</span><br>    password = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;email_password&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>).read()  <span class="hljs-comment"># Enter your password</span><br>    message = <span class="hljs-string">f&quot;&quot;&quot;\</span><br><span class="hljs-string">    Subject: Hi there</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    <span class="hljs-subst">&#123;content&#125;</span>&quot;&quot;&quot;</span><br><br>    context = ssl.create_default_context()<br>    <span class="hljs-keyword">with</span> smtplib.SMTP_SSL(smtp_server, port, context=context) <span class="hljs-keyword">as</span> server:<br>        server.login(sender_email, password)<br>        server.sendmail(sender_email, receiver_email, message)<br></code></pre></td></tr></table></figure>
+<p>gmail 开启双重验证后可以获取 临时应用密码</p>
+<p>这个 程序需要两个参数, receiver 和 content (可选).</p>
+<p>跑实验的最后可以用它做一个 callback. 通知我们实验完成</p>
 
             </div>
             <hr>
