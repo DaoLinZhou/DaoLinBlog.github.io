@@ -44,8 +44,16 @@
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy_1.png">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy_2.png">
 <meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/greedy_3.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_1.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_2.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_3.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_4.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_5.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_6.png">
+<meta property="og:image" content="https://daolinzhou.github.io/Blog/intro/cmpt705/dp_7.png">
 <meta property="article:published_time" content="2024-09-08T20:06:43.000Z">
-<meta property="article:modified_time" content="2024-09-16T18:41:46.449Z">
+<meta property="article:modified_time" content="2024-09-26T05:46:03.406Z">
 <meta property="article:author" content="Daolin">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +231,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.3k 字
     </span>
   
 
@@ -232,7 +240,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      11 分钟
     </span>
   
 
@@ -287,7 +295,7 @@
 <ol>
 <li><p>首先初始状态所有的 element 都是 unpair 的</p>
 </li>
-<li><p>对于每个 unpaired $m$, 让 $W_m = { w|\text{W and m has not tried to pair} }$ 并让 $w \in W_m$ with largest $f_m(w)$</p>
+<li><p>对于每个 unpaired $m$, 让 $W_m = \{ w|\text{W and m has not tried to pair} \}$ 并让 $w \in W_m$ with largest $f_m(w)$</p>
 <p>如果 w 是 unpaired 那么将 $(m,w)$ 放入 pair 中</p>
 <p>不然则 unpair $(m’, w)$</p>
 <p>​    如果 $g_w(m)&gt;g_w(m’)$ 那就 remove pair $(m’, w)$ 并让如 $(m,w)$ pair </p>
@@ -331,6 +339,22 @@
 <p><img src="/Blog/intro/cmpt705/greedy_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt705/greedy_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
 <p><img src="/Blog/intro/cmpt705/greedy_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><br></p>
+<h1 id="Dynamic-Programming"><a href="#Dynamic-Programming" class="headerlink" title="Dynamic Programming"></a>Dynamic Programming</h1><p><img src="/Blog/intro/cmpt705/dp.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>对比两个 solutions, 当 一个 solution 的 weight 更低但可以获得更高的 value 那就说明他 dominates 另一个 solution</p>
+</blockquote>
+<p><img src="/Blog/intro/cmpt705/dp_1.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/dp_2.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/dp_3.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/dp_4.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/dp_5.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/dp_6.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<p><img src="/Blog/intro/cmpt705/dp_7.png" srcset="/Blog/img/loading.gif" lazyload alt=""></p>
+<blockquote>
+<p>当 set 中出现一个 solution $A$ dominate 另一个 solution $B$, 我们就将 $A$ 删除</p>
+<p>而当两个 solution 互相 dominate 时 (有同样的 value 和 weight) 那么随便删除一个就好</p>
+</blockquote>
 
             </div>
             <hr>
